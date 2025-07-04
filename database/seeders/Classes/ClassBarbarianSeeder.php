@@ -1,0 +1,740 @@
+<?php
+
+namespace Database\Seeders\Classes;
+
+use App\Models\Feat;
+use App\Models\Feature;
+use App\Models\Klass;
+use App\Services\SeedHelper;
+use Illuminate\Database\Seeder;
+
+class ClassBarbarianSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        /** @var SeedHelper $helper */
+        $helper = app()->seedHelper;
+
+        $class       = new Klass;
+        $class->name = 'Barbarian';
+        $helper->saveClass($class, [
+            'key_attribute'  => 'STR',
+            'hit_dice'       => 12,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
+            'weapons'        => 'Simple Weapons, Martial Weapons',
+            'armors'         => 'Light Armor, Medium Armor, Light Shields',
+        ], ['STR', 'CON'], [
+            'Rage', 'Combat Mastery',
+        ]);
+
+        // Skills
+        $helper->addSkillsToClass($class, ['Athletics', 'Intimidation', 'Nature', 'Survival']);
+
+        $feature               = new Feature;
+        $feature->key          = 'rage';
+        $feature->name         = 'Rage';
+        $feature->requirements = "You can't be fatigued, raging, or wearing heavy armor.";
+        $feature->description  = "<p>You begin raging. You gain a number of temporary Hit Points equal to your level plus your CON modifier and enter a state of pure Rage. While you are Raging, you are affected in these ways:</p>
+<ul>
+    <li>Gain a +2 bonus to STR.</li>
+    <li>You gain 10 Temporary Hit Points</li>
+    <li>Take a –1 penalty to AC.</li>
+    <li>You are not affected by the Fatigued condition. Once your Rage ends, you are again affected by the Fatigued condition (along with the additional level of Fatigue you gain for ending a Rage)</li>
+    <li>You cannot cast spells that have a Material Casting or Somatic Casting component unless the spell has the Rage type.</li>
+    <li>You can't use Actions that have the Concentrate trait unless it also have the Rage trait. The Seek basic Action gains the Rage trait while you're raging.</li>
+    <li>If you have the Iron Will feat, you gain the benefits of the Resolve feat. If you already have the Resolve feat, you gain the benefits of the Greater Resolve feat.</li>
+</ul>
+<p>Your Rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. If you are not in combat, you can also end your rage on your turn as an Action. This Action has the Concentrate and Rage traits. You can't voluntarily stop raging while you're in combat.</p>
+<p>When your rage ends for any reason, you're Fatigued for 3 rounds.</p>";
+        $helper->saveFeature($feature, ['Emotion', 'Mental', 'Rage']);
+
+        $feature              = new Feature;
+        $feature->key         = 'totem';
+        $feature->name        = 'Totem';
+        $feature->description = "<p>You channel the power of your rage through a totem. Traditionally, this is a spiritual or tribal symbol, but you choose what your totem means to you; it might describe a purely internal source or filter of your rage, such as a belief, curse, exotic heritage, or state of mind. Each totem grants you a totem ability, plus more abilities you can gain via totem feats, and it determines what types of damage you resist with the raging resistance class feature.</p>
+<p>Each totem lists acts that are anathema to it. Whenever you perform such acts, you lose the totem's power and any totem feats until you spend 1 day of downtime re-centering yourself, though you keep all other abilities.</p>";
+        $helper->saveFeature($feature, ['Totem']);
+
+        $helper->addFeaturesToClass($class, [
+            'class_group_feat' => [3, 4, 7, 9, 10, 12, 13, 16, 18, 19, 20],
+            'combat_mastery'   => [6, 15],
+            'totem'            => [1],
+            'rage'             => [2],
+        ]);
+        $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Mobile']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Animal Totem';
+        $feat->description = "<p>The fury of a wild predator fills you when you Rage, granting you uncanny unarmed attacks. Tribes that revere vicious animals (such as apes or bears) give rise to tribes of this totem. You might also be at war with an uncontrollable, animalistic side of your personality, or you might be a descendant of a werewolf or other lycanthrope. Select an animal from the Animal Totems table.</p>
+<h4>Anathema</h4>
+<p>Wielding weapons or flagrantly disrespecting any animal of your totem animal's kind are anathema to your totem.</p>
+<h4>Bestial Rage (Totem Ability)</h4>
+<p>When you Rage, you gain your chosen animal's unarmed attack (or attacks). The specific attack gained, the damage it deals, and its traits are listed on the Animal Totems table. All of these unarmed attacks are in the brawling group. Your Rage action gains the morph, primal, and transmutation traits.</p>
+<h4>Raging Resistance</h4>
+<p>The resistance from your raging resistance class feature applies against Piercing and Slashing damage.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Animal</th>
+            <th>Attack</th>
+            <th>Damage</th>
+            <th>Traits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ape</td>
+            <td>Fist</td>
+            <td>1D10 B</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Bear</td>
+            <td>Jaws<br>Claw</td>
+            <td>1D10 P<br>1D6 S</td>
+            <td>Unarmed<br>Agile, Unarmed</td>
+        </tr>
+        <tr>
+            <td>Bull</td>
+            <td>Horn</td>
+            <td>1D10 P</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Cat</td>
+            <td>Jaws<br>Claw</td>
+            <td>1D10 P<br>1D8 S</td>
+            <td>Unarmed<br>Agile, Unarmed</td>
+        </tr>
+        <tr>
+            <td>Deer</td>
+            <td>Antler</td>
+            <td>1D10 P</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Frog</td>
+            <td>Jaws</td>
+            <td>1D10 B</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Shark</td>
+            <td>Jaws</td>
+            <td>1D10 P</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Snake</td>
+            <td>Fangs</td>
+            <td>1D10 P</td>
+            <td>Unarmed</td>
+        </tr>
+        <tr>
+            <td>Wolf</td>
+            <td>Jaws</td>
+            <td>1D10 P</td>
+            <td>Unarmed</td>
+        </tr>
+    </tbody>
+</table>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Dragon Totem';
+        $feat->description = "<p>You become as wrathful as a mighty dragon and manifest incredible abilities. Perhaps your culture reveres draconic majesty, teaching its warriors techniques that echo draconic fury, or you gained a connection to your totem after drinking or bathing in dragon's blood or after watching your village burn at the wrath of a marauding wyrm. Select a type of true dragon from Dragon Totems to be your totem's chosen dragon. Chromatic dragons tend to be evil and metallic dragons tend to be good.</p>
+<h4>Anathema</h4>
+<p>Defying a dragon of your chosen type or letting a personal insult against you slide is anathema to your totem.</p>
+<h4>Draconic Rage (Totem Ability)</h4>
+<p>When you are raging, you can make your conditional bonus to damage deal the type of damage to your chosen dragon's breath weapon, rather than your weapon or unarmed attack's usual damage type, which increases the damage by 1 (after halving for agile weapons, if applicable). If you do this, your Rage action gains the arcane and evocation traits, as well as the trait matching the damage type.</p>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Piercing</li>
+    <li>The damage type of your chosen dragon's breath weapon</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Dragon</th>
+            <th>Type</th>
+            <th>Breath Weapon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Black</td>
+            <td>Chromatic</td>
+            <td>Line of Acid</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>Chromatic</td>
+            <td>Line of Electricity</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>Chromatic</td>
+            <td>Cone of Poison</td>
+        </tr>
+        <tr>
+            <td>Red</td>
+            <td>Chromatic</td>
+            <td>Cone of Fire</td>
+        </tr>
+        <tr>
+            <td>White</td>
+            <td>Chromatic</td>
+            <td>Cone of Cold</td>
+        </tr>
+        <tr>
+            <td>Brass</td>
+            <td>Metallic</td>
+            <td>Line of Fire</td>
+        </tr>
+        <tr>
+            <td>Bronze</td>
+            <td>Metallic</td>
+            <td>Line of Electricity</td>
+        </tr>
+        <tr>
+            <td>Copper</td>
+            <td>Metallic</td>
+            <td>Line of Acid</td>
+        </tr>
+        <tr>
+            <td>Gold</td>
+            <td>Metallic</td>
+            <td>Cone of Fire</td>
+        </tr>
+        <tr>
+            <td>Silver</td>
+            <td>Metallic</td>
+            <td>Cone of Cold</td>
+        </tr>
+    </tbody>
+</table>";
+        $feat->save();
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Fury Totem';
+        $feat->description = "<p>Your rage comes from a deep well within you, rather than from an external source. You use your rage as you choose.</p>
+<h4>Anathema</h4>
+<p>You don't have an anathema or totem ability. Instead, you gain an additional 1st-level Barbarian Feat.</p>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Giant Totem';
+        $feat->description = "<p>Giants are towering exceptionally strong humanoids, and some tribes aspire to be like them. You rage gives you the raw power and size of a giant. This doesn't mean you revere giants--you might scoff at them, or even aspire to slay them!  It could be that you seem to other people like a giant due to your exceptional strength or larger-than-life emotions and ego.</p>
+<h4>Anathema</h4>
+<p>Failing to accept a personal challenge of your strength is anathema to your totem.</p>
+<h4>Titan Mauler (Totem Ability)</h4>
+<p>You can use a weapon built for a Large creature if you are Small or Medium, you can use a weapon built for a creature one size larger than you. You also gain access to your choice of weapon at character creation. When you are wielding such a weapon in combat, double your conditional bonus to damage rolls from raging, but you have the Sluggish 1 Condition because of the weapon's unwieldy size. You can't remove this sluggish condition or ignore its penalties by any means while you're wielding the weapon.</p>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>
+        <p>Your chosen damage type when you gain the raging resistance class feature (though you can retrain it later)</p>
+        <ul>
+            <li>Cold</li>
+            <li>Electricity</li>
+            <li>Fire</li>
+        </ul>
+    </li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Spirit Totem';
+        $feat->description = "<p>Whether you are emotionally sensitive to the activity of spirits around you, belong to a shamanic tribe that worships ancestors or apparitions, or are haunted by a specter of an ancestor, relative, friend, or foe, your rage takes the form of a spiritual possession.</p>
+<h4>Anathema</h4>
+<p>Disrespecting corpses or spirits that are in your presence is anathema to your totem, however, defending yourself against undead creatures is not.</p>
+<h4>Spirit Rage (Totem Ability)</h4>
+<p>When you are raging, you can make your conditional bonus to damage deal negative or positive damage, rather than your weapon or unarmed attack's usual damage type (you choose which type each time you Rage). If you choose to do this, your weapon or unarmed attack affects material and incorporeal creatures and objects equally. This makes your weapon overcomes incorporeal creature's resistance to physical attacks (as the Ghost Touch property rune). If you choose to deal negative or positive damage, your Rage action gains the divine and necromancy traits, plus the negative or positive trait, as appropriate.</p>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Negative damage</li>
+    <li>Any damage dealt by the attacks and abilities of undead creatures, regardless of the damage type</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Superstition Totem';
+        $feat->description = '<p>A deep distrust of magic drives you to forgo the metaphysical nonsense of spellcasters. Whether you’re a member of a superstitious tribe that distrusts magic, a survivor of a magical accident that left your mind and body with an intense aversion to magic, or a scion of a bloodline known for its magic resistance, your rage is inimical to magic. This makes you an excellent mage hunter but slow to trust practitioners of magical arts. Your extremely restrictive anathema grants you powers beyond those of other totems.</p>
+<h4>Anathema</h4>
+<p>Willingly accepting the effects of magic spells (including from scrolls, wands, and the like), even from your allies, is anathema to your totem. You can still drink potions, and you can still invest and activate most magic items you find, though items that cast spells are subject to the same restrictions as all other spells. If an ally insists on using magic on you despite your unwillingness, and you have no reason to believe they will stop, continuing to travel with that ally counts as willingly accepting their spells (as do similar circumstances) and thus is also anathema to your totem.</p>
+<h4>Superstition Resistance (Totem Ability)</h4>
+<p>While raging, you gain a +2 conditional bonus to all saves against magic.</p>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>All Arcane and Divine spells that deal damage, regardless of the type of damage dealt by the spell</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Defensive Stance';
+        $feat->description = "<p>Your Rage is directed towards defending against hordes of attackers.</p>
+<h4>Anathema</h4>
+<p>You don't have an anathema or totem ability. Instead, your Rage benefits are as follows.</p>
+<ul>
+    <li>Gain a +2 bonus to STR</li>
+    <li>Gain a +4 bonus to CON</li>
+    <li>You gain a +2 bonus to your AC</li>
+    <li>You cannot change your position or take any Action that shifts your position (such as Move Silently or Jump)</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Concentrate']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Extra Rage';
+        $feat->description = '<p>You may Rage an additional time before having to take a Long Rest.</p>';
+        $helper->addTypesToFeat($feat, ['Rage']);
+        $feat->features()->save(app()->features['rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Critical Brutality';
+        $feat->description = '<p>While you are raging, you gain access to the critical specialization effect for any melee weapon or unarmed attack you have.</p>';
+        $helper->addTypesToFeat($feat, ['Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Raging Resistance';
+        $feat->description = 'You gain Resistance equal to your CON modifier (minimum 1) to damage types based on your totem.';
+        $helper->addTypesToFeat($feat, ['Rage']);
+        $feat->features()->save(app()->features['rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Mighty Rage';
+        $feat->trigger     = 'You use the Rage action';
+        $feat->description = '<p>When you Rage, you gain the following benefits instead.</p>
+<ul>
+    <li>Gain a +4 bonus to STR</li>
+    <li>You gain 30 Temporary Hit Points</li>
+    <li>No penalty to AC</li>
+    <li>Gain a +4 bonus to DEX and WIS Saves</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Rage']);
+        $feat->features()->save(app()->features['rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Tireless Rage';
+        $feat->description = "<p>You don't become fatigued after you stop raging. It still takes the normal amount of time before you can use Rage again.</p>";
+        $helper->addTypesToFeat($feat, ['Rage']);
+        $feat->features()->save(app()->features['rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Devastating Strikes';
+        $feat->description = "<p>Your Strikes are so devastating that you hardly care about wielding the best weapon against each monster.</p>
+<p>If you succeed at a melee Strike against a creature with resistance against the physical damage type of the weapon or unarmed attack you're using, reduce that resistance by twice your CON modifier (minimum 0).</p>";
+        $helper->addTypesToFeat($feat, ['Melee']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Raging Spellcaster';
+        $feat->description = '<p>When you take this feat, select 3 spells that you know. Those spells gain the Rage type.</p>
+<p>You may take this feat multiple times, select 3 new spells each time.</p>';
+        $helper->addTypesToFeat($feat, ['Rage']);
+        $feat->parent_feats()->save(Feat::where('name', 'Extra Rage')->first());
+
+        // Rashemen feats
+        $feat              = new Feat;
+        $feat->name        = 'Ettercap Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>The intense physical training required to join your lodge has made you tougher.</p>
+<h4>Anathema</h4>
+<p>Failing to accept a personal challenge to your endurance is anathema to your lodge.</p>
+<h4>Totem Ability</h4>
+<ul>
+    <li>You gain the Endurance feat</li>
+    <li>You have Advantage on all Saves vs Poison</li>
+    <li>You gain a +4 bonus to all Climb checks</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+    <li>Poison</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Fox Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>Popular among the more populated regions of Rashemen, this lodge is known for their guerrilla fighting tactics. When going into battle, Fox Lodge berserkers frequently wear cowls made of leather or fur.</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<h4>Totem Ability</h4>
+<ul>
+    <li>You gain the Mobile Feat</li>
+    <li>You gain the Skirmish Feat</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Great Stag Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>Your lodge is dedicated to the defense of Rasheman.</p>
+<h4>Anathema</h4>
+<p>Not accepting a quest to defend Rashemen is anathema to your lodge.</p>
+<ul>
+    <li>You gain the ability to cast one 1st level spell.</li>
+    <li>You may use your class feats from Barbarian to take Divine Warrior feats and vice versa.</li>
+    <li>You may cast Aura and Divine Strike spells while Raging. You may Concentrate on Aura spells while Raging.</li>
+    <li>You may add the Telthor template to your Special Mount. Most Great Stag Berserker take a stag for their Special Mount.</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Slashing</li>
+    <li>Piercing</li>
+    <li>Negative damage</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $feat->features()->save(app()->features['divine_warrior']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Heroism'],
+            2 => ['Barkskin', 'Pass Without Trace'],
+            3 => ['Enemies Abound', 'Aura of War'],
+            4 => ['Death Ward', 'Freedom of Movement'],
+            5 => ['Far Step', 'Destructive Wave'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ice Troll Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>Your lodge believes in absolute abandon in combat and the destruction of all trolls. Many Ice Troll berserkers take the Frenzied Berserker prestige class.</p>
+<h4>Anathema</h4>
+<p>Not seeking out a known troll or hag infestation in Rashemen is anathema to your lodge</p>
+<ul>
+    <li>You gain the Favored Enemy Feature vs. Trolls and Hags</li>
+    <li>You gain the Power Attack Feat</li>
+    <li>While Raging, you gain Regeneration: 1</li>
+    <li>You may multi-class into the Frenzied Berserker class</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+    <li>Cold</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Owlbear Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>Your lodge practices wrestling and grappling.</p>
+<h4>Anathema</h4>
+<p>You cannot refuse a challenge to a wrestling match</p>
+<ul>
+    <li>Increase your STR by 1, up to a maximum of 20.</li>
+    <li>You gain a +5 Raging bonus to all Grappling checks while Raging</li>
+    <li>You gain the Improved Grapple Feat</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Snow Tiger Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = "<p>Your lodge trains in combat using the Claw Bracers</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>When taking the Charging Action, your gain a +5 bonus to your Speed</li>
+    <li>You gain the Two-Weapon Fighter Feat</li>
+    <li>
+        <p>Replace your Rage abilities with the following</p>
+        <ul>
+            <li>When you are Raging, you gain an additional Action. This additional Action can only be used to take Stride Actions.</li>
+            <li>You gain a +1 Dodge bonus to AC</li>
+            <li>If you have the Lightning Reflexes feat, you gain the benefits of the Evasion feat. If you have the Evasion feat, you gain the benefits of the Improved Evasion feat.</li>
+            <li>You can't use Actions that have the Concentrate trait unless it also has the Rage trait. The Seek basic Action gains the Rage trait while you're raging.</li>
+            <li>The conditions for how long your Rage lasts and what happens after your Rage ends and how many times you may Rage stays the same.</li>
+            <li>
+                <p>If you gain the Mighty Rage feat, you instead gain the following</p>
+                <ul>
+                    <li>You gain an additional Action. This additional Action can only be used to make Melee Weapon attacks.</li>
+                    <li>You gain a +4 bonus to DEX Saves</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Wolf Berserker';
+        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->description = '<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen</p>
+<h4>Anathema</h4>
+<p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you</p>
+<ul>
+    <li>You gain the Improved Trip Feat</li>
+    <li>You gain two Talents, one of them is the Improved Flanking Talent and one of your choice</li>
+    <li>Your Animal Companion may gain the Telthor Template</li>
+    <li>While Raging, all your bonuses from Favored Enemy is increased by +1</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $feat->features()->save(app()->features['favored_enemy']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Shield'],
+            2 => ['Absorb Elements', 'Misty Step'],
+            3 => ['Aura of Vitality', 'Spirit Guardians'],
+            4 => ['Death Ward', 'Freedom of Movement'],
+            5 => ['Dispel Evil', 'Tree Stride'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ankheg Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Ankheg tribe';
+        $feat->description = '<p>Your tribe has learned from the ankheg.</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>You gain the Favored Terrain Feature (Grasslands)</li>
+    <li>If you have 5 or more ranks in Crafting (Leather Working), you know how to create Ankheg armor (Hide armor protection with Studded Leather penalties)</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+    <li>Poison</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Cheetah Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Cheetah tribe';
+        $feat->description = '<p>Your tribe has learned to mimic the speed of the Cheetah.</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>You gain the Improved Trip Feat</li>
+    <li>You gain an additional Action. This additional Action can only be used to make Stride or Charge Actions if you are not wearing Medium or Heavy armor and you are not Encumbered.</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Eagle Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Eagle tribe';
+        $feat->description = '<p>Your tribe has learned from the eagle.</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>You gain a +5 bonus on all Perception checks</li>
+    <li>You gain a +2 bonus to Hit on all Ranged attacks</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Hyena Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Hyena tribe';
+        $feat->description = '<p>Your tribe has learned from the hyena</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>You gain the Improved Trip Feat</li>
+    <li>You gain the Improved Flanking Talent</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Lion Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Lion tribe';
+        $feat->description = '<p>Your tribe has learned from the lion</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>If you hit the same target 2 or more times with Melee attacks, then you gain an Additional Action. This Additional Action can only be used to make a Melee Weapon attack against the same target.</li>
+    <li>You gain the Improved Flanking Talent</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Rhinoceros Tribe';
+        $feat->requirement = 'You must be from the region of the Shaar and a member of the Rhinoceros tribe';
+        $feat->description = '<p>Your tribe has learned from the rhinoceros</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>Whenever you make a Charge attack, if you hit, you deal an additional 2D6 Bludgeoning damage</li>
+    <li>You gain Damage Reduction 1, this stacks with Damage Reduction from Light Armor</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Dwarven Battle Rager';
+        $feat->requirement = 'You must be a dwarf';
+        $feat->description = '<p>You are trained in the Dwarven style of Battle Ragers. Known as Kuldjargh in dwarvish (which translates to "Axe Idiot").</p>
+<h4>Anathema</h4>
+<p>You do not have an Anathema</p>
+<ul>
+    <li>You gain proficiency in Heavy Armor</li>
+    <li>You gain the Improved Grapple Feat</li>
+</ul>
+<h4>Raging Resistance</h4>
+<ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
+    <li>Poison</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Dwarf']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Runescarring';
+        $feat->requirement = 'You must have one of the Rashemi Lodge Feats';
+        $feat->description = '<p>You have learned an ancient technique which involves scarring a magical rune into your skin.</p>
+<p>When you gain this feat, pick 2 spells that this feat provides. After a Long Rest, you may scar a number of spells into your skin equal to the number of Runescarring feats that you have. You may cast these spells that you have scarred into your skin as a Double Action unless otherwise specified. Once a Scar Spell is cast, the scar no longer holds any magic and cannot be used again.</p>
+<p>After a Short Rest, you may scar 1 spell into your skin, and after a Long Rest, you may scar a number of spells into your skin equal to the number of Runescarring feats that you have.</p>
+<p>You may take this feat multiple times. Each time you gain this feat, select 2 more spells that this feat provides, and you may cast an additional spell this feat provides per day.</p>';
+        $helper->addTypesToFeat($feat, ['Item Creation', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ["Bear's Endurance", "Bull's Strength", "Cat's Grace", 'Cure Wounds' => 'Heightened +1', 'Darkvision',
+                'Invisibility', 'Magic Weapon', ],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Improved Runescarring';
+        $feat->description = '<p>You can scar more powerful spells into your body.</p>
+<p>When you gain this feat, pick 2 spells that this feat provides. You may scar these spells into your skin as from Runescarring</p>
+<p>You may take this feat multiple times. Each time you gain this feat, select 2 more spells that this feat provides.</p>
+<p>Casting a spell that Runescarring provides is Heightened by +2</p>';
+        $helper->addTypesToFeat($feat, ['Item Creation', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Elemental Weapon', 'Haste', 'Keen Edge', 'Giant Form', 'Blinding Smite' => 'As an Action'],
+        ]);
+        $feat->parent_feats()->save(app()->feats['Runescarring']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Greater Runescarring';
+        $feat->description = '<p>You can scar more powerful spells into your body.</p>
+<p>When you gain this feat, pick 2 spells that this feat provides. You may scar these spells into your skin as from Runescarring.</p>
+<p>You may take this feat multiple times. Each time you gain this feat, select 2 more spells that this provides.</p>
+<p>Casting a spell that Runescarring provides is Heightened by +4 and spells that Improved Runescarring by +2</p>';
+        $helper->addTypesToFeat($feat, ['Item Creation', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            3 => ['Blink', 'Heroism' => 'Heightened +5', 'Restoration', 'Stoneskin', 'Spell Immunity'],
+        ]);
+
+        $helper->addFeatsToClass($class, [
+            'Critical Brutality'   => 1,
+            'Extra Rage'           => 5,
+            'Mighty Rage'          => 11,
+            'Tireless Rage'        => 17,
+            'Tough Defense'        => 2,
+            'Raging Resistance'    => 9,
+            'Strong Defense'       => 2,
+            'Power Attack'         => 2,
+            'Improved Sunder'      => 2,
+            'Improved Bull Rush'   => 2,
+            'Iron Will'            => 2,
+            'Cleave'               => 2,
+            'Swipe'                => 3,
+            'Great Cleave'         => 4,
+            'Supreme Cleave'       => 12,
+            'Medium Armor Master'  => 2,
+            'Deny Advantage'       => 5,
+            'Brute Force'          => 7,
+            'Improved Brute Force' => 12,
+            'Mettle'               => 7,
+            'Improved Mettle'      => 12,
+
+            'Raging Spellcaster'       => 5,
+            'Brutal Critical'          => 5,
+            'Improved Brutal Critical' => 9,
+            'Greater Brutal Critical'  => 13,
+            'Devastating Strikes'      => 19,
+
+            'Animal Totem'       => 1,
+            'Dragon Totem'       => 1,
+            'Fury Totem'         => 1,
+            'Giant Totem'        => 1,
+            'Spirit Totem'       => 1,
+            'Superstition Totem' => 1,
+            'Defensive Stance'   => 1,
+
+            'Ettercap Berserker'   => 1,
+            'Fox Berserker'        => 1,
+            'Great Stag Berserker' => 1,
+            'Ice Troll Berserker'  => 1,
+            'Owlbear Berserker'    => 1,
+            'Snow Tiger Berserker' => 1,
+            'Wolf Berserker'       => 1,
+
+            'Runescarring'          => 4,
+            'Improved Runescarring' => 8,
+            'Greater Runescarring'  => 12,
+        ]);
+    }
+}

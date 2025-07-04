@@ -1,0 +1,1217 @@
+<?php
+
+namespace Database\Seeders\Gods;
+
+use App\Models\Feat;
+use App\Models\God;
+use App\Models\Klass;
+use App\Services\SeedHelper;
+use Illuminate\Database\Seeder;
+
+class GodsDemonsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        /** @var SeedHelper $helper */
+        $helper = app()->seedHelper;
+
+        $god        = new God;
+        $god->name  = 'Demogorgon';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Prince of Demons, The Deep Father, The Sibilant Beast, Master of the Spiraling Depths, Lord of All that Swims in Darkness',
+            'aliases'     => 'Ahmon-Ibor, Siosivash, Leemooggoogoon, The Imprisoned One',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'symbol'      => 'Forked tail',
+            'description' => "<p>Demogorgon towers a full 18 feet in height, his body at once sinuous like that of a snake and powerful like that of a great ape. Two baleful baboon heads, with blue and red faces similar to those of mandrills, leer from atop his lumbering shoulders, from which two long tentacles writhe. His lower torso is saurian, like some great reptile with blue-green, scaly skin. He has an immense forked tail.</p>
+<p>Each of Demogorgon's heads has its own name and personality, a duality that creates an enduring internal conflict of his personality, while shaping all his actions and even his realm. His left head is named Aameul while the right is named Hethradiah (sometimes referred to as Hathradiah). The two heads war with each other, constantly seeking to obtain the upper hand on each other. Aameul, the more charismatic and calculating, relishes deception and wishes to break free from his other half. The more impulsive and feral Hethradiah relishes destruction and does not wish to be separated.</p>
+<p>Perhaps the only thing preventing Demogorgon from taking over the rest of the Abyss is his own dual nature.</p>
+<p>Demogorgon's cult is relatively small compared to \"true\" deities, but much larger than those of most fiends. He is worshiped by the intelligent manta ray race known as ixitxachitls, who draw power from the Abyss itself in order to become more powerful spellcasters. In turn, vital energy drained by vampiric ixitxachitls is transferred directly to Demogorgon via an unknown Abyssal mechanism.</p>
+<p>Demogorgon's other worshipers include troglodytes, kuo-toa, and other humanoids, particularly evil humans. His cult prospers in times of chaos and cause great destruction wherever it is found. Temples to Demogorgon are split in half, with one side representing Aameul and the other representing Hethradiah.</p>
+<p>the hatred between Orcus and Demogorgon is legendary. He is also a dedicated foe of Graz'zt and has unsuccessfully attempted to conquer Fraz-Urb'luu's realm. He hates Sekolah and encourages his followers to kill sahuagin.</p>
+<p>Demogorgon is allied with the obyrith lord Dagon, who often advises the heads of Aameul and Hethradiah separately. Dagon provides intellect, while Demogorgon provides brute strength. He is also frequently visited by Zuggtmoy,who exchanges fungi at Gaping Maw and engages with Demogorgon in several discussions. he is also allied with Ilsidahur, Lord of Bar-Iguras.</p>
+<p>Demogorgon's romantic interests include the succubus Shami-Amourae and the Succubus Queen Malcanthet, both of whom has manipulated him for the own benefits. Shami-Amourae, however, is imprisoned in the Wells of Darkness for her manipulations.</p>
+<p>The balor Belaphoss considers himself to be the most powerful of Demogorgon's servants.</p>",
+        ]);
+        $god->pantheons()->save(app()->pantheons['Asathalfinare'], [
+            'name'      => 'Ilxendren',
+            'title'     => 'The Great Ray, The Demon Ray',
+            'level'     => 'Demi',
+            'alignment' => 'CE',
+            'symbol'    => 'Blue, barbed manta tail on a black manta shape with two glowing red almond-shaped eyes on its wings',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Thrall to Demogorgon';
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You have given yourself to the demon price Demogorgon. You gain the following abilities.</p>
+<dl>
+    <dt>Scaly Flesh</dt> <dd>You skin becomes dark and scaly, granting you a +1 natural Damage Reduction for each Vile feat you have (including this one), to a maximum of +5. This bonus does not stack with any Damage Reduction from armor worn.</dd>
+    <dt>Hypnosis</dt> <dd>As an Action, you gain a gaze attack that acts like the Hypnotic Pattern spell. You may use this ability once per Long Rest.</dd>
+    <dt>Reaching Touch</dt> <dd>You gain the ability to stretch your arms unnaturally like tentacles, providing you an extra 5 feet of reach for 1 round. You may use this ability 3 times per Long Rest.</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Thrall to Demon']);
+        $feat->parent_feats()->save(app()->feats['Willing Deformity']);
+        $feat->skills()->save(app()->skills['Arcana'], ['dc' => 2]);
+        $feat->skills()->save(app()->skills['Religion'], ['dc' => 2]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Greater Thrall to Demogorgon';
+        $feat->requirement = 'You must be Evil';
+        $feat->action_type = 'Triple Action';
+        $feat->description = '<p>You may summon a Demon from the following list as if you cast a Summon Demon spell. You may use this ability once per Long Rest.</p>
+<ul>
+    <li>1 Barlgura</li>
+    <li>2 Quasit</li>
+    <li>4 Dretch</li>
+</ul>
+<p>You may take the Sacrificial Mastery Feat.</p>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Thrall to Demogorgon']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Master Thrall to Demogorgon';
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You may add the following demons to your list of creatures you can summon with your Greater Thrall to Demogorgon feat.</p>
+<ul>
+    <li>4 Chasme</li>
+    <li>1 Glabrezu (once per month)</li>
+    <li>1 Hezrou (once per month)</li>
+    <li>2 Vrocks (once per month)</li>
+</ul>
+<p>You gain a touch attack that you may use as an Action once per Long Rest. You may choose from the following list.</p>
+<dl>
+    <dt>Touch of Fear</dt> <dd>As the Fear spell, but with a range of Touch and as an Action.</dd>
+    <dt>Death Touch</dt> <dd>As the Slay Living spell but as an Action.</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Greater Thrall to Demogorgon']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Pact to Demogorgon';
+        $feat->description = '<p>You have made a Pact to Demogorgon</p>
+<ul>
+    <li>If you Fail a WIS Save, you may immediately make another WiS Save.</li>
+    <li>You become partially scaly, granting Damage Reduction of 1. The scales are not noticeable on the face and lower arms.</li>
+    <li>You may take the Find Familiar feat. At 5th level and beyond, you may take a Quasit as your Familiar.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Evil', 'Vile', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Acid Splash', 'Daze', 'Eldritch Blast', 'Poison Spray'],
+            1 => ['Charm', 'Fear', 'Water Breathing' => 'Self only'],
+            2 => ['Crown of Madness', 'Feet to Fins' => 'Self only', 'Fearsome Grapple'],
+            3 => ['Summon Demon, Lesser' => 'Casting this again dispels any previous casting', 'Vampiric Touch'],
+            4 => ['Blight', 'Summon Demon' => 'Casting this again dispels any previous casting'],
+            5 => ['Black Tentacles'],
+            6 => ['Demon Form', 'Malevolent Tentacles'],
+            7 => ['Wall of Tentacles'],
+            8 => ['Horrid Wilting'],
+            9 => ['Slay Living'],
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Orcus';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Lord of the Undead, Price of the Undead, Price of Undeath, Blood Lord',
+            'level'     => 'Demon Lord',
+            'aliases'   => 'Tenebrous',
+            'portfolio' => 'Mindless Undead',
+            'alignment' => 'CE',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Skull of Orcus';
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You have given yourself to the demon lord Orcus. You gain the following abilities.</p>
+<dl>
+    <dt>Gaunt</dt> <dd>You gain the Vile Feat Gaunt. If you already have the Gaunt Feat, you may gain the Lich Loved Vile Feat.</dd>
+    <dt>Resist Undead</dt> <dd>You gain a +2 bonus on all Saves vs Negative energy effects from Undead.</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Resist Negative Energy', 'Resist Positive Energy'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Skull Lord of Orcus';
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You gain the ability to command a small group of undead skeletons.</p>
+<p>You gain the ability to cast the spell Animate Dead as a 1st level spell 1/day. Casting this spell creates a single undead (skeleton or zombie).</p>
+<p>You can maintain control of up to 4 skeletons or zombies that you have created using this ability. If there are already 4 undead creatures in existence using this ability, and you create another, one of your already existing undead crumbles to dust (your choice).</p>
+<p>If you have the ability to cast spells, you may not heighten this spell or modify it with any Feats.</p>
+<p>You may take the Sacrificial Mastery Feat.</p>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Skull of Orcus']);
+        $helper->addSpellsToFeat($feat, [
+            3 => ['Clutch of Orcus', 'Glyph of Warding'],
+            4 => ['Daywalker'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Skull King of Orcus';
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You are able to control more skeletons and zombies.</p>
+<p>When you cast the spell Animate Dead or sacrifice a spell slot to maintain control over your created skeletons and or zombies, you maintain control of an additional skeleton or zombie.</p>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Skull Lord of Orcus']);
+        $helper->addSpellsToFeat($feat, [
+            5   => ['Dust to Dust', 'Ghoul Gauntlet'],
+            7   => ['General of the Undead'],
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = "Graz'zt";
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'The Dark Prince',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = "Thrall to Graz'zt";
+        $feat->requirement = 'You must be Evil';
+        $feat->description = "<p>You have given yourself to the demon price Graz'zt. You gain the following abilities.</p>
+<dl>
+    <dt>Demonic Beauty</dt> <dd>Increase your CHA by +1 to a maximum of 20</dd>
+    <dt>Charm</dt> <dd>As an Action, you gain a gaze attack (as an Action) that acts like the Charm spell cast by an arcane spell caster of your level. You may use this ability twice per Long Rest.</dd>
+    <dt>Beautiful Defense</dt> <dd>You may take the Beautiful Defense feat as a Generic feat.</dd>
+    <dt>Beguiler</dt> <dd>You gain a +5 bonus to Deception skills.</dd>
+</dl>";
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats['Thrall to Demon']);
+        $feat->skills()->save(app()->skills['Arcana'], ['dc' => 5]);
+        $feat->skills()->save(app()->skills['Deception'], ['dc' => 4]);
+
+        $feat              = new Feat;
+        $feat->name        = "Improved Thrall to Graz'zt";
+        $feat->requirement = 'You must be Evil';
+        $feat->action_type = 'Triple Action';
+        $feat->description = '<p>You may summon a Demon from the following list as if you cast a Summon Demon spell. You may use this ability once per Long Rest.</p>
+<ul>
+    <li>1 Lamia</li>
+    <li>1 Succubus (Incubus)</li>
+</ul>
+<p>You may take the Sacrificial Mastery Feat.</p>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats["Thrall to Graz'zt"]);
+
+        $feat              = new Feat;
+        $feat->name        = "Greater Thrall to Graz'zt";
+        $feat->requirement = 'You must be Evil';
+        $feat->description = '<p>You gain the following</p>
+<ul>
+    <li>You gain a Succubus (Incubus) as a Cohort, as if you had the Leadership feat.</li>
+    <li>You may now use your Charm Gaze ability at will.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $feat->parent_feats()->save(app()->feats["Improved Thrall to Graz'zt"]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Baphomet';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'           => $god->name,
+            'title'          => 'Price of Beasts, Demon Lord of Minotaurs, Horned King',
+            'level'          => 'Demon Lord',
+            'alignment'      => 'CE',
+            'portfolio'      => 'Vengeance, minotaurs',
+            'symbol'         => 'Twisted circular maze awash in blood',
+            'favored_weapon' => 'Club',
+        ]);
+
+        /**********************************************************************/
+
+        $god = God::where('name', 'Malar')->firstOrFail();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'           => 'Yeenoghu',
+            'title'          => 'Prince of Gnolls, Lord of Savagery, Beast of Butchery',
+            'level'          => 'Demon Lord',
+            'alignment'      => 'CE',
+            'portfolio'      => 'Gnolls',
+            'symbol'         => 'A triple-headed flail',
+            'favored_weapon' => 'The Butcher (Triple-headed Flail)',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Doresain';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'           => $god->name,
+            'title'          => 'The King of Ghouls, The Ghoul King, The Hunger, Father of Ghouls, the Pale King, Right Hand of Orcus',
+            'level'          => 'Demon Lord',
+            'alignment'      => 'CE',
+            'portfolio'      => 'Ghouls, Cannibalism',
+            'symbol'         => 'A one eyed Ghoul skull with a sickle in the background',
+            'favored_weapon' => 'Talon of Doresain (Large Sickle +3 Icy Burst, Speed, Unholy)',
+            'master_id'      => God::where('name', 'Orcus')->first()->id,
+            'description'    => "<p>Doresain is the demon lord of Ghouls and cannibalism. He appears as a 8ft tall emaciated humanoid with pointed ears, skin as pale and hard as marble, and yellow eyes that burn with a never ending hunger. His skin is completely hairless and would be flawless if not for the fact that his bones are clearly visible beneath it. He has huge hands that end in midnight black talons that match his huge teeth. Doresain's Mantle is  a patchwork robe that is open in the front, made different kinds of humanoid skin, and he wears a black metal crown with finger bones that stick straight up and have giant ruby rings on them. The hem of his robe is lined with jewel encrusted humanoid skulls. Inside the gems on the skulls are the souls of countless dead heroes. He carries an ancient black sickle sheathed on a rotting belt at his waist, it can easily part flesh from bone and imparts the hunger of the Ghoul on whomever it touches.</p>
+<p>Doresain's domain is Volenroft, the White Kingdom on the 112th layer of the abyss. The entire layer is a massive necropolis and hunting ground for him and his ghoul servants. There are many gates to the negative energy plane and the Orcus' domain hidden throughout the layer. His Citadel, the Tower of Teeth, is a great charnel house filled with screams and the sounds of chewing and breaking bones. Other places of interest are the Alter of Flesh, where even less savory acts than cannibalism occur, and Black Pool, a great lake of unholy water that is the main portal to the realm of Doresain's former master. The Black Pool is guarded by a unique Ghoul-like Charnel Colossus named Coraxival. There is also rumor of an ancient Qlippoth Lord that Doresain feasts on to increase his strength.</p>
+<p>Doresain's primary worshippers are Ghouls and creatures that have turned to cannibalism for pleasure, though many necromancers and evil warlords worship him as well. He prefers undead to demons, though his servants have a great deal of demonic power, and similarly can impart Ghoul-like powers on his demonic servants. His favorite heralds are his concubines, a female 18th level Ghast Barbarian named, Korvaka, and a unique ghoulish Succubus, Nimevere. He also keeps an aerie full of demonic dire bats that act as his eyes and ears throughout his domain and across the planes. His cult teaches that the weak are meant to feed the strong and his rites involve sacrificing sentient creatures to ghouls. He rewards his worshippers with access to divine magic and Ghoulish might. Simply eating sentient creatures is not enough to feed his church, they must first suffer to sweeten the meat.</p>
+<p>Doresain was once a mortal elf and a worshiper of Orcus. In order to honor his deity, he feasted on the flesh of his fellow elves. Impressed by the raw and savage act, Orcus turned Doresain into the very first ghoul.</p>
+<p>Doresain became a servitor to Orcus in the Abyss. There he was imbued with a shard Orcus' of divinity and became known as the Ghoul King. Here, he would create ghouls from the servants of Orcus. The King of Ghouls took command of a layer of the Abyss, the White Kingdom.</p>
+<p>Despite his devotion, Doresain would not stay subservient to Orcus, though not by choice. Yeenoghu, the Gnoll Lord, would stage an invasion of Doresain's layer (421st layer of the Abyss), which was right next to Yeenoghu's own layer (422nd layer of the Abyss). Orcus did not intervene. Given no choice, Doresain became a vassal of Yeenoghu. Instead of willingly serving Yeenoghu, who had usurped his layer, Doresain instead turned to the Seldarine. They took pity on the demigod, who escaped the tyranny of Yeenoghu. In return, Doresain granted elves immunity to the paralytic touch of his minions. Later, Yeenoghu fully lost the ability to control Doresain.</p>
+<p>As of the 15th century DR, Doresain retained the shard of divinity originally given to him by Orcus. He once again returned to Orcus' side, this time as his exarch, as well as his servitor. No longer holding his original layer, the White Kingdom, Doresain settled into the layer owned by Orcus, Thanatos, the 113th layer of the Abyss. Here, Doresain began to rule over part of Thanatos known as White Kingdom, which had the same name as his former home.</p>",
+        ]);
+        $god->classes()->save(Klass::where('name', 'Wizard')->first(), [
+            'level'       => 20,
+            'pantheon_id' => app()->pantheons['Faeruneon']->id,
+            'meta'        => 'Necromancy',
+        ]);
+
+        /**********************************************************************/
+
+        $god             = new God;
+        $god->name       = 'Gorellik';
+        $god->level      = 'Dead';
+        $god->deleted_at = \Carbon\Carbon::now()->timestamp;
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Monstrous'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Dead',
+            'alignment' => 'CE',
+            'portfolio' => 'Hunting, Hyenas, Hyaenodons',
+            'symbol'    => "White, mottled hyaenodon's head",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Juiblex';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Dark Seldarine'], [
+            'name'           => 'Ghaunadaur',
+            'title'          => 'That Which Lurks, The Elder Eye, THe Lord of Slime, The Ancient One',
+            'level'          => 'Lesser',
+            'portfolio'      => 'Oozes, slimes, ropers, outcasts, rebels',
+            'alignment'      => 'CE',
+            'symbol'         => 'Purple circle, with an eye in the center',
+            'favored_weapon' => 'An amorphous tentacle (warhammer)',
+        ]);
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Faceless Lord, Lord of Slime, Lord of Oozes and Shapeless Things, Lord of Nothing',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        $class                = new Klass;
+        $class->name          = 'Amorphite';
+        $class->key_attribute = 'WIS';
+        $class->weapons       = 'Simple Weapons';
+        $class->armors        = 'Light, Medium, Light Shields';
+        $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Ghaunadaur.</p>';
+        $helper->saveClass($class, [
+            'hit_dice'       => 10,
+            'skill_points'   => 4,
+            'skill_progress' => 2,
+        ], ['WIS', 'CON']);
+
+        // Skills
+        $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Religion']);
+
+        $helper->addFeaturesToClass($class, [
+            'divine_feat'      => [1, 3, 9, 15, 18, 20],
+            'acid_resistance'  => [6],
+            'acid_immunity'    => [12],
+        ]);
+
+        $helper->addChannelDivinityToClass($class, 'negative', 'Slimes, Molds, Fungus');
+        $helper->addDomainToClass($class, ['Power', 'Caverns', 'Evil']);
+
+        $helper->addSpellsToClass($class, [
+            0 => ['Acid Splash', 'Detect Magic', 'Light', 'Mold Earth', 'Stabilize'],
+            1 => ['Acid Stream', 'Bless', 'Cause Wounds', 'Cure Wounds', 'Curse', 'Fear', 'Immunity to Adhesive', 'Locate Water',
+                'Protection From Law', 'Remove Disease', ],
+            2 => ['Aquavision', 'Augury', "Bear's Endurance", 'Bestow Curse', "Bull's Strength", 'Comprehend Language',
+                'Darkness', 'Darkvision', 'Fearsome Grapple', 'Humanoid Form', ],
+            3 => ['Air Breathing', 'Amorphous Form', 'Call Gelatinous Cube', 'Meld into Stone', 'Mold Touch', 'Poison',
+                'Ray of Exhaustion', 'Spore Cloak', 'Toxin Immunity', ],
+            4 => ['Aura of Confusion', 'Blight', 'Shape Stone', 'Slime'],
+            5 => ['Atonement', 'Black Tentacle', 'Dispel Law', 'Drain Life', 'Ooze Form', 'Viscus Glob'],
+            6 => ['Drain Constitution', 'Malevolent Tentacles'],
+            7 => ['Wall of Tentacles'],
+            8 => ['Feeblemind', 'Horrid Wilting'],
+            9 => ['Mass Polymorph', 'True Polymorph'],
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = "Fraz-Urb'luu";
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Prince of Deception',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Pact to the Deceiver';
+        $feat->requirement = 'You must be CE';
+        $feat->description = "<p>You have made a Pact with the Demon lord Fraz-Urb'luu.</p>
+<ul>
+    <li>You gain the Sneak Attack class feature.</li>
+    <li>You gain the Illusionist Wizard School feat.</li>
+    <li>You may take the Find Familiar feat. At 5th level and beyond, you may take a Quasit as your Familiar.</li>
+    <li>You may take the Expert Illusionist feat at 6th level unless you have already taken the maximum number of Wizard School feats already.</li>
+    <li>You may take the Master Illusionist feat at 10th level unless you have already taken the maximum number of Wizard School feats already.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Eldritch Blast', 'Daze', 'Ghost Sound', 'Hex', 'Minor Illusion'],
+            1 => ['Demonflesh', 'Disguise Self', 'Silent Image'],
+            2 => ['Darkness', 'Invisibility', 'Mirror Image'],
+            3 => ['Major Image'],
+            4 => ['Polymorph Self'],
+            5 => ['Programmed Image'],
+            6 => ['Mind Prison'],
+            7 => ['Plane Shift'],
+            8 => ['Glibness'],
+            9 => ['Dweomerdoom'],
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Eltab';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Lord of the Hidden Layer',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Pact to Eltab';
+        $feat->requirement = 'You must be CE';
+        $feat->description = '<p>You have made a Pact with the Demon lord Eltab. Eltab is interested in taking his revenge against the Red Wizards of Thay (Szass Tam in particular) and the Witches of Rasheman as well as the Fey servants of Absalom.</p>
+<ul>
+    <li>You do not need to devout yourself to a deity to take the Paladin class. Eltab provides your spells and abilities for your Paladin class.</li>
+    <li>You may use Warlock Spell Slots to cast Smite Spells from the Paladin class.</li>
+    <li>You may sacrifice a Paladin Spell Slot to summon a Nightmare as your mount when you summon your Divine Mount.</li>
+    <li>You may cast the Calling spell using a 4th level Spell Slot if you summon a servant of Eltab</li>
+    <li>You gain the name (not true name) of one of the Demon servants of Eltab</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Booming Blade', 'Chill Touch'],
+            1 => ['Demonflesh', 'Fear', 'Fey Hunter'],
+            2 => ['Dispel Magic', 'Invisibility', 'Shadow Blade'],
+            3 => ['Circle of Protection From Good', 'Dread Word', 'Summon Demon, Lesser'],
+            4 => ['Blight'],
+            5 => ['Calling' => 'Servant of Eltab only', 'Word of Recall'],
+            6 => ['Arcane Gate', 'Spirit Blast'],
+            7 => ['Nar Fiendbond'],
+            8 => ['Antimagic Field'],
+            9 => ['Massacre'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Unending Pact to Eltab';
+        $feat->description = '<p>You undergo a Ritual and receive the effects of the Death Pact Spell. The destination is always the Hall of the Hidden Throne in the Citadel of Conjurers.</p>
+<p>Double the cost of the Material Components must be paid to Eltab at the time this Feat is taken and after each death. If the cost cannot be paid, then this Feat has no effect. Once the Material Components are paid, you must return to the Hall of the Hidden Throne and receive the ritual again to benefit from the Death Pact spell.</p>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic', 'Invocation' => 15]);
+        $feat->parent_feats()->save(app()->feats['Pact to Eltab']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Death Knight of Eltab';
+        $feat->requirement = 'You must be CE';
+        $feat->description = '<p>You are a Paladin of the demon prince, Eltab.</p>
+<dl>
+    <dt>Based</dt> <dd>Citadel of Conjurers in the nation of Impiltur</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Demon', 'Evil', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Hex', 'Infestation'],
+            1 => ['Bane', 'Darkvision', 'Demonflesh', 'Fear', 'Wrathful Smite'],
+            2 => ['Darkness', 'Undetectable Alignment'],
+            3 => ['Aura of Silence', 'Aura of Pain', 'Call Dretch Horde', 'Circle of Protection From Good'],
+            4 => ['Aura of Confusion', 'Aura of Death', 'Call Nightmare'],
+        ]);
+        $feat->parent_feats()->save(app()->feats['Pact to Eltab']);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Abraxas';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'The Unfathomable',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Aldinach';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Alvarez';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => "The Purging Duke, Inquisitor of the Tanar'ri",
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Cormanda';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Dwiergus';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => 'Obyrith',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Lupercio';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Baron of Sloth',
+            'portfolio' => 'Sloth, Darkness',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Malcanthet';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Queen of the Succubi',
+            'level'       => 'Demon Lord',
+            'description' => '<p>Ruler of the 570th layer of the Abyss, Shendilavri.</p>',
+            'alignment'   => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Lady Lynkhab';
+        $god->level       = 'Demon';
+        $god->description = "Contender of the title 'Queen of the Succubi'";
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'The Lady of Regret',
+            'portfolio'   => 'Depression, Desire',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Contender of the title 'Queen of the Succubi'</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Shami-Amourae';
+        $god->level       = 'Demon';
+        $god->description = "Imprisoned contender of the title 'Queen of the Succubi'";
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Demigoddess of Debased Eros, The Lady of Delight',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>As one of the first of the succubi birthed from the raw matter of the Abyss, Shami-Amourae's existence predates most mortal races, including humans. Her skill at her 'craft' so impressed the Prince of Demons Demogorgon that he took her as his consort, thus greatly increasing her personal power and influence. At the same time, she declared herself the Queen of Succubi and her cult flourished on the Prime Plane. However, other ambitious succubi also claimed the title and this struggle, known as the War of Ripe Flesh, became a long-drawn-out battle in which only one would survive to claim the title of Queen of Succubi.</p>
+<p>Shami-Amourae discovered that Demogorgon's twin heads had individual personas, and she began to manipulate him by literally playing off one head against the other, hoping to goad him into attacking the realm of Malcanthet, her greatest rival for Queen of Succubi. Her scheme failed when Malcanthet revealed to the Prince of Demons his consort's true motives. Enraged by Shami-Amourae's manipulations, he had Shami-Amourae imprisoned in the Wells of Darkness, where she has been trapped ever since.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Xinivrae';
+        $god->level       = 'Demon';
+        $god->description = "Exiled contender of the title 'Queen of the Succubi'";
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Exiled contender of the title 'Queen of the Succubi'</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Oublivae';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 100th layer of the Abyss, The Barrens';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Angel of the Everlasting Void, Demon Monarch of the Barrens, Queen of Desolation',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Ruler of the 100th layer of the Abyss, The Barrens</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Rhyxali';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 48th layer of the Abyss, Nerebdian Vast';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Queen of Shadows',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Ruler of the 48th layer of the Abyss, Nerebdian Vast</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = "Sess'innek";
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 7th layer of the Abyss, Kearackinin (Phantom Plane)';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'The Lizard King',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'portfolio'   => 'Civilization, dominion',
+            'symbol'      => 'Green clawed reptilian hand',
+            'description' => '<p>Ruler of the 7th layer of the Abyss, Kearackinin (Phantom Plane)</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Zuggtmoy';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Lady of Fungi, Demon Queen of Fungi, Lady of Rot and Decay',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+            'portfolio' => 'Fungi',
+            'symbol'    => 'Green clawed reptilian hand',
+        ]);
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+            'name'           => 'Moander',
+            'title'          => 'The Darkbringer, The Jawed God, The Rotting God, The Great Dread God',
+            'level'          => 'Demi',
+            'alignment'      => 'CE',
+            'portfolio'      => 'Decay, corruption, rot',
+            'symbol'         => 'A human right hand with palm open and fingers out-stretched, a fanged human mouth in its center with lips parted as if speaking',
+            'favored_weapon' => 'Heavy mace',
+            'master_id'      => God::where('name', 'Talos')->first()->id,
+            'description'    => '<p>Moander is the only god that allows Druid Liches</p>',
+        ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Druid'  => 20,
+            'Wizard' => ['level' => 15, 'meta' => 'Necromancy'],
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid', 'Wizard' => ['meta' => 'Necromancy'],
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Arlgolcheir';
+        $god->level       = 'Demon Lord';
+        $god->description = '<p>Destroyed by Laeral Silverhad (the Symbol) with the aid of Khelben and the mage Alduth of Neverwinter</p>';
+        $god->deleted_at  = \Carbon\Carbon::now()->timestamp;
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Destroyed by Laeral Silverhad (the Symbol) with the aid of Khelben and the mage Alduth of Neverwinter</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Obox-ob';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 663rd layer of the Abyss, Zionyn';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Ruler of the 663rd layer of the Abyss, Zionyn. Obyrith</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Dagon';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 89th layer of the Abyss, Shadowsea. One of the High Old Ones';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Price of the Depths',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Ruler of the 89th layer of the Abyss, Shadowsea. One of the High Old Ones. Obyrith</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Pazuzu';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Ruler of the 1st layer of the Abyss, Pazunia and the 503rd layer, Toramor. One of the High Old Ones';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Prince of the Lower Aerial Kingdoms, The Dark Angel of the Four Winds',
+            'level'       => 'Demon Lord',
+            'aliases'     => 'Pazrael',
+            'alignment'   => 'CE',
+            'description' => '<p>Ruler of the 1st layer of the Abyss, Pazunia and the 503rd layer, Toramor. One of the High Old Ones. Obyrith</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Adimarchus';
+        $god->level       = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Demon Prince of Madness',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => "<p>Adimarchus has two forms, and can shift between them at will. The first one is reminiscent of his past self as a planetar: a beautiful androgynous angel with pale purple skin, a pair of metallic golden wings, and black eyes. While similar in stature, his second form has ash-black skin and white eyes, and the wings are replaced by four shadowy tentacles ending in lamprey's maws. In both forms, Adimarchus' right eye burns with a smoking flame, a sign bestowed on any creature destined to rule Occipitus.</p>
+<p>Adimarchus is a fallen planetar who led a demonic army with the goal to invade Celestia. During that battle and in order to contain the invasion, the angels detached a portion of the plane and cast it into the Abyss, where it merged with the existing layer of Occipitus.</p>
+<p>Adimarchus survived the battle, and became the ruler of the layer by incorporating the wreckage of Celestia into Occipitus, becoming a demon lord in the process. As a demon lord he often waged war against his most powerful rival, the demon lord Graz'zt.</p>
+<p>During his reign, Adimarchus created the Test of the Smoking Eye, a difficult challenge that would be used to find a suitable successor should anything happen to him.</p>
+<p>After several hundred years of rule, Adimarchus was betrayed by Athux, the son of Graz'zt, and disappeared from Occipitus. He was imprisoned in Orthrys, the first layer of Carceri, where he was driven to madness.</p>",
+        ]);
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Ugudenk';
+        $god->level       = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'The Squirming King',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => "<p>Ruler of the 177th layer of the Abyss, Writing Realm. Obyrith</p>
+<p>Ugudenk has the form of an impossibly large worm-like creature; in fact, no one can claim to have seen the end of its body. Its jaw is a complex structure of multiple jaws and hooked tentacles made of muscle, the whole of which opens like some horrifying carnivorous flower when it hungers.</p>
+<p>Ugudenk's primary defense is its sheer size: even abilities that would normally destroy the entirety of a creature only manage to destroy the first 100 ft or so of its body, and any spell or other ability that relies on creatures being under a certain size simply failed to effect it at all. That said, only the end of Ugudenk, with its mouth, is capable of actually attacking. Ugudenk is known to be able to spew a 600‑foot (180‑meter) line of acid out of its mouth</p>
+<p>Even if an enemy succeeded in destroying Ugudenk's mouth, the demon lord will simply pull the rest of its body back into the Writhing Realm, where it eventually regenerates the missing body part. Some believe that killing Ugudenk is impossible so long as the Writhing Realm exists; others postulated that, based on its sheer size, Ugudenk is actually an extension of an as-yet-undiscovered Abyssal layer.</p>
+<p>Ugudenk has no apparent goals or plans, spending most of its time contentedly burrowing through the Writhing Realm. It does have an odd attraction to the neighboring layer of Hollow's Heart, though most consider that to be because a permanent portal existed between the two layers; the Spiral of Ugudenk on the other end was notable for being one of the few immutable parts of that realm. Hollow's Heart's ruling demon lord Fraz-Urb'luu's consistent and consistently failed attempts to remove Ugudenk from his realm has led to other demon lords joking about his \"infestation problem\".</p>
+<p>At other times, Ugudenk will burst into other layers of the Abyss and, more rarely, the Material plane, where it devours things as varied as castles, lakes, artifacts, and titans. Most see no pattern or schedule to these anomalies, but stories are told of scholars who, after studying the nature of its seemingly random feasts, went insane and took their own lives almost always by allowing immense monsters to devour them.</p>
+<p>Ugudenk has no organized cult, just a few isolated maniacs who seek to draw the Squirming King's attention to people or places that they feel had wronged them.</p>
+<p>Likewise, Ugudenk has no true servitors, though worm-like monsters and invertebrate-like obyriths are common in regions it appears in, and the sudden appearances of such creatures always presages its arrival, but such followers seem more to be opportunistic scavengers following the demon lord to eat leftover scraps.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Ardat';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Demon Queen of Harpies';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'      => $god->name,
+            'title'     => 'Demon Queen of Harpies, The Unavowed',
+            'level'     => 'Demon Lord',
+            'alignment' => 'CE',
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Ilsidahur';
+        $god->level       = 'Demon Lord';
+        $god->description = 'Demon Queen of Barlguras';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'The Howling King',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Ilsidahur resides in the 90th layer of the Abyss, the Guttering Grove. He is the patron of barlgura and is known to cooperate with Demogorgon on occasion</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Pale Night';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Mother of Demons',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => 'Obyrith',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Arendagrost';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Maw of the Abyss',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Arendagrost is described as vaguely resembling an immense wingless dragon of gargantuan size. Instead of legs, it moves upon a sea of tentacles. In place of scales, it is covered in coarse black fur and has three heads that resemble monstrous horned fiends that breath bloody acid, fire, and frost. Its six-fold eyes offer instant death to anyone catching their hideous gaze.</p>
+<p>Arendagrost is the most powerful of the hideous spawn of Demogorgon and Malcanthet, and even his father finds him unsettling to look upon.</p>',
+            'master_id' => God::where('name', 'Demogorgon')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Socothbenoth';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Demon Lord',
+            'portfolio'   => 'Incest, Sexual Taboos, Perversions',
+            'alignment'   => 'CE',
+            'description' => "<p>According to the apocryphal text Armies of the Abyss, Socothbenoth resembles a handsome human male with long brown hair and the long ears of an ass. He has a long, snakelike tongue and his chest is pierced by six large barbells.</p>
+<p>Socothbenoth's sister Nocticula is also his lover. He lusts after the power of Graz'zt, and so has allied with Malcanthet against him. However, he also longs to become the lover of Demogorgon, a position currently held by Malcanthet.</p>
+<p>Socothbenoth has almost managed to force Fraz-Urb'luu from his home, and came close before Fraz-Urb'luu managed to repulse Socothbenoth's army from his realm.</p>
+<p>Socothbenoth is the offspring of Demogorgon and Malcanthet.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Gorgant';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'General of Demogorgon',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => "<p>Gorgant the Two-Faced is an aspect of Demogorgon. One of his earliest unique creations, it is a two-faced tanar'ri demon made in Demogorgon's image. It serves as a general in Demogorgon's forces.</p>",
+            'master_id'   => God::where('name', 'Demogorgon')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Bagromar';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Clone of Hethradiah',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Bagromar is a clone of Hethradiah, one of the heads of Demogorgon.</p>',
+            'master_id'   => God::where('name', 'Demogorgon')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Tetradarian';
+        $god->level = 'Demon Lord';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Clone of Aameul',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => '<p>Tetradarian is a clone of Aameul, one of the heads of Demogorgon.</p>',
+            'master_id'   => God::where('name', 'Demogorgon')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Balor';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Balor served all the demon lords at one point or another in his life. He was favored by Baphomet and Kostchtchie.</p>
+<p>In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Belaphoss';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Belaphoss the Mad is a powerful balor who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</p>',
+            'master_id'   => God::where('name', 'Demogorgon')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Wendonai';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor, Champion of Lolth',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Wendonai was the balor lord who was tasked by Lolth to seduce the Sethomiir clan, rulers of the Ilythiiri, into her worship and granting them evil magics (who would eventually become the drow).</p>
+<p>After the Descent, Wendonai continued his work, acting as an adviser, tutor, and sometimes consort to the most powerful drow Matron Mothers. He tried to claim a little power for himself by leading a successful drow and duergar attack against the Elven Court in −4400 DR, called the Dark Court Slaughter. Wendonai\'s efforts at personal growth over the next two millennia earned Lolth\'s ire. Lolth withdrew her favor from the demon in −2549 DR and the Matrons followed suit.</p>
+<p>Wendonai then allied himself with Eltab, serving as his emissary. He was summoned by a Nar Demonbinder but was soon banished by an incredibly powerful priest of Horus-Re and was banished till 1377. Wendonai seeks revenge for this.</p>
+<p>Wendonai then returned to Lolth's service when the goddess needed his services again.</p>",
+            'master_id' => God::where('name', 'Araushnee')->first()->id,
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Pact to Wendonai';
+        $feat->description = '<p>You have made a Pact with the Balor Demon Wendonai. Wendonai is interested in making himself more valuable to Lolth, or gaining revenge on the Mulhorandi pantheon.</p>
+<ul>
+    <li>TBD</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon']);
+        $helper->addSpellsToFeat($feat, [
+
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Errtu';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Errtu seeked to gain possession of the artifact Crenshinibon. He ended up being banished by Drizz't Do'Urden and has sworn revenge.</p>
+<p>Errtu has since formed a loose alliance with Lolth when she approached him to guard Menzoberranzan during the Time of Troubles.</p>",
+            'master_id' => God::where('name', 'Araushnee')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = "Chare'en";
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>The balor Chare'en was part of the Army of Darkness that attacked Myth Drannor. He raised a huge gnoll army in the Thunder Peaks, before being defeated and imprisoned.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Axithar';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Axithar was a balor lord whose armies invaded the House of the Triad after the fall of Mystra.</p>
+<p>Not long after the death of Mystra (in 1385 DR), the cambion Kaanyr Vhok and his companions were captured by the marilith Vhissilka, who served Lord Axithar. Vhok abandoned his companions and allied with Axithar, providing information about the weaknesses of the House of the Triad so that Vhok could get his revenge for his treatment by the angel Tauran and so that he could reach the Lifespring, which he believed would give him the power to rule Sundabar as a glorious leader. Axithar's horde of demons invaded the plane and were nearing victory against the angels when Bahamut's legions appeared and defeated the demon armies.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Badrazel';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>In 1372 DR, during the Silence of Lolth, the half-fiend fire giant Kurgoth Hellspawn invaded Maerimydra with the balor Badrazel at his side. While Kurgoth made the Coliseum there his base, Badrazel continued to harry those that still resisted the invaders. He patrolled the heights of the cavern and tested the defenses of Castle Maerimydra on several occasions.</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Raachaak';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Balor',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>General Raachaak was a power-hungry balor who sought to capture a legendary bloodforge in the 14th century DR.</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Marilith';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Marilith',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>This is the great demon for whom the race of mariliths are named.</p>
+<p>In 1485–1486 DR, Marilith was among the demons that wandered the streets of Menzoberranzan and participated in the failed defense of Q'Xorlarrin against the dwarves.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Muvassys the Sceptered';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Marilith',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Muvassys is the mother of Kaanyr Vhok and a member of the three mariliths known as the "Triumvirate".</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Reluhantis';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Marilith',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Reluhantis is a personal attendant to the demon lord Graz'zt.</p>",
+            'master_id'   => God::where('name', "Graz'zt")->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Unhath';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Marilith',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Unhath is a personal attendant to the demon lord Graz'zt.</p>",
+            'master_id'   => God::where('name', "Graz'zt")->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Vhissilka';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Marilith',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Vhissilka is a marilith commander serving the balor lord Axithar.</p>',
+            'master_id'   => God::where('name', 'Axithar')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Belshazu';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Glabrezu',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Belshazu is a glabrezu and the father of the draegloth Jeggred Baenre.</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Bizmatec';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Glabrezu',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => "<p>Bizmatec was the glabrezu that acted as the balor Errtu's second-in-command</p>",
+            'master_id'   => God::where('name', 'Errtu')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Mizferac';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Glabrezu',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Mizferac was summoned on a regular basis by Cadderly for a tenday until he brought news of Jarlaxle, Artemis Entreri and Crenshinibon coming to see the priest. Immediately after, he was banished for a hundred years by Cadderly after threatening Cadderly\'s family. He was later summoned again by Cadderly, rescinding the banishment.</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Quinix';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Glabrezu',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Quinix was a glabrezu living in the ruins of the Gate of Iron Fangs on the southwestern tip of the Forest of Amtar.</p>
+<p>He traveled through a portal into the Forest of Amtar. The ruins of the gate were also the home of a large tribe of gnolls whom he easily took control over. The gnolls thought that he was a representative of their "god" Yeenoghu. He used them for raids in the near area from Dambrath, Channathgate and Rethmar. He planned to recruit humans as spies and soldiers. The Swagdar seemed the best suited for this task. His ultimate goal was to raid Halruaa since the magically rich country promised the best profit.</p>',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Shaakat';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Vrock',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Shaakat is a vrock sent to uncover the legendary bloodforge for General Raachaak but attempted to claim it for himself circa 1377 DR.</p>',
+            'master_id'   => God::where('name', 'Raachaak')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Rejik';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Vrock',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Rejik is a vrock sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</p>',
+            'master_id'   => God::where('name', 'Raachaak')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Morbaat';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Vrock',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Morbaat is a vrock sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</p>',
+            'master_id'   => God::where('name', 'Raachaak')->first()->id,
+        ]);
+    }
+}

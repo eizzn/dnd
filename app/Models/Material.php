@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Class Material
+ *
+ * @property int         id
+ * @property string      name
+ * @property string|null description
+ * @property string|null price
+ * @property string|null rarity
+ * @property string|null type
+ * @property string|null source
+ * @property string|null alchemy
+ * @property string|null armor
+ * @property string|null weapon
+ * @property string|null other
+ */
+class Material extends Model
+{
+    public $timestamps = false;
+}
