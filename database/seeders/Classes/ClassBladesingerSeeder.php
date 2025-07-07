@@ -21,6 +21,7 @@ class ClassBladesingerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Bladesinger';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'DEX or INT';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

@@ -36,6 +36,7 @@ class PfBase extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50)->unique();
+            $table->enum('type', ['Base', 'Priest', 'Prestige', 'Abstract']);
             $table->string('key_attribute', 30)->nullable();
             $table->smallInteger('hit_dice')->unsigned()->nullable();
             $table->smallInteger('skill_points')->nullable();
@@ -155,7 +156,7 @@ class PfBase extends Migration
             $table->text('action_type', 40)->nullable();
             $table->string('display')->nullable();
             $table->string('range', 80)->nullable();
-            $table->string('area', 80)->ullable();
+            $table->string('area', 80)->nullable();
             $table->string('targets', 70)->nullable();
             $table->string('duration', 50)->nullable();
             $table->string('save_attribute', 10)->nullable();

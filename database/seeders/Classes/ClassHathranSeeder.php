@@ -22,6 +22,7 @@ class ClassHathranSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Hathran';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CHA';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -85,7 +86,7 @@ class ClassHathranSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Ethran';
-        $feat->short_description = '<p>You have been initiated into the secrets of the Witches of Rashemen as a member of the Ethran</p>';
+        $feat->short_description = 'You have been initiated into the secrets of the Witches of Rashemen as a member of the Ethran';
         $feat->description       = '<p>You are a respected member of the Witches of Rashemen.</p>
 <ul>
     <li>You gain a +5 bonus to Diplomacy checks when dealing with common citizens of Rashemen</li>

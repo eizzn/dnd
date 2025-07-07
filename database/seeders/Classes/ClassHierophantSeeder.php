@@ -19,6 +19,7 @@ class ClassHierophantSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Hierophant';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'WIS';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([

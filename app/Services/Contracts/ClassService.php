@@ -10,5 +10,5 @@ interface ClassService
     /**
      * Get instance of Builder to get a list of Class
      */
-    public function index(array|Request $search): Builder;
+    public function index(array|Request $search, bool $byType = false): Builder;
 }

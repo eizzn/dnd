@@ -55,7 +55,7 @@ class PotionFormulaSeeder extends Seeder
         $formula->price         = '50 gp';
         $formula->activation    = 'Imbibed; Operation Activation';
         $formula->bulk          = 'L';
-        $formula->crafting_time = '5 hours';
+        $formula->crafting_time = '8 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->description   = '<p>For 1 minute, you gain the ability to breath fire as if you had the Dragon Breath (Red) spell cast on yourself.</p>';
         $helper->saveFormula($formula, ['Potion', 'Consumable', 'Fire'], [
@@ -121,7 +121,7 @@ class PotionFormulaSeeder extends Seeder
         $formula->level         = 5;
         $formula->price         = '20 gp / 50 gp';
         $formula->bulk          = 'L';
-        $formula->crafting_time = '5 hours';
+        $formula->crafting_time = '8 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
         $formula->activation    = 'Action; Operate Activation';
         $formula->description   = '<p>Upon drinking this potion, you regain 3D6 +3 Hit Points and can attempt a new Save against any one toxin of 8th level or lower currently afflicting you. If you succeed, the toxin is neutralized.</p>';

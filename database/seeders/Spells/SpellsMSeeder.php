@@ -288,7 +288,7 @@ class SpellsMSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '90 feet';
         $spell->targets     = 'Creature touched';
-        $spell->duration    = '4 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>The spell creates a small ball of light that is equal to a Light spell. It floats above the target of the spell with a piece of parchment in front of it that draws out a map of the spell targets surroundings within range. The light will only map what it can see within range, so areas of magical darkness will not be mapped. The light has no ability to detect secret doors or pierce illusions of any kind.</p>
 <p>The light can be countered by magical darkness just like any other light spell.</p>
 <p>The map is vulnerable to attacks, such as from fire or water. The target of the spell can with an Action suspend the mapping and secure the parchment so that it will not be exposed to attack. The target of the spell can with another Action resume the mapping.</p>';
@@ -423,8 +423,8 @@ class SpellsMSeeder extends Seeder
         $spell->casting        = 'Somatic Casting';
         $spell->save_attribute = 'WIS';
         $spell->area           = '30-foot cone with you at the apex';
-        $spell->targets        = 'Upto 2 living creatures in the area';
-        $spell->duration       = 'Concentration + Action, upto 5 rounds';
+        $spell->targets        = 'Up to 2 living creatures in the area';
+        $spell->duration       = 'Concentration + Action, up to 5 rounds';
         $spell->description    = "<p>You gain a Gaze attack. As an Action, you can stare in a direction, your gaze is a 30-foot cone shape emanation. You may pick up to 3 targets in the area. If they are able to see you, they must make a WIS Save or be Dazed: 5. On each of your turns, you must use an Action to maintain the Dazed condition on those that Failed their Save. You may use an additional Action to force new targets or previous targets that Succeeded their Save to make a WIS Save or be Dazed for the duration. You may never have more Dazed targets then your maximum allowed limit.</p>
 <p>Any potential threat (such as an armed opponent moving behind the mesmerized creature) allows the creature a new Save. Any obvious threat, such as casting a spell, drawing a sword, or aiming an arrow, automatically breaks the effect, as does shaking or slapping the creature.</p>
 <p>A mesmerized creature's ally may shake it free of the spell as an Action.</p>";

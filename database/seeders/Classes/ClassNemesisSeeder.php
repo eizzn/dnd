@@ -21,6 +21,7 @@ class ClassNemesisSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Illithid Hunter';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON or INT';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -61,6 +62,7 @@ class ClassNemesisSeeder extends Seeder
         // Giant Slayer
         $class                = new Klass;
         $class->name          = 'Giant Slayer';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON or INT';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -104,6 +106,7 @@ class ClassNemesisSeeder extends Seeder
         // Horde Breaker
         $class                = new Klass;
         $class->name          = 'Horde Breaker';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -126,6 +129,7 @@ class ClassNemesisSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Serpent Slayer';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON, INT, or WIS';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -168,6 +172,7 @@ class ClassNemesisSeeder extends Seeder
         // Dragon Slayer
         $class                = new Klass;
         $class->name          = 'Dragon Slayer';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON or INT';
         $class->max_level     = 7;
         $class->requirements  = $helper->getClassRequirementsString([

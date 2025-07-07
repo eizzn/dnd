@@ -81,7 +81,7 @@ class PowersTSeeder extends Seeder
         $power->action_type  = '1 minute';
         $power->requirements = 'You must have the Teleport power';
         $power->targets      = 'Self';
-        $power->duration     = '1 day';
+        $power->duration     = '24 Hours';
         $power->description  = '<p>You specify a situation that triggers you to automatically teleport you the location where you manifest this power. If the trigger is activated, it takes no time and instantly teleports you.</p>';
         $power->heightened   = '<dl>
     <dt>Heightened (+4)</dt> <dd>As a Double Reaction, if someone is teleporting into a location within 120 feet of you or from a location 120 feet from you, you may use this power and change the destination of the teleport. You cannot send them further than their spell or ability allows but you control where they end up. You cannot teleport them into a sold object. The teleporting creature gets a CHA Save to resist your attempt to alter their teleportation.</dd>

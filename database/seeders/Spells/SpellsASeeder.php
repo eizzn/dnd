@@ -49,7 +49,7 @@ class SpellsASeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Two living creatures';
         $spell->save_attribute = 'CHA';
-        $spell->duration       = '1 day';
+        $spell->duration       = '24 Hours';
         $spell->description    = '<p>You rip a supernatural ability of your choice away from one creature and transfer it to another. The two creatures must be within 30 feet of each other and remain conscious throughout the casting of the spell. In exchange for this new ability, the recipient loses a supernatural ability it already possesses. If it has none to exchange, it instead loses two class levels (or 2 HD if it has no class levels).</p>
 <p>Class features cannot be transferred by means of this spell. The spell fails if used to transfer an ability to a creature that lacks the proper body parts, size, or other criteria for its use, or if the target creature has fewer than 2 HD and no supernatural abilities to trade. Either subject may negate the transfer with a successful CHA save.</p>
 <dl>
@@ -144,7 +144,7 @@ class SpellsASeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->rarity      = 'Rare';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 3 hours or until expended';
+        $spell->duration    = 'Concentration, up to 3 hours or until expended';
         $spell->description = "<p>Spells and spell-like effects that target you are absorbed, their energy stored to power spells of your own.</p>
 <p>You create a field of protection around yourself. This field absorbs ranged spells that have you as a target. Touch spells, effect spells, and area spells that affect you cannot be absorbed. Once the spell is cast, you can absorb 1D4 + 6 spell levels (rolled secretly by the DM). The level of each spell you absorb is subtracted form the total. If a spell is only partially absorbed (because its level exceeds the number of levels remaining to be absorbed), divide the number of spell levels left unabsorbed by the original spell level. For spells that deal damage, use the result to determine what fraction of the damage you take. For spells that create effects, use the result as a percentage change to be affected.</p>
 <blockquote>
@@ -161,7 +161,7 @@ class SpellsASeeder extends Seeder
         $spell->requirements = '<dl>
     <dt>Secondary Casters</dt> <dd>At least 2 other casters, each must cast a Conjuration (Summoning) spell of 3rd level or higher</dd>
 </dl>';
-        $spell->duration     = 'Concentration, upto 3 hours';
+        $spell->duration     = 'Concentration, up to 3 hours';
         $spell->description  = '<p>You summon an army of demons from the Abyss.</p>
 <ul>
     <li>When the spell is complete, 2D4 Dretches appear</li>
@@ -175,7 +175,7 @@ class SpellsASeeder extends Seeder
         $spell->name        = 'Accelerated Movement';
         $spell->casting     = 'Reaction';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>You do not suffer any skill check penalties and can move at your full Land Speed while using the following skills.</p>
 <ul>
     <li>Balance</li>
@@ -271,7 +271,7 @@ class SpellsASeeder extends Seeder
         $spell->spell_creator = 'Samaster';
         $spell->rarity        = 'Rare';
         $spell->targets       = 'One dragon';
-        $spell->duration      = '10 rounds';
+        $spell->duration      = '1 minute';
         $spell->description   = "<p>This spell fuels the Dracorage for a short period. It causes the target to instantly and fully succumb to the Dracorage, shifting the target's attitude toward non-dragons to hostile and instilling in the dragon a bloodthirsty desire to murder and wreak havoc. This usually cause the dragon (even a good metallic dragon) to immediately attack all non-dragons nearby.</p>
 <p>Because this spell manipulates the existing Dracorage Mythal, the WIS Save against this spell is 4 higher than normal and has a DC of 18 + appropriate ability modifier.</p>
 <p>This spell functions only during the period of the Dracorage and has no effect on dragons at other times.</p>
@@ -476,8 +476,8 @@ class SpellsASeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'One creature touched';
         $spell->save_attribute = 'CON';
-        $spell->duration       = '7 days';
-        $spell->description    = '<p>When placed upon a creature, this spell can drastically increase the length of time required between meals. The recipient only requires food and drink once every 12 hours for upto the next 7 days. Also, if the target has been poisoned, this spell slows the onset by 6 hours.</p>
+        $spell->duration       = '1 Week';
+        $spell->description    = '<p>When placed upon a creature, this spell can drastically increase the length of time required between meals. The recipient only requires food and drink once every 12 hours for up to the next 7 days. Also, if the target has been poisoned, this spell slows the onset by 6 hours.</p>
 <p>The reverse of this spell causes the target to need to eat 3 times as much food and water.</p>
 <dl>
     <dt>Material Components</dt> <dd>A small wafer that must be consumed</dd>
@@ -507,7 +507,7 @@ class SpellsASeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->rarity      = 'Rare';
         $spell->targets     = 'Object or objects with writing';
-        $spell->duration    = 'Concentration, upto 1 hour';
+        $spell->duration    = 'Concentration, up to 1 hour';
         $spell->description = "<p>You cause writing from one source (such as a book) to be copied into a book, paper, or parchment. This spell copies 250 words per minute and creates a perfect duplicate of the original. The spell only copies non-magical text, not illustrations or magical writings (such as spell scrolls or magical sigils). If the target contains normal and magical writings (such as a letter with Explosive Runes), only the normal text is copied, leaving blank spaces in the copied text where the magical writings would be expected. Likewise, if the target contains text and illustrations, only the text is copied.</p>
 <p>This spell triggers (but does not copy) writing based magical traps in the material being copied, but the spell is target of whatever is triggered.</p>
 <p>Blank paper, parchment, or a book must be provided for the spell to write upon. If the target has multiple pages, the spell automatically turns to the next blank page whenever necessary. If more pages in the target exist than blank pages are available, the spell copies the original until it runs out of blank pages. At any time during the spell's Duration you may redirect the magic to copy from another target, copy only a different blank source, or resume a duplication that was interrupted by a shortfall of blank pages.</p>
@@ -707,7 +707,7 @@ class SpellsASeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '60 feet';
         $spell->targets     = 'Up to a 5 foot cube of fire';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>You animate a small fire with mobility and the semblance of life. It can attack or set things on fire. Use the statistics for a Small Object from the Animate Object spell. The animated fire can make Slam attacks that deal 1 point of Bludgeoning damage + 1D6 Fire damage. It is Immunity to Fire damage and Vulnerability to Water and Cold damage. It has a Hardness of 0.</p>
 <p>You must have an existing fire to animate, and the animated fire must have a source of fuel to continue to burn (such as a wooden floor or flammable ground litter such as grass and twigs). If the animated fire goes 3 rounds not touching something flammable, it goes out and the spell ends.</p>
 <p>The animated fire can spend 3 consecutive Actions to set something flammable on fire.</p>';
@@ -721,7 +721,7 @@ class SpellsASeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Instrument touched';
-        $spell->duration    = 'Concentration, upto 10 minutes';
+        $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = '<p>As you finish intoning this spell, your instrument leaves your hands and floats before you, continuing your song.</p>
 <p>You imbue your musical instrument with the ability to play at your command. This instrument can play a tune on your behalf even while you are busy with other Actions. As long as this spell is in effect, you can cause the instrument to begin playing as an Action, effectively mimicking and continuing your performance. The instrument uses your Perform modifier for the purpose of Bardic music checks. You can animate any non-magical musical instrument, such as a piano, fiddle, or harp. If the instrument must be carried or held while played, it floats in the air in the square in which you cast the spell. The animated instrument cannot move. It continues to play until the spell ends or the instrument is damaged.</p>
 <p>An animated instrument has AC 10 + any relevant size modifiers (most handheld instruments are Tiny, which provides a +8 to AC).</p>';
@@ -857,7 +857,7 @@ class SpellsASeeder extends Seeder
         $spell->range       = '60 feet';
         $spell->rarity      = 'Rare';
         $spell->targets     = 'A body of water of at least 1 gallon';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>You animate a small amount of water with mobility and the semblance of life. Use the statistics for a Small Object from the Animate Object spell except it has double the Hit Points. The animated water can make Slam attacks that deal 1D4 point of Bludgeoning damage + STR modifier (A small animated water has a STR of 10, and gains 3 points of STR for each size larger). It has Immunity to Water attacks and has Vulnerability to Fire attacks.</p>
 <p>You must have an amount of water to animate. If the animation uses all the water, then it takes 1 Hit Point of damage each round until it touches another body of water. Otherwise, if the animated water starts its turn away from a body water, it takes 1 Hit Point of damage each round until it returns to a body of water.</p>';
         $spell->heightened  = '<dl>
@@ -870,7 +870,7 @@ class SpellsASeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Melee weapon touched';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = "<p>You enchant a melee weapon with the ability to fight for itself. Each turn, it can take 2 Actions and fights with your Proficiency modifier, but not any of your ability score modifiers (i.e. your STR or DEX). It can move with a Fly Speed of 30. It does not benefit with any of your skills or feats.</p>
 <p>The weapon has an AC equal to 10 + its size modifier. A weapon has Hardness 5 and 10 Hit Points. These Hit Points do not represent the amount of damage needed to break or damage the weapon, but the amount of damage to end the animation spell.</p>
 <p>You may use an Action to direct the animated weapon. The weapon continues to follow the last given instructions until it no longer can. Otherwise, it only takes Actions to defend itself.</p>
@@ -906,7 +906,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'One small or smaller wooden object';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>This spell imbues a Small or smaller wooden object with mobility and a semblance of life, then causes it to immediately attack whomever or whatever you chose.</p>
 <p>Statistics for the animated wood are as for a Small Animated Object from the Animate Object Spell with a Hardness of 5.</p>
 <p>This spell cannot animate objects carried or worn by a creature.</p>
@@ -939,7 +939,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->requirements = '<dl>
     <dt>Secondary Casters</dt> <dd>One additional caster who must also cast this spell</dd>
 </dl>';
-        $spell->duration     = '1 day';
+        $spell->duration     = '24 Hours';
         $spell->description  = '<p>You create an area that can detect when something is going to teleport into the area of effect. The area forms in between the 2 casters (the straight line between them forms a diameter of the sphere). When something intends to teleport into the area of effect, you are made aware of the teleportation, including the exact location and the number of creatures. The aura also delays the teleportation by 3 rounds (the teleporting creatures are not aware of this delay).</p>
 <p>This spell has no effect on creatures attempting to teleport away from the area of effect.</p>';
         $spell->heightened   = '<dl>
@@ -954,7 +954,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->area        = '10-ft radius sphere centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 hour';
+        $spell->duration    = 'Concentration, up to 1 hour';
         $spell->description = '<p>You create a spherical field of magic that protects against Cold. All creatures within the area of the spell gain Immunity to Cold. In addition, the sphere prevents the entrance of any creature with the Cold type. Forcing the sphere against a creature with the Cold type causes the spell to end.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the radius</dd>
@@ -966,7 +966,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->area        = '10-ft radius sphere centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 hour';
+        $spell->duration    = 'Concentration, up to 1 hour';
         $spell->description = '<p>You create a spherical field of magic that protects against Electricity. All creatures within the area of the spell gains Immunity to Electricity. In addition, the sphere prevents the entrance of any creature with the Electricity type. Forcing the sphere against a creature with the Electricity type causes the spell to end.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the radius</dd>
@@ -978,7 +978,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->area        = '10-ft radius sphere centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 hour';
+        $spell->duration    = 'Concentration, up to 1 hour';
         $spell->description = '<p>You create a spherical field of magic that protects against Fire. All creatures within the area of the spell gains Immunity to Fire. In addition, the sphere prevents the entrance of any creature with the Fire type. Forcing the sphere against a creature with the Fire type causes the spell to end.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the radius</dd>
@@ -1040,7 +1040,7 @@ A magic weapon's properties and powers are suppressed if it is used against a ta
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->area        = '10-ft radius sphere centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 hour';
+        $spell->duration    = 'Concentration, up to 1 hour';
         $spell->description = '<p>You create a spherical field of magic that protects against Plants. All creatures with the Plant type cannot cross the sphere (although they can make Ranged attacks with projectiles that are not considered Plants). Forcing the sphere against a creature with the Plant type causes the spell to end.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the radius</dd>
@@ -1444,7 +1444,7 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         $spell->range       = '120 foot';
         $spell->area        = '40-ft radius centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 10 minutes';
+        $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = "<p>You call a globe of absolute darkness into being, which only you can see through. All other creatures within or who enter this spell's area are blinded while they remain in the area. Even creatures that have darkvision cannot see through this magical darkness, although creatures capable of seeing in magical darkness are not affected by it.</p>
 <p>While you are outside the sphere, you can see nothing within, and every creature within has total concealment. Upon entering the spell's area, however, you can see as if the area were illuminated by bright light and can interact with those within as normal, even through they cannot see you.</p>";
         $helper->addTypesToSpell($spell, ['Evocation', 'Darkness'], 4);
@@ -1474,7 +1474,7 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
         $spell->rarity      = 'Rare';
-        $spell->duration    = '7 days';
+        $spell->duration    = '1 Week';
         $spell->description = "<p>This spell can only be cast from the Astral Plane.</p>
 <p>You open a small planar portal from the Astral Plane to a demiplane where natural healing can occur (unlike on the Astral Plane itself).</p>
 <p>The firm surface of the demiplane is roughly 50 square ft, and the demiplane extends 50 feet above the surface. THe demiplane's traits (including time, gravity, and magic) match those of the Material Plane, and the demiplane is self-contained; walking to one end wraps around to the other end.</p>
@@ -1593,14 +1593,15 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
 </dl>";
         $helper->addTypesToSpell($spell, ['Aura', 'Necromancy', 'Death'], 4);
 
-        $spell              = new Spell;
-        $spell->name        = 'Aura of Fear';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->area        = '30 ft radius';
-        $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You emit an aura of Fear. All creatures in the area must make a CHA Save and suffer the effects based on their Save. A creature can attempt another Save at the end of each of its turns, if it is a success, The Frightened Condition ends. Once a creature successfully Saves, they are immune to this spell from this caster for 1 day.</p>';
-        $spell->saves       = '<dl>
+        $spell                 = new Spell;
+        $spell->name           = 'Aura of Fear';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'CHA';
+        $spell->area           = '30 ft radius';
+        $spell->targets        = 'Self';
+        $spell->duration       = 'Concentration, up to 1 minute';
+        $spell->description    = '<p>You emit an aura of Fear. All creatures in the area must make a CHA Save and suffer the effects based on their Save. A creature can attempt another Save at the end of each of its turns, if it is a success, The Frightened Condition ends. Once a creature successfully Saves, they are immune to this spell from this caster for 1 day.</p>';
+        $spell->saves          = '<dl>
     <dt>Success</dt> <dd>The target is unaffected</dd>
     <dt>Failure</dt> <dd>The target is frightened 1 for 1 minute or until they succeed on a Save</dd>
     <dt>Critical Failure</dt> <dd>The target is frightened 2 and fleeing for 1 round</dd>

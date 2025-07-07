@@ -20,6 +20,7 @@ class ClassHexBladeSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Hex Blade';
+        $class->type          = 'Base';
         $class->key_attribute = 'CHA';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor';

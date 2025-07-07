@@ -22,6 +22,7 @@ class ClassBardSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Bard';
+        $class->type          = 'Base';
         $class->key_attribute = 'CHA';
         $class->hit_dice      = 8;
         $class->weapons       = 'Simple Weapons plus the Hand Crossbow, Longsword, Rapier, Sap, Shortsword, Shortbow, and Whip';

@@ -65,7 +65,7 @@ class SpellsRSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '60 feet';
         $spell->targets     = 'One willing creature within range';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = "<p>Each affected creature gains a +4 morale bonus to STR and CON, a +1 morale bonus on WIS Saves, and a -2 penalty to AC. The effect is otherwise identical with a barbarian's rage except that the subjects aren't fatigued at the end of the rage.</p>";
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>You can target up to 5 targets within range</dd>
@@ -493,7 +493,7 @@ class SpellsRSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Construct touched';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>The targeted construct gains Fast Healing 5. This does not stack with Fast Healing the construct already has.</p>
 <p>Fast healing has no effect on a construct that has been brought to 0 hit points or destroyed.</p>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Construct'], 5);
@@ -522,7 +522,7 @@ class SpellsRSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '5-foot radius aura';
         $spell->targets     = 'One creature touched';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>All forms of vegetable life, including fungi, slimes, molds and the like are repelled from the target. Plants suffer a -3 penalty to hit the target, and plants cannot Grapple the target. If the target initiates the Grapple, the plant suffers a -3 penalty on all Grapple checks.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+4)</dt> <dd>This spell also affects wood, but it does not need to be alive</dd>
@@ -552,7 +552,7 @@ class SpellsRSeeder extends Seeder
         $spell->save_attribute = 'STR';
         $spell->area           = 'Up to 120 ft radius emanation centered on you';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>You create an invisible mobile field that surrounds you and prevents creatures from approaching you. You decide how big the field is at the time of casting (upto the limit of the Area). Any creature within or entering the field must make a STR Save. If it Fails, it becomes unable to move toward you for the Duration. Repelled creature's Actions are not otherwise restricted. They can fight other creatures and can cast spells and attack you with Ranged Attacks. If you move closer to an affected creature, nothing happens. The creature is free to make Melee Attacks against you if you come within reach.</p>
+        $spell->description    = "<p>You create an invisible mobile field that surrounds you and prevents creatures from approaching you. You decide how big the field is at the time of casting (up to the limit of the Area). Any creature within or entering the field must make a STR Save. If it Fails, it becomes unable to move toward you for the Duration. Repelled creature's Actions are not otherwise restricted. They can fight other creatures and can cast spells and attack you with Ranged Attacks. If you move closer to an affected creature, nothing happens. The creature is free to make Melee Attacks against you if you come within reach.</p>
 <dl>
     <dt>Material Components</dt> <dd>A pair of small iron bars attached to two small canine statuettes, one black and one white, the whole array worth 50 gp.</dd>
 </dl>";
@@ -752,7 +752,7 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
         $spell->name        = 'Resist Turning';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch, 15-ft radius';
-        $spell->duration    = '5 minutes or until dispelled';
+        $spell->duration    = '10 minutes or until dispelled';
         $spell->description = '<p>This spell protects undead creatures from being turned or commanded. When a turning attempt is made against a protected undead, the DM secretly rolls a single resistance roll. The resistance Succeeds on a DC 13. Successful resistance means the turning attempt fails. This spell ends after protecting against a Turning or Rebuke attempt (success or fail)</p>
 <p>You may center this spell on yourself, on a particular touched creature or object, or ona fixed location and moves with the target of the spell.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Necromancy'], 2);
@@ -862,7 +862,7 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
         $spell->casting     = 'Material Casting, Somatic Casting';
         $spell->range       = '60 feet';
         $spell->targets     = 'One creature within range';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = "<p>You reveal the true form of a magically disguised or transformed creature, whether the target's transformation is physical (such as polymorph) or illusory (such as disguise self). The spell does not force the creature into its true form, but rather creates a perfect illusion of the creature's true form that overlaps it and hides the disguised form completely, making the true form visible to all observers. For the duration of the spell, if the target changes shape or uses illusion to disguise its appearance, observers can still see its true form, though once the spell runs out any illusions or shape changes made by the target in the meantime immediately take effect. This spell does not reveal invisible creatures, overcome effects such as blur and displacement, or penetrate mundane disguises.</p>";
         $helper->addTypesToSpell($spell, ['Divination'], 2);
 
@@ -1118,7 +1118,7 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
         $spell->spell_creator = 'Lathander';
         $spell->range         = 'Touch';
         $spell->targets       = 'Creature touched';
-        $spell->duration      = '10 rounds';
+        $spell->duration      = '1 minute';
         $spell->description   = '<p>You cause the target to glow with a soft, faint, rosy radiance equal to candlelight.  This glow protects the target against effects that work by directly causing pain, nausea, and fear effects by granting a +5 sacred bonus on Saves against those spells and effects. The target also becomes temporarily immune to poison (as the Delay Poison spell).</p>
 <p>This spell only suppresses these effects, not negate them, so the effects resume when this spell expires.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 1);

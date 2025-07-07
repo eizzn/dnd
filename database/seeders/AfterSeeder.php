@@ -43,16 +43,6 @@ class AfterSeeder extends Seeder
         Spell::where('name', 'Uaul`Selu`Keryth')->firstOrFail()->feats()->save($highMagic);
         Spell::where('name', 'Vuorl`Kyshuf')->firstOrFail()->feats()->save($highMagic);
 
-        $node = Feat::where('name', 'Node Spellcasting')->firstOrFail();
-        Spell::where('name', 'Locate Node')->firstOrFail()->feats()->save($node);
-        Spell::where('name', 'Node Lock')->firstOrFail()->feats()->save($node);
-        Spell::where('name', 'Node Genesis')->firstOrFail()->feats()->save(
-            Feat::where('name', 'Improved Node Spellcasting')->firstOrFail()
-        );
-
-        Spell::where('name', 'Unicorn Stead')->firstOrFail()
-            ->feats()->save(Feat::where('name', "Mielikki's Needles")->firstOrFail());
-
         $spell = Spell::where('name', 'Arcane Evasion')->firstOrFail();
         $spell->spells()->save(Spell::where('name', 'Teleport')->firstOrFail());
 

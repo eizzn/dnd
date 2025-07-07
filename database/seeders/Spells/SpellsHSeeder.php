@@ -123,7 +123,7 @@ class SpellsHSeeder extends Seeder
         $spell->name        = 'Hammer of Chaos';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '120 ft';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>You create a field of force in the shape of a multicolored hammer that has a Fly Speed of 60 and can be moved as far away as you range. You may move the hammer as an Action, and attack with it as an Action with a Ranged Spell Attack. It deals 8D6 Chaotic damage on a hit and must make a CHA Save or be Slowed 1. Only Lawful and Neutral outsiders are harmed by this hammer.</p>';
         $spell->saves       = '<dl>
     <dt>Critical Success</dt> <dd>Not Slowed</dd>
@@ -594,7 +594,7 @@ class SpellsHSeeder extends Seeder
         $spell->name        = 'Helping Hand';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '5 miles';
-        $spell->duration    = '5 hours';
+        $spell->duration    = '8 hours';
         $spell->description = "<p>You create a ghostly image of a hand, which you can send to find a creature within Range. The hand then beckons to that creature and leads it to you if the creature is willing to follow.</p>
 <p>When the spell is cast, the hand appears in front of you. You then specify a person (or any creature) by physical description, which can include race, gender, and appearance but not ambiguous factors such as level, alignment, or class. When the description is complete, the hand streaks off in search of a subject that fits the description. The amount of time it takes to find the subject depends on how far away they are.</p>
 <p>Once the hand locates the subject, it beckons the creature to follow it. If the subject does so, the hand points in your direction, indicating the most direct feasible route. The hand hovers 10 feet in front of the subject, moving before it at a Fly Speed of up to 90. Once the hand leads the subject back to you, it disappears.</p>
@@ -640,7 +640,7 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Living humanoid touched';
-        $spell->duration    = '2 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>This spell temporarily grants a Feat from the Fighter Class list to the target. The target must qualify for all of the Feats requirements.</p>
 <dl>
     <dt>Material Components</dt> <dd>A bit of a weapon or armor that has been used in combat by a character with at least 10 levels of Fighter</dd>
@@ -933,7 +933,7 @@ class SpellsHSeeder extends Seeder
 
         $spell                 = new Spell;
         $spell->name           = 'Horrible Taste';
-        $spell->casting        = 'Free Action';
+        $spell->casting        = 'Free Casting';
         $spell->targets        = 'Self';
         $spell->save_attribute = 'CON';
         $spell->duration       = '1 minute';
@@ -999,7 +999,7 @@ class SpellsHSeeder extends Seeder
 
         $spell              = new Spell;
         $spell->name        = "Hunter's Mark";
-        $spell->casting     = 'Free';
+        $spell->casting     = 'Free Casting';
         $spell->range       = '90 feet';
         $spell->targets     = 'One creature';
         $spell->duration    = 'Concentration, up to 3 hours';
@@ -1128,7 +1128,7 @@ class SpellsHSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->range          = '30 feet';
         $spell->targets        = 'Several living creatures, no two of which may be more than 30 feet apart';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>Your gestures and droning incantation fascinate nearby creatures, causing them to stop and stare blankly at you. In addition, in this state, your suggestions are more convincing.</p>
 <p>You can affect up to 10 Hit Die of creatures. Creatures with fewer HD are affected first. Affected creatures must make a WIS Save or be Fascinated.</p>
 <p>If you use this spell in combat, the targets all receive a +4 bonus to their Save. If you only target a single creature, they suffer a -2 penalty to their Save.</p>

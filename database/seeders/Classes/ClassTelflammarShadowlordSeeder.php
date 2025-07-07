@@ -21,6 +21,7 @@ class ClassTelflammarShadowlordSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Telflammar Shadowlord';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'DEX or CHA';
         $class->armors        = 'Light Armor';
         $class->weapons       = 'Simple Weapons';

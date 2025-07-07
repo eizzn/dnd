@@ -27,9 +27,7 @@ class SpellController extends Controller
     {
         return new SpellResource(
             $service->index(['id' => $id])
-                ->with([
-                    'types',
-                ])->firstOrFail()
+                ->firstOrFail()
         );
     }
 }

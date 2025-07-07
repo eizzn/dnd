@@ -42,6 +42,7 @@ class GodsCorellonSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Corellon';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, Short Sword, Long Sword, Shortbow, Longbow';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -186,6 +187,7 @@ class GodsCorellonSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Deep Sashelas';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, Trident, Harpoon';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -247,6 +249,7 @@ class GodsCorellonSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Labelas';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, Longbow';
         $class->armors        = 'Light Armor, Medium Armor';

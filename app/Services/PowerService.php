@@ -31,7 +31,8 @@ class PowerService implements Contracts\PowerService
                 \App\Filters\Id::class,
                 \App\Filters\Name::class,
                 \App\Filters\ActionType::class,
-                \App\Filters\Type::class,
+                \App\Filters\TypesByName::class,
+                \App\Filters\DefaultLevel::class,
                 \App\Filters\Order::class,
             ])
             ->thenReturn();

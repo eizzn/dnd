@@ -402,7 +402,7 @@ class SpellsTSeeder extends Seeder
         $spell->duration    = 'Instantaneous';
         $spell->description = '<p>By means of this spell, the barrier between reality and Temporal Prime is thinned, allowing you to slip between the two. Any creatures intending to attack someone who manages to this spell away first lose their attacks for that round. Slipping into Temporal Prime places you and your companions immediately downstream of your lifelines (add one round to the casting time for each companion). Lifelines trail off into the silver mist that surrounds you. If there is heavy turbulence in the area, the travelers are displaced slightly so that they are relatively safe.</p>
 <p>When slipping back from Temporal Prime, you must focus on a lifeline to make the connection with reality. You end up within 1D10 miles of the creature that lifeline corresponds to. This feature also helps you to intersect a specific lifeline.</p>
-<p>All your equipment slips with you, up to a maximum of 100 lbs. You may bring along upto 2 additional creatures. If a target is reluctant, a Save vs INT negates the entire spell.</p>
+<p>All your equipment slips with you, up to a maximum of 100 lbs. You may bring along up to 2 additional creatures. If a target is reluctant, a Save vs INT negates the entire spell.</p>
 <dl>
     <dt>Material Components</dt> <dd>A diaphanous square of fine silk and a small piece of basalt</dd>
 </dl>';
@@ -766,7 +766,7 @@ class SpellsTSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Until the end of your turn';
-        $spell->description = '<p>You have Advantage on your next attack this turn. The attack also ignores circumstance penalties to the attack roll and any miss chance due to the target being concealed or sensed.</p>
+        $spell->description = '<p>You have Advantage on your next attack this turn. The attack also ignores circumstance penalties to the attack roll and any miss chance due to the target being Concealed or Sensed.</p>
 <p>If you use a 1st level Spell Slot to cast this spell, then it only requires a Somatic Casting, and if you hit, you deal an additional Damage Dice.</p>';
         $helper->addTypesToSpell($spell, ['Divination', 'Enchantment', 'Fortune'], 0);
 

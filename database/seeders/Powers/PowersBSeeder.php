@@ -299,7 +299,7 @@ class PowersBSeeder extends Seeder
         $power->targets        = '1 creature';
         $power->save_attribute = 'WIS';
         $power->requirements   = 'The target must have suffered at least 5 points of ability damage';
-        $power->duration       = '10 rounds';
+        $power->duration       = '1 minute';
         $power->description    = "<p>You invade the target's mind and temporarily reduce their ability to ward off attacks. If the target succeeds on its Save, its hardiness is still depleted, and the target takes 1 extra point of damage per die of damage it is dealt from Melee or Ranged attacks while the duration lasts. If it fails its Save, it takes maximum damage plus 1 point of extra damage per die of damage it is dealt from Melee or Ranged attacks while the duration lasts.</p>
 <blockquote>
     A greatsword that normally deals 1D12 damage hits the target, they take 13 points of damage from the hit automatically

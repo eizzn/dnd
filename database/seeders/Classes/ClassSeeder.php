@@ -21,6 +21,7 @@ class ClassSeeder extends Seeder
 
         $class            = new Klass;
         $class->name      = 'Base Class';
+        $class->type      = 'Abstract';
         $class->max_level = 20;
         $helper->saveClass($class);
 
@@ -159,6 +160,7 @@ class ClassSeeder extends Seeder
 
         $class             = new Klass;
         $class->name       = 'Cleric';
+        $class->type       = 'Abstract';
         $class->has_spells = 1;
         $helper->saveClass($class);
 

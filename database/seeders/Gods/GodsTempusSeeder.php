@@ -39,6 +39,7 @@ class GodsTempusSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Tempus';
+        $class->type          = 'Priest';
         $class->key_attribute = 'STR or WIS';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -187,6 +188,7 @@ class GodsTempusSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Valkur';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons, and the Cutlass';
         $class->armors        = 'Light Armor';

@@ -112,7 +112,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Abstinence';
-        $feat->short_description = '<p>You have taken a vow to abstain form alcoholic beverages, drugs, stimulants such as caffeine, and intoxication.</p>';
+        $feat->short_description = 'You have taken a vow to abstain form alcoholic beverages, drugs, stimulants such as caffeine, and intoxication.';
         $feat->description       = '<p>You perfect your body to be resistant to Poisons and Drugs.</p>
 <ul>
     <li>You gain a +5 Perfection Bonus on all Saves against poisons and drugs (as long as you are subjected to a drug unwillingly).</li>
@@ -125,7 +125,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Chastity';
-        $feat->short_description = '<p>You have taken a sacred vow to refrain from marriage and sexual intercourse</p>';
+        $feat->short_description = 'You have taken a sacred vow to refrain from marriage and sexual intercourse';
         $feat->description       = '<p>You perfect your mind against Compulsions</p>
 <ul>
     <li>You gain a +5 Perfection Bonus on Saves against Charm, Compulsion, and Phantasm spells and effects.</li>
@@ -137,7 +137,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Nonviolence';
-        $feat->short_description = '<p>You have taken a sacred vow to avoid violence against humanoids.</p>';
+        $feat->short_description = 'You have taken a sacred vow to avoid violence against humanoids.';
         $feat->description       = '<ul>
     <li>The Save DCs for spells you cast and Class Features you use increases by +5 if the spell or feature does not deal damage (including ability damage but not nonlethal damage), or cause death.</li>
     <li>Your purity is so great that any ally of yours who slays a helpless or defenseless foe within 120 feet of you feels great remorse. Your ally takes a -1 moral penalty on his attack rolls for 8 hours. For each helpless foe slain, the attack penalty increases by 1, to a maximum of -5. The duration of the increased penalty starts from the latest slaying. You may ask your allies to give you an oath that a helpless foe will not be slain. If the oath is sworn, an ally who later breaks the oath takes the penalty for doing so as if you were present. If you leave a helpless foe to be killed by your allies, you have broken your vow.</li>
@@ -151,7 +151,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Obedience';
-        $feat->short_description = '<p>You have taken a sacred vow to live according to the dictates of another, generally your superior in a religious order or similar organization.</p>';
+        $feat->short_description = 'You have taken a sacred vow to live according to the dictates of another, generally your superior in a religious order or similar organization.';
         $feat->description       = '<p>You have taken a vow to serve a superior without question</p>
 <ul>
     <li>You gain a +5 Perfection Bonus on Saves against Compulsion spells and effects.</li>
@@ -163,7 +163,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Peace';
-        $feat->short_description = '<p>You have taken a sacred vow to abstain form harming any living creature</p>';
+        $feat->short_description = 'You have taken a sacred vow to abstain form harming any living creature';
         $feat->description       = '<p>This sacred vow grants significant benefits, but at a high cost.</p>
 <ul>
     <li>You are constantly surrounded by a calming aura to a radius of 20 feet. Creatures within the area must make a successful WIS Save (DC 10 + 1/2 your character level + your CHA modifier) or be affected as by the Calm Emotions spell. Creatures who leave the aura and reenter it receive new Saves. A creature that makes a successful Save and remains in the aura is unaffected until it leaves the aura and reenters. The aura is mind-affecting, supernatural compulsion.</li>
@@ -286,7 +286,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Purity';
-        $feat->short_description = '<p>You have taken a sacred vow to avoid contact with dead flesh.</p>';
+        $feat->short_description = 'You have taken a sacred vow to avoid contact with dead flesh.';
         $feat->description       = '<p>You perfect your body against Disease</p>
 <ul>
     <li>You gain a +5 Perfection Bonus on Saves to resist disease and death effects.</li>
@@ -337,7 +337,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Willing Deformity';
-        $feat->short_description = '<p>Through scarification, self-mutilation, or supplication to dark powers, you intentionally mark your own body.</p>';
+        $feat->short_description = 'Through scarification, self-mutilation, or supplication to dark powers, you intentionally mark your own body.';
         $feat->description       = '<p>You gain the following</p>
 <ul>
     <li>You add the Intimidation skill to all your class skills. If you already have the Intimidation skill, you gain an additional +2 Vile Bonus to all Intimidation checks.</li>
@@ -348,7 +348,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Clawed Hands)';
-        $feat->short_description = '<p>Because of intentional self-mutilation, you have deformed arms and hands ending in sharp claws.</p>';
+        $feat->short_description = 'Because of intentional self-mutilation, you have deformed arms and hands ending in sharp claws.';
         $feat->description       = '<p>You gain the following:</p>
 <ul>
     <li>You have the ability to deal 1D6 points of Slashing Damage as an Unarmed claw attack. You are considered armed even when unarmed as if you had the Improved Unarmed Strike feat.</li>
@@ -361,7 +361,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Eyes)';
-        $feat->short_description = '<p>You have either drilled a hole in your forehead trying to add a third eye, or you have supernaturally scarred one of your regular eyes.</p>';
+        $feat->short_description = 'You have either drilled a hole in your forehead trying to add a third eye, or you have supernaturally scarred one of your regular eyes.';
         $feat->description       = '<p>You gain the following:</p>
 <ul>
     <li>You gain a +5 Bonus to Perception checks based on vision.</li>
@@ -376,7 +376,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Face)';
-        $feat->short_description = '<p>Because of intentional self-mutilation, you have a hideous face.</p>';
+        $feat->short_description = 'Because of intentional self-mutilation, you have a hideous face.';
         $feat->description       = '<p>You gain the following abilities.</p>
 <ul>
     <li>You gain a +2 circumstance Bonus to Intimidate checks and a +2 deformity Bonus on Diplomacy checks dealing with Evil creatures.</li>
@@ -389,7 +389,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Gaunt)';
-        $feat->short_description = '<p>Through intentional starvation and macabre operations, you are grossly underweight. You have a skeletal appearance, and your weight is now half normal for creatures of your kind.</p>';
+        $feat->short_description = 'Through intentional starvation and macabre operations, you are grossly underweight. You have a skeletal appearance, and your weight is now half normal for creatures of your kind.';
         $feat->description       = '<p>You gain the following abilities.</p>
 <ul>
     <li>+3 deformity Bonus to DEX.</li>
@@ -404,7 +404,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Obese)';
-        $feat->short_description = '<p>Through intentional gorging and general gluttony, you are obese. Grossly overweight, you are now at least triple the normal weight for creatures of your kind.</p>';
+        $feat->short_description = 'Through intentional gorging and general gluttony, you are obese. Grossly overweight, you are now at least triple the normal weight for creatures of your kind.';
         $feat->description       = '<p>You gain the following abilities.</p>
 <ul>
     <li>+3 deformity Bonus to CON.</li>
@@ -418,7 +418,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Evil Brand';
-        $feat->short_description = '<p>You are physically marked forever as a servant of a greater evil power. The symbol is unquestionable in its perversity.</p>';
+        $feat->short_description = 'You are physically marked forever as a servant of a greater evil power. The symbol is unquestionable in its perversity.';
         $feat->description       = '<ul>
     <li>Increase any attribute by 2, to a maximum of 20.</li>
     <li>1/day, you may cast Commune without needing a Secondary Caster and contact your patron.</li>

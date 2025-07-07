@@ -8,7 +8,7 @@ class Name extends Filter
     {
         if (strlen($data->params[$filterName]) > 1) {
             $data->queryBuilder->where(function ($query) use ($data, $filterName) {
-                $query->where('name', 'LIKE', $data->params[$filterName] . '%');
+                $query->where('name', 'LIKE', '%' . $data->params[$filterName] . '%');
             });
         }
 

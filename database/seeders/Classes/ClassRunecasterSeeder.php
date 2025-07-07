@@ -19,6 +19,7 @@ class ClassRunecasterSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Rune Caster';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'WIS';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

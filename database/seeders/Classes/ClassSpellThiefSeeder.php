@@ -21,6 +21,7 @@ class ClassSpellThiefSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Spellthief';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX or INT';
         $class->armors        = 'Light Armor';
         $class->weapons       = 'Simple Weapons, Shortbow, Shortsword';

@@ -76,7 +76,7 @@ class SpellsSSeeder extends Seeder
         $spell->name        = 'Safe Clearing';
         $spell->casting     = '1 minute';
         $spell->range       = '30 ft sphere';
-        $spell->duration    = '5 hours';
+        $spell->duration    = '8 hours';
         $spell->description = "<p>You make an area safe from attacks, as if the entire space were under a Sanctuary spell. Once the spell is cast, its area is immobile.</p>
 <p>Any opponent attempting to strike or otherwise directly attack a creature within the area, even with a targeted spell, must attempt a WIS Save. If the Save succeeds, the opponent can attack normally and is unaffected by the. If the Save fails, the opponent cannot follow through with the attack, and that Action is lost, and it can't directly attack anyone in the safe clearing for the duration of the spell. Those not attempting to attack creatures inside the warded area remain unaffected. This spell does not prevent the warded creatures from being affected by area or effect spells.</p>
 <p>Those inside the Safe Clearing cannot attack without breaking the spell, even if they are unaffected by it.</p>";
@@ -371,7 +371,7 @@ class SpellsSSeeder extends Seeder
         $spell->save_attribute = 'CHA';
         $spell->range          = '30 feet';
         $spell->targets        = 'One interplanar portal';
-        $spell->duration       = '5 minutes';
+        $spell->duration       = '10 minutes';
         $spell->description    = "<p>You randomize the destination of one interplanar portal for the duration of the spell. Anyone who passes through the portal from either side is sent to a random plane instead of the portal's intended destination unless they make a CHA Save.</p>
 <dl>
     <dt>Material Component</dt> <dd>A cracked mirror</dd>
@@ -425,7 +425,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->save_attribute = 'WIS';
         $spell->range          = '30 feet';
-        $spell->targets        = 'Upto 5 creatures or objects, no two of which can be more than 30 ft apart';
+        $spell->targets        = 'Up to 5 creatures or objects, no two of which can be more than 30 ft apart';
         $spell->duration       = '8 hours';
         $spell->description    = "<p>You change the sounds that target creatures or objects make. You can create sounds where none exists (such as making trees sing), deaden sounds (such as making a party of adventurers silent), or transform sounds into other sounds (such as making a caster's voice sound like a pig snorting).</p>
 <p>All affected creatures or objects must be affected in the same way. Once the spell is cast, you cannot change it in any way (which would cause the spellcaster to be unable to cast spells that require Verbal Casting).</p>";
@@ -942,7 +942,7 @@ class SpellsSSeeder extends Seeder
         $spell              = new Spell;
         $spell->name        = 'Shadowgate';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
-        $spell->duration    = 'Concentration, upto 10 minutes';
+        $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = '<p>You open a portal to the Plane of Shadow. The portal remains open for the Duration and any creature may pass from either side. Since this spell must be cast in an area of heavy shadows, it appears almost invisible, while from the Shadowfell, it appears as a white hole.</p>
 <p>Note, this spell cannot be cast from the Shadowfell, and it must be cast on a Plane that coexists with the Plane of Shadow (mostly the Material, Feywild, and Elemental Planes). If you enter the portal and the portal closes, you must find another way back.</p>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Shadow', 'Portal'], 5);
@@ -1720,7 +1720,7 @@ class SpellsSSeeder extends Seeder
         $spell->range          = '30 feet';
         $spell->targets        = 'One living creature';
         $spell->save_attribute = 'CON';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>This spell is an even more potent version of Stern Reproof. It causes wracking pain and violent convulsions. The target creature must make a CON Save or die instantly. A surviving creature reveives a WIS Save to avoid further effects, Dazed and suffers a -4 penalty to Saves for the duration of the spell.</p>
 <p><strong>Material Component</strong> A whip</p>';
         $spell->saves = '<dl>
@@ -1925,7 +1925,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Willing creature touched';
-        $spell->duration    = '2 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>This spell creates an amorphous field around the targets legs and feet. Their shapelessness means that these fields do not hamper movement.</p>
 <p>The magic allows creatures who would normally break through a crust of snow or ice to glide atop it by spreading out their weight. It also absolutely prevents their falling over due to an external thrusting force or attack, though they can deliberately launch themselves into a dive or fall. The prohibition on falling works only on upright bipeds of 9 feet tall or less and who have at least two waling limbs (legs). the magic does not permit water walking on open water, but does slow sinking in water from a plunge into a round-long settling.</p>';
         $spell->heightened  = '<dl>
@@ -2092,7 +2092,7 @@ class SpellsSSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->range          = 'Touch';
         $spell->targets        = 'Creature touched';
-        $spell->duration       = '1 day';
+        $spell->duration       = '24 Hours';
         $spell->description    = "<p>You form a mental bond to the Target, allowing you to monitor the Target's condition similar to the Status spell. You also gain the following.</p>
 <ul>
     <li>You may also communicate telepathically with the Target as long as you and the Target are both on the same Plane of existence.</li>
@@ -2294,7 +2294,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $spell->targets      = 'Self';
         $spell->duration     = '3 hours';
-        $spell->description  = '<p>You prepare a magical matrix that allows you to store one of your spells and cast it later as an Action. After completing this spell, you may cast upto 2 more spell of up to 3rd level into the matrix. The matrix absorbs those spells and you may cast them as a Reaction each. Only a spell that can be modified with Quicken Spell can be placed in the matrix, and any spell stored there is treated as a prepared spell.</p>
+        $spell->description  = '<p>You prepare a magical matrix that allows you to store one of your spells and cast it later as an Action. After completing this spell, you may cast up to 2 more spell of up to 3rd level into the matrix. The matrix absorbs those spells and you may cast them as a Reaction each. Only a spell that can be modified with Quicken Spell can be placed in the matrix, and any spell stored there is treated as a prepared spell.</p>
 <p>While the matrix is active, you can cast a stored spell as a Reaction. Once a spell is cast, the spell is gone.</p>
 <p>A Dispel Magic spell that successfully Dispels the matrix also dispels all stored spells. If you are affected by an Antimagic Field, the Duration of the matrix is interrupted and you may not cast any stored spells. Once you are no longer affected by the Antimagic Field, you may use any stored spell as normal. If you fall unconscious or die while the matrix is active, it and the store spells dissipates harmlessly</p>
 <dl>
@@ -2656,7 +2656,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Material Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Very small inanimate object, such as a coin';
-        $spell->duration    = '3 days, then Concentration, upto 10 minutes';
+        $spell->duration    = '3 days, then Concentration, up to 10 minutes';
         $spell->description = "<p>You enchant a Fine object (such as a coin, stone, or other innocuous item) with a dormant enchantment. Anyone attempting to detect its magical aura must Succeed on a Caster Level Check (DC 15 + your Spell Caster Level).</p>
 <p>At any one time during the spell's initial Duration, you may, as an Action, begin to Concentrate on the enchanted item, enabling you to hear or see (your choice) as if you were in the object's location. This effect otherwise functions as if you had cast Clairaudience/Clairvoyance in the object's Area.</p>
 <p>You have no sense of where the item is, even after Concentrating.</p>
@@ -2746,7 +2746,7 @@ class SpellsSSeeder extends Seeder
         $spell->name        = 'Status';
         $spell->casting     = '1 minute (Somatic, Verbal)';
         $spell->range       = 'Touch';
-        $spell->targets     = 'Upto 2 willing creatures touched';
+        $spell->targets     = 'Up to 2 willing creatures touched';
         $spell->duration    = '8 hours';
         $spell->description = '<p>This spell allows you to mentally monitor the Target creatures. You know their relative positions (direction and distance) and general condition. You are aware of the following conditions that affect them.</p>
 <ul>
@@ -3483,7 +3483,33 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Light'], 3);
 
-        // https://dndtools.net/spells/?page=215
+        $spell              = new Spell();
+        $spell->name        = 'Suppress Magical Writings';
+        $spell->casting     = '1 minute (Somatic, Verbal)';
+        $spell->area        = '100-ft radius emanation centered on you';
+        $spell->duration    = '10 minutes';
+        $spell->description = "<p>You gain an enhanced awareness of magical writings within the Area. Magical writings such as Glyphs of Warding, Explosive Runes, Sepia Snake Sigil, or Symbols are covered in a blue nimbus of light (which sheds light equal to a candle). This effect reveals the location of magical writings without triggering them.</p>
+<p>For each revealed magical writing, you can attempt a Dispel Check (DC 13 + magical writing's caster level). If you Succeed, the magical writing is suppressed for the Duration.</p>
+<p>If a magical writing comes into existence in the Area of an active Suppress Glyph's Area, then it is automatically suppressed for the Duration.</p>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 3);
+
+        $spell              = new Spell();
+        $spell->name        = 'Surge of Fortune';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute or until Discharged';
+        $spell->description = '<p>The of your Deity flows through you, guiding your movements and honing your instincts. You gain the following.</p>
+<ul>
+    <li>+2 Bonus to Hit</li>
+    <li>+2 Bonus to all Saves</li>
+    <li>+2 Bonus to all Ability Checks and Skill Checks</li>
+    <li>+2 Bonus to AC</li>
+</ul>
+<p>At any point before the spell ends, you can channel the remaining energies into a single instant of perfection. You may chose the result of your next Attack Roll or Save, then this spell ends.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Fortune'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Suspension';
@@ -3496,6 +3522,41 @@ class SpellsSSeeder extends Seeder
     <dt>Material Components</dl> <dd>A small leather loop suspended from a bent wire of good.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment'], 4);
+
+        $spell               = new Spell();
+        $spell->name         = 'Sustain';
+        $spell->casting      = '1 minute (Somatic, Verbal, Ability Damage)';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>1 CON Damage</dd>
+</dl>';
+        $spell->range        = 'Touch';
+        $spell->targets      = 'Up to 2 living creatures Touched';
+        $spell->duration     = '1 day';
+        $spell->description  = '<p>The spell instantly relieves the negative effects of hunger and thirst and allows the Targets to go without food and water for the Duration. A Target can eat and drink normally.</p>
+<p>When the Duration ends, the Targets must resume normal eating and drinking, but they suffer no ill effects from the missed meals.</p>';
+        $spell->heightened   = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 4);
+
+        $spell               = new Spell();
+        $spell->name         = 'Susurrus of the City';
+        $spell->casting      = '10 minutes (Material, Somatic, Verbal, Ability Damage)';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>2 CON Damage</dd>
+</dl>';
+        $spell->targets      = 'Self';
+        $spell->duration     = '1 minute';
+        $spell->description  = "<p>This spell awakens the secret voice of the city and causes a vacant building's facade to form a crude face and answer questions you have.</p>
+<p>You may ask 1 question per round. Each question must be one that can be answered in no more than one word, and the knowledge imparted must be knowledge that is known to at least one person who is currently located in the city.</p>
+<p>This spell has no agenda of its own, and does not try to deceive or trick you. In cases where there are multiple answers to a question, the spell provides the one that is the most pertinent to you. If you lag, discuss the answers, or go off to do anything else, the spell ends.</p>
+<dl>
+    <dt>Material Components</dt> <dd>An abandoned building in a settlement of at least Town Size or larger.</dd>
+</dl>";
+        $helper->addTypesToSpell($spell, ['Divination'], 5);
+
+        // https://dndtools.net/spells/?page=216
 
         $spell               = new Spell;
         $spell->name         = 'Suyoll';

@@ -122,7 +122,7 @@ class RaceDwarvesSeeder extends Seeder
     <dt>Superior Darkvision</dt> <dd>Your Darkvision has a range of 120 feet</dd>
     <dt>Stonecunning</dt> <dd>Whenever you make an INT (History) check related to the origin of stonework, you are considered proficient in the History skill and add double proficiency bonus to the check, instead of your normal proficiency bonus</dd>
     <dt>Psionics</dt> <dd>You gain the Wild Talent feat</dd>
-    <dt>Sunling Sensitivity</dt> <dd>You have Disadvantage on attack rolls and on WIS (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</dd>
+    <dt>Sunlight Sensitivity</dt> <dd>You have Disadvantage on attack rolls and on WIS (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</dd>
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Dwarf', 'Duergar']);
     }

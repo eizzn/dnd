@@ -55,6 +55,7 @@ class GodsCyricSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Strifeleader';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff, Short Sword, Long Sword';
         $class->armors        = 'Light Armor';
@@ -269,6 +270,7 @@ class GodsCyricSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Bloodreavers';
+        $class->type          = 'Priest';
         $class->key_attribute = 'STR or CON';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -279,7 +281,7 @@ class GodsCyricSeeder extends Seeder
             'skill_points'   => 2,
             'skill_progress' => 2,
         ], ['STR', 'CON'], [
-            'Divine', 'Combat Master', 'Fighter Feat',
+            'Divine', 'Combat Mastery', 'Fighter Feat',
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [

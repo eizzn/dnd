@@ -47,7 +47,7 @@ class RaceGnomesSeeder extends Seeder
         $subrace->regions  = 'Underdark';
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your DEX score increases by +1</dd>
-    <dt>Superior Darkvision</dt> <dd>You Darkvision has a range of 120 feet</dd>
+    <dt>Superior Darkvision</dt> <dd>Your Darkvision has a range of 120 feet</dd>
     <dt>Stone Camouflage</dt> <dd>You gain a +2 bonus on DEX (Stealth) checks to hide in rocky terrain</dd>
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Gnome']);

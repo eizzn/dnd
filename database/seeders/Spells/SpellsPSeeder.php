@@ -24,7 +24,7 @@ class SpellsPSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
         $spell->targets     = 'One living creature';
-        $spell->duration    = 'Concentration, upto 10 minutes';
+        $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = '<p>You exhale a calming breeze, soothing one creature onf your choice. The target is affected as if by a Calm Emotions Spell for the Duration.</p>
 <p>You cannot affect creatures with more Hit Dice than you have Caster Levels.</p>';
         $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Mental'], 4);
@@ -51,7 +51,7 @@ class SpellsPSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->range          = '30 feet';
         $spell->targets        = 'Up to 3 creatures within Range, no two of which are more than 30 feet apart';
-        $spell->duration       = 'Concentration, upto 1 minute';
+        $spell->duration       = 'Concentration, up to 1 minute';
         $spell->description    = '<p>Your shout seems to echo into eternity, causing your foes to twitch and writhe as reverberations pummel them internally. Each round, the spell deals 1D4 Sonic Damage and Sickened: 1. When you cast this spell, and at the beginning of each round, each target makes a CON Save. Success negates the Damage and Sickened Condition for the round.</p>
 <p>On your turn, you must use an Action to maintain this effect.</p>';
         $spell->saves          = '<dl>
@@ -139,7 +139,7 @@ class SpellsPSeeder extends Seeder
         $spell->name        = 'Percussion';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
-        $spell->duration    = 'Concentration, upto 30 minutes';
+        $spell->duration    = 'Concentration, up to 30 minutes';
         $spell->description = "<p>Percussion fills the immediate area with the sounds of drums, chimes, and other percussive instruments.</p>
 <p>The music can range from the gentle tapping of a single tom-tom to the thunder of a squad of drummers. Upon casting the spell, you set the tempo of the drums and the rhythm they repeat. Thereafter, you can change the tempo, rhythm, or volume simply by concentrating for 1 round.</p>
 <p>Bards often use this spell to provide background accompaniment for their own music and songs. The sounds produced are no louder than real drums would be, but the effect is realistic enough to fool anyone who can't see that no drummers are present.</p>
@@ -165,7 +165,7 @@ class SpellsPSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature Touched';
-        $spell->duration    = 'Concentration, upto 3 hours';
+        $spell->duration    = 'Concentration, up to 3 hours';
         $spell->description = '<p>As a Heightened Invisibility, including the following.</p>
 <ul>
     <li>You are shrouded in a field of Silence, so that you make no sound</li>
@@ -340,7 +340,7 @@ class SpellsPSeeder extends Seeder
         $spell->casting        = 'Material Casting, Somatic Casting';
         $spell->targets        = 'Self';
         $spell->save_attribute = 'DEX';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell creates a 10' radius circle of sand under you and those you are touching to rise up. This spell is only useful in a sandy area, the rising level, stable circle of sand draws surrounding sand up underneath it to create a sylindrical pillar. The pillar rises as high as available sand allows, or as high as the caster desires, to a maximum of 40' feet. Beings atop the pillar can see a long way, reach high things, and possibly escape spells cast at 'ground-level'. The pillar rises or sinks up to 10' per round, as you will.</p>
 <p>The pillar has AC 15 and 50 HP. If physical attacks on the pillar destroys it, or a Dispel Magic or other magical effect ends this spell, it collapses.</p>
 <p>Beings atop the pillar can fall if winds are high (and you fail a DEX Save), or the pillar collapses, normal falling damage applies.</p>
@@ -357,7 +357,7 @@ class SpellsPSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'One living creature touched';
         $spell->save_attribute = 'CON';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>You make the target an asymptomatic carrier for a host of virulent diseases. Creatures that end their turn adjacent to the target must succeed at a CON Save or be affected as if by the spell Contagion. The target itself does not become diseased, and suffers no ill effects from this spell. Once plague bearer ends, the target is no longer contagious, though any creature it infected remains diseased.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
@@ -785,7 +785,7 @@ class SpellsPSeeder extends Seeder
 </dl>';
         $spell->range          = '60 feet';
         $spell->targets        = 'One living creature in range';
-        $spell->duration       = 'Concentration, upto 1 minute';
+        $spell->duration       = 'Concentration, up to 1 minute';
         $spell->description    = '<p>You create a conduit between yourself and the target. Through the conduit, you leech off Ability Score points. Each turn, pick one Ability Score. The target loses 1 point of that Ability Score and you gain 1 point of that Ability Score.</p>
 <p>The gained ability scores lasts as long as the target has lost them. For example: the target has lost 10 points of STR. He takes a Long Rest and regains 1 STR. You then lose 1 STR that you have stolen. If the target then receives a Restoration Spell, you lose the same amount of Ability Score points that the target regains back. After 1 month, all stolen Ability Score Points are lost even if the target has not regained them.</p>
 <p>If you already have stolen Ability Score Points from a previous casting, you cannot gain any more Ability Score points from additional castings of this spell.</p>';
@@ -802,7 +802,7 @@ class SpellsPSeeder extends Seeder
         $spell->range          = '60 feet';
         $spell->rarity         = 'Rare';
         $spell->targets        = 'One living creature within range';
-        $spell->duration       = 'Upto 1 hour until ended';
+        $spell->duration       = 'Up to 1 hour until ended';
         $spell->description    = "<p>The target becomes Blinded. At the end of the target's next turn, they may make a CON Save. If they Succeed, this spell ends.</p>";
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>The Blindness Condition ends</dd>
@@ -816,7 +816,7 @@ class SpellsPSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->range          = '60 feet';
         $spell->targets        = 'One living creature within range';
-        $spell->duration       = 'Upto 1 hour until ended';
+        $spell->duration       = 'Up to 1 hour until ended';
         $spell->description    = "<p>The target becomes Deafened. At the end of the target's next turn, they may make a CON Save. If they Succeed, this spell ends.</p>";
         $spell->heightened     = '<dl>
     <dt>Success</dt> <dd>The Deafened Condition ends</dd>

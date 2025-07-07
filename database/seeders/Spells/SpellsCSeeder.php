@@ -793,7 +793,7 @@ class SpellsCSeeder extends Seeder
         $spell->spell_creator = 'Darsson';
         $spell->range         = '60 feet';
         $spell->area          = '50 foot cube';
-        $spell->duration      = '5 hours';
+        $spell->duration      = '8 hours';
         $spell->description   = '<p>You lower the temperature in the affected area to the level of extreme cold (to the point of causing damage). For every minute spent in the area, creautures vulnerable to cold takes 1D6 Cold damage. In addition, a creature must make a CON Save (DC 15 +1 per previous Save) or take 1D4 points of nonlethal Cold damage. Those wearing metal armor, as well as those coming in contact with metal that has been in the area for at least 1 hour, are affected as if a Chill Metal spell.</p>
 <p>This spell was originally developed as a means of preserving food (cast inside cellars), but wizards quickly determined that it could be used as a deterrent (on long hallways or in treasure vaults, for example) or for creating a comfortable environment for cold-loving pets.</p>';
         $spell->heightened = '<dl>
@@ -1220,7 +1220,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = '1 minute (Somatic, Verbal)';
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
-        $spell->duration    = '5 hours';
+        $spell->duration    = '8 hours';
         $spell->description = "<p>The target retains their form but takes on a blue-green watery appearance. While underwater, the target functions as if affected by Blur, Freedom of Movement, and Water Breathing and doesn't take non-lethal damage from water pressure or hypothermia for the duration of the spell.</p>
 <p>When out of the water (or even partially out), the target gains none of these advantages except for Water Breathing.</p>";
         $spell->heightened  = '<dl>
@@ -1275,7 +1275,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = '1 minute (Somatic, Verbal)';
         $spell->range       = '1 mile';
         $spell->area        = '100 foot radius';
-        $spell->duration    = '2 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>You cause clouds to gather and a heavy rain to fall.</p>
 <ul>
     <li>The rain reduces visibility ranges by half, resulting in a -4 penalty on Perception (Spot and Search) and Listen checks.</li>
@@ -2135,7 +2135,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting, Material Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
-        $spell->duration    = '5 turns';
+        $spell->duration    = '5 Rounds';
         $spell->description = '<p>You bolster your ally with a touch. The target gains a +3 bonus to all Saves.</p>
 <dl>
     <dt>Material Components</dt> <dd>A small parchment with a bit of holy text written upon it.</dd>
@@ -2148,7 +2148,7 @@ class SpellsCSeeder extends Seeder
         $spell->spell_creator = 'Darsson';
         $spell->range         = '60 feet';
         $spell->area          = '5 foot line starting up to 10 feet away away from you';
-        $spell->duration      = '5 hours';
+        $spell->duration      = '8 hours';
         $spell->description   = '<p>You create a light breeze (approximately 9 mph) that originates from a point you designate, affecting all creatures, gasses, clouds, and fogs in its path. Any airborne vapors, fumes, clouds, smoke, and gases drift away from the point at a speed of 80 feet per round and dissipates in one-forth the normal time.</p>
 <p>In addition to the effects noted, the cooling breeze can do anything that a normal breeze would be expected to do. It can move wind chimes, scatter pieces of paper or parchment, cause candle or hearth to flicker, and so forth.</p>';
         $spell->heightened = '<dl>
@@ -2826,7 +2826,7 @@ class SpellsCSeeder extends Seeder
         $spell->range       = '60 feet';
         $spell->targets     = 'Up to 4 creatures';
         $spell->rarity      = 'Rare';
-        $spell->duration    = '5 minutes';
+        $spell->duration    = '10 minutes';
         $spell->description = "<p>Pronounce a cause. It can be to attain an item, claim a patch of land, slay a creature, war with a group, or be entirely peaceful. Your cause can't force the targets to harm one another or themselves. They become completely dedicated to that cause, depending on their levels. They choose their own actions, but they favor direct action over inaction or indirect action.</p>
 <dl>
     <dt>13th or lower</dt> <dd>The target is so dedicated to the cause that it will pursue it to the death (unless you say otherwise)</dd>

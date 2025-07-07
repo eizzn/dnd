@@ -269,7 +269,7 @@ class FeatsMetaMagicSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Craft Contingent Spell';
-        $feat->short_description = '<p>You know how to attach semi-permanent spells to a creature and set them to activate under certain conditions.</p>';
+        $feat->short_description = 'You know how to attach semi-permanent spells to a creature and set them to activate under certain conditions.';
         $feat->description       = '<p>You can make contingent any spell that you know. Crafting a contingent spell takes one day for each 1,000 gp in its base price (Spell Level X Caster Level X 100 gp). To craft a contingent spell, you must use up raw materials costing 1/2 the base price (some spells incur extra costs in material components as well).</p>
 <p>Each Contingent spell counts as two of your Attuned magic items.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Attunement']);
@@ -350,7 +350,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->name              = 'Disguise Spell';
         $feat->action_type       = 'Action';
         $feat->trigger           = 'You start to cast a spell while using the Performance skill';
-        $feat->short_description = '<p>You have mastered the art of casting spells unobtrusively, mingling verbal and somatic components into its music and performances so that others rarely catch you in the act of casting a spell.</p>';
+        $feat->short_description = 'You have mastered the art of casting spells unobtrusively, mingling verbal and somatic components into its music and performances so that others rarely catch you in the act of casting a spell.';
         $feat->description       = "<ul>
     <li>You gain 2 Spell Points</li>
     <li>Spend 2 Spell Points and an additional Action to cast the Spell.</li>

@@ -20,6 +20,7 @@ class ClassSwashbucklerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Swashbuckler';
+        $class->type          = 'Base';
         $class->key_attribute = 'STR or DEX';
         $class->weapons       = 'Simple Weapons, Rapiers, Short Swords, Scimitars, and Hand Crossbows';
         $class->armors        = 'Light Armor and Bucklers';

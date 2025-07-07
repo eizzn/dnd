@@ -49,26 +49,34 @@ class FeatResource extends JsonResource
                     'name' => $skill->name,
                 ];
             }),
-            'spells'            => $this->spells()
-                ->orderByPivot('level')
-                ->orderBy('name')
-                ->get()
-                ->map(function (Spell $spell) {
+            'spells'            => $this->spells
+                ->groupBy('pivot.level')
+                ->sortKeys()
+                ->sortBy('name')
+                ->mapWithKeys(function ($spells, $level) {
                     return [
-                        'id'    => $spell->id,
-                        'name'  => $spell->name,
-                        'level' => $spell->pivot->level,
+                        $level => $spells->map(function (Spell $spell) {
+                            return [
+                                'id'    => $spell->id,
+                                'name'  => $spell->name,
+                                'level' => $spell->pivot->level,
+                            ];
+                        })->values(),
                     ];
                 }),
-            'powers'            => $this->powers()
-                ->orderByPivot('level')
-                ->orderBy('name')
-                ->get()
-                ->map(function (Power $power) {
+            'powers'            => $this->powers
+                ->groupBy('pivot.level')
+                ->sortKeys()
+                ->sortBy('name')
+                ->mapWithKeys(function ($powers, $level) {
                     return [
-                        'id'    => $power->id,
-                        'name'  => $power->name,
-                        'level' => $power->pivot->level,
+                        $level => $powers->map(function (Power $power) {
+                            return [
+                                'id'    => $power->id,
+                                'name'  => $power->name,
+                                'level' => $power->pivot->level,
+                            ];
+                        })->values(),
                     ];
                 }),
         ];

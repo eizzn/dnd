@@ -18,6 +18,7 @@ class ClassSacredFistSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Sacred Fist';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'WIS or DEX';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

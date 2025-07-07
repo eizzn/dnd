@@ -891,7 +891,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->name        = 'Ironwood';
         $spell->casting     = '1 minute per pound (Material, Somatic, Verbal)';
         $spell->range       = 'Touch';
-        $spell->targets     = 'Upto 5 lbs of non-magical wood';
+        $spell->targets     = 'Up to 5 lbs of non-magical wood';
         $spell->duration    = '2 weeks';
         $spell->description = '<p>This spell enchants an amount of wood into Ironwood. Ironwood has the following properties.</p>
 <ul>

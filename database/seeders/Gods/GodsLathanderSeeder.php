@@ -38,6 +38,7 @@ class GodsLathanderSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Dawnbringers';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus one choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';

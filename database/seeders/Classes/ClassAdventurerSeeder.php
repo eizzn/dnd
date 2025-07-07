@@ -20,6 +20,7 @@ class ClassAdventurerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Adventurer';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX';
         $class->hit_dice      = 8;
         $class->weapons       = 'Simple Weapons, plus the Hand Crossbow, Rapier, Sap, Shortbow, and Shortsword';

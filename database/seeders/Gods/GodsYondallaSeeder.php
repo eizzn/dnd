@@ -36,6 +36,7 @@ class GodsYondallaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Yondalla';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -142,6 +143,7 @@ class GodsYondallaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Brandobaris';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS or DEX';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -243,6 +245,7 @@ class GodsYondallaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Cyrrollalee';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS or DEX';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -280,7 +283,7 @@ class GodsYondallaSeeder extends Seeder
             3 => ['Celebration', 'Dispel Magic', 'Faithful Healing', 'Heart Sight', 'Insignia of Blessing', 'Insignia of Healing',
                 'Invisibility Purge', 'Neutralize Poison', 'Prayer', 'Revivify', 'Vitality Shield', ],
             4 => ['Anti-Summoning Shell', 'Calm Air', 'Divination', 'Remove Curse'],
-            5 => ['Atonement', 'Banishment', 'Call Guardinal Servants', 'Commune', 'Hallow', 'Healing Circle'],
+            5 => ['Atonement', 'Banishment', 'Call Guardinal Servants', 'Commune', 'Hallow', 'Healing Circle', 'Sustain'],
             6 => ['Field of Life', 'Heal', "Hero's Feast", 'True Seeing'],
             7 => ['Bastion of Good', 'Divine Decree', 'Divine Word', 'Feast of Champions', 'Holy Aura', 'Sequester'],
             8 => ['Control Weather', 'Divine Aura'],

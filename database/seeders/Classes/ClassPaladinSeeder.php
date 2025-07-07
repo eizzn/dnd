@@ -21,6 +21,7 @@ class ClassPaladinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Paladin';
+        $class->type          = 'Base';
         $class->key_attribute = 'STR or CHA';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor and Shields';

@@ -37,6 +37,7 @@ class GodsMystraSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Dweomerkeepers';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;
@@ -84,14 +85,14 @@ class GodsMystraSeeder extends Seeder
                 'Secret Page', 'Spell Shield', 'Undead Bane Weapon', ],
             4 => ['Blink', 'Dimensional Anchor', 'Detect Scrying', 'Fly', 'Globe of Invulnerability', 'Hallucinatory Terrain',
                 'Haste', 'Mantle of Mystra', 'Mystic Aegis', 'Remove Curse', 'Slow', 'Spell Immunity', 'Spell Matrix', 'Stars of Mystra',
-                'Telepathy', 'Warp and Weave', ],
+                'Suppress Magical Writings', 'Telepathy', 'Warp and Weave', ],
             5  => ['Atonement', 'Banishment', 'Might of Mystra', 'Planar Adaption', 'Resilient Sphere', 'Revelation', 'Sending',
                 'Summon Elemental', 'Telepathic Bond', 'Tongues', 'Wall of Dispel Magic', ],
             6  => ['Antimagic Ray', 'Scrying', 'Teleport', 'True Seeing'],
             7  => ['Contingency', 'Crown of Stars', 'Dimensional Lock', 'Plane Shift', 'Raise Dead', 'Regenerate', 'Renewal Pact',
                 'Spell Turning', ],
             8  => ['Antimagic Field', 'Holy Stars of Mystra', 'Spell Engine'],
-            9  => ['Absorption', 'Alter Lifeline', 'Disjunction', 'Effulgent Epuration', 'Spell Shift'],
+            9  => ['Absorption', 'Alter Lifeline', 'Crowning Touch', 'Disjunction', 'Effulgent Epuration', 'Spell Shift'],
             10 => ['Gate', 'Miracle'],
         ]);
         $helper->addSpellSlotsToClass($class);
@@ -182,6 +183,7 @@ class GodsMystraSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Azuth';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;
@@ -320,6 +322,7 @@ class GodsMystraSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Sibylites';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;
@@ -445,6 +448,7 @@ class GodsMystraSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Necrophants';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;

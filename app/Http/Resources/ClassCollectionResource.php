@@ -15,6 +15,7 @@ class ClassCollectionResource extends ResourceCollection
                 return [
                     'id'             => $class->id,
                     'name'           => $class->name,
+                    'type'           => $class->type,
                     'key_attribute'  => $class->key_attribute,
                     'hit_dice'       => $class->hit_dice,
                     'skill_points'   => $class->skill_points,

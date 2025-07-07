@@ -19,6 +19,7 @@ class ClassRogueSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Rogue';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX';
         $class->weapons       = 'Simple Weapons, plus the Hand Crossbow, Rapier, Sap, Shortbow, and Shortsword';
         $class->armors        = 'Light Armor';

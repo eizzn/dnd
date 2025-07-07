@@ -23,7 +23,7 @@ class SpellsVSeeder extends Seeder
         $spell->name        = "Vampire's Kiss";
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = "<p>You draw upon the powers of unlife to give yourself the abilities of a vampire. You become gaunt and pale with feral red eyes, and you gain the following abilities.</p>
 <ul>
     <li>You gain a Bite Attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D4 Piercing damage + your STR modifier and 1D6 Negative damage. You heal damage equal to the Negative damage you dealt.</li>
@@ -193,7 +193,7 @@ class SpellsVSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature Touched';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>You are immune to Fatigue, Exhaustion, and Ability Damage. If the Ability Damage is part of casting a spell, then the Ability Damage is only reduced by 1.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>You may target an additional creature</dd>

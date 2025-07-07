@@ -21,6 +21,7 @@ class ClassAssassinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Assassin';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'DEX or INT';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([

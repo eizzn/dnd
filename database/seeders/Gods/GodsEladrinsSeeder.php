@@ -379,6 +379,7 @@ class GodsEladrinsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Sons of Maglubiyet';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, 2 choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';

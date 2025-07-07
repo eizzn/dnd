@@ -21,6 +21,7 @@ class ClassAcolyteOfTheSkinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Acolyte of the Skin';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CHA';
         $class->requirements  = $helper->getClassRequirementsString([
             'Alignment' => 'Any non-good',

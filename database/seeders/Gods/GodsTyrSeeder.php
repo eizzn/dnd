@@ -52,6 +52,7 @@ class GodsTyrSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Tyr';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus two choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -121,6 +122,7 @@ class GodsTyrSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Clangeddin';
+        $class->type          = 'Priest';
         $class->key_attribute = 'CON or WIS';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -235,6 +237,7 @@ class GodsTyrSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Ilmater';
+        $class->type          = 'Priest';
         $class->key_attribute = 'CON or WIS';
         $class->weapons       = 'Simple Weapons plus two choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';

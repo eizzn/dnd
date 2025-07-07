@@ -22,6 +22,7 @@ class ClassSpiritShamanSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Spirit Shaman';
+        $class->type          = 'Base';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor';

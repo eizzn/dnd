@@ -20,6 +20,7 @@ class ClassScoutSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Scout';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX';
         $class->weapons       = 'Simple Weapons, plus the Hand Crossbow, Light Crossbow, Heavy Crossbow, Longbow, Shortbow, and Short Sword';
         $class->armors        = 'Light Armor';

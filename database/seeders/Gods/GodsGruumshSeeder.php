@@ -38,6 +38,7 @@ class GodsGruumshSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Gruumans';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus all Spears';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -228,6 +229,7 @@ class GodsGruumshSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Luthic';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -290,6 +292,7 @@ class GodsGruumshSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Shargaas';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';

@@ -60,6 +60,7 @@ class GodsTycheSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Luckbringer';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons plus one choice';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
@@ -105,7 +106,7 @@ class GodsTycheSeeder extends Seeder
             3 => ['Boon of Fortune', 'Circle of Protection From Evil', 'Dispel Magic', 'Good Hope', 'Journal', 'Neutralize Poison',
                 'Prayer', 'Revivify', 'Tongues', 'Touch of Tyche', ],
             4 => ['Aura of Purity', 'Blink', 'Confusion', 'Freedom of Movement'],
-            5 => ['Atonement', 'Banishment', 'Dispel Evil', 'Holy Weapon', 'Stalwart Covenant', 'Threefold Boon'],
+            5 => ['Atonement', 'Banishment', 'Dispel Evil', 'Holy Weapon', 'Stalwart Covenant', 'Surge of Fortune', 'Threefold Boon'],
             6 => ['Field of Life', 'Heal', "Hero's Feast", 'True Seeing', 'Word of Recall'],
             7 => ['Choose Destiny', 'Fortunate Fate', 'Regeneration'],
             8 => ['Disappearance', 'Nine Lives'],
@@ -193,6 +194,7 @@ class GodsTycheSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Doommasters';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons, Whips, and one choice';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
@@ -236,7 +238,7 @@ class GodsTycheSeeder extends Seeder
             3  => ["Bear's Hex", 'Blindness', 'Dispel Magic', 'Neutralize Poison', 'Prayer', 'Remove Curse', 'Revivify',
                 'Slow', 'Touch of Tyche', 'Wound', ],
             4  => ['Aura of Confusion', 'Evil Glare', "Outcast's Hex"],
-            5  => ['Atonement', 'Banishment', 'Commune', 'Calling', 'Forbidden Speech'],
+            5  => ['Atonement', 'Banishment', 'Commune', 'Calling', 'Forbidden Speech', 'Surge of Fortune'],
             6  => ['Baleful Polymorph', 'Heal'],
             7  => ['Choose Destiny', 'Fortunate Fate', 'Sequester'],
             8  => ['Feeblemind', 'Nine Lives'],

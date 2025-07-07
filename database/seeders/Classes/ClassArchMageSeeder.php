@@ -19,6 +19,7 @@ class ClassArchMageSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Archmage';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'INT';
         $class->hit_dice      = 4;
         $class->max_level     = 5;

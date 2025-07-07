@@ -35,6 +35,7 @@ class GodsGarlSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Garl';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';
@@ -247,6 +248,7 @@ class GodsGarlSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Flandal Steelskin';
+        $class->type          = 'Priest';
         $class->key_attribute = 'CON OR WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -344,6 +346,7 @@ class GodsGarlSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Baravar';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -444,6 +447,7 @@ class GodsGarlSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Urdlen';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';

@@ -192,7 +192,7 @@ class SpellsESeeder extends Seeder
         $spell->name        = 'Easy Trail';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '5 hours';
+        $spell->duration    = '8 hours';
         $spell->description = '<p>You radiate energy that gently pushes plants aside, allowing easy movement and hiding your trail after you pass. Creatures in the effect (including the caster) find the undergrowth held aside as they pass. This essentially provides a "trail" through any terrain. Once you have passed, plants return to their normal shapes. The DC to track anyone who traveled within the effect is increased by 5 (the equivalent of hiding the trail).</p>
 <p>This spell cannot push or hold plant creatures aside.</p>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Plant'], 2);
@@ -543,7 +543,7 @@ class SpellsESeeder extends Seeder
         $spell->casting     = '10 minutes (Somatic, Verbal)';
         $spell->range       = 'Touch';
         $spell->targets     = 'One willing creature';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>Choose severe cold or heat. The target is protected from the temperature you chose (but not extreme cold or heat).</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>The target is protected from severe cold and heat.</dd>
@@ -681,7 +681,7 @@ class SpellsESeeder extends Seeder
         $spell->name        = 'Enervating Touch';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>Your hand becomes infused with Negative Energy. You may make Touch Attacks with your infused hand. On a hit, the target is Enervated: 1 and you gain 5 Temporary Hit Points (These Temporary Hit Points lasts for 1 hour). This attack is not treated as being Armed, so you Provoke Attacks of Opportunity unless you have the Improved Unarmed Strike feat.</p>
 <p>Attacking an Undead with this attack heals the Undead 5 Hit Points and you are Enervated: 1.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 6);
@@ -1073,7 +1073,7 @@ class SpellsESeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->range          = '30 feet';
         $spell->targets        = 'Living creature';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>You gain a Gaze attack. As a Double Action, you may look at any living target within range. If they meet your gaze, they must make a WIS Save or Frightened: 3. Targeting a creature that is already Frightened only resets their Frightened level back to 3.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Not affected</dd>

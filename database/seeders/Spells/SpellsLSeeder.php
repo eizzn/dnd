@@ -145,7 +145,7 @@ class SpellsLSeeder extends Seeder
         $spell->name        = 'Lay of the Land';
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->targets     = 'Self';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>In a flash of recognition, you learn about the geography of your surroundings within a radius of 10 miles. This instant familiarity grants you an insight bonus equal to +3 on Knowledge (geography) checks and Survival checks to avoid getting lost so long as you remain in the affected area.</p>
 <p>Additionally, for the duration of the spell you can make Knowledge (geography) checks regarding the affected area as though you were trained in that skill.</p>
 <dl>
@@ -515,7 +515,7 @@ class SpellsLSeeder extends Seeder
         $spell->name        = 'Lively Step';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->area        = '60-foot radius emanation centered on you';
-        $spell->duration    = 'Concentration, upto 12 hours';
+        $spell->duration    = 'Concentration, up to 12 hours';
         $spell->description = '<p>You play a marching tune. All in the area gains an Additional Action. This Additional Action can only be used to take the Stride Action. This bonus Action cannot be used in combat.</p>
 <p>This spell does not alleviate the effects of Forced Marching over long periods of time.</p>
 <dl>

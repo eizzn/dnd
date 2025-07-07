@@ -30,8 +30,10 @@ class SpellService implements Contracts\SpellService
             ->through([
                 \App\Filters\Id::class,
                 \App\Filters\Name::class,
-                \App\Filters\ActionType::class,
-                \App\Filters\Type::class,
+                \App\Filters\Casting::class,
+                \App\Filters\TypesByName::class,
+                \App\Filters\Duration::class,
+                \App\Filters\DefaultLevel::class,
                 \App\Filters\Order::class,
             ])
             ->thenReturn();

@@ -22,6 +22,7 @@ class ClassWarlockSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Warlock';
+        $class->type          = 'Base';
         $class->key_attribute = 'CHA';
         $class->hit_dice      = 8;
         $class->weapons       = 'Simple Weapons';
@@ -181,25 +182,26 @@ class ClassWarlockSeeder extends Seeder
          * max_slot_level   => the level that all spells are heightened to
          */
         $helper->addSpellSlotsToClass($class, [
-            2  => ['known' => 3, 'slots' => 1, 'max_slot_level' => 1],
-            3  => ['known' => 4, 'slots' => 2, 'max_slot_level' => 1],
-            4  => ['known' => 5, 'slots' => 2, 'max_slot_level' => 2],
-            5  => ['known' => 6, 'slots' => 3, 'max_slot_level' => 2],
-            6  => ['known' => 7, 'slots' => 3, 'max_slot_level' => 3],
-            7  => ['known' => 8, 'slots' => 4, 'max_slot_level' => 3],
-            8  => ['known' => 9, 'slots' => 4, 'max_slot_level' => 4],
-            9  => ['known' => 10, 'slots' => 4, 'max_slot_level' => 4],
-            10 => ['known' => 11, 'slots' => 5, 'max_slot_level' => 5],
-            11 => ['known' => 11, 'slots' => 5, 'max_slot_level' => 5],
-            12 => ['known' => 12, 'slots' => 5, 'max_slot_level' => 5],
-            13 => ['known' => 12, 'slots' => 6, 'max_slot_level' => 5],
-            14 => ['known' => 13, 'slots' => 6, 'max_slot_level' => 5],
-            15 => ['known' => 13, 'slots' => 6, 'max_slot_level' => 5],
-            16 => ['known' => 14, 'slots' => 6, 'max_slot_level' => 5],
-            17 => ['known' => 14, 'slots' => 7, 'max_slot_level' => 5],
-            18 => ['known' => 15, 'slots' => 7, 'max_slot_level' => 5],
-            19 => ['known' => 15, 'slots' => 7, 'max_slot_level' => 5],
-            20 => ['known' => 16, 'slots' => 7, 'max_slot_level' => 5],
+            1  => ['cantrips' => 2,],
+            2  => ['cantrips' => 2, 'known' => 3, 'slots' => 1, 'max_slot_level' => 1],
+            3  => ['cantrips' => 2, 'known' => 4, 'slots' => 2, 'max_slot_level' => 1],
+            4  => ['cantrips' => 3, 'known' => 5, 'slots' => 2, 'max_slot_level' => 2],
+            5  => ['cantrips' => 3, 'known' => 6, 'slots' => 3, 'max_slot_level' => 2],
+            6  => ['cantrips' => 3, 'known' => 7, 'slots' => 3, 'max_slot_level' => 3],
+            7  => ['cantrips' => 3, 'known' => 8, 'slots' => 4, 'max_slot_level' => 3],
+            8  => ['cantrips' => 3, 'known' => 9, 'slots' => 4, 'max_slot_level' => 4],
+            9  => ['cantrips' => 4, 'known' => 10, 'slots' => 4, 'max_slot_level' => 4],
+            10 => ['cantrips' => 4, 'known' => 11, 'slots' => 5, 'max_slot_level' => 5],
+            11 => ['cantrips' => 4, 'known' => 11, 'slots' => 5, 'max_slot_level' => 5],
+            12 => ['cantrips' => 4, 'known' => 12, 'slots' => 5, 'max_slot_level' => 5],
+            13 => ['cantrips' => 4, 'known' => 12, 'slots' => 6, 'max_slot_level' => 5],
+            14 => ['cantrips' => 5, 'known' => 13, 'slots' => 6, 'max_slot_level' => 5],
+            15 => ['cantrips' => 5, 'known' => 13, 'slots' => 6, 'max_slot_level' => 5],
+            16 => ['cantrips' => 5, 'known' => 14, 'slots' => 6, 'max_slot_level' => 5],
+            17 => ['cantrips' => 5, 'known' => 14, 'slots' => 7, 'max_slot_level' => 5],
+            18 => ['cantrips' => 5, 'known' => 15, 'slots' => 7, 'max_slot_level' => 5],
+            19 => ['cantrips' => 6, 'known' => 15, 'slots' => 7, 'max_slot_level' => 5],
+            20 => ['cantrips' => 6, 'known' => 16, 'slots' => 7, 'max_slot_level' => 5],
         ]);
         /**
          * 0    => Blade Ward, Chill Touch, Eldritch Blast, Friends, Frostbite, Hex, Infestation, Mage Hand, Magic Stone, Mind Sliver, Minor Illusion, Poison Spray, Prestidigitation, Produce Flame, Sword Burst, Thunderclap, Touch of Death, True Strike

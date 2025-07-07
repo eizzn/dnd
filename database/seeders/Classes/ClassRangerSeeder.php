@@ -22,6 +22,7 @@ class ClassRangerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Ranger';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';
@@ -31,7 +32,7 @@ class ClassRangerSeeder extends Seeder
             'skill_progress' => 6,
             'has_spells'     => true,
         ], ['STR', 'DEX', 'CON'], [
-            'Fighter Feat', 'Primal', 'Favored Enemy', 'Heroic Surge', 'Combat Master',
+            'Fighter Feat', 'Primal', 'Favored Enemy', 'Heroic Surge', 'Combat Mastery',
         ]);
 
         // Skills

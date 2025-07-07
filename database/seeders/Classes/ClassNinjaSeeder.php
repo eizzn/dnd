@@ -21,6 +21,7 @@ class ClassNinjaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Ninja';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX';
         $class->weapons       = 'Simple Weapons, Hand Crossbow, Kama, Kukri, Nunchaku, Sai, Shortbow, Short Sword, Shuriken and Saingham';
         $helper->saveClass($class, [

@@ -21,6 +21,7 @@ class ClassWizardSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Wizard';
+        $class->type          = 'Base';
         $class->key_attribute = 'INT';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, and Staff';
         $class->has_spells    = 1;

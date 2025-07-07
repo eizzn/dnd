@@ -43,26 +43,79 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('classes')"
                                     :active="route().current('classes') || route().current('class')"
                                 >Classes</NavLink>
-                                <NavLink
-                                    :href="route('spells')"
-                                    :active="route().current('spells')"
-                                >Spells</NavLink>
-                                <NavLink
-                                    :href="route('powers')"
-                                    :active="route().current('powers')"
-                                >Powers</NavLink>
-                                <NavLink
-                                    :href="route('feats')"
-                                    :active="route().current('feats')"
-                                >Feats</NavLink>
-                                <NavLink
-                                    :href="route('talents')"
-                                    :active="route().current('talents')"
-                                >Talents</NavLink>
+
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('spells') || route().current('spell') || route().current('powers') || route().current('power'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Cast</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('spells')"
+                                            :active="route().current('spells') || route().current('spell')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >
+                                            Spells
+                                        </NavLink>
+                                        <br/>
+                                        <NavLink
+                                            :href="route('powers')"
+                                            :active="route().current('powers') || route().current('power')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >
+                                            Powers
+                                        </NavLink>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('feats') || route().current('feat') || route().current('talents') || route().current('talent'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Prowess</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('feats')"
+                                            :active="route().current('feats') || route().current('feat')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Feats</NavLink>
+                                        <br/>
+                                        <NavLink
+                                            :href="route('talents')"
+                                            :active="route().current('talents') || route().current('talent')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Talents</NavLink>
+                                    </div>
+                                </div>
+
                                 <NavLink
                                     :href="route('gods')"
-                                    :active="route().current('gods')"
+                                    :active="route().current('gods') || route().current('god')"
                                 >Gods</NavLink>
+
+                                <!--
+                                monsters
+                                locations
+                                organizations
+                                equipment
+                                    armor
+                                    weapons
+                                    miscellaneous
+                                    materials
+                                formulas
+                                skills
+                                rules
+                                    conditions
+                                    types
+                                templates
+                                characters
+                                races
+                                    languages
+                                -->
                             </div>
                         </div>
 

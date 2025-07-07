@@ -21,6 +21,7 @@ class ClassRaumathariBattlemageSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Raumathari Battlemage';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'STR or INT';
         $class->description   = '<p>Enemies of ancient Narfell, the Raumathari spell casters of old were fearsomely powerful naturalists that focused on elemental spells, and bringing their power against the demons of Narfell.</p>
 <p>Employing sword and spell with dauntless courage and deadly force, the handful of Raumathari battlemages remaining in the world comprise a lonely and little-known order of adventurers, explorers, and mercenaries in search of battle.</p>';

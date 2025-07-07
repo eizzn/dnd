@@ -65,6 +65,7 @@ class GodsLolthSeeder extends Seeder
         // Priest of Shar
         $class                = new Klass;
         $class->name          = 'Priest of Shar';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, Chakram';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -127,6 +128,7 @@ class GodsLolthSeeder extends Seeder
         // Priest of Lolth
         $class                = new Klass;
         $class->name          = 'Priest of Lolth';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons and all Whips';
         $class->armors        = 'Light Armor, Medium Armor';
@@ -307,6 +309,7 @@ class GodsLolthSeeder extends Seeder
         // Priest of Mask
         $class                = new Klass;
         $class->name          = 'Priest of Mask';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -389,6 +392,7 @@ class GodsLolthSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Kiaransalee';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';

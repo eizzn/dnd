@@ -40,6 +40,7 @@ class GodsOghmaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Oghma';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple weapons plus two choice';
         $class->armors        = 'Light Armor, Light Shields';
@@ -271,6 +272,7 @@ class GodsOghmaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Deneir';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Light Shields';
@@ -309,8 +311,8 @@ class GodsOghmaSeeder extends Seeder
             0 => ['Clean Self', 'Conviction', 'Detect Magic', 'Message', 'Stabilize', 'Word of Radiance'],
             1 => ['Biting Words', 'Comprehend Language', 'Cure Wounds', 'Illusory Script', "Scholar's Touch"],
             2 => ['Amanuensis', 'Glyph of Revealing', 'Hypercognition', 'Magic Mouth', 'Power Word Sleep', 'Secret Page'],
-            3 => ['Commune with Texts', 'Explosive Runes', 'Glyph of Warding', 'Interplanar Message', 'Sending', '',
-                'Speak with Dead', 'Tongues', 'Undead Bane Weapon', ],
+            3 => ['Commune with Texts', 'Explosive Runes', 'Glyph of Warding', 'Interplanar Message', 'Sending', 'Speak with Dead',
+                'Suppress Magical Writings', 'Tongues', 'Undead Bane Weapon', ],
             4 => ['Ceremony', 'Divination'],
             5 => ['Atonement', 'Planar Binding', 'Rune of Returning'],
             6 => ['Legend Lore', 'Symbol'],
@@ -416,6 +418,7 @@ class GodsOghmaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Goldeye';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS or CHA';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor';

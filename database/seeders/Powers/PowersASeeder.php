@@ -84,10 +84,10 @@ class PowersASeeder extends Seeder
         $power->action_type = 'Action';
         $power->display     = 'Visual';
         $power->targets     = 'Self';
-        $power->duration    = '4 hours';
+        $power->duration    = '3 hours';
         $power->description = '<p>You gain Darkvision</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 2);
 
@@ -249,7 +249,7 @@ class PowersASeeder extends Seeder
         $power->display     = 'Material';
         $power->range       = '30 feet';
         $power->targets     = 'One willing creature';
-        $power->duration    = '2 hours or Instantaneous, see text';
+        $power->duration    = '3 hours or Instantaneous, see text';
         $power->description = "<p>You can use this power in one of two ways, to disguise the target's aura (alignment) and level, or to remove a Compulsion or Charm effect from the target.</p>
 <dl>
     <dt>Disguise</dt> <dd>If you use this power to disguise the subject's alignment and level, the power has a duration of 2 hours. You can change the subject's alignment by only one step. You can adjust the subject's apparent level up or down by a number equal to one-half your own level (rounded down) or less</dd>

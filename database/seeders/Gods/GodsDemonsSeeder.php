@@ -323,6 +323,7 @@ class GodsDemonsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Amorphite';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light, Medium, Light Shields';
@@ -345,6 +346,7 @@ class GodsDemonsSeeder extends Seeder
 
         $helper->addChannelDivinityToClass($class, 'negative', 'Slimes, Molds, Fungus');
         $helper->addDomainToClass($class, ['Power', 'Caverns', 'Evil']);
+        $helper->addSpellSlotsToClass($class);
 
         $helper->addSpellsToClass($class, [
             0 => ['Acid Splash', 'Detect Magic', 'Light', 'Mold Earth', 'Stabilize'],

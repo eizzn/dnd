@@ -18,7 +18,7 @@ class TalentCollectionResource extends ResourceCollection
                     'action_type' => $talent->action_type,
                     'requirement' => $talent->requirement,
                     'trigger'     => $talent->trigger,
-                    'description' => $talent->description,
+                    'description' => trim(mb_substr(str_replace(["\r", "\n"], '', strip_tags($talent->description)), 0, 100)) . '...',
                     'types'       => $talent->types->map(function (Type $type) {
                         return [
                             'id'   => $type->id,

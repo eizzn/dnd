@@ -10,7 +10,9 @@ use App\Traits\Propertyable;
 use App\Traits\SkillableTrait;
 use App\Traits\SpellableTrait;
 use App\Traits\TypeableTrait;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Class Spell
@@ -30,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null requirements
  * @property string|null spell_creator
  * @property int         default_level
+ * @property Klass[]|Collection classes
+ * @property Feat[]|Collection feats
  */
 class Spell extends Model
 {
@@ -37,4 +41,16 @@ class Spell extends Model
         SpellableTrait, TypeableTrait;
 
     public $timestamps = false;
+
+    public function classes(): MorphToMany
+    {
+        return $this->morphedByMany(Klass::class, 'spellable')
+            ->withPivot('level', 'meta');
+    }
+
+    public function feats(): MorphToMany
+    {
+        return $this->morphedByMany(Feat::class, 'spellable')
+            ->withPivot('level', 'meta');
+    }
 }

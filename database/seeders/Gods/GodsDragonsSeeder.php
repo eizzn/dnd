@@ -207,6 +207,7 @@ class GodsDragonsSeeder extends Seeder
         // Priest of Tiamat
         $class                = new Klass;
         $class->name          = 'Priest of Tiamat';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';

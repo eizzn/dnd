@@ -51,6 +51,7 @@ class GodsBaneSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Bane';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Light Shields, Medium Shields';
@@ -198,6 +199,7 @@ class GodsBaneSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Pain';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons, Whips';
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';

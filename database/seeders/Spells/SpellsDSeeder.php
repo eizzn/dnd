@@ -131,11 +131,11 @@ class SpellsDSeeder extends Seeder
         $spell->name        = 'Darkvision';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->range       = '60 feet';
         $spell->duration    = '1 hour';
-        $spell->description = '<p>You gain darkvision</p>';
+        $spell->description = '<p>You gain Darkvision out to 60 feet.</p>';
         $spell->heightened  = "<dl>
     <dt>Heightened (+1)</dt> <dd>The spell's range is touch, and it targets 1 creature.</dd>
+    <dt>Heightened (+2)</dt> <dd>You gain Darkvision that lets you see as if in full daylight</dd>
     <dt>Permanency (Heightened +3)</dt> <dd>5,000 gp. 5 CON damage.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Bless', 'Enchantment', 'Transmutation', 'Permanency'], 2);
@@ -349,7 +349,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature touched';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = "<p>The target becomes temporarily immune to disease. Any disease to which it is exposed during the spell's duration does not affect the target until the spell's duration has expired (the target cannot become Diseased while the spell is in effect). Delay disease does not cure any damage a disease may have already done.</p>
 <p>If the target is currently infected with a disease, this spell temporarily moves the victim of the Disease one Stage closer to being healed. If the victim is at Stage 1, then they are treated as being cured until the spell ends, then the victim returns to being at Stage 1 of the Disease. Until the spell ends, all Save checks are delayed until the spell ends (the victim does not move to a worse Stage of the Disease).</p>";
         $helper->addTypesToSpell($spell, ['Abjuration', 'Disease'], 2);
@@ -359,7 +359,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Touched poisoned creature';
-        $spell->duration    = '2 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>You delay the effects of poison that has infected a creature. The target is unaffected by poison until the spell expires. The target is not cured and will continue to suffer the effects of the poison when the spell expires.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Poison'], 2);
 
@@ -919,7 +919,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '120 feet';
         $spell->targets     = '30-foot burst';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = "<p>You create a shimmering barrier that attempts to dispel all teleportation effects and planar travel into or out of the area, including items that allow access to extradimensional spaces (such as a Bag of Holding). Dimensional Lock dispels any attempt to summon a creature into the area but doesn't stop the creature from departing when the summoning ends.</p>";
         $helper->addTypesToSpell($spell, ['Abjuration', 'Conjuration', 'Ritual'], 7);
 
@@ -1094,7 +1094,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched chaotic creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant, blue lawful energy, and the spell affects Chaotic creatures and spells rather than Evil ones.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
@@ -1117,7 +1117,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched evil creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant blue-white cold energy, and the spell affects Cold creatures and spells rather than Evil ones.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
@@ -1140,7 +1140,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched evil creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>Shimmering, white holy energy surrounds you. This energy has three effects.</p>
 <ul>
     <li>You gain a +4 Deflection Bonus to AC against attacks by Evil creatures</li>
@@ -1168,7 +1168,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched evil creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant red, orange, and yellow flames, and the spell affects Fire creatures and spells rather than Evil ones.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
@@ -1200,7 +1200,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched good creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by dark, wavering unholy energy, and the spell affects Good creatures and spells rather than Evil ones.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
@@ -1223,7 +1223,7 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Touched lawful creature';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by flickering, yellow chaotic energy, and the spell affects Lawful creatures and spells rather than Evil ones.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
@@ -1522,7 +1522,7 @@ class SpellsDSeeder extends Seeder
 
         $spell              = new Spell;
         $spell->name        = 'Divine Favor';
-        $spell->casting     = 'Free';
+        $spell->casting     = 'Free Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1D6 positive or negative damage on hit.</p>';
@@ -1568,7 +1568,7 @@ class SpellsDSeeder extends Seeder
         $spell->name        = 'Divine Power';
         $spell->casting     = 'Somatic Casting, Material Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>Calling upon the divine power of your patron, you imbue yourself with strength and skill in combat.</p>
 <ul>
     <li>You gain a +3 Luck bonus on Attack Rolls, Weapon Damage, STR Saves and checks.</li>
@@ -2078,7 +2078,7 @@ class SpellsDSeeder extends Seeder
         $spell->name        = 'Dragon Scales';
         $spell->casting     = 'Material Casting, Somatic Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '4 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>This spell creates a plating of dragon scales that grows from your skin to cover all of your body except your head. This gives you Natural Armor 15 or a +2 bonus to AC, whichever is better. You determine the tint of the dragon scales, but the chosen hue must correspond to that of a chromatic dragon species.</p>
 <dl>
     <dt>Material Components</dt> <dd>A single dragon scale.</dd>

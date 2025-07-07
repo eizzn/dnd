@@ -135,7 +135,7 @@ class SpellsGSeeder extends Seeder
         $spell->name         = 'General of the Undead';
         $spell->casting      = '12 hour (Somatic, Verbal)';
         $spell->targets      = 'Self';
-        $spell->duration     = '1 day';
+        $spell->duration     = '24 Hours';
         $spell->requirements = '<dl>
     <dt>Ability Damage</dt> <dd>3 CON damage</dd>
     <dt>Secondary Casters</dt> <dd>1 Religion: 8, Arcana: 8</dd>
@@ -170,7 +170,7 @@ class SpellsGSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'One corpse';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = "<p>The corpse doesn't decay, nor can it be transformed into an undead. Time spent under the effect of this spell doesn't count when determining the success of spells that require a fresh corpse.</p>";
         $spell->heightened  = "<dl>
     <dt>Heightened (+3)</dt> <dd>The spell's duration is permanent, but you must add a Material Casting Action with 6gp worth of embalming fluids.</dd>
@@ -195,7 +195,7 @@ class SpellsGSeeder extends Seeder
         $spell->name        = 'Ghost Form';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '10 rounds';
+        $spell->duration    = '1 minute';
         $spell->description = '<p>You assume a visible, incorporeal form like that of a manifesting ghost. You gain the Incorporeal subtype for the duration of the spell. You also gain the following.</p>
 <ul>
     <li>You have no physical body while in this state. You can be harmed only by other Incorporeal creatures, and weapons and spells that are Ghost Touched. Non-damaging spell effects affect you normally unless they require corporeal targets to function or they create a corporeal effect that incorporeal creatures would normally be unaffected by (such as Web or Wall of Stone).</li>
@@ -213,7 +213,7 @@ class SpellsGSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Object touched';
         $spell->duration    = '1 hour';
-        $spell->description = '<p>This spell causes an object to glow like a torch, shedding bright illumination out in a 20-foot radius (and shadowy illumination out to additional 20 feet) from the point you touch. Unlike normal Light spells, this light is only visible to you and upto 5 other creatures. Effectively, this spell allows you and your chosen companions to see in the dark.</p>
+        $spell->description = '<p>This spell causes an object to glow like a torch, shedding bright illumination out in a 20-foot radius (and shadowy illumination out to additional 20 feet) from the point you touch. Unlike normal Light spells, this light is only visible to you and up to 5 other creatures. Effectively, this spell allows you and your chosen companions to see in the dark.</p>
 <dl>
     <dt>Material Components</dt> <dd>A bit of phosphorescent fungus.</dd>
 </dl>';

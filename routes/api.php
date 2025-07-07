@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\ArmorController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\FeatController;
+use App\Http\Controllers\FormulaController;
 use App\Http\Controllers\GodController;
 use App\Http\Controllers\PantheonController;
 use App\Http\Controllers\PowerController;
 use App\Http\Controllers\SpellController;
 use App\Http\Controllers\TalentController;
+use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
@@ -58,5 +61,23 @@ Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
         ->name('talents');
     Route::get('talent/{id}', [TalentController::class, 'get'])
         ->name('talent')
+        ->whereNumber('id');
+
+    Route::get('armors', [ArmorController::class, 'index'])
+        ->name('armors');
+    Route::get('armor/{id}', [ArmorController::class, 'get'])
+        ->name('armor')
+        ->whereNumber('id');
+
+    Route::get('weapons', [WeaponController::class, 'index'])
+        ->name('weapons');
+    Route::get('weapon/{id}', [WeaponController::class, 'get'])
+        ->name('weapon')
+        ->whereNumber('id');
+
+    Route::get('formulas', [FormulaController::class, 'index'])
+        ->name('formulas');
+    Route::get('formula/{id}', [FormulaController::class, 'get'])
+        ->name('formula')
         ->whereNumber('id');
 });

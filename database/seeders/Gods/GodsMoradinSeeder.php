@@ -38,6 +38,7 @@ class GodsMoradinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Moradin';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus 1 choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -163,6 +164,7 @@ class GodsMoradinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Berronar';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -295,6 +297,7 @@ class GodsMoradinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Abbathor';
+        $class->type          = 'Priest';
         $class->key_attribute = 'DEX or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -614,6 +617,7 @@ class GodsMoradinSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Laduguer';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -622,7 +626,7 @@ class GodsMoradinSeeder extends Seeder
             'hit_dice'       => 8,
             'skill_points'   => 6,
             'skill_progress' => 3,
-        ], ['WIS', 'CHAR'], [
+        ], ['WIS', 'CHA'], [
             'Divine', 'Dwarf', 'Evil',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [

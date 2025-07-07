@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Feat;
+use App\Models\Klass;
 use App\Models\Power;
 use App\Models\Type;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -43,6 +45,24 @@ class PowerResource extends JsonResource
                     'name' => $child->name,
                 ];
             }),
+            'classes'        => $this->classes
+                ->sortBy('name')
+                ->map(function (Klass $class) {
+                    return [
+                        'id'    => $class->id,
+                        'name'  => $class->name,
+                        'level' => $class->pivot->level,
+                    ];
+                }),
+            'feats'          => $this->feats
+                ->sortBy('name')
+                ->map(function (Feat $feat) {
+                    return [
+                        'id'    => $feat->id,
+                        'name'  => $feat->name,
+                        'level' => $feat->pivot->level,
+                    ];
+                }),
         ];
     }
 }

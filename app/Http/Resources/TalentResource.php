@@ -25,10 +25,10 @@ class TalentResource extends JsonResource
                     'name' => $type->name,
                 ];
             }),
-            'parent'      => [
+            'parent'      => $this->parent ? [
                 'id'    => $this->parent->id,
                 'name'  => $this->parent->name,
-            ],
+            ] : null,
             'children'    => $this->children->map(function (Talent $child) {
                 return [
                     'id'   => $child->id,

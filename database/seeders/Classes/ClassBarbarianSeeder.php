@@ -22,6 +22,7 @@ class ClassBarbarianSeeder extends Seeder
 
         $class       = new Klass;
         $class->name = 'Barbarian';
+        $class->type = 'Base';
         $helper->saveClass($class, [
             'key_attribute'  => 'STR',
             'hit_dice'       => 12,
@@ -500,7 +501,7 @@ class ClassBarbarianSeeder extends Seeder
         $feat->requirement = 'You must be from the region of Rashemen';
         $feat->description = '<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen</p>
 <h4>Anathema</h4>
-<p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you</p>
+<p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you unless ordered by a Wychlaren of rank Hathran or higher or the Huhrong</p>
 <ul>
     <li>You gain the Improved Trip Feat</li>
     <li>You gain two Talents, one of them is the Improved Flanking Talent and one of your choice</li>

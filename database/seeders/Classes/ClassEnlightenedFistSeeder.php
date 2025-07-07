@@ -21,6 +21,7 @@ class ClassEnlightenedFistSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Enlightened Fist';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'INT or DEX';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

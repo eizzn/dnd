@@ -24,6 +24,7 @@ class ClassArtificerSeeder extends Seeder
 
         $class       = new Klass;
         $class->name = 'Artificer';
+        $class->type = 'Base';
         $helper->saveClass($class, [
             'key_attribute'  => 'INT',
             'has_spells'     => true,

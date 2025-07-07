@@ -14,10 +14,11 @@ class ClassController extends Controller
         if (! $request->has('order')) {
             $request->merge(['order' => 'name']);
         }
-        $query = $service->index($request);
+        $query = $service->index($request, true);
 
         return new ClassCollectionResource(
-            $query->with('types')
+            $query->where('type', '!=', 'Abstract')
+                ->with('types')
                 ->paginate($request->query('per_page', 15))
                 ->appends($request->all())
         );
@@ -26,10 +27,7 @@ class ClassController extends Controller
     public function get(ClassService $service, int $id): ClassResource
     {
         return new ClassResource(
-            $service->index(['id' => $id])
-                ->with([
-                    'types', 'skills', 'features', 'spells', 'powers',
-                ])->firstOrFail()
+            $service->index(['id' => $id])->firstOrFail()
         );
     }
 }

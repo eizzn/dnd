@@ -152,7 +152,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Bow touched';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>You enchant a bow you hold. It gains a +2 bonus to Hit and Damage against any of your Favored Enemies or against your Studied Enemy, as well as dealing an additional Weapon Die of damage.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment'], 2);
 
@@ -238,7 +238,7 @@ class SpellsBSeeder extends Seeder
         $spell->name        = 'Battering Ram';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '60 ft';
-        $spell->duration    = 'Concentration, upto 30 minutes';
+        $spell->duration    = 'Concentration, up to 30 minutes';
         $spell->description = "<p>You create a ram-like shaped force that can strike with considerable force.</p>
 <p>You can use an Action to make a Ranged Touch Attack against a creature or an object.</p>
 <p>If the target is a creature, this attack initiates a Bull Rush (the force is considered a Large creature with STR 25).</p>
@@ -344,7 +344,7 @@ class SpellsBSeeder extends Seeder
         $spell->name        = 'Bedevil';
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->range       = 'See Text';
-        $spell->duration    = '7 days';
+        $spell->duration    = '1 Week';
         $spell->description = "<p>You summon a mischievous spirit and send it to bedevil your enemy. The spirit seeks out its assigned victim wherever they might be, as long as they are on the same plane as you when you cast the spell. It then proceeds to irritate and annoy them through a veriety of manifestations. The victim of a Bedevil spell finds themself constantly  seeing movement out of the corner of their eye. Their sleep is frequently interrupted by bed shaking and blanket shifting and the sounds of voices that fade upon waking. When spellcasting, they suffer a veriety of minor irritations that threaten to disrupt their spells, and they constantly feels haunted and watched. The result of this bedevilment is that they take a -1 penalty on all Ability Checks, Skill Checks, and WIS Saves, and has an additional 5% spell failure.</p>
 <p>Detect Evil cast upon the subject of this spell reveals the presence of the bedeviling spirit, while a Protection from Evil keeps the spirit from adversely affecting the victim. A Dispel Evil spell destroys the mischievous spirit, but Remove Curse or similar magic has no effect.</p>
 <dl>
@@ -376,7 +376,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = 'Verbal Casting, Somatic Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Touched creature';
-        $spell->duration    = '5 minute';
+        $spell->duration    = '10 minutes';
         $spell->description = "<p>You touch a creature, and that creature must succeed on a WIS save or become cursed for the duration of the spell. When you cast this spell, choose the nature of the curse from the following options.</p>
 <ul>
     <li>Choose one ability score. While cursed, the target suffers Disadvantage on ability checks and Saves made with that ability score.</li>
@@ -417,7 +417,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
         $spell->targets     = "One mindless undead creature with a level no greater than Bind Undead's Spell Level";
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>You control the target. It gains the minion trait. If you or an ally acts hostile to the target, the spell ends.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 3);
 
@@ -494,7 +494,7 @@ class SpellsBSeeder extends Seeder
         $spell->targets        = 'Single creature within range';
         $spell->save_attribute = 'WIS';
         $spell->rarity         = 'Rare';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>You create a chain of Force that whirls into a loop around a single creature of your choice within range, making a metallic rattling sound as it does so. The chain creates an oscillating ring surrounding the target at a distance of 5 feet (so all squares adjacent to the target creature are within the chain). If the creature succeeds on its Save, the chain fails to encircle it and disappears harmlessly. Otherwise the chain surrounds the target, with the following effects.</p>
 <ul>
     <li>The target creature cannot leave the area defined by the chain. Other creatures can enter or leave the area (although they must succeed ona DC 15 Escape check or a DC 15 Tumble check to slip past the chain). If the target was in midair (flying, levitating, and so on) when the chain took effect, the chain suspends the target in midair safely as if it had a solid floor on which to stand.</li>
@@ -751,7 +751,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->save_attribute = 'CON';
         $spell->targets        = 'Self';
-        $spell->duration       = '5 minutes';
+        $spell->duration       = '10 minutes';
         $spell->description    = '<p>You gain the physical beauty of a nymph, with some of the supernatural accompaniment.</p>
 <p>All humanoids within 60 feet of you who look directly at you must succeed on a CON Save or be Blinded permanently.</p>
 <p>During the duration of the spell, you can suppress or resume this effect as an Action, while remaining stunningly attractive.</p>
@@ -769,7 +769,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = '1 hour (Material, Somatic, Verbal)';
         $spell->targets     = 'Self';
         $spell->area        = '1,000 feet radius spread, centered on you';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>A brilliant radiance spreads from you, brightly illuminating the area.</p>
 <p>The light is similar to that created by the Daylight spell, but magical darkness counters or dispels it. Furthermore, evil-aligned creates are blinded within this light.</p>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Light', 'Exalted', 'Ritual'], 9);
@@ -963,7 +963,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature touched';
-        $spell->duration    = '7 rounds';
+        $spell->duration    = '5 rounds';
         $spell->description = '<p>This spell grants the recipient the following</p>
 <ul>
     <li>Can wield an unfamiliar weapon as if they were proficient with it</li>
@@ -1143,7 +1143,7 @@ class SpellsBSeeder extends Seeder
         $spell->range         = '30 feet';
         $spell->targets       = 'One living creature';
         $spell->spell_creator = 'Beltyn';
-        $spell->duration      = '10 rounds';
+        $spell->duration      = '1 minute';
         $spell->description   = "<p>You infuse a living creature's blood with a hot, corrosive mixture, dealing 1D8 Acid and 1D8 Fire damage per round. Each round, on its turn, the target may attempt a CON Save. Success means they take no damage this turn, but must Save again next round until the duration ends.</p>";
         $spell->heightened    = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D8 Acid and +1D8 Fire</dd>

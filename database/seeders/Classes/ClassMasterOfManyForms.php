@@ -17,6 +17,7 @@ class ClassMasterOfManyForms extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Master Of Many Forms';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'CON or WIS';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

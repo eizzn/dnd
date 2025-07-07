@@ -49,6 +49,7 @@ class GodsSehanineSeeder extends Seeder
         // Priest of Selune
         $class                = new Klass;
         $class->name          = 'Priest of Selune';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
@@ -94,7 +95,8 @@ class GodsSehanineSeeder extends Seeder
                 'Moon Blade', 'Neutralize Poison', 'Prayer', 'Radiance', 'Sanctified Ground', 'Searing Light', 'Zone of Truth', ],
             4  => ['Dimensional Anchor', 'Life Ward', 'Read Omens', 'Remove Curse', 'Sacred Item', 'Stars of Selune', 'Spell Immunity',
                 'Sunmantle', 'True Form', ],
-            5  => ['Atonement', 'Banishment', 'Healing Circle', 'Moonbow', 'Purifying Light', 'Sending', 'Stalwart Covenant'],
+            5  => ['Atonement', 'Banishment', 'Healing Circle', 'Moonbow', 'Purifying Light', 'Sending', 'Stalwart Covenant',
+                'Sustain', ],
             6  => ['Heal', 'Raise Dead', 'True Seeing'],
             7  => ['Dimensional Lock', 'Plane Shift', 'Radiant Assault', 'Renewal Pact'],
             8  => ['Discern Location', 'Last Judgment', 'Screen' => 'Only at night'],

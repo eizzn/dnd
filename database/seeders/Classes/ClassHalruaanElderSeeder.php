@@ -21,6 +21,7 @@ class ClassHalruaanElderSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Halruaan Elder';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'INT';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -72,6 +73,7 @@ class ClassHalruaanElderSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Magehound';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'WIS or DEX';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -84,7 +86,6 @@ class ClassHalruaanElderSeeder extends Seeder
         $helper->saveClass($class, [
             'hit_dice'       => 6,
             'skill_progress' => 2,
-            'has_powers'     => 1,
         ], ['WIS', 'DEX', 'CHA']);
 
         $feature              = new Feature;

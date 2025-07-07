@@ -134,7 +134,7 @@ class SpellsWSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = 'Wall-shaped 6-in thick 100 feet long';
         $spell->targets     = 'Open area up to 120 feet range';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = "<p>This spell enables the caster to create a special sort of quasi-living elemental barrier. On the \"safe\" side, or inner side, it appears as a shadowed section of wall. On the outside, it initially appears as a rough, purple-brown stone. The caster can freely move through the wall as though it does not exist. If the caster cast this spell as a Divine spell, then other divine casters of the same faith may pass through the wall as well. Others that touch the wall triggers four tentacles emerge to grasp the target, and begin a loud hissing and champing noise to alert the caster to the presence of a intruder.</p>
 <p>The wall can extrude twenty 16'-long tentacles, and two beaks. These can shift about its surface, but a maximum of three attacks per round can be made on any single creature. The beaks are saved for a second stage of continued attack or resistancence (see below); only the tentacles attack initially. Each tentacle strike does physical damage, and forces the victim to make a DEX or STR Save or be Grappled. The Grappled creature is then dragged towards a beak (5 feet per round).</p>
 <dl>

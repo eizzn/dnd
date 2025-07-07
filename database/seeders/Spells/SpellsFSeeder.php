@@ -129,7 +129,7 @@ class SpellsFSeeder extends Seeder
         $spell->name        = 'False Life';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>You gain a number of temporary Hit Points equal to 6 plus your spellcasting ability modifier.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>The temporary Hit Points increase by 6</dd>
@@ -549,7 +549,7 @@ class SpellsFSeeder extends Seeder
         $spell->casting       = 'Somatic Casting, Verbal Casting';
         $spell->spell_creator = 'Darsson';
         $spell->range         = '60 feet, 50 ft cube';
-        $spell->duration      = '5 hours';
+        $spell->duration      = '8 hours';
         $spell->description   = '<p>You raise the temperature in the affected area to the level of extreme heat. For every minute spent breathing the air in the area, a creature vulnerable to heat and fire takes 1D6 points of lethal Fire damage (no Save). In addition, the creature must make a CON Save every 5 minutes (DC 15 +1 per previous check) or take 1D4 points of nonlethal Fire damage. Those wearing heavy clothing or any sort of armor take a -4 penalty on their Save. In addition, those wearing metal armor, as well as those coming in contact with metal that has been in the area for at least 1 hour, are affected as if by a Heat Metal spell.</p>
 <p>This spell was originally developed as a means of cooking food (cast inside cauldrons, brick ovens, and smoke houses) or for creating a comfortable environment for heat-loving pets.</p>';
         $spell->heightened = '<dl>
@@ -629,7 +629,7 @@ class SpellsFSeeder extends Seeder
         $spell->name        = 'Find the Path';
         $spell->casting     = '1 minute (Visual, Somatic, Material)';
         $spell->targets     = 'Self';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = "<p>This spell allows you to find the shortest, most direct physical route to a specific fixed location that you are familiar with on the same plane of existence. If you name a destination on another plane of existence, a destination that moves (such as a mobile fortress), or a destination that isn't specific (such as \"a green dragon's lair\"), the spell fails.</p>
 <p>For the duration, as long as you are on the same plane of existence as the destination, you know how far it is and in what direction it lies. While you are traveling there, whenever you are presented with a choice of paths along the way, you automatically determine which path is the shortest and most direct route (but not necessarily the safest route) to the destination.</p>";
         $helper->addTypesToSpell($spell, ['Divination', 'Ritual'], 6);
@@ -721,7 +721,7 @@ class SpellsFSeeder extends Seeder
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '60 feet';
         $spell->save_attribute = 'DEX';
-        $spell->duration       = '10 rounds';
+        $spell->duration       = '1 minute';
         $spell->description    = '<p>This spell allows the caster to emit a fiery beam from either one or both of his eyes as an Action. This thin, ruby-red bean can strike up to two opponents per round with a Ranged Touch Attack. The beam deals 2D8 Fire to all creatures struck. The target may make a DEX Save.</p>
 <p>The beam acts as an instant Heat Metal spell if targeting metal armor or shields (Searing level). Hitting the same metal armor or shield 2 times in a row will cause the metal to melt (Save DC 15). Increase the DC by +3 for each continuous additional round the metal is hit by the fire beams. Targets in metal armor hit by a beam would suffer the normal damage and then start suffering damage from the heated armor (as Heat Metal)</p>';
         $spell->saves = '<dl>
@@ -809,7 +809,8 @@ class SpellsFSeeder extends Seeder
         $spell->name           = 'Fireball';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->save_attribute = 'DEX';
-        $spell->range          = '20-foot burst. 500 foot range';
+        $spell->range          = '500 foot range';
+        $spell->area           = '20-foot emanation';
         $spell->spell_creator  = 'Noanar';
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>A burst of fire explodes, dealing 6D6 damage; creatures in the area must attempt a Save.</p>';
@@ -951,7 +952,7 @@ class SpellsFSeeder extends Seeder
         $spell->spell_creator = 'Daltim';
         $spell->range         = 'Touch';
         $spell->targets       = 'Item or creature touched';
-        $spell->duration      = '2 hours';
+        $spell->duration      = '3 hours';
         $spell->description   = "<p>This spell confers immunity to normal fire to the item touched. The item (and anything it contains) remains at normal temperature and cool to the touch despite immersion in lava or exposure to a red dragon's breath weapon.</p>
 <p>If this spell is cast on a creature (including your self), the creature becomes immune to all normal fire. Magical fire (such as Dragon Breath) causes -3 points of damage per die, to a minimum of 0 damage per die. The creature also gains a +5 bonus to all Saves vs Fire.</p>
 <p>This spell does not stack with other spells that protect against fire.</p>
@@ -1247,7 +1248,7 @@ class SpellsFSeeder extends Seeder
         $spell->name         = 'Forbiddance';
         $spell->casting      = '10 minutes (Material, Somatic, Verbal)';
         $spell->range        = 'Touch';
-        $spell->duration     = '1 day';
+        $spell->duration     = '24 Hours';
         $spell->requirements = '<dl>
     <dt>Sacrifice</dt> <dd>2 CON damage</dd>
     <dt>Secondary Casters</dt> <dd>2 Secondary Casters</dd>

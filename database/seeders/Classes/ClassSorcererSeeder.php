@@ -22,6 +22,7 @@ class ClassSorcererSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Sorcerer';
+        $class->type          = 'Base';
         $class->key_attribute = 'CHA';
         $class->weapons       = 'Simple Weapons';
         $class->has_spells    = 1;

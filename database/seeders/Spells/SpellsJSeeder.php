@@ -23,7 +23,7 @@ class SpellsJSeeder extends Seeder
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->range       = '120 feet';
         $spell->targets     = 'Self';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->description = '<p>The spell puts down in written format all the events that happens within range to the caster for the duration. It does not record every mundane event that occurs within range, only those that involve the caster, but the cast can take note of any mundane event and have it specifically written down.</p>
 <p>In game terms, this spell provides the caster access to all names, places, events with perfect memory (as it is written down).</p>
 <p>The spell can draw simple illustrations, and portraits. It does not draw maps (like the Map spell), however it can jot down the path taken at a corridor that had more than one path, or the general direction if out in the open (such as North, or South East) whenever a course change is take in terms of time passed or approximate distance.</p>

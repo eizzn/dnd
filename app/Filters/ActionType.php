@@ -10,7 +10,15 @@ class ActionType extends Filter
         if (! is_array($types)) {
             $types = [$types];
         }
-        $data->queryBuilder->whereIn($this->columnName(), $types);
+        $data->queryBuilder->where(function ($q) use ($types) {
+            foreach ($types as $type) {
+                if (strtolower($type) == 'action') {
+                    $q->orWhere($this->columnName(), $type);
+                } else {
+                    $q->orWhere($this->columnName(), 'LIKE', '%' . $type . '%');
+                }
+            }
+        });
 
         return $data;
     }

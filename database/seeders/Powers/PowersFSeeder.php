@@ -114,7 +114,7 @@ class PowersFSeeder extends Seeder
         $power->range          = 'Touch';
         $power->targets        = 'Creature touched';
         $power->save_attribute = 'CON';
-        $power->duration       = '10 rounds';
+        $power->duration       = '1 minute';
         $power->description    = "<p>You cause the touched subject's flesh to ripple, grow together, and fuse into a nearly seamless whole. The subject is forced into a fetal position (if humanoid), with only the vaguest outline of its folded arms and legs visible below the all-encompassing wave of flesh. The subject retains the ability to breathe, eat, and excrete, but may lose the use of its senses (see below).</p>
 <p>If the sudden transformation would prove fatal to the creature (such as fusing a swimming air-breathing subject, or a flying subject), the subject gets a +4 bonus on the Save. Unless it loses the use of its senses (see below), the creature can still perform purely mental actions, such as manifesting powers.</p>
 <p>If the target fails its CON Save to avoid the power's effect, the subject must immediately attempt a second CON Save. If this second Save is failed, the creature's eyes and ears fuse over, effectively blinding and deafening it. Moreover, it loses its extraordinary, supernatural, and spell-like abilities, as well as its ability to manifest powers (if any), and is generally in sorry shape.</p>

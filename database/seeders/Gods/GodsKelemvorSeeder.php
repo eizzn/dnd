@@ -38,6 +38,7 @@ class GodsKelemvorSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Doomguides';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus one choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -151,6 +152,7 @@ class GodsKelemvorSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Doomscribes';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS or INT';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -195,6 +197,7 @@ class GodsKelemvorSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Urogalan';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS or DEX';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';

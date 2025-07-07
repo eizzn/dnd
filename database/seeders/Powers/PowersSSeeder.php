@@ -23,7 +23,7 @@ class PowersSSeeder extends Seeder
         $power->action_type = 'Triple Action';
         $power->display     = 'Auditory, Mental';
         $power->targets     = 'Self';
-        $power->duration    = '10 rounds';
+        $power->duration    = '1 minute';
         $power->description = "<p>Your mind splits into two independent parts. Each part functions in complete autonomy, like two characters in one body. Your new second mind does not control your physical body. You gain 2 additional Actions, which can only be used to manifest powers and only your second mind can use.</p>
 <p>Your second mind can manifest powers using your Power Point reserve. Your second mind does not provoke any Attacks of Opportunity when manifesting a power because doing so doesn't distract your primary mind.</p>
 <p>You second mind takes its first Action on your turn in the round after Schism is manifested.</p>

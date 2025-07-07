@@ -22,6 +22,7 @@ class ClassDivinePrestigeSeeder extends Seeder
         // Divine Oracle
         $class                = new Klass;
         $class->name          = 'Divine Oracle';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'WIS or CHA';
         $class->max_level     = 3;
         $class->requirements  = $helper->getClassRequirementsString([
@@ -82,6 +83,7 @@ class ClassDivinePrestigeSeeder extends Seeder
         $class                = new Klass;
         $class->name          = 'Divine Disciple';
         $class->key_attribute = 'WIS or CHA';
+        $class->type          = 'Prestige';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
             'Skills'       => '5 or more ranks in Diplomacy, 8 or more ranks in Religion',

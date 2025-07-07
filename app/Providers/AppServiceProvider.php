@@ -2,14 +2,17 @@
 
 namespace App\Providers;
 
+use App\Services\ArmorService;
 use App\Services\AttributeService;
 use App\Services\ClassService;
 use App\Services\FeatService;
+use App\Services\FormulaService;
 use App\Services\GodPantheonService;
 use App\Services\PantheonService;
 use App\Services\PowerService;
 use App\Services\SpellService;
 use App\Services\TalentService;
+use App\Services\WeaponService;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        app()->singleton(\App\Services\Contracts\ArmorService::class, function () {
+            return new ArmorService();
+        });
         app()->singleton(\App\Services\Contracts\AttributeService::class, function () {
             return new AttributeService;
         });
@@ -28,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
         });
         app()->singleton(\App\Services\Contracts\FeatService::class, function () {
             return new FeatService;
+        });
+        app()->singleton(\App\Services\Contracts\FormulaService::class, function () {
+            return new FormulaService();
         });
         app()->singleton(\App\Services\Contracts\GodPantheonService::class, function () {
             return new GodPantheonService;
@@ -43,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
         });
         app()->singleton(\App\Services\Contracts\TalentService::class, function () {
             return new TalentService;
+        });
+        app()->singleton(\App\Services\Contracts\WeaponService::class, function () {
+            return new WeaponService();
         });
     }
 

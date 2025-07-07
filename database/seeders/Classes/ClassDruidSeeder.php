@@ -22,6 +22,7 @@ class ClassDruidSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Druid';
+        $class->type          = 'Base';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons and Scimitar';
         $class->armors        = 'Light and Medium armor not made of metal. Light and Medium shields not made of metal.';
@@ -73,9 +74,9 @@ class ClassDruidSeeder extends Seeder
     <li>
         <p>While you are transformed, the following rules apply:</p>
         <ul>
-            <li>Your game statistics are replaced by the statistics of the Animal, but you retain your Alignment, personality, INT, WIS, and CHA scores. You also retain all your skills and Saves, in addition to gaining those of the creature. If the creature has the same proficiency as you and the bonus in its stat block is higher than yours, use the creature's bonus instead of yours. If the creature has any legendary or Lair Actions, you can't use them</li>
+            <li>Your game statistics are replaced by the statistics of the Animal, but you retain your Alignment, personality, INT, WIS, and CHA scores. You also retain all your Skills and Saves, in addition to gaining those of the creature. If the creature has the same proficiency as you and the bonus in its stat block is higher than yours, use the creature's bonus instead of yours.</li>
             <li>When you transform, you assume the Animal's Hit Points and Hit Dice.</li>
-            <li>You can't cast Spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your Animal form. Transforming doesn't break your Concentration on a spell you've already cast, however, or prevent you from taking Actions that are part of a spell, such as Call Lightning, that you've already cast.</li>
+            <li>You can't cast Spells, and your ability to speak or take any Action that requires hands is limited to the capabilities of your Animal form. Transforming doesn't break your Concentration on a spell you've already cast, however, or prevent you from taking Actions that are part of a spell, such as Call Lightning, that you've already cast.</li>
             <li>You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can't use any of your Special Senses, such as Darkvision, unless your new form also has that sense.</li>
             <li>You choose whether your Equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the DM decides whether it is practical for the new form to wear a piece of equipment, based on the creature's shape and size. Your equipment doesn't change size or shape to match the new form, and any equipment that the new form can't wear must either fall to the ground, or merge with it. Equipment that merges with the form has no effect until you leave the form.</li>
         </ul>
@@ -351,7 +352,7 @@ class ClassDruidSeeder extends Seeder
             1 => ['Animate Wood', 'Plant Renewal', 'Sanctuary'],
             2 => ['Consecrate'],
             3 => ['Laughing Water', 'Sheltered Vitality'],
-            4 => ['Cloak of the Sea', 'Flowsight'],
+            4 => ['Cloak of the Sea', 'Flowsight', 'Sustain'],
             5 => ['Healing Circle', 'Pacification', 'Water of Eldath'],
             6 => ['Repel Ectoplasm'],
             7 => ['Spread of Contentment'],
@@ -477,7 +478,7 @@ class ClassDruidSeeder extends Seeder
     <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to command Elementals with the Cold type.</li>
 </ul>';
         $helper->addTypesToFeat($touch, ['Cold', 'Primal', 'Channel Divinity']);
-        $helper->addSpellsToFeat($feat, [
+        $helper->addSpellsToFeat($touch, [
             0 => ['Chill Touch', 'Fist of Ice'],
             1 => ['Armor of Frost', 'Frost Fingers', 'Ice Knife', 'Ice Slick', 'Snow Boots', 'Snow Sight'],
         ]);
@@ -492,7 +493,7 @@ class ClassDruidSeeder extends Seeder
     <li>If you have the Animal Companion feat, you may gain a Winter Wolves as an Animal Companion. Having a Winter Wolf as an Animal Companion costs a 3rd level Spell Slot and 1 Spell Point instead of the normal costs for an Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($kiss, ['Cold', 'Primal']);
-        $helper->addSpellsToFeat($feat, [
+        $helper->addSpellsToFeat($kiss, [
             2 => ['Chill Metal', 'Control Temperature'],
             3 => ['Control Snow and Ice', 'Corona of Cold', 'Ice Shape'],
         ]);
@@ -506,7 +507,7 @@ class ClassDruidSeeder extends Seeder
     <li>If you have the Improved Wild Shape Feat, you may also change into a Winter Wolf using your Wild Shape ability.</li>
 </ul>';
         $helper->addTypesToFeat($hold, ['Cold', 'Primal']);
-        $helper->addSpellsToFeat($feat, [
+        $helper->addSpellsToFeat($hold, [
             4 => ['Ice Blade'],
             5 => ['Anticold Sphere', 'Cold Snap', 'Cone of Cold', 'Dispel Fire', 'Icy Prison'],
         ]);
@@ -522,7 +523,7 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($embrace, ['Cold', 'Primal']);
         $embrace->parent_feats()->save($hold);
-        $helper->addSpellsToFeat($feat, [
+        $helper->addSpellsToFeat($embrace, [
             6 => ['Freezing Sphere'],
             7 => ['Heart of Ice'],
             8 => ['Ice Assassin'],
@@ -759,6 +760,21 @@ class ClassDruidSeeder extends Seeder
             10 => ['True Resurrection'],
         ]);
         $feat->parent_feats()->save(app()->feats['Champion of Osiris']);
+
+        $feat              = new Feat();
+        $feat->name        = 'Mark of Ubtao';
+        $feat->requirement = 'Ubtao must be your Patron deity (Druid only)';
+        $feat->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>You gain 3 Spell Points</li>
+    <li>When you cast Animal Form, it is automatically Heightened by +1</li>
+    <li>Because you are from Chult, the land of Dinosaurs, you may use your Wild Shape ability to change into Dinosaurs (you must still qualify for the CR restrictions)</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addSpellsToFeat($feat, [
+            5 => ['Susurrus of the City'],
+            8 => ['Maze'],
+        ]);
 
         $helper->addFeatsToClass($class, [
             'Call of the Wild'  => 1,

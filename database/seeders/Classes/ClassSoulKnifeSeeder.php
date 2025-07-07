@@ -22,6 +22,7 @@ class ClassSoulKnifeSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Soul Knife';
+        $class->type          = 'Base';
         $class->key_attribute = 'DEX or CON';
         $class->weapons       = 'Simple Weapons, Mind Blade';
         $class->armors        = 'Light Armor';

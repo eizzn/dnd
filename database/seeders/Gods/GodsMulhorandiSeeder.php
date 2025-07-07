@@ -49,6 +49,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Eye of Horus-Re';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
@@ -122,6 +123,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Sunlords';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor, medium armor, and shields';
@@ -323,6 +325,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Isis';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->has_spells    = 1;
@@ -413,6 +416,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Nephthys';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus the Whip';
         $class->armors        = 'Light Armors, Medium Armor, Shields';
@@ -455,6 +459,7 @@ class GodsMulhorandiSeeder extends Seeder
         // Priest of Siamorphe
         $class                = new Klass;
         $class->name          = 'Scions of Siamorphe';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor';
@@ -485,7 +490,8 @@ class GodsMulhorandiSeeder extends Seeder
             3 => ['Comprehension', 'Crown of Courage', 'Crown of Protection', 'Dispel Magic', 'Hold Person',
                 'Know Bloodline', 'Neutralize Poison', 'Revivify', 'Sending', ],
             4 => ['Ceremony', 'Compulsion', 'Commune with City', 'Crown of Majesty', 'Detect Scrying', 'Divination', 'Private Sanctum'],
-            5 => ['Aura of Power', 'Atonement', 'Banishment', 'City Stride', 'Dispel Outsider', 'Divine Weapon', 'Hallow'],
+            5 => ['Aura of Power', 'Atonement', 'Banishment', 'City Stride', 'Dispel Outsider', 'Divine Weapon', 'Hallow',
+                'Susurrus of the City', ],
             6 => ["City's Might", 'Crown of Brilliance', 'Dominate', "Hero's Feast"],
             7 => ['Divine Decree', 'Shield of Law'],
             8 => ['Crown of Glory', 'Divine Aura', 'Power Word Stun'],
@@ -514,6 +520,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Thoth';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->has_spells    = 1;
@@ -583,6 +590,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Ptah';
+        $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->has_spells    = 1;
@@ -695,6 +703,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Hathor';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
@@ -787,6 +796,7 @@ class GodsMulhorandiSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Fangs of Set';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus all Spears';
         $class->armors        = 'Light Armor, Medium Armor';

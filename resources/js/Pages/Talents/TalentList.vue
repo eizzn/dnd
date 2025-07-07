@@ -1,58 +1,14 @@
 <script setup>
-import { useRouter, useRoute } from "vue-router";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
-import axios from "axios";
-import { ref, onMounted } from "vue";
-import { TailwindPagination } from "laravel-vue-pagination";
-import debounce from "lodash/debounce";
+import ListFetcher from "@/components/ListFetcher.vue";
+import NavLink from "@/components/NavLink.vue";
+import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 
-const router = useRouter();
-const route = useRoute();
-
-const talents = ref([]);
-const pagination = ref({});
-const currentPage = ref(1);
-const filters = ref({
+const Uri = "talents";
+const filters = {
     name: null,
-});
-
-const getTalents = async (page) => {
-    try {
-        currentPage.value = page;
-        let url = `/api/talents?page=${page}`;
-        const queryParams = {};
-        if (page > 1) {
-            queryParams.page = page;
-        }
-        Object.keys(filters.value).forEach((key) => {
-            if (filters.value[key]) {
-                url += `&${key}=${filters.value[key]}`;
-                queryParams[key] = filters.value[key];
-            }
-        });
-        const response = await axios.get(url);
-        talents.value = response.data.data;
-        pagination.value = response.data;
-
-        await router.push({ path: route.path, query: queryParams });
-    } catch (error) {
-        console.error("Error fetching feats:", error);
-    }
 };
-
-const goToPage = (page) => {
-    getTalents(page);
-};
-
-onMounted(async () => {
-    await router.isReady();
-    const page = route.query.page ? parseInt(route.query.page) : 1;
-    currentPage.value = isNaN(page) ? 1 : page;
-    await getTalents(currentPage.value);
-});
-
-const debounceGetTalents = debounce(getTalents, 500);
 </script>
 
 <template>
@@ -69,37 +25,78 @@ const debounceGetTalents = debounce(getTalents, 500);
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <table class="w-full">
-                            <thead>
-                            <tr>
-                                <td>Name</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="talent in talents" :key="talent.id">
-                                <td>
-                                    <router-link :to="`/class/${talent.id}`">
-                                        {{ talent.name }}
-                                    </router-link>
-                                </td>
-                            </tr>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td colspan="1">
-                                    <div class="text-right">
-                                        <TailwindPagination
-                                            :data="pagination"
-                                            @pagination-change-page="goToPage"
-                                            :align="'right'"
-                                            :currenctt-page="currentPage"
-                                            :limit="5"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            </tfoot>
-                        </table>
+                        <ListFetcher
+                            :uri="Uri"
+                            :initial-filters="filters"
+                            :pagination-limit="15"
+                        >
+                            <template #filters="{ filters }">
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Name</label>
+                                    <input
+                                        id="talent-name-filter"
+                                        type="text"
+                                        v-model="filters.name"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        placeholder="Enter name to filter"
+                                    />
+                                </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Requirements</label>
+                                </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Trigger</label>
+                                </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Types</label>
+                                </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Description</label>
+                                </th>
+                            </template>
+
+                            <template #table="{ data }">
+                                <tr v-for="talent in data" :key="talent.id" class="hover:bg-gray-50">
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        <NavLink
+                                            :href="`/talent/${talent.id}`"
+                                            class="text-blue-800 hover:underline p-0"
+                                            style="border-bottom-width: 0 !important;"
+                                        >
+                                            {{ talent.name }}
+                                        </NavLink>
+                                    </td>
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        {{ talent.requirements }}
+                                    </td>
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        {{ talent.trigger }}
+                                    </td>
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        <ul>
+                                            <li v-for="type in talent.types" :key="index">{{ type.name }}</li>
+                                        </ul>
+                                    </td>
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        {{ talent.description }}
+                                    </td>
+                                </tr>
+                            </template>
+
+                            <template #pagination="{ pagination, currentPage, goToPage }">
+                                <div class="text-right">
+                                    <TailwindPagination
+                                        v-if="pagination"
+                                        :data="pagination"
+                                        :current-page="currentPage"
+                                        @pagination-change-page="goToPage"
+                                        :limit="5"
+                                        active-class="text-blue-500 font-bold"
+                                        inactive-class="text-gray-500 opacity-20"
+                                    />
+                                </div>
+                            </template>
+                        </ListFetcher>
                     </div>
                 </div>
             </div>

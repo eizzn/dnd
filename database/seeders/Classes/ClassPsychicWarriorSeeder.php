@@ -20,6 +20,7 @@ class ClassPsychicWarriorSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Psychic Warrior';
+        $class->type          = 'Base';
         $class->key_attribute = 'STR or CON or WIS';
         $class->weapons       = 'Simple Weapons, Martial Weapons, plus 2 Exotic Weapons';
         $class->armors        = 'All Armor and Shields';
@@ -29,7 +30,7 @@ class ClassPsychicWarriorSeeder extends Seeder
             'skill_progress' => 4,
             'has_powers'     => true,
         ], ['CON', 'WIS'], [
-            'Psionic', 'Combat Master',
+            'Psionic', 'Combat Mastery',
         ]);
 
         // Skills
@@ -55,12 +56,13 @@ class ClassPsychicWarriorSeeder extends Seeder
         ]);
 
         $helper->addPowersToClass($class, [
-            1 => ['Absorb Weapon', 'Body Adjustment', 'Burst', 'Call Object', 'Chameleon', 'Detect Psionics', 'Dissipating Touch',
-                'Distract', 'Empty Mind', 'Expansion', 'Inertial Armor', 'Photokinesis', 'Vigor', ],
+            1 => ['Absorb Weapon', 'Bio-electricity', 'Body Adjustment', 'Burst', 'Call Object', 'Chameleon', 'Detect Psionics',
+                'Dissipating Touch', 'Distract', 'Ectoplasmic Shard', 'Empty Mind', 'Expansion', 'Inertial Armor', 'Photokinesis',
+                'Vigor', ],
             2 => ['Acid', 'Animal Sight', 'Biofeedback', 'Body Equilibrium', 'Body Purification', 'Cloud Mind', 'Compression',
                 'Concealing Ectoplasm', 'Danger Sense', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Exhaust', 'Flex Form',
                 'Invisibility', 'Levitate', 'Physical Augmentation', 'Scent', 'Weapon Arm', ],
-            3 => ['Battlesense', 'Blindness', 'Drain Vigor', 'Ectoplasmic Form', 'Immovability', 'Ubiquitous Sight'],
+            3 => ['Battlesense', 'Blindness', 'Drain Vigor', 'Ectoplasmic Form', 'Immovability', 'Wings', 'Ubiquitous Sight'],
             4 => ['Dimension Door', 'Energy Adaptation', 'Inertial Barrier', "Out of Time's Grip", 'Psychic Drain'],
             5 => ['Adapt Body', 'Barrage', 'Brutalize Wounds', 'Catapsi', 'Metaconcert'],
             6 => ["Lion's Roar", 'Mind Blank', 'Suspend Life'],

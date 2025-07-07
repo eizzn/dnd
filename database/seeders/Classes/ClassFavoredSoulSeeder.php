@@ -21,6 +21,7 @@ class ClassFavoredSoulSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Favored Soul';
+        $class->type          = 'Base';
         $class->key_attribute = 'CHA';
         $class->hit_dice      = 8;
         $class->weapons       = 'Simple Weapons';

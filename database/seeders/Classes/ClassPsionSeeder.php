@@ -20,6 +20,7 @@ class ClassPsionSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Psion';
+        $class->type          = 'Base';
         $class->key_attribute = 'INT';
         $class->weapons       = 'Simple Weapons';
         $helper->saveClass($class, [
@@ -77,12 +78,13 @@ class ClassPsionSeeder extends Seeder
         ]);
 
         $helper->addPowersToClass($class, [
-            1 => ['Astral Construct', 'Astral Traveler', 'Attraction', 'Awareness', 'Body Adjustment', 'Burst', 'Call to Mind',
-                'Chameleon', 'Charisma Defense', 'Charm', 'Creation', 'Compression', 'Control Object', 'Daze', 'Detect Psionics',
-                'Deja Vu', 'Demoralize', 'Dexterity Defense', 'Disable', 'Dissipating Touch', 'Distract', 'Ectoplasmic Sheen',
-                'Ectoplasmic', 'Empathy', 'Empty Mind', 'Expansion', 'Fear', 'Inertial Armor', 'Intelligence Blast', 'Intelligence Defense',
-                'Matter Agitation', 'Missive', 'Psionic Repair', 'Photokinesis', 'Pyrokinesis', 'Sense Link', 'Sense Minds',
-                'Shift', 'Strength Blast', 'Strength Defense', 'Telekinesis', 'Venom', 'Vigor', 'Vitality Blast', 'Wisdom Defense', ],
+            1 => ['Astral Construct', 'Astral Traveler', 'Attraction', 'Awareness', 'Bio-electricity', 'Body Adjustment',
+                'Burst', 'Call to Mind', 'Chameleon', 'Charisma Defense', 'Charm', 'Creation', 'Compression', 'Control Object',
+                'Daze', 'Detect Psionics', 'Deja Vu', 'Demoralize', 'Dexterity Defense', 'Disable', 'Dissipating Touch',
+                'Distract', 'Ectoplasmic Shard', 'Ectoplasmic Sheen', 'Ectoplasmic', 'Empathy', 'Empty Mind', 'Expansion',
+                'Fear', 'Inertial Armor', 'Intelligence Blast', 'Intelligence Defense', 'Matter Agitation', 'Missive', 'Psionic Repair',
+                'Photokinesis', 'Pyrokinesis', 'Sense Link', 'Sense Minds', 'Shift', 'Strength Blast', 'Strength Defense',
+                'Telekinesis', 'Venom', 'Vigor', 'Vitality Blast', 'Wisdom Defense', ],
             2 => ['Animal Sight', 'Aversion', 'Biofeedback', 'Body Equilibrium', 'Brain Disruption', 'Charisma Blast',
                 'Clairvoyant Sense', 'Cloud Mind', 'Concealing Ectoplasm', 'Control Air', 'Control Sound', 'Danger Sense',
                 'Dexterity Blast', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Entangling Ectoplasm', 'Exhaust',
@@ -90,12 +92,12 @@ class ClassPsionSeeder extends Seeder
                 'Physical Augmentation', 'Power Defense', 'Read Thoughts', 'Repair Ectoplasmic Damage', 'Sensitivity to Psychic Impressions',
                 'Space Hop', 'Weapon Arm', 'Ubiquitous Sight', ],
             3 => ['Air Walk', 'Blindness', 'Body Purification', 'Dismiss Ectoplasm', 'Dispel Psionics', 'Ectoplasmic Form',
-                "Gem Dragon's Roar", 'Haste', 'Memory Modification', 'Psionic Blast', 'Time Hop', 'Wisdom Blast', ],
+                "Gem Dragon's Roar", 'Haste', 'Memory Modification', 'Psionic Blast', 'Time Hop', 'Wings', 'Wisdom Blast', ],
             4 => ['Control Body', 'Death Urge', 'Dimension Door', 'Dismissal', 'Divination', 'Dominate', 'Energy Adaptation',
                 'Fabricate', 'Fly', 'Inertial Barrier', 'Intellect Fortress', 'Life Blast', 'Metamorphosis', "Out of Time's Grip",
                 'Power Leech', 'Psychic Reformation', 'Quintessence', 'Schism', 'Teleport Trigger', 'Wall of Ectoplasm', 'Wither', ],
-            5 => ['Adapt Body', 'Baleful Sending', 'Brutalize Wounds', 'Catapsi', 'Hail of Ectoplasmic Shards', 'Incarnate',
-                'Metaconcert', 'Mind Probe', 'Psychic Crush', 'Teleport', 'Tower of Iron Will', ],
+            5 => ['Adapt Body', 'Baleful Sending', 'Brutalize Wounds', 'Catapsi', 'Ectoplasmic Creation, Major', 'Hail of Ectoplasmic Shards',
+                'Incarnate', 'Metaconcert', 'Mind Probe', 'Psychic Crush', 'Teleport', 'Tower of Iron Will', ],
             6 => ['Aura Alteration', 'Contingency', 'Ectoplasmic Crystallize', 'Disintegrate', 'Fuse Flesh', 'Mind Switch',
                 'Null Psionics Field', 'Plane Shift', 'Regeneration', 'Resonating Agony', 'Simulate Feat', 'Suspend Life', ],
             7 => ['Destructive Teleport', 'Energy Conversion', 'Fission', 'Insanity', "Lion's Roar", 'Mind Blank', 'Reddopsi',

@@ -18,6 +18,7 @@ class ClassCerebremancerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Cerebremancer';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'INT or CHA';
         $class->max_level     = 10;
         $class->requirements  = $helper->getClassRequirementsString([

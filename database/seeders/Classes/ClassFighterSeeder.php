@@ -19,6 +19,7 @@ class ClassFighterSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Fighter';
+        $class->type          = 'Base';
         $class->key_attribute = 'STR or DEX';
         $class->hit_dice      = 10;
         $class->weapons       = 'Simple Weapons, Martial Weapons';

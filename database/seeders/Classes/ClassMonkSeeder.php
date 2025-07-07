@@ -21,6 +21,7 @@ class ClassMonkSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Monk';
+        $class->type          = 'Base';
         $class->key_attribute = 'STR or DEX';
         $class->weapons       = 'Simple Weapons, Shortsword';
         $helper->saveClass($class, [
@@ -221,8 +222,8 @@ class ClassMonkSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
         $helper->addPowersToFeat($feat, [
-            1 => ['Daze', 'Dexterity Defense', 'Empty Mind', 'Inertial Armor'],
-            2 => ['Heal', 'Dexterity Blast', 'Physical Augmentation'],
+            1 => ['Body Adjustment', 'Daze', 'Dexterity Defense', 'Empty Mind', 'Inertial Armor'],
+            2 => ['Heal', 'Dexterity Blast', 'Extend Limb', 'Physical Augmentation'],
             3 => ['Body Purification', 'Combat Sense'],
             4 => ['Brutalize Wounds', 'Fate of One'],
             5 => ['Null Psionics Field', 'Regeneration'],

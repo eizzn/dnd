@@ -63,6 +63,7 @@ class GodsElementalsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Akadi';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons, all spears, and all bows';
         $class->armors        = 'Trained in all light armor';
@@ -172,6 +173,7 @@ class GodsElementalsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Talhund';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor, medium armor, heavy armor, and shields';
@@ -219,6 +221,7 @@ class GodsElementalsSeeder extends Seeder
         // Priest of Segojan
         $class                = new Klass;
         $class->name          = 'Priest of Segojan';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';
@@ -259,6 +262,7 @@ class GodsElementalsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Geb';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
@@ -423,6 +427,7 @@ class GodsElementalsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Istishia';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor, medium armor';
@@ -494,6 +499,7 @@ class GodsElementalsSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Kossuth';
+        $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor, medium armor, and shields';

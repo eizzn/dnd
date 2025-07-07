@@ -96,16 +96,26 @@ class FeatsSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Endurance';
-        $feat->short_description = '<p>You have reserves of endurance far beyond those of normal people.</p>';
+        $feat->short_description = 'You have reserves of endurance far beyond those of normal people.';
         $feat->description       = '<ul>
     <li>Increase your CON by 1, up to a maximum of 20.</li>
-    <li>You have Advantage on Athletics checks to avoid Exhaustion, hold your breath, march for hours without rest, go without sleep, survive without food or water or avoid temporary damage (when applicable).</li>
+    <li>
+        You have Advantage on Athletics checks for the following
+        <ul>
+            <li>Avoid Exhaustion</li>
+            <li>Hold your breath</li>
+            <li>March for hours without rest</li>
+            <li>Go without sleep</li>
+            <li>Survive without food or water</li>
+            <li>Avoid temporary damage (when applicable)</li>
+        </ul>
+    </li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
 
         $feat                    = new Feat;
         $feat->name              = 'Die Hard';
-        $feat->short_description = '<p>It takes more to kill you than most.</p>';
+        $feat->short_description = 'It takes more to kill you than most.';
         $feat->description       = '<p>Increase your CON by 1, up to a maximum of 20.</p>
 <p>You gain a +3 bonus to your recovery Save. You die from the Dying condition at Dying 5, rather than Dying 4.</p>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);

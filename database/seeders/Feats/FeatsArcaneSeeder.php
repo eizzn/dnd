@@ -878,6 +878,7 @@ class FeatsArcaneSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             1 => ['Locate Node'],
             2 => ['Node Lock'],
+            9 => ['Node Genesis'],
         ]);
 
         $feat              = new Feat;

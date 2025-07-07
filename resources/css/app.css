@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+dl {
+    display: grid;
+    grid-template-columns: 25% 1fr; /* Set dt to 25% and dd to take the remaining space */
+    gap: 1em; /* Optional: Add spacing between items */
+    width: 100%;
+    margin: .5rem 0;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Set dt to 25% and dd to take the remaining space */
+    gap: 1.5em; /* Optional: Add spacing between items */
+    width: 100%;
+    align-items: center; /* Center items vertically */
+}
+
+dl dd:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Thin and barely visible border */
+    padding-bottom: 0.5rem; /* Optional: Add some spacing */
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    grid-column: 2;
+}
+
+ul li {
+    list-style-type: disc;
+    margin-left: 1rem;
+}
+
+p, h1, h2, h3, h4, h5 {
+    margin: .5rem 0;
+}
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+nav[aria-label="Pagination"] button {
+    background-color: #f9f9f9;
+}
+nav[aria-label="Pagination"] button:disabled {
+    opacity: 0.5;
+    color: rgba(100,100,100,.7);
+    cursor: not-allowed;
+}

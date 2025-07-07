@@ -22,6 +22,7 @@ class ClassFrenziedBerserkerSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Frenzied Berserker';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'STR';
         $class->requirements  = $helper->getClassRequirementsString([
             'Alignment' => 'Any nonlawful',

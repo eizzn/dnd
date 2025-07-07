@@ -193,7 +193,7 @@ class ModronsSeeder extends Seeder
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
-                'multi_attack'  => ['meta' => 'A pentadrone may use an Action to make 2 Slam Attacks or 2 Electrical Discharge Attacks. The pentadrone may do this upto 2 times per turn'],
+                'multi_attack'  => ['meta' => 'A pentadrone may use an Action to make 2 Slam Attacks or 2 Electrical Discharge Attacks. The pentadrone may do this up to 2 times per turn'],
             ],
             'spells' => [
                 'True Seeing' => ['meta' => 'At will'],
@@ -266,7 +266,7 @@ class ModronsSeeder extends Seeder
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
-                'multi_attack'        => ['meta' => 'A nonaton may use an Action to make 3 Tentacle Attacks upto 2 times per turn'],
+                'multi_attack'        => ['meta' => 'A nonaton may use an Action to make 3 Tentacle Attacks up to 2 times per turn'],
                 'innate_spellcasting' => ['meta' => 'INT DC 12'],
             ],
             'skills' => [

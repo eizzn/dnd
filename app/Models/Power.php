@@ -8,6 +8,7 @@ use App\Traits\TypeableTrait;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Class Power
@@ -26,8 +27,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string|null saves
  * @property string|null heightened
  * @property int|null    default_level
- * @property Collection|Power[] parents
- * @property Collection|Power[] children
+ * @property Power[]|Collection parents
+ * @property Power[]|Collection children
+ * @property Klass[]|Collection classes
+ * @property Feat[]|Collection feats
  */
 class Power extends Model
 {
@@ -43,5 +46,17 @@ class Power extends Model
     public function children(): BelongsToMany
     {
         return $this->belongsToMany(Power::class, 'power_power', 'parent_id', 'child_id');
+    }
+
+    public function classes(): MorphToMany
+    {
+        return $this->morphedByMany(Klass::class, 'powerable')
+            ->withPivot('level', 'meta');
+    }
+
+    public function feats(): MorphToMany
+    {
+        return $this->morphedByMany(Feat::class, 'powerable')
+            ->withPivot('level', 'meta');
     }
 }

@@ -21,6 +21,7 @@ class ClassRedWizardSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Red Wizard';
+        $class->type          = 'Prestige';
         $class->key_attribute = 'INT';
         $class->max_level     = 6;
         $class->requirements  = $helper->getClassRequirementsString([

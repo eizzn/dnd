@@ -22,7 +22,7 @@ class PowersISeeder extends Seeder
         $power->name        = 'Ice Armor';
         $power->action_type = 'Double Action';
         $power->targets     = 'Self';
-        $power->duration    = '2 hours';
+        $power->duration    = '3 hours';
         $power->description = '<p>You freeze water out of the air around you, creating a layer of solid ice that protects you like armor. It grants the following effects.</p>
 <ul>
     <li>Treat the ice as breastplate armor with Hardness 1 and 60 Hit Points.</li>

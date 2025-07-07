@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Attribute;
 use App\Models\ClassPowerMeta;
 use App\Models\ClassSpellSlot;
+use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\Klass;
 use App\Models\Power;
@@ -21,6 +22,7 @@ class ClassResource extends JsonResource
         return [
             'id'             => $this->id,
             'name'           => $this->name,
+            'type'           => $this->type,
             'key_attribute'  => $this->key_attribute,
             'hit_dice'       => $this->hit_dice,
             'skill_points'   => $this->skill_points,
@@ -57,6 +59,15 @@ class ClassResource extends JsonResource
                     ];
                 });
             }),
+            'feats'             => $this->feats->sortBy('name')->sortBy('pivot.level')
+                ->values()->map(function (Feat $feat) {
+                    return [
+                        'id'          => $feat->id,
+                        'name'        => $feat->name,
+                        'description' => $feat->description,
+                        'level'       => $feat->pivot->level,
+                    ];
+             }),
             'spell_slots'       => $this->spell_slots->mapWithKeys(function (ClassSpellSlot $slot) {
                 return [
                     $slot->level => [
@@ -89,6 +100,36 @@ class ClassResource extends JsonResource
                     ],
                 ];
             }),
+            'spells'              => $this->spells
+                ->groupBy('pivot.level')
+                ->sortKeys()
+                ->sortBy('name')
+                ->mapWithKeys(function ($spells, $level) {
+                    return [
+                        $level => $spells->map(function (Spell $spell) {
+                            return [
+                                'id'    => $spell->id,
+                                'name'  => $spell->name,
+                                'level' => $spell->pivot->level,
+                            ];
+                        })->values(),
+                    ];
+                }),
+            'powers' => $this->powers
+                ->groupBy('pivot.level')
+                ->sortKeys()
+                ->sortBy('name')
+                ->mapWithKeys(function ($powers, $level) {
+                    return [
+                        $level => $powers->map(function (Power $power) {
+                            return [
+                                'id'    => $power->id,
+                                'name'  => $power->name,
+                                'level' => $power->pivot->level,
+                            ];
+                        })->values(),
+                    ];
+                }),
         ];
     }
 }

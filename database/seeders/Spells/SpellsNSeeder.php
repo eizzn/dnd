@@ -204,7 +204,7 @@ class SpellsNSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
         $spell->area        = 'Cone-shaped emanation';
-        $spell->duration    = 'Concentration, upto 1 minute';
+        $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = '<p>This spell functions like Deathwatch, except it only works on animals and plants. In addition, it also allows you to determine a variety of other mundane information about the animals and plants (whether or not the plants are dehydrated, the animals are malnourished, and so forth).</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 0);
 
@@ -292,7 +292,7 @@ class SpellsNSeeder extends Seeder
         $spell->name           = 'Nether Trail';
         $spell->casting        = '1 minute (Material, Somatic, Verbal)';
         $spell->save_attribute = 'WIS';
-        $spell->area           = 'A trail upto 500 feet long';
+        $spell->area           = 'A trail up to 500 feet long';
         $spell->duration       = '6 hours';
         $spell->description    = '<p>You create a handful of invisible, nigh-intangible powder that attracts creatures from the Lower Planes. You sprinkle this powder in a trail on the ground. Evil outsiders who come within 10 feet of any part of the trail must make a WIS Save or be Compelled (Compulsion) to follow the trail to the end. The fiend will know which way leads to the end of the trail. Compelled fiends will follow the trail even into danger. If the danger is obvious, then the fiend gets another Save.</p>
 <p>When the fiend reaches the end of the trail, the Compulsion ends and the fiend is no longer affected by this casting of this spell.</p>
@@ -376,7 +376,7 @@ class SpellsNSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
-        $spell->duration    = 'Concentration, upto 3 hours';
+        $spell->duration    = 'Concentration, up to 3 hours';
         $spell->description = '<p>You imbue a creature with an invisible shield that protects it from all effects of sunlight. This spell does not overcome any Aversion the target creature might have for sunlight.</p>
 <p>This spell may be countered by a spell with the Light type if it is a higher level.</p>';
         $spell->heightened  = '<dl>
@@ -454,7 +454,7 @@ class SpellsNSeeder extends Seeder
         $spell->range          = '300-foot radius burst centered on you';
         $spell->targets        = 'All creatures within range';
         $spell->save_attribute = 'WIS';
-        $spell->duration       = 'Concentration, plus 10 rounds';
+        $spell->duration       = 'Concentration, plus 1 minute';
         $spell->description    = "<p>This spell creates an unearthly and infectious song that seductively summons all who hear it. Nixie's lure affects a maximum of 24 Hit Dice of creatures. Creatures in the area who fail their Save are lured by the song and move toward you using the most direct means available. If the path leads them into a dangerous area such as through fire or off a cliff, the creatures each receive a second saving throw to end the effect before moving into peril. Creatures lured by the spell's song can take no actions other than to defend themselves. A victim within 5 feet of you simply stands still and for the duration of the spell remains Fascinated.</p>";
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Spell ends for that creature</dd>

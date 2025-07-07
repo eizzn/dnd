@@ -92,7 +92,7 @@ class SpellsUSeeder extends Seeder
         $spell->range       = '30 feet';
         $spell->rarity      = 'Rare';
         $spell->targets     = '1 body or skeleton';
-        $spell->duration    = '2 hours';
+        $spell->duration    = '3 hours';
         $spell->description = '<p>This spell allows you to temporarily animate the body or bones of a dead human, demihuman, or humanoid creature of man size or smaller. The animated creature is treated as a zombie or skeleton, as appropriate. The undead servant obeys simple verbal commands until destroyed, dispelled, or the spell duration ends. This skeleton has only 1 Hit Point and cannot make any attacks.</p>
 <dl>
     <dt>Material Casting</dt> <dd>A pinch of graveyard dirt</dd>
@@ -153,7 +153,7 @@ class SpellsUSeeder extends Seeder
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature or object';
-        $spell->duration    = '1 day';
+        $spell->duration    = '24 Hours';
         $spell->rarity      = 'Rare';
         $spell->description = '<p>The target registers as neutral to all effects that would detect its alignment.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 2);
