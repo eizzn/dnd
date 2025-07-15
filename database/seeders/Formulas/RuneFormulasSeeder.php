@@ -60,25 +60,13 @@ class RuneFormulasSeeder extends Seeder
         <tr>
             <td>+2</td>
             <td>9</td>
-            <td>1,000 gp</td>
-            <td>Rune Etching 10+</td>
+            <td>5,000 gp</td>
+            <td>Rune Etching 15+</td>
         </tr>
         <tr>
             <td>+3</td>
             <td>15</td>
-            <td>7,000 gp</td>
-            <td>Rune Etching 15+</td>
-        </tr>
-        <tr>
-            <td>+4</td>
-            <td>20</td>
-            <td>50,000 gp</td>
-            <td>Rune Etching 20+</td>
-        </tr>
-        <tr>
-            <td>+5</td>
-            <td>25</td>
-            <td>100,000 gp</td>
+            <td>25,000 gp</td>
             <td>Rune Etching 25+</td>
         </tr>
     </tbody>
@@ -117,13 +105,13 @@ class RuneFormulasSeeder extends Seeder
         <tr>
             <td>+2</td>
             <td>9</td>
-            <td>1,000 gp</td>
+            <td>5,000 gp</td>
             <td>Rune Etching 20+</td>
         </tr>
         <tr>
             <td>+3</td>
             <td>15</td>
-            <td>7,000 gp</td>
+            <td>25,000 gp</td>
             <td>Rune Etching 30+</td>
         </tr>
     </tbody>
@@ -337,7 +325,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>2,900 gp</td>
             <th>Damage Reduction</th>
-            <td>10</td>
+            <td>15</td>
         </tr>
         <tr>
             <th>Type</th>
@@ -347,7 +335,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>70,000 gp</td>
             <th>Damage Reduction</th>
-            <td>20</td>
+            <td>30</td>
         </tr>
     </tbody>
 </table>';
@@ -471,7 +459,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>2,900 gp</td>
             <th>Damage Reduction</th>
-            <td>10</td>
+            <td>15</td>
         </tr>
         <tr>
             <th>Type</th>
@@ -481,7 +469,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>70,000 gp</td>
             <th>Damage Reduction</th>
-            <td>20</td>
+            <td>30</td>
         </tr>
     </tbody>
 </table>';
@@ -830,7 +818,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>140 gp</td>
             <th>Bonus</th>
-            <td>+2</td>
+            <td>+1</td>
         </tr>
         <tr>
             <th>Type</th>
@@ -840,7 +828,7 @@ class RuneFormulasSeeder extends Seeder
             <th>Price</th>
             <td>3,900 gp</td>
             <th>Bonus</th>
-            <td>+4</td>
+            <td>+2</td>
         </tr>
     </tbody>
 </table>';

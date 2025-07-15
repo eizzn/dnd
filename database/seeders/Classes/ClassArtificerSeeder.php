@@ -14,10 +14,8 @@ class ClassArtificerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -59,7 +57,7 @@ class ClassArtificerSeeder extends Seeder
         $feature->description = '<p>Your skill with magic items deepens</p>
 <ul>
     <li>You gain the Magic Item User feat</li>
-    <li>You ignore all class, race, spell and level requirements on attuning to or using a magic item</li>
+    <li>By spending 3 days studying a magic item, you may make an Arcana check to learn the Formula for making the magic item. The Arcana DC is 13 + the Min Level to Learn the Formula. If you Fail, you cannot to learn the Formula from tihs specific magic item.</li>
 </ul>';
         $helper->saveFeature($feature, ['Item Creation', 'Attunement']);
 
@@ -76,7 +74,7 @@ class ClassArtificerSeeder extends Seeder
 <ul>
     <li>You gain 2 Spell Points.</li>
     <li>You gain proficiency with your bonded sword.</li>
-    <li>You may enchant the bonded sword as if you had the Craft Armament feat.</li>
+    <li>You may enchant the bonded sword with a spell as if you had the Craft Armament feat. Your bonded sword is used instead of a wand or staff.</li>
     <li>While you are weilding your bonded sword, you gain the benefits of the Intelligent Defense Feat.</li>
     <li>You gain the ability to cast the spell Shashkah as a Cantrip as if you had the Cantrip Caster Class Feature.</li>
     <li>You may imbue your bonded sword with one spell as if you had the Scribe Scroll feat.</li>
@@ -93,7 +91,7 @@ class ClassArtificerSeeder extends Seeder
     <li>You gain 4 Spell Points</li>
     <li>You gain the Extra Melee Action Feat. If you already have this feat, you may select a different feat that you qualify for.</li>
     <li>You gain the ability to Craft Constructs, and you gain the formulas for 2 Common Constructs.</li>
-    <li>If you strike a creature with your Bonded weapon you may spend 2 Spell Points. If you do, that creature has Disadvantage on the next Save it has to make against any spell that you cast.</li>
+    <li>If you strike a creature with your Bonded weapon you may spend 2 Spell Points. If you do, that creature has Disadvantage on the next Save it has to make against any spell that you cast or until 1 minute has passed.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Stance']);
         $feat->parent_feats()->save(app()->feats['Raumathari Sword Adept']);
@@ -101,21 +99,30 @@ class ClassArtificerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Vremyonni';
         $feat->description = "<p>You may have no more than 3 Artificer Discipline feats.</p>
-<p>You can craft a new tool known as a Battle Wrap using a ritual known only to the vremyonni. This wrap can be placed around mundane items to grant them magical fortifications or to bind to another spellcaster, allowing you to fight as a pair.</p>
-<p>If the wrap is lost or destroyed, you can craft a new one as part of a Long Rest.</p>
-<p>As part of a Short Rest, you can bind your Battle Wrap around a single weapon or part of a suit of armor.</p>
-<dl>
-    <dt>Weapons</dt> <dd>Weapons wrapped in this way deal 1D6 extra damage of the weapon's damage type for each Artificer Discipline Feat you have (including this Feat).</dd>
-    <dt>Armor</dt> <dd>
-        Armor wrapped in this way provides Resistance against one of your choice from the following for each Artificer Discipline Feat you have (including this Feat):
-        <ul>
-            <li>Bludgeoning</li>
-            <li>Piercing</li>
-            <li>Slashing</li>
-        </ul>
-    </dd>
-</dl>
-<p>If you have the ability to cast 3rd level Artificer spells, you gain an Additional Action. This Additional Action may only be used to cast an Artificer Cantrip</p>";
+<ul>
+    <li>
+        <p>You can craft a new tool known as a Battle Wrap using a ritual known only to the vremyonni. This wrap can be placed around mundane items to grant them magical fortifications or to bind to another spellcaster, allowing you to fight as a pair.</p>
+        <p>If the wrap is lost or destroyed, you can craft a new one as part of a Long Rest.</p>
+        <p>As part of a Short Rest, you can bind your Battle Wrap around a single weapon or part of a suit of armor.</p>
+        <dl>
+            <dt>Weapons</dt> <dd>Weapons wrapped in this way deal 1D6 extra damage of the weapon's damage type for each Artificer Discipline Feat you have (including this Feat).</dd>
+            <dt>Armor</dt> <dd>
+                Armor wrapped in this way provides Resistance against one of your choice from the following for each Artificer Discipline Feat you have (including this Feat):
+                <ul>
+                    <li>Bludgeoning</li>
+                    <li>Piercing</li>
+                    <li>Slashing</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>You gain 2 Spell Points</li>
+    <li>
+        <p>You may store up to 3 Spells into your Battle Wrap as if you had the Scribe Scroll Feat.</p>
+        <p>Spells stored into your Battle Wrap in this way are automatically Heightened +1</p>
+        <p>You may cast this spell from your Battle Wrap for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Cast Level.</p>
+    </li>
+</ul>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
 
         $feat              = new Feat;
@@ -124,6 +131,8 @@ class ClassArtificerSeeder extends Seeder
 <ul>
     <li>You gain an Item Creation Feat</li>
     <li>You may craft an Additional Battle Wrap</li>
+    <li>You may store an additional Spell into each of your Battle Wraps</li>
+    <li>You gain 2 Spell Points</li>
     <li>
         <p>You can use your Battle Wrap to attach yourself to another willing creature who can cast spells. this process takes 10 minutes and can only be ended as part of a Short or Long Rest, or if either of you die. If you have an Effigy or a Golem, you may choose to attach your Battle Wrap to your Effigy or Golem.</p>
         <p>While bound in this way, either of you can use an Action to gain the following benefits.</p>
@@ -133,8 +142,8 @@ class ClassArtificerSeeder extends Seeder
             <li>You both have Advantage on Saves</li>
         </ul>
     </li>
-</ul>
-<p>These benefits last for 10 minutes.</p>';
+    <li>If you participate in a Communal Binding, you are considered to have the ability to create Communal Pools when determining what type of Die the Pool will have.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation']);
         $feat->parent_feats()->save(app()->feats['Vremyonni']);
 
@@ -144,14 +153,15 @@ class ClassArtificerSeeder extends Seeder
 <ul>
     <li>You gain an Item Creation Feat</li>
     <li>You may craft an Additional Battle Wrap</li>
+    <li>You gain 2 Spell Points</li>
     <li>
         <p>With an Action, you cause any number of your Battle Wraps to flare brightly with energy. For 10 minutes, the following changes apply to your Battle Wrap and whatever it is bound upon:</p>
         <ul>
             <li>Weapons grant +3 bonus to attack and causes Double Damage</li>
             <li>Armor grants Resistance to Bludgeoning, Piercing, and Slashing damage, as well as granting an Additional Damage Reduction 3.</li>
-            <li>If you are bound to a willing spellcaster, you both gain 10 temporary Spell Points. These Spell Points are lost at the end of the duration of this ability. If either of you tries to cast a spell, they can use a spell slot from the other bound creature if the other creature consents. Either spellcaster may use any Meta Magic Feat that either knows to modify the cast spell.</li>
+            <li>If you are bound to a willing spellcaster, you both gain 10 Temporary Spell Points. These Spell Points are lost at the end of the duration of this ability. If either of you tries to cast a spell, they can use a spell slot from the other bound creature if the other creature consents. Either spellcaster may use any Meta Magic Feat that either knows to modify the cast spell.</li>
         </ul>
-        <p>After the 10 minutes elapses, the Battle Wraps you chose burns away to ashes, requiring the crafting of a new Battle Wrap.</p>
+        <p>After the 10 minutes elapses, the Battle Wraps you chose burns away to ashes, requiring the crafting of a new Battle Wrap. Any Spells stored in that Battle Wrap are lost.</p>
     </li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation']);
@@ -160,9 +170,9 @@ class ClassArtificerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Wand of Cantrips';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
-<p>You may create a Wand with one of the cantrip spells you know. The Wand has 5 charges, and requires Attunement to use.</p>
-<p>After each Long Rest, you may fully charge all your wands by touching it.</p>
-<p>You may have an additional Wand for each additional Artificer Discipline feat.</p>';
+<p>You may create a Pseudo Wand with one of the cantrip spells you know. The Pseudo Wand has 20 charges, and requires Attunement to use.  It is always Heightened to the highest Spell Level that you may memorize. Any one may use this Pseudo Wand with the Activate Magic Item Check.</p>
+<p>After each Long Rest, you may fully charge all your Pseudo Wands by touching it.</p>
+<p>You may have an additional Pseudo Wand for each Artificer Discipline feat you have.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
 
         $feat              = new Feat;
@@ -171,10 +181,10 @@ class ClassArtificerSeeder extends Seeder
 <p>You gain the following</p>
 <ul>
     <li>When you gain this feat, you gain the Formula for 4 Magic Items and/or Infusions</li>
-    <li>You can construct magic items as if you had the Craft Implement feat, except that the item has 3 charges, and requires Attunement to use. The item can be of any size, but it must be at least as large as a Long Sword or a Small Shield.</li>
+    <li>You can construct magic items as if you had the Craft Implement feat, except that the item has 3 charges, and requires Attunement to use. The item can be of any size, but it must be at least as large as a Short Sword or a Small Shield.</li>
     <li>
         <p>You can create a Bulky Magical Item.</p>
-        <p>Creating a Bulky Magical Item takes twice as long, costs 5 times more, and has 3 times more charges but does not require Attunement. The end resulting construct is too large to move under normal circumstances. Breaking down a Bulky Magical Item takes a quarter of the construction time to break down for transport and again a quarter of the construction time to put back together.</p>
+        <p>Creating a Bulky Magical Item takes twice as long, costs 5 times more gp, and has 3 times more charges but does not require Attunement. The end resulting construct is too large to move under normal circumstances. Breaking down a Bulky Magical Item takes a quarter of the construction time to break down for transport and again a quarter of the construction time to put back together.</p>
         <p>Bulky Magical Items can be crafted with spells as normal, except that you can Heighten and/or Augment up to 3 levels without having to use a higher level Spell Slot or devoting the required Spell Points.</p>
         <p>You may have only 1 Bulky Magical item at a time.</p>
     </li>
@@ -411,7 +421,7 @@ class ClassArtificerSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Wand of Spells';
-        $feat->description = '<p>You may now use your Wand of Cantrips ability to create wands with a 1st, 2nd, and 3rd level Spell you know. Use the following table to determine the number of charges the wand is created with.</p>
+        $feat->description = '<p>You may now use your Wand of Cantrips ability to create Pseudo Wands with a 1st, 2nd, and 3rd level Spell you know. Use the following table to determine the number of charges the wand is created with.</p>
 <table>
     <thead>
         <tr>
@@ -438,13 +448,13 @@ class ClassArtificerSeeder extends Seeder
         </tr>
     </tbody>
 </table>
-<p>You may have an additional Wand of Cantrips. Wands you create with this feat counts toward your maximum number of Wand of Cantrips.</p>';
+<p>You may have an additional Pseudo Wand of Cantrips. Pseudo Wands you create with this feat counts toward your maximum number of Pseudo Wand of Cantrips.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation']);
         $feat->parent_feats()->save(app()->feats['Wand of Cantrips']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Wand of Spells';
-        $feat->description = '<p>You may now use your Wand of Cantrips ability to create wands with a 4th or 5th level Spell you know. Use the following table to determine the number of charges the wand is created with.</p>
+        $feat->description = '<p>You may now use your Wand of Cantrips ability to create Pseudo Wands with a 4th or 5th level Spell you know. Use the following table to determine the number of charges the wand is created with.</p>
 <table>
     <thead>
         <tr>
@@ -466,7 +476,7 @@ class ClassArtificerSeeder extends Seeder
         </tr>
     </tbody>
 </table>
-<p>You may have an additional Wand of Cantrips. Wands you create with this feat counts toward your maximum number of Wand of Cantrips.</p>';
+<p>You may have an additional Pseudo Wand of Cantrips. Pseudo Wands you create with this feat counts toward your maximum number of Pseudo Wand of Cantrips.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation']);
         $feat->parent_feats()->save(app()->feats['Wand of Spells']);
 
@@ -544,8 +554,18 @@ class ClassArtificerSeeder extends Seeder
             'magic_item_savant'  => [14],
             'magic_item_master'  => [18],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Expanded Spell Slot']);
-        $class->features()->save(app()->features['feat'], ['level' => 10, 'meta' => 'Improved Crafting']);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 2,
+            'meta'  => 'Activate Magic Item',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Expanded Spell Slot',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 10,
+            'meta'  => 'Improved Crafting',
+        ]);
 
         $helper->addFeatsToClass($class, [
             'Raumathari Sword Adept'          => 2,
@@ -580,12 +600,12 @@ class ClassArtificerSeeder extends Seeder
             0 => ['Acid Splash', 'Booming Blade', 'Chill Touch', 'Chromatic Ray', 'Clean Self', 'Dancing Lights', 'Daze',
                 'Detect Magic', 'Detect Undead', 'Disrupt Undead', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Ghost Sound',
                 'Glue', 'Light', 'Mage Hand', 'Mending', 'Message', 'Minor Illusion', 'Mold Metal', 'Prestidigitation',
-                'Poison Spray', 'Produce Flame', 'Ray of Frost', 'Resistance', 'Shield', 'Shocking Grasp', ],
+                'Poison Spray', 'Produce Flame', 'Ray of Frost', 'Resistance', 'Shield', 'Shocking Grasp', 'True Strike', ],
             1 => ['Air Bubble', 'Alarm', 'Burning Hands', 'Color Spray', 'Comprehend Languages', 'Cure Wounds', 'Disguise Self',
                 'Enchant Item', 'Expeditious Retreat', 'Faerie Fire', 'Feather Fall', 'Floating Disk', 'Fog Cloud', 'Force Object',
                 'Grease', 'Hardening', 'Hideous Laughter', 'Immunity to Adhesive', 'Jump', 'Knight Unburdened', 'Mage Armor',
                 'Magic Missile', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath',
-                'Thunderwave', 'True Strike', 'Ventriloquism', ],
+                'Swift Ready', 'Thunderwave', 'Ventriloquism', ],
             2 => ['Acid Arrow', 'Air Sphere', 'Alter Self', 'Arcane Lock', "Bear's Endurance", 'Blindness', 'Blur',
                 "Bull's Strength", "Cat's Grace", 'Comprehend Languages', 'Continual Flame', 'Darkness', 'Darkvision',
                 'Deafness', 'Drain Construct', "Eagle's Splendor", 'Endure Elements', 'Enlarge', 'Flaming Sphere',
@@ -618,23 +638,23 @@ class ClassArtificerSeeder extends Seeder
             1  => ['cantrips' => 0, 'one' => 0],
             2  => ['cantrips' => 1, 'zero' => 1, 'one' => 0],
             3  => ['cantrips' => 1, 'zero' => 1, 'one' => 0],
-            4  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0],
-            5  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0],
-            6  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0],
-            7  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0],
-            8  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0],
-            9  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0],
-            10 => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0],
-            11 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0],
-            12 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0],
-            13 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0],
-            14 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0],
-            15 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0],
-            16 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0],
-            17 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0],
-            18 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0],
-            19 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0],
-            20 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0],
+            4  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 1],
+            5  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 1],
+            6  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 2],
+            7  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 2],
+            8  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 3],
+            9  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 3],
+            10 => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 3],
+            11 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 4],
+            12 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 4],
+            13 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 4],
+            14 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 5],
+            15 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 5],
+            16 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 5],
+            17 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 6],
+            18 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 6],
+            19 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_leve' => 6],
+            20 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_leve' => 7],
         ]);
 
         $formula              = new Formula;

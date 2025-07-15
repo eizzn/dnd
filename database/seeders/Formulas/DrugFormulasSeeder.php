@@ -19,6 +19,24 @@ class DrugFormulasSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $formula              = new Formula;
+        $formula->name        = 'Agony';
+        $formula->type        = 'Drug';
+        $formula->price       = '200 gp';
+        $formula->method      = 'Ingested DC 18';
+        $formula->bulk        = '-';
+        $formula->description = '<p>This thick, reddish liquid is the distilled essence of pain, captured using special spells or items*. It is highly sought after by outsiders.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>You are Stunned for 1D4+1 rounds and can take only 2 Actions per turn for 1D6 minutes after that.</dd>
+    <dt>Secondary</dt> <dd>You gain a 1D4+1 Enhancement bonus to CHA for 1 hour.</dd>
+    <dt>Side Effect</dt> <dd>You experience feelings of intense pleasure for 1D4 hours.</dd>
+    <dt>Overdose</dt> <dd>If you take more than one dose in a 24-hour period, you immediately fall unconscious for 1D4 hours (CON Save DC 18 negates).</dd>
+    <dt>Withdrawal Effects</dt> <dd>Every action sends shooting pain through your nerves. Using more than 2 Actions in a round nauseates you with pain for the following round.</dd>
+    <dt>Junkie</dt> <dd>You become immune to Fear effects, Morale effects, and any other effects that would affect your emotions for the duration of Agony.</dd>
+    <dt>Addiction</dt> <dd>Extreme</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
+
+        $formula              = new Formula;
         $formula->name        = 'Alindluth';
         $formula->type        = 'Drug';
         $formula->price       = '10 gp';
@@ -143,6 +161,26 @@ class DrugFormulasSeeder extends Seeder
     <dt>Overdose</dt> <dd>If two doses are taken within the space of an hour, or if raw mordayn powder or mordayn tea are ingested, the drug is a deadly poison (Ingested DC 17, 1D10 CON / 1D10 CON). Mordayn vapor addicts often throw out the tea as soon as they inhale and make sure that only one dose is available at a time in order to make sure they cannot overdose on the deadly drug</dd>
     <dt>Addiction</dt> <dd>High</dd>
 </dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
+
+        $formula              = new Formula;
+        $formula->name        = 'Mushroom Powder';
+        $formula->type        = 'Drug';
+        $formula->price       = '100 gp';
+        $formula->method      = 'Inhaled DC 15';
+        $formula->bulk        = '-';
+        $formula->description = '<p>Taken from a rare blue mushroom, this powder must be inhaled. It is popular among arcane spellcasters.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>You inhale deeply, and feel the mushroom spores begin to burrow in your brain. Synapses begin firing off like crazy, granting a +2 alchemical bonus to INT and CHA for 1 hour.</dd>
+    <dt>Secondary Effect</dt> <dd>You take 1 point of STR Damage.</dd>
+    <dt>Side Effect</dt> <dd>This is a mild hallucinogen. You take a -2 penalty to WIS for 1D4 hours and a -2 penalty to STR and CON for 2D4 hours.</dd>
+    <dt>Overdose</dt> <dd>If more than one dose is taken in a 12-hour period, you take 2D6 points of damage. Using it more than three times in any 24-hour period deals 4D6 points of Damage and Paralyzes you for 2D4 hours.</dd>
+    <dt>Withdrawal Effects</dt> <dd>The sunlight burns your sensitive skin. You take 1 point of Damage every round that you are exposed to bright light.</dd>
+    <dt>Junkie</dt> <dd>You are able to emit spores as a Myconid of the same Hit Dice</dd>
+    <dt>Transform</dt> <dd> If you are addicted, take mushroom powder more than three times in a 24-hour period, and Paralyze yourself as a result, then your race permanently changes to Myconid (Guardian). While you are not compelled to join the nearest myconid colony, you feel the calling.</dd>
+    <dt>Addiction</dt> <dd>Medium</dd>
+</dl>
+<p>It requires an Alchemy Skill Check of DC 25 to create this drug, given the required materials.</p>';
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;

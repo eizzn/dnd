@@ -62,7 +62,7 @@ class PotionFormulaSeeder extends Seeder
             'skills'    => ['Crafting' => ['dc' => 9, 'meta' => 'Cooking']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Dragon Breath' => ['meta' => 'Must chose Red Dragon']],
-            'materials' => ['Dragontongue Petals' => ['meta' => 'At 3 petals, crushed']],
+            'materials' => ['Dragontongue Petals' => ['meta' => 'At least 3 petals, crushed']],
         ]);
 
         $formula                = new Formula;

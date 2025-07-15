@@ -35,7 +35,7 @@ class SpellsUSeeder extends Seeder
         $spell->casting     = '1 week (Material, Somatic, Verbal, Secondary Casters, Ability Damage)';
         $spell->duration    = 'Everlasting';
         $spell->description = '<p>The Sundering, At War with the Weave. Ritual of Myriad.</p>
-<p>Used only during situations most dire, the casters can harness the energy of the Weave to cause it to fluctuate across a great distance. In lesser forms, this spell disrupts all magic, animal stampedes, and tornadoes are common. In its ultimate form, the Weave is temporarily torn asunder, and teh damage is made manifest in major cataclysms and storms, tidal waves, and permanent changes to the lands of any planet.</p>
+<p>Used only during situations most dire, the casters can harness the energy of the Weave to cause it to fluctuate across a great distance. In lesser forms, this spell disrupts all magic, animal stampedes, and tornadoes are common. In its ultimate form, the Weave is temporarily torn asunder, and the damage is made manifest in major cataclysms and storms, tidal waves, and permanent changes to the lands of any planet.</p>
 <p>The exact working of this spell is lost to all but two High Mages on Toril; the Srinshee of Cormanthor is one. The long-lost Killing Storm magic is a byproduct of this calamitous spell, it is highly likely that all the High Mages involved will loss their life to the Ability Damage.</p>
 <p>This spell has been invoked only once in the history of the elves on Faerun, and the ensuing cataclysms broke up large land masses to allow the creation of the isolated island of Evermeet. In crude effect, this is mimicked by earthquake and weather control spells.</p>
 <dl>

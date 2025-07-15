@@ -357,7 +357,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->skills()->save(app()->skills['Society'], ['dc' => 2]);
 
         $talent              = new Talent;
-        $talent->name        = 'Improved Crafting';
+        $talent->name        = 'Focused Crafting';
         $talent->description = "<p>Your training focused on Crafting one particular kind of item. Select one of the specialties; you gain a +1 circumstance bonus to Crafting checks to Craft items of that type. If you have at least 10 ranks in Crafting, this bonus increases to +2. If it's unclear whether the specialty applies, the GM decides. Some specialties might apply only partially.</p>
 <blockquote>
     If you were making a morningstar and had specialty in woodworking, the GM might give you half your bonus because the item requires both blacksmithing and woodworking.
@@ -426,9 +426,9 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Greater Crafting';
-        $talent->description = '<p>You craft flawless creations with great efficiency. Whenever you roll a Success at a Crafting check to make an item of the type you chose with Improved Crafting, you get a Critical Success instead.</p>
-<p>You may take this Talent multiple times, picking a new specialty you have already chosen with Improved Crafting</p>';
-        $talent->parent_id = Talent::where('name', 'Improved Crafting')->first()->id;
+        $talent->description = '<p>You craft flawless creations with great efficiency. Whenever you roll a Success at a Crafting check to make an item of the type you chose with Focused Crafting, you get a Critical Success instead.</p>
+<p>You may take this Talent multiple times, picking a new specialty you have already chosen with Focused Crafting</p>';
+        $talent->parent_id = Talent::where('name', 'Focused Crafting')->first()->id;
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
         $talent->skills()->save(app()->skills['Crafting'], ['dc' => 10]);
 

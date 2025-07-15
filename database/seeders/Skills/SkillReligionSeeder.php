@@ -58,7 +58,7 @@ class SkillReligionSeeder extends Seeder
         $subskill                   = new SubSkill;
         $subskill->name             = 'Read Scripture';
         $subskill->skill_id         = $skill->id;
-        $subskill->description      = '<p>You can read and understand religious writing, Secret including allegories, homilies, and proverbs, as long as it is in a language you can normally read. This usually takes about 1 minute per page of text. To read and understand the nuances of particularly archaic or obscure texts, the GM may require you to attempt a Religion check to see if you understand the true meaning of the scripture. The GM might have you attempt one check for the entire text or one check for each section of a larger text.</p>';
+        $subskill->description      = '<p>You can read and understand religious writing, including allegories, homilies, and proverbs, as long as it is in a language you can normally read. This usually takes about 1 minute per page of text. To read and understand the nuances of particularly archaic or obscure texts, the GM may require you to attempt a Religion check to see if you understand the true meaning of the scripture. The GM might have you attempt one check for the entire text or one check for each section of a larger text.</p>';
         $subskill->success          = 'you understand the true meaning of the text.';
         $subskill->critical_failure = 'You misread the text.';
         $subskill->trained_only     = 1;

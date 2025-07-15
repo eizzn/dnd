@@ -674,10 +674,10 @@ class SpellsMSeeder extends Seeder
         $spell->targets     = 'Self';
         $spell->range       = '30 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.</p>';
+        $spell->description = '<p>Briefly surrounded by silvery mist, you Teleport up to 30 feet to an unoccupied space that you can see.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
-    <dt>Heightened (+2)</dt> <dd>The spell has a duration of 1 minute. During the duration, you may use an Action to teleport up to 30 feet</dd>
+    <dt>Heightened (+2)</dt> <dd>The spell has a duration of 1 minute. During the duration, you may use an Action to Teleport up to 30 feet</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 2);
 
@@ -690,7 +690,7 @@ class SpellsMSeeder extends Seeder
         $spell->description = '<p>You grant another creature the ability to use Misty Step for the Duration</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
-    <dt>Heightened (+1)</dt> <dd>You may target an additional 2 targets</dd>
+    <dt>Heightened (+1)</dt> <dd>You may Target an additional 2 targets</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 5);
 

@@ -61,10 +61,10 @@ onMounted(fetchSpellDetails);
                                     </colgroup>
                                     <tbody>
                                         <tr>
-                                            <th class="px-4 py-2 border border-gray-300">Default Level</th>
-                                            <th class="px-4 py-2 border border-gray-300">Casting</th>
-                                            <th class="px-4 py-2 border border-gray-300">Range/Area</th>
-                                            <th class="px-4 py-2 border border-gray-300">Targets</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Default Level</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Casting</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Range/Area</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Targets</th>
                                         </tr>
                                         <tr>
                                             <td class="px-4 py-2 border border-gray-300">{{ spell.default_level }}</td>
@@ -77,10 +77,10 @@ onMounted(fetchSpellDetails);
                                             <td class="px-4 py-2 border border-gray-300">{{ spell.targets || '-' }}</td>
                                         </tr>
                                         <tr>
-                                            <th class="px-4 py-2 border border-gray-300">Duration</th>
-                                            <th class="px-4 py-2 border border-gray-300">Save</th>
-                                            <th class="px-4 py-2 border border-gray-300">Types</th>
-                                            <th class="px-4 py-2 border border-gray-300">Classes</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Duration</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Save</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Types</th>
+                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Classes</th>
                                         </tr>
                                         <tr>
                                             <td class="px-4 py-2 border border-gray-300">{{ spell.duration }}</td>
@@ -116,7 +116,21 @@ onMounted(fetchSpellDetails);
                             <section class="m-2">
                                 <h3 class="text-lg font-bold">Description</h3>
                                 <div v-html="spell.description" class="mb-4"></div>
-                                <div v-if="spell.requirements != null">
+                                <div v-if="Array.isArray(spell.materials) && spell.materials.length > 0" class="border-t">
+                                    <dl>
+                                        <dt>Material Components</dt>
+                                        <dd>
+                                            <ul>
+                                                <li v-for="(material, index) in spell.materials" :key="index">
+                                                    <span>{{ material.name }}</span>
+                                                    <span v-if="material.quantity">&nbsp;({{ material.quantity }})</span>
+                                                    <span v-if="material.meta">&nbsp;{{ material.meta }}</span>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div v-if="spell.requirements != null" class="border-t">
                                     <h4 class="text-md font-bold">Requirements</h4>
                                     <div v-html="spell.requirements" class="mb-4"></div>
                                 </div>

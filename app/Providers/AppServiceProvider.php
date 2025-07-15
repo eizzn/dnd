@@ -2,14 +2,19 @@
 
 namespace App\Providers;
 
+use App\Services\AlphabetService;
 use App\Services\ArmorService;
 use App\Services\AttributeService;
 use App\Services\ClassService;
+use App\Services\ConditionService;
 use App\Services\FeatService;
 use App\Services\FormulaService;
 use App\Services\GodPantheonService;
+use App\Services\LanguageService;
 use App\Services\PantheonService;
 use App\Services\PowerService;
+use App\Services\RaceService;
+use App\Services\SkillService;
 use App\Services\SpellService;
 use App\Services\TalentService;
 use App\Services\WeaponService;
@@ -23,8 +28,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        app()->singleton(\App\Services\Contracts\AlphabetService::class, function () {
+            return new AlphabetService;
+        });
         app()->singleton(\App\Services\Contracts\ArmorService::class, function () {
-            return new ArmorService();
+            return new ArmorService;
         });
         app()->singleton(\App\Services\Contracts\AttributeService::class, function () {
             return new AttributeService;
@@ -32,20 +40,32 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(\App\Services\Contracts\ClassService::class, function () {
             return new ClassService;
         });
+        app()->singleton(\App\Services\Contracts\ConditionService::class, function () {
+            return new ConditionService;
+        });
         app()->singleton(\App\Services\Contracts\FeatService::class, function () {
             return new FeatService;
         });
         app()->singleton(\App\Services\Contracts\FormulaService::class, function () {
-            return new FormulaService();
+            return new FormulaService;
         });
         app()->singleton(\App\Services\Contracts\GodPantheonService::class, function () {
             return new GodPantheonService;
+        });
+        app()->singleton(\App\Services\Contracts\LanguageService::class, function () {
+            return new LanguageService;
         });
         app()->singleton(\App\Services\Contracts\PantheonService::class, function () {
             return new PantheonService;
         });
         app()->singleton(\App\Services\Contracts\PowerService::class, function () {
             return new PowerService;
+        });
+        app()->singleton(\App\Services\Contracts\RaceService::class, function () {
+            return new RaceService;
+        });
+        app()->singleton(\App\Services\Contracts\SkillService::class, function () {
+            return new SkillService;
         });
         app()->singleton(\App\Services\Contracts\SpellService::class, function () {
             return new SpellService;
@@ -54,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
             return new TalentService;
         });
         app()->singleton(\App\Services\Contracts\WeaponService::class, function () {
-            return new WeaponService();
+            return new WeaponService;
         });
     }
 

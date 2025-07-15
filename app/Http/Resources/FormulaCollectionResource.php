@@ -19,14 +19,15 @@ class FormulaCollectionResource extends ResourceCollection
                     'level'         => $formula->level,
                     'rarity'        => $formula->rarity,
                     'price'         => $formula->price,
-                    'crafting_type' => $formula->crafting_time,
+                    'crafting_time' => $formula->crafting_time,
                     'method'        => $formula->method,
                     'activation'    => $formula->activation,
                     'bulk'          => $formula->bulk,
                     'meta'          => $formula->meta,
                     'crafting'      => $formula->crafting,
-                    'description'   => mb_substr(str_replace(["\r", "\n"], '', strip_tags($formula->description)), 0, 100) . '...',
-                    'types'        => $formula->types->map(function (Type $type) {
+                    'description'   => trim(
+                        mb_substr(str_replace(["\r", "\n"], '', strip_tags($formula->description)), 0, 100)) . '...',
+                    'types'         => $formula->types->map(function (Type $type) {
                         return [
                             'id'   => $type->id,
                             'name' => $type->name,

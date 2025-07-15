@@ -13,14 +13,12 @@ class WeaponFormulaSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $formula           = new Formula;
-        $formula->name     = 'Banesword';
-        $formula->type     = 'Weapon';
-        $formula->level    = 7;
-        $formula->price    = '9,315 gp';
-        $formula->crafting = '<ul>
-    <li></li>
-</ul>';
+        $formula              = new Formula;
+        $formula->name        = 'Banesword';
+        $formula->type        = 'Weapon';
+        $formula->level       = 7;
+        $formula->price       = '9,315 gp';
+        $formula->crafting    = '';
         $formula->description = '<p>This +1 Lawful Longsword is common among Banites, the hilt adorned with symbols of Bane.</p>';
         $helper->saveFormula($formula, ['Formula'], [
             'feats'    => ['Craft Armament'],

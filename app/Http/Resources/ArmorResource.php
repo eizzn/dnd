@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Armor;
+use App\Models\Property;
 use App\Models\Type;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,19 +18,22 @@ class ArmorResource extends JsonResource
             'price'            => $this->price,
             'type'             => $this->type,
             'group'            => $this->group,
-            'armor_bonus'      => $this->armor_bonus,
-            'damage_reduction' => $this->damage_reduction,
-            'dex_modifier_cap' => $this->dex_modifier_cap,
-            'check_penalty'    => $this->check_penalty,
-            'spell_failure'    => $this->spell_failure,
-            'min_str'          => $this->min_str,
             'bulk'             => $this->bulk,
             'weight'           => $this->weight,
             'description'      => $this->description,
             'types'            => $this->types->map(function (Type $type) {
                 return [
-                    'id'   => $type->id,
-                    'name' => $type->name,
+                    'id'          => $type->id,
+                    'name'        => $type->name,
+                    'description' => $type->description,
+                ];
+            }),
+            'properties'   => $this->properties->map(function (Property $prop) {
+                return [
+                    'id'          => $prop->id,
+                    'name'        => $prop->name,
+                    'description' => $prop->description,
+                    'value'       => $prop->pivot->value,
                 ];
             }),
         ];

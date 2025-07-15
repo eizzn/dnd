@@ -3449,7 +3449,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Good', 'Mental'], 2);
 
-        $spell               = new Spell();
+        $spell               = new Spell;
         $spell->name         = 'Sunmantle';
         $spell->casting      = 'Somatic Casting, Ability Damage';
         $spell->requirements = '<dl>
@@ -3466,7 +3466,7 @@ class SpellsSSeeder extends Seeder
 </ul>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Light', 'Good'], 4);
 
-        $spell                 = new Spell();
+        $spell                 = new Spell;
         $spell->name           = 'Sunrise';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->spell_creator  = 'Lathander';
@@ -3483,7 +3483,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Light'], 3);
 
-        $spell              = new Spell();
+        $spell              = new Spell;
         $spell->name        = 'Suppress Magical Writings';
         $spell->casting     = '1 minute (Somatic, Verbal)';
         $spell->area        = '100-ft radius emanation centered on you';
@@ -3496,7 +3496,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 3);
 
-        $spell              = new Spell();
+        $spell              = new Spell;
         $spell->name        = 'Surge of Fortune';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
@@ -3523,7 +3523,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment'], 4);
 
-        $spell               = new Spell();
+        $spell               = new Spell;
         $spell->name         = 'Sustain';
         $spell->casting      = '1 minute (Somatic, Verbal, Ability Damage)';
         $spell->requirements = '<dl>
@@ -3540,7 +3540,7 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 4);
 
-        $spell               = new Spell();
+        $spell               = new Spell;
         $spell->name         = 'Susurrus of the City';
         $spell->casting      = '10 minutes (Material, Somatic, Verbal, Ability Damage)';
         $spell->requirements = '<dl>
@@ -3555,8 +3555,6 @@ class SpellsSSeeder extends Seeder
     <dt>Material Components</dt> <dd>An abandoned building in a settlement of at least Town Size or larger.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Divination'], 5);
-
-        // https://dndtools.net/spells/?page=216
 
         $spell               = new Spell;
         $spell->name         = 'Suyoll';
@@ -3582,6 +3580,19 @@ class SpellsSSeeder extends Seeder
 <p>The reload time for your bow or crossbow is reduced by 1. If you have a feat that grants the Quick condition that can be used to reload your bow or crossbow, then the Quick condition allows you to also make Ranged Attacks with a bow or crossbow.</p>
 <p>Each time you make such a ranged attack, your quiver magically replaces the piece of ammunition you used with a similar piece of nonmagical ammunition. Any pieces of ammunition created by this spell disintegrate when the spell ends. If the quiver leaves your possession, the spell ends.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation'], 4);
+
+        $spell              = new Spell;
+        $spell->name        = 'Swift Ready';
+        $spell->casting     = '1 minute (Somatic, Verbal)';
+        $spell->range       = 'Touch';
+        $spell->targets     = '1 armor, weapon, or tiny object';
+        $spell->duration    = '24 hours or until discharged';
+        $spell->description = '<p>You enchant a suit of armor, shield, weapon, or object that can be held in one hand. Then, until the Duration, you can as an Action call the enchanted item to you. If the Target is an armor and you are not currently wearing any armor, it appears with you wearing the armor. Otherwise, it appears at your feet. Shields, weapons and objects appear in your hand if you have a free hand. Otherwise it appears at your feet.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Permanency Heightened (+3)</dt> <dd>1,000 gp. 2 CON Damage</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Conjuration', 'Calling'], 1);
 
         $spell                 = new Spell;
         $spell->name           = 'Sword Burst';

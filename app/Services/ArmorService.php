@@ -29,6 +29,7 @@ class ArmorService implements Contracts\ArmorService
             ))
             ->through([
                 \App\Filters\Id::class,
+                \App\Filters\TypeByName::class,
                 \App\Filters\Name::class,
                 \App\Filters\Group::class,
                 \App\Filters\Order::class,

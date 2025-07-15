@@ -112,9 +112,9 @@ class SkillArcanaSeeder extends Seeder
         $subskill               = new SubSkill;
         $subskill->name         = 'Borrow an Arcane Spell';
         $subskill->skill_id     = $skill->id;
-        $subskill->description  = "If you're an arcane spellcaster who prepares spells, during your daily preparations, you can attempt to prepare a spell from someone else\'s spellbook. The GM sets the DC for the check.";
+        $subskill->description  = "If you're an arcane spellcaster who prepares spells, during your daily preparations, you can attempt to prepare a spell from someone else's spellbook. The GM sets the DC for the check.";
         $subskill->success      = 'You prepare the borrowed spell as part of your normal spell preparation.';
-        $subskill->failure      = 'You fail to prepare the spell, but the spell slot remains available for you to prepare a different spell. You can\'t try to prepare this spell until the next time you prepare spells.';
+        $subskill->failure      = "You fail to prepare the spell, but the spell slot remains available for you to prepare a different spell. You can't try to prepare this spell until the next time you prepare spells.";
         $subskill->trained_only = 1;
         $subskill->save();
         $subskill->types()->save(app()->types['Concentrate']);
@@ -140,7 +140,7 @@ class SkillArcanaSeeder extends Seeder
 <ul>
     <li>Spend 1 hour per level of the spell, during which you must remain in conversation with the person who knows the spell or have the magical writing in your possession.</li>
     <li>Have an amount of magical materials with a value indicated in the Identifying or Learning a Spell.</li>
-    <li>Attempt an Arcana check with a DC dtermined by the GM.</li>
+    <li>Attempt an Arcana check with a DC determined by the GM.</li>
 </ul>';
         $subskill->success          = 'You expend the materials and learn the spell. If you have a spellbook, the spell is added to your spellbook; if you prepare spells from a list, it\'s added to your list; if you hav a spell repertoire, you can select it when you add or swap spells.';
         $subskill->critical_success = 'Per a success, but you expend only half the cost in materials.';

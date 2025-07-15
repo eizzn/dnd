@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use App\Filters\FilterPipelinePayload;
-use App\Filters\HasPowers;
-use App\Filters\HasSpells;
 use App\Models\Klass;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -21,7 +19,7 @@ class ClassService implements Contracts\ClassService
     public function index(array|Request $search, bool $byType = false): Builder
     {
         $search = $this->getData($search);
-        $query = Klass::query();
+        $query  = Klass::query();
         if ($byType) {
             $query->orderBy('type');
         }

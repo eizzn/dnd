@@ -26,7 +26,7 @@ class FormulaResource extends JsonResource
             'meta'          => $this->meta,
             'crafting'      => $this->crafting,
             'description'   => $this->description,
-            'types'        => $this->types->map(function (Type $type) {
+            'types'         => $this->types->map(function (Type $type) {
                 return [
                     'id'   => $type->id,
                     'name' => $type->name,

@@ -51,8 +51,31 @@ Perception check result = D20 roll + WIS modifier + proficiency bonus + other bo
         $subskill              = new SubSkill;
         $subskill->name        = 'Search';
         $subskill->skill_id    = $skill->id;
-        $subskill->action_type = 'Action';
-        $subskill->description = '<p></p>';
+        $subskill->action_type = 'Triple Action';
+        $subskill->description = '<p>You can find secret doors, simple traps, hidden compartments, and other details not readily apparent. The Search (Spot) skill lets you notice something, such as a hiding rogue. The Search skill lets a character discern some small detail or irregularity through active effort. Search does not allow you to find complex traps.</p>
+<p>You generally must be within 10 feet of the object or surface to be searched. The table below gives DCs for typical tasks involving the Search Skill.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Search DC</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ransack a chest full of junk to find a certain item</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Notice a typical secret door or a simple trap</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Notice a well hidden secret door</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table>';
         $subskill->save();
     }
 }

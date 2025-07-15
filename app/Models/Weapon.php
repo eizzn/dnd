@@ -12,14 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int         id
  * @property string      name
  * @property int|null    price
- * @property string      damage
- * @property string|null range
- * @property int|null    reload
  * @property string|null bulk
  * @property int|null    hands
  * @property string      group
  * @property string      type
- * @property string      threat_range
  * @property string|null description
  */
 class Weapon extends Model

@@ -68,15 +68,28 @@ class RaceOrcsSeeder extends Seeder
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Orc']);
 
-        $subrace           = new SubRace;
-        $subrace->name     = 'Orogs';
-        $subrace->race_id  = $race->id;
-        $subrace->regions  = 'Underdark';
-        $subrace->benefits = '<dl>
+        $subrace              = new SubRace;
+        $subrace->name        = 'Orog';
+        $subrace->race_id     = $race->id;
+        $subrace->regions     = 'Underdark';
+        $subrace->description = '<p>The result of a male orc and a female ogre</p>';
+        $subrace->benefits    = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your CON score increases by +2</dd>
     <dt>Superior Darkvision</dt> <dd>Your Darkvision has a range of 120 feet</dd>
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Orc']);
+
+        $subrace              = new SubRace;
+        $subrace->name        = 'Ogrillon';
+        $subrace->race_id     = $race->id;
+        $subrace->regions     = 'The North';
+        $subrace->description = '<p>The result of a female orc and a male ogre. Ogrillons are all sterile</p>';
+        $subrace->benefits    = '<dl>
+    <dt>Ability Score Increase</dt> <dd>You CON score increases by +2 and your STR score increases by an additional +2</dd>
+    <dt>Ability Score Decrease</dt> <dd>You CHA and INT scores decreases by -2</dd>
+    <dt>Racial Quality</dt> <dd>You count as a Giant</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($subrace, ['Orc', 'Giant']);
 
         $dethek = Alphabet::where('name', 'Dethek')->first();
 

@@ -2,7 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\Filter;
 use Illuminate\Support\Str;
 
 class HasPowers extends Filter

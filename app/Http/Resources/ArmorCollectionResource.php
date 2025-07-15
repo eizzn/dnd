@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Armor;
+use App\Models\Property;
 use App\Models\Type;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -18,12 +19,6 @@ class ArmorCollectionResource extends ResourceCollection
                     'price'            => $armor->price,
                     'type'             => $armor->type,
                     'group'            => $armor->group,
-                    'armor_bonus'      => $armor->armor_bonus,
-                    'damage_reduction' => $armor->damage_reduction,
-                    'dex_modifier_cap' => $armor->dex_modifier_cap,
-                    'check_penalty'    => $armor->check_penalty,
-                    'spell_failure'    => $armor->spell_failure,
-                    'min_str'          => $armor->min_str,
                     'bulk'             => $armor->bulk,
                     'weight'           => $armor->weight,
                     'description'      => mb_substr(str_replace(["\r", "\n"], '', strip_tags($armor->description)), 0, 100) . '...',
@@ -31,6 +26,14 @@ class ArmorCollectionResource extends ResourceCollection
                         return [
                             'id'   => $type->id,
                             'name' => $type->name,
+                        ];
+                    }),
+                    'properties'   => $armor->properties->map(function (Property $prop) {
+                        return [
+                            'id'          => $prop->id,
+                            'name'        => $prop->name,
+                            'description' => $prop->description,
+                            'value'       => $prop->pivot->value,
                         ];
                     }),
                 ];

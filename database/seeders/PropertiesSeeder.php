@@ -16,12 +16,22 @@ class PropertiesSeeder extends Seeder
     public function run()
     {
         $props = [
-            'Armor Class'       => 'Armor Class that represents the difficulty to be hit',
-            'Damage Reduction'  => 'Damage Reduction represents the amount of damage that is ignored',
-            'Melee Damage'      => '',
-            'Range'             => '',
-            'Ranged Damage'     => '',
-            'Threat Range'      => '',
+            'Armor Class'         => 'Armor Class that represents the difficulty to be hit',
+            'Damage Reduction'    => 'Damage Reduction represents the amount of damage that is ignored',
+            'DEX Mod Cap'         => 'The armor limits the bonus to your AC and Bonus to Ranged Attacks from your DEX modifier to the listed value',
+            'Spell Failure'       => 'The armor imposes a chance of any Spell you cast while wearing the armor to fail due to how the armor restricts your movement',
+            'Skill Check Penalty' => 'A Penalty to any Physical Based Skill Check while wearing the armor',
+            'Speed Penalty'       => 'A Penalty to you Land Speed while wearing the armor',
+            'Minimum STR'         => 'You must at least the listed STR to wear the armor',
+            'Melee Damage'        => '',
+            'Range'               => '',
+            'Ranged Damage'       => '',
+            'Threat Range'        => '',
+            '2 Handed Damage'     => 'This is the weapons damage when used with 2 hands',
+            'Deadly'              => 'On a Critical Hit, the weapon adds a weapon damage die',
+            'Fatal'               => "On a Critical Hit, use the Fatal's die instead of the weapon's die",
+            'Reload'              => 'The number Actions required to load an ammunition to the weapon',
+            'Volley'              => 'The ranged weapon is less effective at close range, Your attacks against targets that are at a distance within the range listed take a -2 less Damage',
         ];
 
         ksort($props);

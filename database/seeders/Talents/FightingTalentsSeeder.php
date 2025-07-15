@@ -221,7 +221,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->action_type = 'Triple Action';
         $talent->requirement = 'You are not wearing any armor and are lightly encumbered or less';
         $talent->description = '<p>You do a hand stand while spinning your extended legs.</p>
-<p>You make 3 melee Unarmed Strikes against the same opponent. Each hit deals your normal Unarmed Strike damage +1D4 Blunt damage. You also move into the opponents space (5 feet). If any of your attacks from this talent hits, the opponent is pushed to the next adjacent space. If you miss all of your attacks from this talent, you land in the same space as your opponent if there is enough space, otherwise you move to the other side of the opponent if able.</p>
+<p>You make 3 melee Unarmed Strikes against the same opponent. Each hit deals your normal Unarmed Strike damage +1D4 Bludgeoning damage. You also move into the opponents space (5 feet). If any of your attacks from this talent hits, the opponent is pushed to the next adjacent space. If you miss all of your attacks from this talent, you land in the same space as your opponent if there is enough space, otherwise you move to the other side of the opponent if able.</p>
 <p>You may also spend a Heroic Surge. If you do, you make 4 attacks instead of 3 and move an additional 5 feet.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Tu Lung Style']);
@@ -233,7 +233,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Spinning Bird Kick')->first()->id;
         $talent->description = '<p>You can now perform an Improved Spinning Bird Kick.</p>
 <ul>
-    <li>You spend a Heroic Surge and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +1D4 Blunt damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative.</li>
+    <li>You spend a Heroic Surge and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +1D4 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
 
@@ -254,7 +254,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Lightning Kick')->first()->id;
         $talent->description = '<p>You can perform an Improved Lightning Kick.</p>
 <ul>
-    <li>Spend a Heroic Surge and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +1D4 Blunt damage.</li>
+    <li>Spend a Heroic Surge and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +1D4 Bludgeoning damage.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
 
@@ -273,7 +273,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = '<p>You can make quick slapping attacks with both your hands against the same opponent</p>
 <ul>
     <li>When you gain this Talent, you gain 1 Power Point</li>
-    <li>You spend 1 Power Point and make 3 Melee Unarmed Strikes against the same opponent with both hands. Each hit deals your normal Unarmed Strike Blunt damage. After all attacks have completed, the target must make a STR Save against the total damage taken or be pushed back 5 ft.</li>
+    <li>You spend 1 Power Point and make 3 Melee Unarmed Strikes against the same opponent with both hands. Each hit deals your normal Unarmed Strike Bludgeoning damage. After all attacks have completed, the target must make a STR Save against the total damage taken or be pushed back 5 ft.</li>
     <li>You may also make this attack using a Triple Action and 1 Power Point. If you do, you make 4 Melee Unarmed Strikes instead and suffer a -7 Initiative.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);

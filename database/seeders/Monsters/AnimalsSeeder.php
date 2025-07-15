@@ -411,7 +411,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4) Bludgeoning.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal'], [
-            'stats' => [11, 16, 11, 2, 14, 5, '0', 2],
+            'stats' => [11, 16, 11, 2, 14, 5, 0, 2],
         ]);
 
         $monster              = new Monster;
@@ -551,6 +551,31 @@ class AnimalsSeeder extends Seeder
             'stats'  => [1, 13, 8, 1, 8, 3, 0, 2],
             'skills' => [
                 'Perception' => ['dc' => 1],
+                'Stealth'    => ['dc' => 3],
+            ],
+            'features' => [
+                'amphibious',
+                'darkvision' => ['meta' => '30 ft'],
+            ],
+        ]);
+
+        $monster              = new Monster;
+        $monster->name        = 'Frog, Giant';
+        $monster->size        = 'Medium';
+        $monster->alignment   = '-';
+        $monster->armor_class = '11';
+        $monster->hit_dice    = 4;
+        $monster->speed       = '30 ft / Swim 30 ft';
+        $monster->description = '';
+        $monster->actions     = "<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack +3 to Hit, reach 5 ft, one target. 1D6 + 1 Piercing Damage, and the target is Grappled (escape DC 11). Until this Grapple ends, the target is Restrained and the frog can't bite another target.</dd>
+    <dt>Swallow</dt> <dd>The frog makes one bite attack against a Small or smaller target it is Grappling. If the attack hits, the target is Swallowed, and the grapple ends. The Swallowed target is Blinded and Restrained, it has Total Cover against attacks and other effects outside the frog, and it takes 2D4 Acid Damage at the start of each of the frog's turns. The frog can have only one target Swallowed at a time. If the frog dies, a Swallowed creature is no longer Restrained by it and can escape from the corpse using a 5 feet Movement, exiting Prone.</dd>
+    <dt>Standing Leap</dt> <dd>The frog's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Animal'], [
+            'stats'    => [12, 13, 11, 2, 10, 3, .25, 2],
+            'skills'   => [
+                'Perception' => ['dc' => 2],
                 'Stealth'    => ['dc' => 3],
             ],
             'features' => [

@@ -90,7 +90,7 @@ class ClassAssassinSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             1 => ['Camouflage', 'Combat Quickness', 'Disguise Self', 'Detect Poison', 'Exact Shot', 'Far Shot', 'Feather Fall',
                 'Ghost Sound', 'Guided Path', 'Guided Shot', 'Hawkeye', "Hunter's Mark", 'Jump', 'Mimicry', 'Poison Spray',
-                'Shadow Double', 'Silent Opening', 'Sleep', 'True Strike', ],
+                'Shadow Double', 'Silent Opening', 'Sleep', 'Swift Ready', 'True Strike', ],
             2 => ['Alter Self', 'Animate Weapon', "Cat's Grace", 'Conjure Weapon', 'Darkness', 'Fell the Greatest Foe', "Hunter's Eye",
                 'Invisibility', 'Invisibility, Swift', 'Keen Edge', 'Protection From Poison', 'Quieting Weapons', 'Resist Poison',
                 'Spider Climb', 'Undetectable Alignment', ],

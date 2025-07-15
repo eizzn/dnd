@@ -2,8 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\Filter;
-
 class Duration extends Filter
 {
     protected function filter(FilterPipelinePayload $data, string $filterName): FilterPipelinePayload

@@ -207,7 +207,8 @@ class SpellsBSeeder extends Seeder
         $spell->duration    = '1 minute';
         $spell->description = "<p>The target's skin is covered in bark. The target gains Damage Reduction 2 to Bludgeoning and Piercing damage and Weakness 2 to fire.</p>";
         $spell->heightened  = '<dl>
-    <dt>Heightened (+2)</dt> <dd>The resistance increase by 2 and weakness by 3.</dd>
+    <dt>Heightened (+2)</dt> <dd>The Damage Reduction increase by +2 and weakness by +1.</dd>
+    <dt>Heightened (+1)</dt> <dd>Add a Material Casting (Material Component: a thorn) and your Barkskin forms thorns that deal 1D6 to any creature that hits you with a Melee Natural Weapon or Unarmed Strike. Any creature that your Grapple or are Grappled by takes 3D6 Damage per turn the Grapple continues. You are also considered Armed when making Unarmed Strikes and deal 1D4 Bludgeoning and 1D6 Piercing.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Plant', 'Transmutation'], 2);
 

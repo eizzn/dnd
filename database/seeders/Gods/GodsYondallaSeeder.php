@@ -76,7 +76,7 @@ class GodsYondallaSeeder extends Seeder
                 'Insignia of Blessing', 'Insignia of Healing', 'Inspire Defense', 'Invisibility Purge', 'Neutralize Poison',
                 'Prayer', 'Prophecy', 'Toxin Immunity', 'Vitality Shield', ],
             4 => ['Ceremony', 'Divination', 'Remove Curse'],
-            5 => ['Atonement', 'Commune', 'Dispel Evil', 'Holy Weapon', 'Stalwart Covenant'],
+            5 => ['Atonement', 'Commune', 'Dispel Evil', 'Holy Weapon', 'Stalwart Covenant', 'Tomb of Light'],
             6 => ['Field of Life', 'Heal', "Hero's Feast"],
             7 => ['Bastion of Good', 'Divine Decree', 'Feast of Champions', 'Rebuke of Yondalla', 'Renewal Pact', 'Righteous Glare'],
             8 => ['Crown of Glory', 'Power Word Heal'],

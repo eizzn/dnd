@@ -295,7 +295,7 @@ class ClassBardSeeder extends Seeder
                 'Dissonant Chant', "Eagle's Splendor", 'Enthrall', 'False Lie', 'Fortissimo', "Fox's Cunning", 'Glossolalia',
                 'Grace', 'Hymn of Willpower', 'Insidious Ear Worm', 'Invisibility', 'Knock', 'Levitate', 'Magic Mouth',
                 'Mirror Image', 'Misdirection', 'Note', "Owl's Wisdom", 'Painful Echoes', 'Phantasmal Force', 'Shatter',
-                'Silence', 'Sonic Burst', "Spymaster's Coin", 'Suggestion', 'Vocalize', 'Zone of Truth', ],
+                'Silence', 'Sonic Burst', "Spymaster's Coin", 'Suggestion', 'Swift Ready', 'Vocalize', 'Zone of Truth', ],
             3 => ['Celebration', 'Crushing Despair', 'Dissonant Chord', 'Drums of War', 'Good Hope', 'Hymn of Praise', 'Hypnotic Pattern',
                 'Listening Coin', "Love's Lament", 'Major Image', 'Map', 'Message Link', 'Nondetection', 'Sculpt Sound',
                 'Sending', 'Sepia Snake Sigil', 'Tongues', ],

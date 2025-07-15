@@ -33,7 +33,7 @@ class FeatService implements Contracts\FeatService
                 \App\Filters\Id::class,
                 \App\Filters\Name::class,
                 \App\Filters\ActionType::class,
-                \App\Filters\Type::class,
+                \App\Filters\TypesByName::class,
                 \App\Filters\Order::class,
             ])
             ->thenReturn();

@@ -28,21 +28,19 @@ class ClassHathranSeeder extends Seeder
         $class->requirements  = $helper->getClassRequirementsString([
             'Gender'        => 'Female',
             'Alignment'     => 'Lawful Good, Lawful Neutral, Neutral Good, Lawful Evil (Durthan), Neutral Evil (Durthan)',
-            'Feats'         => 'Ethran, At least 1 Meta Magic Feat, Cannot have any Item Creation Feats, Cannot have any Bloodline Feats',
+            'Feats'         => 'Ethran, At least 1 Meta Magic Feat, Cannot have any Item Creation Feats, Cannot have any Bloodline Feats, Cannot have any Wizard School Feats',
             'Spellcasting'  => 'Able to cast 2nd level Arcane and Primal spells',
             'Class Feature' => 'Chastise Spirit',
             'Patron'        => 'Chauntea, Mielikki, Mystra, Auril (Durthan)',
             'Region'        => 'Rashemen',
         ]);
         $class->description = '<p>This class represents both the Hathrans and the Durthans</p>
-<p>You are barred from taking any Item Creation Feats.</p>';
+<p>You are barred from taking any Item Creation and Wizard School Feats.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
             'skill_progress' => 4,
             'has_spells'     => true,
-        ], ['WIS', 'CHA'], [
-            'Primal', 'Spirit',
-        ]);
+        ], ['WIS', 'CHA'], ['Primal', 'Spirit']);
 
         $feature              = new Feature;
         $feature->key         = 'communal_channeling';
@@ -50,7 +48,7 @@ class ClassHathranSeeder extends Seeder
         $feature->description = "<p>You are able to use your Communal Binding that you have created in new ways. You can use an Action to channel energies among those who are part of your Communal Binding, and are within 30 feet of you when the channeling begins. The channeling lasts for 1 minute. It ends early if you are knocked unconscious or your use an Action on your turn to end it. When you begin channeling, you choose one of the following options.</p>
 <dl>
     <dt>Commanding Channeling</dt> <dd>You take tighter control of the Communal Binding. For the duration of the channeling, only you can use dice from the Communal Pool. Once on each of their turns, other creatures within the Communal Binding can deal additional damage equal to your INT or CHA modifier to a creature or creatures damaged by one of the bonded creature's spells or attacks</dd>
-    <dt>Protective Channeling</dt> <dd>You raise the defenses of the bonded creatures. When you begin channeling and at the start of each of their turns, this feature grants temporary Hit Points ao all other creatures that are a part of the Communal Binding that your created. The number of temporary Hit Points is equal the creator's Proficiency Bonus. When a creature loses these temporary Hit Points, the creator take Psychic damage equal to half the creator's Proficiency Bonus, rounded down. If multiple members take damage from a single source, the total Psychic damage you can take is capped at the creator's Proficiency Bonus. This damage cannot be prevented, but it does not cause Concentration Saves for maintaining spells.</dd>
+    <dt>Protective Channeling</dt> <dd>You raise the defenses of the bonded creatures. When you begin channeling and at the start of each of their turns, this feature grants temporary Hit Points ao all other creatures that are a part of the Communal Binding that your created. The number of temporary Hit Points is equal the creator's Proficiency Bonus. When a creature loses these temporary Hit Points, the creator takes Psychic damage equal to half the creator's Proficiency Bonus, rounded down. If multiple members take damage from a single source, the total Psychic damage you can take is capped at the creator's Proficiency Bonus. This damage cannot be prevented, but it does not cause Concentration Saves for maintaining spells.</dd>
     <dt>Psychic Channeling</dt> <dd>You form a strong telepathic connection with the bonded creatures. For the duration of the channeling, all creatures within your Communal Binding can communicate telepathically, regardless of distance. The connection formed enables the affected creatures to perform more complex maneuvers by giving them awareness of what their comrades are about to do. Additionally, as a Free Action, a bonded creature can use the senses of another bonded creature instead of their own until the end of their own turn. For example, a human can gain a dwarf's darkvision.</dd>
 </dl>";
         $helper->saveFeature($feature, ['Primal', 'Spirit']);
@@ -58,7 +56,7 @@ class ClassHathranSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'hathran_cohort';
         $feature->name        = 'Hathran Cohort';
-        $feature->description = '<p>You gain a cohort. This cohort must either be an Ethran (a character with the Ethran feat, this NPC cannot also have a cohort), or a Barbarian from one of the Barbarian lodges of Rashemen.</p>
+        $feature->description = '<p>You gain a cohort. This cohort must either be an Ethran (a character with the Ethran feat, this NPC cannot also have a cohort), an Artificer with the Vremyonni Feat, or a Barbarian from one of the Barbarian lodges of Rashemen.</p>
 <p>Instead of an NPC cohort, you may choose to take on a PC as your cohort. This PC must also be either an Ethran (who cannot also have a cohort) or a barbarian from one of the Barbarian lodges of Rashemen. If you choose to take on a fellow PC as your cohort, you gain the following benefits.</p>
 <ul>
     <li>When your PC cohort is within 10 feet of you, both you and your cohort gain a +1 Awareness bonus to your AC and a +1 Awareness bonus to all Saves.</li>
@@ -86,9 +84,11 @@ class ClassHathranSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Ethran';
-        $feat->short_description = 'You have been initiated into the secrets of the Witches of Rashemen as a member of the Ethran';
+        $feat->short_description = 'You have been initiated into the secrets of the Witches of Rashemen. You are now an Ethran';
         $feat->description       = '<p>You are a respected member of the Witches of Rashemen.</p>
 <ul>
+    <li>You gain 2 Spell Points</li>
+    <li>Choose a School of Magic. You gain the Cantrip Caster Class Feature for Arcane spells of the chosen school.</li>
     <li>You gain a +5 bonus to Diplomacy checks when dealing with common citizens of Rashemen</li>
     <li>You gain a +2 bonus on Diplomacy checks when dealing with spirits of Rashemen</li>
     <li>You can create a Communal Binding.</li>
@@ -102,12 +102,14 @@ class ClassHathranSeeder extends Seeder
         $feat->name        = 'Othlor';
         $feat->description = "<p>You rise in the ranks of the Wychlaran and the spirits of the land infuse you with magical authority.</p>
 <ul>
+    <li>You gain 2 Spell Points</li>
     <li>
         <p>As a Double Action, you can issue a simple command (such as those detailed in the Command spell) to a number of creatures equal to double your CHA modifier. Each target must make a WIS Save against your spell save DC, or be magically compelled to carry out the command for a number of rounds equal to your CHA modifier.</p>
         <p>At the end of each of their turns for the duration, targeted creatures can repeat the WIS Save, ending the effect on themselves on a success.</p>
         <p>On each of your turns for the duration, you can issue a new command that must be able to be performed in one round. For the following round, targeted creatures will instead perform the new command on their turn.</p>
         <p>Once you've used this feature, you must finish a Long Rest before doing so again.</p>
     </li>
+    <li>You gain the Cantrip Caster Class Feature for all Arcane spells.</li>
     <li>You may bind an additional member to your Communal Binding</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Primal', 'Spirit']);
@@ -167,7 +169,7 @@ class ClassHathranSeeder extends Seeder
 <ul>
     <li>There is no longer a limit to the number of creatures that can be part of your Communal Binding</li>
     <li>When at least 6 other creatures are part of your Communal Binding, the Communal Pool has unlimited dice</li>
-    <li>When at least 6 other creatures are part of your Communal Binding, other Wychlaren within the binding can also use the pool as though they were the binding's creator.</li>
+    <li>When at least 6 other creatures are part of your Communal Binding, other Wychlaren and Vremyonni within the binding can also use the pool as though they were the binding's creator.</li>
     <li>Having a 4th, 5th, or 6th individual as part of your Communal Binding can now increase the Communal Pool die to a D8, D10, and D12 respectively.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Primal', 'Circle Magic']);

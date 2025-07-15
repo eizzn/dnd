@@ -65,10 +65,10 @@ class ClassAdventurerSeeder extends Seeder
 
         $helper->addSpellsToClass($class, [
             0 => ['Acid Splash', 'Blade Ward', 'Daze', 'Know Direction', 'Light', 'Mage Hand', 'Mending', 'Message', 'Oilskin',
-                'Poison Spray', 'Prestidigitation', 'Produce Flame', 'Resistance', 'Shield', 'Shocking Grasp', ],
+                'Poison Spray', 'Prestidigitation', 'Produce Flame', 'Resistance', 'Shield', 'Shocking Grasp', 'True Strike', ],
             1 => ['Alarm', 'Comprehend Languages', 'Delay Poison', 'Detect Magic', 'Detect Secret Doors', 'Expeditious Retreat',
                 'Feather Fall', 'Grease', 'Guided Path', 'Guiding Light', 'Hawkeye', 'Healthful Rest', 'Jump', 'Locate City',
-                'Note', 'True Strike', ],
+                'Note', ],
             2 => ["Bear's Endurance", "Bull's Strength", "Cat's Grace", 'Conjure Weapon', 'Cure Wounds', 'Darkvision',
                 "Eagle's Splendor", "Fox's Cunning", 'Gust of Wind', 'Heroism', 'Insight of Good Fortune', 'Invisibility',
                 'Keen Edge', 'Knock', 'Map', "Owl's Wisdom", 'Resist Fire', 'Skyhook', ],

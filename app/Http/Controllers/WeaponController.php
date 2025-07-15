@@ -17,7 +17,7 @@ class WeaponController extends Controller
         $query = $service->index($request);
 
         return new WeaponCollectionResource(
-            $query->with('types')
+            $query->with(['types', 'properties'])
                 ->paginate($request->query('per_page', 15))
                 ->appends($request->all())
         );

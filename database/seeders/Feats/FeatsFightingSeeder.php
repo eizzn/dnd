@@ -26,7 +26,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain proficiency with Light Armor</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Light Armor Caster';
@@ -35,7 +35,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>If you are proficient with Light Armor, you do not suffer Spell Casting penalties for casting a spell while wearing Light Armor.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Medium Armor';
@@ -46,7 +46,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain proficiency with Medium Armor and Shields</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Heavy Armor';
@@ -57,7 +57,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain proficiency with Heavy Armor</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Medium Armor Master';
@@ -68,7 +68,7 @@ class FeatsFightingSeeder extends Seeder
     <li>Reduce the armor check penalty from wearing Medium Armor by 1</li>
     <li>Increase the Maximum DEX modifier bonus to your AC by +1</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Heavy Armor Master';
@@ -79,7 +79,7 @@ class FeatsFightingSeeder extends Seeder
     <li>Increase your STR score by 1, to a maximum of 20</li>
     <li>While you are wearing Heavy Armor, you gain an additional Damage Reduction / 1 vs Bludgeoning, Piercing, and Slashing damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Medium Armor Caster';
@@ -87,7 +87,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Medium Armor.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 4]);
         $feat->parent_feats()->save(app()->feats['Light Armor Caster']);
         $feat->parent_feats()->save(app()->feats['Medium Armor Master']);
 
@@ -97,7 +97,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Heavy Armor.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Medium Armor Caster']);
         $feat->parent_feats()->save(app()->feats['Heavy Armor Master']);
 
@@ -208,7 +208,7 @@ class FeatsFightingSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Talents Master';
         $feat->description = '<p>You gain 5 Talents.</p>';
-        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Sentinel';

@@ -34,7 +34,9 @@ export default {
                         ...filters.value,
                         page,
                         per_page: props.paginationLimit,
-                    }).filter(([_, value]) => value !== null && value !== '' && (!Array.isArray(value) || value.length > 0))
+                    }).filter(([_, value]) =>
+                        value !== null && value !== '' && (!Array.isArray(value) || value.length > 0)
+                    )
                 )
             ).toString();
 
@@ -63,6 +65,13 @@ export default {
         const debounceFetchData = debounce(fetchData, 500);
 
         onMounted(() => {
+            const queryParams = new URLSearchParams(window.location.search);
+
+            queryParams.forEach((value, key) => {
+                if (!filters.value[key]) {
+                    filters.value[key] = value;
+                }
+            });
             fetchData();
         });
 

@@ -272,7 +272,9 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->type        = 'Elixir';
         $formula->level       = 5;
         $formula->price       = '10 gp';
-        $formula->meta        = '<dt>Onset</dt> <dd>1 minute</dd>';
+        $formula->meta        = '<dl>
+    <dt>Onset</dt> <dd>1 minute</dd>
+</dl>';
         $formula->bulk        = 'L';
         $formula->activation  = 'Action; Operate Activation';
         $formula->description = '<p>After the onset of this potion, the spaces between your fingers and toes become webbed, granting you a swim Speed of 20 feet for the next 10 minutes.</p>';
@@ -363,7 +365,9 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->type        = 'Elixir';
         $formula->level       = 3;
         $formula->price       = '3 gp / 8 gp';
-        $formula->meta        = '<dt>Onset</dt> <dd>1 minute</dd>';
+        $formula->meta        = '<dl>
+    <dt>Onset</dt> <dd>1 minute</dd>
+</dl>';
         $formula->bulk        = 'L';
         $formula->activation  = 'Action; Operate Activation';
         $formula->description = '<p>For 24 hours after the onset of this potion, you are protected from the effects of severe heat.</p>';

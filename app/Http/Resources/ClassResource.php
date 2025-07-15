@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Attribute;
 use App\Models\ClassPowerMeta;
 use App\Models\ClassSpellSlot;
 use App\Models\Feat;
@@ -67,7 +66,7 @@ class ClassResource extends JsonResource
                         'description' => $feat->description,
                         'level'       => $feat->pivot->level,
                     ];
-             }),
+                }),
             'spell_slots'       => $this->spell_slots->mapWithKeys(function (ClassSpellSlot $slot) {
                 return [
                     $slot->level => [

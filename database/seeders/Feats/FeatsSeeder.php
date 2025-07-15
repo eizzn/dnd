@@ -20,6 +20,20 @@ class FeatsSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
+        $feat              = new Feat;
+        $feat->name        = 'Arcane Sense';
+        $feat->description = '<p>Your study of magic allows you to sense its presence around you instinctively.</p>
+<ul>
+    <li>You gain a +3 bonus to your Arcana checks.</li>
+    <li>You can cast Detect Magic as an innate spell at will.</li>
+    <li>If you have the Diviner Feat, you can perceive the presence of magic passively and the range of Detect Magic is doubled.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Arcane', 'Generic' => 1]);
+        $feat->skills()->save(app()->skills['Arcana'], ['dc' => 4]);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Detect Magic'],
+        ]);
+
         $feat                    = new Feat;
         $feat->name              = 'Deny Advantage';
         $feat->short_description = 'You are skilled at fighting while Flanked';
@@ -27,7 +41,7 @@ class FeatsSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You are not treated as Flat-Footed when you are Flanked. This does not negate any other bonus from Flanking, such as the bonus to hit from Improved Flanking.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Flanking', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Flanking', 'Generic' => 15]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Reaction';
@@ -38,7 +52,7 @@ class FeatsSeeder extends Seeder
     <li>You gain a Reaction.</li>
     <li>You may take this feat multiple times. Each time you gain another Reaction, allowing you to take more Reactions each turn. You may not take more than 3 Reactions each turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Reaction', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Reaction', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Alertness';
@@ -47,12 +61,12 @@ class FeatsSeeder extends Seeder
     <li>You gain a +3 bonus to your Initiative</li>
     <li>You can't be surprised while you are conscious.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Ancestral Paragon';
         $feat->description = '<p>Whether instinctively, through study, or through a mystic sense, you feel a deeper connection to your ancestry than most of those who share that ancestry. You gain a level-1 ancestry feat.</p>';
-        $helper->addTypesToFeat($feat, ['Generic']);
+        $helper->addTypesToFeat($feat, ['Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Assurance';
@@ -62,7 +76,7 @@ class FeatsSeeder extends Seeder
     <li>If you have at least 7 ranks in your chosen skill, you receive a result of 15; if you have at least 12 ranks, you receive a result of 20; and if you have at least 17 ranks, you receive a result of 30.</li>
     <li><strong>Special</strong> You can select this feat multiple times. Each time you do, you choose a different skill, and gain the benefits for the chosen skill.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Automatic Knowledge';
@@ -72,7 +86,7 @@ class FeatsSeeder extends Seeder
     <li>You know basic facts off the top of your head. Choose a skill you have at least 2 ranks in that has the Recall Knowledge action and that you have the Assurance feat in when you first select this feat. You can use the Recall Knowledge action for that skill as a free action once per round, triggering at either the start or the end of your turn; if you do, you must use Assurance on the skill check.</li>
     <li><strong>Special</strong> You can select this feat multiple times. Each time you do, you choose a different skill and gain the benefits for the chosen skill.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
         $feat->parent_feats()->save(app()->feats['Assurance']);
 
         $feat              = new Feat;
@@ -83,7 +97,7 @@ class FeatsSeeder extends Seeder
     <li>Each week, you must spend at least 1 hour to reestablish your bond with the animal with the same DC 20 Nature check. Failure means the bond is lost but can be reestablished. After 10 consecutive successes, you no longer need to reestablish a bond with the animal.</li>
     <li>During combat, you can give an order to your bonded animal. You can use the Command an Animal Action to direct your bonded Animal.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Skill', 'Animal', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Skill', 'Animal', 'Generic' => 2]);
         $feat->skills()->save(app()->skills['Nature'], ['dc' => 4]);
 
         $feat              = new Feat;
@@ -111,14 +125,14 @@ class FeatsSeeder extends Seeder
         </ul>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat                    = new Feat;
         $feat->name              = 'Die Hard';
         $feat->short_description = 'It takes more to kill you than most.';
         $feat->description       = '<p>Increase your CON by 1, up to a maximum of 20.</p>
 <p>You gain a +3 bonus to your recovery Save. You die from the Dying condition at Dying 5, rather than Dying 4.</p>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 2]);
         $feat->parent_feats()->save(app()->feats['Endurance']);
 
         $feat              = new Feat;
@@ -129,7 +143,7 @@ class FeatsSeeder extends Seeder
     <li>When you use the Dash Action, difficult terrain costs 5 less.</li>
     <li>When you make a melee attack against a creature, if you hit, that creature suffers a -5 penalty to any Attacks of Opportunity against you until the beginning of your next turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stride', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Stride', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Dodge';
@@ -139,7 +153,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your DEX score by 1, to a maximum of 20.</li>
     <li>You gain a +1 bonus to all attacks that you are aware of within 30 feet of you. If you take the Full Defense action, this bonus becomes +2.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Impressive Strength';
@@ -147,7 +161,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your STR by 1, up to a maximum of 20</li>
     <li>Your strength is impressive. You gain a +3 bonus to STR Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Brute Force';
@@ -155,7 +169,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your STR by 1, up to a maximum of 20</li>
     <li>When you succeed at a STR Save, treat it as a Critical Success.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['STR'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Impressive Strength']);
 
@@ -165,7 +179,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your STR by 1, up to a maximum of 20</li>
     <li>When you Critically Fail a STR Save, treat it as a Failure instead. When you Fail a STR Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['STR'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Brute Force']);
 
@@ -175,7 +189,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CON by 1, up to a maximum of 20</li>
     <li>Your physique is incredibly hardy. You gain a +3 bonus to CON Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Mettle';
@@ -183,7 +197,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CON by 1, up to a maximum of 20</li>
     <li>When you Succeed at a CON Save, treat it as a Critical Success.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['CON'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Great Fortitude']);
 
@@ -193,7 +207,7 @@ class FeatsSeeder extends Seeder
     <li>Increase you CON by 1, up to maximum of 20</li>
     <li>When you Critically Fail a CON Save, treat it as a Failure. When you Fail a CON Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['CON'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Mettle']);
 
@@ -203,7 +217,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your WIS by 1, up to a maximum of 20</li>
     <li>Your mental defenses are an iron fortress. You gain +3 bonus to WIS Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Resolve';
@@ -211,7 +225,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your WIS by 1, up to a maximum of 20</li>
     <li>When you succeed at a WIS Save, treat it as a Critical Success.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['WIS'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Iron Will']);
 
@@ -221,7 +235,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your WIS by 1, up to a maximum of 20</li>
     <li>When you Critically Fail a WIS Save, treat it as a Failure. When you Fail a WIS Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['WIS'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Resolve']);
 
@@ -231,7 +245,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your DEX by 1, up to a maximum of 20</li>
     <li>Your reflexes are lightning fast. Your gain a +3 bonus to DEX Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Evasion';
@@ -239,7 +253,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your DEX by 1, up to a maximum of 20</li>
     <li>When you Succeed at a DEX Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Lightning Reflexes']);
 
@@ -249,7 +263,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your DEX by 1, up to a maximum of 20</li>
     <li>When you Critically Fail a DEX Save, treat the outcome as a Failure instead. When you Fail a DEX Save against an effect deals damage, you take only half damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Evasion']);
 
@@ -259,7 +273,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your INT by 1, up to a maximum of 20</li>
     <li>You are quick thinking. Your gain a +3 bonus to INT Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Quick Mind';
@@ -267,7 +281,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your INT by 1, up to a maximum of 20</li>
     <li>When you Succeed at an INT Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['INT'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Superior Intellect']);
 
@@ -277,7 +291,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your INT by 1, up to a maximum of 20</li>
     <li>When you Critically Fail an INT Save, treat the outcome as a Failure instead. When you fail an INT Save against an effect deals damage, you take only half damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['INT'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Quick Mind']);
 
@@ -287,7 +301,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CHA by 1, up to a maximum of 20</li>
     <li>You exude confidence. Your gain a +3 bonus to CHA Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Stubborn';
@@ -295,7 +309,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CHA by 1, up to a maximum of 20</li>
     <li>When you Succeed at a CHA Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
         $feat->attributes()->save(app()->attributes['CHA'], ['dc' => 7]);
         $feat->parent_feats()->save(app()->feats['Stunning Personality']);
 
@@ -305,7 +319,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CHA by 1, up to a maximum of 20</li>
     <li>When you Critically Fail a CHA Save, treat the outcome as a Failure instead. When you fail a CHA Save against an effect deals damage, you take only half damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
         $feat->attributes()->save(app()->attributes['CHA'], ['dc' => 15]);
         $feat->parent_feats()->save(app()->feats['Stubborn']);
 
@@ -370,7 +384,7 @@ class FeatsSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You react more quickly than others can in any situation. You gain a +5 circumstance bonus to all initiative rolls.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Unarmed Strike';
@@ -407,7 +421,7 @@ class FeatsSeeder extends Seeder
         </tr>
     </tbody>
 </table>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Inventor';
@@ -416,7 +430,7 @@ class FeatsSeeder extends Seeder
     <li>Increase you INT score by 1, up to a maximum of 20</li>
     <li>You can spend downtime to invent a common formula that you don't know. This works just like the Craft skill: you spend a number of days in preparation and half the Price of the formula up front, roll a Crafting check, and on a success either finish the formula by paying the difference or work for longer to decrease the Price. The difference is that you spend the additional time in research, design, and development, rather than in creating an item.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Downtime', 'Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Skill', 'Generic' => 7]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 8]);
 
         $feat              = new Feat;
@@ -428,7 +442,7 @@ class FeatsSeeder extends Seeder
     <li>When you damage a creature that is Concentrating on a spell, that creature suffers a -5 penalty on the check to maintain its Concentration.</li>
     <li>You gain a +5 bonus to Saves vs spells cast by creatures within 5 feet of you.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Generic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Petrification Resistance';
@@ -474,7 +488,7 @@ class FeatsSeeder extends Seeder
     <li>You gain 5 Skill Points. You must spend at least 1 of these Skill Points on the new skill.</li>
     <li>You may take this feat multiple times.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Impeccable Skill';
@@ -483,7 +497,7 @@ class FeatsSeeder extends Seeder
     <li>Choose a Skill you've chosen with the Skilled feat. When you make skill checks with the chosen skill, treat Critical Failures as Failures.</li>
     <li>You may take this feat multiple times, each time choosing a different skill you have taken with the Skilled feat.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Masterful Skill';
@@ -492,7 +506,7 @@ class FeatsSeeder extends Seeder
     <li>Choose a Skill you've chosen with the Impeccable Skill feat. When you make a Skill Check with the chosen skill, treat Successes as Critical Successes</li>
     <li>You may take this feat multiple times, each time choosing a different skill you have taken with the Impeccable Skill feat.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Observant';
@@ -500,19 +514,19 @@ class FeatsSeeder extends Seeder
     <li>Increase your INT or WIS by 1, to a maximum of 20</li>
     <li>You gain a +3 bonus to your passive Perception and Investigation checks.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Spell Pool';
         $feat->description = '<p>You gain a pool of Spell Points based on your Primary ability (1 + your Primary ability bonus, minimum of 1 point total).</p>
 <p>You cannot spend more Spell Points in a turn then your Character Level.</p>';
-        $helper->addTypesToFeat($feat, ['Spell Pool', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Extend Spell Pool';
         $feat->description = '<p>You gain 5 Spell Points. You may gain this feat multiple times.</p>
 <p>You cannot spend more Spell Points in a turn then your Character Level.</p>';
-        $helper->addTypesToFeat($feat, ['Spell Pool', 'Arcane', 'Divine', 'Primal', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Arcane', 'Divine', 'Primal', 'Generic' => 6]);
         $feat->parent_feats()->save(app()->feats['Spell Pool']);
 
         $feat              = new Feat;
@@ -521,7 +535,7 @@ class FeatsSeeder extends Seeder
     <li>You gain 5 Skill Points</li>
     <li>You can use the Craft activity to create Alchemical items. When you select this feat, you immediately add the formulas for four common Alchemical items that you qualify for.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Alchemical', 'Item Creation', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Alchemical', 'Item Creation', 'Down Time', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Snare Crafting';
@@ -529,7 +543,7 @@ class FeatsSeeder extends Seeder
     <li>You gain 5 Skill Points</li>
     <li>You can use the Craft activity to create snares. When you choose this feat, you gain the formula for four common snares. If you have a formula book, you can put these formulas into the book.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 1]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 2]);
 
         $feat              = new Feat;
@@ -537,7 +551,7 @@ class FeatsSeeder extends Seeder
         $feat->action_type = 'Action';
         $feat->description = '<p>You gain the ability to activate magic items, such as wands, and scrolls. Each magic item will specify what is required to activate it.</p>
 <p>If you do not have the ability to cast spells, then you must make an Arcana check to activate the magic item. The DC is based on the level required to Craft the magic item.</p>';
-        $helper->addTypesToFeat($feat, ['Manipulate', 'Skill']);
+        $helper->addTypesToFeat($feat, ['Manipulate', 'Skill', 'Generic' => 1]);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 5]);
 
         $feat              = new Feat;
@@ -555,7 +569,7 @@ class FeatsSeeder extends Seeder
         </ul>
     </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Arcane']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Arcane Background';
@@ -563,7 +577,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>You learn one 2nd level spell from the Wizard spell list. You may cast this spell once per Long Rest without using any Spell Slots.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 4]);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 3, 'Generic' => 4]);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 4]);
         $feat->parent_feats()->save(app()->feats['Magic Initiate']);
 
@@ -572,7 +586,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>You learn one 3rd level spell from the Wizard spell list. You may cast this spell once per Long Rest without using any Spell Slots.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 6]);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 6, 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Arcane Background']);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 6]);
 
@@ -581,7 +595,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>You learn one 4th level spell from the Wizard spell list. You may cast this spell once per Long Rest without using any Spell Slots.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 8]);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 8, 'Generic' => 9]);
         $feat->parent_feats()->save(app()->feats['Improved Arcane Background']);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 10]);
 
@@ -590,25 +604,25 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>You learn one 5th level spell from the Wizard spell list. You may cast this spell once per Long Rest without using any Spell Slots.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 10]);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Ancestry', 'Elf' => 10, 'Generic' => 11]);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 14]);
         $feat->parent_feats()->save(app()->feats['Greater Arcane Background']);
 
         $feat              = new Feat;
         $feat->name        = 'Expanded Spell Slot';
-        $feat->description = '<p>You gain an extra Spell Slot one level lower than your highest level Spell Slot.</p>
+        $feat->description = '<p>You gain an extra Spell Slot one level lower than your highest level Spell Slot (minimum 1st Level).</p>
 <blockquote>
     Ex. An 8th level Wizard takes this feat for the first time. He gains a 3rd level Spell Slot since his current highest level Spell Slot is 4th.
     If the Wizard becomes 9th level, the extra Spell Slot would be a 4th level Spell Slot, since his new highest level Spell Slot is now 5th.
 </blockquote>
 <p>You may take this feat any number of times.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Expanded Spell Slot';
         $feat->description = '<p>You gain an extra Spell Slot equal to your highest level Spell Slot.</p>
 <p>You may take this feat any number of times.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic' => 12]);
         $feat->parent_feats()->save(app()->feats['Expanded Spell Slot']);
 
         $feat              = new Feat;
@@ -623,7 +637,7 @@ class FeatsSeeder extends Seeder
     </li>
     <li>You may take this feat multiple times.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic' => 18]);
         $feat->parent_feats()->save(app()->feats['Improved Expanded Spell Slot']);
 
         $feat              = new Feat;
@@ -632,7 +646,7 @@ class FeatsSeeder extends Seeder
     <li>Increase the maximum number of spells you may know or prepare by 3.</li>
     <li>You may take this feat multiple times.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Generic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Dragon Ally';
@@ -705,7 +719,7 @@ class FeatsSeeder extends Seeder
     <li>If you have the Divine Mount feat, you may choose a medium sized dragon by sacrificing a 5th level Spell Slot.</li>
     <li>If you have the Leadership feat, you may choose a dragon as your cohort that you qualify for.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Dragon', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Dragon', 'Generic' => 7]);
         $feat->skills()->save(app()->skills['Nature'], ['dc' => 4]);
         $feat->skills()->save(app()->skills['Language'], ['dc' => 2, 'meta' => 'Draconic']);
 
@@ -715,7 +729,7 @@ class FeatsSeeder extends Seeder
     <li>Increase the number of magical items that you can Attune to by +2.</li>
     <li>You may take this feat multiple times.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Attunement', 'Magical', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Attunement', 'Magical', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Turn Resistance';
@@ -723,7 +737,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CHA by 1, to a maximum of 20</li>
     <li>Creatures have Disadvantage when turning you.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine', 'Undead', 'Generic']);
+        $helper->addTypesToFeat($feat, ['Divine', 'Undead', 'Generic' => 7]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Darkvision';
@@ -736,7 +750,7 @@ class FeatsSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You have Blindsight</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Generic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Tremorsense';
@@ -796,7 +810,7 @@ class FeatsSeeder extends Seeder
     <li>Increase your CON by 1, up to a maximum of 20.</li>
     <li>You no longer suffer the penalties form Light Blindness and/or Sunlight Sensitivity</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Generic' => 3]);
 
         $this->call(FeatsAncestrySeeder::class);
         $this->call(FeatsMainTreeSeeder::class);

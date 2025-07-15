@@ -96,7 +96,7 @@ class GodsSehanineSeeder extends Seeder
             4  => ['Dimensional Anchor', 'Life Ward', 'Read Omens', 'Remove Curse', 'Sacred Item', 'Stars of Selune', 'Spell Immunity',
                 'Sunmantle', 'True Form', ],
             5  => ['Atonement', 'Banishment', 'Healing Circle', 'Moonbow', 'Purifying Light', 'Sending', 'Stalwart Covenant',
-                'Sustain', ],
+                'Sustain', 'Tomb of Light', ],
             6  => ['Heal', 'Raise Dead', 'True Seeing'],
             7  => ['Dimensional Lock', 'Plane Shift', 'Radiant Assault', 'Renewal Pact'],
             8  => ['Discern Location', 'Last Judgment', 'Screen' => 'Only at night'],

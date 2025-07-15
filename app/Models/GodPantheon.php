@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * @property string|null regions
  * @property int|null master_id
  * @property string|null description
+ * @property Pantheon pantheon
  */
 class GodPantheon extends Pivot
 {

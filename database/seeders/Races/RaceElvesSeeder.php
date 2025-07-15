@@ -69,8 +69,8 @@ As part of their culture, moon elves often tattoo their face with simple pattern
         $subrace              = new SubRace;
         $subrace->name        = 'Wood Elf';
         $subrace->race_id     = $race->id;
-        $subrace->description = '<p>As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests. In Faerûn, wood elves (also called wild elves, green elves, or forest elves) are reclusive and distrusting of non-elves.</p>
-<p>Wood elves’ skin tends to be copper-ish in hue, sometimes with traces of green. Their hair tends toward browns and blacks, but it is occasionally blond or copper-colored. Their eyes are green, brown, or hazel.</p>';
+        $subrace->description = "<p>As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests. In Faerûn, wood elves (also called wild elves, green elves, or forest elves) are reclusive and distrusting of non-elves.</p>
+<p>Wood elves' skin tends to be copper-ish in hue, sometimes with traces of green. Their hair tends toward browns and blacks, but it is occasionally blond or copper-colored. Their eyes are green, brown, or hazel.</p>";
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>You WIS score increases by +1</dd>
     <dt>Elf Weapon Training</dt> <dd>You have proficiency with Longsword, Shortsword, Shortbow, and Longbow.</dd>
@@ -82,8 +82,9 @@ As part of their culture, moon elves often tattoo their face with simple pattern
         $subrace              = new SubRace;
         $subrace->name        = 'Star Elf';
         $subrace->race_id     = $race->id;
-        $subrace->description = "<p>The green depths of the Yuirwood hide an ancient secret long forgotten by folk beyond Aglaron's borders, and not widely known even within - the star elves, an elven subrace that retreated from Faerun to an extraplanar refuge known as Sildeyuir. Sometimes referred to in ancient texts as mithral elves, the star elves concealed the existence of their hidden kingdom for almost two thousand years, leaving behind nothing but mysterious ruins and old, strong magic in the stone circles of the Yuirwood.</p>
-<p>While the star elves have kept themselves apart from the rest of Faerun for many centuries, their isolation is coming to an end. Besieged by an insodious peril from beyond the circles of the world, they face the possibility of being driven from Sildeyuir back to their ancient abode in the Yuirwood.</p>";
+        $subrace->regions     = 'Yuirwood/Aglarond';
+        $subrace->description = "<p>The green depths of the Yuirwood hide an ancient secret long forgotten by folk beyond Aglarond's borders, and not widely known even within - the star elves, an elven subrace that retreated from Faerun to an extraplanar refuge known as Sildeyuir. Sometimes referred to in ancient texts as mithral elves, the star elves concealed the existence of their hidden kingdom for almost two thousand years, leaving behind nothing but mysterious ruins and old, strong magic in the stone circles of the Yuirwood.</p>
+<p>While the star elves have kept themselves apart from the rest of Faerun for many centuries, their isolation is coming to an end. Besieged by an insidious peril from beyond the circles of the world, they face the possibility of being driven from Sildeyuir back to their ancient abode in the Yuirwood.</p>";
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>You CHA score increase by +1</dd>
     <dt>Otherworldly Touch</dt> <dd>Between sunset and sunrise a star elf confers the Ghost Touch ability to any melee weapon they wield and any armor they wear.</dd>
@@ -94,6 +95,7 @@ As part of their culture, moon elves often tattoo their face with simple pattern
         $subrace              = new SubRace;
         $subrace->name        = 'Drow';
         $subrace->race_id     = $race->id;
+        $subrace->regions     = 'Underdark';
         $subrace->description = '<p></p>';
         $subrace->benefits    = '<dl>
     <dt>Ability Score Increase</dt> <dd>You DEX score increases by +1</dd>

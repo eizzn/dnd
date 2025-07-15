@@ -19,29 +19,28 @@ class AfterSeeder extends Seeder
     {
         // spells
         $olinFeat = Feat::where('name', 'Olin Gisir')->firstOrFail();
-        Spell::where('name', 'Arrn`Tel`Orar')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Daoin`Teague`Feer')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Evaliir`Enevahr')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Fhaor`Akh`Tel`Quess')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Ghaatiil')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'N`Quor`Khaor')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Suyoll')->firstOrFail()->feats()->save($olinFeat);
-        Spell::where('name', 'Uaul`Selu`Keryth')->firstOrFail()->feats()->save($olinFeat);
+        Spell::where('name', 'Arrn`Tel`Orar')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
+        Spell::where('name', 'Evaliir`Enevahr')->firstOrFail()->feats()->save($olinFeat, ['level' => 8]);
+        Spell::where('name', 'Fhaor`Akh`Tel`Quess')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
+        Spell::where('name', 'Ghaatiil')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
+        Spell::where('name', 'N`Quor`Khaor')->firstOrFail()->feats()->save($olinFeat, ['level' => 10]);
+        Spell::where('name', 'Suyoll')->firstOrFail()->feats()->save($olinFeat, ['level' => 10]);
+        Spell::where('name', 'Uaul`Selu`Keryth')->firstOrFail()->feats()->save($olinFeat, ['level' => 11]);
         Spell::where('name', 'Starmantle')->firstOrFail()->monsters()->save(Monster::where('name', 'Pixie')->firstOrFail(), [
             'meta' => "A pinch of dust from a pixie's wing (20 gp)",
         ]);
 
         $highMagic = Feat::where('name', 'High Magic')->firstOrFail();
-        Spell::where('name', 'Akh`Faen`Tel`Quess')->firstOrFail()->feats($highMagic);
-        Spell::where('name', 'Akrmaesual')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'Ialyshae`Seldar`Wihylos')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'N`Tel`Orar')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'N`Maernthor')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'Oacil`Quevan')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'Quomaniith')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'U`Aestar`Kess')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'Uaul`Selu`Keryth')->firstOrFail()->feats()->save($highMagic);
-        Spell::where('name', 'Vuorl`Kyshuf')->firstOrFail()->feats()->save($highMagic);
+        Spell::where('name', 'Akh`Faen`Tel`Quess')->firstOrFail()->feats($highMagic, ['level' => 7]);
+        Spell::where('name', 'Akrmaesual')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
+        Spell::where('name', 'Daoin`Teague`Feer')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
+        Spell::where('name', 'Ialyshae`Seldar`Wihylos')->firstOrFail()->feats()->save($highMagic, ['level' => 6]);
+        Spell::where('name', 'N`Tel`Orar')->firstOrFail()->feats()->save($highMagic, ['level' => 8]);
+        Spell::where('name', 'N`Maernthor')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
+        Spell::where('name', 'Oacil`Quevan')->firstOrFail()->feats()->save($highMagic, ['level' => 8]);
+        Spell::where('name', 'Quomaniith')->firstOrFail()->feats()->save($highMagic, ['level' => 3]);
+        Spell::where('name', 'U`Aestar`Kess')->firstOrFail()->feats()->save($highMagic, ['level' => 5]);
+        Spell::where('name', 'Vuorl`Kyshuf')->firstOrFail()->feats()->save($highMagic, ['level' => 4]);
 
         $spell = Spell::where('name', 'Arcane Evasion')->firstOrFail();
         $spell->spells()->save(Spell::where('name', 'Teleport')->firstOrFail());

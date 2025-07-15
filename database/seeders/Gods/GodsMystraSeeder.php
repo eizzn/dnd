@@ -362,9 +362,9 @@ class GodsMystraSeeder extends Seeder
         ]);
         $helper->addDomainToClass($class, ['Knowledge', 'Magic']);
         $helper->addSpellsToClass($class, [
-            0 => ['Clean Self', 'Detect Magic', 'Know Direction', 'Light', 'Read Aura', 'Shield', 'Stabilize'],
+            0 => ['Clean Self', 'Detect Magic', 'Know Direction', 'Light', 'Read Aura', 'Shield', 'Stabilize', 'True Strike'],
             1 => ['Bless', 'Cure Wounds', 'Detect Alignment', 'Detect Chaos', 'Detect Evil', 'Detect Good', 'Detect Law',
-                'Detect Poison', 'Lock', 'Mage Armor', 'Remove Disease', 'True Strike', 'Unseen Servant', ],
+                'Detect Poison', 'Lock', 'Mage Armor', 'Remove Disease', 'Unseen Servant', ],
             2 => ['Augury', 'Clairvoyance', 'Comprehend Language', 'Darkvision', 'Divine Insight', 'Interplanar Message',
                 'Invisibility Purge', 'Locate Object', 'Remove Fear', 'Resist Energy', 'Restoration', 'See Invisibility',
                 'Silence', 'Status', ],

@@ -94,7 +94,7 @@ class GodsMoradinSeeder extends Seeder
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Morndinsamman']->id,
             'favor'       => "<p>Moradin's favour is given to those who excel in their craft, but moreover to those who possess an instinctual desire to follow sacred traditions, rites and preserve the old ways.</p>
-<p>Moradin’s scions are often stubborn and intractable, and frequently found in vocations that benefit from an immovable mindset such as paladin orders.</p>
+<p>Moradin's scions are often stubborn and intractable, and frequently found in vocations that benefit from an immovable mindset such as paladin orders.</p>
 <ol>
     <li>You crafted a work of great significance and dedicated it to Moradin</li>
     <li>You were designated chosen at birth by a priest of Moradin, and you've never questioned it</li>
@@ -209,7 +209,7 @@ class GodsMoradinSeeder extends Seeder
                 'Sending', 'Sheltered Vitality', 'Speak with Dead', 'Spirit Guardians', 'Tongues', 'Vitality Shield', ],
             4   => ['Atonement', 'Detect Scrying', 'Divination', 'Dimensional Anchor', 'Private Sanctum'],
             5   => ['Aura of Life', 'Aura of Purity', 'City Stride', 'Commune', 'Commune with Texts', 'Death Ward', 'Dispel Chaos',
-                'Dispel Evil', 'Dispel Outsider', 'Hallow', 'Holy Weapon', 'Wall of Stone', ],
+                'Dispel Evil', 'Dispel Outsider', 'Hallow', 'Holy Weapon', 'Tomb of Light', 'Wall of Stone', ],
             6   => ['Guards and Wards', 'Heal', "Hero's Feast", 'Planar Ally', 'Raise Dead', 'Stone Tell', 'Summon Celestial',
                 'Word of Recall', ],
             7   => ['Bastion of Good', 'Channel Celestial', 'Divine Degree', 'Holy Aura', 'Renewal Pact', 'Shield of Law',

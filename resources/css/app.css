@@ -51,3 +51,19 @@ nav[aria-label="Pagination"] button:disabled {
     color: rgba(100,100,100,.7);
     cursor: not-allowed;
 }
+
+.description-container table {
+    width: 100%;
+}
+.description-container th, .description-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.description-container th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+.description-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

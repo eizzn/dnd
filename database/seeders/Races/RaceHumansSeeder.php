@@ -106,10 +106,10 @@ class RaceHumansSeeder extends Seeder
         $helper->addTypesToSimpleObject($subrace, ['Human']);
 
         $subrace              = new SubRace;
-        $subrace->name        = 'Thethyrian';
+        $subrace->name        = 'Tethyrian';
         $subrace->race_id     = $race->id;
         $subrace->description = '<p>Widespread along the entire Sword Coast at the western edge of Faerûn, Tethyrians are of medium build and height, with dusky skin that tends to grow fairer the farther north they dwell. Their hair and eye color varies widely, but brown hair and blue eyes are the most common. Tethyrians primarily use Chondathan names.</p>';
-        $subrace->regions     = 'Kara-Tur';
+        $subrace->regions     = 'Tethyr';
         $helper->addTypesToSimpleObject($subrace, ['Human']);
 
         $subrace              = new SubRace;

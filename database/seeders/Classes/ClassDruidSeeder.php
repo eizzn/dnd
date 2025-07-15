@@ -761,7 +761,7 @@ class ClassDruidSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Champion of Osiris']);
 
-        $feat              = new Feat();
+        $feat              = new Feat;
         $feat->name        = 'Mark of Ubtao';
         $feat->requirement = 'Ubtao must be your Patron deity (Druid only)';
         $feat->description = '<p>You gain the following benefits.</p>

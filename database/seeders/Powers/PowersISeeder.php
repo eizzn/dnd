@@ -26,7 +26,7 @@ class PowersISeeder extends Seeder
         $power->description = '<p>You freeze water out of the air around you, creating a layer of solid ice that protects you like armor. It grants the following effects.</p>
 <ul>
     <li>Treat the ice as breastplate armor with Hardness 1 and 60 Hit Points.</li>
-    <li>You gain Damage Resistance to Blunt, Piercing, Slashing, and Fire attacks. The Ice Armor takes the other half of the damage (reduced by its Hardness). If the damage is Fire, then the Ice Armor takes full damage.</li>
+    <li>You gain Damage Resistance to Bludgeoning, Piercing, Slashing, and Fire attacks. The Ice Armor takes the other half of the damage (reduced by its Hardness). If the damage is Fire, then the Ice Armor takes full damage.</li>
 </ul>
 <p>This power does not work in environments where there is no water in the air.</p>';
         $power->heightened = '<dl>

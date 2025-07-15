@@ -19,6 +19,19 @@ class SpellsTSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
+        $spell              = new Spell;
+        $spell->name        = 'Tactical Teleportation';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '60 feet';
+        $spell->targets     = 'Up to 3 willing creatures within range';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>You target up to 3 willing creatures (allies) and Teleport them to a new position within range (you may Target yourself). The starting and ending positions of all Targets must be within the Range of your original position. There is no chance of accidentally appearing in an occupied space.</p>
+<p>You must have line of sight to all Targets and their destinations. If a Target is holding an object that is also being held by an opponent, then the opponent can make a INT Save to prevent the object from being Teleported. Targets can bring objects with them as long as it does not make them encumbered.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 5);
+
         $spell                 = new Spell;
         $spell->name           = 'Tar';
         $spell->casting        = 'Material Casting, Somatic Casting';
@@ -170,7 +183,7 @@ class SpellsTSeeder extends Seeder
         $spell->range       = '5-foot radius';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 hour';
-        $spell->description = "<p>This spell creates a tempoary bubble around you, which is not affected by Temporal Prime. While inside the shell, you are immune to the passage of time, except as it applies directly to yourself. The effect is that the world has frozen between seconds. This gives you the opportunity for Actions like drinking a Healing Potion, or letting a harmful spell or potion waer off.</p>
+        $spell->description = "<p>This spell creates a temporary bubble around you, which is not affected by Temporal Prime. While inside the shell, you are immune to the passage of time, except as it applies directly to yourself. The effect is that the world has frozen between seconds. This gives you the opportunity for Actions like drinking a Healing Potion, or letting a harmful spell or potion waer off.</p>
 <p>Once created, the shell cannot be moved, and you cannot leave it without automatically dispelling the effect. Any creatures within the area of effect are considered in the shell and can interact with you as if normal time is passing. If they step outside the radius, theyare immediately frozen until the spell expires or you dispell it. The spell's duration is measured by your subjective time.</p>
 <dl>
     <dt>Material Components</dt> <dd>
@@ -178,12 +191,31 @@ class SpellsTSeeder extends Seeder
         <ul>
             <li>A crystal sphere valued at 1,000 gp or better</li>
             <li>A diamond worth at least 5,000 gp must be enchanted with a Temporal Statis spell and placed within the the sphere</li>
-            <li>The entire device must then be touched by a time dimensioanl while on Temporal Prime (touching does not have to be made voluntary).</li>
+            <li>The entire device must then be touched by a time dimensional while on Temporal Prime (touching does not have to be made voluntary).</li>
         </ul>
         <p>When this spell is cast, the device is consumed by the magical energies.</p>
     </dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Enchantment', 'Chronomancy'], 9);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Temporal Stasis';
+        $spell->casting        = 'Material Casting, Somatic Casting';
+        $spell->rarity         = 'Rare';
+        $spell->save_attribute = 'CON';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'Creature Touched';
+        $spell->duration       = 'Permanent';
+        $spell->description    = '<p>After casting this spell, you may make a Melee Touch Attack (if you miss the spell is wasted). If you hit, the Target must make a CON Save. If they Fail, their body is frozen in time in a state of suspended animation.</p>
+<p>The Target, time ceases to flow. The Target does not age, all of its bodily functions cease and no force or effect can harm it. This state persists until this spell is removed (such as a Successful Dispel Magic or Freedom spell).</p>
+<dl>
+    <dt>Material Components</dt> <dd>A powder composed of diamond, emerald, ruby, and sapphire dust with a total cost of at least 5,000 gp that the spell consumes.</dd>
+</dl>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Affected</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Chronomancy'], 8);
 
         $spell              = new Spell;
         $spell->name        = 'Thaumaturgy';
@@ -329,7 +361,8 @@ class SpellsTSeeder extends Seeder
         $spell->save_attribute = 'DEX';
         $spell->range          = '120 feet';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You conjure up a wave of water that crashes down on an area within range. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a DEX Save. On a failed save, a creature takes 4D8 bludgeoning damage and is knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes.</p>';
+        $spell->description    = '<p>You manipulate a large body of water within range to create a wave of water that crashes down on an area within range. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a DEX Save. On a failed save, a creature takes 4D8 bludgeoning damage and is knocked prone. The water then spreads out across the ground in all directions, extinguishing unprotected flames in its area and within 30 feet of it, and then it vanishes.</p>
+<p>If a sufficiently large body of water is not close enough, this spell cannot be cast.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Half damage and not knocked prone</dd>
     <dt>Failure</dt> <dd>Full damage and knocked prone</dd>
@@ -436,6 +469,48 @@ class SpellsTSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>You can animate two additional objects</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation'], 3);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Tomb of Light';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'CHA';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'Evil extraplanar creature Touched';
+        $spell->duration       = 'Concentration';
+        $spell->description    = "<p>When you cast this spell, you attempt to draw out the impure substance of an evil extraplanar creature and replace it with your own pure essence.</p>
+<p>After casting this spell, make a Melee Touch Attack on the Evil Extraplanar creature. If you hit, the Target must make a CHA Save. If it Fails the Save, the following occurs.</p>
+<ul>
+    <li>The Target's skin becomes translucent and faintly radiant and the Target is Immobilized. The Target is aware, but cannot take any physical Actions, even talking (it can take purely mental Actions, such as activating a Innate Spell-Like Ability)</li>
+    <li>The Target suffers a -4 Penalty to all Saves and Ability Checks.</li>
+</ul>
+<p>Each round thereafter, on your turn, the Target suffers 1D6 CON Damage and you suffer 1D6 Nonlethal Damage. At the end of each of the Target's turns, it can make a CHA Save to try and end this effect (with the -4 penalty mentioned above).</p>
+<dl>
+    <dt>Material Components</dt> <dd>A pure crystal or clear gemstone worth at least 50 gp (not consumed).</dd>
+</dl>";
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected or the spell ends</dd>
+    <dd>Failure</dd> <dd>Immobilized</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Good'], 5);
+
+        $spell              = new Spell;
+        $spell->name        = 'Tongue of Baalzebul';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '3 hours';
+        $spell->description = '<p>This spell augments the effects of the Drug, Mushroom Powder. Including the effects of the drug, you also gain the following.</p>
+<ul>
+    <li>You gain a +2 Competence bonus to all your CHA based skills.</li>
+    <li>You do not suffer the Secondary Effects of the Mushroom Powder Drug</li>
+    <li>The effects of the Drug are extended to the Duration of this spell.</li>
+</ul>
+<p>This spell provides no protection against Overdosing, Withdrawal, or Addiction. Nor does it prevent the Junkie state or the Transformation</p>
+<dl>
+    <dt>Material Components</dt> <dd>1 Dose of the drug, Mushroom Powder, which you must inhale</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Evil'], 1);
+
+        // https://dndtools.net/spells/?page=222
 
         $spell                = new Spell;
         $spell->name          = 'Tongues';
@@ -763,11 +838,16 @@ class SpellsTSeeder extends Seeder
 
         $spell              = new Spell;
         $spell->name        = 'True Strike';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->casting     = 'Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Until the end of your turn';
-        $spell->description = '<p>You have Advantage on your next attack this turn. The attack also ignores circumstance penalties to the attack roll and any miss chance due to the target being Concealed or Sensed.</p>
-<p>If you use a 1st level Spell Slot to cast this spell, then it only requires a Somatic Casting, and if you hit, you deal an additional Damage Dice.</p>';
+        $spell->description = '<p>You gain the following</p>
+<ul>
+    <li>You have Advantage on your next Attack roll.</li>
+    <li>You do not suffer penalties or Miss Chance to Attack rolls due to the target being Concealed or Sensed.</li>
+    <li>You add your Primary Spellcasting Ability Modifier to the Damage</li>
+</ul>
+<p>If you use a 1st level Spell Slot to cast this spell, then the Casting becomes a Free Action, and if you hit, you deal an additional Damage Dice.</p>';
         $helper->addTypesToSpell($spell, ['Divination', 'Enchantment', 'Fortune'], 0);
 
         $spell              = new Spell;

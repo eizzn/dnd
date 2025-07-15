@@ -107,7 +107,7 @@ class GodsHanaliSeeder extends Seeder
                 'Vitality Shield', 'Zone of Truth', ],
             4 => ['Blinding Beauty', 'Celestial Brilliance', 'Dimensional Anchor', 'Life Ward', 'Read Omens', 'Remove Curse',
                 'Spell Immunity', 'Sunmantle', 'Suggestion', ],
-            5 => ['Atonement', 'Banishment', 'Healing Circle', 'Sending', 'Sustain', 'Wall of Light'],
+            5 => ['Atonement', 'Banishment', 'Healing Circle', 'Sending', 'Sustain', 'Tomb of Light', 'Wall of Light'],
             6 => ['Heal', 'Raise Dead', 'True Seeing'],
             7 => ['Dimensional Lock', 'Plane Shift', 'Radiant Assault', 'Renewal Pact'],
             8 => ['Blinding Glory', 'Crown of Glory', 'Discern Location', 'Spread of Contentment', 'Unearthly Beauty'],

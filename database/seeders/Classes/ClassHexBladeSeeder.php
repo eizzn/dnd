@@ -57,8 +57,8 @@ class ClassHexBladeSeeder extends Seeder
 
         $helper->addSpellsToClass($class, [
             0 => ['Blade Ward', 'Boon', "Copper Dragon's Trickery", 'Daze', 'Detect Magic', 'Guidance', 'Hex', 'Resistance',
-                'Shield', ],
-            1 => ['Augment Familiar', 'Bane', 'Bless', 'Fear', 'Mage Armor', 'Magic Weapon', 'True Strike', 'Unseen Servant'],
+                'Shield', 'True Strike', ],
+            1 => ['Augment Familiar', 'Bane', 'Bless', 'Fear', 'Mage Armor', 'Magic Weapon', 'Swift Ready', 'Unseen Servant'],
             2 => ["Bear's Endurance", 'Bestow Curse', "Bull's Hex", "Bull's Strength", "Cat's Hex", "Cat's Grace", "Eagle's Hex",
                 "Eagle's Splendor", "Fox's Hex", 'Keen Edge', "Owl's Hex", 'Shadow Double', ],
             3 => ["Bear's Hex", 'Dispel Magic', 'Haste', 'Sickness', 'Slow'],

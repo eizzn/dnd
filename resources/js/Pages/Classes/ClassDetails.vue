@@ -73,7 +73,7 @@ onMounted(async () => {
                         <section class="m-2">
                             <div style="display: flex; width: 100%; gap: 12px;">
                                 <div class="flex-1 border border-gray-300 rounded-lg shadow-md p-4">
-                                    <div id="class-requirements" v-if="klass.requirements">
+                                    <div id="class-requirements" class="border-b" v-if="klass.requirements">
                                         <h4 class="text-lg font-semibold">Requirements</h4>
                                         <div class="text-gray-700 mt-2" v-html="klass.requirements"></div>
                                     </div>
@@ -81,7 +81,7 @@ onMounted(async () => {
                                         <h4 class="text-lg font-semibold">Hit Dice:</h4>
                                         <span>{{ klass.hit_dice }}</span>
                                     </div>
-                                    <div class="mt-2 mb-2">
+                                    <div class="mt-2 mb-2 border-y">
                                         <div style="display: inline-flex; align-items: center;">
                                             <h4 class="text-lg font-semibold">Weapons:</h4>
                                             <span class="ml-3">{{ klass.weapons ?? 'N/A' }}</span>
@@ -98,8 +98,7 @@ onMounted(async () => {
                                     <div class="items-center space-x-2 m-2">
                                         <h4 class="text-lg font-semibold">Skills:</h4>
                                         <p><strong>Skill Points</strong> <span>{{ klass.skill_points }}</span></p>
-                                        <p><strong>Skill Progression</strong> <span>{{ klass.skill_progress }}</span>
-                                        </p>
+                                        <p><strong>Skill Progression</strong> <span>{{ klass.skill_progress }}</span></p>
                                         <ul>
                                             <li v-for="skill in klass.skills" :key="skill.id">
                                                 <NavLink :href="`/skill/${skill.id}`">{{ skill.name }}</NavLink>

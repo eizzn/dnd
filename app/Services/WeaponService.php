@@ -30,9 +30,9 @@ class WeaponService implements Contracts\WeaponService
             ->through([
                 \App\Filters\Id::class,
                 \App\Filters\Name::class,
-                \App\Filters\TypeByName::class,
+                \App\Filters\TypeByNameWild::class,
                 \App\Filters\Group::class,
-                \App\Filters\Order::class
+                \App\Filters\Order::class,
             ])
             ->thenReturn();
 

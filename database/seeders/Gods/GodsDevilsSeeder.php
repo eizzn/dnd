@@ -338,7 +338,7 @@ class GodsDevilsSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Eldritch Blast', 'Ghost Sound', 'Hex', 'Infestation', 'Produce Flame'],
-            1 => ['Biting Words', 'Burning Hands', 'Charm', 'Curse'],
+            1 => ['Biting Words', 'Burning Hands', 'Charm', 'Curse', 'Tongue of Baalzebul'],
             2 => ['Animal Messenger' => 'Flies only', 'Darkness', "Eagle's Splendor"],
             3 => ['Animate Dead', 'Bedevil'],
             4 => ['Divination', 'Insect Plague'],

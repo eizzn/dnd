@@ -1059,7 +1059,7 @@ A magic weapon's properties and powers are suppressed if it is used against a ta
 <p>If the target damages or otherwise harms an affected creature, the affected creature can make a WIS Save to end the effect, as described below.</p>
 <p>Ending the Effect. If an affected creature ends its turn while not within 60 feet of the target or able to see it, the creature makes a WIS Save. On a successful save, the creature is no longer affected by the target and recognizes the feeling of repugnance or attraction as magical. In addition, a creature affected by the spell is allowed another WIS Save every 24 hours while the spell persists.</p>
 <p>A creature that successfully saves against this effect is immune to it for 1 minute, after which time it can be affected again.</p>";
-        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Ritual'], 8);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Ritual', 'Compulsion'], 8);
 
         $spell              = new Spell;
         $spell->name        = 'Apport Object';

@@ -168,7 +168,7 @@ class SnareFormulaSeeder extends Seeder
         $formula->level       = 1;
         $formula->rarity      = 'Rare';
         $formula->price       = '2 gp';
-        $formula->description = '<p>This snare explodes with a burst of cloying powder that can cling to a creature stepping into its square. A creature that enters a square of the stalker bane snare must attempt a DC 19 DEX Save.</p>
+        $formula->description = '<p>This snare explodes with a burst of clinging powder that can cling to a creature stepping into its square. A creature that enters a square of the stalker bane snare must attempt a DC 19 DEX Save.</p>
 <dl>
     <dt>Success</dt> <dd>The target is unaffected</dd>
     <dt>Failure</dt> <dd>Powder sticks to the target, causing it to leave behind telltale footprints. If the target is or becomes invisible, creatures that would otherwise be unable to see it count it as Sensed without spending an Action to find it</dd>

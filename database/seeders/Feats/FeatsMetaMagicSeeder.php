@@ -178,7 +178,7 @@ class FeatsMetaMagicSeeder extends Seeder
         </tr>
     </tbody>
 </table>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Potion']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Potion', 'Generic' => 2]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 2]);
         $feat->skills()->save(app()->skills['Medicine'], ['dc' => 2]);
 
@@ -310,7 +310,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Improved Crafting';
         $feat->description = '<p>When you Craft a magic item, you pay 1/3 less of all the requirements (rounded up), including any CON damage as part of the act of Crafting the magic item (minimum 1 if the act of crafting the magic includes any CON damage).</p>';
-        $helper->addTypesToFeat($feat, ['Item Creation']);
+        $helper->addTypesToFeat($feat, ['Item Creation', 'Generic' => 12]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 12]);
 
         $feat              = new Feat;

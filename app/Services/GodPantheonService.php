@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\InvalidArgumentException;
 use App\Filters\FilterPipelinePayload;
 use App\Models\GodPantheon;
 use App\Traits\GetDataTrait;
@@ -13,14 +14,23 @@ class GodPantheonService implements Contracts\GodPantheonService
 {
     use GetDataTrait;
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function index(array|Request $search): Builder
     {
         $search = $this->getData($search);
+        $order  = '"Greater", "Intermediate", "Lesser", "Demi",
+        "Archdevil", "Demon Lord", "Altraloth", "Solar", "Guardinal Paragon", "Slaad Lord", "Prime", "Fey Lord", "Archomental",
+        "Duke of Hell", "Tome Archon",
+        "Devil", "Demon", "Yugoloth", "Archon", "Guardinal", "Slaad", "Modron", "Archfey",
+        "Hero",
+        "Dead", "Departed"';
 
         /** @var FilterPipelinePayload $results */
         $results = app(Pipeline::class)
             ->send(new FilterPipelinePayload(
-                GodPantheon::query(),
+                GodPantheon::query()->orderByRaw("FIELD(level, {$order}) ASC"),
                 $search
             ))
             ->through([

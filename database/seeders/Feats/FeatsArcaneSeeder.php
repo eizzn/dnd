@@ -628,7 +628,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You can perform the Somatic Casting Components of spells even when you have weapons or a shield in one or both hands.</li>
     <li>When a creature provokes an Attack of Opportunity, you may cast a spell that targets the creature instead of making a physical attack. You must have enough Reactions to cast the spell.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Arcane', 'Divine', 'Primal']);
+        $helper->addTypesToFeat($feat, ['Skill', 'Arcane', 'Divine', 'Primal', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Combat Casting';
@@ -636,7 +636,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain 2 Spell Points.</li>
     <li>You may spend 1 Spell Point to heighten the Haste spell by +1 without using a Higher Level Spell Slot.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Combat Casting']);
         $helper->addSpellsToFeat($feat, [
             3 => ['Haste'],
@@ -673,7 +673,7 @@ class FeatsArcaneSeeder extends Seeder
         $feat->name        = 'Graft Flesh';
         $feat->description = '<p>You learn the formula for 3 common Grafts.</p>
 <p>You can create Grafts and apply them to other living creatures or to yourself. Creating a graft takes 24 hours for each 1,000 gp in its price. To create a graft, you must use up raw materials costing 1/2 of the price.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Graft', 'Necromancy']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Graft', 'Necromancy', 'Generic' => 8]);
         $feat->skills()->save(app()->skills['Medicine'], ['dc' => 10]);
 
         $feat              = new Feat;
@@ -888,25 +888,11 @@ class FeatsArcaneSeeder extends Seeder
     <li>When you cast a spell that can be Heightened and you are in the area of an Earth Node, the spell is automatically Heightened +2 without requiring a higher level Spell Slot.</li>
     <li>You gain 2 additional spell slots (equal to 1 level lower than your highest level Spell Slots) while you are within the area of an Earth Node. If you prepare spells, then you store the spells in the Node, and may access those spells only while you are within the area of the Node. If you are a spontaneous caster, then you may choose the spells to cast at the time of casting.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Earth Node']);
         $helper->addSpellsToFeat($feat, [
             9 => ['Node Genesis'],
         ]);
         $feat->parent_feats()->save(app()->feats['Node Spellcasting']);
-
-        $feat              = new Feat;
-        $feat->name        = 'Arcane Sense';
-        $feat->description = '<p>Your study of magic allows you to sense its presence around you instinctively.</p>
-<ul>
-    <li>You gain a +3 bonus to your Arcana checks.</li>
-    <li>You can cast Detect Magic as an innate spell at will.</li>
-    <li>If you have the Diviner Feat, you can perceive the presence of magic passively and the range of Detect Magic is doubled.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Arcane']);
-        $feat->skills()->save(app()->skills['Arcana'], ['dc' => 4]);
-        $helper->addSpellsToFeat($feat, [
-            0 => ['Detect Magic'],
-        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Arcane Armor';

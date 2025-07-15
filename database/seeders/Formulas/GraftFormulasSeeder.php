@@ -76,7 +76,7 @@ class GraftFormulasSeeder extends Seeder
         $formula->type        = 'Graft';
         $formula->price       = '165,000 gp';
         $formula->description = "<p>Implanted in the forehead above the recipient's normal eyes, a third eye duplicates the effects of a beholder's large central eye, as a Double Action, producing an antimagic cone similar to an Antimagic Field (but does not require Concentration) up to 3 times per Long Rest.</p>
-<p>You must acquire an intact Beholder Central Eye. The recipient suffers 10 CON as part of the procdure and suffers a permanent -2 penalty to CHA.</p>";
+<p>You must acquire an intact Beholder Central Eye. The recipient suffers 10 CON Damage as part of the procedure and suffers a permanent -4 penalty to CHA.</p>";
         $helper->saveFormula($formula, ['Graft', 'Necromancy'], [
             'skills' => [
                 'Medicine' => ['dc' => 20],
@@ -92,8 +92,9 @@ class GraftFormulasSeeder extends Seeder
         $formula->description = '<p>You graft the scales of a black dragon into the recipients skin, granting the following.</p>
 <ul>
     <li>Resistance to Acid</li>
-    <li>+1 to AC (Natural Armor)</li>
-    <li>Damage Reduction: 1</li>
+    <li>+2 to AC (Natural Armor)</li>
+    <li>Damage Reduction: 2</li>
+    <li>-2 Penalty to DEX</li>
 </ul>';
         $helper->saveFormula($formula, ['Acid', 'Dragon', 'Graft'], [
             'skills'    => [
@@ -118,8 +119,9 @@ class GraftFormulasSeeder extends Seeder
         $formula->description = '<p>You graft the scales of a blue dragon into the recipients skin, granting the following.</p>
 <ul>
     <li>Resistance to Electricity</li>
-    <li>+1 to AC (Natural Armor)</li>
-    <li>Damage Reduction: 1</li>
+    <li>+2 to AC (Natural Armor)</li>
+    <li>Damage Reduction: 2</li>
+    <li>-2 Penalty to DEX</li>
 </ul>';
         $helper->saveFormula($formula, ['Electricity', 'Dragon', 'Graft'], [
             'skills'    => [
@@ -145,8 +147,9 @@ class GraftFormulasSeeder extends Seeder
 <ul>
     <li>Resistance to Poison through Contact or Injury (not ingestion)</li>
     <li>Gain Advantage on all Saves vs Poison</li>
-    <li>+1 to AC (Natural Armor)</li>
+    <li>+2 to AC (Natural Armor)</li>
     <li>Damage Reduction: 1</li>
+    <li>-1 Penalty to DEX</li>
 </ul>';
         $helper->saveFormula($formula, ['Poison', 'Dragon', 'Graft'], [
             'skills'    => [
@@ -171,9 +174,10 @@ class GraftFormulasSeeder extends Seeder
         $formula->description = '<p>You graft the scales of a red dragon into the recipients skin, granting the following.</p>
 <ul>
     <li>Resistance to Fire</li>
-    <li>+1 to AC (Natural Armor)</li>
-    <li>Damage Reduction: 1</li>
     <li>Gain the effects of Endure Elements, Heightened +3 (heat only)</li>
+    <li>+2 to AC (Natural Armor)</li>
+    <li>Damage Reduction: 2</li>
+    <li>-2 Penalty to DEX</li>
 </ul>';
         $helper->saveFormula($formula, ['Fire', 'Dragon', 'Graft'], [
             'skills'    => [
@@ -198,9 +202,10 @@ class GraftFormulasSeeder extends Seeder
         $formula->description = '<p>You graft the scales of a white dragon into the recipients skin, granting the following.</p>
 <ul>
     <li>Resistance to Cold</li>
-    <li>+1 to AC (Natural Armor)</li>
-    <li>Damage Reduction: 1</li>
     <li>Gain the effects of Endure Elements, Heightened +3 (cold only)</li>
+    <li>+2 to AC (Natural Armor)</li>
+    <li>Damage Reduction: 1</li>
+    <li>-1 Penalty to DEX</li>
 </ul>';
         $helper->saveFormula($formula, ['Cold', 'Dragon', 'Graft'], [
             'skills'    => [

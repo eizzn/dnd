@@ -2,8 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\Filter;
-
 class HitDice extends Filter
 {
     protected function filter(FilterPipelinePayload $data, string $filterName): FilterPipelinePayload

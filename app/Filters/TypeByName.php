@@ -2,8 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\Filter;
-
 class TypeByName extends Filter
 {
     protected function filter(FilterPipelinePayload $data, string $filterName): FilterPipelinePayload

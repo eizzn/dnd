@@ -2,8 +2,6 @@
 
 namespace App\Filters;
 
-use App\Filters\Filter;
-
 class KeyAttribute extends Filter
 {
     protected function filter(FilterPipelinePayload $data, string $filterName): FilterPipelinePayload

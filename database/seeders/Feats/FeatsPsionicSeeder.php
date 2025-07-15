@@ -69,7 +69,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain one 1st level Power</li>
     <li>If you do not have a Manifester Level, you now have a Manifester Level equal to the number of Psionic Feats</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Expanded Knowledge';

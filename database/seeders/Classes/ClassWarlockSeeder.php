@@ -182,7 +182,7 @@ class ClassWarlockSeeder extends Seeder
          * max_slot_level   => the level that all spells are heightened to
          */
         $helper->addSpellSlotsToClass($class, [
-            1  => ['cantrips' => 2,],
+            1  => ['cantrips' => 2],
             2  => ['cantrips' => 2, 'known' => 3, 'slots' => 1, 'max_slot_level' => 1],
             3  => ['cantrips' => 2, 'known' => 4, 'slots' => 2, 'max_slot_level' => 1],
             4  => ['cantrips' => 3, 'known' => 5, 'slots' => 2, 'max_slot_level' => 2],

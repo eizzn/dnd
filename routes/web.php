@@ -18,12 +18,33 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/alphabets', function () {
+    return Inertia::render('Alphabets/AlphabetList');
+})->middleware(['auth', 'verified'])->name('alphabets');
+Route::get('/alphabet/{id}', function () {
+    return Inertia::render('Alphabets/AlphabetDetails');
+})->middleware(['auth', 'verified'])->name('alphabet');
+
+Route::get('/armors', function () {
+    return Inertia::render('Armors/ArmorList');
+})->middleware(['auth', 'verified'])->name('armors');
+Route::get('/armor/{id}', function () {
+    return Inertia::render('Armors/ArmorDetails');
+})->middleware(['auth', 'verified'])->name('armor');
+
 Route::get('/classes', function () {
     return Inertia::render('Classes/ClassList');
 })->middleware(['auth', 'verified'])->name('classes');
 Route::get('/class/{id}', function () {
     return Inertia::render('Classes/ClassDetails');
 })->middleware(['auth', 'verified'])->name('class');
+
+Route::get('/conditions', function () {
+    return Inertia::render('Conditions/ConditionList');
+})->middleware(['auth', 'verified'])->name('conditions');
+Route::get('/condition/{id}', function () {
+    return Inertia::render('Conditions/ConditionDetails');
+})->middleware(['auth', 'verified'])->name('condition');
 
 Route::get('/feats', function () {
     return Inertia::render('Feats/FeatList');
@@ -32,12 +53,26 @@ Route::get('/feat/{id}', function () {
     return Inertia::render('Feats/FeatDetails');
 })->middleware(['auth', 'verified'])->name('feat');
 
+Route::get('/formulas', function () {
+    return Inertia::render('Formulas/FormulaList');
+})->middleware(['auth', 'verified'])->name('formulas');
+Route::get('/formula/{id}', function () {
+    return Inertia::render('Formulas/FormulaDetails');
+})->middleware(['auth', 'verified'])->name('formula');
+
 Route::get('/gods', function () {
     return Inertia::render('Gods/GodList');
 })->middleware(['auth', 'verified'])->name('gods');
-Route::get('/god/{id}', function () {
+Route::get('/god/{godId}/pantheon/{pantheonId}', function () {
     return Inertia::render('Gods/GodDetails');
 })->middleware(['auth', 'verified'])->name('god');
+
+Route::get('/languages', function () {
+    return Inertia::render('Languages/LanguageList');
+})->middleware(['auth', 'verified'])->name('languages');
+Route::get('/language/{id}', function () {
+    return Inertia::render('Languages/LanguageDetails');
+})->middleware(['auth', 'verified'])->name('language');
 
 Route::get('/powers', function () {
     return Inertia::render('Powers/PowerList');
@@ -45,6 +80,20 @@ Route::get('/powers', function () {
 Route::get('/power/{id}', function () {
     return Inertia::render('Powers/PowerDetails');
 })->middleware(['auth', 'verified'])->name('power');
+
+Route::get('/races', function () {
+    return Inertia::render('Races/RaceList');
+})->middleware(['auth', 'verified'])->name('races');
+Route::get('/race/{id}', function () {
+    return Inertia::render('Races/RaceDetails');
+})->middleware(['auth', 'verified'])->name('race');
+
+Route::get('/skills', function () {
+    return Inertia::render('Skills/SkillList');
+})->middleware(['auth', 'verified'])->name('skills');
+Route::get('/skill/{id}', function () {
+    return Inertia::render('Skills/SkillDetails');
+})->middleware(['auth', 'verified'])->name('skill');
 
 Route::get('/spells', function () {
     return Inertia::render('Spells/SpellList');
@@ -59,6 +108,13 @@ Route::get('/talents', function () {
 Route::get('/talent/{id}', function () {
     return Inertia::render('Talents/TalentDetails');
 })->middleware(['auth', 'verified'])->name('talent');
+
+Route::get('/weapons', function () {
+    return Inertia::render('Weapons/WeaponList');
+})->middleware(['auth', 'verified'])->name('weapons');
+Route::get('/weapon/{id}', function () {
+    return Inertia::render('Weapons/WeaponDetails');
+})->middleware(['auth', 'verified'])->name('weapon');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

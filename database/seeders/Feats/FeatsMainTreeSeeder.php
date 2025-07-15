@@ -177,7 +177,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>All of your Melee Attacks deal an additional +2 Damage</li>
     <li>Increase the Critical Threat range of any weapon that qualifies for a bonus from all of your Combat Master feats by 1.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Rage', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Rage', 'Fighter Feat', 'Generic' => 7]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Critical';
@@ -186,7 +186,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>All of your Melee Attacks deal an additional +5 Damage. This bonus to damage replaces the damage from Improved Critical</li>
     <li>Increase the Critical Threat range of any weapon that qualifies for a bonus from all of your Combat Master feats by an additional 1.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Rage', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Rage', 'Fighter Feat', 'Generic' => 12]);
         $feat->parent_feats()->save(app()->feats['Improved Critical']);
         $feat->parent_feats()->save(app()->feats['Power Attack']);
 
@@ -201,7 +201,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>If you are weilding a weapon with the Finesse type, at the beginning of your turn, you may select an opponent that you are aware of within 30 feet of you. You gain a +1 Dodge bonus against that opponent as long as you are aware of where the opponent is.</li>
     <li>If you're holding a shield, its armor check penalty applies to your attack rolls.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Generic', 'Finesse']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Generic', 'Finesse', 'Generic' => 1]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 13]);
 
         $feat              = new Feat;
@@ -237,7 +237,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>Performing a Feint in combat is now an Action instead of a Double Action.</li>
     <li>You may spend a Heroic Surge as part of your Feint Action. If you do, the extra Action from Heroic Surge is used to perform the Feint and you gain a +2 bonus to your Feint check.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Feint', 'Heroic Surge', 'Diminishing', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Feint', 'Heroic Surge', 'Diminishing', 'Talent', 'Fighter Feat', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Weapon Finesse']);
 
         $feat              = new Feat;
@@ -343,17 +343,17 @@ class FeatsMainTreeSeeder extends Seeder
         $feat->name        = 'Multi Attacker';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>You can apply up to 2 points of your STR bonus to Hit and Damage</li>
+    <li>You can apply up to 2 points of your STR bonus to Hit and Damage when attacking with multiple hands</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Multi Attacker';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>You can apply up to 4 points of your STR bonus to Hit and Damage</li>
+    <li>You can apply up to 4 points of your STR bonus to Hit and Damage when attacking with multiple hands</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat', 'Generic' => 11]);
         $feat->parent_feats()->save(app()->feats['Multi Attacker']);
 
         $feat              = new Feat;
@@ -363,7 +363,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>Increase your DEX score by 1, to a maximum of 20</li>
     <li>If you make a Melee Attack with your primary weapon, you may also make a Melee Attack with your off hand Melee weapon</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Attack', 'Ability Boost', 'Melee', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Attack', 'Ability Boost', 'Melee', 'Fighter Feat', 'Generic' => 2]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 13]);
 
         $feat              = new Feat;
@@ -374,7 +374,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>If you make a second Melee Attack with your primary weapon, you may also make a second Melee Attack with your off hand Melee weapon</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Attack', 'Open', 'Melee', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Attack', 'Open', 'Melee', 'Talent', 'Fighter Feat', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Two-Weapon Fighter']);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 15]);
 
@@ -386,7 +386,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain an additional Action. This additional Action can only be used to make a Melee attack with your off hand weapon.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Attack', 'Melee', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Attack', 'Melee', 'Talent', 'Fighter Feat', 'Generic' => 14]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 17]);
         $feat->parent_feats()->save(app()->feats['Improved Two-Weapon Fighter']);
 
@@ -398,7 +398,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain 3 Spell Points</li>
     <li>You can now spend 3 Spell Points to Activate a magical Wand with one less Action. This effect applies to only one activation and you cannot use this ability more than once per turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wand', 'Open', 'Arcane', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Wand', 'Open', 'Arcane', 'Fighter Feat', 'Generic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Wand Wielder';
@@ -407,7 +407,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain 1 Spell Point</li>
     <li>You can now spend 2 Spell Points instead of 3 to Activate a Magical Wand with one less Action. This effect applies to only one activation and you cannot use this ability more than once per turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wand', 'Open', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Wand', 'Open', 'Arcane', 'Generic' => 15]);
         $feat->parent_feats()->save(app()->feats['Improved Wand Wielder']);
 
         /**********************************************************************/
@@ -420,7 +420,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>While in this Stance, all of your Ranged Attacks deal an additional +1 Damage.</li>
     <li>You take aim and hold your weapon to pick off nearby enemies quickly. When using a ranged volley weapon while in this stance, you don't take the circumstance penalty to your attack rolls within the weapon's volley range. When using a ranged weapon without the volley trait, you gain a +5 circumstance bonus to damage rolls on attacks made within the weapon's first range increment.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Stance', 'Ranged', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Stance', 'Ranged', 'Fighter Feat', 'Generic' => 1]);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 13]);
 
         $feat              = new Feat;
@@ -444,7 +444,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>All of your Ranged Attacks deal an additional +1 Damage</li>
     <li>You gain an extra Action. This extra Action can only be used as a Manipulate Action to load your Composite Longbow, Composite Shortbow, Longbow, or Shortbow.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Extra Action', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Ranged', 'Extra Action', 'Fighter Feat', 'Generic' => 2]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 13]);
 
@@ -475,7 +475,7 @@ class FeatsMainTreeSeeder extends Seeder
     </tbody>
 </table>
 <p>Make a single attack for all the arrows. Damage Reduction and Resistance apply to each arrow separately against each arrow.</p>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Ranged', 'Fighter Feat', 'Generic' => 6]);
         $feat->parent_feats()->save(app()->feats['Rapid Shot']);
         $feat->attributes()->save(app()->attributes['DEX'], ['dc' => 17]);
 
@@ -490,7 +490,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>When using a ranged weapon without the volley trait, you gain a +5 circumstance bonus to damage rolls on attacks made within the weapon's first, second, and third range increment.</li>
     <li>While in this Stance, you are considered Prone.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Open', 'Stance', 'Ranged', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Open', 'Stance', 'Ranged', 'Fighter Feat', 'Generic' => 6]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
 
         $feat              = new Feat;
@@ -512,7 +512,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>While in this Stance, all of your Ranged Attacks deal an additional +1 Damage</li>
     <li>While in this Stance, you gain an extra Action. This extra Action can only be used as a Manipulate Action to load your Hand Crossbow, Light Crossbow, or Heavy Crossbow. You must have a free hand to load your weapon.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Extra Action', 'Stance', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Ranged', 'Extra Action', 'Stance', 'Fighter Feat', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Peerless Archer';
@@ -603,7 +603,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You do not provoke an Attack of Opportunity when you make a touch attack to start a Grapple. You gain a +4 bonus on all Grapple checks.</li>
     <li>You may spend a Heroic Surge as part of your Grapple attempt. If you do, the extra Action from Heroic Surge is used to make the grapple attempt. If you succeed on the Grapple attempt, you may make a free Unarmed Strike attack (as detailed in the Grapple rules).</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Open', 'Unarmed', 'Heroic Surge', 'Grapple', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Open', 'Unarmed', 'Heroic Surge', 'Grapple', 'Talent', 'Fighter Feat', 'Generic' => 2]);
         $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
 
         $feat              = new Feat;
@@ -615,7 +615,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You may use your Reaction to deflect ranged attacks (projectiles or thrown). If you don't have the Improved Unarmed Strike Feat, then you must use a weapon the qualifies for your Combat Mastery Feat. For each Reaction, you can deflect a ranged attack for each free hand you have.</li>
     <li>You may spend another Reaction to make a Ranged Attack with a ranged weapon you just deflected.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Fighter Feat', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Improved Reaction']);
 
         $feat              = new Feat;
@@ -770,7 +770,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You can force an attack targeting your mount to target you instead.</li>
     <li>If your mount is subjected to an effect that allows it to make a DEX Save to take only half damage, it instead takes no damage if it succeeds on the Save, and only half damage if it fails.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Mounted', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Mounted', 'Talent', 'Fighter Feat', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Ride-By Attack';
@@ -793,7 +793,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain an extra Action. This Action can only be used to direct your mount to take a specific Action.</li>
     <li>You can spur your mount to move faster once each turn. Make a DC 20 WIS (Ride an Animal) check. If you succeed, your mount may make one Stride Action with a +10 bonus to their Speed.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Mounted', 'Extra Action', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Mounted', 'Extra Action', 'Talent', 'Fighter Feat', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Ride-By Attack']);
         $feat->skills()->save(app()->skills['Animal Handling'], ['dc' => 7, 'meta' => 'Ride an Animal']);
 
@@ -805,7 +805,7 @@ class FeatsMainTreeSeeder extends Seeder
     <li>You gain a +1 to all Melee attacks made while Mounted</li>
     <li>All your Melee attacks while Mounted add an additional Weapon Damage Dice.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Mounted', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Mounted', 'Talent', 'Fighter Feat', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Improved Mounted Combatant']);
 
         /**********************************************************************/

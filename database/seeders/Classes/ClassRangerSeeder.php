@@ -77,7 +77,8 @@ class ClassRangerSeeder extends Seeder
                 'Safe Clearing', ],
             4 => ['Aerial Form', 'Arrow Storm', 'Dominate Animal', 'Land Womb', 'Shade Arrow', 'Speak with Plants', 'Stoneskin',
                 'Swift Quiver', 'Summon Steed', 'Summon Woodland Beings', ],
-            5 => ['Commune with Nature', 'Steel Wind Strike', 'Summon Fey', 'Tree Stride', 'Volley', 'Wrath of Nature'],
+            5 => ['Commune with Nature', "Hunter's Perfection", 'Steel Wind Strike', 'Summon Fey', 'Tree Stride', 'Volley',
+                'Wrath of Nature', ],
         ]);
 
         $feature               = new Feature;
@@ -104,15 +105,15 @@ class ClassRangerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Favored Enemy';
         $feat->requirement = 'You must have the Favored Enemy Class Feature';
-        $feat->description = "<p>You may select an additional Enemy.</p>
-<p>You may take this feat multiple times. You may not take this feat if you've taken it in the last 4 levels</p>";
+        $feat->description = '<p>You may select an additional Enemy.</p>
+<p>You may take this feat multiple times.</p>';
         $helper->addTypesToFeat($feat, ['Favored Enemy', 'Precision']);
 
         $feat              = new Feat;
         $feat->name        = 'Favored Terrain';
         $feat->requirement = 'You must have the Favored Terrain Class Feature';
-        $feat->description = "<p>You may select an additional Favored Terrain.</p>
-<p>You may take this feat multiple times. You may not take this feat if you've taken it in the last 4 levels</p>";
+        $feat->description = '<p>You may select an additional Favored Terrain.</p>
+<p>You may take this feat multiple times.</p>';
         $helper->addTypesToFeat($feat, ['Favored Terrain']);
         $feat->features()->save(app()->features['favored_terrain']);
 
@@ -125,14 +126,14 @@ class ClassRangerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Improved Study Enemy';
         $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
-        $feat->description = '<p>You may now have 2 targets at a time when you study a target.</p>';
+        $feat->description = '<p>You may now have 2 Targets at a time when you Study a Target.</p>';
         $helper->addTypesToFeat($feat, ['Favored Enemy']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Enemy';
         $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
         $feat->description = '<ul>
-    <li>The bonus to Hit and Damage against your Enemy is now +3</li>
+    <li>The bonus to Hit against your Enemy is now +3</li>
     <li>The bonus to your Critical Hit Threat Ranges against your Enemy is now +2</li>
     <li>If you score a Critical Hit against your Enemy, add 3 Additional Damage Dice instead.</li>
 </ul>';
@@ -141,7 +142,7 @@ class ClassRangerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Greater Enemy';
         $feat->description = '<ul>
-    <li>The bonus to Hit and Damage against your Enemy is now +4</li>
+    <li>The bonus to Hit against your Enemy is now +4</li>
     <li>The bonus to your Critical Hit Threat Ranges against your Enemy is now +3</li>
     <li>If you score a Critical Hit against your Enemy, add 5 Additional Damage Dice instead.</li>
 </ul>';
@@ -150,13 +151,13 @@ class ClassRangerSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Divine Archer of Solonor';
-        $feat->requirement = 'You must have Elven blood, have at least 1 level in Ranger, and Solonor Thelandira must be your Patron Deity';
-        $feat->description = '<p>You are a worshiper of the Elven god Solonor Thelandira, perhaps even part of his clergy.</p>
+        $feat->requirement = 'You must have Elven blood, have the Favored Enemy Class Feature, and Solonor Thelandira must be your Patron Deity';
+        $feat->description = '<p>You are a member of the clergy of the Elven god Solonor Thelandira.</p>
 <ul>
     <li>You gain 2 Spell Points</li>
     <li>You may cast the spell Guiding Light by spending 1 Spell Point and an Action</li>
     <li>You may cast the True Strike spell by spending 1 Spell Point and an Action</li>
-    <li>You gain the Weapon Focus Feat. You must choose Longbow or Shortbow.</li>
+    <li>You gain the Weapon Focus Feat. You must choose Longbow or Shortbow (or Composite versions).</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Elf']);
         $helper->addSpellsToFeat($feat, [
@@ -170,7 +171,7 @@ class ClassRangerSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Hunter of Malar';
-        $feat->requirement = 'Malar must be your patron and you must have at least 2 levels in Ranger';
+        $feat->requirement = 'Malar must be your patron and you must have the Favored Enemy Class Feature';
         $feat->description = '<p>You are a worshiper of Malar. You gain the following.</p>
 <ul>
     <li>You gain a +2 bonus to Sneak Skill Checks</li>
@@ -214,7 +215,8 @@ class ClassRangerSeeder extends Seeder
             'Improved Peerless Archer' => 13,
             'Greater Peerless Archer'  => 17,
 
-            'Divine Archer of Solonor' => 1,
+            'Divine Archer of Solonor' => 2,
+            'Hunter of Malar'          => 2,
         ]);
     }
 }

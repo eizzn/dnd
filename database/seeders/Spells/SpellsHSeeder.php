@@ -986,7 +986,7 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '5 rounds';
-        $spell->description = '<p>You gain insight with your ranged attacks with a Long Bow or Short Bow. Your ranged attacks with a Long Bow or Short Bow deal an additional +1D6 Precision damage.</p>';
+        $spell->description = '<p>You gain insight with your ranged attacks with a Long Bow or Short Bow. Your ranged attacks with a Long Bow or Short Bow deal an additional +2D6 Precision damage.</p>';
         $helper->addTypesToSpell($spell, ['Divination'], 2);
 
         $spell              = new Spell;
@@ -994,7 +994,7 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '2 rounds';
-        $spell->description = '<p>This spell functions like the spell Haste, except as noted here (it lasts until the end of your next turn).</p>';
+        $spell->description = '<p>This spell functions like the spell Haste, except as noted here.</p>';
         $helper->addTypesToSpell($spell, ['Bless', 'Enchantment', 'Chronomancy'], 2);
 
         $spell              = new Spell;
@@ -1003,13 +1003,21 @@ class SpellsHSeeder extends Seeder
         $spell->range       = '90 feet';
         $spell->targets     = 'One creature';
         $spell->duration    = 'Concentration, up to 3 hours';
-        $spell->description = '<p>You choose a creature you can see within range and mystically mark it. Until the spell ends, you know in what direction the target is as long as the creature is within 10 miles of you and can treat the target as a Favored Enemy or Stalked Enemy as if you had spent the time to study the target except for the duration is equal to the duration of this spell.</p>
-<p>You may have only one creature marked by this spell. If you cast it again, all previous marked creatures become unmarked.</p>';
-        $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Duration is tripled for each additional spell slot.</dd>
+        $spell->description = '<p>You choose a creature you can see within range and mystically mark it. Until the spell ends, you know in what direction the target is as long as the creature is within 10 miles of you and can treat the target as a Favored Enemy or Stalked Enemy as if you had spent the time to study the target except for the Duration is equal to the Duration of this spell.</p>
+<p>You may have only one creature marked by this spell at a time. If you cast it again, all previous marked creatures become unmarked.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
     <dt>Heightened (+1)</dt> <dd>You may mark an additional target.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination'], 1);
+
+        $spell              = new Spell;
+        $spell->name        = "Hunter's Perfection";
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>For the Duration, all Melee and Ranged Weapon Attacks that hit are treated as Critical Hits. If a Natural Critical is scored, Double the Damage</p>';
+        $helper->addTypesToSpell($spell, ['Bless', 'Divination'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Hurl';

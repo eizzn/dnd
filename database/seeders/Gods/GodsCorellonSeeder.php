@@ -74,7 +74,7 @@ class GodsCorellonSeeder extends Seeder
                 'Prayer', 'Quomaniith', 'Sanctified Ground', 'Sheltered Vitality', 'Stars of Arvandor', 'Theur`foqal', 'Zone of Truth', ],
             4 => ['Air Walk', 'Ceremony', 'Dimensional Anchor', 'Divine Wrath', 'Freedom of Movement', 'Globe of Invulnerability',
                 'Ol`Iirtal`Eithun', 'Remove Curse', 'Spell Immunity', 'Vuorl`Kyshuf', ],
-            5 => ['Atonement', 'Banishment', 'Commune with Texts', 'Sending', 'U`Aestar`Kess'],
+            5 => ['Atonement', 'Banishment', 'Commune with Texts', 'Sending', 'Tomb of Light', 'U`Aestar`Kess'],
             6 => ['Ialyshae`Seldar`Wihylos', 'Righteous Might', 'True Seeing'],
             7 => ['Akrmaesual', 'Cloak of Chaos', 'Daoin`Teague`Feer', 'Dimensional Lock', 'Divine Decree', 'Holy Aura',
                 'Kai`Soeh`takal', 'N`Maernthor', 'Plane Shift', 'Regenerate', 'Renewal Pact', ],
@@ -280,7 +280,7 @@ class GodsCorellonSeeder extends Seeder
             5  => ['Atonement', 'Banishment', 'Commune with Texts', 'Sending', 'U`Aestar`Kess'],
             6  => ['Hindsight', 'Ialyshae`Seldar`Wihylos', 'True Seeing'],
             7  => ['Akrmaesual', 'Dimensional Lock', 'Kai`Soeh`takal', 'Plane Shift', 'Regenerate'],
-            8  => ['Akh`Faen`Tel`Quess', 'Alter Lifeline', 'Antimagic Field'],
+            8  => ['Akh`Faen`Tel`Quess', 'Alter Lifeline', 'Antimagic Field', 'Temporal Stasis'],
             9  => ['N`Tel`Orar', 'Spell Shift'],
             10 => ['Time Stop'],
         ]);

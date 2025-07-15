@@ -85,7 +85,7 @@ class GodsTyrSeeder extends Seeder
                 'Insignia of Blessing', 'Insignia of Healing', 'Prayer', ],
             4  => ['Aura of Purity', 'Celestial Fortress', 'Ceremony', 'Divine Power', 'Divine Wrath', 'Guardian of Faith',
                 'Sacred Item', ],
-            5  => ['Atonement', 'Celestial Brand', 'Dispel Chaos', 'Dispel Evil', 'Divine Weapon', 'Hallow'],
+            5  => ['Atonement', 'Celestial Brand', 'Dispel Chaos', 'Dispel Evil', 'Divine Weapon', 'Hallow', 'Tomb of Light'],
             6  => ['Heal', 'Planar Ally', 'Summon Celestial', 'True Seeing'],
             7  => ['Channel Celestial', 'Divine Decree', 'Feast of Champions', 'Holy Aura', 'Holy Word', 'Raise Dead', 'Righteous Glare',
                 'Shield of Law', ],

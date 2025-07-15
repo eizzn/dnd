@@ -100,8 +100,9 @@ class FeaturesSeeder extends Seeder
         $feature->description  = '<p>You have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.</p>
 <p>Choose a type of Favored Enemy from the table. You gain the following benefits against those creatures.</p>
 <ul>
-    <li>+2 bonus to Hit and Damage against members of your favored enemy using Melee or Ranged weapons.</li>
-    <li>When you score a critical hit against a member of your favored enemy, add an additional damage dice.</li>
+    <li>+2 bonus to Hit against members of your Favored Enemy using Melee or Ranged weapons.</li>
+    <li>When you hit a member of your Favored Enemy, you deal an additional Weapon Die of Damage</li>
+    <li>When you score a critical hit against a member of your Favored Enemy, add an additional damage dice.</li>
     <li>+3 circumstance bonus to Survival checks to Track your Favored Enemy.</li>
     <li>+3 circumstance bonus to Perception checks when you Seek your Favored Enemy.</li>
     <li>+3 circumstance bonus to Lore checks when recalling information about them.</li>

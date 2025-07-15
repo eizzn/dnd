@@ -450,13 +450,13 @@ class RacesSeeder extends Seeder
         $lang->save();
 
         $lang              = new Language;
-        $lang->name        = 'Midani';
+        $lang->name        = 'Uloushinn';
         $lang->type        = 'Regional';
         $lang->alphabet_id = $thoras->id;
         $lang->family      = 'Rauric (Untheric)';
         $lang->local       = 'Babylonian/Arabic';
         $lang->speakers    = 'Anauroch';
-        $lang->description = '<p>The language of the ancient homeland of the Bedine people. Written with Thorass, as they lost their original written language.</p>';
+        $lang->description = '<p>The language of the ancient homeland of the Bedine people. Written with Thorass, as they lost their original written language. Based on Midani language of Zakhara.</p>';
         $lang->save();
 
         $lang              = new Language;

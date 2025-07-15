@@ -105,7 +105,7 @@ onMounted(async () => {
                                 <tr v-for="god in data" :key="god.id" class="hover:bg-gray-50">
                                     <td class="px-4 py-2 border border-gray-300">
                                         <NavLink
-                                            :href="`/god/${god.id}`"
+                                            :href="`/god/${god.id}/pantheon/${god.pantheon.id}`"
                                             class="text-blue-800 hover:underline p-0"
                                             style="border-bottom-width: 0 !important;"
                                         >

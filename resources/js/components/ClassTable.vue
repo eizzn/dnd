@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import NavLink from "@/components/NavLink.vue";
 
 const props = defineProps({
     klass: {
@@ -15,6 +16,7 @@ const highestSpellSlot = ref(0);
 const hasPreparableSpells = ref(false);
 const hasKnownSpells = ref(false);
 const hasCantripSpells = ref(false);
+const hasCantripSlots = ref(false);
 const hasMaxSpellSlotLevel = ref(false);
 
 const calculateLowestAndHighestSpellSlot = (spellKeys, spellSlots) => {
@@ -44,6 +46,7 @@ const calculateLowestAndHighestSpellSlot = (spellKeys, spellSlots) => {
         hasPreparableSpells.value = lastSpellSlot.value.preparable != null;
         hasKnownSpells.value = lastSpellSlot.value.known != null;
         hasCantripSpells.value = lastSpellSlot.value.cantrips != null;
+        hasCantripSlots.value = lastSpellSlot.value.zero != null;
         hasMaxSpellSlotLevel.value = lastSpellSlot.value.max_slot_level != null;
 
         return [
@@ -77,27 +80,28 @@ watch(
     <table class="w-full border-collapse border border-gray-300">
         <thead class="bg-gray-100">
         <tr>
-            <th class="px-4 py-2 border border-gray-300 text-left">Level</th>
-            <th class="px-4 py-2 border border-gray-300 text-left">Features</th>
+            <th class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Level</th>
+            <th class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Features</th>
 
-            <th v-if="hasPreparableSpells" class="px-4 py-2 border border-gray-300 text-left">Preparable</th>
-            <th v-if="hasKnownSpells" class="px-4 py-2 border border-gray-300 text-left">Known</th>
-            <th v-if="hasCantripSpells" class="px-4 py-2 border border-gray-300 text-left">Cantrips</th>
-            <th v-if="props.klass.has_spells && firstSpellSlot === 0" class="px-4 py-2 border border-gray-300 text-left">0</th>
-            <th v-if="props.klass.has_spells && firstSpellSlot > 0" class="px-4 py-2 border border-gray-300 text-left">1st</th>
-            <th v-if="props.klass.has_spells && firstSpellSlot >= 1" class="px-4 py-2 border border-gray-300 text-left">2nd</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 2" class="px-4 py-2 border border-gray-300 text-left">3rd</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 3" class="px-4 py-2 border border-gray-300 text-left">4th</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 4" class="px-4 py-2 border border-gray-300 text-left">5th</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 5" class="px-4 py-2 border border-gray-300 text-left">6th</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 6" class="px-4 py-2 border border-gray-300 text-left">7th</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 7" class="px-4 py-2 border border-gray-300 text-left">8th</th>
-            <th v-if="props.klass.has_spells && highestSpellSlot > 8" class="px-4 py-2 border border-gray-300 text-left">9th</th>
-            <th v-if="hasMaxSpellSlotLevel" class="px-4 py-2 border border-gray-300 text-left">Max Slot Level</th>
+            <th v-if="hasPreparableSpells" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Preparable</th>
+            <th v-if="hasKnownSpells" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Known</th>
+            <th v-if="hasCantripSpells" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Cantrips Memorizable</th>
+            <th v-if="props.klass.has_spells && hasCantripSlots" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Cantrips Castable</th>
+            <th v-if="props.klass.has_spells && firstSpellSlot === 0" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">0</th>
+            <th v-if="props.klass.has_spells && firstSpellSlot > 0" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">1st</th>
+            <th v-if="props.klass.has_spells && firstSpellSlot >= 1" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">2nd</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 2" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">3rd</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 3" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">4th</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 4" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">5th</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 5" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">6th</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 6" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">7th</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 7" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">8th</th>
+            <th v-if="props.klass.has_spells && highestSpellSlot > 8" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">9th</th>
+            <th v-if="hasMaxSpellSlotLevel" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Max Slot Level</th>
 
-            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left">Power Points</th>
-            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left">Powers Known</th>
-            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left">Max Power Level</th>
+            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Power Points</th>
+            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Powers Known</th>
+            <th v-if="props.klass.has_powers" class="px-4 py-2 border border-gray-300 text-left bg-blue-300">Max Power Level</th>
         </tr>
         </thead>
         <tbody>
@@ -106,7 +110,15 @@ watch(
             <td class="px-4 py-2 border border-gray-300">
                 <ul>
                     <li v-for="feature in klass.features[level]" :key="feature.id">
-                        {{ feature.name }} <span v-if="feature.meta">({{ feature.meta }})</span>
+                        {{ feature.name }}
+                        <span v-if="feature.meta">
+                            <span v-if="feature.name === 'Feat'">
+                                <NavLink :href="`/feats?name=${feature.meta}`">({{ feature.meta }})</NavLink>
+                            </span>
+                            <span v-else>
+                                ({{ feature.meta }})
+                            </span>
+                        </span>
                     </li>
                 </ul>
             </td>
@@ -120,7 +132,7 @@ watch(
             <td v-if="hasCantripSpells" class="px-4 py-2 border border-gray-300 text-center">
                 {{ klass.spell_slots[level]?.cantrips || '-' }}
             </td>
-            <td v-if="props.klass.has_spells && firstSpellSlot === 0" class="px-4 py-2 border border-gray-300 text-center">
+            <td v-if="props.klass.has_spells && hasCantripSlots" class="px-4 py-2 border border-gray-300 text-center">
                 {{ klass.spell_slots[level]?.zero || '-' }}
             </td>
             <td v-if="props.klass.has_spells && firstSpellSlot > 0" class="px-4 py-2 border border-gray-300 text-center">

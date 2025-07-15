@@ -97,24 +97,99 @@ const showingNavigationDropdown = ref(false);
                                     :active="route().current('gods') || route().current('god')"
                                 >Gods</NavLink>
 
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
+                                            || route().current('armors') || route().current('armor')
+                                            || route().current('formulas') || route().current('formula'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Equipment</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('armors')"
+                                            :active="route().current('armors') || route().current('armor')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Armors</NavLink>
+                                        <br/>
+                                        <NavLink
+                                            :href="route('weapons')"
+                                            :active="route().current('weapons') || route().current('weapon')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Weapons</NavLink>
+                                        <br/>
+                                        <NavLink
+                                            :href="route('formulas')"
+                                            :active="route().current('formulas') || route().current('formula')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Formulas</NavLink>
+                                    </div>
+                                </div>
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
+                                            || route().current('rules') || route().current('rule')
+                                            || route().current('skills') || route().current('skill')
+                                            || route().current('conditions') || route().current('condition'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Rules</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('conditions')"
+                                            :active="route().current('conditions') || route().current('condition')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Conditions</NavLink>
+                                        <NavLink
+                                            :href="route('skills')"
+                                            :active="route().current('skills') || route().current('skill')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Skills</NavLink>
+                                    </div>
+                                </div>
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
+                                            || route().current('races') || route().current('race')
+                                            || route().current('alphabets') || route().current('alphabet')
+                                            || route().current('languages') || route().current('language'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Races</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('races')"
+                                            :active="route().current('races') || route().current('race')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Races</NavLink>
+                                        <NavLink
+                                            :href="route('alphabets')"
+                                            :active="route().current('alphabets') || route().current('alphabet')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Alphabets</NavLink>
+                                        <NavLink
+                                            :href="route('languages')"
+                                            :active="route().current('languages') || route().current('language')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Languages</NavLink>
+                                    </div>
+                                </div>
                                 <!--
                                 monsters
                                 locations
                                 organizations
                                 equipment
-                                    armor
-                                    weapons
                                     miscellaneous
                                     materials
-                                formulas
                                 skills
                                 rules
-                                    conditions
                                     types
-                                templates
+                                    rules
+                                    templates
                                 characters
-                                races
-                                    languages
                                 -->
                             </div>
                         </div>

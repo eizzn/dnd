@@ -101,13 +101,6 @@ class PfInit extends Migration
             $table->smallInteger('price')->unsigned();
             $table->enum('type', ['Light', 'Medium', 'Heavy', 'Shield', 'Barding']);
             $table->enum('group', ['Cloth', 'Chain', 'Composite', 'Leather', 'Plate', 'Wood', 'Other'])->nullable();
-            $table->smallInteger('armor_bonus')->unsigned();
-            $table->smallInteger('damage_reduction')->unsigned()->nullable();
-            $table->smallInteger('dex_modifier_cap')->unsigned()->nullable();
-            $table->smallInteger('check_penalty')->nullable();
-            $table->smallInteger('spell_failure')->unsigned();
-            $table->string('speed_penalty', 10)->nullable();
-            $table->smallInteger('min_str')->unsigned()->nullable();
             $table->string('bulk')->nullable();
             $table->smallInteger('weight')->unsigned()->nullable();
             $table->text('description')->nullable();
@@ -116,14 +109,10 @@ class PfInit extends Migration
             $table->increments('id');
             $table->string('name', 30)->unique();
             $table->smallInteger('price')->unsigned()->nullable();
-            $table->string('damage', 25);
-            $table->string('range', 20)->nullable();
-            $table->smallInteger('reload')->unsigned()->nullable();
             $table->string('bulk', 1)->nullable();
             $table->smallInteger('hands')->unsigned()->nullable();
             $table->enum('group', ['Axe', 'Bow', 'Brawling', 'Club', 'Dart', 'Flail', 'Hammer', 'Knife', 'Pick', 'Polearm', 'Shield', 'Sling', 'Spear', 'Sword', 'Exotic']);
             $table->enum('type', ['Simple Melee', 'Martial Melee', 'Simple Ranged', 'Martial Ranged', 'Uncommon Simple Melee', 'Uncommon Martial Melee', 'Uncommon Exotic Melee', 'Uncommon Martial Ranged']);
-            $table->string('threat_range', 10)->default('19-20');
             $table->text('description')->nullable();
         });
         Schema::create('equipments', function (Blueprint $table) {

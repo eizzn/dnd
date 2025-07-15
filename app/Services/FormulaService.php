@@ -32,7 +32,7 @@ class FormulaService implements Contracts\FormulaService
                 \App\Filters\Name::class,
                 \App\Filters\TypeByName::class,
                 \App\Filters\Level::class,
-                \App\Filters\Order::class
+                \App\Filters\Order::class,
             ])
             ->thenReturn();
 
