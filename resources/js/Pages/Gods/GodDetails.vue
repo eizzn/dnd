@@ -39,9 +39,7 @@ onMounted(fetchSpellDetails);
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ god?.name || "God Details" }} ({{ god?.level }})</span>
-            </h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">God</h2>
         </template>
 
         <div class="py-12">
@@ -51,6 +49,7 @@ onMounted(fetchSpellDetails);
                         <div v-if="error" class="text-red-500">{{ error }}</div>
                         <div v-else-if="god">
                             <section class="m-2">
+                                <h3 class="text-xl">{{ god.name }} ({{ god.level }})</h3>
                                 <table class="w-full border-collapse border border-gray-300">
                                     <colgroup>
                                         <col style="width: 25%;" />
@@ -71,10 +70,10 @@ onMounted(fetchSpellDetails);
                                             <th class="px-4 py-2 border border-gray-300 bg-blue-300">Alignment</th>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.pantheon.name }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.symbol }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.favored_weapon }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.alignment }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.pantheon.name }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.symbol }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.favored_weapon }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.alignment }}</td>
                                         </tr>
                                         <tr>
                                             <th class="px-4 py-2 border border-gray-300 bg-blue-300">Aliases</th>
@@ -83,9 +82,9 @@ onMounted(fetchSpellDetails);
                                             <th class="px-4 py-2 border border-gray-300 bg-blue-300">Master</th>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.aliases }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.portfolio }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ god.regions }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.aliases }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.portfolio }}</td>
+                                            <td class="px-4 py-2 border border-gray-300 text-sm">{{ god.regions }}</td>
                                             <td class="px-4 py-2 border border-gray-300">
                                                 <NavLink :href="`/god/${god.master?.id}/pantheon/${god.pantheon.id}`">{{ god.master?.name }}</NavLink>
                                             </td>
@@ -111,8 +110,8 @@ onMounted(fetchSpellDetails);
                                         <ul>
                                             <li v-for="(klass, index) in god.classes" :key="index">
                                                 <NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink>
-                                                <span class="px-2">{{ klass.level }}</span>
-                                                <span v-if="klass.meta">&nbsp;({{ klass.meta }})</span>
+                                                <span class="px-2 text-sm">{{ klass.level }}</span>
+                                                <span class="text-sm" v-if="klass.meta">&nbsp;({{ klass.meta }})</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -121,6 +120,7 @@ onMounted(fetchSpellDetails);
                                         <ul>
                                             <li v-for="(klass, index) in god.worship_classes" :key="index">
                                                 <NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink>
+                                                <span class="text-sm" v-if="klass.meta != null">({{ klass.meta }})</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -129,14 +129,6 @@ onMounted(fetchSpellDetails);
                             <section v-if="god.piety" class="m-2">
                                 <table class="w-full">
                                     <tbody>
-                                        <tr>
-                                            <th class="px-4 py-2 border border-gray-300">Favor</th>
-                                            <td class="px-4 py-2 border border-gray-300"><div v-html="god.piety.favor"></div></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="px-4 py-2 border border-gray-300">Devotion</th>
-                                            <td class="px-4 py-2 border border-gray-300"><div v-html="god.piety.devotion"></div></td>
-                                        </tr>
                                         <tr>
                                             <th class="px-4 py-2 border border-gray-300">Favor</th>
                                             <td class="px-4 py-2 border border-gray-300"><div v-html="god.piety.favor"></div></td>

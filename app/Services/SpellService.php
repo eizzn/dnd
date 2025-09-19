@@ -17,14 +17,15 @@ class SpellService implements Contracts\SpellService
     /**
      * @throws InvalidArgumentException
      */
-    public function index(array|Request $search): Builder
+    public function index(array|Request $search, bool $sortByLevel = false): Builder
     {
         $search = $this->getData($search);
+        $query  = $sortByLevel ? Spell::orderBy('default_level') : Spell::query();
 
         /** @var FilterPipelinePayload $results */
         $results = app(Pipeline::class)
             ->send(new FilterPipelinePayload(
-                Spell::query(),
+                $query,
                 $search
             ))
             ->through([

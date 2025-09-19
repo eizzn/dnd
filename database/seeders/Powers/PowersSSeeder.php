@@ -230,9 +230,9 @@ class PowersSSeeder extends Seeder
         $power->display     = 'Mental';
         $power->range       = 'Self';
         $power->duration    = '1 round';
-        $power->description = '<p>You raise a mental defense that grants a +2 bonus to CON Saves and gain resistancence to Vitality Blast, Life Blast and STR Blast.</p>';
+        $power->description = '<p>You raise a mental defense that grants a +2 bonus to CON Saves and gain resistance to Vitality Blast, Life Blast and STR Blast.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the bonus to CON Saves by +1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 1);

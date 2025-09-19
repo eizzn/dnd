@@ -67,12 +67,11 @@ class GodsGruumshSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'channel_divinity_bloodspear';
         $feature->name        = 'Channel Divinity: Bloodspear';
-        $feature->description = "<p>You can use your Channel Divinity to empower your spear with an Action and 1 Spell Point. The weapon's tip begins to drip blood, and the spear acts as if it has the Wounding Rune for 3 hours.</p>
+        $feature->description = "<p>You can use your Channel Divinity to empower your spear with an Action and 1 Spell Point. The weapon's tip begins to drip blood, and the spear acts as if it has the Wounding Rune for 10 minutes.</p>
 <p>This has no effect on a spear that already has the Wounding Rune, and it does not work on Artifacts.</p>";
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 
         $helper->addFeaturesToClass($class, [
-            'divine_feat'                 => [1, 6, 9, 12, 15, 18, 20],
             'channel_divinity_bloodspear' => [5],
         ]);
         $class->features()->save(Feature::where('key', 'favored_enemy')->first(), ['level' => 3, 'meta' => 'Elves only']);
@@ -247,21 +246,26 @@ class GodsGruumshSeeder extends Seeder
             'Sorcerer' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Orc', [
-            $class->name, 'Monk',
+            $class->name, 'Monk', 'Divine Oracle',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class,
             ['Concentration', 'Intimidation', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $helper->addDomainToClass($class, ['Earth', 'Evil', 'Orcs', 'Procreation', 'Prophecy']);
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Bless</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addSpellsToClass($class, [
             0 => ['Dancing Lights', 'Detect Magic', 'Ghost Sound', 'Mold Earth', 'Stabilize'],
             1 => ['Alarm', 'Bless', 'Cure Wounds', 'Curse', 'Detect Good', 'Detect Poison and Disease', 'Divine Favor',
-                'Dragon Claws'             => 'This appears as generic claws instead of dragon claws', 'Fear', 'Protection From Good',
+                'Dragon Claws' => 'This appears as generic claws instead of dragon claws', 'Fear', 'Protection From Good',
                 'Summon Elemental, Lesser' => 'Earth only', ],
             2 => ['Aura of Fear', "Bull's Strength", "Bear's Endurance", 'Comprehend Language', 'Death Knell', 'Endure Elements',
                 "Owl's Wisdom", 'Remove Fear', 'Remove Paralysis', 'Restoration', 'Undead Bane Weapon', ],
@@ -314,20 +318,22 @@ class GodsGruumshSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class,
-            ['Concentration', 'Intimidation', 'Religion'],
+            ['Athletics', 'Concentration', 'Intimidation', 'Religion', 'Stealth', 'Thievery'],
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat'      => [3, 9, 12, 15, 20],
             'rogue_feat'       => [2, 5, 14, 17],
             'precision_attack' => [2, 6, 10, 14, 18],
         ]);
+        $helper->addDomainToClass($class, ['Evil', 'Orcs', 'Thieves', 'Darkness', 'Stealth']);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addSpellsToClass($class, [
-            0 => ['Daze', 'Detect Magic', 'Ghost', 'Stabilize'],
-            1 => ['Bane', 'Cause Wounds', 'Cure Wounds', 'Darkness', 'Disguise Self', 'Find Traps', 'Fleet Step', 'Jump'],
-            2 => ['Alter Self', 'Blur', "Cat's Grace", 'Invisibility', 'Invisibility, Swift', 'Shadow Blade', 'Silence', 'Skyhook'],
-            3 => ['Bind Undead', 'Dispel Magic', 'Hold Person', 'Neutralize Poison', 'Nondetection'],
-            4 => ['Cloak of Shadows'],
+            0 => ['Daze', 'Detect Magic', 'Ghost', 'Necrotic Touch', 'Poison Spray', 'Stabilize', 'Touch of Death'],
+            1 => ['Bane', 'Cause Wounds', 'Cure Wounds', 'Disguise Self', 'Find Traps', 'Fleet Step', 'Jump', 'Protection From Poison'],
+            2 => ['Alter Self', 'Blur', "Cat's Grace", 'Darkness', 'Invisibility', 'Invisibility, Swift', 'Poison', 'Restoration',
+                'Shadow Blade', 'Silence', 'Skyhook', ],
+            3 => ['Command Undead', 'Dispel Magic', 'Hold Person', 'Neutralize Poison', 'Nondetection', 'Toxin Immunity',
+                'Water to Poison', ],
+            4 => ['Cloak of Shadows', 'Drain Life'],
             5 => ['Atonement', 'Dimension Door'],
             6 => ['Scrying', 'Harm'],
             7 => ['Antimagic Field', 'Contingency', 'Disappearance', 'Glibness'],
@@ -423,7 +429,7 @@ class GodsGruumshSeeder extends Seeder
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Orc']->id,
             'favor'       => "<p>Yurtrus is a god who gives wisdom in return for infirmity. He sits by the elderly as they recount tales of their better years, and he sits by the sick as they hold the hands of their loved ones. Few willingly invite Yurtrus into their lives, he is a patient god.</p>
-<p>Yurtrus’s scions can appear in any shape and form, but are always changed by ill health, infirmity, age or a combination of the three.</p>
+<p>Yurtrus's scions can appear in any shape and form, but are always changed by ill health, infirmity, age or a combination of the three.</p>
 <ol>
     <li>You were born sick, and you won't have as long to live as most people</li>
     <li>You have a distinctive birthmark - a white hand that signified Yurtrus' claim on you</li>

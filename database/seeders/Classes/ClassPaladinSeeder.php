@@ -50,7 +50,7 @@ class ClassPaladinSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Divine Mount';
         $feat->action_type = 'Triple Action';
-        $feat->description = '<p>You may summon a mount (treat it as a young animal companion) by sacrificing one 1st level Spell Slot. As long as your mount exists, you do not recover the Spell Slot. It appears next to you at the begining of your next turn.</p>
+        $feat->description = '<p>You may summon a mount (treat it as a young animal companion) by sacrificing one 1st level Spell Slot. As long as your mount exists, you do not recover the Spell Slot. It appears next to you at the beginning of your next turn.</p>
 <p>You may sacrifice higher level Spell Slots to gain more powerful mounts. Certain feats also allow you to select different mounts.</p>';
         $helper->addTypesToFeat($feat, ['Divine']);
 
@@ -132,7 +132,7 @@ class ClassPaladinSeeder extends Seeder
             0 => ['Golden Barding', 'Light', 'Smite'],
             1 => ['Cloak of Bravery', 'Bless', 'Clear Mind', 'Compelled Duel', 'Cure Wounds', 'Detect Magic', 'Divine Favor',
                 'Divine Smite', 'Energize Shield', 'Heroism', 'Knight Unburdened', 'Shieldbearer', ],
-            2 => ['Aid', 'Call Mount', 'Heal Animal Companion', 'Keen Edge', 'Magic Weapon', 'Protection From Poison'],
+            2 => ['Aid', 'Call Mount', 'Heal Animal Companion', 'Keen Edge', 'Magic Weapon', 'Protection From Poison', 'Winged Mount'],
             3 => [],
             4 => [],
             5 => ['Divine Weapon'],

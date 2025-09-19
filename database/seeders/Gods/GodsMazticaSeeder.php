@@ -14,8 +14,7 @@ class GodsMazticaSeeder extends Seeder
      */
     public function run()
     {
-        $god = God::where('name', 'Hanali Celanil')->first();
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        God::where('name', 'Hanali Celanil')->first()->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Kiltzi',
             'title'     => 'Giver of Health, Growth Nourishment, Love',
             'level'     => 'Greater',

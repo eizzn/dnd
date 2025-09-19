@@ -25,12 +25,11 @@ class MetalMaterialsSeeder extends Seeder
     With enough time, this forms into veins of abyssal bloodiron."
         -- Sunil Elora, elven scholar
 </blockquote>';
-        $mat->weapon = '<p>Weapons crafted from Abyssal Bloodiron have far sharper edges than their usual counterparts. Attacks made with weapons crafted from Abyssal Bloodiron have a +1 to Hit and Damage rolls.</p>';
+        $mat->weapon      = '<p>Weapons crafted from Abyssal Bloodiron have far sharper edges than their usual counterparts. Attacks made with weapons crafted from Abyssal Bloodiron have a +1 to Hit and Damage rolls.</p>';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Adamantine';
-        $mat->description = 'A shiny black metal, known as one of the hardest substances in existence';
         $mat->type        = 'Metal';
         $mat->rarity      = 'Uncommon';
         $mat->price       = '250 gp';
@@ -39,7 +38,7 @@ class MetalMaterialsSeeder extends Seeder
     <li>Gauntlgrym</li>
     <li>Citadel Adbar</li>
 </ul>';
-        $mat->description = "<p>Adamantine is an alloy composed of many substances, the most prominent bing adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened valcanic flows, or the deepest chasms.</p>
+        $mat->description = "<p>Adamantine is an alloy composed of many substances, the most prominent being adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened valcanic flows, or the deepest chasms.</p>
 <p>Adamant itself is one of the hardest substances' known, being able to cut or scratch almost any object imaginable. However, the material is extremely brittle - shattering into pieces at the slightest impact. This makes it unsuitable for weapons or armor, though it remains in use amongst dwarven scholars as pens for its ability to etch runes in hard stone.</p>
 <p>Combining five-eights adamant to two-eighths silver and one-eighth electrum (an alloy of silver and gold) forms adamantine. This perfected alloy retains the hardness of adamant while increasing its durability tremendously, allowing for the construction of weaponry and armor. Through powerful arcane magic, master dwarf smiths have even been able to combine steel and mithral into adamantine, though the process requires divine intervention and is considered a holy - and secret - endeavor.</p>
 <p>Adamantine is black with a clear, green sheen when seen through candlelight. The smelting of this alloy is almost exclusively a dwarven secret which they care not to share with anyone else.</p>";
@@ -88,10 +87,23 @@ class MetalMaterialsSeeder extends Seeder
         $mat->weapon = '<p>A weapon that is coated with Alchemical Silver is considered Silver for the purpose of Damage Resistance.</p>';
         $mat->save();
 
+        $mat              = new Material;
+        $mat->name        = 'Arambarium';
+        $mat->type        = 'Metal';
+        $mat->price       = '1500 gp';
+        $mat->rarity      = 'Rare';
+        $mat->source      = '<ul>
+    <li>The fist of a primordial</li>
+</ul>';
+        $mat->description = '<p>Mined from the body of a dead primordial, this silver-sheen metal is tuned to the creatures of the elemental planes.</p>';
+        $mat->armor       = '<p>Replace the metal. Grants Resistance to Acid, Cold, and Fire damage to the wearer</p>';
+        $mat->weapon      = '<p>Replace the metal. Weapons forged with this metal is immune to rust.</p>';
+        $mat->save();
+
         $mat         = new Material;
         $mat->name   = 'Arandur';
         $mat->type   = 'Metal';
-        $mat->price  = '+2000gp';
+        $mat->price  = '+2000 gp';
         $mat->rarity = 'Rare';
         $mat->source = "<ul>
     <li>Mount Cormanda</li>
@@ -109,7 +121,7 @@ class MetalMaterialsSeeder extends Seeder
 <p>The process of refining arandur was previous a secret of the gnomes, but has since been shared with the elves of Evereska.</p>
 <p>To prevent arandur from becoming brittle after mining, it must be tempered with the blood of either a red or blue dragon.</p>';
         $mat->armor  = '<p>Replace the metal. Can be used to make armor and shields that resist Acid, Cold, Electricity, Fire, Sonic, and Force attacks. It is said that armor can be made that absorbs the damage from Magic Missiles and immune to Disintegration.</p>';
-        $mat->weapon = '<p>Replace the metal. Weapons made with Arandur add a +1 to Attack and Damage rolls made with the weapon. When rolling for damage on a Critical Hit, reroll all 1\'s (taking the re-roll, even if it\'s also a 1).</p>';
+        $mat->weapon = "<p>Replace the metal. Weapons made with Arandur add a +1 to Attack and Damage rolls made with the weapon. When rolling for damage on a Critical Hit, reroll all 1's (taking the re-roll, even if it's also a 1).</p>";
         $mat->other  = '';
         $mat->save();
 
@@ -118,7 +130,7 @@ class MetalMaterialsSeeder extends Seeder
         $mat->description = '<p>A black scorched-like metal which is cold to touch</p>';
         $mat->type        = 'Metal';
         $mat->price       = '500 gp';
-        $mat->armor       = '<p>used to craft an Armor of Necrotic Resistance (metallic armor only)</p>';
+        $mat->armor       = '<p>Used to craft an Armor of Necrotic Resistance (metallic armor only)</p>';
         $mat->weapon      = '<p>Used to craft necrotic damage dealing weapons, such as the Sword of Life Stealing</p>';
         $mat->save();
 
@@ -164,6 +176,22 @@ class MetalMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat         = new Material;
+        $mat->name   = 'Blood Glass';
+        $mat->type   = 'Stone';
+        $mat->rarity = 'Common';
+        $mat->price  = '250 gp';
+        $mat->source = "<ul>
+    <li>Kossuth's Eyes</li>
+    <li>Mount Hotenow</li>
+    <li>Peaks of Flame</li>
+    <li>Firepeaks</li>
+</ul>";
+        $mat->description = '<p>Formed when crystal deposits are laced with volcanic glass, blood glass weapons are 10% lighter than their steel counterparts.</p>
+<p>While blood glass is magical, it is also quite fragile. Attacks made against items made with blood glass automatically score Critical Hits, and items made of blood glass caught in an area where Sonic Damage is dealt shatter (no Save).</p>';
+        $mat->weapon      = '<p>Replaces the metal. +1 to Hit and Damage</p>';
+        $mat->save();
+
+        $mat         = new Material;
         $mat->name   = 'Blood Metal';
         $mat->type   = 'Metal';
         $mat->rarity = 'Very Rare';
@@ -173,7 +201,7 @@ class MetalMaterialsSeeder extends Seeder
     <li>Mountains in Vaasa</li>
     <li>Mountains in Narfell</li>
 </ul>';
-        $mat->description = '<p>Also called orcslayer metal. The ore to craft with Blood Metal is extremely rare, and the dwarves have lost the process to forge Blood Metal.</p>';
+        $mat->description = '<p>Also called orcslayer metal. The ore to craft with Blood Metal is extremely rare, and few dwarves know the process to forge Blood Metal.</p>';
         $mat->weapon      = '<p>Replaces the metal. A weapon forged with Blood metal adds +1 to Attack and Damage. If the creature hit by a weapon made with Blood Metal has the Orc type, it receives no benefit from magical healing for 24 hours.</p>';
         $mat->save();
 
@@ -195,8 +223,8 @@ class MetalMaterialsSeeder extends Seeder
     <li>Citadel Felbarr</li>
 </ul>';
         $mat->price  = '50 gp / lb';
-        $mat->armor  = '<p>A piece of armor incorporating (usually gilding or edging) Cold Iron gives the wearer (or wielder in case of a shield) Advantage on spells and spell-like abilities cast by Fey, and Demons. In addition, if attacked by these types of creatures that amke contact with the wearer (ie. bite, slam, touch, etc), the attacker takes 1D4 damage (as if from a magic weapon). Only metal armor (and studded armor) and metal shields may be edged in Cold Iron. As with weapons, due to the expense, armor is usually inlaid with Cold Iron metal wire, rather than making the whole armor of the metal.</p>';
-        $mat->weapon = '<p>When you hit a Fey or a Demon with a Cold Iron weapon, you can roll the damage again and use either result</p>';
+        $mat->armor  = '<p>A piece of armor incorporating (usually gilding or edging) Cold Iron gives the wearer (or wielder in case of a shield) Advantage on spells and spell-like abilities cast by Fey, and Demons. In addition, if attacked by these types of creatures that make contact with the wearer (ie. bite, slam, touch, etc), the attacker takes 1D4 damage (as if from a magic weapon). Only metal armor (and studded armor) and metal shields may be edged in Cold Iron. As with weapons, due to the expense, armor is usually inlaid with Cold Iron metal wire, rather than making the whole armor of the metal.</p>';
+        $mat->weapon = '<p>When you hit a Fey or a Demon with a Cold Iron weapon, you have Advantage on the Damage roll</p>';
         $mat->other  = '<p>Fey and Demons have difficulty passing a barrier of Cold Iron. To do so, they must first pass a CON check of DC 15.</p>';
         $mat->save();
 
@@ -239,7 +267,7 @@ class MetalMaterialsSeeder extends Seeder
         $mat->source = '<ul>
     <li>Wherever the Plane of Fire releases into the Prime Material Plane</li>
 </ul>';
-        $mat->description = '<p>Fever Iron comes from places where the Elemental Plane of Fire meets the Prime Material. It appeared as black as obsidian, even when forged except for a dull orange sheen.</p>';
+        $mat->description = '<p>Fever Iron comes from places where the Elemental Plane of Fire meets the Prime Material. It appears as black as obsidian, even when forged except for a dull orange sheen.</p>';
         $mat->weapon      = '<p>Metal weapons forged with Fever Iron grain a +1 bonus to Hit and Damage. It also grants the wielder a +3 bonus vs Cold effects.</p>';
         $mat->save();
 
@@ -251,36 +279,51 @@ class MetalMaterialsSeeder extends Seeder
     <li>The Elemental Plane of Fire</li>
 </ul>';
         $mat->description = '<p>This metal must be smelted and forged in the Elemental Plane of Fire, or it will be normal Steel.</p>
-<p>Fyrite continues to emit a low level of heat even after forging is complete. If this metal is used to make a suit of armor, it provides a +5 bonus to all Saves vs Cold. However, it also increases Fire damage by +1 point per die.</p>';
+<p>Fyrite continues to emit a low level of heat even after forging is complete. If this metal is used to make a suit of armor, it provides a +5 bonus to all Saves vs Cold and grants Resistance to Cold Damage. However, it also increases Fire damage by +1 point per die.</p>';
+        $mat->armor       = '<p>Replaces the metal. Grants the bonus to Save vs Cold and imposes the vulnerability to Fire damage as described.</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Frystalline';
-        $mat->type   = 'Metal';
-        $mat->rarity = 'Rare';
-        $mat->source = '<ul>
+        $mat              = new Material;
+        $mat->name        = 'Frystalline';
+        $mat->type        = 'Metal';
+        $mat->rarity      = 'Rare';
+        $mat->source      = '<ul>
     <li>The mountains of Elysium</li>
 </ul>';
         $mat->description = '<p>This metal increases the effects of Healing magic cast on one who wears a suit of armor made of Frystalline. Increase the Healing by +1 point per die.</p>';
+        $mat->armor       = '<p>Replaces the metal. Grants the bonus to healing to the wearer. Does not work with shields of any kind.</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Gehennan Morghuth Iron';
-        $mat->type   = 'Metal';
-        $mat->source = '<ul>
+        $mat              = new Material;
+        $mat->name        = 'Gehennan Morghuth Iron';
+        $mat->type        = 'Metal';
+        $mat->source      = '<ul>
     <li>The Outer Plane of Gehenna</li>
 </ul>';
+        $mat->description = '<p>The weathered and pitted look of this metal makes it look to be fragile, but is actually quite strong. The metal is poisonous to the touch. Prolonged exposure will eventually cause 1 Poison damage (1/day). After being refined, it will cause 1 Poison Damage per round it is touched.</p>';
+        $mat->weapon      = '<p>Weapons made with this metal suffers a -1 penalty to damage, but inflicts an additional 1D6 Poison Damage per hit.</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Githsilver';
-        $mat->type   = 'Metal';
-        $mat->source = '<ul>
+        $mat              = new Material;
+        $mat->name        = 'Githsilver';
+        $mat->type        = 'Metal';
+        $mat->source      = '<ul>
     <li>Mountains only found within Githyanki territory in the Astral Plane</li>
 </ul>';
         $mat->description = '<p>Only the Githyanki has knowledge of the process in smelting and forging of Githsilver.</p>';
         $mat->weapon      = '<p>Bladed weapons forged from Githsilver gains the ability to cut the Silver Cord that tethers the target to their Astral Body.</p>';
         $mat->armor       = '<p>Armor forged with Githsilver offers some protection to their Silver Cord from being cut form Githsilver weapons.</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Glassteel';
+        $mat->type        = 'Metal';
+        $mat->price       = '100 gp per lb';
+        $mat->description = '<p>Glassteel is a material that is as strong as steel and as transparent as glass. It lacks the greenish tint of glass, instead gleaming a dull-ish and almost translucent gray. It was as strong as iron but half as heavy. Furthermore, it is fully translucent.</p>
+<p>It is made with a complex metallurgical and alchemical process that also requires extensive knowledge of glassblowing. This technique was discovered by the avariel elves.</p>
+<p>Glassteel is mostly used as a construction material in fantastic castles, but also found use in the windows of armored spelljammers. It was also used to create weapons and armor, though the price was prohibitive.</p>
+<p>Glassteel is immune to Acid.</p>';
+        $mat->armor       = '<p>Replaces the metal. The wearer gains Resistance to Acid damage. A metal shield can be made of glassteel. While it does not provide any resistance to Acid, the shield is transparent, allowing the wielder to see through his shield.</p>';
         $mat->save();
 
         $mat       = new Material;
@@ -290,7 +333,7 @@ class MetalMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Infernal Steel';
-        $mat->description = 'A blood red metal found in the infernal planes which is very resistant and captures the hot and flames';
+        $mat->description = 'A blood red metal found in the infernal planes which is very resistant and captures heat and flames';
         $mat->type        = 'Metal';
         $mat->source      = '<ul>
     <li>The Nine Hells of Baator</li>
@@ -358,7 +401,7 @@ class MetalMaterialsSeeder extends Seeder
     <li>Solaria, the Forth layer of the Outer Plane of Mount Celestia</li>
 </ul>';
         $mat->description = '<p>Mined in the Forth layer of Mount Celestia, this fine silver ore is as strong as steel and shines brightly. It is easily worked into weapons.</p>';
-        $mat->weapon      = '<p>Metal edged weapons made of Solarian Truesteel gain a +1 to Hit and Damage. When it deals a Critical Hit, re-roll all 1\'s.</p>';
+        $mat->weapon      = "<p>Metal edged weapons made of Solarian Truesteel gain a +1 to Hit and Damage. When it deals a Critical Hit, re-roll all 1's.</p>";
         $mat->save();
 
         $mat              = new Material;
@@ -373,15 +416,15 @@ class MetalMaterialsSeeder extends Seeder
         $mat->name        = 'Ysgardian Heartwire';
         $mat->type        = 'Mineral';
         $mat->description = '<p>Ysgardian Heartwire is harvested from the Outer Plane of Ysgard, and too rare to create a whole suit of armor with.  It is instead typically woven in to the armor to reinforce it.</p>';
-        $mat->armor       = '<p>(Chain Mail or any Heavy Armor) Armor that has Ysgardian Heartwire woven into it is strengthened against Critical Hits. Critical Hits scored against you must re-roll any dice that rolled it\'s maximum amount must reroll.</p>';
+        $mat->armor       = "<p>(Chain Mail or any Heavy Armor) Armor that has Ysgardian Heartwire woven into it is strengthened against Critical Hits. Critical Hits scored against you must re-roll any dice that rolled it's maximum amount must reroll.</p>";
         $mat->save();
 
         $mat              = new Material;
-        $mat->name        = 'Zardazik';
+        $mat->name        = 'Zardazil';
         $mat->type        = 'Metal';
         $mat->price       = '100,000 gp';
-        $mat->description = '<p>Zardazik is extremely rare and difficult to work with. During the smelting process, a portal must be opened to the Ethereal Plane. As the steel is smelted, it must be hammered partially within the portal. The resulting steel becomes Zardazik. Zardazik is not magical, and will not be detected by Detect Magic or similar means. It is detectable by Divination that detects the presence of Ethereal beings or magic that can see into the Ethereal Plane.</p>';
-        $mat->weapon      = '<p>The process of forging a weapon with Zardazik requires the blood of at least person. Weapons made with Zardazik is considered Phased out for the person whose blood was used in the forging process. Zardazik weapons also grant a +1 bonus to Hit and Damage.</p>';
+        $mat->description = '<p>Zardazil is extremely rare and difficult to work with. During the smelting process, a portal must be opened to the Ethereal Plane. As the steel is smelted, it must be hammered partially within the portal. The resulting steel becomes Zardazil. Zardazil is not magical, and will not be detected by Detect Magic or similar means. It is detectable by Divination that detects the presence of Ethereal beings or magic that can see into the Ethereal Plane.</p>';
+        $mat->weapon      = '<p>The process of forging a weapon with Zardazil requires the blood of a person. Weapons made with Zardazil is considered Phased out for the person whose blood was used in the forging process (in other words, this person cannot touch it and any attack on this person with this weapon will simply pass through them). For all others, the weapon is treated as normal. Typically, the one whos blood was used can carry the weapon on a non-metallic necklace (causing the weapon to be "inside" the persons chest). The one whos blood was used could use a non-metal glove to wield the weapon.</p>';
         $mat->save();
     }
 }

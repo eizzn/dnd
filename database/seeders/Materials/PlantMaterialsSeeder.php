@@ -17,13 +17,13 @@ class PlantMaterialsSeeder extends Seeder
         $mat              = new Material;
         $mat->name        = 'Ash Chives';
         $mat->description = 'This plant grow in clumps from underground bulbs and produce round, hollow gray leaves';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '10 gp';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Belladonna';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->rarity      = 'Uncommon';
         $mat->description = '<p>Used to create a poison, which can also cure lycanthropy.</p>';
         $mat->save();
@@ -31,7 +31,7 @@ class PlantMaterialsSeeder extends Seeder
         $mat              = new Material;
         $mat->name        = 'Blackleaf Rose';
         $mat->description = '<p>This blood-red rose have a black stem with small reddish thorns</p>';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '40 gp';
         $mat->alchemy     = '<p>Used to craft the poison called Midnight Tears</p>';
         $mat->save();
@@ -54,7 +54,7 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Bloodberry Bush';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->rarity      = 'Uncommon';
         $mat->description = '<p>This bush typically grows where great battles have taken place.</p>';
         $mat->save();
@@ -89,12 +89,18 @@ class PlantMaterialsSeeder extends Seeder
         $mat->other       = '<p>The leaves of the Bluewood (called Blueleaf) and the sap can be crushed to make a bright blue dye. The leaves can also be burned, which causes the fire to burn with a bright blue color.</p>';
         $mat->save();
 
+        $mat         = new Material;
+        $mat->name   = 'Charcoal';
+        $mat->type   = 'Wood';
+        $mat->rarity = 'Ubiquitous';
+        $mat->save();
+
         $mat              = new Material;
         $mat->name        = 'Dragontongue Petals';
         $mat->description = '<p>These golden petals are spicy when eaten, giving a similar effect as drinking firewater</p>';
         $mat->type        = 'Plant or Herb';
         $mat->price       = '10 gp';
-        $mat->alchemy     = '<p>used to craft Potions of Fire Breath</p>';
+        $mat->alchemy     = '<p>Used to craft Potions of Fire Breath</p>';
         $mat->save();
 
         $mat              = new Material;
@@ -134,7 +140,7 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Ebrium Fungus';
-        $mat->description = 'This brown fungus is known by its strong odor and potent poison when dried and grinded';
+        $mat->description = 'This brown fungus is known by its strong odor and potent poison when dried and ground';
         $mat->type        = 'Plant or Herb';
         $mat->price       = '40 gp';
         $mat->alchemy     = '<p>Ebrium Fungus</p>';
@@ -158,13 +164,13 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat         = new Material;
         $mat->name   = 'Fruit';
-        $mat->type   = 'Plant';
+        $mat->type   = 'Plant or Herb';
         $mat->rarity = 'Common';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Habbat';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->rarity      = 'Uncommon';
         $mat->description = '<p>A dark wild grain that grows in the Elemental Plane of Fire.</p>';
         $mat->save();
@@ -188,7 +194,7 @@ class PlantMaterialsSeeder extends Seeder
         $mat              = new Material;
         $mat->name        = 'Leafweave';
         $mat->description = 'Alchemically processed leaves that are hard as leather, used also as camouflage';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '100 gp';
         $mat->other       = '<p>Used to craft the Boots of Elvenkind and the Cloak of Elvenkind</p>';
         $mat->save();
@@ -221,12 +227,12 @@ class PlantMaterialsSeeder extends Seeder
         $mat->description = 'This root have small air bags inside of it, and when the root is squished the air sounds like screams for a few seconds';
         $mat->type        = 'Plant or Herb';
         $mat->price       = '5 gp';
-        $mat->alchemy     = '<p>Used to craft Potions of Thunder Resistance</p>';
+        $mat->alchemy     = '<p>Used to craft Potions of Electricity Resistance</p>';
         $mat->save();
 
         $mat         = new Material;
         $mat->name   = 'Mistletoe';
-        $mat->type   = 'Plant';
+        $mat->type   = 'Plant or Herb';
         $mat->rarity = 'Common';
         $mat->save();
 
@@ -240,13 +246,13 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Qamh';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A soft spongy grass that grows in the Elemental Plane of Fire</p>';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Serpent Tree';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A perpetually bare tree that grows in the Elemental Plane of Fire. They feed entirely off of the heat of the plane as normal plants feed on the energy of the sun.</p>';
         $mat->save();
 
@@ -263,7 +269,7 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Spiritual Wood';
-        $mat->description = 'This cyan-like wood has a natural connection with the magic';
+        $mat->description = 'This cyan-like wood has a natural connection with magic';
         $mat->type        = 'Wood';
         $mat->price       = '250 gp';
         $mat->armor       = '<p>Replaces the metal of any medium or heavy armor. While wearing a spiritual wood armor, you gain a +3 bonus to concentration checks to maintain a spell</p>';
@@ -275,6 +281,14 @@ class PlantMaterialsSeeder extends Seeder
         $mat->type        = 'Plant or Herb';
         $mat->price       = '40 gp';
         $mat->alchemy     = '<p>Used to craft Potions of Superior Healing</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Thundertree';
+        $mat->description = 'This tree produces the Thunderleaf. The wood from this plant is sometimes used to craft wooden magical items related to electricity';
+        $mat->type        = 'Plant or Herb';
+        $mat->price       = '20 gp';
+        $mat->alchemy     = '<p>Used to craft Wands and Staves related to electricity</p>';
         $mat->save();
 
         $mat              = new Material;
@@ -296,33 +310,33 @@ class PlantMaterialsSeeder extends Seeder
         $mat              = new Material;
         $mat->name        = 'Ucre Bramble';
         $mat->description = 'A white rough tangled prickly shrub with thorny stems that grows in almost every plain, no matter the temperature';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '5 gp';
-        $mat->alchemy     = '<p>Used to craft Potions of Radiant Resistance</p>';
+        $mat->alchemy     = '<p>Used to craft Potions of Positive Energy Resistance</p>';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Umbellin';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A spicy brown bean that grows in the Elemental Plane of Fire.</p>';
         $mat->save();
 
         $mat         = new Material;
         $mat->name   = 'Vegetable';
-        $mat->type   = 'Plant';
+        $mat->type   = 'Plant or Herb';
         $mat->rarity = 'Common';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Verdobba';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A Nutty dark purple tuber that grows in the Elemental Plane of Fire.</p>';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Wisp Stems';
         $mat->description = 'This tiny flower looks like a bright blue dandelion seed head. Even though it looks pretty, the stem is the only usable part for alchemical concoctions';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '40 gp';
         $mat->alchemy     = '<p>Used to craft Potions of Vitality</p>';
         $mat->save();
@@ -330,21 +344,21 @@ class PlantMaterialsSeeder extends Seeder
         $mat              = new Material;
         $mat->name        = 'White Poppy';
         $mat->description = 'A beautiful white flower that grows up to 4 feet tall and having 5 petals, giving it a small star shape';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->price       = '10 gp';
-        $mat->alchemy     = '<p>Used to craft Potions of Growth</p>';
+        $mat->alchemy     = '<p>Used to craft Potions of Growth and Shrink</p>';
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Wolfsbane';
-        $mat->type        = 'Plant';
+        $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A flowering plant found both in the Prime Material and the Feywild.</p>
 <p>A bundle of Wolfsbane is usually enough to keep lycanthropes at bay.</p>';
         $mat->save();
 
         $mat         = new Material;
         $mat->name   = 'Zalantar';
-        $mat->type   = 'Plant';
+        $mat->type   = 'Plant or Herb';
         $mat->rarity = 'Rare';
         $mat->source = '<ul>
     <li>Shaar</li>

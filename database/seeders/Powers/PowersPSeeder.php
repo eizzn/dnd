@@ -72,7 +72,7 @@ class PowersPSeeder extends Seeder
         $power->duration    = '1 round';
         $power->description = '<p>You raise a mental defense that grants a +3 bonus to CON and WIS Saves and gain Resistance to all Psionic Combat damage.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus to CON Saves by +1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 2);
@@ -108,9 +108,10 @@ class PowersPSeeder extends Seeder
         $power->save_attribute = 'WIS';
         $power->description    = '<p>You disrupt mental ability in a cone shaped blast. All in the area must make a WIS Save or be stunned.</p>';
         $power->saves          = '<dl>
-    <dt>Success</dt> <dd>No effect</dd>
-    <dt>Failure</dt> <dd>Stunned for 1 round</dd>
-    <dt>Critical Failure</dt> <dd>Stunned for 3 rounds</dd>
+    <dt>Critical Success</dt> <dd>No effect</dd>
+    <dt>Success</dt> <dd>Dazed: 1</dd>
+    <dt>Failure</dt> <dd>Stunned: 1</dd>
+    <dt>Critical Failure</dt> <dd>Stunned: 3</dd>
 </dl>';
         $power->heightened = '<dl>
     <dt>Heightened (+3)</dt> <dd>If the target fails their Save, they gained the Sluggish 2 condition for 2 rounds.</dd>

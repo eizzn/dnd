@@ -15,7 +15,7 @@ trait SaveableTrait
 {
     public function saves(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Attribute::class, 'savable')
-            ->withPivot('level', 'meta');
+        return $this->morphToMany(Attribute::class, 'savable')
+            ->withPivot('bonus', 'meta');
     }
 }

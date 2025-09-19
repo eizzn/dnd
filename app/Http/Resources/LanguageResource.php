@@ -15,10 +15,10 @@ class LanguageResource extends JsonResource
             'name'        => $this->name,
             'type'        => $this->type,
             'description' => $this->description,
-            'alphabet'    => [
+            'alphabet'    => $this->alphabet_id ? [
                 'id'   => $this->alphabet->id,
                 'name' => $this->alphabet->name,
-            ],
+            ] : null,
             'family'      => $this->family,
             'local'       => $this->local,
             'speakers'    => $this->speakers,

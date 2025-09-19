@@ -29,7 +29,7 @@ class ClassDivinePrestigeSeeder extends Seeder
             'Skills' => '8 or more ranks in Religion',
             'Feats'  => 'At least 1 Exalted or Vile Feat',
             'Spells' => 'Able to cast at least 2 Divination Spells',
-            'Patron' => 'You must have a Patron Deity with the Prophecy Domain',
+            'Patron' => 'You must have a Patron Deity that specifically lists the Divine Oracle in their Worshiper Classes',
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 6,
@@ -74,7 +74,7 @@ class ClassDivinePrestigeSeeder extends Seeder
                 'Reveal Illusion', ],
             4 => ['Commune with Texts', 'Detect Scrying', 'Divination', 'Locate Creature', 'Speak with Plants'],
             5 => ['Chronicle', 'Commune', 'Legend Lore', 'Scrying', 'Trace Teleport', 'Watchware'],
-            6 => ['Stone Tell', 'True Seeing'],
+            6 => ['Commune with Earth', 'True Seeing'],
             8 => ['Discern Location'],
             9 => ['Foresight'],
         ]);
@@ -88,7 +88,7 @@ class ClassDivinePrestigeSeeder extends Seeder
         $class->requirements  = $helper->getClassRequirementsString([
             'Skills'       => '5 or more ranks in Diplomacy, 8 or more ranks in Religion',
             'Spellcasting' => 'Able to cast 4th level Divine spells, ability to summon extra-planer servants of your patron deity',
-            'Patron'       => 'You must have a Patron Deity',
+            'Patron'       => 'You must have a Patron Deity that specifically lists the Divine Oracle in their Worshiper Classes',
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 4,
@@ -105,13 +105,13 @@ class ClassDivinePrestigeSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'sacred_defense';
         $feature->name        = 'Sacred Defense';
-        $feature->description = '<p>Each time you gain this feature, you gain a +2 Divine bonus to your Saves vs magical effects from Outsiders and Extraplaner effects.</p>';
+        $feature->description = '<p>Each time you gain this feature, you gain a +2 Divine bonus to your Saves vs magical effects from Outsiders and Extraplanar effects.</p>';
         $helper->saveFeature($feature, ['Divine', 'Outsider']);
 
         $feature              = new Feature;
         $feature->key         = 'imbue_spell_ability';
         $feature->name        = 'Imbue with Spell Ability';
-        $feature->description = '<p>As the spell, except you do not need to sacrifice a Spell Slot to activate this ability. The only limit to the number of spells you can transfer is your available Spell Slots.</p>';
+        $feature->description = '<p>As the spell, at Will, except you do not need to use a Spell Slot to cast Imbue with Spell Ability. You do lose the Spell Slots for the transferred spell as normal.</p>';
         $helper->saveFeature($feature, ['Divine']);
 
         $feature              = new Feature;

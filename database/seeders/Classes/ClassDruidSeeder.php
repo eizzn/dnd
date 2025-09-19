@@ -41,26 +41,26 @@ class ClassDruidSeeder extends Seeder
         ]);
 
         $helper->addSpellSlotsToClass($class, [
-            1  => ['cantrips' => 2, 'zero' => 4],
-            2  => ['cantrips' => 2, 'zero' => 4, 'one' => 2],
-            3  => ['cantrips' => 2, 'zero' => 5, 'one' => 3],
-            4  => ['cantrips' => 3, 'zero' => 5, 'one' => 4, 'two' => 2],
-            5  => ['cantrips' => 3, 'zero' => 5, 'one' => 4, 'two' => 3],
-            6  => ['cantrips' => 3, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 2],
-            7  => ['cantrips' => 3, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3],
-            8  => ['cantrips' => 3, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 1],
-            9  => ['cantrips' => 3, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 2],
-            10 => ['cantrips' => 4, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 1],
-            11 => ['cantrips' => 4, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2],
-            12 => ['cantrips' => 4, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            13 => ['cantrips' => 4, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            14 => ['cantrips' => 4, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            15 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            16 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
-            17 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
-            18 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
-            19 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
-            20 => ['cantrips' => 4, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
+            1  => ['cantrips' => 2, 'zero' => 3],
+            2  => ['cantrips' => 2, 'zero' => 3, 'one' => 1],
+            3  => ['cantrips' => 2, 'zero' => 4, 'one' => 2],
+            4  => ['cantrips' => 3, 'zero' => 4, 'one' => 3, 'two' => 1],
+            5  => ['cantrips' => 3, 'zero' => 4, 'one' => 3, 'two' => 2],
+            6  => ['cantrips' => 3, 'zero' => 5, 'one' => 3, 'two' => 2, 'three' => 1],
+            7  => ['cantrips' => 3, 'zero' => 5, 'one' => 3, 'two' => 2, 'three' => 2],
+            8  => ['cantrips' => 3, 'zero' => 5, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 1],
+            9  => ['cantrips' => 3, 'zero' => 5, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 2],
+            10 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 2, 'five' => 1],
+            11 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 2, 'five' => 2],
+            12 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 3, 'five' => 2, 'six' => 1],
+            13 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 2, 'three' => 2, 'four' => 3, 'five' => 2, 'six' => 1],
+            14 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 2, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            15 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 2, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            16 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
+            17 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
+            18 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
+            19 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
+            20 => ['cantrips' => 4, 'zero' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
         ]);
 
         $feature              = new Feature;
@@ -85,7 +85,7 @@ class ClassDruidSeeder extends Seeder
         $helper->saveFeature($feature, ['Wild Shape']);
 
         $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20],
+            'class_group_feat' => [3, 5, 9, 15, 18],
             'favored_terrain'  => [1],
             'wild_empathy'     => [1],
             'wild_shape'       => [2],
@@ -95,19 +95,18 @@ class ClassDruidSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             0 => ['Control Flames', 'Dancing Lights', 'Detect Magic', 'Druidcraft', 'Frostbite', 'Hydraulic Blast', 'Infestation',
                 'Know Direction', 'Light', 'Magic Fang', 'Magic Stone', 'Mold Earth', 'Naturewatch', 'Pest Form', 'Produce Flame',
-                'Ray of Frost', 'Resistance', 'Shape Water', 'Tanglefoot', 'Thorn Whip', ],
+                'Ray of Frost', 'Resistance', 'Shape Water', 'Summon Animal, Lesser', 'Tanglefoot', 'Thorn Whip', ],
             1 => ['Air Bubble', 'Animal Friendship', 'Animate Water', 'Beast Bond', 'Calm Animals', 'Climb', 'Create or Destroy Water',
-                'Chromatic Ray', 'Cloak of Shade', 'Contagion', 'Cooling Breeze', 'Cure Wounds', 'Detect Animals or Plants',
-                'Detect Crossroads', 'Detect Poison', 'Detect Snares and Pits', 'Earth Tremor', 'Enchant Item', 'Gaze Screen',
-                'Goodberry', 'Gust of Wind', 'Jump', 'Hide from Animals', 'Hidden Spring', 'Horrible Taste', 'Ice Armor',
-                "Impede Sun's Brilliance", 'Leaf into Dagger', 'Locate Animals or Plants', 'Locate Water', 'Longstrider',
-                'Mending', "Nature's Favor", 'Negate Aroma', 'Pass Without Trace', 'Purify Food and Drink', 'Remove Disease',
-                'Remove Scent', 'Shillelagh', 'Silvered Claws', 'Shocking Grasp', 'Snare', 'Sticks and Stones', 'Summon Animals',
-                'Summon Elemental, Lesser', ],
+                'Chromatic Ray', 'Cloak of Shade', 'Contagion', 'Cure Wounds', 'Detect Animals or Plants', 'Detect Poison',
+                'Detect Snares and Pits', 'Earth Tremor', 'Enchant Item', 'Gaze Screen', 'Goodberry', 'Gust of Wind', 'Jump',
+                'Hide from Animals', 'Hidden Spring', 'Horrible Taste', 'Ice Armor', "Impede Sun's Brilliance", 'Leaf into Dagger',
+                'Locate Animals or Plants', 'Locate Water', 'Longstrider', 'Mending', "Nature's Favor", 'Negate Aroma',
+                'Pass Without Trace', 'Purify Food and Drink', 'Remove Disease', 'Remove Scent', 'Shillelagh', 'Silvered Claws',
+                'Shocking Grasp', 'Snare', 'Sticks and Stones', 'Summon Animals', 'Summon Elemental, Lesser', 'Weather Sense', ],
             2 => ['Absorb Elements', 'Air Sphere', 'Animal Form', 'Animal Messenger', 'Animal Sense', 'Barkskin', "Bear's Endurance",
                 "Bull's Strength", "Cat's Grace", 'Chameleon', 'Cloud Wings', 'Cloudburst', 'Continual Flame', 'Create Food and Water',
-                'Darkness', 'Darkvision', 'Delay Poison', 'Dispel Fog', "Eagle's Splendor", 'Easy Trail', 'Endure Elements',
-                'Enlarge', 'Entangle', 'Erupting Earth', 'Evergreen', 'Faerie Fire', "Fox's Cunning", 'Heat Metal', 'Lay of the Land',
+                'Darkness', 'Darkvision', 'Delay Poison', "Eagle's Splendor", 'Easy Trail', 'Endure Elements', 'Enlarge',
+                'Entangle', 'Erupting Earth', 'Evergreen', 'Faerie Fire', "Fox's Cunning", 'Heat Metal', 'Lay of the Land',
                 'Leap Into Animal', 'Obscuring Mist', "Owl's Wisdom", 'Plant Renewal', 'Pyrotechnics', 'Rain', 'Ripen Plant',
                 'Repel Plants', 'Resist Elements', 'Resist Poison', 'Restoration', 'Shape Wood', 'Shrink', 'Speak with Animals',
                 'Spider Climb', 'Stone Sphere', 'Tree Shape', 'Tremorsense', 'Water Breathing', 'Water Walk', 'Warding Wind',
@@ -117,15 +116,15 @@ class ClassDruidSeeder extends Seeder
                 "Nature's Rampart", 'Neutralize Poison', 'Nondetection', 'Plant Growth', 'Poison', 'Protection From Elements',
                 'Searing Light', 'Shrink Plant', 'Slow', 'Snake Arm', 'Stinking Cloud', 'Vitality Shield', 'Wall of Thorns',
                 'Wall of Wind', ],
-            4 => ['Air Walk', 'Antiplant Shell', 'Call Animal', 'Calm Air', 'Ceremony', 'Eradicate Air', 'Eradicate Earth',
-                'Eradicate Fire', 'Eradicate Water', 'Fly', 'Giant Vermin', 'Hallucinatory Terrain', 'Ice Storm', 'Land Womb',
-                'Locate Creature', 'Polymorph', 'Shape Stone', 'Solid Fog', 'Speak with Plants', 'Stoneskin', 'Summon Woodland Beings',
-                'Watery Sphere', ],
+            4 => ['Air Walk', 'Animal Transfer', 'Antiplant Shell', 'Call Animal', 'Calm Air', 'Ceremony', 'Eradicate Air',
+                'Eradicate Earth', 'Eradicate Fire', 'Eradicate Water', 'Fly', 'Giant Vermin', 'Hallucinatory Terrain', 'Ice Storm',
+                'Land Womb', 'Locate Creature', 'Polymorph', 'Shape Stone', 'Solid Fog', 'Speak with Plants', 'Stoneskin',
+                'Summon Woodland Beings', 'Watery Sphere', ],
             5  => ['Acid Rain', 'Animate Plants', 'Atonement', 'Awaken', 'Cloudkill', 'Control Water', 'Hibernate', 'Ironwood',
                 'Maelstrom', 'Passwall', 'Reincarnate', 'Summon Elemental', 'Summon Fey', 'Tree Stride', 'Wall of Ice',
                 'Wall of Stone', 'Wrath of Nature', ],
-            6  => ['Baleful Polymorph', 'Bones of the Earth', 'Druid Grove', 'Fire Seeds', 'Flesh to Stone', 'Oasis', 'Poison Vines',
-                'Liveoak', 'Stone Tell', 'Stone to Flesh', ],
+            6  => ['Baleful Polymorph', 'Bones of the Earth', 'Commune with Earth', 'Druid Grove', 'Fire Seeds', 'Flesh to Stone',
+                'Oasis', 'Poison Vines', 'Liveoak', 'Stone to Flesh', ],
             7  => ['Harm', 'Heal', 'Regenerate', 'Sunburst', 'Volcanic Eruption', 'Whirlwind'],
             8  => ['Cocoon', 'Control Plants', 'Control Weather', 'Earthquake', 'Polar Ray', 'Punishing Winds', 'Shambler',
                 'Wind Walk', ],
@@ -268,8 +267,9 @@ class ClassDruidSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             1 => ['Animate Wood'],
             3 => ['Forest Eyes', 'Forest Voice'],
+            4 => ['Healing Tree'],
             6 => ['Forest Child', 'Treantstaff'],
-            7 => ['Create Crossroads and Backroads', 'Rite of Thorns'],
+            7 => ['Rite of Thorns'],
         ]);
         $helper->addPowersToFeat($feat, [
             1 => ['Awareness', 'Distract', 'Thicken Skin', 'Strength Blast', 'Vitality Blast', 'Wisdom Defense'],
@@ -287,8 +287,8 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'You must be Good, and Mielikki must be your Patron deity';
         $feat->description = '<ul>
     <li>You may use your Wild Shape ability to cast the spell Aerial Form but to polymorph into a Swanmay.</li>
-    <li>You can use 4th level Spell Slot to form an Animal Companion bond with a Pegasus (or a 2nd level Ranger Spell Slot).</li>
-    <li>You can use a 7th level Spell Slot to form an Animal Companion bond with a Unicorn (or a 4th level Ranger Spell Slot).</li>
+    <li>You can use a 4th level Spell Slot to form an Animal Companion bond with a Pegasus (or a 3rd level Ranger Spell Slot).</li>
+    <li>You can use a 6th level Spell Slot to form an Animal Companion bond with a Unicorn (or a 4th level Ranger Spell Slot).</li>
     <li>You may cast the spell Fey Form to transform into a Pegasus or Unicorn only.</li>
     <li>Add the spells this feat grants to both your Druid and Ranger spell lists.</li>
 </ul>';
@@ -296,7 +296,6 @@ class ClassDruidSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             2 => ['Fey Form' => 'Pegasus or Unicorn only'],
             3 => ['Unicorn Stead'],
-            7 => ['Create Crossroads and Backroads'],
         ]);
         $feat->features()->save(app()->features['wild_shape']);
         $feat->features()->save(app()->features['favored_enemy']);
@@ -327,13 +326,15 @@ class ClassDruidSeeder extends Seeder
     <li>
         <ul>
             <li>When you cast the Fey Form spell, it is automatically Heightened by +1</li>
-            <li>You may only transform into a Worgs, Yeth Hounds, Chimera, Displacer Beast, or Manticore only when casting Fey Form (you must Heighten the spell high enough to meet the CR requirement)</li>
+            <li>You may only transform into Worgs, Yeth Hounds, Chimera, Displacer Beasts, or Manticores only when casting Fey Form (you must Heighten the spell high enough to meet the CR requirement)</li>
         </ul>
     </li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
-            2 => ['Fey Form' => 'Worgs, Yeth Hounds, Chimera, Displacer Beast, or Manticore only', 'Scent', 'Blood Lust'],
+            2 => ['Fey Form' => 'Worgs, Yeth Hounds, Chimera, Displacer Beast, or Manticore only', 'Scent', 'Blood Lust',
+                'Rage', ],
+            4 => ['Unholy Beast'],
             5 => ['Monstrous Regeneration'],
             8 => ['Were-doom'],
         ]);
@@ -369,9 +370,9 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Channel Divinity']);
         $helper->addSpellsToFeat($feat, [
-            1 => ['Animate Wood', 'Barkskin' => 'Requires 1 Spell Point to cast as 1st level spell',
+            1 => ['Animate Wood', 'Barkskin' => 'Requires 1 Spell Point to cast as a 1st level spell',
                 'Entangle' => 'Requires 1 Spell Point to cast as 1st level spell', ],
-            2 => ['Consecrate' => 'Only farmlands', 'Plant Growth'],
+            2 => ['Consecrate' => 'Only farmlands', 'Favor of Chauntea', 'Plant Growth'],
         ]);
         $feat->features()->save(app()->features['wild_shape']);
 
@@ -479,7 +480,7 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($touch, ['Cold', 'Primal', 'Channel Divinity']);
         $helper->addSpellsToFeat($touch, [
-            0 => ['Chill Touch', 'Fist of Ice'],
+            0 => ['Fist of Ice'],
             1 => ['Armor of Frost', 'Frost Fingers', 'Ice Knife', 'Ice Slick', 'Snow Boots', 'Snow Sight'],
         ]);
 
@@ -537,12 +538,13 @@ class ClassDruidSeeder extends Seeder
 <ul>
     <li>You gain the formulas for 4 Poison recipes.</li>
     <li>You gain a +2 bonus to Craft checks for making Poisons.</li>
-    <li>You gain a +2 Save bonus vs Disease and Poison.</li>
+    <li>You have Advantage on all Saves vs Poison or Disease.</li>
     <li>You may use your Wild Shape ability to cast the Contagion spell.</li>
     <li>You may use Assassin Spell Slots to cast Druid spells and Druid Spell Slots to cast Assassin spells</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
+            0 => ['Poison Spray', 'Poison Touch'],
             2 => ['Delay Disease'],
         ]);
         $feat->features()->save(app()->features['wild_shape']);
@@ -632,7 +634,7 @@ class ClassDruidSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             0 => ['Oilskin'],
             1 => ['Land Legs', 'Quick Swim', 'Sea Legs'],
-            2 => ['Buoyancy', 'Feet to Fins', 'Lead Anchor', 'Neutral Buoyancy', 'Pressure Resistance', 'Water Whip'],
+            2 => ['Buoyancy', 'Feet to Fins', 'Lead Anchor', 'Pressure Resistance', 'Water Whip'],
         ]);
 
         $feat              = new Feat;
@@ -647,7 +649,6 @@ class ClassDruidSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             3 => ['Cloak of the Sea', 'Quench', 'Undersea Current'],
             4 => ['Ride the Waves', 'Sargasso', 'Watery Form'],
-            7 => ['Create Crossroads and Backroads'],
         ]);
 
         $feat              = new Feat;
@@ -688,7 +689,7 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
-            5 => ['Cloudkill', 'Ooze Form'],
+            5 => ['Cloudkill', 'Seed of Moander', 'Ooze Form'],
         ]);
         $feat->parent_feats()->save(app()->feats["Moander's Rot"]);
 
@@ -772,6 +773,7 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
+            1 => ['Breath of the Jungle'],
             5 => ['Susurrus of the City'],
             8 => ['Maze'],
         ]);

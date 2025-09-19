@@ -38,7 +38,8 @@ onMounted(fetchArmorDetails);
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ condition?.name || "Condition Details" }}</span>
+                <span>Condition:</span><br/>
+                <span>{{ condition?.name }}</span>
             </h2>
         </template>
 

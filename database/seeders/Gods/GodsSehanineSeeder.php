@@ -46,14 +46,26 @@ class GodsSehanineSeeder extends Seeder
             'favored_weapon' => 'The Wand of Four Moons (Heavy Mace)',
         ]);
 
+        $helper->addClassesToGod($god, 'Seldarine', [
+            'Cleric'        => 20,
+            'Wizard'        => 20,
+            'Spirit Shaman' => 5,
+        ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Cleric'        => 20,
+            'Wizard'        => 20,
+            'Spirit Shaman' => 10,
+        ]);
+
         // Priest of Selune
         $class                = new Klass;
-        $class->name          = 'Priest of Selune';
+        $class->name          = 'Moon Priest';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
-        $class->weapons       = 'Simple Weapons';
+        $class->weapons       = 'Simple Weapons and Short Bows';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Sehanine and Selune</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 4,
@@ -61,20 +73,16 @@ class GodsSehanineSeeder extends Seeder
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);
+        $helper->addWorshipClassesToGod($god, 'Seldarine', [
+            $class->name, 'Favored Soul', 'Adventurer', 'Divine Oracle',
+        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Favored Soul', 'Adventurer',
+            $class->name, 'Favored Soul', 'Adventurer', 'Divine Oracle',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, [
             'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
-        ]);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-        ]);
-        $class->features()->save(app()->features['favored_enemy'], [
-            'level' => 5,
-            'meta'  => 'Minions of Shar',
         ]);
         $class->features()->save(app()->features['silvered_weapon'], [
             'level' => 3,
@@ -89,16 +97,16 @@ class GodsSehanineSeeder extends Seeder
             1 => ['Alleviate Addiction', 'Bless', 'Cure Wounds', 'Ease Pain', 'Exorcism', 'Lantern Light', 'Magic Weapon',
                 'Moonbeam', 'Nimbus of Light', 'Protection From Lycanthropes', 'Ray of Light', 'Remove Disease', 'Sanctuary', ],
             2 => ['Abeyance', 'Augury', 'Calm Emotions', 'Consecrate', 'Countermoon', 'Create Food and Water', 'Darkvision',
-                'Discern Shapechanger', 'Endure Elements', 'Faerie Fire', 'Force Shapechange', 'Glorious Raiment', 'Remove Fear',
-                'Resist Elements', 'See Invisibility', 'Status', 'Obscuring Mist', 'Undead Bane Weapon', ],
+                'Discern Shapechanger', 'Endure Elements', 'Faerie Fire', 'Force Shapechange', 'Glorious Raiment', 'Luminous Armor',
+                'Remove Fear', 'Resist Elements', 'See Invisibility', 'Status', 'Obscuring Mist', 'Undead Bane Weapon', ],
             3  => ['Abolish Shadows', 'Diamond Spray', 'Dispel Magic', 'Dream Message', 'Faithful Healing', "Heart's Ease",
                 'Moon Blade', 'Neutralize Poison', 'Prayer', 'Radiance', 'Sanctified Ground', 'Searing Light', 'Zone of Truth', ],
             4  => ['Dimensional Anchor', 'Life Ward', 'Read Omens', 'Remove Curse', 'Sacred Item', 'Stars of Selune', 'Spell Immunity',
-                'Sunmantle', 'True Form', ],
+                'Sunmantle', 'True Form', 'Wall of Moonlight', ],
             5  => ['Atonement', 'Banishment', 'Healing Circle', 'Moonbow', 'Purifying Light', 'Sending', 'Stalwart Covenant',
                 'Sustain', 'Tomb of Light', ],
             6  => ['Heal', 'Raise Dead', 'True Seeing'],
-            7  => ['Dimensional Lock', 'Plane Shift', 'Radiant Assault', 'Renewal Pact'],
+            7  => ['Dimensional Lock', 'Plane Shift', 'Radiant Assault', 'Renewal Pact', 'Word of Chaos'],
             8  => ['Discern Location', 'Last Judgment', 'Screen' => 'Only at night'],
             9  => ['Blinding Glory', 'Foresight', 'Moonfire', 'Spell Shift'],
             10 => ['Miracle'],
@@ -111,7 +119,7 @@ class GodsSehanineSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Seldarine']->id,
-            'favor'       => "<p>Sehanine's favour is bestowed on any who truly need it, seeping into their dreams to warn them of dangers to come. Sehanine's blessing most often falls on elves, but could wend its way to any creature she deems wanting of her wisdom.</p>
+            'favor'       => "<p>Sehanine's favour is bestowed on any who truly need it, seeping into their dreams to warn them of dangers to come. Sehanine's blessing most often falls on elves, but could wind its way to any creature she deems wanting of her wisdom.</p>
 <p>Sehanine's scions are those who appreciate her innate mystery and complexity. Not all questions were meant to be answered, and those who walk the path of Sehanine understand that the beauty of the riddle far exceeds any solution to it.</p>
 <ol>
     <li>You dreamed of Sehanine, once. Or she dreamed of you. Perhaps there's little difference</li>

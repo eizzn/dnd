@@ -110,10 +110,13 @@ watch(
             <td class="px-4 py-2 border border-gray-300">
                 <ul>
                     <li v-for="feature in klass.features[level]" :key="feature.id">
-                        {{ feature.name }}
-                        <span v-if="feature.meta">
+                        <NavLink :href="`/feature/${feature.id}`">{{ feature.name }}</NavLink>
+                        <span class="text-sm" v-if="feature.meta">
                             <span v-if="feature.name === 'Feat'">
                                 <NavLink :href="`/feats?name=${feature.meta}`">({{ feature.meta }})</NavLink>
+                            </span>
+                            <span v-else-if="feature.key === 'channel_divinity_caster'" class="text-xs">
+                                <span v-html="feature.meta"></span>
                             </span>
                             <span v-else>
                                 ({{ feature.meta }})

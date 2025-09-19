@@ -40,7 +40,6 @@ class ClassScoutSeeder extends Seeder
         $helper->addFeaturesToClass($class, [
             'class_group_feat' => [4, 10, 15, 18, 20],
             'fighter_feat'     => [3, 7, 12, 17],
-            'skill_feat'       => [1, 7, 13, 19],
             'skirmish'         => [2, 5, 9, 13, 17],
             'surprise_attack'  => [1],
             'combat_mastery'   => [7],

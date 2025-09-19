@@ -82,7 +82,7 @@ class SpellsUSeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>You can apply this ritual to an additional undead.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Ritual'], 5);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Ritual'], 6);
         $spell->skills()->save(app()->skills['Religion'], ['dc' => 15]);
         $spell->skills()->save(app()->skills['Arcana'], ['dc' => 15]);
 
@@ -139,6 +139,34 @@ class SpellsUSeeder extends Seeder
         $spell->materials()->save(Material::where('name', 'Onyx')->firstOrFail(), ['price' => '50 gp per HD of the subject creature at the time the spell is cast', 'meta' => "Placed in the subject's mouth"]);
 
         $spell              = new Spell;
+        $spell->name        = "Undeath's Eternal Foe";
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Creature Touched';
+        $spell->duration    = '10 minutes';
+        $spell->description = '<p>You grant the Target special abilities against the undead.</p>
+<ul>
+    <li>Immunity to Negative Damage</li>
+    <li>
+        Immunity to special attacks from Undead that causes the following.
+        <ul>
+            <li>Ability Damage</li>
+            <li>Ability Drain</li>
+            <li>Disease</li>
+            <li>Poison</li>
+        </ul>
+    </li>
+    <li>You may make melee and ranged attacks against ethereal or incorporeal undead as if you had Ghost Touch</li>
+    <li>You gain a +4 Deflection Bonus to AC against all attacks vs Undead.</li>
+    <li>You gain a +5 Deflection Bonus to Damage Reduction against all attacks vs Undead.</li>
+</ul>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Good'], 6);
+
+        $spell              = new Spell;
         $spell->name        = 'Undersea Current';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '200 feet, 30-foot radius globe';
@@ -147,6 +175,32 @@ class SpellsUSeeder extends Seeder
         $spell->description = "<p>When this spell is cast, all affected creatures feel a current flow around them, moving them faster. They all move at 150% (round fractions up) of the Swim Speed of the fastest creature's Swim Speed. All those within the current must stay within a 30-foot radius, the fastest in the lead with all others swimming in their wake.</p>
 <p>If this Speed, is more than twice an affected person's normal speed, such characters suffer a -6 DEX penalty against dodging any obstacles while under the effects of this current. If the lead swimmer stops moving, the current ends permanently, but any other person under its effects can cancel its effect merely by swimming outside the area of effect. The maximum number of characters affected is equal to 10.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Undersong';
+        $spell->casting     = 'Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = 'Concentration, up to 1 hour';
+        $spell->description = '<p>When you cast this spell, a familiar and soothing song wells up in your mind. The song does not distract you from any task, on the contrary, by humming along to the tune you can focus your mind with ease.</p>
+<p>As long as this spell is in effect, you can use your Perform skill check to replace any Concentration check. You must decide which skill to use before any check is made.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 0);
+
+        $spell                = new Spell;
+        $spell->name          = 'Understand Device';
+        $spell->casting       = '1 minute (Somatic, Verbal)';
+        $spell->spell_creator = 'Gond';
+        $spell->targets       = 'Self';
+        $spell->duration      = '10 minutes';
+        $spell->description   = '<p>You gain an intuitive insight into the weaknesses and flaws of mechanical objects. You gain the following.</p>
+<ul>
+    <li>You are able to know the basic purpose of a mechanical device (not magical abilities), what it is able to do. This reveals any mechanical traps connected to the device, or if the device itself is one elaborate trap. It does not reveal any magical traps.</li>
+    <li>You can make Untrained Disable Device checks as if you had 1 rank in the skill. If you already have that skill, you gain a +4 Competence bonus to the check</li>
+    <li>If the device is a Construct, you gain a +4 Competence Bonus to hit, ignore any Damage Reduction, and deal an additional +10 Damage to any Melee Weapon or Ranged Weapon attack you make.</li>
+</ul>';
+        $spell->heightened    = "<dl>
+    <dt>Heightened (+3)</dt> <dd>You learn the formula for creating the device (GM's discretion)</dd>
+</dl>";
+        $helper->addTypesToSpell($spell, ['Divination', 'Ritual'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Undetectable Alignment';
@@ -158,6 +212,22 @@ class SpellsUSeeder extends Seeder
         $spell->description = '<p>The target registers as neutral to all effects that would detect its alignment.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 2);
 
+        $spell               = new Spell;
+        $spell->name         = 'Unheavened';
+        $spell->casting      = 'Somatic Casting, Verbal Casting, Drug';
+        $spell->requirements = '<dl>
+    <dt>Drug</dt> <dd>The Target must use an Action must be used to take the drug Vodare</dd>
+</dl>';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Creature Touched';
+        $spell->duration    = 'While the Drugs effect lasts';
+        $spell->description = "<p>Powered by the drug's effects, the Target gains the following</p>
+<ul>
+    <li>+4 Profane Bonus to all Saves vs Spells with the Good Type or from casters with the Good Type.</li>
+</ul>
+<p>This protection manifests as a black and red nimbus of energy visible around the Target. All celestial beings can identify an Unheavened numbus on sight.</p>";
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Evil'], 2);
+
         $spell                 = new Spell;
         $spell->name           = 'Unholy Aura';
         $spell->casting        = 'Material Casting, Somatic Casting, Verbal Casting';
@@ -167,8 +237,8 @@ class SpellsUSeeder extends Seeder
         $spell->duration       = 'Concentration, up to 1 minute';
         $spell->description    = '<p>A random pattern of colors surrounds the target, granting the following effects.</p>
 <ul>
-    <li>+3 Deflection bonus to AC</li>
-    <li>+3 resistancence bonus to all Saves</li>
+    <li>+3 Deflection Bonus to AC</li>
+    <li>+3 Divine Bonus to all Saves</li>
     <li>You are treated as having the Improved Evasion feat against all spells cast by Good outsiders and all spell effects that are from a Good source.</li>
     <li>Protection from Possession and Mental Influence</li>
     <li>If a Good creature succeeds on a Melee attack against the target of the Unholy Aura, the Good creature takes 1D6 STR damage, STR Save negates.</li>
@@ -179,6 +249,31 @@ class SpellsUSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Evil'], 7);
         $spell->materials()->save(Material::where('name', 'Reliquary')->firstOrFail(), ['price' => '500 gp']);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Unholy Beast';
+        $spell->casting        = 'Somatic Casting';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '30 feet';
+        $spell->targets        = 'One animal of 4 HD or less';
+        $spell->duration       = '1 minute';
+        $spell->description    = '<p>When you cast this spell, the Target animal temporarily transforms into a being of evil, serving you for the Duration. The animal gains the following</p>
+<ul>
+    <li>Limbs and face contorts, sprouting tusks and its eyes turn black</li>
+    <li>+2 to STR, DEX, and CON</li>
+    <li>+2 to Damage Reduction</li>
+    <li>The animals Natural Attacks all deal an additional die of damage.</li>
+</ul>
+<p>The Target serves you as if it were your Animal Companion for the Duration.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Affected</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
+    <dd>Heightened (+1)</dd> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Evil'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Unicorn Stead';
@@ -195,6 +290,15 @@ class SpellsUSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Conjuration', 'Calling'], 3);
 
         $spell              = new Spell;
+        $spell->name        = 'Unluck';
+        $spell->casting     = 'Verbal Casting';
+        $spell->range       = '30 feet';
+        $spell->targets     = 'One creature within Range';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>The Target suffers Disadvantage on all Attacks for the Duration</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 4);
+
+        $spell              = new Spell;
         $spell->name        = 'Unseen Thief';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
@@ -209,18 +313,56 @@ class SpellsUSeeder extends Seeder
 </dl>";
         $helper->addTypesToSpell($spell, ['Conjuration'], 5);
 
+        $spell              = new Spell;
+        $spell->name        = 'Unmovable';
+        $spell->casting     = 'Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>You bind yourself to the earth, making yourself unmovable so long as you are in contact with the earth. While this spell is active, you gain the following.</p>
+<ul>
+    <li>+2 STR</li>
+    <li>+4 CON</li>
+    <li>+4 Damage Reduction</li>
+    <li>+10 Bonus to resist Bull Rush and Trip Attacks, but not to make Trip Attacks.</li>
+    <li>+10 Resistance Bonus to any attempt to move you from your current position</li>
+</ul>';
+        $helper->addTypesToSpell($spell, ['Earth', 'Transmutation'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Unseen Crafter';
+        $spell->casting     = '1 minute (Somatic Casting, Verbal Casting)';
+        $spell->range       = '30 feet';
+        $spell->duration    = '1 day';
+        $spell->description = '<p>This spell functions as Unseen Servant, except that the servant can be assigned any one task that can be accomplished by use of the Craft spell. Appropriate tools and materials must be provided for the servant. It makes Craft checks at half your ranks plus your Caster Level.</p>
+<p>The servant can take 11. Once the servant completes his task, or the Duration ends, the spell ends.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Conjuration'], 2);
+
         $spell                = new Spell;
         $spell->name          = 'Unseen Servant';
         $spell->casting       = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range         = '60 miles';
         $spell->spell_creator = 'Carbury';
         $spell->duration      = 'Concentration, up to 1 hour or until dismissed';
-        $spell->description   = '<p>You summon an unseen servant, which you can command as part of Concentrating on the pell. It serves you until the duration expires; until its Hit Points drop to 0 or below, at which point the spell is dismissed; or until you lose concentration. The unseen servant gains the summoned trait.</p>';
+        $spell->description   = '<p>You summon an unseen servant, which you can command as an Action. It serves you until the Duration expires; until its Hit Points drop to 0 or below, at which point the spell is dismissed; or until you lose Concentration. The unseen servant gains the summoned trait.</p>';
         $spell->heightened    = '<dl>
     <dt>Heightened (+1)</dt> <dd>The unseen servant can also cook and clean</dd>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
     <dt>Heightened (+3)</dt> <dd>You create 5 servants</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration'], 1);
+
+        $spell              = new Spell;
+        $spell->name        = 'Updraft';
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'self';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>This spell causes rushing air propel you upward 30 feet into the air.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the height</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 1);
     }
 }

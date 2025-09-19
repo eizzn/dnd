@@ -36,14 +36,21 @@ class GodsTempusSeeder extends Seeder
             'favored_weapon' => 'Battle Prowess (battleaxe)',
         ]);
         $tempus = $god;
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Fighter'      => 25,
+            'Cleric'       => 15,
+            'Barbarian'    => 5,
+            'Swashbuckler' => 5,
+        ]);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Tempus';
+        $class->name          = 'Battleguard';
         $class->type          = 'Priest';
         $class->key_attribute = 'STR or WIS';
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Tempus</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 2,
@@ -52,7 +59,7 @@ class GodsTempusSeeder extends Seeder
             'Divine', 'Combat Mastery', 'Fighter Feat',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Fighter', 'Barbarian',
+            $class->name, 'Fighter', 'Barbarian', 'Swashbuckler', 'Scout',
         ]);
 
         // Skills
@@ -60,7 +67,6 @@ class GodsTempusSeeder extends Seeder
             ['Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat'    => [9, 18, 20],
             'fighter_feat'   => [1, 3, 15, 20],
             'combat_mastery' => [7],
         ]);
@@ -84,8 +90,8 @@ class GodsTempusSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => '<p>Tempus gives his blessings mercurially, and is amongst the most chaotic and unpredictable of his peers. He grants power and prowess to those skilled in combat, often favouring those who exercise honor and skill over mayhem and skulduggery.</p>
-<p>Tempus’s scions are therefore more commonly found in organized military forces with a code of conduct than elsewhere, but in truth the favour of Tempus can fall on anyone who picks up a weapon.</p>
+            'favor'       => "<p>Tempus gives his blessings mercurially, and is amongst the most chaotic and unpredictable of his peers. He grants power and prowess to those skilled in combat, often favouring those who exercise honor and skill over mayhem and skulduggery.</p>
+<p>Tempus's scions are therefore more commonly found in organized military forces with a code of conduct than elsewhere, but in truth the favour of Tempus can fall on anyone who picks up a weapon.</p>
 <ol>
     <li>You were a high ranking military official before you fell from grace in a coup</li>
     <li>You were almost killed and left for dead on the battlefield, awakening on a field of corpses</li>
@@ -93,7 +99,7 @@ class GodsTempusSeeder extends Seeder
     <li>You pioneered a new revolutionary battle technique</li>
     <li>You laid siege to and conquered a fortress said to be utterly undefeatable</li>
     <li>You won a well known tournament of arms</li>
-</ol>',
+</ol>",
             'devotion' => "<p>Following Tempus means dedicating your life to battle. As a follower of Tempus, consider the ideals below as alternatives to those suggested for your background.</p>
 <dl>
     <dt>Devotion</dt> <dd>My devotion to my god is more important to me than what they stand for. (Any)</dd>
@@ -140,6 +146,10 @@ class GodsTempusSeeder extends Seeder
             'master_id'      => $tempus->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Fighter' => 20,
+            'Paladin' => 15,
+        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             'Paladin', 'Scout', 'Fighter',
         ]);
@@ -151,14 +161,16 @@ class GodsTempusSeeder extends Seeder
 <ul>
     <li>Increase your WIS score by 1, to a maximum of 20</li>
     <li>You are proficient with Heavy Armor</li>
-    <li>You gain a +2 bonus to all Ride an Animal Skill checks</li>
     <li>You gain the Skilled feat and must pick the Lore Skill (with a focus on wars of the past)</li>
+    <li>You gain a Talent of your choice</li>
+    <li>You gain a +2 bonus to all Ride an Animal Skill checks</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Booming Blade', 'Call Attuned Weapon', 'Conviction', 'Detect Magic', 'Guiding Light', 'Light',
                 'True Strike', ],
-            1 => ['Bless', "Checkmate's Light", 'Compelled Duel', 'Cure Wounds', 'Disrupting Weapon', 'Protective Interposition'],
+            1 => ['Bless', "Checkmate's Light", 'Compelled Duel', 'Cure Wounds', 'Disrupting Weapon', 'Protective Interposition',
+                'Weapon Shift', ],
             2 => ['Animate Weapon', 'Aura of Hope', 'Aura of Protection', 'Aura of the Bear', 'Aura of the Bull', 'Aura of the Owl',
                 'Aura of War', 'Heroics', 'Insignia of Alarm', "Knight's Move", 'Quick March', 'Protection From Arrows',
                 'Resist Elements', 'Undead Bane Weapon', ],
@@ -186,6 +198,12 @@ class GodsTempusSeeder extends Seeder
             'master_id'      => $tempus->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Swashbuckler' => 20,
+            'Cleric'       => 10,
+            'Fighter'      => 5,
+        ]);
+
         $class                = new Klass;
         $class->name          = 'Priest of Valkur';
         $class->type          = 'Priest';
@@ -201,23 +219,23 @@ class GodsTempusSeeder extends Seeder
             'Divine', 'Rogue', 'Fighter Feat',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Swashbuckler', 'Rogue',
+            $class->name, 'Swashbuckler', 'Rogue', 'Fighter',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion']);
         $helper->addFeaturesToClass($class, [
-            'divine_feat'  => [6, 15],
             'fighter_feat' => [1, 9, 18],
             'rogue_feat'   => [3, 12, 20],
         ]);
-        $helper->addDomainToClass($class, ['Protection', 'War', 'Water']);
         $helper->addChannelDivinityToClass($class, 'positive', 'Aquatic Undead');
+        $helper->addDomainToClass($class, ['Protection', 'War', 'Water']);
         $helper->addSpellsToClass($class, [
-            0 => ['Gust', 'Guiding Light', 'Oilskin', 'Sea Legs', 'Shape Water', 'Stabilize'],
-            1 => ['Create or Destroy Water', 'Cure Wounds', 'Fog Cloud', 'Gust of Wind', 'Land Legs', 'Weather Sense'],
-            2 => ['Buoyancy', 'Consecrate', 'Dust Devil', 'Heroics', 'Insignia of Alarm', 'Neutral Buoyancy', 'Obscuring Mist',
-                'Warding Wind', 'Water Walk', ],
+            0 => ['Gust', 'Oilskin', 'Sea Legs', 'Shape Water', 'Stabilize'],
+            1 => ['Create or Destroy Water', 'Cure Wounds', 'Fog Cloud', 'Guiding Light', 'Gust of Wind', 'Land Legs',
+                'Weather Sense', ],
+            2 => ['Buoyancy', 'Consecrate', 'Dust Devil', 'Heroics', 'Insignia of Alarm', 'Obscuring Mist', 'Warding Wind',
+                'Water Walk', ],
             3 => ['Capricious Zephyr', 'Dismiss Fog', 'Eradicate Water', 'Insignia of Blessing', 'Prayer', 'Preserve Wood',
                 'Tidal Wave', 'Wall of Water', ],
             4 => ['Calm Air', 'Flowsight', 'Ride the Waves', 'Sargasso'],
@@ -244,6 +262,10 @@ class GodsTempusSeeder extends Seeder
             'symbol'         => 'That of the individual beast totem spirit',
             'favored_weapon' => 'Appropriate Beast Totem Spirit (battleaxe)',
             'master_id'      => $tempus->id,
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Barbarian' => 20,
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [

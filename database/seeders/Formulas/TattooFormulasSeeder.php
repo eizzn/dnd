@@ -33,8 +33,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -55,8 +56,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -78,8 +80,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -99,8 +102,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -117,8 +121,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -140,8 +145,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Fire', 'Cold', 'Electricity'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -161,8 +167,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>";
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -179,8 +186,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -201,8 +209,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -220,8 +229,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -238,8 +248,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -257,8 +268,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Rare)'],
         ]);
 
         $formula              = new Formula;
@@ -277,8 +289,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>";
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Light'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -296,8 +309,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>";
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo', 'Plant'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -314,8 +328,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -332,8 +347,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -352,8 +368,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>";
         $helper->saveFormula($formula, ['Conjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -370,8 +387,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -392,8 +410,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Necromancy', 'Attunement', 'Tattoo', 'Cold', 'Undead'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula              = new Formula;
@@ -410,8 +429,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Necromancy', 'Attunement', 'Tattoo', 'Healing'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -428,8 +448,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula              = new Formula;
@@ -447,8 +468,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>";
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Darkness'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -465,8 +487,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula              = new Formula;
@@ -484,8 +507,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>";
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -504,8 +528,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>";
         $helper->saveFormula($formula, ['Conjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula              = new Formula;
@@ -525,8 +550,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula              = new Formula;
@@ -543,8 +569,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo', 'Poison'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -562,8 +589,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -581,8 +609,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>";
         $helper->saveFormula($formula, ['Conjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -600,8 +629,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -618,8 +648,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -636,8 +667,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Transmutation', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Rare)'],
         ]);
 
         $formula              = new Formula;
@@ -654,8 +686,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Necromancy', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Rare)'],
         ]);
 
         $formula              = new Formula;
@@ -672,8 +705,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -690,8 +724,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -708,8 +743,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -763,8 +799,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -781,8 +818,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -802,8 +840,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -822,8 +861,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>";
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -843,8 +883,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -864,8 +905,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -885,8 +927,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -906,8 +949,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -927,8 +971,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -948,8 +993,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 18, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -966,8 +1012,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
         $formula         = new Formula;
@@ -987,8 +1034,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Cold'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -1008,8 +1056,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Fire'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1026,8 +1075,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula         = new Formula;
@@ -1047,8 +1097,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Evocation', 'Attunement', 'Tattoo', 'Fire'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1066,8 +1117,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1085,8 +1137,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1104,8 +1157,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1122,8 +1176,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Average</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1141,8 +1196,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1161,8 +1217,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Simple</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 14, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
 
         $formula              = new Formula;
@@ -1236,8 +1293,9 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Attunement', 'Tattoo'], [
-            'skills' => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
-            'feats'  => ['Inscribe Tattoo'],
+            'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy']],
+            'feats'    => ['Inscribe Tattoo'],
+            'formulas' => ['Ink, Spell Writing (Rare)'],
         ]);
     }
 }

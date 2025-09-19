@@ -180,7 +180,7 @@ class SpellsKSeeder extends Seeder
         $spell->range          = '60 feet';
         $spell->targets        = 'One creature within range';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You learn any Vulnerabilities and Resistances that the target creature has. This spel identifies Resistances and Vulnerabilities granted by spells also.</p>
+        $spell->description    = '<p>You learn any Vulnerabilities and Resistances that the target creature has. This spell identifies Resistances and Vulnerabilities granted by spells also.</p>
 <p>Vulnerabilities include anything that causes the creature more than the normal amount of damage. Resistances include any effects that reduce or negate damage the creature takes and immunities to particular attacks.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>You do not learn any information</dd>

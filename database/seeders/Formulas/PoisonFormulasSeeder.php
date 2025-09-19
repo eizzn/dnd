@@ -339,6 +339,35 @@ class PoisonFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
+        $formula->name        = 'Boneshard Paste';
+        $formula->type        = 'Poison';
+        $formula->price       = '750 gp';
+        $formula->method      = 'Contact';
+        $formula->description = '<p>This poison only affects undead, even if they are immune to Poison. Any Undead that is touched by this poison must make a DC 13 CON Save or suffer the following.</p>
+<dl>
+    <dt>Onset</dt> <dd>1 round</dd>
+    <dt>Stage 1</dt> <dd>
+        <ul>
+            <li>Disadvantage on all Melee Attack rolls</li>
+            <li>Disadvantage on all STR checks and STR Saves</li>
+        </ul>
+    </dd>
+    <dt>Stage 2</dt> <dd>1D6 Positive Damage from the Holy Water</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Poison', 'Undead'], [
+            'skills' => [
+                'Arcana'   => ['dc' => 12, 'meta' => 'Alchemy'],
+                'Religion' => ['dc' => 7, 'meta' => 'Undead'],
+            ],
+            'formulas' => [
+                'Holy Water' => ['meta' => '1 vial'],
+            ],
+            'materials' => [
+                'Bone' => ['meta' => "Powdered using an alchemist's kit or poison maker's kit"],
+            ],
+        ]);
+
+        $formula              = new Formula;
         $formula->name        = 'Bralia';
         $formula->type        = 'Poison';
         $formula->price       = '250 gp';
@@ -377,6 +406,7 @@ class PoisonFormulasSeeder extends Seeder
         $formula->type        = 'Poison';
         $formula->level       = 16;
         $formula->price       = '1,200 gp';
+        $formula->method      = 'Inhaled';
         $formula->bulk        = 'L';
         $formula->activation  = 'Action; Operate Activation; no cost';
         $formula->description = '<p>Fumes from the forges of Hell drain health and strength alike.</p>
@@ -449,6 +479,23 @@ class PoisonFormulasSeeder extends Seeder
             'skills' => [
                 'Crafting' => ['dc' => 12, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 10],
+            ],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Celestial Essence';
+        $formula->type        = 'Poison';
+        $formula->price       = '900 gp';
+        $formula->method      = 'Contact';
+        $formula->crafting    = '<p>Angel Essence must be extracted from a willing Archon using the required Arcana check.</p>';
+        $formula->description = '<p>An undead creature subjected to this Poison must succeed on a DC 14 CON Save. Failure causes the undead to not be able to cast spells or use any of their spell-like and supernatural abilities for 1 minute.</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Poison', 'Undead'], [
+            'skills' => [
+                'Arcana'   => ['dc' => 13],
+                'Crafting' => ['dc' => 10, 'meta' => 'Poison Making'],
+            ],
+            'materials' => [
+                'Angel Essence' => ['meta' => '1 dose'],
             ],
         ]);
 
@@ -765,6 +812,9 @@ class PoisonFormulasSeeder extends Seeder
                 'Crafting' => ['dc' => 13, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 12, 'meta' => 'The Spider Venom must be harvested in a special way'],
             ],
+            'monsters' => [
+                'Spider, Giant' => ['meta' => 'Fermented venom'],
+            ],
         ]);
 
         $formula              = new Formula;
@@ -784,6 +834,9 @@ class PoisonFormulasSeeder extends Seeder
             'skills' => [
                 'Crafting' => ['dc' => 15, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 16, 'meta' => 'Find and harvest from the Slime Mold'],
+            ],
+            'monsters' => [
+                'Slime Mold' => ['meta' => 'Poison must be extracted in a very special way'],
             ],
         ]);
 
@@ -831,6 +884,7 @@ class PoisonFormulasSeeder extends Seeder
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Poison', 'Inhaled'], [
             'skills'    => [
                 'Crafting' => ['dc' => 17, 'meta' => 'Poison Making'],
+                'Nature'   => ['dc' => 13, 'meta' => 'Harvest and process the ether'],
                 'Arcana'   => ['dc' => 18],
             ],
             'materials' => ['Frenn Moss' => ['meta' => 'At least 5 oz']],
@@ -1378,7 +1432,8 @@ class PoisonFormulasSeeder extends Seeder
     <dt>Stage 5</dt> <dd>1D6 Poison (1 day) (CON DC 16)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Poison'], [
-            'skills' => ['Crafting' => ['dc' => 25, 'meta' => 'Poison Making']],
+            'skills'    => ['Crafting' => ['dc' => 25, 'meta' => 'Poison Making']],
+            'materials' => ['Olina Petals' => ['meta' => '1 lb']],
         ]);
 
         $formula              = new Formula;

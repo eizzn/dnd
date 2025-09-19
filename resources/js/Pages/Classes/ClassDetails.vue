@@ -3,7 +3,7 @@ import { useRouter, useRoute } from "vue-router";
 import {Head} from "@inertiajs/vue3";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import axios from "axios";
-import { ref, onMounted } from "vue";
+import {ref, onMounted, computed} from "vue";
 import NavLink from "@/components/NavLink.vue";
 import ClassTable from "@/components/ClassTable.vue";
 
@@ -46,6 +46,7 @@ const fetchClassDetails = async () => {
     }
 };
 
+const pageTitle = computed(() => klass.value?.name || "Loading...");
 onMounted(async () => {
     await router.isReady();
     fetchClassDetails();
@@ -53,12 +54,12 @@ onMounted(async () => {
 </script>
 
 <template>
-    <Head title={{ klass?.name }}/>
+    <Head :title="pageTitle"/>
 
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                {{ klass?.name }}
+                <span>Class</span>
             </h2>
         </template>
 
@@ -67,7 +68,8 @@ onMounted(async () => {
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <section class="m-2">
-                            <h3 class="text-lg font-semibold">Description</h3>
+                            <h2 class="text-xl border-b">{{ klass.name }}</h2>
+                            <h3 class="text-lg font-semibold" v-if="klass.description != null && klass.description !== ''">Description</h3>
                             <div class="text-gray-700 mt-2" v-html="klass.description"></div>
                         </section>
                         <section class="m-2">
@@ -79,7 +81,7 @@ onMounted(async () => {
                                     </div>
                                     <div class="flex items-center mt-2 mb-2">
                                         <h4 class="text-lg font-semibold">Hit Dice:</h4>
-                                        <span>{{ klass.hit_dice }}</span>
+                                        <span class="ml-3">{{ klass.hit_dice }}</span>
                                     </div>
                                     <div class="mt-2 mb-2 border-y">
                                         <div style="display: inline-flex; align-items: center;">

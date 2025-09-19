@@ -3,6 +3,7 @@
 namespace Database\Seeders\Gods;
 
 use App\Models\Feat;
+use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -77,20 +78,26 @@ class GodsCyricSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Arcana', 'Concentration', 'Deception', 'Religion', 'Stealth', 'Society', 'Thievery']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat'   => [1, 6, 12, 18],
-            'wizard_feat'   => [3, 9, 15, 20],
-            'fear_immunity' => [3],
+        $class->features()->save(app()->features['feat'], [
+            'level' => 2,
+            'meta'  => 'Illusionist',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 9,
+            'meta'  => 'Expert Illusionist',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 15,
+            'meta'  => 'Master Illusionist',
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead', 4);
         $helper->addDomainToClass($class, ['Chaos', 'Destruction', 'Illusion', 'Trickery']);
 
         $helper->addFeatsToClass($class, [
-            'Skirmish'                   => 4,
-            'Sacrificial Mastery'        => 5,
+            'Skirmish'                   => 3,
             'Bleeding Strike'            => 7,
             'Debilitating Strike'        => 9,
-            'Double Debilitating Strike' => 12,
+            'Double Debilitating Strike' => 13,
             'Master Strike'              => 15,
             'Illusionist'                => 3,
             'Expert Illusionist'         => 7,
@@ -98,22 +105,22 @@ class GodsCyricSeeder extends Seeder
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Clean Self', 'Detect Magic', 'Ghost Sound', 'Light', 'Mage Hand', 'Message', 'Minor Illusion', 'Prestidigitation',
-                'Slash Tongue', 'Stabilize', ],
+                'Slash Tongue', 'Stabilize', 'Virtue', ],
             1 => ["Arcanist's Magic Aura", 'Black Talon', 'Blur', 'Color Spray', 'Charm', 'Command', 'Cure Wounds', 'Detect Good',
                 'Disguise Self', 'Doom', 'Drug Resistance', 'Fear', 'Fleet Step', 'Hypnotism', 'Mimicry', 'Obscure Object',
                 'Silent Image', ],
             2 => ["Cat's Grace", 'Desecrate', 'False Lie', 'False Life', 'Glitterdust', 'Hideous Laughter', 'Illusory Creature',
                 'Invisibility', 'Illusory Disguise', 'Illusory Object', 'Mirror Image', 'Misdirection', 'See Invisibility',
-                'Spectral Hand', 'Ventriloquism', ],
+                'Spectral Hand', 'Ventriloquism', 'Wave of Grief', ],
             3  => ['Cone of Dimness', 'Enemies Abound', 'Hold Person', 'Hold Undead', 'Hypnotic Pattern', 'Major Image',
                 'Skull Watch', ],
             4  => ['Ceremony', 'Dread Blast', 'Ebon Ray of Doom', 'Invisibility Sphere', 'Keen Edge', 'Phantasmal Killer',
-                'Skull of Secrets', 'Veil', ],
+                'Skull of Secrets', 'Veil', 'Water to Poison', ],
             5  => ['Daywalker', 'Mislead', 'Programmed Illusion', 'Skull Eyes', 'Suggestion'],
             6  => ['Atonement', 'Harm', 'Heal', 'Illusory Scene', 'Night Terrors', 'Permanent Image', 'Project Image',
                 'Programmed Image', 'Raise Dead', ],
             7  => ['Cloak of Chaos', 'Mirage Arcane', 'Phantasmal Calamity', 'Possession', 'Revive Undead', 'Triple Mask',
-                'Undeath after Death', 'Unholy Aura', ],
+                'Undeath after Death', 'Unholy Aura', 'Word of Chaos', ],
             8  => ['Feeblemind', 'Glibness', 'Screen', 'Spread of Savagery', 'Unseen Thief'],
             9  => ['Disappearance', 'Mind Blank', 'Weird'],
             10 => ['Miracle'],
@@ -148,7 +155,7 @@ class GodsCyricSeeder extends Seeder
             0 => ['Corrupt Weapon', 'Detect Magic', 'Friends', 'Ghost Sound', 'Light', 'Minor Illusion'],
             1 => ['Aura of Courage', 'Bane', 'Darkvision', 'Detect Good', 'Doom', 'Drug Resistance', 'Fear', 'Wrathful Smite'],
             2 => ["Aura of the Owl's Curse", 'Darkness', 'Divine Presence', 'Undetectable Alignment'],
-            3 => ['Aura of Pain', 'Bind Undead', 'Blinding Smite', 'Circle of Protection From Good'],
+            3 => ['Aura of Pain', 'Blinding Smite', 'Circle of Protection From Good', 'Command Undead'],
             5 => ['Aura of Undeath'],
             6 => ['Cloak of Chaos', 'Unholy Aura'],
         ]);
@@ -162,7 +169,7 @@ class GodsCyricSeeder extends Seeder
     <li>You gain a +5 bonus to Saves against the spell Zone of Truth or other spells that detect lies. This effect does not aid in preventing an effect that forces you to tell the truth.</li>
     <li>You are always under the effect of an Undetectable Alignment spell. If it is dispelled, you may spend a Triple Action to turn it back on.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Magical']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Magical', 'Generic' => 1]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Drug Resistance', 'Ghost Sound', 'Mage Hand', 'Minor Illusion', 'Prestidigitation'],
             1 => ['Disguise Self', 'Fear', 'Illusory Script', 'Silent Image'],
@@ -268,6 +275,11 @@ class GodsCyricSeeder extends Seeder
             'alignment' => 'CE',
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Fighter'   => 15,
+            'Paladin'   => 10,
+        ]);
+
         $class                = new Klass;
         $class->name          = 'Bloodreavers';
         $class->type          = 'Priest';
@@ -288,17 +300,26 @@ class GodsCyricSeeder extends Seeder
             $class->name, 'Barbarian', 'Scout', 'Fighter',
         ]);
 
+        $feature              = new Feature;
+        $feature->key         = 'channel_divinity_combat_bonus';
+        $feature->name        = 'Channel Divinity: Combat Bonus';
+        $feature->description = '<p>You can use your Channel Divinity to improve your combat skills.</p>
+<p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you gain a +1 Divine bonus to Hit and +3 Divine bonus to Damage for 1 minute. This effect does not stack with itself.</p>';
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+
         // Skills
         $helper->addSkillsToClass($class, ['Athletics', 'Concentration', 'Religion']);
         $helper->addFeaturesToClass($class, [
-            'divine_feat'    => [1, 3, 9, 15, 20],
-            'fighter_feat'   => [2, 4, 10, 16, 18],
-            'combat_mastery' => [6, 12],
+            'channel_divinity_combat_bonus' => [2],
+            'fighter_feat'                  => [3, 7, 11, 15, 19],
+            'heroic_surge'                  => [9],
+            'combat_mastery'                => [8, 13],
         ]);
+        $helper->addChannelDivinityToClass($class, 'negative', 'Yugoloth', 4);
         $helper->addDomainToClass($class, ['Chaos', 'Destruction', 'War']);
         $helper->addSpellsToClass($class, [
             0 => ['Blade Ward', 'Booming Blade', 'Detect Magic', 'Sword Burst', 'True Strike', 'Stabilize'],
-            1 => ['Battle Cry', 'Bless', 'Courageous Shout', 'Cure Wounds', 'Detect Law', 'Rally Cry'],
+            1 => ['Battle Cry', 'Bless', 'Courageous Shout', 'Cure Wounds', 'Detect Law', 'Rally Cry', 'Weapon Shift'],
             2 => ["Bear's Endurance", "Bull's Strength", "Cat's Grace", 'Cloud of Daggers', 'Enlarge', 'Haste', 'Rage'],
             3 => ['Dancing Sword', 'Keen Edge', 'Weapon Storm'],
             4 => ['Ceremony', 'Divine Power', 'Holy Weapon'],
@@ -307,8 +328,5 @@ class GodsCyricSeeder extends Seeder
             7 => ['Crusade', 'Monstrosity Form'],
         ]);
         $helper->addSpellSlotsToClass($class, 'seven');
-        $helper->addFeatsToClass($class, [
-            'Sacrificial Mastery'    => 6,
-        ]);
     }
 }

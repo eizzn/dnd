@@ -19,9 +19,10 @@ class MonstersESeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Coure';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Eladrin';
         $monster->alignment   = 'CG';
         $monster->armor_class = '17';
-        $monster->hit_dice    = 0;
+        $monster->hit_dice    = 2;
         $monster->speed       = '20 ft / Fly 60 ft';
         $monster->actions     = '<dl>
     <dt>Dagger</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D2 Slashing.</dd>
@@ -62,10 +63,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Noviere';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '16 (Scale Mail +1) / 14';
         $monster->damage_reduction = '5 (Scale Mail +1) / 0';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 5;
         $monster->speed            = '30 ft / Swim 80 ft';
         $monster->actions          = '<dl>
     <dt>Holy Trident +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D8 +5 Piercing.</dd>
@@ -116,10 +118,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bralani';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '16 (Chain Shirt +1) / 14';
         $monster->damage_reduction = '4 (Chain Shirt +1) / 1';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 6;
         $monster->speed            = '40 ft';
         $monster->actions          = '<dl>
     <dt>Holy Scimitar +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D8 +5 Slashing.</dd>
@@ -170,10 +173,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Shiere';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '17 / (Mithral Chain Mail +1) / 14';
         $monster->damage_reduction = '7 (Mithral Chain Mail +1) / 3';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 6;
         $monster->speed            = '40 ft (30 ft in Plate Mail)';
         $monster->actions          = '<dl>
     <dt>Anarchic Holy Longsword +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D8 +5 Slashing.</dd>
@@ -227,10 +231,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Firre';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '16 (Mithral Chain Mail +1) / 13';
         $monster->damage_reduction = '7 (Mithral Chain Mail +1) / 4';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 8;
         $monster->speed            = '40 ft';
         $monster->actions          = '<dl>
     <dt>Anarchic Holy Greater Flaming Greatsword +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D12 +5 Slashing +3D6 Fire.</dd>
@@ -284,10 +289,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ghaele';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '14 (Mithral Chain Mail +1) / 11';
         $monster->damage_reduction = '7 (Mithral Chain Mail +1) / 4';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 10;
         $monster->speed            = '50 ft / Fly 150 ft';
         $monster->actions          = '<dl>
     <dt>Anarchic Holy Greatsword +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D12 +7 Slashing.</dd>
@@ -295,11 +301,16 @@ class MonstersESeeder extends Seeder
         <p>A ghaele can shift between its humanoid and globe forms with a Double Action. In humanoid form, it cannot fly or use its light rays, but it can use its gaze attack and spell-like abilities, make physical attacks, and cast spells. In globe form, it can fly, use its light rays, and use spell-like abilities, but it cannot cast spells or use its gaze attack. The globe form is incorporeal, and the ghaele has no Strength score while in that form.</p>
         <p>A ghaele remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, nor does the ghaele revert to any particular form when killed. A true seeing spell or ability, however, reveals both forms simultaneously.</p>
     </dd>
-    <dt>Gaze</dt> <dd>With an Action, a Firre can gaze at a target within 60 ft and cause it to burst into flames. The gaze deals 2D6 points of fire damage and causes Blindness. A successful DC 18 CON Save negates teh Blindness.</dd>
+    <dt>Gaze</dt> <dd>With an Action, while in its humanoid form, a Ghaele can gaze at a target within 60 ft. If the target is Evil, it must make the following Saves.
+        <ul>
+            <li>If the target has 5 HD or fewer, it must make a CHA Save or die.</li>
+            <li>The target must make a WIS Save or suffer the effects of Fear.</li>
+        </ul>
+    </dd>
     <dt>Light Ray</dt> <dd>Ranged Spell Attack, reach 300 ft, one target 2D12 Holy Light.</dd>
 </dl>';
         $monster->description = '<p>The ghaeles are the knights-errant of the celestial eladrin. They are more subtle than other eladrin, often working behind the scenes to help defeat evil forces. Ghaeles also act as advisers to the more powerful tulani eladrin. Of all the eladrin, they best understood the plight of mortals.</p>
-<p>A ghaele resemble a regal, athletic high elf, but they also have opalescent eyes and a radiant aura. The average ghaele has a height of 6 feet (180 centimeters) and weigh about 170 pounds (77 kilograms).</p>';
+<p>A ghaele resemble a regal, athletic high elf, but they also have opalescent eyes and a radiant aura. The average ghaele has a height of 6 feet (180 centimeters) and weigh about 170 pounds (77 kilograms).</p>';
         $helper->saveMonster($monster, ['Celestial', 'Eladrin', 'Shapechanger', 'Outer Planes', 'Good', 'Outsider', 'Chaotic'], [
             'stats'  => [24, 12, 15, 16, 17, 16, 13, 4],
             'skills' => [
@@ -348,10 +359,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Shiradi';
         $monster->size             = 'Large';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '16 (Mithral Chain Mail +2) / 12';
         $monster->damage_reduction = '8 (Mithral Chain Mail +2) / 4';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 12;
         $monster->speed            = '30 ft (30 ft in Plate Mail) / Fly 120 ft';
         $monster->actions          = '<dl>
     <dt>Anarchic Holy Spiked Chain +2</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 2D6 +9 Piercing.</dd>
@@ -410,10 +422,11 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Tulani';
         $monster->size             = 'Medium';
+        $monster->type             = 'Eladrin';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '25 (Mithral Plate Mail +2, Shield +2) / 16';
         $monster->damage_reduction = '10 (Mithral Plate Mail +2) / 5';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 15;
         $monster->speed            = '30 ft (25 ft in Plate Mail) / Fly 90 ft';
         $monster->actions          = '<dl>
     <dt>Anarchic Holy Speed Armblades +3</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D8 +8 Slashing +1D6 Fire. The tulani can form these armblades as a Free Action.</dd>
@@ -486,6 +499,7 @@ class MonstersESeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ettercap';
         $monster->size             = 'Medium';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '1 (Natural Armor)';

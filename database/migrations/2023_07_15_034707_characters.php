@@ -23,6 +23,7 @@ class Characters extends Migration
             $table->tinyInteger('int')->unsigned()->nullable();
             $table->tinyInteger('wis')->unsigned()->nullable();
             $table->tinyInteger('cha')->unsigned()->nullable();
+            $table->integer('hit_points')->unsigned()->nullable();
             $table->integer('sub_race_id')->unsigned();
             $table->foreign('sub_race_id')->references('id')->on('sub_races');
             $table->string('alignment', 12)->default('-');

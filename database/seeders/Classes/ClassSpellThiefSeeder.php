@@ -47,10 +47,9 @@ class ClassSpellThiefSeeder extends Seeder
         $helper->saveFeature($feature, ['Sneak Attack']);
 
         $helper->addFeaturesToClass($class, [
-            'rogue_feat'       => [3, 4, 6, 12, 16, 18, 20],
-            'skill_feat'       => [1, 7, 9, 13, 15, 19],
+            'rogue_feat'       => [2, 4, 12, 18],
             'spell_pool'       => [2],
-            'precision_attack' => [3, 8, 14, 20],
+            'precision_attack' => [3, 9, 15],
             'uncanny_dodge'    => [5],
             'evasion'          => [7],
         ]);

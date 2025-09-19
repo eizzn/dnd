@@ -21,6 +21,7 @@ class MonstersRSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Rust Monster';
         $monster->size             = 'Medium';
+        $monster->type             = 'Beast';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '3 (Natural Armor)';

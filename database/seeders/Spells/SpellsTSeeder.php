@@ -510,7 +510,20 @@ class SpellsTSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Evil'], 1);
 
-        // https://dndtools.net/spells/?page=222
+        $spell              = new Spell;
+        $spell->name        = 'Tongue Snake';
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '8 hours or until discharged';
+        $spell->description = '<p>Your tongue becomes a little but powerful snake that you may as an Action, spit up to 15 feet away. The snake then may act immediately to attack your enemies. You do not control the snakes, but they are able to determine your allies and enemies. You may create up to 2 snakes before the spell ends.</p>
+<p>The snakes are Poisonous Snake except they use your Attack Bonus to Hit.</p>
+<p>At the end of the Duration, the snakes become bloody bits of organic matter.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the number of snakes you can create.</dd>
+    <dt>Heightened (=3)</dt> <dd>As soon as you spit out the snake, it hits the ground as a Giant Poisonous Snake.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 3);
 
         $spell                = new Spell;
         $spell->name          = 'Tongues';
@@ -524,6 +537,37 @@ class SpellsTSeeder extends Seeder
     <dt>Permanency (Heightened +3)</dt> <dd>7,500 gp. 8 CON damage.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination', 'Permanency'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Toothed Tentacle';
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = '5 feet';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>You create a shadowy tentacle that extends 30 feet from you hand, splitting off into three smaller tentacles about 10 feet from its end. Each of these smaller tentacles ends in a fanged, slavering maw.</p>
+<p>You may as an Action, make a Melee Attack with a maw. Each maw can only attack once per turn, but you may make multiple attacks with different maws. You may direct the maws to attack different Targets, but all Targets must be within 10 feet of each other.</p>
+<p>The maws have the following statistics.</p>
+<dl>
+    <dt>AC</dt> <dd>15</dd>
+    <dt>Hit Points</dt> <dd>20</dd>
+    <dt>Melee Attack</dt> <dd>2D6 Piercing</dd>
+</dl>
+<p>The main tentacle has 50 Hit Points but cannot be used to attack.</p>
+<p>If a maw is destroyed, it falls to the ground dead. If all three maws are destroyed, the spell ends.</p>';
+        $helper->addTypesToSpell($spell, ['Conjuration'], 2);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Torrent of Tears';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '30 feet';
+        $spell->targets        = 'One living creature';
+        $spell->duration       = '5 rounds';
+        $spell->description    = '<p>You play a song that causes intense sadness in the Target. The Target must make a WIS Save or start crying, causing them to be Sickened: 1 and Blinded for the Duration.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Sickened: 1 and Blinded</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Auditory'], 2);
 
         $spell                 = new Spell;
         $spell->name           = 'Touch of Blindness';
@@ -557,28 +601,13 @@ class SpellsTSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Enchantment'], 1);
 
         $spell                 = new Spell;
-        $spell->name           = 'Touch of Fatigue';
-        $spell->casting        = 'Somatic Casting';
-        $spell->range          = 'Touch';
-        $spell->targets        = 'Creature touched';
-        $spell->save_attribute = 'CON';
-        $spell->duration       = '5 rounds';
-        $spell->description    = "<p>You channel Negative energy through your hand. Until the beginning of your next turn, any creature you touch becomes Fatigued. You must succeed on a Melee Touch attack to strike a target. The subject is immediately Fatigued for the spell's duration.</p>
-<p>This spell has no effect on a creature that is already fatigued. Unlike with normal Fatigue, the effect ends as soon as the spell's duration expires.</p>";
-        $spell->saves = '<dl>
-    <dt>Success</dt> <dd>Not Fatigued</dd>
-    <dt>Failure</dt> <dd>Fatigued as described</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 0);
-
-        $spell                 = new Spell;
         $spell->name           = 'Touch of Death';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '60 feet';
         $spell->targets        = 'One living creature within range';
         $spell->save_attribute = 'CON';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You point at one creature you can see within range. The target must make a CON Save or take 1D8 Negative damage. If the target is already injured, it takes 1D12 Negative damage instead.</p>';
+        $spell->description    = '<p>You point at one creature you can see within Range. The Target must make a CON Save or take 1D8 Negative damage. If the Target is already injured, it takes 1D12 Negative damage instead.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No Effect</dd>
     <dt>Failure</dt> <dd>Full damage</dd>
@@ -588,24 +617,30 @@ class SpellsTSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Negative'], 0);
 
-        $spell              = new Spell;
-        $spell->name        = 'Touch of Idiocy';
-        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
-        $spell->range       = 'Touch';
-        $spell->targets     = 'One living creature touched';
-        $spell->duration    = '1 minute';
-        $spell->description = "<p>You dull the target's mind with a melee touch attack. On a success, the target is stupefied 2.</p>";
-        $helper->addTypesToSpell($spell, ['Illusion', 'Disorienting'], 2);
-        $spell->materials()->save(Material::where('name', 'Chalcedony')->firstOrFail(), ['price' => '50 gp']);
+        $spell                 = new Spell;
+        $spell->name           = 'Touch of Fatigue';
+        $spell->casting        = 'Somatic Casting';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'Creature touched';
+        $spell->save_attribute = 'CON';
+        $spell->duration       = '5 rounds';
+        $spell->description    = "<p>You channel Negative energy through your hand. Until the beginning of your next turn, any creature you touch with a Melee Touch Attack becomes Fatigued. You must succeed on a Melee Touch attack to strike a target. The subject is immediately Fatigued for the spell's Duration.</p>
+<p>This spell has no effect on a creature that is already fatigued. Unlike with normal Fatigue, the effect ends as soon as the spell's duration expires.</p>";
+        $spell->saves = '<dl>
+    <dt>Success</dt> <dd>Not Fatigued</dd>
+    <dt>Failure</dt> <dd>Fatigued as described</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy'], 0);
 
         $spell              = new Spell;
-        $spell->name        = 'Touch of Tyche';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = '30 feet';
-        $spell->targets     = 'One creature within range';
-        $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>Choose one creature you can see within range. Once per turn, when the target makes an Ability Check, Attack Roll, or Save, ti can reroll that die roll and use either result. The target can make this choice after they see the roll, but before the DM says whether the roll succeeds or fails</p>';
-        $helper->addTypesToSpell($spell, ['Divination'], 3);
+        $spell->name        = 'Touch of Idiocy';
+        $spell->casting     = 'Material Casting, Somatic Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'One living creature Touched';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>Until the beginning of your next turn, you may make a Melee Touch Attack, if you hit, the target is Stupefied 2.</p>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Disorienting'], 2);
+        $spell->materials()->save(Material::where('name', 'Chalcedony')->firstOrFail(), ['price' => '50 gp']);
 
         $spell              = new Spell;
         $spell->name        = 'Toxin Immunity';
@@ -618,6 +653,54 @@ class SpellsTSeeder extends Seeder
 <p>This spell has no effect on toxins that the target is already suffering from (like the spell Neutralize Poison).</p>';
         $spell->heightened = '';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Poison'], 3);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Touch of Juiblex';
+        $spell->casting        = 'Somatic Casting, Verbal Casting, Ability Damage';
+        $spell->requirements   = '<dl>
+    <dt>Ability Damage</dt> <dd>4 STR Damage</dd>
+</dl>';
+        $spell->save_attribute = 'CON';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'Creature Touched';
+        $spell->duration       = 'Instantaneous';
+        $spell->description    = '<p>Until the beginning of your next turn, you may make a Melee Touch Attack. If you hit, that Target must make a CON Save or begin transforming into a Green Slime over the course of 4 turns. At the end of Targets turns, they may make another CON Save to end the effect.</p>
+<p>This effect can be ended if one of the following spells is cast on the Target before the end of the 4th turn.</p>
+<ul>
+    <li>Remove Curse</li>
+    <li>Polymorph Other</li>
+    <li>Heal</li>
+    <li>Restoration</li>
+    <li>Limited Wish</li>
+</ul>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>The spell ends, but still takes 3D6 Damage due to the magics attempt to forcefully transform the Targets body.</dd>
+    <dt>Failure</dt> <dd>The Target continues transforming into a Green Slime.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Evil'], 3);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Touch of Madness';
+        $spell->casting        = 'Somatic Casting';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'Creature Touched';
+        $spell->duration       = '5 rounds';
+        $spell->description    = '<p>Until the beginning of your next turn, you may make a Melee Touch Attack. If you hit, the Target must make a WIS Save or be Dazed: 5</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Dazed: 5</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion'], 2);
+
+        $spell              = new Spell;
+        $spell->name        = 'Touch of Tyche';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '30 feet';
+        $spell->targets     = 'One creature within range';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>Choose one creature you can see within range. Once per turn, when the target makes an Ability Check, Attack Roll, or Save, it can reroll that die roll and use either result. The Target can make this choice after they see the roll, but before the DM says whether the roll Succeeds or Fails</p>';
+        $helper->addTypesToSpell($spell, ['Divination'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Trace Teleport';
@@ -649,6 +732,17 @@ class SpellsTSeeder extends Seeder
     <dt>Material Components</dt> <dd>A twig with a green leaf still attached, an acorn, and powdered green gemstones of at least 500 gp in value</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Ritual'], 2);
+
+        $spell              = new Spell;
+        $spell->name        = 'Transcribe Symbol';
+        $spell->casting     = '1 minute (Somatic, Verbal)';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Magical Symbol Touched';
+        $spell->duration    = 'Concentration, up to 3 days';
+        $spell->description = '<p>After casting this spell, you may touch a magical symbol and remove it from its location and hold it in you hand. Make a Caster Level Check with Advantage (DC 20 + the Spell Level of the Symbol). If you fail, you trigger the Symbol. If you Succeed, the symbol is now on your hand. You can hold inanimate objects with your hand that holds the symbol, but if another creature touches your hand, or you touch another creature with your hand that holds the symbol, the symbol is triggered. If you lose Concentration, the symbol triggers.</p>
+<p>As a Double Action, you may place the held Symbol on a new surface. This is the only way to rid the symbol once you transferred it to your hand.</p>
+<p>You are able to maintain Concentration while you sleep. Most casters of this spell put on gloves after transferring the Symbol to there hand.</p>';
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 8);
 
         $spell                 = new Spell;
         $spell->name           = 'Transmute Rock';
@@ -702,7 +796,7 @@ class SpellsTSeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Permanency (Heightened +5)</dt> <dd>50,000 gp, 10 CON Damage, blessing from Silvanus (Commune with Nature). The staff becomes a permanent magically item that can be used once per day.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Plant'], 6);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Plant', 'Permanency'], 6);
 
         $spell              = new Spell;
         $spell->name        = 'Treasure Scent';
@@ -777,6 +871,20 @@ class SpellsTSeeder extends Seeder
         $spell->description  = '<p>The caster creates a nonmagical, unattended object of any sort of matter. Items created are permanent and cannot be negated by dispelling magics or negating powers. For all intents and purposes, these items are completely real. The volume of the item created cannot exceed 1 cubic foot per caster level. The caster must succeed at an appropriate skill check to make a complex item.</p>
 <p>Unlike the items brought into being by the lower-level spells minor creation and major creation, objects created by the casting of true creation can be used as material components.</p>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Creation'], 8);
+
+        $spell              = new Spell;
+        $spell->name        = "Troll's Bane";
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Touched Melee Weapon';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>You touch a Melee Weapon, it becomes wreathed in a soft blue-ish fire (this fire deals no damage and emits diminished light out to 5 ft). For the Duration, any Troll that is hit with the Target Weapon, that Damage cannot be regenerated.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+1)</dt> <dd>You may Target an additional Weapon</dd>
+    <dt>Heightened (+1)</dt> <dd>You may Target a Ranged Weapon. It bestows its effects to the ammunition</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 1);
 
         $spell                 = new Spell;
         $spell->name           = 'True Form';
@@ -860,6 +968,28 @@ class SpellsTSeeder extends Seeder
 <p>At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves must succeed on a Strength saving throw or take 5d10 bludgeoning damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the spell on subsequent rounds is reduced by 1d10. When the wall reaches 0 feet in height, the spell ends.</p>
 <p>A creature caught in the wall can move by swimming. Because of the force of the wave, though, the creature must make a successful Strength (Athletics) check against your spell save DC in order to move at all. If it fails the check, it can't move. A creature that moves out of the area falls to the ground.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 8);
+
+        $spell              = new Spell;
+        $spell->name        = 'Turbidity';
+        $spell->casting     = 'Material Casting, Somatic Casting';
+        $spell->area        = '20-ft radius emanation';
+        $spell->targets     = 'Self';
+        $spell->duration    = 'Concentration, up to 10 minutes';
+        $spell->description = '<p>You cause the water surrounding you to swirl and fill with suspended sediments, decreasing visibility and making it harder for foes to attack you. You gain the following.</p>
+<ul>
+    <li>This roiling cloud obscures all vision, including darkvision, beyond 5 feet (this affects yourself). Creatures within the area up to 5 feet from an attacker have Concealment (20% miss chance), while those further away have Total Concealment (50% miss chance).</li>
+    <li>Creatures other than you within this cloud must make a Concentration check to cast a spell (DC 15 + Spell Level)</li>
+    <li>Ranged Attacks that pass through the Turbidity automatically fail, including your own Ranged Attacks.</li>
+</ul>
+<p>A vigorous current disperses the clouded water in 3 rounds. A stronger current disperses the clouded water in 1 round.</p>
+<p>This spell only functions underwater.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A handful of mud</dd>
+</dl>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Twin Form';

@@ -21,6 +21,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ankheg';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -58,6 +59,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ape';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 3;
@@ -77,6 +79,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ape, Dire';
         $monster->size        = 'Huge';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 10;
@@ -96,6 +99,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Axe Beak';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 3;
@@ -110,6 +114,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Baboon';
         $monster->size        = 'Small';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 1;
@@ -125,6 +130,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Badger';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 1;
@@ -142,6 +148,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Bat';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 1;
@@ -160,6 +167,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Bat, Dire';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 4;
@@ -178,6 +186,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bear, Black';
         $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -198,6 +207,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bear, Brown';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -221,6 +231,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Boar';
         $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -241,6 +252,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Boar, Dire';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -261,6 +273,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bulette';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -286,6 +299,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Camel';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '8';
         $monster->hit_dice    = 2;
@@ -300,6 +314,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Carrion Crawler';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -320,6 +335,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Cat';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 1;
@@ -341,6 +357,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Centipede, Giant';
         $monster->size             = 'Small';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -360,6 +377,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crocodile';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -381,6 +399,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crocodile, Dire';
         $monster->size             = 'Huge';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -403,6 +422,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Deer';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 1;
@@ -417,6 +437,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Dog';
         $monster->size        = 'Small';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 1;
@@ -434,29 +455,33 @@ class AnimalsSeeder extends Seeder
             ],
         ]);
 
-        $monster              = new Monster;
-        $monster->name        = 'Dog, War';
-        $monster->size        = 'Medium';
-        $monster->alignment   = '-';
-        $monster->armor_class = '12';
-        $monster->hit_dice    = 1;
-        $monster->speed       = '40 ft';
-        $monster->actions     = '<dl>
-    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 +1 Piercing. If the target is a creature, it must succeed a DC 11 STR Save or be knocked prone.</dd>
+        $monster                   = new Monster;
+        $monster->name             = 'Dog, War';
+        $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '12';
+        $monster->damage_reduction = '1 (Natural Armor)';
+        $monster->hit_dice         = 2;
+        $monster->speed            = '40 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 +2 Piercing. If the target is a creature, it must succeed a DC 11 STR Save or be knocked prone.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal'], [
-            'stats'  => [13, 14, 12, 3, 12, 7, .125, 2],
-            'skills' => [
+            'stats'    => [14, 14, 14, 3, 12, 7, .5, 2],
+            'skills'   => [
                 'Perception' => ['dc' => 3],
             ],
             'features' => [
                 'keen_sense' => ['meta' => 'Hearing and Scent'],
             ],
+            'talents'  => ['Improved Flanking'],
         ]);
 
         $monster              = new Monster;
         $monster->name        = 'Eagle';
         $monster->size        = 'Small';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 1;
@@ -478,6 +503,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Elephant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -498,6 +524,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Elk';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
         $monster->hit_dice    = 2;
@@ -517,6 +544,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Elk, Dire';
         $monster->size             = 'Huge';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -539,6 +567,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Frog';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 1;
@@ -562,6 +591,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Frog, Giant';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 4;
@@ -587,6 +617,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Goat';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 1;
@@ -603,6 +634,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Goat, Dire';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -620,6 +652,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Hawk';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
         $monster->hit_dice    = 1;
@@ -638,6 +671,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Horse, Draft';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
         $monster->hit_dice    = 3;
@@ -652,6 +686,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Horse, Riding';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
         $monster->hit_dice    = 2;
@@ -667,6 +702,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Horse, War';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 3;
@@ -681,6 +717,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Hyena';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 1;
@@ -696,6 +733,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Lion';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 4;
@@ -720,6 +758,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Lizard';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 1;
@@ -734,6 +773,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Lizard, Giant';
         $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -752,6 +792,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Orpsu';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 1;
@@ -763,9 +804,65 @@ class AnimalsSeeder extends Seeder
             'stats' => [4, 12, 13, 2, 7, 5, .125, 2],
         ]);
 
+        $monster              = new Monster;
+        $monster->name        = 'Owl';
+        $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
+        $monster->armor_class = '11';
+        $monster->hit_dice    = 1;
+        $monster->speed       = '5 ft / Fly 60 ft';
+        $monster->actions     = "<dl>
+    <dt>Flyby</dt> <dd>The owl doesn't Provoke Opportunity attacks when it flies out of an enemy's reach</dd>
+    <dt>Keen Hearing and Sight</dt> <dd>The owl has Advantage on WIS (Perception) checks that rely on hearing or sight</dd>
+    <dt>Talons</dt> <dd>Melee Weapon Attack +3 to Hit, reach 5 ft, one target. 1D1 Slashing Damage</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Animal'], [
+            'stats'    => [3, 13, 8, 2, 12, 7, 0, 2],
+            'skills'   => [
+                'Perception' => ['dc' => 3],
+                'Stealth'    => ['dc' => 3],
+            ],
+            'features' => [
+                'darkvision' => ['meta' => '120 ft'],
+            ],
+        ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Owlbear';
+        $monster->size             = 'Large';
+        $monster->type             = 'Fey';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '10';
+        $monster->damage_reduction = '2 (Natural Armor)';
+        $monster->hit_dice         = 6;
+        $monster->speed            = '40 ft';
+        $monster->actions          = '<dl>
+    <dt>Beak</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D10 +5) Piercing.</dd>
+    <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +5) Slashing.</dd>
+</dl>';
+        $monster->description = "<p>Owlbears are monstrous beasts with the bodies of bears covered in thick fur and feathers. Their heads are like those of owls, but with a serrated beak.</p>
+<p>Owlbears hunt from around sunset to sunrise. They hoot or screech to declare their territory and to flush prey into their hunting grounds. Owlbears also screech as a way to attract a mate. When an owlbear successfully catches its prey, it tends to partially consume part of it on the spot, before dragging the rest back to its lair to be stored. The scent of flesh that emanate from an owlbear's lair often attract creatures and therefore, more prey.</p>
+<p>These creatures are incredibly aggressive, going so far as to slay any living creature they see. This territorial attitude causes many folks who live with nature to purposefully hunt owlbears before they have a chance to destroy the local wildlife.</p>
+<p>Training an owlbear requires a DC 25 Animal Handling (Train an Animal).</p>
+<p>The owlbears eyes cannot move. This is compensated by their ability to rotate their heads like owls 270 degrees.</p>";
+        $helper->saveMonster($monster, ['Animal', 'Monstrosity'], [
+            'stats'  => [20, 12, 17, 3, 12, 7, 3, 3],
+            'skills' => [
+                'Perception' => ['dc' => 3],
+            ],
+            'features' => [
+                'darkvision'   => ['meta' => '60 ft'],
+                'keen_sense'   => ['meta' => 'Sight and Smell'],
+                'multi_attack' => ['meta' => 'The owlbear gains an additional Action. This additional Action can only be used to make a Grapple attack. The owlbear only gains this additional Action if it successfully makes 2 Claw attacks on the same target.'],
+            ],
+            'feats' => ['Improved Grapple', 'Die Hard'],
+        ]);
+
         $monster                   = new Monster;
         $monster->name             = 'Raven, Giant';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -794,6 +891,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Rhinoceros';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -809,6 +907,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Scorpion';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -827,6 +926,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Scorpion, Giant';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -849,6 +949,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Constrictor Snake';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 2;
@@ -867,6 +968,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Constrictor Snake, Giant';
         $monster->size        = 'Huge';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 8;
@@ -885,6 +987,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Flying Snake';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '16';
         $monster->hit_dice    = 2;
@@ -902,6 +1005,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Poisonous Snake';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
         $monster->hit_dice    = 1;
@@ -919,6 +1023,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Poisonous Snake, Giant';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
         $monster->hit_dice    = 2;
@@ -936,6 +1041,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Spider';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
         $monster->hit_dice    = 1;
@@ -951,6 +1057,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Spider, Giant';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -975,6 +1082,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Wolf Spider, Giant';
         $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
         $monster->hit_dice    = 2;
@@ -1002,6 +1110,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Giant Whip Scorpion';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -1024,6 +1133,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Giant Whip Spider';
         $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1033,7 +1143,7 @@ class AnimalsSeeder extends Seeder
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 +1) Bludgeoning</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +1) Piercing</dd>
 </dl>';
-        $monster->description = "<p>THis human-sized, spider-like creature has a long, flat body and six spindly legs. Two more legs held close to its mouth end in spiny pincers. Two long, whip-like appendages emerge from the creature's body just behind its pincer legs.</p>
+        $monster->description = "<p>This human-sized, spider-like creature has a long, flat body and six spindly legs. Two more legs held close to its mouth end in spiny pincers. Two long, whip-like appendages emerge from the creature's body just behind its pincer legs.</p>
 <p>A giant whip spider measures between 6 and 8 feet long and weighs about 200 pounds. Despite the impressive appearance of its whip-like appendages, they are simple feelers that the creature uses to probe into fissures and other areas it can't see.</p>
 <p>Sages sometimes refer to giant whip spiders as monstrous amblypygids, but the term is not commonly used.</p>";
         $helper->saveMonster($monster, ['Animal'], [
@@ -1051,6 +1161,7 @@ class AnimalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Giant Sun Spider';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1076,6 +1187,7 @@ class AnimalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Stirge';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
         $monster->hit_dice    = 1;
@@ -1095,6 +1207,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster              = new Monster;
         $monster->name        = 'Red Tiger';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 8;
@@ -1129,6 +1242,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster                   = new Monster;
         $monster->name             = 'Great Snow Tiger';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1170,6 +1284,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster              = new Monster;
         $monster->name        = 'Toad, Giant';
         $monster->size        = 'Large';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 6;
@@ -1193,6 +1308,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster              = new Monster;
         $monster->name        = 'Poisonous Toad';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
         $monster->hit_dice    = 1;
@@ -1210,9 +1326,25 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
         ]);
 
+        $monster              = new Monster;
+        $monster->name        = 'Wasp, Giant';
+        $monster->size        = 'Medium';
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
+        $monster->armor_class = '12';
+        $monster->hit_dice    = 3;
+        $monster->speed       = '10 ft / Fly 50 ft';
+        $monster->actions     = '<dl>
+    <dt>Sting</dt> <dd>Melee Weapon Attack +4 to Hit, reach 5 ft, one creature. 1D6 + 2 Piercing Damage and Target makes a DC 11 CON Save or take 3D6 Poison Damage or half on a Successful Save. If the Target drops to 0 HP or lower from the Poison Damage, they are Stable but Paralyzed for 1 hour.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Animal'], [
+            'stats' => [10, 14, 10, 1, 10, 3, .5, 2],
+        ]);
+
         $monster                   = new Monster;
         $monster->name             = 'Killer Whale';
         $monster->size             = 'Huge';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1234,16 +1366,17 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster                   = new Monster;
         $monster->name             = 'Wolf';
         $monster->size             = 'Medium';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
-        $monster->damage_reduction = '1 (Natural Armor';
+        $monster->damage_reduction = '1 (Natural Armor)';
         $monster->hit_dice         = 2;
         $monster->speed            = '40 feet';
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D4 +2 Piercing. If the target is a creature, it must succeed on a DC 11 STR Save or be knocked Prone.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal'], [
-            'stats'  => [12, 15, 12, 3, 12, 6, .25, 2],
+            'stats'  => [14, 15, 14, 3, 12, 6, .5, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
                 'Stealth'    => ['dc' => 4, 'meta' => '+10 if hiding in snowy terrain'],
@@ -1257,6 +1390,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster                   = new Monster;
         $monster->name             = 'Wolf, Dire';
         $monster->size             = 'Large';
+        $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';

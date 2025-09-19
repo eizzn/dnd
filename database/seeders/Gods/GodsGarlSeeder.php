@@ -61,9 +61,14 @@ class GodsGarlSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Animal Handling', 'Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Performance', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 4,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Invisibility</dd>
+</dl>',
         ]);
+        $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addDomainToClass($class, ['Craft', 'Gnome', 'Protection', 'Trickery']);
         $helper->addSpellsToClass($class, [
             0 => ['Boon', 'Clean Self', 'Friends', 'Stabilize', 'Ghost Sound', 'Mage Hand', 'Message', 'Minor Illusion',
@@ -74,7 +79,7 @@ class GodsGarlSeeder extends Seeder
                 'Resist Force', 'Scent', 'Speak with Animals', 'Undead Bane Weapon', 'Zone of Truth', ],
             3 => ['Dispel Magic', 'Faithful Healing', 'Forbiddance', 'Hypnotic Pattern', 'Major Image', 'Neutralize Poison',
                 'Prayer', 'Tiny Servant', 'Tongues', ],
-            4 => ['Call Animal', 'Ceremony', 'Divination', 'Summon Woodland Beings'],
+            4 => ['Call Animal', 'Ceremony', 'Divination', 'Summon Woodland Beings', 'Warding Gems'],
             5 => ['Atonement', 'Awaken', 'Dispel Evil'],
             6 => ['Heal', "Hero's Feast", 'Permanent Image', 'Programmed Image'],
             7 => ['Holy Aura', 'Project Image', 'Temple of the Gods'],
@@ -268,19 +273,20 @@ class GodsGarlSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['feat'], [
+            'level' => 4,
+            'meta'  => 'Any Metamagic Feat',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
         $helper->addDomainToClass($class, ['Gnome', 'Good', 'Protection']);
         $helper->addSpellsToClass($class, [
-            0   => ['Light', 'Mending', 'Mold Metal', 'Resist', 'Stabilize'],
-            1   => ['Bless', 'Cure Wounds', 'Detect Evil', 'Enchant Item', 'Fabricate', 'Forge Fire',
+            0   => ['Light', 'Mending', 'Resist', 'Stabilize'],
+            1   => ['Bless', 'Cure Wounds', 'Detect Evil', 'Enchant Item', 'Forge Fire', 'Mold Metal',
                 'Summon Elemental, Lesser' => 'Earth or Fire Elementals only', ],
             2   => ['Augury', "Bear's Endurance", 'Comprehend Language', 'Consecrate', 'Control Flame', 'Gembomb', 'Locate Node',
                 'Node Lock', 'Restoration', ],
             3   => ['Dispel Magic', 'Elemental Weapon', 'Node Door'],
-            4   => ['Creation'],
+            4   => ['Creation', 'Fabricate', 'Warding Gems'],
             5   => ['Atonement', 'Commune', 'Hallow', 'Summon Elemental' => 'Earth or Fire Elemental only'],
             6   => ['Brilliant Weapon'],
             7   => [],
@@ -371,8 +377,17 @@ class GodsGarlSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Animal Handling', 'Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Performance', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Illusionist',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 7,
+            'meta'  => 'Expert Illusionist',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 12,
+            'meta'  => 'Master Illusionist',
         ]);
         $helper->addDomainToClass($class, ['Craft', 'Gnome', 'Protection', 'Trickery']);
         $helper->addSpellsToClass($class, [
@@ -381,7 +396,7 @@ class GodsGarlSeeder extends Seeder
             2 => ["Cat's Grace", 'Gembomb', 'Illusory Creature', 'Invisibility, Swift', 'Illusory Disguise', 'Illusory Object',
                 'Mirror Image', 'See Invisibility', 'Ventriloquism', ],
             3 => ['Hypnotic Pattern', 'Major Image'],
-            4 => ['Ceremony', 'Invisibility Sphere', 'Phantasmal Killer', 'Veil'],
+            4 => ['Ceremony', 'Invisibility Sphere', 'Phantasmal Killer', 'Veil', 'Warding Gems'],
             5 => ['Atonement', 'Mislead', 'Programmed Illusion', 'Suggestion'],
             6 => ['Heal', 'Illusory Scene', 'Permanent Image', 'Project Image', 'Programmed Image'],
             7 => ['Mirage Arcane'],
@@ -473,17 +488,22 @@ class GodsGarlSeeder extends Seeder
             ['Animal Handling', 'Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Performance', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+            'rage' => [4],
         ]);
+        $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addDomainToClass($class, ['Craft', 'Gnome', 'Protection', 'Trickery']);
         $helper->addSpellsToClass($class, [
-            0 => ['Stabilize'],
-            1 => ['Cure Wounds', 'Treasure Scent'],
-            2 => ['Gembomb', 'Undead Bane Weapon'],
-            3 => ['Burrow'],
-            5 => ['Atonement'],
-            6 => ['Heal'],
+            0 => ['Light', 'Mold Earth', 'Necrotic Touch', 'Stabilize', 'Touch of Death'],
+            1 => ['Cause Wounds', 'Cure Wounds', 'Detect Good', 'Doom', 'Earth Tremor', 'Quick Burrow', 'Protection From Good',
+                'Treasure Scent'],
+            2 => ['Enlarge', 'Gembomb', 'Rockburst', 'Shrink', 'Stone Sphere', 'Undead Bane Weapon'],
+            3 => ['Burrow', 'Erupting Earth', 'Wound'],
+            4 => ['Drain Life', 'Warding Gems'],
+            5 => ['Atonement', 'Dispel Good', 'Harm'],
+            6 => ['Finger of Death', 'Heal'],
+            7 => ['Blasphemy', 'Power Word Kill', 'Unholy Aura'],
+            8 => ['Repeal Metal or Stone'],
         ]);
-        $helper->addSpellSlotsToClass($class);
+        $helper->addSpellSlotsToClass($class, 'eight');
     }
 }

@@ -8,6 +8,7 @@ import NavLink from "@/components/NavLink.vue";
 const Uri = "formulas";
 const filters = {
     name: null,
+    type: null,
 };
 </script>
 
@@ -42,22 +43,45 @@ const filters = {
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-req-filter" class="block text-sm font-medium text-gray-700">Type</label>
+                                    <label for="formula-type-filter" class="block text-sm font-medium text-gray-700">Type</label>
+                                    <select
+                                        id="formula-type-filter"
+                                        v-model="filters.type"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                    >
+                                        <option value=""> - </option>
+                                        <option value="acid">Acid</option>
+                                        <option value="alchemical">Alchemical</option>
+                                        <option value="armor">Armor</option>
+                                        <option value="construct">Construct</option>
+                                        <option value="drug">Drug</option>
+                                        <option value="elemental infusion">Elemental Infusion</option>
+                                        <option value="elixir">Elixir</option>
+                                        <option value="infusion">Infusion</option>
+                                        <option value="item">Item</option>
+                                        <option value="graft">Graft</option>
+                                        <option value="poison">Poison</option>
+                                        <option value="potion">Potion</option>
+                                        <option value="rune">Rune</option>
+                                        <option value="snare">Snare</option>
+                                        <option value="tattoo">Tattoo</option>
+                                        <option value="weapon">Weapon</option>
+                                    </select>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-trigger-filter" class="block text-sm font-medium text-gray-700">Level</label>
+                                    <label for="formula-level-filter" class="block text-sm font-medium text-gray-700">Level</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-types-filter" class="block text-sm font-medium text-gray-700">Crafting</label>
+                                    <label for="formula-crafting-filter" class="block text-sm font-medium text-gray-700">Crafting</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-description-filter" class="block text-sm font-medium text-gray-700">Method</label>
+                                    <label for="formula-method-filter" class="block text-sm font-medium text-gray-700">Method</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-description-filter" class="block text-sm font-medium text-gray-700">Description</label>
+                                    <label for="formula-description-filter" class="block text-sm font-medium text-gray-700">Description</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-description-filter" class="block text-sm font-medium text-gray-700">Types</label>
+                                    <label for="formula-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
                                 </th>
                             </template>
 

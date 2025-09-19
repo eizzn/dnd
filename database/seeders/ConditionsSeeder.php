@@ -129,7 +129,7 @@ class ConditionsSeeder extends Seeder
         $cond              = new Condition;
         $cond->key         = 'dying';
         $cond->name        = 'Dying';
-        $cond->description = "<p>You are bleeding out or otherwise at death's door. Dying always includes a value, and if it ever reaches dying 4, you die. If you're dying, you must attempt a recovery saving throw at the start of your turn to determine whether you get better or worse. If you ever have 1 HP or more, you lose the dying condition. Any time you lose the dying condition, you increase your wounded value by 1 if you already have the condition, or gain wounded 1 if you do not currently have the condition.</p>";
+        $cond->description = "<p>You are bleeding out or otherwise at death's door. Dying always includes a value, and if it ever reaches dying 4, you die. If you're dying, you must attempt a recovery Save at the start of your turn to determine whether you get better or worse. If you ever have 1 HP or more, you lose the dying condition. Any time you lose the dying condition, you increase your wounded value by 1 if you already have the condition, or gain wounded 1 if you do not currently have the condition.</p>";
         $cond->save();
 
         $cond              = new Condition;
@@ -155,7 +155,7 @@ class ConditionsSeeder extends Seeder
         $cond              = new Condition;
         $cond->key         = 'entangled';
         $cond->name        = 'Entangled';
-        $cond->description = '<p>A snare or another entrapping effect holds you back. You\'re hampered 10 (see the condition). If you attempt a Manipulate Action, Activity, Free Action, or Reaction while Entangled, you must succeed at a DC 5 flat check or it is lost; attempt the check after using it but before any effects are applied.</p>';
+        $cond->description = "<p>A snare or another entrapping effect holds you back. You're Hampered 10 (see the condition). If you attempt a Manipulate Action, Activity, Free Action, or Reaction while Entangled, you must succeed at a DC 5 flat check or it is lost; attempt the check after using it but before any effects are applied.</p>";
         $cond->save();
 
         $cond              = new Condition;
@@ -351,7 +351,7 @@ class ConditionsSeeder extends Seeder
         $cond              = new Condition;
         $cond->key         = 'shaken';
         $cond->name        = 'Shaken';
-        $cond->description = '<p>You suffer a -1 penalty to Hit, Damage, Saves, Skill checks, Ability checks.';
+        $cond->description = '<p>You suffer a -1 penalty to Hit, Damage, Saves, Skill checks, Ability checks.</p>';
         $cond->save();
 
         $cond              = new Condition;

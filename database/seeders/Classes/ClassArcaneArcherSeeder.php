@@ -87,7 +87,7 @@ class ClassArcaneArcherSeeder extends Seeder
             'death_arrow'               => [10],
         ]);
         $helper->addSpellsToClass($class, [
-            0 => ['Chill Touch', 'Disrupt Undead', 'Light', 'Shocking Grasp'],
+            0 => ['Disrupt Undead', 'Light', 'Necrotic Touch', 'Shocking Grasp'],
             1 => ['Burning Hands', 'Gust of Wind', 'Sleep'],
             2 => ['Blindness', 'Blur', "Cat's Grace", 'Darkness', 'Spider Climb'],
             3 => ['Fireball', 'Lightning', 'Slow', 'Stinking Cloud'],

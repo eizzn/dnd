@@ -28,6 +28,17 @@ class MiscellaneousTalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 8]);
 
         $talent              = new Talent;
+        $talent->name        = 'Aspect of Nature: Amphibious';
+        $talent->action_type = 'Action';
+        $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour</p>
+<ul>
+    <li>You gain a +10 bonus to your Swim Speed</li>
+    <li>+4 bonus to Swim, and Hold your Breath Checks. You also gain this bonus to help prevent slipping on wet surfaces.</li>
+    <li>You skin becomes thickened, protecting you from normal leeches and skin maceration (softening of the skin due to prolonged exposure to moisture, sometimes called skin pruning). This grants Damage Reduction: 1</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 2]);
+
+        $talent              = new Talent;
         $talent->name        = 'Aspect of Nature: Aquatic';
         $talent->action_type = 'Action';
         $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
@@ -60,11 +71,14 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Aspect of Nature: Fast Healing';
         $talent->action_type = 'Action';
-        $talent->description = '<p>You may use a use of your Wild Shape ability to gain Regeneration: 2 for 1 hour</p>';
+        $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
+<ul>
+    <li>You gain Regeneration: 2</li>
+</ul>';
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 10]);
 
         $talent              = new Talent;
-        $talent->name        = 'Aspect of Nature: Flight';
+        $talent->name        = 'Aspect of Nature: Wings';
         $talent->action_type = 'Action';
         $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
 <ul>
@@ -89,7 +103,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = '<p>You may use a use of your Wild Shape ability to make your skin harden. You gain the following for 1 hour</p>
 <ul>
     <li>You gain a Natural AC of +4. This does not stack with any worn Armor.</li>
-    <li>You gain Damage Reduction: 4</li>
+    <li>You gain Damage Reduction: 5</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 6]);
 
@@ -101,8 +115,9 @@ class MiscellaneousTalentsSeeder extends Seeder
     <li>Your size increases by one category</li>
     <li>You gain a +2 bonus to STR</li>
     <li>You gain a +2 bonus to CON</li>
-    <li>You suffer a -2 penalty to DEX</li>
-</ul>';
+    <li>You gain Damage Reduction: 1</li>
+</ul>
+<p>You may not use this Talent at the same time as Aspect of Nature: Shrink.</p>';
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 7]);
 
         $talent              = new Talent;
@@ -121,8 +136,9 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = '<p>You may use a use of your Wild Shape ability to shrink in size. You gain the following for 1 hour.</p>
 <ul>
     <li>Your size decreases by one category</li>
-    <li>You gain a +2 bonus to DEX</li>
-</ul>';
+    <li>You gain a +4 bonus to DEX</li>
+</ul>
+<p>You may not use this Talent at the same time as Aspect of Nature: Growth.</p>';
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 8]);
 
         $talent              = new Talent;
@@ -135,6 +151,15 @@ class MiscellaneousTalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 2]);
 
         $talent              = new Talent;
+        $talent->name        = 'Aspect of Nature: Strength';
+        $talent->action_type = 'Action';
+        $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
+<ul>
+    <li>You gain a +4 bonus to STR</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 8]);
+
+        $talent              = new Talent;
         $talent->name        = 'Aspect of Nature: Venom';
         $talent->action_type = 'Action';
         $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
@@ -142,15 +167,6 @@ class MiscellaneousTalentsSeeder extends Seeder
     <li>You gain a bite attack that deals 1D6 Piercing Damage. In addition, the bite delivers a toxic venom (CON DC 14) 1D4 CON or STR Damage (your choice). A victim cannot suffer this Ability Damage more than twice.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 6]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Aspect of Nature: Vigor';
-        $talent->action_type = 'Action';
-        $talent->description = '<p>You may use a use of your Wild Shape ability to gain the following for 1 hour.</p>
-<ul>
-    <li>+4 bonus to STR</li>
-</ul>';
-        $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 8]);
 
         /**********************************************************************/
 
@@ -178,7 +194,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->name        = 'Sorcerous Combat';
         $talent->action_type = 'Action';
         $talent->requirement = 'You must have the ability to cast at least 1st Level Arcane spells';
-        $talent->description = '<p>You may spend 2 Spell Points to envelop your Melee Weapon in magical energy. Choose one of the following.</p>
+        $talent->description = '<p>You may use an Action and spend 1 Spell Point to envelop your Melee Weapon in magical energy. Choose one of the following.</p>
 <ul>
     <li>Cold</li>
     <li>Electricity</li>
@@ -197,7 +213,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 7]);
 
         $talent              = new Talent;
-        $talent->name        = 'Sorcerous Trip';
+        $talent->name        = 'Sorcerous Travel';
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You must have the ability to cast at least 3rd level Arcane spells';
         $talent->description = '<p>You may spend 5 Spell Points as a Double Action to cast Misty Step.</p>';
@@ -221,14 +237,20 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Additional Crafting';
         $talent->description = '<p>You learn a new Crafting skill.</p>
-<p>Choose a specific Crafting subcategory. You gain a +1 bonus to all checks in that subcategory.</p>';
+<ul>
+    <li>Choose a specific Crafting subcategory. You gain a +3 bonus to that specific subcategory</li>
+    <li>You also gain a +1 bonus on all Crafting checks.</li>
+</ul>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Item Creation', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Crafting'], ['dc' => 2]);
 
         $talent              = new Talent;
         $talent->name        = 'Additional Lore';
         $talent->description = '<p>You learn a new Lore subcategory.</p>
-<p>Choose a specific Lore subcategory. You gain a +1 bonus to all checks in that subcategory.</p>';
+<ul>
+    <li>Choose a specific Lore subcategory. You gain a +3 bonus to that specific subcategory</li>
+    <li>You also gain a +1 bonus on all Lore checks.</li>
+</ul>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Lore'], ['dc' => 2]);
 
@@ -281,16 +303,6 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = "<p>Tracking is second nature to you, and when necessary you can follow a trail without pause. You can Track while moving at full Speed by taking a -5 penalty to your Survival check. If you have at least 10 ranks in Survival, you don't take the -5 penalty. If you have at least 15 ranks in Survival, you no longer need to roll a new Survival check every hour when tracking, though you still need to roll whenever there are significant changes in the trail.</p>";
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Survival'], ['dc' => 2]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Swift Tracker';
-        $talent->requirement = 'You must have the Favored Enemy Class Feature';
-        $talent->description = "<p>Your keen eyes catch signs of passage even when you're moving. You can move at your full Speed while you Track.</p>
-<p>If you have at least 10 ranks in Survival, you don't need to attempt a new Survival check every hour while Tracking. If you have at least 15 ranks in Survival, you can use another exploration Activity while Tracking.</p>
-<p>If you roll Survival for initiative while Tracking your Favored Enemy, you can Stride toward your Favored Enemy as a Free Action.</p>";
-        $talent->parent_id = Talent::where('name', 'Experienced Tracker')->first()->id;
-        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 6]);
-        $talent->skills()->save(app()->skills['Survival'], ['dc' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Faith Scholar';
@@ -346,7 +358,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         </tr>
     </tbody>
 </table>
-<p>Multiple Smaller creatures or creatures with significantly smaller ;appetites than a human are counted as a single creature for this Talent, and Larger creatures or those with significantly greater appetites each count as multiple creatures. The GM determines how much a non-human creature needs to eat.</p>';
+<p>Multiple Smaller creatures or creatures with significantly smaller appetites than a human are counted as a single creature for this Talent, and Larger creatures or those with significantly greater appetites each count as multiple creatures. The GM determines how much a non-human creature needs to eat.</p>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Survival'], ['dc' => 2]);
 
@@ -426,9 +438,9 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Greater Crafting';
+        $talent->parent_id   = Talent::where('name', 'Focused Crafting')->first()->id;
         $talent->description = '<p>You craft flawless creations with great efficiency. Whenever you roll a Success at a Crafting check to make an item of the type you chose with Focused Crafting, you get a Critical Success instead.</p>
 <p>You may take this Talent multiple times, picking a new specialty you have already chosen with Focused Crafting</p>';
-        $talent->parent_id = Talent::where('name', 'Focused Crafting')->first()->id;
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
         $talent->skills()->save(app()->skills['Crafting'], ['dc' => 10]);
 
@@ -447,7 +459,7 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Intimidating Prowess';
-        $talent->description = '<p>In situations where you can physically menace the target when you Coerce or Demoralize, you gain a +1 circumstance bonus to your Intimidation check and you ignore the penalty for not sharing a Language.</p>
+        $talent->description = '<p>In situations where you can physically menace the target when you Coerce or Demoralize, you gain a +1 Circumstance bonus to your Intimidation check and you ignore the penalty for not sharing a Language.</p>
 <p>If your STR score is 20 or higher and you have at least 10 ranks in Intimidation, this bonus increases to +2.</p>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 2]);
         $talent->skills()->save(app()->skills['Intimidation'], ['dc' => 5]);
@@ -481,12 +493,6 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->skills()->save(app()->skills['Diplomacy'], ['dc' => 15]);
 
         $talent              = new Talent;
-        $talent->name        = 'Legendary Thief';
-        $talent->description = '<p>Your ability to Steal defies belief. You can attempt to Steal something that is actively wielded or that would be extremely noticeable or time consuming to remove (like worn shoes or armor). You must do so slowly and carefully, spending at least 1 minute (and significantly longer for items that are normally time consuming to remove, like armor). Throughout this duration you must have some means of staying hidden, such as the cover of darkness or a bustling crowd. You take a -5 penalty to your Thievery check. Even if you Succeed, if the item is extremely prominent-like a suit of full plate armor-onlookers will quickly notice its gone after you steal it.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 15]);
-        $talent->skills()->save(app()->skills['Thievery'], ['dc' => 15, 'meta' => 'Pickpocket']);
-
-        $talent              = new Talent;
         $talent->name        = 'Nimble Crawl';
         $talent->description = "<p>You can Crawl incredibly fast-up to half your Speed rather than 5 feet.</p>
 <p>If you have 10 or more ranks in Acrobatics, you can Crawl at your full Speed. If you have 15 or more ranks in Acrobatics, you aren't Flat-Footed while Prone.</p>";
@@ -501,10 +507,11 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->skills()->save(app()->skills['Thievery'], ['dc' => 2]);
 
         $talent              = new Talent;
-        $talent->name        = 'Powerful Leap';
-        $talent->description = '<p>When you Leap, you can jump 5 feet up with a vertical Leap, and you increase the distance you can jump horizontally by 5 feet.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 2]);
-        $talent->skills()->save(app()->skills['Athletics'], ['dc' => 5]);
+        $talent->name        = 'Legendary Thief';
+        $talent->parent_id   = Talent::where('name', 'Pickpocket')->firstOrFail()->id;
+        $talent->description = '<p>Your ability to Steal defies belief. You can attempt to Steal something that is actively wielded or that would be extremely noticeable or time consuming to remove (like worn shoes or armor). You must do so slowly and carefully, spending at least 1 minute (and significantly longer for items that are normally time consuming to remove, like armor). Throughout this duration you must have some means of staying hidden, such as the cover of darkness or a bustling crowd. You take a -5 penalty to your Thievery check. Even if you Succeed, if the item is extremely prominent-like a suit of full plate armor-onlookers will quickly notice its gone after you steal it.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 15]);
+        $talent->skills()->save(app()->skills['Thievery'], ['dc' => 15, 'meta' => 'Pickpocket']);
 
         $talent              = new Talent;
         $talent->name        = 'Quick Climb';
@@ -527,6 +534,13 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->skills()->save(app()->skills['Athletics'], ['dc' => 2]);
 
         $talent              = new Talent;
+        $talent->name        = 'Powerful Leap';
+        $talent->parent_id   = Talent::where('name', 'Quick Jump')->firstOrFail()->id;
+        $talent->description = '<p>When you Leap, you can jump 5 feet up with a vertical Leap, and you increase the distance you can jump horizontally by 5 feet.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 2]);
+        $talent->skills()->save(app()->skills['Athletics'], ['dc' => 5]);
+
+        $talent              = new Talent;
         $talent->name        = 'Quick Recovery';
         $talent->action_type = 'Action';
         $talent->description = '<p>Whenever you begin your turn Stunned or Dazed, as an Action, you can make a new Save at the original DC of the effect that Stunned or Dazed you to recover. If the effect that caused you to become Stunned or Dazed does not allow a Save, you can recover by using a Triple Action.</p>';
@@ -534,9 +548,16 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Quick Sneak';
-        $talent->description = '<p>You can move your full Speed when you Sneak. You can use Quick Sneak while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type.</p>';
+        $talent->description = '<p>You can move your Full Speed when you Sneak. You can use Swift Sneak while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type.</p>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
         $talent->skills()->save(app()->skills['Stealth'], ['dc' => 10]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Legendary Sneak';
+        $talent->description = "<p>You're always sneaking unless you choose to be seen, even when there's nowhere to hide. You can Hide and Sneak even without cover or being Concealed. When you employ an exploration tactic other than Avoiding Notice unless you choose not to.</p>";
+        $talent->parent_id   = Talent::where('name', 'Quick Sneak')->first()->id;
+        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 15]);
+        $talent->skills()->save(app()->skills['Stealth'], ['dc' => 15]);
 
         $talent              = new Talent;
         $talent->name        = 'Quick Squeeze';
@@ -625,19 +646,6 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = "<p>You can study details in the wilderness to determine the presence of nearby creatures. You can spend 10 minutes assessing the area around you to find out what creatures are nearby, based on nests, scat, and marks on vegetation. Attempt a Survival check against a DC determined by the GM based on how obvious the signs are. On a Success, you can attempt a Recall Knowledge check with a -2 penalty to learn more about the creatures just from these signs. If you have at least 10 ranks in Survival, you don't take the penalty.</p>";
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Survival'], ['dc' => 2]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Swift Sneak';
-        $talent->description = '<p>You can move your Full Speed when you Sneak. You can use Swift Sneak while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
-        $talent->skills()->save(app()->skills['Stealth'], ['dc' => 10]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Legendary Sneak';
-        $talent->description = "<p>You're always sneaking unless you choose to be seen, even when there's nowhere to hide. You can Hide and Sneak even without cover or being Concealed. When you employ an exploration tactic other than Avoiding Notice unless you choose not to.</p>";
-        $talent->parent_id   = Talent::where('name', 'Swift Sneak')->first()->id;
-        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 15]);
-        $talent->skills()->save(app()->skills['Stealth'], ['dc' => 15]);
 
         $talent              = new Talent;
         $talent->name        = 'Terrain Expertise';

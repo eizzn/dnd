@@ -30,7 +30,7 @@ class DevilsSeeder extends Seeder
 </dl>';
         $monster->description = '
 <p>When a lemure dies in the Nine Hells, it comes back to life with all its Hit Points in 1D10 days unless it is killed by a Good-aligned creature with a Bless spell cast on that creature or its remains are sprinkled with Holy Water.</p>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [10, 5, 11, 1, 11, 3, 0, 2],
             'features' => [
                 'darkvision'    => ['meta' => '120 ft'],
@@ -55,7 +55,7 @@ class DevilsSeeder extends Seeder
     <dt>Cloud of Vermin</dt> <dd>Any creature, other than a Baatezu, that starts its turn within 20 feet of the Nupperibo must make a DC 11 CON Save. A creature that is within the area of two or more Nupperibos makes the Save with Disadvantage. On a failure, the creature takes 2 (1D4) Piercing damage.</dd>
     <dt>Hunger-Driven</dt> <dd>In the Nine Hells, the Nupperibos can flawlessly track any creature that has taken damage from any Nupperibo's Cloud of Vermin within the previous 24 hours.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [16, 11, 13, 3, 8, 1, .5, 2],
             'features' => [
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
@@ -77,7 +77,7 @@ class DevilsSeeder extends Seeder
     <dt>Sting</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2 (1D4) Bludgeoning.</dd>
     <dt>Shapechanger</dt> <dd>The imp can use its action to polymorph into a beast form that resembles a rat (speed 20 ft), a raven (20 ft, fly 60 ft), or a spider (20 ft, climb 20 ft), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn\'t transformed. It reverts to its true form if it dies.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'  => [6, 17, 13, 11, 2, 1, 1, 2],
             'skills' => [
                 'Deception' => ['dc' => 4],
@@ -108,9 +108,9 @@ class DevilsSeeder extends Seeder
         $monster->speed            = '20 ft / Fly 40 ft';
         $monster->actions          = '<dl>
     <dt>Fork</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 3 (1D6) Piercing.</dd>
-    <dt>Tail</dt> <dd>Ranged Weapon Attack, reach 20/80 ft, one target 4 (1D4 + 2) Piercing. The spined devil only has 12 of these spines. Each spine regrows in 2 days.</dd>
+    <dt>Tail</dt> <dd>Ranged Weapon Attack, reach 20/80 ft, one target 4 (1D4 + 2) Piercing. The spinned devil only has 12 of these spines. Each spine regrows in 2 days.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [10, 15, 12, 11, 14, 8, 2, 3],
             'features' => [
                 'magic_resistance',
@@ -135,7 +135,7 @@ class DevilsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +3) + (2D6) Fire</dd>
     <dt>Fire Breath (Recharge 5-6)</dt> <dd>The hound exhales fire in a 15-foot cone. Each creature in that area must make a DC 12 DEX Save, taking (6D6) Fire damage on a Failed Save, or half as much on a Successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [17, 12, 14, 6, 13, 6, 3, 2],
             'skills'   => ['Perception' => ['dc' => '5']],
             'features' => [
@@ -160,7 +160,7 @@ class DevilsSeeder extends Seeder
     <dt>Beard</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 6 (1D8 +2) Piercing damage, and the target must succeed on a DC 12 CON Save or be Sickened 2 for 1 minute. While Sick in this way, the target can't  regain Hit Points. The target can repeat the Save at the end of each of its turns, ending the effect on itself on a success.</dd>
     <dt>Glaive</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 8 (1D10 +3) Slashing damage. If the target is a creature other than an Undead or Construct, it must succeed on a DC 12 CON Save or lose 5 (1D10) Hit Points at teh start of each of its turns due to an Infernal Wound. Each time the devil hits the wounded target with this attack, the damage dealt by the wound increases by 5 (1D10). Any creature can take an Action to stanch the wound with a successful DC 12 WIS (Medicine) check. The wound also closes if the target receives magical healing.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [16, 15, 15, 9, 11, 3, 3, 3],
             'saves' => [
                 'STR' => ['bonus' => 5],
@@ -194,7 +194,7 @@ class DevilsSeeder extends Seeder
     <dt>Halberd</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 9 (1D10 + 4) Slashing damage.</dd>
     <dt>Heavy Crossbow</dt> <dd>Ranged Weapon Attack, reach 100/400 ft, one target 7 (1D10 + 2) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [18, 14, 17, 6, 12, 8, 4, 3],
             'features' => [
                 'magic_resistance',
@@ -227,7 +227,7 @@ class DevilsSeeder extends Seeder
         $monster->description = '
 <p>Succubuses are fallen angels of love. Succubuses do not openly engage in the Blood War, and have become open to working with demons ever since Graz\'zt became a Demon Lord.</p>
 <p>The male versions of Succubus is called an Inccubus.</p>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'  => [8, 17, 13, 15, 12, 20, 4, 4],
             'skills' => [
                 'Deception'  => ['dc' => 9],
@@ -265,7 +265,7 @@ class DevilsSeeder extends Seeder
     <dt>Hurl Flame</dt> <dd>Ranged Spell Attack, reach 150 ft, one target, 3D6 Fire. If the target is a flammable object that isn\'t being worn or carried, it also catches on Fire.</dd>
     <dt>Barbed Hide</dt> <dd>Grapple Weapon Attack, reach 0 ft, all targets. 6 (1D10) Piercing. With an Action, the Hamatula can attack all creatures that are in a Grapple with the Hamatula.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [16, 17, 18, 12, 14, 14, 5, 5],
             'features' => [
                 'magic_resistance',
@@ -290,7 +290,7 @@ class DevilsSeeder extends Seeder
     <dt>Chain</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 11 (2D6 +4) Slashing damage. The target is Grappled (escape DC 14) if the devil isn't already Grappling a creature. Until this Grapple ends, the target is Restrained and takes 7 (2D6) Piercing damage at the start of each of its turns.</dd>
     <dt>Unnerving Mask</dt> <dd>Reaction. When a creature the Kyton can see starts its turn within 30 feet of the Kyton, the Kyton can create the illusion that it looks like one of the creature's departed loved ones or bitter enemies. If the creature can see the Kyton, it must succeed on a DC 14 WIS Save or be frightened until the end of its turn.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [18, 15, 18, 11, 12, 14, 8, 4],
             'saves' => [
                 'CON' => ['bonus' => 7],
@@ -323,7 +323,7 @@ class DevilsSeeder extends Seeder
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 8 (1D8 +4) Slashing damage.</dd>
     <dt>Sting</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 13 (2D8 +4) Piercing plus 17 (5D6) Poison damage, and the target must succeed on a DC 14 CON Save or become Sickened 3 for 1 minute. The target can repeat the Save at the end of each of its turns, ending the effect on itself on a success.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [18, 16, 18, 13, 14, 16, 9, 5],
             'saves' => [
                 'INT' => ['bonus' => 5],
@@ -368,7 +368,7 @@ class DevilsSeeder extends Seeder
     </dd>
     <dt>Explosive Retribution</dt> <dd>When the Orthon is reduced to 15 Hit Points or fewer, the Orthon causes itself to explode. All other creatures within 30 feet of it must each make a DC 17 DEX Save, taking 9 (2D8) Fire damage plus 9 (2D8) Electricity damage on a failed Save, or half as much on a successful one. This explosion destroys the Orthon, its Infernal Dagger, and its Brass Crossbow and all his bolts.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [22, 16, 21, 15, 15, 16, 10, 4],
             'saves' => [
                 'DEX' => ['bonus' => 7],
@@ -408,7 +408,7 @@ class DevilsSeeder extends Seeder
     <dt>Tail</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 1D8 + 6 Piercing. The target must make a DC 17 CON Save if it takes damage. On a failed Save, it suffers 5 Persistent (bleed) damage.</dd>
     <dt>Hurl Flame</dt> <dd>Ranged Spell Attack, reach 150 ft, one target, 4D6 Fire. If the target is a flammable object that isn\'t being worn or carried, it also catches on Fire.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [22, 17, 21, 12, 16, 17, 11, 6],
             'saves' => [
                 'STR' => ['bonus' => 10],
@@ -440,7 +440,7 @@ class DevilsSeeder extends Seeder
     <dt>Greater Flaming Longsword +2</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D8 + 2 Slashing + 3D6 Fire.</dd>
     <dt>Keen Longbow + 2</dt> <dd>Ranged Weapon Attack, reach 150/600 ft, one target. 1D8 + 2 Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [18, 16, 18, 14, 14, 18, 12, 6],
             'features' => [
                 'magic_resistance',
@@ -467,7 +467,7 @@ class DevilsSeeder extends Seeder
         $monster->actions          = "<dl>
     <dt>Hellfire Lance</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 11 (1D12 +5) Piercing damage plus 16 (3D10) Fire damage. If this kills a creature, the creature's. soul rises form the River Styx as a Lemure in Avernus in 1D4 days. If the creature isn't revived before then, only a Wish spell or killing the Lemure and casting True Resurrection on the creature's original body can restore it to life. Constructs, Undead and Baatezu are immune to this effect.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats' => [20, 10, 17, 16, 14, 19, 13, 5],
             'saves' => [
                 'DEX' => ['bonus' => 5],
@@ -508,7 +508,7 @@ class DevilsSeeder extends Seeder
 </dl>';
         $monster->description = '
 <p>In the ancient past, the gelugons were mezzoloths. The archdevil Mephistopheles managed to trap many of their kind in a state of perpetual servitude millennia ago and turned them into denizens of the Nine Hells.</p>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Cold', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Cold', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [21, 14, 18, 18, 15, 18, 14, 6],
             'features' => [
                 'magic_resistance',
@@ -543,7 +543,7 @@ class DevilsSeeder extends Seeder
     <dt>Forgetfulness (Recharge 6)</dt> <dd>The Amnizu targets one creature it can see within 60 ft. That creature must succeed on a DC 18 INT Save or become Stunned for 1 minute. A Stunned creature repeats the Save at the end of each of its turns, ending the effect on itself on a success. If the target is Stunned for the full minute, it forgets everything it sensed, experienced, and learned during the last 5 hours.</dd>
     <dt>Instinctive Charm</dt> <dd>When a creature within 60 feet of the Amnizu makes an attack roll against it, and another creature is within the attack's range, the attacker must make a DC 19 WIS Save. On a failed Save, the attacker must target the creature that is closest to it, not including the Amnizu or itself. If multiple creatures are closest, the attacker chooses which one to target. If the Save is successful, the atacker is immune to the Amnizu's Instinctive Charm for 24 hours.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [11, 13, 16, 20, 12, 18, 18, 6],
             'features' => [
                 'magic_resistance',
@@ -585,7 +585,7 @@ class DevilsSeeder extends Seeder
     <dt>Tail</dt> <dd>Melee Weapon Attack +14, reach 10 ft, one target. 3D10+ 8 Bludgeoning.</dd>
     <dt>Fear Aura</dt> <dd>A pit fiend may with an Action, emit an aura of fear that lasts until dispelled (with another Action). At the start of each of the pit fiend's turns, each creature within 20 feet of it must make a DC 21 WIS Save. On a failed Save, the creature is Frightened until the start of its next turn. If a creature's Save is successful, the creature is immune to the pit fiends Fear Aura for the next 24 hours. This aura turns off if the pit fiend is incapacitated.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [26, 14, 24, 22, 18, 24, 20, 6],
             'features' => [
                 'magic_resistance',

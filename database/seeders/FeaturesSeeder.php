@@ -41,7 +41,8 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'ability_boosts';
         $feature->name        = 'Ability Boosts';
-        $feature->description = '<p>You boost four different ability scores. You can use these ability boosts to increase your ability scores above 18. Boosting an ability score increases it by 1 if it\'s already 18 or above, or by 2 if it starts out below 18.</p>';
+        $feature->description = '<p>An ability boost normally increases an ability score’s value by 2. However, if the ability score to which you’re applying an ability boost is already 18 or higher, its value increases by only 1. At 1st level, a character can never have any ability score that’s higher than 18.</p>
+<p>When your character receives an ability boost, the rules indicate whether it must be applied to a specific ability score or to one of two specific ability scores, or whether it is a "free" ability boost that can be applied to any ability score of your choice. However, when you gain multiple ability boosts at the same time, you must apply each one to a different score. Dwarves, for example, receive an ability boost to their CON score and their WIS score, as well as one free ability boost, which can be applied to any score other than CON or WIS</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -72,13 +73,13 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'divine_feat';
         $feature->name        = 'Divine Feat';
-        $feature->description = '<p>You gain a Divine Feat.</p>';
+        $feature->description = '<p>You gain a Divine or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'fighter_feat';
         $feature->name        = 'Fighter Feat';
-        $feature->description = '<p>You gain a Fighter Feat.</p>';
+        $feature->description = '<p>You gain a Fighter or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -146,13 +147,13 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'rogue_feat';
         $feature->name        = 'Rogue Feat';
-        $feature->description = '<p>You gain a Rogue Feat.</p>';
+        $feature->description = '<p>You gain a Rogue or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'sorcerer_feat';
         $feature->name        = 'Sorcerer Feat';
-        $feature->description = '<p>You gain a Sorcerer Feat or Metamagic Feat.</p>';
+        $feature->description = '<p>You gain a Sorcerer, Metamagic, or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -162,9 +163,15 @@ class FeaturesSeeder extends Seeder
         $helper->saveFeature($feature, ['Bloodline']);
 
         $feature              = new Feature;
+        $feature->key         = 'favored_feat';
+        $feature->name        = 'Favored Feat';
+        $feature->description = '<p>You gain a Favored Feat.</p>';
+        $helper->saveFeature($feature, ['Favored']);
+
+        $feature              = new Feature;
         $feature->key         = 'warlock_feat';
         $feature->name        = 'Warlock Feat';
-        $feature->description = '<p>You gain a Warlock Feat.</p>';
+        $feature->description = '<p>You gain a Warlock or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -176,7 +183,7 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'wizard_feat';
         $feature->name        = 'Wizard Feat';
-        $feature->description = '<p>You gain a Wizard Feat.</p>';
+        $feature->description = '<p>You gain a Wizard or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -188,13 +195,13 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'hex_blade_feat';
         $feature->name        = 'Hex Blade Feat';
-        $feature->description = '<p>You gain a Hex Feat.</p>';
+        $feature->description = '<p>You gain a Hex or Generic Feat.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'psychic_feat';
         $feature->name        = 'Psychic Feat';
-        $feature->description = '<p>You gain a Psionic Feat.</p>';
+        $feature->description = '<p>You gain a Psionic or Generic Feat.</p>';
         $helper->saveFeature($feature, ['Psionic']);
 
         $feature              = new Feature;
@@ -257,7 +264,7 @@ class FeaturesSeeder extends Seeder
         $feature->description = '<p>You gain Divine energy from your deity which you can use for various effects.</p>
 <ul>
     <li>You may spend 2 Spell Points and use your Channel Divinity to turn/rebuke certain creatures as a Double Action. The type of creatures depends on your deity.</li>
-    <li>You may spend 1 Spell Points to cast the Cure Wounds spell as a 1st level spell as an Action.</li>
+    <li>You may spend 1 Spell Points to cast the Cure Wounds spell as a 1st level spell as an Action. You may Heighten the spell by spending +2 Spell Points for +1 Heighten.</li>
 </ul>';
         $helper->saveFeature($feature, ['Positive', 'Negative']);
 
@@ -290,13 +297,13 @@ class FeaturesSeeder extends Seeder
         $feature->key         = 'spellcasting_class';
         $feature->name        = '+1 level of existing Spell Casting Class';
         $feature->description = '<p>Pick one of your spell casting class. Treat your Class Level as if it was 1 level higher for the purposes of determining what the highest level of spell that can be cast.</p>';
-        $helper->saveFeature($feature);
+        $helper->saveFeature($feature, ['Arcane', 'Divine', 'Primal']);
 
         $feature              = new Feature;
         $feature->key         = 'spellcasting_class_double';
         $feature->name        = '+1 level of two existing Spell Casting Classes';
         $feature->description = '<p>Pick two of your spell casting classes. Treat your Class Levels as if it was 1 level higher for the purposes of determining what the highest level of spell that can be cast.</p>';
-        $helper->saveFeature($feature, ['Arcane', 'Divine']);
+        $helper->saveFeature($feature, ['Arcane', 'Divine', 'Primal']);
 
         $feature              = new Feature;
         $feature->key         = 'psionic_power_class';
@@ -347,9 +354,9 @@ class FeaturesSeeder extends Seeder
         $helper->saveFeature($feature, ['Psionic']);
 
         $feature              = new Feature;
-        $feature->key         = 'spell_point_caster';
-        $feature->name        = 'Spell Point Caster';
-        $feature->description = '<p>You can cast the specified spell by spending Spell Points</p>';
+        $feature->key         = 'channel_divinity_caster';
+        $feature->name        = 'Channel Divinity Caster';
+        $feature->description = '<p>Once per turn, you can cast the specified spell by spending 2 Spell Points and a use of your Channel Divinity</p>';
         $helper->saveFeature($feature, ['Spell Pool']);
 
         $feature              = new Feature;
@@ -624,6 +631,12 @@ class FeaturesSeeder extends Seeder
         $feature->key         = 'electricity_immunity';
         $feature->name        = 'Electricity Immunity';
         $feature->description = '<p>You gain Immunity to Electricity</p>';
+        $helper->saveFeature($feature, ['Electricity']);
+
+        $feature              = new Feature;
+        $feature->key         = 'blindsight';
+        $feature->name        = 'Blindsight';
+        $feature->description = "<p>You can see within a specific range without relying on physical sight. Within that range, you can see anything that isn't behind Total Cover even if you have the Blinded condition or are in Darkness. You can also see things that are invisible within that range.</p>";
         $helper->saveFeature($feature, ['Electricity']);
     }
 }

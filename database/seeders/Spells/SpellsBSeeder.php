@@ -127,7 +127,7 @@ class SpellsBSeeder extends Seeder
     <dt>Failure</dt> <dd>Full damage</dd>
     <dt>Critical Failure</dt> <dd>Double damage and Stunned 1</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Electricity'], 5);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Electricity', 'Attack', 'Ranged'], 5);
 
         $spell                 = new Spell;
         $spell->name           = 'Bane';
@@ -178,6 +178,23 @@ class SpellsBSeeder extends Seeder
         $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = "<p>The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5D10 Force damage to the target. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it. If the target is native to a different plane of existence than the on you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.</p>";
         $helper->addTypesToSpell($spell, ['Abjuration', 'Force', 'Smite'], 5);
+
+        $spell              = new Spell;
+        $spell->name        = 'Banishing Weapon';
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Weapon Touched';
+        $spell->duration    = '10 minutes';
+        $spell->description = '<p>The Target weapon gains a faint blue glow. If this spell is applied to a Ranged Weapon, it applies its bonuses to the ammunition it fires. In addition, it gains the following</p>
+<ul>
+    <li>+1 Enchantment Bonus to Hit and Damage</li>
+    <li>Any Outsider that was brought to this Plane through a Summoning spell hit by this weapon does not apply Damage Reduction</li>
+    <li>Any Outsider that was brought to this Plane through a Summoning spell hit by this weapon must make a DC 17 CHA check or be Banished back to its home Plane</li>
+</ul>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Abjuration'], 4);
 
         $spell                 = new Spell;
         $spell->name           = 'Banishment';
@@ -251,7 +268,7 @@ class SpellsBSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 2);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force', 'Attack', 'Ranged'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Battle Cry';
@@ -413,15 +430,6 @@ class SpellsBSeeder extends Seeder
 </ul>";
         $helper->addTypesToSpell($spell, ['Enchantment', 'Evil', 'Devil'], 5);
 
-        $spell              = new Spell;
-        $spell->name        = 'Bind Undead';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = '30 feet';
-        $spell->targets     = "One mindless undead creature with a level no greater than Bind Undead's Spell Level";
-        $spell->duration    = '24 Hours';
-        $spell->description = '<p>You control the target. It gains the minion trait. If you or an ally acts hostile to the target, the spell ends.</p>';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 3);
-
         $spell               = new Spell;
         $spell->name         = 'Binding';
         $spell->casting      = '1 minute (Material, Somatic, Verbal, Secondary Casters)';
@@ -520,7 +528,7 @@ class SpellsBSeeder extends Seeder
         $spell->rarity         = 'Rare';
         $spell->save_attribute = 'STR';
         $spell->duration       = 'Concentration, up to 1 hour';
-        $spell->description    = '<p>You create a flurry of air to encircle the target. The encircling winds to do not move. They become a physical barrier surrounding the target. The target may act normally, except that they cannot move from the center of the swirling winds. The winds carry her voice away, so they are able to speak, but no one outside the swirling winds can hear them, and they cannot hear anything but the roar of the winds.</p>
+        $spell->description    = '<p>You create a flurry of air to encircle the target. The encircling winds to do not move. They become a physical barrier surrounding the target. The Target may act normally, except that they cannot move from the center of the swirling winds. The winds carry her voice away, so they are able to speak, but no one outside the swirling winds can hear them, and they cannot hear anything but the roar of the winds.</p>
 <p>Furthermore, no Sonic or language-based spells or effects may be cast into or out of the winds. Ranged attacks made into or out of the winds suffer a -10 penalty. Binding Winds will hold flying creatures in midair.</p>
 <p>As a Double Action, the target may attempt a STR Save to try and push through the winds and escape. The target may attempt this as many times as they wish.</p>';
         $spell->saves = '<dl>
@@ -594,7 +602,7 @@ class SpellsBSeeder extends Seeder
         $spell->range          = '120 feet';
         $spell->area           = '10-foot radius burst and globe';
         $spell->duration       = '1 minute';
-        $spell->description    = '<p>This spell creates a burst of black force. The force burst causes 20D6 Bludgeoning damage and envelops the affected area in a sphere of Force, trapping creatures within. Creatures trapped inside cannot escape except by those methods that can bypass or destroy a Wall of Force.</p>
+        $spell->description    = '<p>This spell creates a burst of black Force. The Force burst causes 20D6 Bludgeoning Damage and envelops the affected area in a sphere of Force, trapping creatures within. Creatures trapped inside cannot escape except by those methods that can bypass or destroy a Wall of Force.</p>
 <dl>
     <dt>Material Components</dt> <dd>A small piece of charcoal and a small piece of onyx</dd>
 </dl>';
@@ -649,7 +657,7 @@ class SpellsBSeeder extends Seeder
         $spell->description = '<p>You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, With an Action, you can make a Ranged Spell Attack to attack with the blade. You may use up to 2 Actions per turn with the blade. On a hit, the target takes 4D12 Force damage. The blade has a critical hit range of 3. On a critical hit, the blade deals an extra 8D12 Force damage (for a total of 12D12 Force damage)</p>
 <p>As an Action, you can move the blade up to 30 feet to an unoccupied space you can see.</p>
 <p>The blade can cut through any barrier, including Wall of Force, Prismatic effects and Anti-magical fields, ending their effect.</p>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 9);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force', 'Attack', 'Ranged'], 9);
 
         $spell              = new Spell;
         $spell->name        = 'Blade Ward';
@@ -713,10 +721,11 @@ class SpellsBSeeder extends Seeder
 
         $spell               = new Spell;
         $spell->name         = 'Blight';
-        $spell->casting      = '1 day (Somatic, Verbal, Secondary Caster)';
+        $spell->casting      = '1 day (Somatic, Verbal, Secondary Caster, Skill Check)';
         $spell->range        = '30 feet';
         $spell->requirements = '<dl>
     <dt>Secondary Casters</dt> <dd>At least one other caster</dd>
+    <dt>Skill Check</dt> <dd>DC 5 Nature check</dd>
 </dl>';
         $spell->targets        = 'One creature or plant in range';
         $spell->duration       = 'Instantaneous';
@@ -762,6 +771,9 @@ class SpellsBSeeder extends Seeder
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Blinded</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+4)</dt> <dd>You can once per turn, as an Action, make a Gaze attack against someone who is looking at you. They must make a CHA Save or lose all their Hit Points and become Dying: 1.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Exalted'], 4);
 
@@ -814,20 +826,18 @@ class SpellsBSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 4);
 
         $spell                 = new Spell;
-        $spell->name           = 'Bloodboil';
+        $spell->name           = 'Bliss';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
-        $spell->requirements   = 'Caster must be of draconic ancestry';
-        $spell->save_attribute = 'CON';
-        $spell->duration       = 'Concentration, up to 10 minutes';
-        $spell->description    = "<p>This spell is only used by the most evil of dragons, its usage is considered taboo amongst dragonkind.</p>
-<p>The target must make a CON Save. On a Success, the spell ends. On a Failure, the target's moisture and all liquids within the body will start heating up to the point of boiling, causing excruciating pain. The spell will no longer end on a Save beyond this point.</p>
-<p>At the end of each of the creature's turns, it must make a CON Save or take 3D6 Fire damage. The spell ends if you lose line of sight from the target. If damage from the spell kills the target, it melts from the inside out, becoming a puddle of steaming gore.</p>
-<p>If you target a plant creature or magical plant, it makes the Save with Disadvantage, and the spell deals maximum damage to it. Undead are immune to this spell.</p>";
-        $spell->saves = '<dl>
-    <dt>Failure</dt> <dd>Full damage</dd>
-    <dt>Success</dt> <dd>Initial Save ends the Spell. Successive Saves after initial Failure causes Half damage</dd>
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '30 feet';
+        $spell->targets        = 'One creature within Range';
+        $spell->duration       = '1 minute';
+        $spell->description    = "<p>The spell causes the Target to be lost in a trance of intense pleasure and happiness, a sensation felt so acutely that the creature fails to notice the rest of the world, apporaching danger, or pain.</p>
+<p>The Target must make a WIS Save or be Stunned for the Duration. At the end of the Target's turn, they may make this Save again to end the effect.</p>";
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Stunned for the Duration. Can make another Save at the end of their turn.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Dragon'], 6);
 
         $spell              = new Spell;
         $spell->name        = 'Bloodwater';
@@ -1007,7 +1017,7 @@ class SpellsBSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 2);
 
-        $spell              = new Spell; // TODO: add this spell to Ubtao's druid spell list
+        $spell              = new Spell;
         $spell->name        = 'Breath of the Jungle';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->area        = '120 ft cone';
@@ -1116,11 +1126,19 @@ class SpellsBSeeder extends Seeder
         $spell->name        = 'Buoyancy';
         $spell->casting     = 'Verbal Casting';
         $spell->range       = '50 feet';
-        $spell->targets     = 'Up to 5 medium or smaller objects and/or creatures, no two of which can be more than 20 ft apart';
-        $spell->duration    = '1 minute or until dispelled';
-        $spell->description = "<p>The affected creatures and/or objects become incredibly buoyant. An affected creature (including gear and carried objects up to each creature's maximum load) and objects naturally float on any water at least 1 foot deep.</p>
-<p>An affected creature that deliberately tries to submerge must succeed at a DC 20 Athletics (Swim) check every round to stay underwater.</p>
-<p>This spell ends if the creature or object spends at least 1 round on dry land.</p>";
+        $spell->targets     = 'Up to 5 willing medium or smaller objects/creatures, no two more than 20 ft apart';
+        $spell->duration    = '10 minutes or until dispelled';
+        $spell->description = "<p>This spell can have 2 options when cast.</p>
+<ul>
+    <li>
+        <p>The affected creatures and/or objects become incredibly buoyant. An affected creature (including gear and carried objects up to each creature's maximum load) and objects naturally float on any water at least 1 foot deep.</p>
+        <p>An affected creature that deliberately tries to submerge must succeed at a DC 20 Athletics (Swim) check every round to stay underwater.</p>
+        <p>This spell ends if the creature or object spends at least 1 round on dry land.</p>
+    </li>
+    <li>
+        <p>The target's buoyancy becomes and stays neutral, regardless of how dense the target and its gear are. Among other effects, the target neither sinks nor rises when it doesn't attempt a Swim check, making it easier to stay put while performing demanding actions or when helpless or disabled, and the target can swim up and down with equal ease.</p>
+    </li>
+</ul>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 2);
 
         $spell                 = new Spell;
@@ -1137,24 +1155,6 @@ class SpellsBSeeder extends Seeder
     <dt>Success</dt> <dd>Half damage</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Cold'], 9);
-
-        $spell                = new Spell;
-        $spell->name          = 'Burning Blood';
-        $spell->casting       = 'Material Casting, Somatic Casting, Verbal Casting';
-        $spell->range         = '30 feet';
-        $spell->targets       = 'One living creature';
-        $spell->spell_creator = 'Beltyn';
-        $spell->duration      = '1 minute';
-        $spell->description   = "<p>You infuse a living creature's blood with a hot, corrosive mixture, dealing 1D8 Acid and 1D8 Fire damage per round. Each round, on its turn, the target may attempt a CON Save. Success means they take no damage this turn, but must Save again next round until the duration ends.</p>";
-        $spell->heightened    = '<dl>
-    <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D8 Acid and +1D8 Fire</dd>
-</dl>';
-        $spell->saves = '<dl>
-    <dt>Success</dt> <dd>No damage this round</dd>
-    <dt>Failure</dt> <dd>Full damage and Slowed 1 until the beginning of its next turn</dd>
-    <dt>Critical Failure</dt> <dd>Full damage and Slowed 2 until the beginning of its next turn</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Acid', 'Fire'], 5);
 
         $spell                 = new Spell;
         $spell->name           = 'Burning Hands';

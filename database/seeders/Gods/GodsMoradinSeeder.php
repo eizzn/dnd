@@ -37,12 +37,13 @@ class GodsMoradinSeeder extends Seeder
         ]);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Moradin';
+        $class->name          = 'Sonnlinor';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus 1 choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Moradin</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 4,
@@ -64,26 +65,31 @@ class GodsMoradinSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 2,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Bless or Shield of Faith</dd>
+</dl>',
         ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 3);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
         $helper->addDomainToClass($class, ['Dwarf', 'Good', 'Healing', 'Protection']);
         $helper->addSpellsToClass($class, [
-            0  => ['Blade Ward', 'Clean Self', 'Control Flames', 'Detect Magic', 'Light', 'Mending', 'Mold Earth', 'Mold Metal',
-                'Resist', 'Stabilize', ],
-            1  => ['Bless', 'Cure Wounds', 'Detect Evil', 'Disrupting Weapon', 'Earth Tremor', 'Enchant Item', 'Fabricate',
-                'Fist of Stone', 'Forge Fire', 'Ironguts', 'Shield of Faith', 'Summon Elemental, Lesser' => 'Earth or Fire Elementals only', ],
+            0  => ['Blade Ward', 'Clean Self', 'Control Flames', 'Detect Magic', 'Light', 'Mending', 'Mold Earth', 'Resist',
+                'Stabilize', ],
+            1  => ['Bless', 'Cure Wounds', 'Detect Evil', 'Disrupting Weapon', 'Earth Tremor', 'Enchant Item', 'Fist of Stone',
+                'Forge Fire', 'Ironguts', 'Mold Metal', 'Shield of Faith', 'Summon Elemental, Lesser' => 'Earth or Fire Elementals only', ],
             2  => ['Augury', 'Aura of Hope', "Bear's Endurance", 'Comprehend Language', 'Consecrate', 'Continual Flame',
                 'Create Food and Water', 'Detect Metal and Mineral', 'Delay Disease', 'Delay Poison', 'Earthfast', 'Endure Elements',
-                'Enlarge', 'Glorious Raiment', 'Hand of the Faithful', 'Hurl', 'Insignia of Alarm', 'Locate Node', 'Maskstone',
-                'Node Lock', 'Remove Fear', 'Restoration', 'Resist Acid', 'Resist Fire', 'Resist Poison', 'Undead Bane Weapon', ],
+                'Enlarge', 'Glorious Raiment', 'Hand of the Faithful', 'Hurl', 'Imbue with Cold Iron', 'Imbue with Silvered',
+                'Insignia of Alarm', 'Locate Node', 'Maskstone', 'Node Lock', 'Remove Fear', 'Restoration', 'Resist Acid',
+                'Resist Fire', 'Resist Poison', 'Undead Bane Weapon', ],
             3  => ['Analyze Portal', 'Clearstone', 'Dispel Magic', 'Elemental Weapon', 'Faithful Healing', 'Forbiddance',
-                'Insignia of Blessing', 'Insignia of Healing', 'Invisibility Purge', 'Node Door', 'Prayer', 'Rockburst',
-                'Speak with Dead', 'Tongues', 'Vitality Shield', ],
-            4  => ['Ceremony', 'Creation', 'Hold Metal', 'Shape Metal', 'Shape Stone', 'Tiny Servant'],
+                'Imbue with Adamantine', 'Insignia of Blessing', 'Insignia of Healing', 'Invisibility Purge', 'Node Door',
+                'Prayer', 'Rockburst', 'Speak with Dead', 'Tongues', 'Vitality Shield', ],
+            4  => ['Ceremony', 'Creation', 'Fabricate', 'Hold Metal', 'Shape Metal', 'Shape Stone', 'Tiny Servant'],
             5  => ['Atonement', 'Brilliant Weapon', 'Commune', 'Hallow', 'Holy Weapon', 'Ritual of the March', 'Stonefire'],
-            6  => ['Earth Glide', 'Heal', "Hero's Feast"],
+            6  => ['Earth Glide', 'Heal', "Hero's Feast", 'Wall of Iron'],
             7  => ['Divine Word', 'Resurrection', 'Stone Trap', 'Symbol'],
             8  => ['Excavate', 'Divine Aura', 'Last Judgment', 'Portal Reformat', 'True Creation'],
             9  => ['Disjunction', 'Invulnerability'],
@@ -189,33 +195,38 @@ class GodsMoradinSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 4,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Triple Action</dd>
+    <dt>Spell</dt> <dd>Zone of Truth</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Dwarf', 'Good', 'Healing', 'Protection']);
         $helper->addSpellsToClass($class, [
             0 => ['Clean Self', 'Conviction', 'Detect Magic', 'Detect Undead', 'Forbidding Ward', 'Friends', 'Guidance',
-                'Light', 'Mending', 'Resist', 'Stabilize', 'Word of Radiance', ],
+                'Light', 'Mending', 'Resist', 'Stabilize', 'Virtue', 'Word of Radiance', ],
             1 => ['Alarm', 'Alleviate Addiction', 'Aura of Courage', 'Bless', 'Cure Wounds', 'Detect Alignment', 'Detect Evil',
                 'Disrupting Weapon', 'Divine Favor', 'Exorcism', 'Hand of the Faithful', 'Inspire Courage', 'Ironguts',
                 'Protection From Evil', 'Remove Disease', 'Sanctuary', 'Shield of Faith', 'Undead Bane Weapon', ],
             2 => ['Aid', 'Arcane Lock', 'Comprehend Language', 'Consecrate', 'Create Food and Water', 'Endure Elements',
                 'Faerie Fire', 'Find Traps', 'Forge Fire' => 'Cannot heighten', 'Glorious Raiment', 'Hold Person', 'Hurl',
-                'Insignia of Alarm', 'Locate Node', 'Node Lock', 'Remove Fear', 'Resist Elements', 'Resist Poison', 'Skyhook', ],
+                'Insignia of Alarm', 'Locate Node', 'Node Lock', 'Remove Fear', 'Resist Elements', 'Resist Poison', 'Skyhook',
+                'Zone of Truth', ],
             3 => ['Air of Authority', 'Aura of Vitality', 'Ceremony', 'Circle of Protection From Chaos', 'Circle of Protection From Evil',
                 'Faithful Healing', 'Forbiddance', 'Geas', 'Glyph of Warding', 'Heart Sight', 'Helping Hand', 'Insignia of Blessing',
                 'Insignia of Healing', 'Inspire Defense', 'Invisibility Purge', 'Maskstone', 'Nondetection', 'Prayer', 'Prophecy',
                 'Sending', 'Sheltered Vitality', 'Speak with Dead', 'Spirit Guardians', 'Tongues', 'Vitality Shield', ],
-            4   => ['Atonement', 'Detect Scrying', 'Divination', 'Dimensional Anchor', 'Private Sanctum'],
-            5   => ['Aura of Life', 'Aura of Purity', 'City Stride', 'Commune', 'Commune with Texts', 'Death Ward', 'Dispel Chaos',
+            4 => ['Atonement', 'Detect Scrying', 'Divination', 'Dimensional Anchor', 'Private Sanctum'],
+            5 => ['Aura of Life', 'Aura of Purity', 'City Stride', 'Commune', 'Commune with Texts', 'Death Ward', 'Dispel Chaos',
                 'Dispel Evil', 'Dispel Outsider', 'Hallow', 'Holy Weapon', 'Tomb of Light', 'Wall of Stone', ],
-            6   => ['Guards and Wards', 'Heal', "Hero's Feast", 'Planar Ally', 'Raise Dead', 'Stone Tell', 'Summon Celestial',
+            6 => ['Commune with Earth', 'Guards and Wards', 'Heal', "Hero's Feast", 'Planar Ally', 'Raise Dead', 'Summon Celestial',
                 'Word of Recall', ],
-            7   => ['Bastion of Good', 'Channel Celestial', 'Divine Degree', 'Holy Aura', 'Renewal Pact', 'Shield of Law',
+            7 => ['Bastion of Good', 'Channel Celestial', 'Divine Degree', 'Holy Aura', 'Renewal Pact', 'Shield of Law',
                 'Temple of the Gods', ],
-            8   => ['Antipathy / Sympathy', 'Divine Aura', 'Last Judgment', 'Power Word Heal'],
-            9   => ['Imprisonment', 'Invulnerability'],
+            8 => ['Antipathy / Sympathy', 'Divine Aura', 'Last Judgment', 'Power Word Heal'],
+            9 => ['Imprisonment', 'Invulnerability'],
         ]);
         $helper->addSpellSlotsToClass($class);
 
@@ -318,8 +329,7 @@ class GodsMoradinSeeder extends Seeder
             ['Concentration', 'Deception', 'Diplomacy', 'Intimidation', 'Lore', 'Religion', 'Society', 'Stealth', 'Thievery']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 15, 18, 20],
-            'rogue_feat'  => [2, 4, 8, 10],
+            'rogue_feat' => [2, 3, 5, 9, 12, 15, 18],
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Bit of Luck', 'Clean Self', 'Detect Magic', 'Friends', 'Light', 'Prestidigitation', 'Vicious Mockery'],
@@ -419,7 +429,7 @@ class GodsMoradinSeeder extends Seeder
             1 => ["Bull's Strength", 'Healthful Rest', 'Heroism', 'Hurl', 'Sonic Blast', 'Thunderous Smite', 'Thunderwave',
                 'Wrathful Smite', ],
             2 => ['Aura of the Bull', "Bear's Endurance", 'Divine Presence', 'Enlarge', 'Rage', 'Resist Electricity', 'Resist Sonic',
-                'Shatter', 'Sonic Burst', 'Sonic Weapon', 'Thunderstroke', 'Undead Bane Weapon', ],
+                'Shatter', 'Sonic Burst', 'Sonic Weapon', 'Thunderstroke', 'Imbue with Adamantine', 'Undead Bane Weapon', ],
             3 => ['Call Lightning', 'Elemental Weapon' => 'Electricity only', 'Resounding Thunder', 'Sheltered Vitality',
                 'Vitality Shield', ],
             4 => ['Irresistible Force', 'Lightning Bolt', 'Thunder Step'],
@@ -554,7 +564,8 @@ class GodsMoradinSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             0 => ['Bit of Luck', 'Resist'],
             1 => ['Aura of Courage', 'Hurl', 'Ironguts', 'Rage', 'Undead Bane Weapon'],
-            2 => ['Aura of War', 'Aura of the Bull', 'Aura of the Bear', 'Aura of Glory', 'Aura of Hope', 'Resist Poison'],
+            2 => ['Aura of War', 'Aura of the Bull', 'Aura of the Bear', 'Aura of Glory', 'Aura of Hope', 'Resist Poison',
+                'Imbue with Adamantine', ],
             3 => ['Aura of Vitality', 'Aura of Silence', 'Aura of Haste', 'Irresistible Force' => 'Gains the Rage type'],
             4 => ['Aura of Purity'],
             5 => ['Aura of Power'],
@@ -642,9 +653,6 @@ class GodsMoradinSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 9, 12, 15, 18, 20],
-        ]);
         $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Wild Talent']);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Expanded Knowledge']);
         $class->features()->save(app()->features['feat'], ['level' => 4, 'meta' => 'Psionic Talent']);
@@ -654,18 +662,18 @@ class GodsMoradinSeeder extends Seeder
         $helper->addDomainToClass($class, ['Dwarf', 'Evil', 'Psionics', 'Slavery']);
 
         $helper->addSpellsToClass($class, [
-            0   => ['Clean Self', 'Control Flame', 'Detect Magic', 'Light', 'Mold Earth', 'Mold Metal', 'Resist', 'Stabilize'],
-            1   => ['Cure Wounds', 'Curse', 'Detect Good', 'Enchant Item', 'Fabricate', 'Forge Fire', "Slaver's Gentle Reminder",
+            0   => ['Clean Self', 'Control Flame', 'Detect Magic', 'Light', 'Mold Earth', 'Resist', 'Stabilize'],
+            1   => ['Cure Wounds', 'Curse', 'Detect Good', 'Enchant Item', 'Forge Fire', 'Mold Metal', "Slaver's Gentle Reminder",
                 'Summon Elemental, Lesser' => 'Earth or Fire Elementals only', ],
             2   => ['Augury', 'Comprehend Language', 'Continual Flame', 'Desecrate', 'Detect Metal and Mineral', 'Endure Elements',
-                'Hold Person', 'Hurl', 'Restoration', ],
+                'Hold Person', 'Hurl', 'Restoration', 'Imbue with Adamantine', ],
             3   => ['Dispel Magic', 'Elemental Weapon', "Slaver's Mild Admonishment"],
-            4   => ['Creation', 'Shape Metal', 'Shape Stone'],
+            4   => ['Creation', 'Fabricate', 'Shape Metal', 'Shape Stone'],
             5   => ['Atonement', 'Dispel Good', 'Divine Weapon', 'Hold Metal', 'Permanency', 'Transmute Rock'],
             6   => ['Bones of the Earth', 'Harm', 'Mind Prison', 'Planar Ally', "Slaver's Stern Reproof"],
             7   => ["Slaver's Wrathful Castigation", 'True Creation', 'Stone Trap'],
         ]);
-        $helper->addSpellSlotsToClass($class, 'seven');
+        $helper->addSpellSlotsToClass($class, 'eight');
 
         /**********************************************************************/
 

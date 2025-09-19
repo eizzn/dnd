@@ -21,6 +21,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Beguiler';
         $monster->size        = 'Small';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'N';
         $monster->armor_class = '14';
         $monster->hit_dice    = 2;
@@ -54,6 +55,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Behir';
         $monster->size             = 'Huge';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -84,6 +86,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Blink Dog';
         $monster->size        = 'Medium';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'N(G)';
         $monster->armor_class = '13';
         $monster->hit_dice    = 3;
@@ -102,7 +105,6 @@ class FeySeeder extends Seeder
             'features' => [
                 'keen_sense' => ['meta' => 'Hearing and Smell'],
             ],
-            'feats'     => ['Two-Weapon Fighter'],
             'languages' => [
                 'Sylvan'  => ['meta' => 'Cannot speak'],
                 'Special' => ['meta' => 'Custom language based on sounds that dogs can make'],
@@ -112,6 +114,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Centaur';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '12 (Hide) / 11';
         $monster->damage_reduction = '3 (Hide) / 0';
@@ -137,6 +140,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Cockatrice';
         $monster->size        = 'Small';
+        $monster->type        = 'Fey';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
         $monster->hit_dice    = 2;
@@ -154,6 +158,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Dark Tree';
         $monster->size             = 'Huge';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -187,6 +192,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Displacer Beast';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'N(E)';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -206,12 +212,12 @@ class FeySeeder extends Seeder
                 'displacement' => ['meta' => 'Attackers have Disadvantage to hit you. If hit, this effect ends until the displacer beast moves again.'],
                 'multi_attack' => ['meta' => 'The displacer beast gains an additional Action. This Action can only be used to make a Tentacle attack.'],
             ],
-            'feats' => ['Two-Weapon Fighter'],
         ]);
 
         $monster              = new Monster;
         $monster->name        = 'Dryad';
         $monster->size        = 'Medium';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'N';
         $monster->armor_class = '11';
         $monster->hit_dice    = 4;
@@ -255,6 +261,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Doppelganger';
         $monster->size        = 'Medium';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'NG';
         $monster->armor_class = '14';
         $monster->hit_dice    = 4;
@@ -304,6 +311,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Giant Eagle';
         $monster->size        = 'Large';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'NG';
         $monster->armor_class = '13';
         $monster->hit_dice    = 4;
@@ -338,6 +346,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Goblin';
         $monster->size             = 'Small';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '16 (Leather, Shield) / 14';
         $monster->damage_reduction = '1 (Leather) / 0';
@@ -364,6 +373,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Hobgoblin';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '15 (Chain Mail, Shield) / 11';
         $monster->damage_reduction = '6 (Chain Mail) / 0';
@@ -388,6 +398,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bugbear';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '15 (Hide, Shield) / 12';
         $monster->damage_reduction = '3 (Hide) / 0';
@@ -409,7 +420,8 @@ class FeySeeder extends Seeder
             ],
             'feats'   => ['Power Attack', 'Sudden Strike'],
             'classes' => [
-                'Fighter' => ['level' => 2],
+                'Fighter' => ['level' => 1],
+                'Rogue'   => ['level' => 1],
             ],
             'languages' => ['Ghukliak'],
         ]);
@@ -417,6 +429,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bog Hag';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -467,6 +480,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sea Hag';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -501,6 +515,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Green Hag';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -551,6 +566,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Shrieking Hag';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -609,6 +625,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bheur Hag';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -663,6 +680,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Annis Hag';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey, Fiend';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -705,6 +723,7 @@ class FeySeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Night Hag';
+        $monster->type             = 'Fey, Fiend';
         $monster->size             = 'Medium';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12';
@@ -783,6 +802,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Mimic';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'N';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -807,6 +827,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Pegasus';
         $monster->size        = 'Large';
+        $monster->type        = 'Celestial, Fey';
         $monster->alignment   = 'CG';
         $monster->armor_class = '11';
         $monster->hit_dice    = 7;
@@ -833,6 +854,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Pixie';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '17 (Leather Armor) / 16';
         $monster->damage_reduction = '1 (Leather Armor) / 0';
@@ -866,6 +888,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Pseudodragon';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Fey, Dragon';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '13 (Natural Armor)';
         $monster->hit_dice         = 2;
@@ -901,6 +924,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Quickling';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '19 (Leather Armor) / 18';
         $monster->damage_reduction = '1 (Leather Armor) / 0';
@@ -928,6 +952,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Satyr';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '14 (Leather Armor) / 13';
         $monster->damage_reduction = '1 (Leather Armor) / 0';
@@ -953,6 +978,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Shambling Mound';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey, Plant';
         $monster->alignment        = 'Neutral';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '3';
@@ -976,6 +1002,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sprite';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '17 (Leather Armor) / 16';
         $monster->damage_reduction = '1 (Leather Armor) / 0';
@@ -1001,6 +1028,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Starsnake';
         $monster->size             = 'Medium';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '15';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1036,6 +1064,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Treant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Fey, Plant';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1067,6 +1096,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Tressym';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'CG';
         $monster->armor_class = '14';
         $monster->hit_dice    = 2;
@@ -1093,6 +1123,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Unicorn';
         $monster->size        = 'Large';
+        $monster->type        = 'Celestial, Fey';
         $monster->alignment   = 'CG';
         $monster->armor_class = '11';
         $monster->hit_dice    = 6;
@@ -1127,6 +1158,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Winter Wolf';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1154,6 +1186,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Harpy';
         $monster->size        = 'Medium';
+        $monster->type        = 'Fey';
         $monster->alignment   = 'CE';
         $monster->armor_class = '11';
         $monster->hit_dice    = 4;
@@ -1176,6 +1209,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Chimera';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey, Beast, Monstrosity';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -1197,7 +1231,7 @@ class FeySeeder extends Seeder
 <p>Due to the draconic part of their nature, chimeras often make their lairs within caves. They often decorate these with the bones and belongings of their prey. Their hoards tend to consist primarily of copper and silver coins, with the occasional bits of jewelry and magical items.</p>
 <p>Chimeras are very adaptable creatures, able to thrive in most climates. Though they are most often found in hilly regions with a temperate climate.</p>
 <p>Some intelligent creatures are known to train chimeras, using them as pets, guardians, or even mounts. They are sometimes found to be in the company of azers and hill giants.</p>";
-        $helper->saveMonster($monster, ['Fey', 'Beast',  'Monstrosity'], [
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Monstrosity'], [
             'stats'  => [19, 11, 19, 3, 14, 10, 6, 3],
             'skills' => [
                 'Perception' => ['dc' => 8],
@@ -1212,6 +1246,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Griffon';
         $monster->size        = 'Large';
+        $monster->type        = 'Fey';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 6;
@@ -1242,6 +1277,7 @@ class FeySeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Hippogriff';
         $monster->size        = 'Large';
+        $monster->type        = 'Fey';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 3;
@@ -1271,38 +1307,9 @@ class FeySeeder extends Seeder
         ]);
 
         $monster                   = new Monster;
-        $monster->name             = 'Owlbear';
-        $monster->size             = 'Large';
-        $monster->alignment        = '-';
-        $monster->armor_class      = '10';
-        $monster->damage_reduction = '2 (Natural Armor)';
-        $monster->hit_dice         = 6;
-        $monster->speed            = '40 ft';
-        $monster->actions          = '<dl>
-    <dt>Beak</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D10 +5) Piercing.</dd>
-    <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +5) Slashing.</dd>
-</dl>';
-        $monster->description = "<p>Owlbears are monstrous beasts with the bodies of bears covered in thick fur and feathers. Their heads are like those of owls, but with a serrated beak.</p>
-<p>Owlbears hunt from around sunset to sunrise. They hoot or screech to declare their territory and to flush prey into their hunting grounds. Owlbears also screech as a way to attract a mate. When an owlbear successfully catches its prey, it tends to partially consume part of it on the spot, before dragging the rest back to its lair to be stored. The scent of flesh that emanate from an owlbear's lair often attract creatures and therefore, more prey.</p>
-<p>These creatures are incredibly aggressive, going so far as to slay any living creature they see. This territorial attitude causes many folks who live with nature to purposefully hunt owlbears before they have a chance to destroy the local wildlife.</p>
-<p>Training an owlbear requires a DC 25 Animal Handling (Train an Animal).</p>
-<p>The owlbears eyes cannot move. This is compensated by their ability to rotate their heads like owls 270 degrees.</p>";
-        $helper->saveMonster($monster, ['Fey', 'Animal', 'Monstrosity'], [
-            'stats'  => [20, 12, 17, 3, 12, 7, 3, 3],
-            'skills' => [
-                'Perception' => ['dc' => 3],
-            ],
-            'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
-                'keen_sense'   => ['meta' => 'Sight and Smell'],
-                'multi_attack' => ['meta' => 'The owlbear gains an additional Action. This additional Action can only be used to make a Grapple attack. The owlbear only gains this additional Action if it successfully makes 2 Claw attacks on the same target.'],
-            ],
-            'feats' => ['Improved Grapple', 'Die Hard'],
-        ]);
-
-        $monster                   = new Monster;
         $monster->name             = 'Yeth Hound';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -1338,6 +1345,7 @@ class FeySeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Worg';
         $monster->size             = 'Large';
+        $monster->type             = 'Fey';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';

@@ -24,7 +24,7 @@ class SpellsGSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>The target transforms into a vaporous state. In this state, the target is amorphous and loses any item bonus to AC. It gains resistancence 8 to physical damage and is immune to precision damage. It can\'t cast spells or use Actions that have the Attack or Manipulate trait. It gains a Fly Speed of 10 feet, and can slip through tiny cracks.</p>';
+        $spell->description = '<p>The Target transforms into a vaporous state. In this state, the Target is amorphous and loses any item bonus to AC. It gains resistancence 8 to physical damage and is immune to precision damage. It can\'t cast spells or use Actions that have the Attack or Manipulate trait. It gains a Fly Speed of 10 feet, and can slip through tiny cracks.</p>';
         $helper->addTypesToSpell($spell, ['Polymorph', 'Transmutation'], 3);
 
         $spell               = new Spell;
@@ -58,7 +58,7 @@ class SpellsGSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One living creature touched';
         $spell->duration    = '1 hour';
-        $spell->description = '<p>You create a mirror-like area around the targets eyes. This effect moves with the target and does not affect their vision. If the target is subjected to a Gaze, there is a 50% chance that the mirror screens the gaze attack so that it has no effect.</p>';
+        $spell->description = '<p>You create a mirror-like area around the targets eyes. This effect moves with the Target and does not affect their vision. If the Target is subjected to a Gaze, there is a 50% chance that the mirror screens the gaze attack so that it has no effect.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number of targets</dd>
     <dt>Heightened (+2)</dt> <dd>The chance for the screen to block the Gaze attack is 100%</dd>
@@ -77,9 +77,9 @@ class SpellsGSeeder extends Seeder
     <dt>Ability Damage</dt> <dd>1 CON damage</dd>
 </dl>';
         $spell->description = '<p>You enforce a magic rule on a willing target, forcing it to either carry out or refrain from carrying out a certain act.</p>
-<p>A Geas to perform an act is usually conditional, such as, “Always offer hospitality to strangers seeking a place to stay.” An unconditional geas to perform a certain act doesn’t require the target to perform that act exclusively, though it must prioritize the task above all leisure pursuits.</p>
-<p>The most common geas to refrain from carrying out an act is a geas to avoid violating a contract, and in those cases, the secondary caster usually takes charge of making sure the wording of the contract attunes correctly with the magic. Because the target is willing, geas can have a duration that lasts for as long as the target agrees to.</p>
-<p>If the target is unable to fulfill the Geas, it gains Sick: 1, and the sick condition increases by 1 for each consecutive day it is prevented from following the Geas, to a maximum of Sick: 4. The Sick condition ends immediately when it follows the Geas again; it can’t remove the Sick condition in any other way. Only powerful magic like Wish can remove a willing Geas.</p>';
+<p>A Geas to perform an act is usually conditional, such as, “Always offer hospitality to strangers seeking a place to stay.” An unconditional geas to perform a certain act doesn’t require the Target to perform that act exclusively, though it must prioritize the task above all leisure pursuits.</p>
+<p>The most common geas to refrain from carrying out an act is a geas to avoid violating a contract, and in those cases, the secondary caster usually takes charge of making sure the wording of the contract attunes correctly with the magic. Because the Target is willing, geas can have a duration that lasts for as long as the Target agrees to.</p>
+<p>If the Target is unable to fulfill the Geas, it gains Sick: 1, and the sick condition increases by 1 for each consecutive day it is prevented from following the Geas, to a maximum of Sick: 4. The Sick condition ends immediately when it follows the Geas again; it can’t remove the Sick condition in any other way. Only powerful magic like Wish can remove a willing Geas.</p>';
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>You can use geas on an unwilling creature; it receives a WIS Save to negate the effect. If you do, the Geas lasts up to 1 week. Remove Curse can dispel Geas on an unwilling creature, in addition to powerful magic like Wish. A clever unwilling creature can subvert the Geas by contriving situations that prevent it from complying, but in that case it becomes sick (as described above).</dd>
     <dt>Heightened (+4)</dt> <dd>As the +2 heightened, but the geas lasts for up to 1 year on an unwilling creature.</dd>
@@ -89,7 +89,7 @@ class SpellsGSeeder extends Seeder
     <dt>Critical Success</dt> <dd>The geas fails, and you are instead affected by the geas you were attempting to place on the target</dd>
     <dt>Success</dt> <dd>The Geas fails</dd>
     <dt>Failure</dt> <dd>The Geas succeeds</dd>
-    <dt>Critical Failure</dt> <dd>The Geas succeeds and the target receives a +1 conditional bonus to skill checks that directly uphold the Geas</dd>
+    <dt>Critical Failure</dt> <dd>The Geas succeeds and the Target receives a +1 conditional bonus to skill checks that directly uphold the Geas</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Curse', 'Enchantment', 'Necromancy', 'Mental', 'Ritual'], 3);
 
@@ -103,7 +103,7 @@ class SpellsGSeeder extends Seeder
         $spell->range        = 'Touch';
         $spell->targets      = 'One object touched';
         $spell->duration     = 'Permanent';
-        $spell->description  = '<p>You rub a gem over a target, causing an image of the target to gradually materialize in the depths of the gem. The image then becomes perfectly clear and then vanishes, leaving no trace of the spell on either the gem or the target. You create a permanent link between the gem and the object. Anyone who holds the gem can scry the bearer of the object (as the Scry Spell) as an Action. The bearer of the object is entitled to a WIS Save, but is treated as Familiar to the holder of the gem (as if you also had a lock of their hair).</p>
+        $spell->description  = '<p>You rub a gem over a target, causing an image of the Target to gradually materialize in the depths of the gem. The image then becomes perfectly clear and then vanishes, leaving no trace of the spell on either the gem or the target. You create a permanent link between the gem and the object. Anyone who holds the gem can scry the bearer of the object (as the Scry Spell) as an Action. The bearer of the object is entitled to a WIS Save, but is treated as Familiar to the holder of the gem (as if you also had a lock of their hair).</p>
 <p>According to draconic legend, this spell was created by the first dragons whose hoard was plundered.</p>
 <dl>
     <dt>Material Components</dt> <dd>A gem worth at least 100 gp</dd>
@@ -117,7 +117,7 @@ class SpellsGSeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Up to 5 touched gems';
         $spell->duration       = '1 hour';
-        $spell->description    = '<p>You turn up to five gems into bombs you (and only you) can lob at enemies. As an Action, you may make a Ranged Touch Attack by throwing a gem at a target up to 30 feet with a Range Increment of 20 feet.</p>
+        $spell->description    = '<p>You turn up to five gems into bombs you (and only you) can lob at enemies. As an Action, you may make a Ranged Touch Attack by throwing a gem at a Target up to 30 feet with a Range Increment of 20 feet.</p>
 <p>Each gem deals 1D8 Force damage.</p>
 <dl>
     <dt>Material Components</dt> <dd>Up to 5 gems worth at least 1 gp each.</dd>
@@ -129,7 +129,7 @@ class SpellsGSeeder extends Seeder
         $spell->heightened     = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D8</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation'], 2);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Attack', 'Ranged'], 2);
 
         $spell               = new Spell;
         $spell->name         = 'General of the Undead';
@@ -336,7 +336,7 @@ class SpellsGSeeder extends Seeder
     <dt>Success</dt> <dd>Not affected</dd>
     <dt>Failure</dt> <dd>If targeted by the touch attack, then Paralyzed. If starting their turn within the stench radius of the Paralyzed creature, then Sickened.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 2);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Attack', 'Melee'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Giant Vermin';
@@ -349,7 +349,7 @@ class SpellsGSeeder extends Seeder
 <p>The DM could allow this spell to affect more kinds of insects (such as Ants, Bees, Beetles, Praying Mantis, Wasps, etc).</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
-    <dt>Heightened (+1)</dt> <dd>You may target an additional vermin</dd>
+    <dt>Heightened (+1)</dt> <dd>You may Target an additional vermin</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 4);
 
@@ -362,8 +362,8 @@ class SpellsGSeeder extends Seeder
         $spell->targets        = 'One nonmagical stone or metal object of 20 cu ft';
         $spell->save_attribute = 'CON';
         $spell->duration       = 'Permanent';
-        $spell->description    = '<p>This spell gives the target object the transparency of glass.</p>
-<p>If the object is attended, its owner receivces a Save. Unattended nonmagical objects do not receive Saves.</p>
+        $spell->description    = '<p>This spell gives the Target object the transparency of glass.</p>
+<p>If the object is attended, its owner receives a Save. Unattended nonmagical objects do not receive Saves.</p>
 <dl>
     <dt>Material Components</dt> <dd>Glass silver</dd>
 </dl>';
@@ -393,10 +393,10 @@ class SpellsGSeeder extends Seeder
         $spell->duration       = 'Based on Save (see text)';
         $spell->description    = '<p>Creatures in the area are outlined by glittering dust, with an effect depending on their Save results. If a creature has its invisibility negated by this spell, it is concealed instead of invisible. This applies both if the creature was already invisible and if it benefits form new invisibility effects before the invisibility is negated for 1 round.</p>';
         $spell->saves          = "<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
     <dt>Success</dt> <dd>The target's invisibility is negated for 1 round</dd>
-    <dt>Failure</dt> <dd>The target is dazzled for 1 minute and its invisibility is negated for 1 minute</dd>
-    <dt>Critical Failure</dt> <dd>The target is blinded for 1 round and dazzled for 1 minute. Its invisibility is negated for 1 minute</dd>
+    <dt>Failure</dt> <dd>The Target is dazzled for 1 minute and its invisibility is negated for 1 minute</dd>
+    <dt>Critical Failure</dt> <dd>The Target is blinded for 1 round and dazzled for 1 minute. Its invisibility is negated for 1 minute</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Enchantment', 'Conjuration'], 2);
 
@@ -542,7 +542,7 @@ class SpellsGSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One container or 10-foot-by-10-foot area';
         $spell->duration    = 'Unlimited until dismissed';
-        $spell->description = '<p>While casting this spell, you also cast a spell of lower spell level to be stored in the glyph. The stored spell must take 3 Actions or fewer to cast, have a hostile effect, and target one creature or have an area. You can set the glyph with a password, a trigger stimulus, or both. Any creature that opens the target container or enters the target area without speaking the password or matching the trigger stimulus activates the glyph, releasing the harmful spell within.</p>
+        $spell->description = '<p>While casting this spell, you also cast a spell of lower spell level to be stored in the glyph. The stored spell must take 3 Actions or fewer to cast, have a hostile effect, and Target one creature or have an area. You can set the glyph with a password, a trigger stimulus, or both. Any creature that opens the Target container or enters the Target area without speaking the password or matching the trigger stimulus activates the glyph, releasing the harmful spell within.</p>
 <p>Once a spell is stored in the glyph, the glyph gains all the traits of that spell. If the spell targets one or more creatures, it targets the creature that set off the glyph. If the spell has an area, that area is centered on the creature that set off the glyph. Glyph of warding’s duration ends when the glyph is triggered. The glyph counts as a magical trap, using your spell DC for both the Perception check to notice it and the Thievery check to disable it; both checks require the creature attempting them to be trained in order to succeed.</p>
 <p>You can dismiss glyph of warding with a Verbal Casting action. The maximum number of glyphs of warding you can have active at a time is equal to your spellcasting ability modifier.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Ritual'], 3);
@@ -650,7 +650,7 @@ class SpellsGSeeder extends Seeder
         $spell->casting     = 'Material Casting';
         $spell->range       = '5 feet';
         $spell->duration    = '1 round';
-        $spell->description = "<p>With an Action, you may make a Melee Attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.</p>";
+        $spell->description = "<p>With an Action, you may make a Melee Attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the Target suffers the attack's normal effects, and green fire leaps from the Target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.</p>";
         $spell->heightened  = '<dl>
     <dt>Heightened (+3)</dt> <dd>Increase the fire damage by +1D8 to both the first and second targets</dd>
 </dl>';
@@ -739,7 +739,7 @@ class SpellsGSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.</p>';
+        $spell->description = '<p>You touch one willing creature. Once before the spell ends, the Target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.</p>';
         $helper->addTypesToSpell($spell, ['Divination'], 0);
 
         $spell              = new Spell;
@@ -807,6 +807,15 @@ class SpellsGSeeder extends Seeder
     <li>You create a small blast of air capable of moving one object that is neither held nor carried and that weighs no more than 5 pounds. The object is pushed up to 10 feet away from you. It isn’t pushed with enough force to cause damage.</li>
     <li>You create a harmless sensory effect using air, such as causing leaves to rustle, wind to slam shutters shut, or your clothing to ripple in a breeze.</li>
 </ul>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+3)</dt> <dd>
+        <ul>
+            <li>On a Critical Failure on the Save, the Target suffers 1 point of Force Damage</li>
+            <li>The small blast of air is now a cone shape, and can clear fogs and clouds.</li>
+            <li>Becomes the effect is meant to be harmless, there is no change.</li>
+        </ul>
+    </dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 0);
 
         $spell                 = new Spell;

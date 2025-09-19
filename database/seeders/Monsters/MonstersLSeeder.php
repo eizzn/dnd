@@ -21,6 +21,7 @@ class MonstersLSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Lamia';
         $monster->size             = 'Large';
+        $monster->type             = 'Fiend';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -58,6 +59,7 @@ class MonstersLSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Laerti';
         $monster->size             = 'Medium';
+        $monster->type             = 'Lizard';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '12 (Natural Armor)';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -78,6 +80,7 @@ class MonstersLSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Stingtail';
         $monster->size             = 'Large';
+        $monster->type             = 'Lizard';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12 (Natural Armor)';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -98,6 +101,7 @@ class MonstersLSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Laraken';
         $monster->size        = 'Large';
+        $monster->type        = 'Aberration';
         $monster->alignment   = 'NE';
         $monster->armor_class = '10';
         $monster->hit_dice    = 15;
@@ -132,6 +136,7 @@ class MonstersLSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Living Spell 1';
+        $monster->type        = 'Construct';
         $monster->size        = 'Small';
         $monster->alignment   = '-';
         $monster->armor_class = '15 (Natural Armor)';
@@ -159,6 +164,7 @@ class MonstersLSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Living Spell 2';
         $monster->size        = 'Medium';
+        $monster->type        = 'Construct';
         $monster->alignment   = '-';
         $monster->armor_class = '15 (Natural Armor)';
         $monster->hit_dice    = 6;
@@ -185,6 +191,7 @@ class MonstersLSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Living Spell 3';
         $monster->size        = 'Large';
+        $monster->type        = 'Construct';
         $monster->alignment   = '-';
         $monster->armor_class = '15 (Natural Armor)';
         $monster->hit_dice    = 7;

@@ -78,9 +78,11 @@ const filters = {
                                             <option value="sonic">Sonic</option>
                                         </optgroup>
                                         <optgroup label="Psionic">
+                                            <option value="Metapsionic">Metapsionic</option>
                                             <option value="psionic">Psionic</option>
                                             <option value="psionic combat">Psionic Combat</option>
                                             <option value="psionic focus">Psionic Focus</option>
+                                            <option value="stance">Stance</option>
                                         </optgroup>
                                         <optgroup label="Class Specific">
                                             <option value="animal companion">Animal Companion</option>
@@ -90,6 +92,7 @@ const filters = {
                                             <option value="channel divinity">Channel Divinity</option>
                                             <option value="combat mastery">Combat Mastery</option>
                                             <option value="divine">Divine</option>
+                                            <option value="fighter feat">Fighter Feat</option>
                                             <option value="primal">Primal</option>
                                             <option value="rage">Rage</option>
                                             <option value="totem">Totem</option>

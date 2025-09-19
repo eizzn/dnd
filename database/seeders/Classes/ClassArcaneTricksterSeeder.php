@@ -74,7 +74,6 @@ class ClassArcaneTricksterSeeder extends Seeder
             'arcane_spellcasting_class' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             'sneak_attack'              => [2, 5, 8],
             'skill_feat'                => [3, 6, 9],
-            'class_group_feat'          => [2, 5, 8],
             'improved_mage_hand'        => [7],
             'invisible_thief'           => [9],
             'surprise_spell'            => [10],

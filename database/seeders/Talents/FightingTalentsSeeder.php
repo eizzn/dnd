@@ -21,11 +21,11 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'High Sword Low Axe';
         $talent->requirement = 'You must be weilding both a sword and an axe';
-        $talent->description = '<p>If you hit the same creature with both your sword and your axe in the same round, you may make a Trip attack as a Free Action.</p>';
+        $talent->description = '<p>If you hit the same creature with both your sword and your axe in the same round, you gain an additional Action. This additional Action can only be used to make a Trip Attack.</p>';
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Improved Trip']);
-        $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'bastard sword, longsword, scimitar, shortsword, battleaxe, handaxe, or dwarven waraxe']);
+        $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'Sword and Axe']);
 
         $talent              = new Talent;
         $talent->name        = 'Anvil of Thunder';
@@ -52,33 +52,11 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = 'Crescent Moon';
         $talent->requirement = 'You must be weilding both a sword and a dagger';
         $talent->description = "<p>You have mastered the style of fighting with sword and dagger. You know how to twist an opponent's weapons from its grasp with a single graceful motion while using your two weapons together.</p>
-<p>If you hit the same creature with both your sword and your dagger in the same round, you may make an immediate Disarm attempt as a Free Action.</p>";
+<p>If you hit the same creature with both your sword and your dagger in the same round, you gain an additional Action. This additional Action can only be used to make a Disarm Action.</p>";
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Improved Disarm']);
         $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'Sword and Dagger']);
-
-        $talent              = new Talent;
-        $talent->name        = 'Fighting Summoner';
-        $talent->requirement = 'You must have Summoned or Called a creature that is able to fight';
-        $talent->description = "<p>You are skilled at fighting alongside your summoned creatures</p>
-<p>As long as you and a creature you summoned threaten the same foe, you are considered to be Flanking that foe even if you don't have an ally on the foe's opposite side.</p>";
-        $helper->addTypesToSimpleObject($talent, ['Summoning', 'Talent' => 5]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Fists of Steel';
-        $talent->description = '<p>At the beginning of your turn, activate a use of your Stunning Fist. Until the beginning of your next turn, all of your unarmed strikes deal an additional +1D6 damage.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Unarmed', 'Talent' => 2]);
-        $talent->feats()->save(app()->feats['Improved Unarmed Strike']);
-
-        $talent              = new Talent;
-        $talent->name        = 'Breaking Blow';
-        $talent->action_type = 'Triple Action';
-        $talent->parent_id   = Talent::where('name', 'Fists of Steel')->first()->id;
-        $talent->description = '<p>Activate your Fist of Steel Talent. If you do, you may make a single unarmed Melee attack that if it hits, deals damage equal to 1D6 for each point of STR modifier you have. If applied to an inanimate object, the damage is doubled.</p>
-<p>Note, this Talent should not be used to break held weapons or shields. Use the normal Improved Sunder feat.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Unarmed', 'Talent' => 5]);
-        $talent->feats()->save(app()->feats['Improved Sunder']);
 
         $talent              = new Talent;
         $talent->name        = "Hammer's Edge";
@@ -99,6 +77,28 @@ class FightingTalentsSeeder extends Seeder
         $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'trident']);
 
         $talent              = new Talent;
+        $talent->name        = 'Fighting Summoner';
+        $talent->requirement = 'You must have Summoned or Called a creature that is able to fight';
+        $talent->description = "<p>You are skilled at fighting alongside your summoned creatures</p>
+<p>As long as you and a creature you summoned threaten the same foe, you are considered to be Flanking that foe even if you don't have an ally on the foe's opposite side. Your summoned ally gains a +1 bonus to Hit while it is attacking a creature that is Flanked.</p>";
+        $helper->addTypesToSimpleObject($talent, ['Summoning', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Fists of Steel';
+        $talent->description = '<p>At the beginning of your turn, activate a use of your Stunning Fist. Until the beginning of your next turn, all of your unarmed strikes deal an additional +1D6 damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Unarmed', 'Talent' => 2]);
+        $talent->feats()->save(app()->feats['Improved Unarmed Strike']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Breaking Blow';
+        $talent->action_type = 'Triple Action';
+        $talent->parent_id   = Talent::where('name', 'Fists of Steel')->first()->id;
+        $talent->description = '<p>Activate your Fist of Steel Talent. If you do, you may make a single unarmed Melee attack that if it hits, deals damage equal to 1D6 for each point of STR modifier you have. If applied to an inanimate object, the damage is doubled.</p>
+<p>Note, this Talent should not be used to break held weapons or shields. Use the normal Improved Sunder feat.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Unarmed', 'Talent' => 5]);
+        $talent->feats()->save(app()->feats['Improved Sunder']);
+
+        $talent              = new Talent;
         $talent->name        = 'Sapping Strike';
         $talent->description = '<p>When you deal Sneak Attack, Sudden Strike, or Skirmish damage, you can sacrifice any number of dice of damage of that Sneak Attack, Sudden Strike, or Skirmish damage. For each die sacrificed in this way, the target suffers a -2 penalty to their CON or DEX Saves (your choice) for the next 10 rounds. A target cannot have more than a cumulative -6 penalty at any one time.</p>
 <p>If the target received any form of magical healing, all the penalties are removed.</p>';
@@ -113,7 +113,7 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Archon Diversion';
-        $talent->description = '<p>You now grant your Archon Style Dodge bonus to all allies adjacent to you. Once per turn as a Free Action, when an ally who has the Dodge bonus from Archon Style and is attacked, you may choose to have the attack hit you instead.</p>';
+        $talent->description = '<p>You now grant your Archon Style Dodge bonus to all allies adjacent to you. Once per turn, when an ally who has the Dodge bonus from Archon Style and is attacked, you may choose to have the attack hit you instead.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Weapon Finesse']);
 
@@ -124,21 +124,23 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Ascetic Style';
-        $talent->description = '<p>Choose a weapon you have Weapon Focus with. You can now wield this weapon and can apply the benefits from feats and class features as if you were unarmed. You use the weapons damage instead of your unarmed strike damage.</p>';
+        $talent->description = '<p>Choose a weapon you have Weapon Focus with. You can now wield this weapon and can apply the benefits from feats and class features as if you were an Unarmed Strike. You use the weapons damage instead of your Unarmed Strike damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 2]);
         $talent->feats()->save(app()->feats['Improved Unarmed Strike']);
         $talent->feats()->save(app()->feats['Weapon Focus']);
 
         $talent              = new Talent;
         $talent->name        = 'Ascetic Strike';
-        $talent->description = '<p>You can now choose to deal your Unarmed Strike damage instead of your weapon damage while using Ascetic Style.</p>';
+        $talent->parent_id   = Talent::where('name', 'Ascetic Style')->firstOrFail()->id;
+        $talent->description = '<p>Your Unarmed Strikes deal an additional +1 Damage. You can now choose to deal your Unarmed Strike damage instead of your weapon damage while using Ascetic Style.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Improved Unarmed Strike']);
         $talent->feats()->save(app()->feats['Weapon Focus']);
 
         $talent              = new Talent;
         $talent->name        = 'Ascetic Form';
-        $talent->description = '<p>You can now add your Class Proficiency bonus to your Unarmed Strike damage.</p>';
+        $talent->parent_id   = Talent::where('name', 'Ascetic Strike')->firstOrFail()->id;
+        $talent->description = '<p>You can now add your Class Proficiency bonus to your Unarmed Strike damage in addition to the bonus Damage from Ascetic Strike.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 8]);
         $talent->feats()->save(app()->feats['Improved Unarmed Strike']);
         $talent->feats()->save(app()->feats['Weapon Focus']);
@@ -151,13 +153,15 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Barracuda Slam';
+        $talent->parent_id   = Talent::where('name', 'Barracuda Style')->firstOrFail()->id;
         $talent->description = '<p>With a successful Swim check, you can move half your speed with an Action. You can run and charge underwater.</p>
 <p>While making a charge attack in water or on land, you can add twice your STR bonus on the damage roll for your first Unarmed Strike on your turn.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Barracuda Dash';
-        $talent->description = '<p>If you have the Barracuda Style and Barracuda Slam Talents, you then gain a swim speed equal to your base land speed.</p>';
+        $talent->parent_id   = Talent::where('name', 'Barracuda Slam')->firstOrFail()->id;
+        $talent->description = '<p>You gain a swim speed equal to your base land speed.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 8]);
 
         $talent              = new Talent;
@@ -191,9 +195,9 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = "Shor'yuken";
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are not wearing any armor and lightly encumbered or less';
-        $talent->description = '<p>The Shoryuken, commonly referred to as the Dragon Punch, is a jumping uppercut in which the user spins upwards with some horizontal movement as well, knocking the opponent to the ground and inflicting damage.</p>
+        $talent->description = "<p>The Shor'yuken, commonly referred to as the Dragon Punch, is a jumping uppercut in which the user spins upwards with some horizontal movement as well, knocking the opponent to the ground and inflicting damage.</p>
 <p>You make a single melee Unarmed Strike that deals an Additional 2 Unarmed Strike damage dices. You also rise 5 feet into the air and suffer a -5 penalty to your Initiative.</p>
-<p>You may also make this attack as a Triple Action, if you do, you gain 5 Additional Unarmed Strike damage dice instead of 2, rise into the air 10 feet, and suffer a -10 penalty to your Initiative.</p>';
+<p>You may also make this attack as a Triple Action, if you do, you gain 5 Additional Unarmed Strike damage dice instead of 2, rise into the air 10 feet, and suffer a -10 penalty to your Initiative.</p>";
         $helper->addTypesTosimpleObject($talent, ['Strike', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Shoto Style']);
 
@@ -204,7 +208,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', "Shor'yuken")->first()->id;
         $talent->description = '<p>You can now perform a Shinryuken.</p>
 <ul>
-    <li>You spend a Heroic Surge and 2 Power Points. You make a single Melee Unarmed Strike that deals an Additional +10 Unarmed Strike damage dice. You also rise 10 feet and suffer a -10 penalty to your Initiative.</li>
+    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Points. You make a single Melee Unarmed Strike that deals an Additional +10 Unarmed Strike Damage per Damage Die. You also rise 10 feet and suffer a -10 penalty to your Initiative.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
 
@@ -212,7 +216,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = "Ha'doken";
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are not holding anything in both hands and you must not be wearing any armor and are lightly encumbered or less';
-        $talent->description = '<p>When you manifest your Pyrokinesis Power to shoot a flaming ray, you may spend a Heroic Surge and an Additional 1 Power Point. If you do, the Ray deals Triple Damage. The additional Power Point counts toward the maximum number of Power Points you can spend per turn.</p>';
+        $talent->description = '<p>When you manifest your Pyrokinesis Power to shoot a flaming ray, you may spend a Heroic Surge (you still gain the additional Action) and an Additional 1 Power Point. If you do, the Ray deals Triple Damage. The additional Power Point counts toward the maximum number of Power Points you can spend per turn.</p>';
         $helper->addTypesToSimpleObject($talent, ['Psionic', 'Talent' => 7]);
         $talent->feats()->save(app()->feats['Shoto Style']);
 
@@ -222,7 +226,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->requirement = 'You are not wearing any armor and are lightly encumbered or less';
         $talent->description = '<p>You do a hand stand while spinning your extended legs.</p>
 <p>You make 3 melee Unarmed Strikes against the same opponent. Each hit deals your normal Unarmed Strike damage +1D4 Bludgeoning damage. You also move into the opponents space (5 feet). If any of your attacks from this talent hits, the opponent is pushed to the next adjacent space. If you miss all of your attacks from this talent, you land in the same space as your opponent if there is enough space, otherwise you move to the other side of the opponent if able.</p>
-<p>You may also spend a Heroic Surge. If you do, you make 4 attacks instead of 3 and move an additional 5 feet.</p>';
+<p>You may also spend a Heroic Surge (you still gain the additional Action). If you do, you make 4 attacks instead of 3 and move an additional 5 feet.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Tu Lung Style']);
 
@@ -233,7 +237,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Spinning Bird Kick')->first()->id;
         $talent->description = '<p>You can now perform an Improved Spinning Bird Kick.</p>
 <ul>
-    <li>You spend a Heroic Surge and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +1D4 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative.</li>
+    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +5 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
 
@@ -243,7 +247,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->requirement = 'You are not wearing any armor and are lightly encumbered or less';
         $talent->description = '<p>You unleash a flurry of kicks.</p>
 <p>You spend 1 Power Point and make 4 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike.</p>
-<p>You may also spend a Heroic Surge. If you do, you make 6 Melee Unarmed Strikes instead and suffer a -7 to your Initiative.</p>';
+<p>You may also spend a Heroic Surge (you still gain the additional Action). If you do, you make 6 Melee Unarmed Strikes instead and suffer a -7 to your Initiative.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 6]);
         $talent->feats()->save(app()->feats['Tu Lung Style']);
 
@@ -254,7 +258,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Lightning Kick')->first()->id;
         $talent->description = '<p>You can perform an Improved Lightning Kick.</p>
 <ul>
-    <li>Spend a Heroic Surge and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +1D4 Bludgeoning damage.</li>
+    <li>Spend a Heroic Surge (you still gain an additional Action) and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +2D4 Bludgeoning damage.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
 
@@ -296,7 +300,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = '<p>This Talent has 2 more punches</p>
 <dl>
     <dt>Hook</dt> <dd>As a Double Action, you make an Unarmed Melee Attack with a +2 bonus to Hit, +10 bonus to Damage, and a -3 penalty to AC until the beginning of your next turn. The penalty to AC is cumulative</dd>
-    <dt>Uppercut</dt> <dd>As a Double Action, you make an Unarmed Melee Attack with a +1 bonus to Hit, and a +5 bonus to Damage. If you hit, the target must make a DC 12 CON Save or be Stunned 1.</dd>
+    <dt>Uppercut</dt> <dd>As a Double Action, you make an Unarmed Melee Attack with a +1 bonus to Hit, and a +5 bonus to Damage. If you hit, the target must make a DC 15 CON Save or be Stunned 1.</dd>
 </dl>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
 
@@ -331,7 +335,7 @@ class FightingTalentsSeeder extends Seeder
 <dl>
     <dd>Roundhouse Kick</dd> <dd>You sweep your leg across, striking multiple targets. Make a single Unarmed Melee Strike attack as a Double Action. Your attack role is used against any foe that in the 3 adjacent squares in front of you. This counts as a single attack.</dd>
     <dd>Crescent Kick</dd> <dd>You bring your leg up against your body and then sweep it down and across. You gain an Additional Action. This Additional Action can only be used to make a Stunning Strike with this attack. Make an Unarmed Melee attack as a Double Action with a +1 to Hit. If you hit, you deal an Additional +5 damage and the target suffers a -3 penalty to your Stunning Strike.</dd>
-    <dd>Axe Kick</dd> <dd>You bring your leg straight up against your body and bring it down like an axe against your opponent. Make an Unarmed Melee attack as a Double Action with a -2 to Hit and an increased Critical Range of +1. If you Hit, you deal an Additional 3 Dice of damage.</dd>
+    <dd>Axe Kick</dd> <dd>You bring your leg straight up against your body and bring it down like an axe against your opponent. Make an Unarmed Melee attack as a Double Action with a -2 to Hit and an increased Critical Range of +1. If you Hit, you deal an Additional +5 Damage per Die.</dd>
 </dl>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Koryo Style']);
@@ -343,7 +347,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = '<p>You learn some of the most difficult kicks</p>
 <dl>
     <dd>Scissor Kick</dd> <dt>You leap into the air and strike 2 different targets that are in range. The targets cannot be adjacent to each other. Make an Unarmed Melee Strike attack against both targets as a Double Action. If you Hit, you deal an Additional Die of damage. The target then makes a STR Save vs the damage dealt. Failure pushes the target back from you 10 feet.</dt>
-    <dd>Flying Kick</dd> <dd>You leap into the air after a running start and kick your opponent while in the air (you must use at least 1 Action to Stride towards your opponent). You may make this attack as part of a Charge attack. Make an Unarmed Melee Strike attack as an Action with a +1 to Hit. If you Hit, you deal an Additional +5 Damage. Before the target can respond (i.e. use a Reaction to make an Attack of Opportunity), you may continue your Stride in a straight line.</dd>
+    <dd>Flying Kick</dd> <dd>You leap into the air after a running start and kick your opponent while in the air (you must use at least 1 Action to Stride towards your opponent). You may make this attack as part of a Charge attack. Make an Unarmed Melee Strike attack as an Action with a +1 to Hit. If you Hit, you deal an Additional +10 Damage. Before the target can respond (i.e. use a Reaction to make an Attack of Opportunity), you may continue your Stride in a straight line.</dd>
 </dl>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 8]);
     }

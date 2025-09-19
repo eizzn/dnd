@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Feature;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Trait FeatureableTrait
@@ -12,9 +13,9 @@ use Illuminate\Database\Eloquent\Collection;
  */
 trait FeatureableTrait
 {
-    public function features()
+    public function features(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Feature::class, 'featureable')
+        return $this->morphToMany(Feature::class, 'featureable')
             ->withPivot('level', 'meta');
     }
 }

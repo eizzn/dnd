@@ -23,7 +23,7 @@ class GodsTalosSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
             'aliases'        => 'Bhaelros (Calimshan), Kozah (Netheril, Bedine)',
-            'title'          => 'The Destroyer, the Storm Lord',
+            'title'          => 'The Destroyer, the Storm Lord, The Raging One, The Storm Star',
             'level'          => 'Intermediate',
             'portfolio'      => 'Storms, Destruction, Rebellion, Conflagration, Earthquakes, Vortices, Evil Druids',
             'regions'        => 'Calimshan, Moonsea, Nelanther Isle, The North, Vilhon Reach',
@@ -33,18 +33,18 @@ class GodsTalosSeeder extends Seeder
             'master_id'      => God::where('name', 'Silvanus')->first()->id,
         ]);
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Barbarian' => 10,
-            'Druid'     => 15,
+            'Barbarian' => 20,
+            'Druid'     => 20,
             'Wizard'    => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Warlock', 'Barbarian',
+            'Druid', 'Barbarian', 'Wizard' => ['meta' => 'Evocation'],
         ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => '<p>Talos gives his blessings to people who wreck things. Simply put, Talos is a god of indiscriminate ruination - all things must come to an end, and sometimes life isn’t fair. Every day you are not destroyed by dark whim is a gift - so use it wisely, and live well.</p>
-<p>Talos’s scions are frequently found amongst bandits, brigands and other lawless looters who pillage and dismantle as part of their daily life. Sometimes his chosen become doomsayers, predicting where Talos will turn his gaze next for their own profit.</p>
+            'favor'       => "<p>Talos gives his blessings to people who wreck things. Simply put, Talos is a god of indiscriminate ruination - all things must come to an end, and sometimes life isn’t fair. Every day you are not destroyed by dark whim is a gift - so use it wisely, and live well.</p>
+<p>Talos's scions are frequently found amongst bandits, brigands and other lawless looters who pillage and dismantle as part of their daily life. Sometimes his chosen become doomsayers, predicting where Talos will turn his gaze next for their own profit.</p>
 <ol>
     <li>You were caught in a terrible storm as a child that killed everyone in your village except you</li>
     <li>You destroyed a monument or structure of great importance and historical significance</li>
@@ -52,7 +52,7 @@ class GodsTalosSeeder extends Seeder
     <li>You lead a group of thugs and bandits who rob everyone blind and squander the profits</li>
     <li>You have an erratic ability to predict storms and natural disasters. Perhaps this is a gift from Talos, or he just wants you under his contorl</li>
     <li>You gave up all your worldy belongings in tribute to the storm god, and he blessed you with the power to leave it all behind</li>
-</ol>',
+</ol>",
             'devotion' => "<p>Following Talos means being a servant of destruction. As a follower of Talos, consider the ideals below as alternatives to those suggested for your background.</p>
 <dl>
     <dt>Devotion</dt> <dd>My devotion to my god is more important to me than what they stand for. (Any)</dd>
@@ -107,13 +107,13 @@ class GodsTalosSeeder extends Seeder
             'Ranger'        => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Spirit Shaman', 'Barbarian', 'Warlock',
+            'Druid', 'Spirit Shaman', 'Barbarian',
         ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => '<p>Auril offers power and strength to those who would eschew the bounds of society and live out in the harsh reaches of winter. In her service, scions find themselves spreading bitter truths and preparing mortals for harsh realities.</p>
-<p>Auril’s scions are seldom cheerful sorts, often exhibiting morose, cold and savagely honest personalities.</p>
+            'favor'       => "<p>Auril offers power and strength to those who would eschew the bounds of society and live out in the harsh reaches of winter. In her service, scions find themselves spreading bitter truths and preparing mortals for harsh realities.</p>
+<p>Auril's scions are seldom cheerful sorts, often exhibiting morose, cold and savagely honest personalities.</p>
 <ol>
     <li>You were born on a midwinter solstice</li>
     <li>You survived a raging snowstorm</li>
@@ -130,7 +130,7 @@ class GodsTalosSeeder extends Seeder
     <dt>Nature</dt> <dd>There is no justice, only the whims of natural forces</dd>
     <dt>Hate</dt> <dd>Ths world takes, and takes and takes. I hate it. It should all perish</dd>
     <dt>Dread</dt> <dd>Winter comes for us all eventually</dd>
-</dl>',
+</dl>",
             'earn_piety' => [
                 'Preparing others for hard truths',
                 'Enduring unavoidable disasters',
@@ -160,7 +160,7 @@ class GodsTalosSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
             'aliases'        => 'Kiputytto',
-            'title'          => 'Lady of Poison, Mistress of Disease, Mother of All Plagues, The Plague-crone',
+            'title'          => 'Lady of Poison, Mistress of Disease, Mother of All Plagues, The Plague-crone, She of the Deadly Kiss',
             'level'          => 'Lesser',
             'portfolio'      => 'Disease, Poison, Blights',
             'regions'        => 'Moonsea',
@@ -170,11 +170,13 @@ class GodsTalosSeeder extends Seeder
             'master_id'      => $talos->id,
         ]);
         $helper->addClassesToGod($god, 'Faeruneon', [
+            'Druid'    => 20,
+            'Scout'    => 10,
+            'Ranger'   => 5,
             'Assassin' => 5,
-            'Druid'    => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Ranger', 'Scout', 'Assassin',
+            'Druid', 'Ranger', 'Scout', 'Assassin', 'Divine Oracle',
         ]);
 
         $helper->addPietyToGod($god, [
@@ -225,10 +227,10 @@ class GodsTalosSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
-            'aliases'        => 'The Stalker (Vilhon Reach), Render (Great Glacier), Blue Bear (Uthgardt), Herne (orcs of the High Forest)',
-            'title'          => 'The Beastlord, the Black-Blooded Pard',
+            'aliases'        => 'The Stalker (Vilhon Reach), Render (Endless Ice and Great Glacier), Blue Bear (Uthgardt), Herne (orcs of the High Forest)',
+            'title'          => 'The Beastlord, the Black-Blooded Pard, the Ravaging Bear',
             'level'          => 'Lesser',
-            'regions'        => 'Cormyr, High Forest, The North, Tashalar, Vilhon Reach',
+            'regions'        => 'The Great Dale, Cormyr, High Forest, The North, Tashalar, Vilhon Reach',
             'alignment'      => 'NE',
             'portfolio'      => 'Bloodlust, Evil Lychanthropes, Hunters, Marauding Beasts and Monsters, Stalking',
             'symbol'         => 'Clawed paw',
@@ -237,9 +239,12 @@ class GodsTalosSeeder extends Seeder
         ]);
         $helper->addClassesToGod($god, 'Faeruneon', [
             'Ranger'    => 20,
-            'Barbarian' => 10,
+            'Barbarian' => 5,
+            'Druid'     => 5,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Druid', 'Barbarian', 'Ranger']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid', 'Barbarian', 'Ranger', 'Fighter',
+        ]);
 
         /**********************************************************************/
 
@@ -249,7 +254,7 @@ class GodsTalosSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Elemental'], [
             'name'      => $god->name,
-            'title'     => 'Princess of Evil Water, The Crushing Wave, The Well of Endless Anguish',
+            'title'     => 'Princess of Evil Water Elementals, The Crushing Wave, The Well of Endless Anguish',
             'level'     => 'Archomental',
             'portfolio' => 'Evil Water Elementals',
             'alignment' => 'NE',
@@ -277,14 +282,18 @@ class GodsTalosSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Druid' => 20,
+            'Druid'        => 20,
+            'Swashbuckler' => 10,
+            'Wizard'       => 10,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Druid', 'Ranger']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid', 'Ranger', 'Swashbuckler', 'Divine Oracle',
+        ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => '<p>Umberlee drowns ships and sinks coastal towns with vicious and lamentable regularity. She admires those who give her tribute, whether that be in chests of gold or sentimental trinkets - what matters to Umberlee is how much of a sacrifice was made.</p>
-<p>Umberlee’s scions are inconsistent in temperament, but share a common bond in their link to the ocean - to live in service to the Bitch Queen (for even amongst evil deities, Umberlee is known to possess a cruel streak) is no easy matter.</p>
+            'favor'       => "<p>Umberlee drowns ships and sinks coastal towns with vicious and lamentable regularity. She admires those who give her tribute, whether that be in chests of gold or sentimental trinkets - what matters to Umberlee is how much of a sacrifice was made.</p>
+<p>Umberlee's scions are inconsistent in temperament, but share a common bond in their link to the ocean - to live in service to the Bitch Queen (for even amongst evil deities, Umberlee is known to possess a cruel streak) is no easy matter.</p>
 <ol>
     <li>Your ship and crew tithes generously to the goddess and you have her favour...for now</li>
     <li>You fell overboard, and Umberlee carried you to shore. You have no idea why she would spare you</li>
@@ -292,7 +301,7 @@ class GodsTalosSeeder extends Seeder
     <li>You’ve lived on the sea edge all your life, and Umberlee has been watching you</li>
     <li>You were a sea creature, but the Bitch Queen sent you onto land in a new body after you slighted her</li>
     <li>You hurled yourself into the sea in a fit of despair, but the goddess had other plans for you</li>
-</ol>',
+</ol>",
             'devotion' => "<p>Following Umberlee means dedicating your life to the dangers of the open sea. As a follower of Umberlee, consider the ideals below as alternatives to those suggested for your background.</p>
 <dl>
     <dt>Devotion</dt> <dd>My devotion to my god is more important to me than what they stand for. (Any)</dd>

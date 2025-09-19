@@ -36,7 +36,7 @@ class DiseasesSeeder extends Seeder
     <tbody>
         <tr>
             <td>Goblin Pox</td>
-            <th>Injury, Spell (1)</th>
+            <td>Injury, Spell (1)</td>
             <td>11</td>
             <td>1 round</td>
         </tr>
@@ -64,12 +64,12 @@ class DiseasesSeeder extends Seeder
             <td>13</td>
             <td>10 days</td>
         </tr>
-        <td>
+        <tr>
             <td>Tuberculosis</td>
             <td>Contact, Spell (2)</td>
             <td>14</td>
             <td>1 week</td>
-        </td>
+        </tr>
         <tr>
             <td>Malaria</td>
             <td>Contact, Spell (3)</td>

@@ -17,6 +17,7 @@ class Monster extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->enum('size', ['Tiny', 'Small', 'Medium', 'Large', 'Huge', 'Gargantuan']);
+            $table->string('type', 25)->nullable();
             $table->string('alignment', 12);
             $table->string('armor_class', 50);
             $table->string('damage_reduction')->nullable();

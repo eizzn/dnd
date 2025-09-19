@@ -7,16 +7,23 @@ use App\Services\ArmorService;
 use App\Services\AttributeService;
 use App\Services\ClassService;
 use App\Services\ConditionService;
+use App\Services\EquipmentService;
 use App\Services\FeatService;
+use App\Services\FeatureService;
 use App\Services\FormulaService;
 use App\Services\GodPantheonService;
 use App\Services\LanguageService;
+use App\Services\MaterialService;
+use App\Services\MonsterService;
+use App\Services\PageService;
 use App\Services\PantheonService;
 use App\Services\PowerService;
 use App\Services\RaceService;
+use App\Services\RuleService;
 use App\Services\SkillService;
 use App\Services\SpellService;
 use App\Services\TalentService;
+use App\Services\TypeService;
 use App\Services\WeaponService;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -43,8 +50,14 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(\App\Services\Contracts\ConditionService::class, function () {
             return new ConditionService;
         });
+        app()->singleton(\App\Services\Contracts\EquipmentService::class, function () {
+            return new EquipmentService;
+        });
         app()->singleton(\App\Services\Contracts\FeatService::class, function () {
             return new FeatService;
+        });
+        app()->singleton(\App\Services\Contracts\FeatureService::class, function () {
+            return new FeatureService;
         });
         app()->singleton(\App\Services\Contracts\FormulaService::class, function () {
             return new FormulaService;
@@ -55,6 +68,15 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(\App\Services\Contracts\LanguageService::class, function () {
             return new LanguageService;
         });
+        app()->singleton(\App\Services\Contracts\MaterialService::class, function () {
+            return new MaterialService;
+        });
+        app()->singleton(\App\Services\Contracts\MonsterService::class, function () {
+            return new MonsterService;
+        });
+        app()->singleton(\App\Services\Contracts\PageService::class, function () {
+            return new PageService;
+        });
         app()->singleton(\App\Services\Contracts\PantheonService::class, function () {
             return new PantheonService;
         });
@@ -64,6 +86,9 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(\App\Services\Contracts\RaceService::class, function () {
             return new RaceService;
         });
+        app()->singleton(\App\Services\Contracts\RuleService::class, function () {
+            return new RuleService;
+        });
         app()->singleton(\App\Services\Contracts\SkillService::class, function () {
             return new SkillService;
         });
@@ -72,6 +97,9 @@ class AppServiceProvider extends ServiceProvider
         });
         app()->singleton(\App\Services\Contracts\TalentService::class, function () {
             return new TalentService;
+        });
+        app()->singleton(\App\Services\Contracts\TypeService::class, function () {
+            return new TypeService;
         });
         app()->singleton(\App\Services\Contracts\WeaponService::class, function () {
             return new WeaponService;

@@ -21,6 +21,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crystal Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -63,6 +64,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crystal Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -108,6 +110,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crystal Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -154,6 +157,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crystal Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -200,6 +204,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Topaz Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -243,6 +248,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Topaz Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -288,6 +294,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Topaz Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -334,6 +341,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Topaz Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '9 (Natural Armor)';
@@ -380,6 +388,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Emerald Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -424,6 +433,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Emerald Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -470,6 +480,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Emerald Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -516,6 +527,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Emerald Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '9 (Natural Armor)';
@@ -562,6 +574,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sapphire Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -608,6 +621,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sapphire Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -655,6 +669,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sapphire Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -703,6 +718,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sapphire Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -751,6 +767,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Amethyst Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'N';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -795,6 +812,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Amethyst Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'N';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -841,6 +859,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Amethyst Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'N';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -888,6 +907,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Amethyst Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'N';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -938,6 +958,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'White Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -971,6 +992,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'White Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1006,6 +1028,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'White Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -1048,6 +1071,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'White Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -1090,6 +1114,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Black Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -1123,6 +1148,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Black Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1158,6 +1184,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Black Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -1200,6 +1227,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Black Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -1242,6 +1270,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Green Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1276,6 +1305,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Green Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -1313,6 +1343,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Green Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -1358,6 +1389,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Green Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -1403,6 +1435,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Blue Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -1435,6 +1468,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Blue Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -1469,6 +1503,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Blue Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1510,6 +1545,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Blue Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -1551,6 +1587,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Red Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -1583,6 +1620,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Red Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1617,6 +1655,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Red Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -1658,6 +1697,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Red Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '9 (Natural Armor)';
@@ -1699,6 +1739,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Brass Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1736,6 +1777,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Brass Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -1776,6 +1818,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Brass Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -1824,6 +1867,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Brass Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -1876,6 +1920,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Copper Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -1913,6 +1958,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Copper Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -1953,6 +1999,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Copper Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -2000,6 +2047,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Copper Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -2051,6 +2099,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bronze Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -2089,6 +2138,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bronze Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -2130,6 +2180,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bronze Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '9 (Natural Armor)';
@@ -2182,6 +2233,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bronze Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '12 (Natural Armor)';
@@ -2234,6 +2286,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Silver Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -2271,6 +2324,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Silver Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -2312,6 +2366,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Silver Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '9 (Natural Armor)';
@@ -2364,6 +2419,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Silver Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '12 (Natural Armor)';
@@ -2416,6 +2472,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gold Dragon, Wyrmling';
         $monster->size             = 'Medium';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -2454,6 +2511,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gold Dragon, Young';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -2496,6 +2554,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gold Dragon, Adult';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -2549,6 +2608,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gold Dragon, Ancient';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '10 (Natural Armor)';
@@ -2602,6 +2662,7 @@ class DragonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Dragon Turtle';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'N';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '10 (Natural Armor)';

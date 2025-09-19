@@ -29,13 +29,14 @@ class ClassHathranSeeder extends Seeder
             'Gender'        => 'Female',
             'Alignment'     => 'Lawful Good, Lawful Neutral, Neutral Good, Lawful Evil (Durthan), Neutral Evil (Durthan)',
             'Feats'         => 'Ethran, At least 1 Meta Magic Feat, Cannot have any Item Creation Feats, Cannot have any Bloodline Feats, Cannot have any Wizard School Feats',
-            'Spellcasting'  => 'Able to cast 2nd level Arcane and Primal spells',
+            'Spellcasting'  => 'Able to cast 1st level Arcane and Primal spells',
             'Class Feature' => 'Chastise Spirit',
-            'Patron'        => 'Chauntea, Mielikki, Mystra, Auril (Durthan)',
+            'Patron'        => 'The Fey Lords of Rasheman',
             'Region'        => 'Rashemen',
         ]);
         $class->description = '<p>This class represents both the Hathrans and the Durthans</p>
-<p>You are barred from taking any Item Creation and Wizard School Feats.</p>';
+<p>You are barred from taking any Item Creation and Wizard School Feats.</p>
+<p>To calculate the number of dice your Chastise Spirit deals, add your Hathran levels with your Spirit Shaman levels.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
             'skill_progress' => 4,

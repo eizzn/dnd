@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import axios from "axios";
 import { ref, onMounted, computed } from "vue";
+import NavLink from "@/components/NavLink.vue";
 
 const route = useRoute();
 const race = ref(null);
@@ -69,7 +70,15 @@ onMounted(fetchRaceDetails);
                                             <td class="border border-gray-300 px-4 py-2">{{ race.speed }}</td>
                                             <td class="border border-gray-300 px-4 py-2">
                                                 <ul>
-                                                    <li v-for="(type, index) in race.types" :key="index">{{ type.name }}</li>
+                                                    <li v-for="(type, index) in race.types" :key="index">
+                                                        <NavLink
+                                                            :href="`/type/${type.id}`"
+                                                            class="text-blue-800 hover:underline p-0"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >
+                                                            {{ type.name }}
+                                                        </NavLink>
+                                                    </li>
                                                 </ul>
                                             </td>
                                         </tr>

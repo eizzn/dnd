@@ -124,7 +124,7 @@ class CombatPageSeeder extends Seeder
 <blockquote>
     Ex. Rendar, on his turn, uses a Heroic Action to gain an additional Action. He has 4 Actions this turn which may be used for Stride, Strike, or Spell Casting Actions. Heroic Surge does not apply the Quickened condition, it simply grants an additional Action.
 </blockquote>
-<p>You cannot not use more than one Heroic Surge per turn.</p>
+<p>You cannot use more than one Heroic Surge per turn.</p>
 <p>You regain back one Heroic Surge after taking a Short Rest or all your Heroic Surges after a Long Rest.</p>';
         $rule->order = 300;
         $page->rules()->save($rule);

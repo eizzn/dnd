@@ -498,6 +498,7 @@ class FeatsSeeder extends Seeder
     <li>You may take this feat multiple times, each time choosing a different skill you have taken with the Skilled feat.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
+        $feat->parent_feats()->save(Feat::where('name', 'Skilled')->firstOrFail());
 
         $feat              = new Feat;
         $feat->name        = 'Masterful Skill';
@@ -507,6 +508,7 @@ class FeatsSeeder extends Seeder
     <li>You may take this feat multiple times, each time choosing a different skill you have taken with the Impeccable Skill feat.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
+        $feat->parent_feats()->save(Feat::where('name', 'Impeccable Skill')->firstOrFail());
 
         $feat              = new Feat;
         $feat->name        = 'Observant';
@@ -535,7 +537,7 @@ class FeatsSeeder extends Seeder
     <li>You gain 5 Skill Points</li>
     <li>You can use the Craft activity to create Alchemical items. When you select this feat, you immediately add the formulas for four common Alchemical items that you qualify for.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Alchemical', 'Item Creation', 'Down Time', 'Generic' => 1]);
+        $helper->addTypesToFeat($feat, ['Alchemical', 'Item Creation', 'Downtime', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Snare Crafting';

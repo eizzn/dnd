@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Type;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Trait TypeableTrait
@@ -12,8 +13,8 @@ use Illuminate\Database\Eloquent\Collection;
  */
 trait TypeableTrait
 {
-    public function types()
+    public function types(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Type::class, 'typeable');
+        return $this->morphToMany(Type::class, 'typeable');
     }
 }

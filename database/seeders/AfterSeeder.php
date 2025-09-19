@@ -132,6 +132,12 @@ class AfterSeeder extends Seeder
         Formula::where('name', 'Life Stealer')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Vampire')->firstOrFail(), ['meta' => '2 drops of vampire blood']
         );
+        Formula::where('name', 'Cloak of Displacement')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Displacer Beast')->firstOrFail(), ['meta' => 'The hide and tentacles are used to form most of the cloak']
+        );
+        Formula::where('name', 'Giant Wasp Venom')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Wasp, Giant')->firstOrFail(), ['meta' => 'The venom from the stinger is enough to make 2 doses']
+        );
         // add Wasp, Giant to Wasp Venom
     }
 }

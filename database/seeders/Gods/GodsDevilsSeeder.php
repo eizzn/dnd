@@ -405,7 +405,7 @@ class GodsDevilsSeeder extends Seeder
             2 => ['Continual Flame', 'Flame Blade', 'Heat Metal', 'Pyrotechnics'],
             3 => ['Dragon Breath' => 'Self only. Fire only', 'Fireball'],
             4 => ['Fire Eyes'],
-            5 => ['Dispel Cold', 'Delayed Blast Fireball'],
+            5 => ['Dispel Cold'],
             6 => ['Investiture of Flame'],
             7 => ['Fiery Body'],
             8 => ['Incendiary Cloud'],

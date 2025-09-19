@@ -274,6 +274,7 @@ class SpellsMSeeder extends Seeder
         $spell->name        = 'Mantle of Mystra';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
+        $spell->area        = '0 ft';
         $spell->duration    = 'Until used or up to 1 year';
         $spell->description = '<p>This spell creates an invisible magical aura around the caster. When a specific spell or magical item discharge (such as Fireball, but not all fiery spells) impinges on any part of this aura, the mantle instantly absorbs it, negating all of its effects, and converts it to another specific type of spell, hurling that spell back at the source of the original magic. The spell absorbed and sent back both must be lower level than the level of this spell when cast.</p>
 <p>This action exhausts the mantle, ending its protection. (It otherwise lasts for up to 1 year, even if its caster later memorizes other spells, but it cannot survive contact with a Dispel Magic spell, and a given being can enjoy the protection of only one Mantle of Mystra at a time)</p>
@@ -748,6 +749,9 @@ class SpellsMSeeder extends Seeder
         $spell->description = '<p>You can modify the shape of forge heated metal. It is used to finish the forging process. This spell cannot be used to harden or mix different metals into allows.</p>
 <p>This spell can be used to form the overall shape of a piece of metal forged item, sharpen an edge of a blade or otherwise attain some desired shape. While this spell can shape an edge, it is still common to stone grind the edge further after heat treating.</p>
 <p>This spell is not intended to replace the forging process. Typically, this spell is used to form perfectly straight cuts in a forge heated piece of metal. This spell will not weld pieces of metal together.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>This spell can now weld 2 pieces of metal together after they are forge-heated</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 1);
 
         $spell              = new Spell;

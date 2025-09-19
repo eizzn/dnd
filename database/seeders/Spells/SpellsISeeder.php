@@ -228,14 +228,16 @@ class SpellsISeeder extends Seeder
 
         $spell              = new Spell;
         $spell->name        = 'Imbue with Adamantine';
-        $spell->casting     = 'Verbal Casting';
+        $spell->casting     = 'Somatic Casting';
         $spell->range       = 'Touch';
         $spell->targets     = 'Weapon touched';
-        $spell->duration    = '10 minutes';
-        $spell->description = "<p>This spell grants one weapon the properties of Adamantine.</p>
-<p>The weapon gains a +1 Enhancement bonus on attack rolls and bypasses Hardness when striking objects of sundering weapons, ignoring Hardnes less than 20. The affected weapon also has one-third more Hit Points than normal for the duration of the spell.</p>
-<p>You can't cast this spell on a Natural Weapon, such as an Unarmed Strike. A monk's Unarmed Strike is considered a weapon, and thus it can be enhanced by this spell.</p>";
-        $helper->addTypesToSpell($spell, ['Transmutation'], 6);
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>The weapon gains the properties of Adamantine for the Duration.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Permanency (+4)</dt> <dd>200 gp of Adamantine (which is consumed). 2 CON Damage</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Imbue with Cold Iron';
@@ -265,7 +267,7 @@ class SpellsISeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = 'Permanent until discharged';
-        $spell->description = "<p>You transfer some of your currently prepared spells, and the ability to cast them, to another creature. Only a creature with an INT score of at least 5 and a WIS score of at least 9. Only Divine Abjuration, Divination, and Healing spells can be transferred. The number and level of spells that the subject can be granted depends on their INT and WIS. Even multiple castings of this spell can't exceed these limits.</p>
+        $spell->description = "<p>You transfer some of your currently prepared spells, and the ability to cast them, to another creature. Only a creature with an INT score of at least 5 and a WIS score of at least 9 can receive a spell. Only Divine Abjuration, Divination, and Healing spells can be transferred. The number and level of spells that the subject can be granted depends on their INT and WIS. Even multiple castings of this spell can't exceed these limits.</p>
 <table>
     <thead>
         <tr>
@@ -297,7 +299,10 @@ class SpellsISeeder extends Seeder
     </tbody>
 </table>
 <p>The transferred spell's variables function according to your level and not the recipient.</p>
-<p>Once you cast this spell, the Spell Slot used to cast it is sacrificed until the recipient casts all of the imbued spells or dies. You remain responsible to your patron deity for how the imbued spells are used.</p>";
+<p>Once you cast this spell, the Spell Slots of the transferred spells cannot be regained until the recipient casts the transferred spells or dies. You remain responsible to your patron deity for how the imbued spells are used.</p>
+<blockquote>
+    You cast this spell and transfer two 1st Level Spells to a Target. You lose those Spell Slots (two 1st Level Spell Slots) until the recipient casts those spells or dies. You do regain the Spell Slot used to cast Imbue with Spell Ability as normal.
+</blockquote>";
         $helper->addTypesToSpell($spell, ['Enchantment', 'Divine', 'Ritual'], 4);
 
         $spell                 = new Spell;
@@ -347,6 +352,16 @@ class SpellsISeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>You may target an additional target.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 1);
+
+        $spell              = new Spell;
+        $spell->name        = 'Impart Knowledge';
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Willing living creature Touched';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>This spell allows you to communicate complex thoughts (including magical symbols, diagrams, maps, explanatory images; which may move in sequence to show a procedure) silently to the mind of the recipient by touch.</p>
+<p>The information is transferred instantaneously, and there is no limit to the amount of information that can be transferred.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 2);
 
         $spell              = new Spell;
         $spell->name        = "Impede Sun's Brilliance";
@@ -634,6 +649,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->duration       = '10 minutes';
         $spell->description    = "<p>Electricity arcs across your body, shedding dim light in a 15-foot radius. The electricity doesn't harm you. Until the spell ends, you gain the following benefits:</p>
 <ul>
+    <li>You may cast the Cantrip Shocking Grasp as an Action</li>
     <li>You gain Immunity to Electricity damage. If you are hit with an Electricity attack, extend the duration by 1 round.</li>
     <li>You may spend an Action and damage all creatures within 5 feet of you with 2D12 Electricity damage (no Save)</li>
     <li>You can use a Double Action to throw a bolt of lightning 60 feet long and 5 feet wide from you in a direction you choose. Each creature in the line must make a DEX Save. A creature takes 5D12 Electricity damage on a Failed Save, or half as much damage on a successful one.</li>
@@ -655,6 +671,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->duration       = '10 minutes';
         $spell->description    = "<p>Flames race across your body, shedding bright light in a 30-foot radius and dim light for an additional 30 feet for the spell's duration. The flames don't harm you. Until the spell ends, you gain the following benefits:</p>
 <ul>
+    <li>You may cast the Cantrip Produce Flame as an Action</li>
     <li>You gain Immunity to Fire damage and have Resistance to Cold damage.</li>
     <li>Any creature that moves within 5 feet of you for the first time on a turn or ends its turn there takes 1D10 Fire damage.</li>
     <li>You can with an Action to create a line of fire 15 feet long and 5 feet wide extending from you in a direction you choose. Each creature in the line must make a DEX Save. A creature takes 4D8 Fire damage on a failed Save, or half as much damage on a successful one.</li>
@@ -676,6 +693,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->duration       = '10 minutes';
         $spell->description    = '<p>Until the spell ends, ice rimes your body, and you gain the following benefits:</p>
 <ul>
+    <li>You may cast the Cantrip Frostbite as a Double Action</li>
     <li>You gain Immunity to Cold damage and have Resistance to Fire damage.</li>
     <li>You can move across difficult terrain created by ice or snow without spending extra movement.</li>
     <li>The ground in a 10-foot radius around you is icy and is difficult terrain for creatures other than you. The radius moves with you.</li>
@@ -710,6 +728,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->duration       = '10 minutes';
         $spell->description    = '<p>Until the spell ends, water whirls around you, and you gain the following benefits:</p>
 <ul>
+    <li>You may cast the Cantrip Hydraulic Blast as an Double Action</li>
     <li>You gain a Swim Speed equal to your Land Speed.</li>
     <li>You gain the ability to breathe water.</li>
     <li>You have Resistance to Piercing, and Slashing damage from nonmagical attacks.</li>
@@ -726,6 +745,7 @@ Dispel magic or a similar effect successfully applied to the sapphire ends this 
         $spell->duration       = '10 minutes';
         $spell->description    = '<p>Until the spell ends, wind whirls around you, and you gain the following benefits:</p>
 <ul>
+    <li>You may cast the Cantrip Gust as an Action</li>
     <li>Ranged weapon attacks made against you have Disadvantage on the attack roll.</li>
     <li>You gain a Fly Speed of 60 feet. If you are still flying when the spell ends, you fall, unless you can somehow prevent it.</li>
     <li>You can use an Action to create a 15-foot cube of swirling wind centered on a point you can see within 60 feet of you. Each creature in that area must make a CON Save. A creature takes 2D10 Bludgeoning damage on a Failed Save, or half as much damage on a successful one. If a Large or smaller creature fails the Save, that creature is also pushed up to 10 feet away from the center of the cube.</li>

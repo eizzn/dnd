@@ -21,6 +21,7 @@ class MonstersTSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Tall Mouther';
         $monster->size             = 'Large';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'N';
         $monster->armor_class      = '14';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -49,6 +50,7 @@ class MonstersTSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Tomb Tapper';
         $monster->size             = 'Huge';
+        $monster->type             = 'Construct';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '10 (Natural Armor)';

@@ -208,6 +208,25 @@ class SpellsNSeeder extends Seeder
         $spell->description = '<p>This spell functions like Deathwatch, except it only works on animals and plants. In addition, it also allows you to determine a variety of other mundane information about the animals and plants (whether or not the plants are dehydrated, the animals are malnourished, and so forth).</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 0);
 
+        $spell              = new Spell;
+        $spell->name        = 'Necrotic Touch';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'One living or undead creature';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = "<p>You touch weakens the living and disorients undead. Make a melee touch attack. The effect of a hit depends on whether the target is living or undead. Heightening increases the damage.</p>
+<dl>
+    <dt>Living Creature</dt> <dd>1D8 Negative damage. On a critical hit, double damage and enfeebled 1 for 1 round.</dd>
+    <dt>Undead Creature</dt> <dd>Flat-footed for 1 round. On a critical hit, it's also fleeing for 1 round unless it succeeds at a WIS Save.</dd>
+</dl>";
+        $spell->heightened = '<dl>
+    <dt>Heightened (+3)</dt> <dd>Damage of 1D8 + your spellcasting ability modifier.</dd>
+    <dt>Heightened (+5)</dt> <dd>Damage of 2D8 + your spellcasting ability modifier.</dd>
+    <dt>Heightened (+7)</dt> <dd>Damage of 3D8 + your spellcasting ability modifier.</dd>
+    <dt>Heightened (+9)</dt> <dd>Damage of 4D8 + your spellcasting ability modifier.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Attack', 'Necromancy', 'Negative'], 0);
+
         $spell                 = new Spell;
         $spell->name           = 'Necrostasis';
         $spell->casting        = 'Material Casting, Somatic Casting, Verbal Casting';
@@ -308,15 +327,6 @@ class SpellsNSeeder extends Seeder
 </dl>';
         $spell->heightened     = '';
         $helper->addTypesToSpell($spell, ['Illusion', 'Mental'], 1);
-
-        $spell              = new Spell;
-        $spell->name        = 'Neutral Buoyancy';
-        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
-        $spell->range       = 'Touch';
-        $spell->targets     = 'Creature touched';
-        $spell->duration    = '3 hours, or until dispelled';
-        $spell->description = "<p>The target's buoyancy becomes and stays neutral, regardless of how dense the target and its gear are. Among other effects, the target neither sinks nor rises when it doesn't attempt a Swim check, making it easier to stay put while performing demanding actions or when helpless or disabled, and the target can swim up and down with equal ease.</p>";
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Neutral Water';

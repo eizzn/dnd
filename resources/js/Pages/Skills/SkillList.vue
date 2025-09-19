@@ -85,4 +85,3 @@ const filters = {
         </div>
     </AuthenticatedLayout>
 </template>
-

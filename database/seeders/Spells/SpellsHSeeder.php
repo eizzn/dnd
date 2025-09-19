@@ -326,6 +326,22 @@ class SpellsHSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Necromancy', 'Positive'], 5);
 
         $spell              = new Spell;
+        $spell->name        = 'Healing Tree';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Self and Touched tree';
+        $spell->duration    = 'Up to 1 day';
+        $spell->description = '<p>You enter a normal tree, which must be large enough to accommodate your body in all three dimensions. You can remain hidden within it for as long as you desire, up to the Duration.</p>
+<p>While you remain inside the tree, it nourishes and heals you. You have no need to breathe or eat, and you regain Hit Points equal to your Character Level each hour. If you remain for a day or more, you gain the benefits of a Heal Spell.</p>
+<p>The tree also grants you Total Cover, and protects you from extreme heat or cold, rain, sunlight, snow, and all other environmental conditions.</p>
+<p>You can hear but not see what occurs outside the tree.</p>
+<p>Minor physical damage to the tree does not harm you , but its partial destruction (to the extent that you no longer fit within it) expels you and deals you 5D6 Damage.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Healing'], 4);
+
+        $spell              = new Spell;
         $spell->name        = 'Healing Spirit';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
@@ -1007,7 +1023,6 @@ class SpellsHSeeder extends Seeder
 <p>You may have only one creature marked by this spell at a time. If you cast it again, all previous marked creatures become unmarked.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
-    <dt>Heightened (+1)</dt> <dd>You may mark an additional target.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination'], 1);
 
@@ -1016,7 +1031,7 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>For the Duration, all Melee and Ranged Weapon Attacks that hit are treated as Critical Hits. If a Natural Critical is scored, Double the Damage</p>';
+        $spell->description = '<p>For the Duration, all your Melee and Ranged Weapon Attacks that hit are treated as Critical Hits. If a Natural Critical is scored, Double the Damage</p>';
         $helper->addTypesToSpell($spell, ['Bless', 'Divination'], 5);
 
         $spell              = new Spell;

@@ -21,6 +21,7 @@ class MonstersOSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Orc';
         $monster->size             = 'Medium';
+        $monster->type             = 'Orc';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12 (Hide) / 11';
         $monster->damage_reduction = '3 (Hide) / 0';
@@ -45,6 +46,7 @@ class MonstersOSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Brown Mold';
         $monster->size             = 'Small';
+        $monster->type             = 'Ooze';
         $monster->alignment        = '-';
         $monster->armor_class      = '5';
         $monster->hit_dice         = 1;
@@ -56,7 +58,7 @@ class MonstersOSeeder extends Seeder
         $monster->description      = '<p>Found in dark caverns and remote subterranean passages, the brown mold waits patiently for victims to pass by. Less than an inch thick but spreading over a five foot patch of stone or wood, the tan to dark-brown mold seeks warmth to help it grow. Small bumps along its surface store thousands of spores waiting to be released into the air.</p>
 <p>Any living creature that passes within 5 feet of the mold will be attacked by a burst cloud of millions of spores. Any caught within the 15-foot cloud may be overcome by the spores, dying within moments. The spores grow within their new host and crawl back to the main body of the mold, reattaching and adding needed nutrients. Each new victim adds another five feet to the mold’s size.</p>
 <p>The brown mold craves warmth and heat; attacking it with fire heals damage and doubles its size. Cold spells will kill the brown mold for good.</p>';
-        $helper->saveMonster($monster, ['Plant', 'Ooze'], [
+        $helper->saveMonster($monster, ['Ooze'], [
             'stats'    => [1, 1, 15, 1, 10, 1, 2, 1],
             'features' => [
                 'immunity'      => ['meta' => 'Poison, Piercing, Charmed, Frightened, Stunned'],
@@ -67,6 +69,7 @@ class MonstersOSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Green Slime';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Ooze';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
         $monster->hit_dice    = 2;
@@ -92,6 +95,7 @@ class MonstersOSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Slime Mold';
         $monster->size        = 'Large';
+        $monster->type        = 'Ooze';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
         $monster->hit_dice    = 9;
@@ -128,6 +132,7 @@ class MonstersOSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Yellow Mold';
         $monster->size             = 'Medium';
+        $monster->type             = 'Ooze';
         $monster->alignment        = '-';
         $monster->armor_class      = '5';
         $monster->hit_dice         = '1';
@@ -136,7 +141,7 @@ class MonstersOSeeder extends Seeder
     <dt>Light Sensitivity</dt> <dd>Sunlight or any amount of Fire Damage instantly destroys one patch of Yellow Mold</dd>
     <dt>Poison Spores</dt> <dd>If touched, the Yellow Mold ejects a cloud of spores that fills a 10-foot cube originating from the mold. Each creature in the area must make a DC 15 CON Save or take 2D10 Poison Damage and become Sickened for 1 minute. While they are Sickened, they take 1D10 Poison Damage at the start of each of their turns. The creature can repeat the Save at the end of each of its turns, ending the effect on itself on a Successful Save.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Plant', 'Ooze'], [
+        $helper->saveMonster($monster, ['Ooze'], [
             'stats'     => [1, 1, 15, 1, 10, 1, 2, 0],
             'features'  => [
                 'immunity'  => ['meta' => 'Poison, Charmed, Frightened, Prone, Stunned'],
@@ -146,6 +151,7 @@ class MonstersOSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Otyugh';
         $monster->size             = 'Large';
+        $monster->type             = 'Beast';
         $monster->alignment        = 'N';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '4 (Natural Armor)';

@@ -26,7 +26,7 @@ class GodsTycheSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => 'Tymora',
-            'title'          => 'Lady Luck, The Lady Who Smiles, Our Smiling Lady',
+            'title'          => "Lady Luck, The Lady Who Smiles, Our Smiling Lady, Tyche's Fair-Haired Daughter",
             'level'          => 'Lesser',
             'portfolio'      => 'Adventurers, Good Fortune, Skill, Victory',
             'regions'        => 'Cormyr, Dragon Coast, Impiltur, Sembia, The Vast',
@@ -65,7 +65,7 @@ class GodsTycheSeeder extends Seeder
         $class->weapons       = 'Simple Weapons plus one choice';
         $class->armors        = 'Light Armor, Medium Armor, Shields';
         $class->has_spells    = 1;
-        $class->description   = '<p>Priest of Tymora</p>';
+        $class->description   = '<p>Priest of Tymora and Vergadain</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 6,
@@ -75,11 +75,27 @@ class GodsTycheSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Rogue' => 20,
-            'Bard'  => 10,
+            'Swashbuckler' => 20,
+            'Adventurer'   => 20,
         ]);
+        $helper->addClassesToGod($god, "Yondalla's Children", [
+            'Swashbuckler' => 15,
+            'Adventurer'   => 15,
+        ]);
+        $helper->addClassesToGod($god, 'Morndinsamman', [
+            'Rogue'  => 20,
+            'Bard'   => 10,
+            'Wizard' => ['level' => 10, 'meta' => 'Illusionist'],
+        ]);
+
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Rogue', 'Adventurer',
+            $class->name, 'Rogue', 'Swashbuckler', 'Adventurer',
+        ]);
+        $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
+            $class->name, 'Rogue', 'Swashbuckler', 'Adventurer',
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
+            $class->name, 'Rogue', 'Adventurer', 'Wizard' => ['meta' => 'Illusionist'],
         ]);
 
         // Skills
@@ -88,7 +104,6 @@ class GodsTycheSeeder extends Seeder
             'Religion', 'Society', 'Stealth', 'Thievery',
         ]);
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [3, 9, 15, 20],
             'rogue_feat'  => [1, 6, 12, 18],
             'skill_feat'  => [2, 4, 7, 10, 14],
         ]);
@@ -111,28 +126,7 @@ class GodsTycheSeeder extends Seeder
             7 => ['Choose Destiny', 'Fortunate Fate', 'Regeneration'],
             8 => ['Disappearance', 'Nine Lives'],
         ]);
-        $helper->addSpellSlotsToClass($class, [
-            1  => ['cantrips' => 4, 'zero' => 4, 'one' => 2],
-            2  => ['cantrips' => 4, 'zero' => 4, 'one' => 3],
-            3  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 2],
-            4  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3],
-            5  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
-            6  => ['cantrips' => 4, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3],
-            7  => ['cantrips' => 4, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 2],
-            8  => ['cantrips' => 5, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 2],
-            9  => ['cantrips' => 5, 'zero' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3],
-            10 => ['cantrips' => 5, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 1],
-            11 => ['cantrips' => 5, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2],
-            12 => ['cantrips' => 5, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2],
-            13 => ['cantrips' => 5, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            14 => ['cantrips' => 5, 'zero' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            15 => ['cantrips' => 5, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            16 => ['cantrips' => 5, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            17 => ['cantrips' => 5, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            18 => ['cantrips' => 5, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            19 => ['cantrips' => 6, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 1, 'eight' => 1],
-            20 => ['cantrips' => 6, 'zero' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 1, 'eight' => 1],
-        ]);
+        $helper->addSpellSlotsToClass($class, 'eight');
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
@@ -209,11 +203,11 @@ class GodsTycheSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Rogue' => 20,
-            'Bard'  => 10,
+            'Rogue'     => 20,
+            'Hex Blade' => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Doommasters', 'Favored Soul', 'Rogue',
+            $class->name, 'Favored Soul', 'Rogue', 'Hex Blade', 'Divine Oracle',
         ]);
 
         // Skills
@@ -222,10 +216,8 @@ class GodsTycheSeeder extends Seeder
             'Stealth',
         ]);
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [3, 9, 15, 20],
             'rogue_feat'  => [1, 6, 12, 18],
         ]);
-        $helper->addChannelDivinityToClass($class, 'negative', 'Undead', 4);
         $helper->addDomainToClass($class, ['Fate', 'Luck', 'Trickery', 'Prophecy']);
         $helper->addSpellsToClass($class, [
             0  => ['Clean Self', 'Conviction', "Copper Dragon's Trickery", 'Detect Magic', 'Hex', 'Light', 'Resist', 'Shield',
@@ -237,7 +229,7 @@ class GodsTycheSeeder extends Seeder
                 'Hold Person', "Owl's Hex", 'Resist Elements', "Tyche's Touch", 'Undead Bane Weapon', ],
             3  => ["Bear's Hex", 'Blindness', 'Dispel Magic', 'Neutralize Poison', 'Prayer', 'Remove Curse', 'Revivify',
                 'Slow', 'Touch of Tyche', 'Wound', ],
-            4  => ['Aura of Confusion', 'Evil Glare', "Outcast's Hex"],
+            4  => ['Aura of Confusion', 'Evil Glare', "Outcast's Hex", 'Unluck', 'Waves of Fatigue'],
             5  => ['Atonement', 'Banishment', 'Commune', 'Calling', 'Forbidden Speech', 'Surge of Fortune'],
             6  => ['Baleful Polymorph', 'Heal'],
             7  => ['Choose Destiny', 'Fortunate Fate', 'Sequester'],
@@ -316,13 +308,24 @@ class GodsTycheSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Ranger' => 20,
+            'Ranger' => 25,
+            'Scout'  => 10,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Ranger', 'Bard', 'Artificer']);
+        $helper->addClassesToGod($god, 'Morndinsamman', [
+            'Ranger' => 25,
+            'Scout'  => 10,
+        ]);
+
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Ranger', 'Scout', 'Bard', 'Adventurer',
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
+            'Ranger', 'Scout', 'Bard', 'Adventurer', 'Artificer',
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Traveller of Shaundakul';
-        $feat->requirement = 'Shaundakul must be your patron';
+        $feat->requirement = ' You must have the Favored Enemy Class Feature and Shaundakul must be your patron';
         $feat->description = '<p>You are a worshiper of the Rider of the Winds, Shaundakul.</p>
 <ul>
     <li>You gain an additional Favored Terrain. This additional Favored Terrain must be used to select Caverns.</li>

@@ -49,9 +49,8 @@ class ClassWarlockSeeder extends Seeder
         $helper->saveFeature($feature, ['Invocation']);
 
         $helper->addFeaturesToClass($class, [
-            'cantrip_caster' => [1],
+            'cantrip_caster' => [2],
             'invocation'     => [[2, 2], 5, 7, 9, 12, 15, 18],
-            'warlock_feat'   => [3, 6, 10, 16, 20],
         ]);
         $class->features()->save(app()->features['mystic_arcanum'], ['level' => 11, 'meta' => '6th level Spell']);
         $class->features()->save(app()->features['mystic_arcanum'], ['level' => 13, 'meta' => '7th level Spell']);
@@ -148,13 +147,16 @@ class ClassWarlockSeeder extends Seeder
 <p>The aboleth manipulates your mind, granting you the ability to manifest Psionic powers. You gain the Wild Talent Feat.</p>';
         $helper->addTypesToFeat($feat, ['Aberration', 'Pact']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Eldritch Blast'],
-            1 => ['Command'],
-            2 => ['Fearsome Grapple', 'Water Breathing' => 'Self only. You may target others by Heightening it +1'],
-            3 => ['Amorphous Form'],
-            4 => ['Aboleth Curse'],
-            5 => ['Dominate' => 'You may only have one dominated creature at a time'],
-            // TODO: finish this
+            0 => ['Eldritch Blast', 'Touch of Fatigue'],
+            1 => ['Command', 'Touch of Clumsiness'],
+            2 => ['Fearsome Grapple', 'Touch of Idiocy', 'Water Breathing' => 'Self only'],
+            3 => ['Amorphous Form', 'Toxin Immunity'],
+            4 => ['Aboleth Curse', 'Confusion'],
+            5 => ['Modify Memory'],
+            6 => ['Friend to Foe'],
+            7 => ['Dominate' => 'You may only have one dominated creature at a time'],
+            8 => ['Feeblemind'],
+            9 => ['Weird'],
         ]);
 
         $helper->addFeatsToClass($class, [
@@ -176,7 +178,6 @@ class ClassWarlockSeeder extends Seeder
         ]);
 
         /**
-         * Warlocks get all the cantrips their patron provides
          * known            => the number of spells known
          * slots            => the number of spells that can be cast
          * max_slot_level   => the level that all spells are heightened to

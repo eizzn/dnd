@@ -21,6 +21,7 @@ class MonstersMSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Manticore';
         $monster->size             = 'Large';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -55,6 +56,7 @@ class MonstersMSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Medusa';
         $monster->size             = 'Medium';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -94,6 +96,7 @@ class MonstersMSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Minotaur';
         $monster->size             = 'Large';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '4 (Natural Armor)';

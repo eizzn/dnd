@@ -37,7 +37,7 @@ class ClassPsychicWarriorSeeder extends Seeder
         $helper->addSkillsToClass($class, ['Athletics', 'Concentration', 'Language']);
         $helper->addFeaturesToClass($class, [
             'combat_mastery' => [7],
-            'psychic_feat'   => [3, 4, 6, 7, 12, 13, 15, 16, 18, 19, 20],
+            'psychic_feat'   => [3, 4, 5, 9, 12, 15, 18, 20],
         ]);
 
         $helper->addFeatsToClass($class, [

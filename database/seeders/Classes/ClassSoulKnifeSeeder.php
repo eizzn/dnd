@@ -184,7 +184,7 @@ class ClassSoulKnifeSeeder extends Seeder
 
         $helper->addFeaturesToClass($class, [
             'wild_talent'        => [1],
-            'psychic_feat'       => [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20],
+            'psychic_feat'       => [3, 4, 7, 9, 12, 15, 17, 19],
             'mind_blade'         => [2],
             'enhance_mind_blade' => [5],
         ]);
@@ -242,7 +242,7 @@ class ClassSoulKnifeSeeder extends Seeder
         $feat->name        = 'Mind Shield';
         $feat->action_type = 'Action';
         $feat->requirement = 'You must have a free hand to manifest your Mind Shield';
-        $feat->description = '<p>As an Action, you can create a semisolid Light Shield composed of psychic energy distilled from your mind. The shield is identical in all ways(except visually) to a light shield of a size appropriate for its wielder. To gain the benefits of this shield, you must use an Action to raise your shield.</p>
+        $feat->description = '<p>As an Action, you can create a semisolid Light Shield composed of psychic energy distilled from your mind. The shield is identical in all ways(except visually) to a light shield of a size appropriate for its wielder and lasts for 1 hour. To gain the benefits of this shield, you must use an Action to raise your shield.</p>
 <p>If you have the Enhance Mind Blade feat, you may also enhance your Mind Shield.</p>
 <p>You may choose to manifest your shield in the following way</p>
 <ul>

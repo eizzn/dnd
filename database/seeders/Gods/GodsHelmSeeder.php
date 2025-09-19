@@ -29,11 +29,16 @@ class GodsHelmSeeder extends Seeder
             'name'           => $god->name,
             'title'          => 'He of the Unsleeping Eyes, God of Guardians, The Watcher, The Vigilant, The Vigilant One, The Great Guard',
             'level'          => 'Lesser',
-            'portfolio'      => 'Guardians, Protectors, Protection, Abjuration',
+            'portfolio'      => 'Guardians, Protectors, Protection, Abjuration, Duty',
             'regions'        => 'Cormyr, Dragon Coast, Tethyr, Vilhon Reach, Western Heartlands, Maztica, The North, Sundabar, Silverymoon, Procampur',
             'alignment'      => 'LN',
             'symbol'         => 'Staring eye on upright left gauntlet',
             'favored_weapon' => 'Ever Watchful (Bastard Sword)',
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Fighter' => 20,
+            'Wizard'  => ['level' => 20, 'meta' => 'Abjurer'],
         ]);
 
         $feature              = new Feature;
@@ -54,12 +59,13 @@ class GodsHelmSeeder extends Seeder
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Helm';
+        $class->name          = 'Watchers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus one choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Helm</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 2,
@@ -67,6 +73,7 @@ class GodsHelmSeeder extends Seeder
         ], ['WIS', 'CHA'], [
             'Divine',
         ]);
+
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             $class->name, 'Paladin', 'Fighter', 'Wizard' => ['meta' => 'Abjuration'],
         ]);
@@ -76,7 +83,6 @@ class GodsHelmSeeder extends Seeder
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat'                          => [1, 6, 9, 12, 15, 18, 20],
             'channel_divinity_saves'               => [3],
             'channel_divinity_dispel_invisibility' => [5],
         ]);
@@ -84,8 +90,9 @@ class GodsHelmSeeder extends Seeder
         $helper->addChannelDivinityToClass($class, 'positive or Negative', 'Undead', 3);
         $helper->addDomainToClass($class, ['Law', 'Retribution']);
         $helper->addSpellsToClass($class, [
-            0 => ['Blade Ward', 'Clean Self', 'Conviction', 'Detect Magic', 'Light', 'Resist', 'Stabilize'],
-            1 => ['Alarm', 'Cure Wounds', 'Hand of the Faithful', 'Protection From Chaos', 'Protection From Evil', 'Protection From Good',
+            0 => ['Alarm' => 'Only one casting can be active at a time unless cast with a 1st Level Spell Slot', 'Blade Ward',
+                'Clean Self', 'Conviction', 'Detect Magic', 'Light', 'Resist', 'Stabilize'],
+            1 => ['Cure Wounds', 'Hand of the Faithful', 'Protection From Chaos', 'Protection From Evil', 'Protection From Good',
                 'Protection From Law', 'Protective Interposition', 'Sanctuary', 'Shield', 'Shield of Faith', 'Shieldbearer', ],
             2 => ['Absorb Elements', 'Arcane Lock', 'Endure Elements', 'Invisibility Purge', 'Protection From Poison', 'Remove Fear',
                 'Restoration', 'Resist Elements', 'Resist Acid', 'Resist Sonic', 'Resist Force', 'Resist Fire', 'Resist Cold',
@@ -95,7 +102,7 @@ class GodsHelmSeeder extends Seeder
                 'Mace of Odo', 'Neutralize Poison', 'Nondetection', 'Prayer', 'Redirect Spell', 'Spell Shield', ],
             4 => ['Dimensional Anchor', 'Globe of Invulnerability', 'Mantle of Mystra', 'Mystic Aegis', 'Private Sanctum',
                 'Sheltered Vitality', ],
-            5 => ['Atonement', 'Banishment', 'Death Ward', 'Dispel Outsider', 'Revelation'],
+            5 => ['Atonement', 'Banishment', 'Death Ward', 'Dispel Outsider', 'Revelation', 'Summon Spectator'],
             6 => ['Gate Seal', 'Guards and Wards', 'Planar Ally', 'Repulsion', 'Wall of Dispel Magic'],
             7 => ['Contingency', 'Dimensional Lock', 'Illusion Purge', 'Symbol'],
             8 => ['Antimagic Field', 'Divine Aura', 'Spell Engine'],

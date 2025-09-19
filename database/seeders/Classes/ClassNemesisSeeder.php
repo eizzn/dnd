@@ -245,7 +245,7 @@ class ClassNemesisSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             1 => ['Detect Magic', 'Detect Snares and Pits', 'Light', 'Jump', 'Guided Arrow'],
             2 => ['Scale Weakening', 'Bane Bow', 'Cure Wounds', "Bull's Strength"],
-            3 => ['Enlarge', 'Keen Edge', 'Swift Quiver'],
+            3 => ['Enlarge', 'Keen Edge', 'Swift Quiver', 'Wingbind'],
         ]);
 
         $helper->addSpellSlotsToClass($class, [

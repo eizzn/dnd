@@ -73,6 +73,19 @@ class SpellsOSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Curse', 'Enchantment', 'Necromancy', 'Mental', 'Ritual', 'Evil'], 6);
 
         $spell              = new Spell;
+        $spell->name        = 'Observing Shadow';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '10 miles';
+        $spell->duration    = '10 minutes';
+        $spell->description = "<p>When you cast this spell, choose Sight or Sound. This spell creates a mobile shadow that transmits either all sounds within 60 feet of its location to you or you can see everything that is around the shadow. The shadow need not be man-shaped, but it is always of approximately the same cubic volume as you. For example, you can have it form a pointing hand. It can squeeze through any hole, and you can change the shape of the shadow at will. The shadow glides along the ground at Speed of 20 ft. It automatically floats down drops as if under the effect of a Feather Fall spell. The shadow cannot fly, but it does not touch the ground.</p>
+<p>The shadow must be cast within 300 feet of yourself when first cast.</p>
+<p>The shadow cannot pass into any Sanctified areas, areas that prevent Teleportation, or Extra Planar Travel, such as a Summoning Circle. The shadow also cannot squeeze through areas that have been constructed with gorgon's blood or lead in the walls mortar. The spell ends if you and the shadow are not on the same plane of existence.</p>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>You can both hear and see around the shadow</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Divination', 'Shadow'], 3);
+
+        $spell              = new Spell;
         $spell->name        = 'Obscure Object';
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->range       = 'Touch';

@@ -21,6 +21,7 @@ class MonstersSSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Red Slaad';
         $monster->size             = 'Large';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -69,6 +70,7 @@ The egg gestation process can be stopped using spells that cure Disease, removed
         $monster                   = new Monster;
         $monster->name             = 'Blue Slaad';
         $monster->size             = 'Large';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -120,6 +122,7 @@ Only a wish spell can return a transformed victim to normal after the process ha
         $monster                   = new Monster;
         $monster->name             = 'Green Slaad';
         $monster->size             = 'Large';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -172,6 +175,7 @@ They can also polymorph themselves into humanoid forms of various sizes, typical
         $monster                   = new Monster;
         $monster->name             = 'Gray Slaad';
         $monster->size             = 'Medium';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -227,10 +231,11 @@ There are also special havocs with even more dangerous abilities known as Acolyt
         $monster                   = new Monster;
         $monster->name             = 'Death Slaad';
         $monster->size             = 'Medium';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '6 (Natural Armor)';
-        $monster->hit_dice         = 8;
+        $monster->hit_dice         = 15;
         $monster->speed            = '30 ft';
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon attack +11, reach 5 ft, one target. 9 (1D8 +5) Piercing damage Plus 7 (2D6) Negative damage.</dd>
@@ -285,10 +290,11 @@ Through a process similar to how their Green Slaad forms became Gray Slaads, Dea
         $monster                   = new Monster;
         $monster->name             = 'White Slaad';
         $monster->size             = 'Medium';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '14';
         $monster->damage_reduction = '6 (Natural Armor)';
-        $monster->hit_dice         = 6;
+        $monster->hit_dice         = 18;
         $monster->speed            = '40 ft';
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, 5 ft, one target. 10 (1D8 +6) Piercing damage.</dd>
@@ -338,10 +344,11 @@ Through a process similar to how their Green Slaad forms became Gray Slaads, Dea
         $monster                   = new Monster;
         $monster->name             = 'Black Slaad';
         $monster->size             = 'Medium';
+        $monster->type             = 'Slaad';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '17';
         $monster->damage_reduction = '5 (Natural Armor)';
-        $monster->hit_dice         = 1;
+        $monster->hit_dice         = 20;
         $monster->speed            = '40 ft';
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 11 (1D8 +7) Piercing damage.</dd>

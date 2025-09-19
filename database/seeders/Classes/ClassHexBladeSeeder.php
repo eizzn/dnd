@@ -39,7 +39,7 @@ class ClassHexBladeSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [3, 4, 6, 7, 9, 10, 13, 15, 16, 18, 19, 20],
+            'class_group_feat' => [3, 5, 9, 12, 15, 18, 19],
             'spell_resistance' => [4],
             'combat_mastery'   => [7, 20],
         ]);
@@ -60,8 +60,8 @@ class ClassHexBladeSeeder extends Seeder
                 'Shield', 'True Strike', ],
             1 => ['Augment Familiar', 'Bane', 'Bless', 'Fear', 'Mage Armor', 'Magic Weapon', 'Swift Ready', 'Unseen Servant'],
             2 => ["Bear's Endurance", 'Bestow Curse', "Bull's Hex", "Bull's Strength", "Cat's Hex", "Cat's Grace", "Eagle's Hex",
-                "Eagle's Splendor", "Fox's Hex", 'Keen Edge', "Owl's Hex", 'Shadow Double', ],
-            3 => ["Bear's Hex", 'Dispel Magic', 'Haste', 'Sickness', 'Slow'],
+                "Eagle's Splendor", "Fox's Hex", 'Keen Edge', "Owl's Hex", 'Shadow Double', 'Wave of Grief', ],
+            3 => ["Bear's Hex", 'Dispel Magic', 'Drain Strength', 'Haste', 'Sickness', 'Slow', 'Unluck', 'Waves of Fatigue'],
             4 => ['Blink', 'Faithful Hound', 'Globe of Invulnerability', 'Incite Riot', 'Spell Theft'],
         ]);
 

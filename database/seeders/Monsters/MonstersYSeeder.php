@@ -21,6 +21,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Arrow';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '1 (Natural Armor) (7 while in Arrow Form)';
@@ -57,6 +58,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Axe';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -93,6 +95,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Crossbow';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -130,6 +133,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Pick';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -168,6 +172,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Spiked Chain';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '17 (Natural Armor)';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -204,6 +209,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Battleloth, Sword';
         $monster->size             = 'Small';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '17 (Natural Armor)';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -241,6 +247,7 @@ class MonstersYSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Merrenoloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13 (Natural Armor)';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -301,6 +308,7 @@ Merrenoloths are sometimes called the in-between, as they represented a middle g
         $monster                   = new Monster;
         $monster->name             = 'Canoloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -348,6 +356,7 @@ It is postulated that Canoloths are created from Mezzoloths that show enough cou
         $monster                   = new Monster;
         $monster->name             = 'Mezzoloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -396,6 +405,7 @@ Mezzoloths are easily drawn into service on the Material Plane by offering oppor
         $monster                   = new Monster;
         $monster->name             = 'Dhergoloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -451,6 +461,7 @@ The reason for the existence of Dhergoloths is confusing to most, and they are s
         $monster                   = new Monster;
         $monster->name             = 'Hydroloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -515,6 +526,7 @@ After learning that a decrease in power can confer unforeseen advantages, in the
         $monster                   = new Monster;
         $monster->name             = 'Nycaloth';
         $monster->size             = 'Large';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -565,6 +577,7 @@ After learning that a decrease in power can confer unforeseen advantages, in the
         $monster                   = new Monster;
         $monster->name             = 'Yagnoloth';
         $monster->size             = 'Large';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -611,6 +624,7 @@ After learning that a decrease in power can confer unforeseen advantages, in the
         $monster                   = new Monster;
         $monster->name             = 'Arcanaloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -677,6 +691,7 @@ Within the Book of Keeping is an incantation detailing instructions on how to br
         $monster                   = new Monster;
         $monster->name             = 'Oinoloth';
         $monster->size             = 'Medium';
+        $monster->type             = 'Yugoloth';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '4 (Natural Armor)';

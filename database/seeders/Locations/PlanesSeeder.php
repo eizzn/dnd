@@ -9,47 +9,7 @@ class PlanesSeeder extends Seeder
 {
     public function run()
     {
-        $plane              = new Plane;
-        $plane->name        = 'Elemental Plane of Air';
-        $plane->alignment   = '-';
-        $plane->color_pool  = 'Pale blue';
-        $plane->natives     = 'Air elementals, Arrowhawks, Djinn, Invisible Stalkers, Janni, Mephits';
-        $plane->description = '<p>The Elemental Plane of Air is filled essentially completely with air but has various impurities that tend to form pockets or bubbles in the otherwise pure atmosphere. Gaseous bubbles include clouds of every type, fog, steam, mist, smoke, poisonous clouds and acidic vapors; also the rare intrusion of elemental fire which is flame without fuel. Liquid impurities are usually water or water-based and tend to form floating spheres when not buffeted or frozen by the winds. Solid matter can be found here, from dust, ash, salt, or sand, to chunks of earth approaching the size of a large asteroid. The larger chunks are often brought into the plane by intelligent beings and are very likely to be inhabited or formerly inhabited. A traveler with a guide can approach the boundaries with the para- and quasi-elemental planes: where the whiff of smoke eventually became hot, thick, and choking, or the tang of ozone soon lead to heavy storms with arcs of lightning in all directions, or the temperature drops until flakes of snow, crystals of ice, and lumps of hail finally became a wall of ice, or the light fades to gray and the air thins out until there was nothing.</p>
-<p>If you had to describe the Elemental Plane of Air in a single word, it would have been "blue". The very substance of the plane seems to radiate the magnificent sapphire hue of a clear summer day on the Prime Material Plane. Visibility is twice what the best conditions on the Prime could allow unless, of course, something obscured vision. Weather is the primary natural hazard in this plane. The winds are normally light to moderately strong throughout the plane but can intensify into tornadoes, maelstroms, and hurricanes with powerful lightning. These extreme weather events are common, and when other elements got caught up in the storm, it can produce pounding rain, blinding snow, pelting hail, freezing sleet, and storms of choking smoke, biting sand, burning ash, scalding steam, or searing fire. The worst of these is the maelstrom, a toroid-shaped tornado that can last for decades. Being caught in one is like being in a violent dust storm and death is only a matter of minutes away unless the victim is able to achieve great speed (escape velocity), perform an act of great strength or receive outside assistance. Spellcasting is impossible within a maelstrom.</p>';
-        $plane->save();
-        // Citadel of Ice and Steel. lord of the djinni
-        // Yan-C-Bin, lord of evil air elements
-        // Akadi, lord of air elements
-
-        /**********************************************************************/
-
-        $plane              = new Plane;
-        $plane->name        = 'Elemental Plane of Water';
-        $plane->alignment   = '-';
-        $plane->color_pool  = '';
-        $plane->natives     = 'Water Elementals, Marid, Triton';
-        $plane->description = '';
-        $plane->save();
-
-        /**********************************************************************/
-
-        $plane              = new Plane;
-        $plane->name        = 'Elemental Plane of Earth';
-        $plane->alignment   = '-';
-        $plane->color_pool  = '';
-        $plane->natives     = 'Earth Elementals, Dao, Xorn';
-        $plane->description = '';
-        $plane->save();
-
-        /**********************************************************************/
-
-        $plane              = new Plane;
-        $plane->name        = 'Elemental Plane of Fire';
-        $plane->alignment   = '-';
-        $plane->color_pool  = '';
-        $plane->natives     = 'Fire Elementals, Efreet, Azer, Salamander';
-        $plane->description = '';
-        $plane->save();
+        $this->call(ElementalSeeder::class);
 
         /**********************************************************************/
 
@@ -58,7 +18,19 @@ class PlanesSeeder extends Seeder
         $plane->alignment   = '-';
         $plane->color_pool  = '';
         $plane->natives     = 'Fey';
-        $plane->description = '';
+        $plane->description = "<p>All fey in the FeyWild must follow these rules set by Titania.</p>
+<dl>
+    <dt>Rule of Hospitality</dt> <dd>
+        <p>When an individual enters another's dwelling, the host is obligated to offer basic courtesy and protection to the guest, even if the guest is an enemy.</p>
+        <ul>
+            <li>Basic Courtesy: A host must offer basic courtesy and protection to a guest, regardless of their relationship (friend, enemy, or stranger)</li>
+            <li>Protection: Hosts are expected to defend their guests from harm, and guests are expected to defend their hosts and other guests.</li>
+            <li>Reciprocity: Guests are expected follow the Rule of Reciprocity and offer a gift or service of comparable value in return for the host's hospitality.</li>
+        </ul>
+    </dd>
+    <dt>Rule of Ownership</dt> <dd>Possession is a core aspect of fey existence. Theft of possession is treated as a serious crime. However, fey also follow the Rule of Reciprocity, and the consequences of a stolen item can be resolved by a trade of something of equal or greater value.</dd>
+    <dt>Rule of Reciprocity</dt> <dd>Any gift or favor given must be reciprocated with something of comparable value. Value is subjective, and an offer can be interpreted differently by some fey, and what they deem valuable may not align with others understanding of worth.</dd>
+</dl>";
         $plane->save();
 
         /**********************************************************************/
@@ -70,6 +42,8 @@ class PlanesSeeder extends Seeder
         $plane->natives     = '';
         $plane->description = '';
         $plane->save();
+        // Vhaeraun/Mask is in the ShadowFell
+        // The fey court is found on FeyWild, with easy access to Yggdrasil
 
         /**********************************************************************/
 
@@ -90,8 +64,6 @@ class PlanesSeeder extends Seeder
         $plane->natives     = '';
         $plane->description = '';
         $plane->save();
-        // Vhaeraun/Mask is in the ShadowFell
-        // The fey court is found on FeyWild, with easy access to Yggdrasil
 
         /**********************************************************************/
 
@@ -140,6 +112,7 @@ class PlanesSeeder extends Seeder
 <p>One of Arborea's more subtle aspects is its addictive quality. The longer one stays, the more likely one will never want to leave, and after about a month will possibly need to be dragged back home by well-meaning friends. Just because they leave Arborea however, doesn't mean they have escaped its pull; they will need to be confined until the intense yearning subsides and its influence has waned.</p>";
         $plane->save();
         // The Elven pantheon
+        // strong connection to the FeyWild
 
         /**********************************************************************/
 

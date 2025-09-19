@@ -29,7 +29,7 @@ class GodsMonstrousSeeder extends Seeder
             'title'          => 'The Sea Mother, The Drowning Goddess, Whip of Whips',
             'level'          => 'Intermediate',
             'portfolio'      => 'Kuo-toa, Evil undersea creatures',
-            'alignment'      => 'CE',
+            'alignment'      => 'NE',
             'symbol'         => 'Lobster head or black pearl',
             'favored_weapon' => 'Pince staff',
         ]);
@@ -55,17 +55,22 @@ class GodsMonstrousSeeder extends Seeder
             'Monk', 'Fighter', 'Priest of Blibdoolpoolp',
         ]);
         $helper->addSpellsToClass($class, [
-            0 => ['Dancing Lights', 'Detect Magic', 'Electric Arc', 'Light', 'Poison Spray', 'Resist', 'Shape Water', 'Shocking Grasp'],
-            1 => ['Bless', 'Cause Wounds', 'Create or Destroy Water', 'Cure Wounds', 'Divine Favor', 'Fear', 'Purify Food and Drink'],
-            2 => ['Aid', 'Animal Messenger', 'Augury', 'Bestow Curse', "Bull's Strength", 'Comprehend Languages', 'Darkness',
-                'Fins to Feet', 'Hold Person', "Fox's Hex", "Owl's Hex", "Owl's Wisdom", 'Speak with Animals', ],
-            3 => ['Clairvoyance', 'Enthrall', 'Eradicate Water', 'Hypnotic Pattern', 'Prayer', 'Revivify', 'Slow', 'Speak with Dead',
-                'Tongues', ],
-            4 => ['Aura of Confusion', 'Crushing Despair', 'Divination', 'Lightning Bolt'],
-            5 => ['Atonement', 'Banishment', 'Commune', 'Contact Other Plane', 'Destructive Wave', 'False Vision', 'Scrying'],
-            6 => ['Baleful Polymorph', 'Dominate', 'Heal'],
-            7 => ['Chain Lightning', 'Mind Blank'],
-            8 => ['Antipathy / Sympathy', 'Maddening Darkness'],
+            0 => ['Dancing Lights', 'Detect Magic', 'Electric Arc', 'Hydraulic Blast', 'Light', 'Poison Spray', 'Resist',
+                'Shape Water', 'Shocking Grasp', ],
+            1 => ['Bless', 'Cause Wounds', 'Create or Destroy Water', 'Cure Wounds', 'Divine Favor', 'Fear', 'Purify Food and Drink',
+                'Summon Elemental, Lesser' => 'Water only'],
+            2 => ['Aid', 'Animal Messenger', 'Augury', 'Bestow Curse', 'Buoyancy', "Bull's Strength", 'Comprehend Languages',
+                'Darkness', 'Fins to Feet', 'Hold Person', "Fox's Hex", "Owl's Hex", "Owl's Wisdom", 'Speak with Animals',
+                'Turbidity', 'Water Whip', ],
+            3 => ['Clairvoyance', 'Distort Summons', 'Enthrall', 'Eradicate Water', 'Hypnotic Pattern', 'Prayer', 'Revivify',
+                'Slow', 'Speak with Dead', 'Summon Demon, Lesser', 'Tidal Wave', 'Tongues', 'Undersea Current', 'Wall of Water', ],
+            4 => ['Aura of Confusion', 'Calling' => 'Demon only', 'Crushing Despair', 'Divination', 'Drain Life', 'Flowsight',
+                'Hydraulic Torrent', 'Lightning Bolt', 'Summon Demon', ],
+            5 => ['Atonement', 'Banishment', 'Commune', 'Contact Other Plane', 'Destructive Wave', 'False Vision', 'Fiend Form' => 'Demon only',
+                'Hallow' => 'Unholy only', 'Maelstrom', 'Scrying', 'Summon Elemental' => 'Water only', ],
+            6 => ['Baleful Polymorph', 'Dominate', 'Heal', 'Planar Ally' => 'Demon only'],
+            7 => ['Blasphemy', 'Chain Lightning', 'Mind Blank'],
+            8 => ['Antipathy / Sympathy', 'Maddening Darkness', 'Tsunami'],
         ]);
         $helper->addSpellSlotsToClass($class);
 
@@ -130,9 +135,12 @@ class GodsMonstrousSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Aberration']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Eldritch Blast'],
+            0 => ['Clear Mind', 'Eldritch Blast'],
+            1 => ['Command'],
             4 => ['Flaying Tentacles'],
-            // TODO: finish this
+            5 => ['Modify Memory'],
+            6 => ['Dominate' => 'You may only have one dominated creature at a time'],
+            // TODO: finish this. create spells that simulate powers
         ]);
 
         /**********************************************************************/
@@ -302,7 +310,7 @@ class GodsMonstrousSeeder extends Seeder
             $class->name, 'Barbarian', 'Scout',
         ]);
         $helper->addSpellsToClass($class, [
-            2 => ['Bloodwater', 'Pressure Resistance'],
+            2 => ['Bloodwater', 'Pressure Resistance', 'Turbidity'],
         ]);
         $helper->addSpellSlotsToClass($class);
 

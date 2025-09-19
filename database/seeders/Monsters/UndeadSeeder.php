@@ -21,6 +21,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Crawling Claw';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Undead';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '0';
@@ -40,6 +41,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Skeleton';
         $monster->size             = 'Medium';
+        $monster->type             = 'Undead';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -62,6 +64,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Zombie';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = '-';
         $monster->armor_class = '8';
         $monster->hit_dice    = 3;
@@ -86,6 +89,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ju Ju Zombie';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'any';
         $monster->armor_class = '10';
         $monster->hit_dice    = 4;
@@ -110,6 +114,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ghoul';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'CE';
         $monster->armor_class = '12';
         $monster->hit_dice    = 4;
@@ -133,6 +138,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Baneguard';
         $monster->size             = 'Medium';
+        $monster->type             = 'Undead';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -158,6 +164,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ghast';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'CE';
         $monster->armor_class = '13';
         $monster->hit_dice    = 4;
@@ -184,6 +191,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Wight';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'NE';
         $monster->armor_class = '12';
         $monster->hit_dice    = 4;
@@ -215,6 +223,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ghost';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'any';
         $monster->armor_class = '12';
         $monster->hit_dice    = 4;
@@ -230,7 +239,7 @@ class UndeadSeeder extends Seeder
             'stats'      => [null, 14, null, 10, 10, 11, 1, 2],
             'features'   => [
                 'darkvision'    => ['meta' => '60 ft'],
-                'vulnerability' => ['meta' => 'Holy'],
+                'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained'],
                 'incorporeal',
@@ -243,6 +252,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Wraith';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'NE';
         $monster->armor_class = '13';
         $monster->hit_dice    = 4;
@@ -257,7 +267,7 @@ class UndeadSeeder extends Seeder
             'features'   => [
                 'darkvision'    => ['meta' => '60 ft'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone'],
-                'vulnerability' => ['meta' => 'Positive, Holy'],
+                'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'sunlight_sensitivity', 'incorporeal',
             ],
             'saves' => [
@@ -271,6 +281,7 @@ class UndeadSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Specter';
         $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
         $monster->alignment   = 'CE';
         $monster->armor_class = '12';
         $monster->hit_dice    = 4;
@@ -284,7 +295,7 @@ class UndeadSeeder extends Seeder
                 'darkvision'    => ['meta' => '60 ft'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Unconscious'],
-                'vulnerability' => ['meta' => 'Positive, Holy'],
+                'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'sunlight_sensitivity', 'incorporeal',
             ],
             'feats'     => ['Weapon Finesse'],
@@ -296,6 +307,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Direguard';
         $monster->size             = 'Medium';
+        $monster->type             = 'Undead';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -323,6 +335,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Bodak';
         $monster->size             = 'Medium';
+        $monster->type             = 'Undead';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -362,6 +375,7 @@ class UndeadSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Vampire';
         $monster->size             = 'Medium';
+        $monster->type             = 'Undead';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '14 (Natural Armor)';
         $monster->damage_reduction = '4 (Natural Armor)';

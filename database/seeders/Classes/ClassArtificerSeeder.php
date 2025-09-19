@@ -86,20 +86,22 @@ class ClassArtificerSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Improved Raumathari Sword Adept';
-        $feat->description = '<p>You gain the following</p>
+        $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
 <ul>
     <li>You gain 4 Spell Points</li>
     <li>You gain the Extra Melee Action Feat. If you already have this feat, you may select a different feat that you qualify for.</li>
     <li>You gain the ability to Craft Constructs, and you gain the formulas for 2 Common Constructs.</li>
     <li>If you strike a creature with your Bonded weapon you may spend 2 Spell Points. If you do, that creature has Disadvantage on the next Save it has to make against any spell that you cast or until 1 minute has passed.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance']);
+        $helper->addTypesToFeat($feat, ['Artificer Discipline']);
         $feat->parent_feats()->save(app()->feats['Raumathari Sword Adept']);
 
         $feat              = new Feat;
         $feat->name        = 'Vremyonni';
         $feat->description = "<p>You may have no more than 3 Artificer Discipline feats.</p>
 <ul>
+    <li>You gain 2 Spell Points</li>
+    <li>You always have the spells associated with this feat prepared. These spells count as artificer spells for you, but they don't count against the number of artificer spells you prepare.</li>
     <li>
         <p>You can craft a new tool known as a Battle Wrap using a ritual known only to the vremyonni. This wrap can be placed around mundane items to grant them magical fortifications or to bind to another spellcaster, allowing you to fight as a pair.</p>
         <p>If the wrap is lost or destroyed, you can craft a new one as part of a Long Rest.</p>
@@ -116,7 +118,6 @@ class ClassArtificerSeeder extends Seeder
             </dd>
         </dl>
     </li>
-    <li>You gain 2 Spell Points</li>
     <li>
         <p>You may store up to 3 Spells into your Battle Wrap as if you had the Scribe Scroll Feat.</p>
         <p>Spells stored into your Battle Wrap in this way are automatically Heightened +1</p>
@@ -124,6 +125,12 @@ class ClassArtificerSeeder extends Seeder
     </li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Bane', 'Bless'],
+            3 => ['Magic Weapon', "Arcanist's Magic Aura"],
+            5 => ['Glyph of Warding'],
+            6 => ['Private Sanctum', 'Stoneskin'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Vremyonni';
@@ -263,7 +270,7 @@ class ClassArtificerSeeder extends Seeder
         $feat->description = "<p>You may have no more than 3 Artificer Discipline feats.</p>
 <p>You can Craft Effigies. These effigies require Attunement.</p>
 <dl>
-    <dt>Size and Type</dt> <dd>The creature's type changes to Construct. It loses all subtypes and does not gain the augmented subtype. recalculate Base Attack Bonus, Saves, Feats, Skills accordingly as described below.</dd>
+    <dt>Size and Type</dt> <dd>The creature's type changes to Construct. It loses all subtypes and does not gain the augmented subtype. Recalculate Base Attack Bonus, Saves, Feats, Skills accordingly as described below.</dd>
     <dt>Hit Dice and Hit Points</dt> <dd>
         <table>
             <thead>
@@ -549,7 +556,7 @@ class ClassArtificerSeeder extends Seeder
         $helper->addFeaturesToClass($class, [
             'wizard_spell_list'  => [1],
             'skilled_crafter'    => [1],
-            'class_group_feat'   => [3, 7, 9, 13, 15, 19],
+            'class_group_feat'   => [2, 3, 5, 7, 9, 12, 15, 18],
             'spell_storing_item' => [11],
             'magic_item_savant'  => [14],
             'magic_item_master'  => [18],
@@ -584,39 +591,30 @@ class ClassArtificerSeeder extends Seeder
             'Craft Effigy'                    => 6,
             'Craft Infusion'                  => 2,
             'Infused Item Master'             => 6,
-
-            'Scribe Scroll'        => 2,
-            'Brew Potion'          => 2,
-            'Craft Implement'      => 2,
-            'Craft Wondrous Item'  => 3,
-            'Forge Ring'           => 4,
-            'Craft Armament'       => 4,
-            'Improved Brew Potion' => 6,
-
-            'Additional Effigy' => 12,
+            'Additional Effigy'               => 12,
         ]);
 
         $helper->addSpellsToClass($class, [
-            0 => ['Acid Splash', 'Booming Blade', 'Chill Touch', 'Chromatic Ray', 'Clean Self', 'Dancing Lights', 'Daze',
-                'Detect Magic', 'Detect Undead', 'Disrupt Undead', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Ghost Sound',
-                'Glue', 'Light', 'Mage Hand', 'Mending', 'Message', 'Minor Illusion', 'Mold Metal', 'Prestidigitation',
-                'Poison Spray', 'Produce Flame', 'Ray of Frost', 'Resistance', 'Shield', 'Shocking Grasp', 'True Strike', ],
+            0 => ['Acid Splash', 'Booming Blade', 'Chromatic Ray', 'Clean Self', 'Dancing Lights', 'Daze', 'Detect Magic',
+                'Detect Undead', 'Disrupt Undead', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Ghost Sound', 'Glue', 'Light',
+                'Mage Hand', 'Mending', 'Message', 'Minor Illusion', 'Necrotic Touch', 'Prestidigitation', 'Poison Spray',
+                'Produce Flame', 'Ray of Frost', 'Resistance', 'Shield', 'Shocking Grasp', 'True Strike', ],
             1 => ['Air Bubble', 'Alarm', 'Burning Hands', 'Color Spray', 'Comprehend Languages', 'Cure Wounds', 'Disguise Self',
                 'Enchant Item', 'Expeditious Retreat', 'Faerie Fire', 'Feather Fall', 'Floating Disk', 'Fog Cloud', 'Force Object',
                 'Grease', 'Hardening', 'Hideous Laughter', 'Immunity to Adhesive', 'Jump', 'Knight Unburdened', 'Mage Armor',
-                'Magic Missile', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath',
-                'Swift Ready', 'Thunderwave', 'Ventriloquism', ],
+                'Magic Missile', 'Mold Metal', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath',
+                'Swift Ready', 'Thunderwave', 'Ventriloquism', 'Weapon Shift', ],
             2 => ['Acid Arrow', 'Air Sphere', 'Alter Self', 'Arcane Lock', "Bear's Endurance", 'Blindness', 'Blur',
                 "Bull's Strength", "Cat's Grace", 'Comprehend Languages', 'Continual Flame', 'Darkness', 'Darkvision',
                 'Deafness', 'Drain Construct', "Eagle's Splendor", 'Endure Elements', 'Enlarge', 'Flaming Sphere',
                 "Fox's Cunning", 'Gentle Repose', 'Gust of Wind', 'Hypercognition', 'Invisibility', 'Knock', 'Levitate',
                 'Magic Mouth', 'Magic Weapon', 'Mirror Image', 'Misty Step', 'Obscuring Mist', "Owl's Wisdom", 'Pyrotechnics',
                 'Ray of Enfeeblement', 'Resist Energy', 'Rope Trick', 'Scorching Ray', 'See Invisibility', 'Shatter', 'Spider Climb',
-                'Suggestion', 'Touch of Idiocy', 'Water Walk', 'Web', ],
+                'Suggestion', 'Touch of Idiocy', 'Unseen Crafter', 'Water Walk', 'Web', ],
             3 => ['Analyze Portal', 'Blink', 'Clairvoyance', 'Create Homunculus', 'Dispel Magic', 'Erupting Earth',
                 'Flame Arrows', 'Fireball', 'Fly', 'Glyph of Warding', 'Haste', 'Hypnotic Pattern', 'Keen Edge', 'Lightning Bolt',
-                'Magic Circle', 'Sending', 'Sleet Storm', 'Slow', 'Stinking Cloud', 'Tidal Wave', 'Tiny Servant', 'Thunder Step',
-                'Tongues', 'Water Breathing', 'Wall of Sand', 'Wall of Wind', ],
+                'Sending', 'Sleet Storm', 'Slow', 'Stinking Cloud', 'Tidal Wave', 'Tiny Servant', 'Thunder Step', 'Tongues',
+                'Water Breathing', 'Wall of Sand', 'Wall of Wind', ],
             4 => ['Arcane Eye', 'Confusion', 'Control Water', 'Dimension Door', 'Dimensional Anchor', 'Fabricate', 'Fire Shield',
                 'Globe of Invulnerability', 'Ice Storm', 'Phantasmal Killer', 'Portal View', 'Resilient Sphere', 'Sabotage Construct',
                 'Stoneskin', 'Wall of Fire', 'Watery Sphere', ],
@@ -626,8 +624,8 @@ class ClassArtificerSeeder extends Seeder
             6 => ['Arcane Gate', 'Chain Lightning', 'Circle of Death', 'Create Gargoyle', 'Disintegrate', 'Eyebite', 'Fantastic Machine',
                 'Freezing Sphere', 'Guards and Wards', 'Magnetism', 'Move Earth', 'Portal-to-Portal Redirect', 'Stone Metamorphosis',
                 'Scatter', 'Sunbeam', 'Teleport', 'True Seeing', 'Wall of Ice', 'Wind Walk', ],
-            7 => ['Arcane Sword', 'Contingency', 'Delayed Blast Fireball', 'Etherealness', 'Finger of Death', 'Forcecage',
-                'Plane Shift', 'Prismatic Spray', 'Reverse Gravity', 'Sequester', 'Simulacrum', 'Symbol', ],
+            7 => ['Arcane Sword', 'Contingency', 'Etherealness', 'Finger of Death', 'Forcecage', 'Plane Shift', 'Prismatic Spray',
+                'Reverse Gravity', 'Sequester', 'Simulacrum', 'Symbol', ],
             8 => ['Clone', 'Control Weather', 'Demiplane', 'Earthquake', 'Feeblemind', 'Incendiary Cloud', 'Portal Reformat',
                 'Power Word Stun', 'Sunburst', ],
             9 => ['Arcane Evasion', 'Astral Projection', 'Blade of Disaster', 'Disjunction', 'Foresight', 'Gate', 'Imprisonment',
@@ -635,26 +633,26 @@ class ClassArtificerSeeder extends Seeder
         ]);
 
         $helper->addSpellSlotsToClass($class, [
-            1  => ['cantrips' => 0, 'one' => 0],
-            2  => ['cantrips' => 1, 'zero' => 1, 'one' => 0],
-            3  => ['cantrips' => 1, 'zero' => 1, 'one' => 0],
-            4  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 1],
-            5  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 1],
-            6  => ['cantrips' => 2, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_leve' => 2],
-            7  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 2],
-            8  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 3],
-            9  => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_leve' => 3],
-            10 => ['cantrips' => 3, 'zero' => 3, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 3],
-            11 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 4],
-            12 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_leve' => 4],
-            13 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 4],
-            14 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 5],
-            15 => ['cantrips' => 3, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_leve' => 5],
-            16 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 5],
-            17 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 6],
-            18 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_leve' => 6],
-            19 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_leve' => 6],
-            20 => ['cantrips' => 3, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_leve' => 7],
+            1  => ['cantrips' => 1, 'one' => 0],
+            2  => ['cantrips' => 2, 'zero' => 1, 'one' => 0],
+            3  => ['cantrips' => 2, 'zero' => 1, 'one' => 0],
+            4  => ['cantrips' => 3, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_level' => 1],
+            5  => ['cantrips' => 3, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_level' => 1],
+            6  => ['cantrips' => 3, 'zero' => 2, 'one' => 0, 'two' => 0, 'max_slot_level' => 2],
+            7  => ['cantrips' => 4, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_level' => 2],
+            8  => ['cantrips' => 4, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_level' => 3],
+            9  => ['cantrips' => 4, 'zero' => 3, 'one' => 1, 'two' => 0, 'three' => 0, 'max_slot_level' => 3],
+            10 => ['cantrips' => 4, 'zero' => 3, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_level' => 3],
+            11 => ['cantrips' => 4, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_level' => 4],
+            12 => ['cantrips' => 4, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 0, 'four' => 0, 'max_slot_level' => 4],
+            13 => ['cantrips' => 4, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_level' => 4],
+            14 => ['cantrips' => 4, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_level' => 5],
+            15 => ['cantrips' => 4, 'zero' => 4, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 0, 'five' => 0, 'max_slot_level' => 5],
+            16 => ['cantrips' => 4, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_level' => 5],
+            17 => ['cantrips' => 4, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_level' => 6],
+            18 => ['cantrips' => 4, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 0, 'six' => 0, 'max_slot_level' => 6],
+            19 => ['cantrips' => 4, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_level' => 6],
+            20 => ['cantrips' => 4, 'zero' => 5, 'one' => 1, 'two' => 1, 'three' => 1, 'four' => 1, 'five' => 1, 'six' => 0, 'seven' => 0, 'max_slot_level' => 7],
         ]);
 
         $formula              = new Formula;

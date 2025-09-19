@@ -188,6 +188,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Delay Power';
         $feat->action_type = 'Action';
+        $feat->requirement = 'You start to manifest a power';
         $feat->description = '<p>Expend your Psionic Focus and add an additional Action to the manifestation of the power. You can manifest a power that will take effect at a later time. When you manifest the power, you choose one of three trigger mechanisms.</p>
 <ul>
     <li>The power activates when you take an Action to activate it. After 8 hours, if the power is still delayed, it will activate automatically.</li>
@@ -203,6 +204,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Empower Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can empower a Power. The following variables are increased by one-half.</p>
 <ul>
     <li>Damage</li>
@@ -214,6 +216,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Enlarge Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can manifest an enlarged power. Enlarged powers have their ranges doubled.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -221,6 +224,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Extend Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = "<p>Expend your Psionic Focus. You can manifest an extended power. An extended power's duration is doubled.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>";
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -228,6 +232,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Maximum Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can manifest a maximized power. The following variables are the maximum possible value.</p>
 <ul>
     <li>Damage</li>
@@ -239,6 +244,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Opportunity Power';
         $feat->action_type = 'Reaction';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. When you make an Attack of Opportunity, you can use any power you know with a range of touch, if you have at least one hand free. The power must be a Double Action activation power or less. You manifest the power as a Reaction.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Attack of Opportunity', 'Psionic Focus']);
@@ -247,6 +253,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Quicken Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can quicken a power. A quickened power reduces the number of required Actions by 2.</p>
 <p>Using this feat increases the Power Point cost of the power by 3.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -255,6 +262,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Split Psionic Ray';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = "<p>Expend your Psionic Focus. You can split psionic rays you manifest. The split ray affects any two targets that are both within the power's range and within 30 feet of each other. If the ray deals damage, each target takes as much damage as a single target would take.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>";
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -262,6 +270,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Twin Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can twin a power. Manifesting a twinned power causes it to take effect twice. Resolve each manifestation separately.</p>
 <p>Using this feat increases the Power Point cost of the power by 3.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -269,6 +278,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Widen Power';
         $feat->action_type = 'Free';
+        $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can widen a power. Manifesting a widened power causes its area to be doubled.</p>
 <p>Using this feat increases the Power Point cost of the power by 2.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
@@ -286,7 +296,6 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Defensive Psionic Combatant';
         $feat->description = '<ul>
     <li>You gain a Psionic Talent</li>
-    <li>You gain 3 Power Points. These Power Points may only be used to pay for Psionic Combat Powers</li>
     <li>When manifesting a Defensive Psionic Combat power, Heightening it costs 1 Power Point less.</li>
     <li>If you Expended your Psionic Focus as part of manifesting the Defensive Psionic Combat power, you are immune to Ability Damage from Psionic Combat attacks until the beginning of your next turn.</li>
 </ul>';
@@ -297,7 +306,6 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Aggressive Psionic Combatant';
         $feat->description = "<ul>
     <li>You gain a Psionic Talent</li>
-    <li>You gain 3 Power Points. These Power Points may only be used to pay for Psionic Combat Powers</li>
     <li>When manifesting a Psionic Combat Attack power, you may Expend your Psionic Focus as part of manifesting the power. If you do, you may add your Primary Attribute's modifier to the damage.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Combat', 'Talent']);

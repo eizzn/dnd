@@ -33,14 +33,14 @@ const pageTitle = computed(() => talent.value?.name || "Loading...");
 onMounted(fetchTalentDetails);
 </script>
 
-
 <template>
     <Head :title="pageTitle"/>
 
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ talent?.name || "Talent Details" }}</span>
+                <span>Talent:</span><br/>
+                <span>{{ talent?.name }}</span>
             </h2>
         </template>
 
@@ -78,7 +78,13 @@ onMounted(fetchTalentDetails);
                                         <td class="px-4 py-2 border border-gray-300">
                                             <ul class="list-disc ml-4">
                                                 <li v-for="(type, index) in talent.types" :key="index">
-                                                    {{ type.name }}
+                                                    <NavLink
+                                                        :href="`/type/${type.id}`"
+                                                        class="text-blue-800 hover:underline p-0"
+                                                        style="border-bottom-width: 0 !important;"
+                                                    >
+                                                        {{ type.name }}
+                                                    </NavLink>
                                                 </li>
                                             </ul>
                                         </td>

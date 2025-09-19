@@ -40,11 +40,11 @@ class ClassFavoredSoulSeeder extends Seeder
         );
 
         $helper->addFeaturesToClass($class, [
-            'cantrip_caster'        => [1],
-            'spell_pool'            => [2, 5, 10, 15, 20],
-            'class_group_feat'      => [3, 4, 6, 7, 9, 12, 13, 16, 18, 19],
-            'improved_spell_points' => [2],
-            'flexible_casting'      => [3],
+            'favored_feat'          => [1],
+            'cantrip_caster'        => [2],
+            'spell_pool'            => [3, 5, 10, 15, 20],
+            'improved_spell_points' => [3],
+            'flexible_casting'      => [4],
         ]);
 
         $feat              = new Feat;
@@ -52,7 +52,7 @@ class ClassFavoredSoulSeeder extends Seeder
         $feat->requirement = 'Beshaba must be your Patron Deity';
         $feat->description = "<p>You have been chosen to join Beshaba's order of the Hex Blades.</p>
 <ul>
-    <li>You gain proficiency to all Martial Weapons</li>
+    <li>You gain proficiency with all Martial Weapons</li>
     <li>You gain the following skills as class skills
         <ul>
             <li>Acrobatics</li>
@@ -120,8 +120,8 @@ class ClassFavoredSoulSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Favored of the Silver Ladies';
-        $feat->requirement = 'Must be CG and Selune must be your Patron Deity';
-        $feat->description = "<p>You have been chosen to join Selune's order of the Silver Ladies, an order of female healers, diviners, and protectors of women and lycanthropes.</p>
+        $feat->requirement = 'Must be CG and Selune or Sehanine Moonbow must be your Patron Deity';
+        $feat->description = "<p>You have been chosen to join Selune's (or Sehanine Moonbow's) order of the Silver Ladies, an order of female healers, diviners, and protectors of women and lycanthropes.</p>
 <ul>
     <li>You gain Weapon Proficiency with 3 Martial Melee weapons</li>
     <li>You gain the following skills as class skills
@@ -140,8 +140,8 @@ class ClassFavoredSoulSeeder extends Seeder
             2 => ['Aura of Glory', 'Calm Emotions', 'Consecrate', 'Darkvision', 'Faerie Fire', 'Imbue with Silvered'],
             3 => ['Dispel Magic', 'Ethereal Sight', 'Prophecy'],
             4 => ['Divination', 'Remove Curse', 'Sheltered Vitality'],
-            5 => ['Banishing Smite'],
-            6 => ['Planar Ally'],
+            5 => ['Banishing Smite', 'Wall of Moonlight'],
+            6 => ['Planar Ally', 'True Seeing'],
             7 => ['Bastion of Good', 'Crown of Stars'],
             8 => ['Were-doom'],
             9 => ['Shapechange'],
@@ -215,10 +215,9 @@ class ClassFavoredSoulSeeder extends Seeder
 </ul>";
         $helper->addTypesToFeat($feat, ['Favored', 'Psionic', 'Discipline']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Daze', 'Ghost Sound', 'Resistance', 'Stabilize'],
-            1 => ['Bane', 'Charm', 'Command', 'Darkness', 'Drug Resistance', 'Jump', 'Longstrider', 'Touch of Blindness'],
-            2 => ["Bull's Strength", "Cat's Grace", 'Claws of Darkness', 'Darkvision', 'Invisibility', 'Levitate', 'Silence',
-                'Undetectable Alignment', ],
+            0 => ['Daze', 'Detect Magic', 'Ghost Sound', 'Shadow Blade'],
+            1 => ['Bane', 'Charm', 'Darkness', 'Drug Resistance', 'Jump', 'Longstrider', 'Touch of Blindness'],
+            2 => ["Cat's Grace", 'Claws of Darkness', 'Darkvision', 'Invisibility', 'Levitate', 'Silence', 'Undetectable Alignment'],
             3 => ['Dispel Magic', 'Haste'],
             4 => ['Confusion', 'Lightning Bolt', 'Shadow of Moil'],
             5 => ['Cloak of Shadows', 'Globe of Invulnerability'],
@@ -247,10 +246,37 @@ class ClassFavoredSoulSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Favored of the Dark Moon']);
 
+        $feat              = new Feat;
+        $feat->name        = 'Favored of the Whip';
+        $feat->requirement = 'Loviatar must be your Patron Deity';
+        $feat->description = "<p>Loviatar has chosen you to cause pain and suffering.</p>
+<ul>
+    <li>You gain proficiency with all whips and daggers</li>
+    <li>You gain the Acrobatics, Athletics, and Intimidation Skills as a Class Skill</li>
+    <li>You gain a +5 bonus to Intimidation Checks while torturing</li>
+    <li>At 2nd level, you may use an Action to cast Cause Wounds and deliver the touch through your Whip. You must still use an Action to make the Melee Weapon Attack with the whip.</li>
+    <li>At 3rd level, you gain the Weapon Focus Feat. You must choose Whips</li>
+    <li>At 7th level, you gain the Weapon Specialization Feat. you must choose Whips</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Favored']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Cause Wounds', 'Daze', 'Shield', 'Stabilize', 'Whip'],
+            1 => ['Bane', 'Charm', 'Cure Wounds', 'Fear', 'Ray of Enfeeblement'],
+            2 => ['Body Blades', "Cat's Grace", 'Deafness', 'Spiritual Weapon'],
+            3 => ['Blindness', 'Bestow Curse', 'Wound'],
+            4 => ['Finger of Agony', 'Liquid Pain'],
+            5 => ['Sacred Strike'],
+            6 => ['Harm'],
+            7 => ['Wave of Pain'],
+            8 => ['Power Word Stun'],
+            9 => ['Power Word Kill'],
+        ]);
+
         $helper->addFeatsToClass($class, [
             'Favored of the Hex Blade'     => 1,
             'Favored of the Silver Ladies' => 1,
             'Favored of the Dark Moon'     => 1,
+            'Favored of the Whip'          => 1,
             'Dark Moon Blade'              => 3,
             'Favored of Bast'              => 1,
 

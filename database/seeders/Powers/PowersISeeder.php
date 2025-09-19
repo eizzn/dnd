@@ -119,7 +119,7 @@ class PowersISeeder extends Seeder
         $power->duration     = '1 round';
         $power->description  = '<p>You encase yourself and your allies in a shimmering fortress of telekinetic force. All protected by the power gains Resistance against all damage from psionic sources.</p>';
         $power->heightened   = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Psionic Combat'], 4);
 
@@ -153,7 +153,7 @@ class PowersISeeder extends Seeder
         $power->duration    = '1 round';
         $power->description = '<p>You raise a mental defense that grants a +2 bonus to WIS Saves and reduces the damage from Vitality Blast, Life Blast and INT Blast by 1.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +1</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus to WIS Saves by +1</dd>
 </dl>';

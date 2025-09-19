@@ -21,6 +21,7 @@ class DemonsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Manes';
         $monster->size        = 'Small';
+        $monster->type        = 'Demon';
         $monster->alignment   = 'CE';
         $monster->armor_class = '9';
         $monster->hit_dice    = 2;
@@ -42,6 +43,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Dretch';
         $monster->size             = 'Small';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '1 (Natural Armor)';
@@ -67,6 +69,7 @@ class DemonsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Quasit';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Demon';
         $monster->alignment   = 'CE';
         $monster->armor_class = '15';
         $monster->hit_dice    = 3;
@@ -95,6 +98,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Chasme';
         $monster->size             = 'Medium';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -126,6 +130,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Barlgura';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -164,6 +169,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Vrock';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -196,6 +202,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Hezrou';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -228,6 +235,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Glabrezu';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -271,6 +279,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Yochlol';
         $monster->size             = 'Medium';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -322,6 +331,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Nalfeshnee';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -360,6 +370,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Marilith';
         $monster->size             = 'Large';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '15 (+2 for Two-Weapon Parry)';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -398,6 +409,7 @@ class DemonsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Balor';
         $monster->size             = 'Huge';
+        $monster->type             = 'Demon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '7 (Natural Armor)';

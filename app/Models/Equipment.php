@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int         id
  * @property string      name
- * @property int         price
+ * @property float      price
  * @property string|null bulk
- * @property int         hands
+ * @property int|null    hands
  * @property int|null    parent_id
  * @property string|null description
  */

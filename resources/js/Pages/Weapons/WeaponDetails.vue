@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import axios from "axios";
 import { ref, onMounted, computed } from "vue";
+import NavLink from "@/components/NavLink.vue";
 
 const route = useRoute();
 const weapon = ref(null);
@@ -38,10 +39,10 @@ onMounted(fetchWeaponDetails);
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ weapon?.name || "Weapon Details" }}</span>
+                <span>Weapon:</span><br/>
+                <span>{{ weapon?.name }}</span>
             </h2>
         </template>
-
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -82,7 +83,15 @@ onMounted(fetchWeaponDetails);
                                             <table class="w-full">
                                                 <tbody>
                                                 <tr v-for="(type, index) in weapon.types" :key="index">
-                                                    <th class="text-left px-2 border-y border-gray-100">{{ type.name }}</th>
+                                                    <th class="text-left px-2 border-y border-gray-100">
+                                                        <NavLink
+                                                            :href="`/type/${type.id}`"
+                                                            class="text-blue-800 hover:underline p-0"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >
+                                                            {{ type.name }}
+                                                        </NavLink>
+                                                    </th>
                                                     <td class="text-left px-2 border-y border-gray-100">{{ type.description }}</td>
                                                 </tr>
                                                 </tbody>
@@ -111,5 +120,4 @@ onMounted(fetchWeaponDetails);
             </div>
         </div>
     </AuthenticatedLayout>
-    <pre>{{ weapon }}</pre>
 </template>

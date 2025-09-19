@@ -39,26 +39,26 @@ class ClassSpiritShamanSeeder extends Seeder
         $helper->addSkillsToClass($class, ['Animal Handling', 'Concentration', 'Nature', 'Survival']);
 
         $helper->addSpellSlotsToClass($class, [
-            1  => ['known' => 4, 'cantrips' => 3],
-            2  => ['known' => 5, 'cantrips' => 4, 'one' => 2],
-            3  => ['known' => 6, 'cantrips' => 4, 'one' => 3],
-            4  => ['known' => 7, 'cantrips' => 5, 'one' => 4, 'two' => 2],
-            5  => ['known' => 8, 'cantrips' => 5, 'one' => 4, 'two' => 3],
-            6  => ['known' => 9, 'cantrips' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
-            7  => ['known' => 10, 'cantrips' => 6, 'one' => 4, 'two' => 3, 'three' => 3],
-            8  => ['known' => 11, 'cantrips' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 1],
-            9  => ['known' => 12, 'cantrips' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 2],
-            10 => ['known' => 13, 'cantrips' => 6, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 1],
-            11 => ['known' => 14, 'cantrips' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2],
-            12 => ['known' => 15, 'cantrips' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            13 => ['known' => 16, 'cantrips' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            14 => ['known' => 17, 'cantrips' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            15 => ['known' => 18, 'cantrips' => 7, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            16 => ['known' => 19, 'cantrips' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
-            17 => ['known' => 20, 'cantrips' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
-            18 => ['known' => 21, 'cantrips' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
-            19 => ['known' => 22, 'cantrips' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
-            20 => ['known' => 23, 'cantrips' => 8, 'one' => 4, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
+            1  => ['known' => 4, 'cantrips' => 2],
+            2  => ['known' => 5, 'cantrips' => 3, 'one' => 1],
+            3  => ['known' => 6, 'cantrips' => 4, 'one' => 2],
+            4  => ['known' => 7, 'cantrips' => 4, 'one' => 3, 'two' => 1],
+            5  => ['known' => 8, 'cantrips' => 5, 'one' => 3, 'two' => 2],
+            6  => ['known' => 9, 'cantrips' => 5, 'one' => 3, 'two' => 2, 'three' => 1],
+            7  => ['known' => 10, 'cantrips' => 5, 'one' => 3, 'two' => 3, 'three' => 2],
+            8  => ['known' => 11, 'cantrips' => 5, 'one' => 3, 'two' => 3, 'three' => 2, 'four' => 1],
+            9  => ['known' => 12, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 2],
+            10 => ['known' => 13, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 2, 'five' => 1],
+            11 => ['known' => 14, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2],
+            12 => ['known' => 15, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
+            13 => ['known' => 16, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
+            14 => ['known' => 17, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            15 => ['known' => 18, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            16 => ['known' => 19, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
+            17 => ['known' => 20, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
+            18 => ['known' => 21, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
+            19 => ['known' => 22, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 1, 'seven' => 1, 'eight' => 1, 'nine' => 1],
+            20 => ['known' => 23, 'cantrips' => 6, 'one' => 3, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
         ]);
 
         $feature              = new Feature;
@@ -172,7 +172,7 @@ class ClassSpiritShamanSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'chastise_spirit';
         $feature->name        = 'Chastise Spirit';
-        $feature->description = '<p>You may spend 1 Spell Point and cast Disrupt Ectoplasm as an Action.</p>';
+        $feature->description = '<p>You may spend 1 Spell Point and deal 1D6 per Spirit Shaman Level Force Damage to any Spirit within 60 feet of you. (Spirits include all Outsiders, Fey, Intelligent and Incorporeal Undead).</p>';
         $helper->saveFeature($feature, ['Primal', 'Spirit']);
 
         $feature              = new Feature;
@@ -248,7 +248,8 @@ The blessing performs just like Protection from Evil, except it protects against
     <li>When you forage alone, you find twice as much as you normally would</li>
     <li>You can move Stealthily at a normal pace</li>
     <li>You are aware of recent events in the region, like storms, landslides, etc.</li>
-</ul>';
+</ul>
+<p>If you spend 10 minutes consecutively using this ability, then your range becomes 120 ft, and you also detect any Curses and Hauntings in the area.</p>';
         $helper->addTypesToFeat($feat, ['Spirit']);
 
         $feat              = new Feat;
@@ -377,8 +378,7 @@ The blessing performs just like Protection from Evil, except it protects against
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'cantrip_caster'       => [1],
-            'class_group_feat'     => [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 20],
+            'class_group_feat'     => [3, 5, 7, 9, 12, 15, 18, 20],
             'wild_empathy'         => [1],
             'spell_pool'           => [2],
             'chastise_spirit'      => [2],
@@ -390,16 +390,15 @@ The blessing performs just like Protection from Evil, except it protects against
         $helper->addSpellsToClass($class, [
             0 => ['Detect Ghost', 'Dancing Lights', 'Detect Magic', 'Disrupt Ectoplasm', 'Light', 'Magic Fang', 'Naturewatch',
                 'Tanglefoot', ],
-            1 => ['Animal Friendship', 'Beast Bond', 'Calm Animals', 'Create Water', 'Cure Wounds', 'Deathwatch', 'Detect Poison',
-                'Exorcism', 'Gaze Screen', 'Goodberry', 'Gust of Wind', 'Locate Water', 'Longstrider', 'Mending', 'Negate Aroma',
-                'Pass Without Trace', 'Protection From Possession', 'Purify Food and Drink', 'Remove Disease', 'Shillelagh',
-                'Summon Animals', 'Summon Elemental, Lesser', ],
+            1 => ['Animal Friendship', 'Beast Bond', 'Calm Animals', 'Create Water', 'Cure Wounds', 'Deathwatch', 'Detect Crossroads',
+                'Detect Poison', 'Exorcism', 'Gaze Screen', 'Goodberry', 'Gust of Wind', 'Locate Water', 'Longstrider',
+                'Mending', 'Negate Aroma', 'Pass Without Trace', 'Protection From Possession', 'Purify Food and Drink',
+                'Remove Disease', 'Shillelagh', 'Summon Animals', 'Summon Elemental, Lesser', ],
             2 => ['Animal Messenger', 'Animal Sense', 'Barkskin', "Bear's Endurance", "Bull's Strength", "Cat's Grace",
-                'Consecrate', 'Create Food and Water', 'Darkvision', 'Delay Poison', 'Dispel Fog', 'Dust Devil', "Eagle's Splendor",
-                'Endure Elements', 'Enlarge', 'Entangle', 'Faerie Fire', 'Forced Incorporeality', 'Forced Manifestation',
-                "Fox's Cunning", 'Know Motivation', 'Obscuring Mist', "Owl's Wisdom", 'Plant Renewal', 'Possess Animal',
-                'Restoration', 'Shrink', 'Speak with Animals', 'Spider Climb', 'Tree Shape', 'Water Breathing', 'Water Walk',
-                'Warding Wind', 'Web', ],
+                'Consecrate', 'Create Food and Water', 'Darkvision', 'Delay Poison', 'Dust Devil', "Eagle's Splendor", 'Endure Elements',
+                'Enlarge', 'Entangle', 'Faerie Fire', 'Forced Incorporeality', 'Forced Manifestation', "Fox's Cunning",
+                'Know Motivation', 'Obscuring Mist', "Owl's Wisdom", 'Plant Renewal', 'Possess Animal', 'Restoration', 'Shrink',
+                'Speak with Animals', 'Spider Climb', 'Tree Shape', 'Water Breathing', 'Water Walk', 'Warding Wind', 'Web', ],
             3 => ['Call Lightning', 'Commune With Spirit', 'Dispel Magic', 'Earthbind', 'Eradicate Air', 'Eradicate Earth',
                 'Eradicate Fire', 'Eradicate Water', 'Heal Animal Companion', 'Meld into Stone', 'Neutralize Poison', "Nature's Exile",
                 'Nondetection', 'Stinking Cloud', 'Tidal Wave', 'Wall of Thorns', 'Wall of Wind', ],
@@ -408,8 +407,8 @@ The blessing performs just like Protection from Evil, except it protects against
             5 => ['Animate with Spirit', 'Awaken', 'Cloudkill', 'Commune with Nature', 'Control Water', 'Dream', 'Elemental Form',
                 'Passwall', 'Raise Dead', 'Repel Ectoplasm', 'Summon Fey', 'Summon Elemental', 'Tree Stride', 'Wall of Stone',
                 'Wrath of Nature', ],
-            6  => ['Flesh to Stone', 'Oasis', 'Stone Tell', 'Stone to Flesh', 'Spirit Blast', 'Spirit Walk'],
-            7  => ['Possession', 'Regenerate', 'Volcanic Eruption'],
+            6  => ['Commune with Earth', 'Flesh to Stone', 'Oasis', 'Stone to Flesh', 'Spirit Blast', 'Spirit Walk'],
+            7  => ['Create Crossroads and Backroads', 'Possession', 'Regenerate', 'Volcanic Eruption'],
             8  => ['Earthquake', 'Punishing Wind', 'Tsunami', 'Wind Walk'],
             9  => ['Astral Projection', "Nature's Enmity", 'Storm of Vengeance'],
             10 => ['Nature Incarnate', 'Primal Phenomenon'],

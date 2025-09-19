@@ -44,6 +44,9 @@ const filters = {
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="race-size-filter" class="block text-sm font-medium text-gray-700">Description</label>
                                 </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <label for="race-size-filter" class="block text-sm font-medium text-gray-700">Local</label>
+                                </th>
                             </template>
 
                             <template #table="{ data }">
@@ -58,7 +61,10 @@ const filters = {
                                         </NavLink>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        {{ language.description}}
+                                        {{ language.description }}
+                                    </td>
+                                    <td class="px-4 py-2 border border-gray-300">
+                                        {{ language.local }}
                                     </td>
                                 </tr>
                             </template>

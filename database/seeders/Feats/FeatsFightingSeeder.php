@@ -35,7 +35,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>If you are proficient with Light Armor, you do not suffer Spell Casting penalties for casting a spell while wearing Light Armor.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Generic' => 1]);
+        $helper->addTypesToFeat($feat, ['Armor', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Medium Armor';
@@ -68,7 +68,7 @@ class FeatsFightingSeeder extends Seeder
     <li>Reduce the armor check penalty from wearing Medium Armor by 1</li>
     <li>Increase the Maximum DEX modifier bonus to your AC by +1</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 3]);
+        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 3, 'Fighter Feat' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Heavy Armor Master';
@@ -79,31 +79,31 @@ class FeatsFightingSeeder extends Seeder
     <li>Increase your STR score by 1, to a maximum of 20</li>
     <li>While you are wearing Heavy Armor, you gain an additional Damage Reduction / 1 vs Bludgeoning, Piercing, and Slashing damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic' => 6]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic' => 6, 'Fighter Feat' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Medium Armor Caster';
+        $feat->requirement = 'You must have proficiency with Medium Armor';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
     <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Medium Armor.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 4]);
         $feat->parent_feats()->save(app()->feats['Light Armor Caster']);
-        $feat->parent_feats()->save(app()->feats['Medium Armor Master']);
 
         $feat              = new Feat;
         $feat->name        = 'Heavy Armor Caster';
+        $feat->requirement = 'You must have proficiency with Heavy Armor';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
     <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Heavy Armor.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Medium Armor Caster']);
-        $feat->parent_feats()->save(app()->feats['Heavy Armor Master']);
 
         $feat              = new Feat;
         $feat->name        = 'Shield Master';
-        $feat->requirement = 'You are wielding a shield';
+        $feat->requirement = 'You have proficiency with shields and are wielding a shield';
         $feat->description = "<p>You are skilled at using a shield.</p>
 <ul>
     <li>Increase your STR or CON score by +1, to a maximum of 20</li>
@@ -111,7 +111,7 @@ class FeatsFightingSeeder extends Seeder
     <li>If you have taken the Raise a Shield Action and you must make a DEX Save that allows half damage a successful Save, you may use a Reaction to add the shields' bonus to AC to your DEX Save</li>
     <li>You gain a +2 bonus to Bull Rush attacks</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Armor', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Armor', 'Fighter Feat' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Shield Master';
@@ -119,9 +119,9 @@ class FeatsFightingSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You gain a Talent</li>
-    <li>You gain an additional Action, which may only be used for the Raise a Shield Action.</li>
+    <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Armor', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Armor', 'Talent', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Shield Master']);
 
         $feat              = new Feat;
@@ -175,7 +175,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a +1 bonus an all attack rolls you make using the selected weapon.</li>
     <li>You gain the Fast Draw Talent, but only with the selected weapon</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Combat Mastery', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Combat Mastery', 'Talent', 'Fighter Feat' => 4]);
 
         $feat              = new Feat;
         $feat->name        = 'Weapon Specialization';
@@ -183,7 +183,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain 1 Talent.</li>
     <li>Choose a weapon you have Weapon Focus with. You gain a +5 bonus to damage to all attacks made with that weapon.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat' => 6]);
         $feat->parent_feats()->save(app()->feats['Weapon Focus']);
 
         $feat              = new Feat;
@@ -221,7 +221,7 @@ class FeatsFightingSeeder extends Seeder
     <li>While in this Stance, creatures within 5 feet of you provoke Attacks of Opportunity from you even if they take the Disengage action before leaving your reach.</li>
     <li>When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can make an Attack of Opportunity against the attacking creature.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Attack of Opportunity', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Attack of Opportunity', 'Fighter Feat' => 2]);
         $feat->parent_feats()->save(app()->feats['Improved Reaction']);
 
         $feat              = new Feat;
@@ -235,7 +235,7 @@ class FeatsFightingSeeder extends Seeder
     <li>If you have the Improved Disarm feat, you may make Disarm attempts at range with a ranged attack without any penalties</li>
     <li>If you have the Improved Trip feat, you may make Trip attempts at range with a ranged attack without any penalties</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
         $feat->parent_feats()->save(app()->feats['Ranged Mastery']);
 
@@ -247,7 +247,7 @@ class FeatsFightingSeeder extends Seeder
     <li>Your Unarmed Strike has a chance to Stun your target. To attempt a Stunning Strike, you must add an Action to your Strike and spend a Heroic Surge, 2 Spell Points, or 3 Power Points, and if the Strike successfully hits, the target must make a Stunning Save (10 + Character Proficiency Bonus + WIS modifier). If the target fails their Save, they gain the Stunned: 1 condition.</li>
     <li>Each additional time this Action is used against the same opponent in the same Encounter, they gain a +2 bonus to their Save.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Diminishing', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Stunning Fist';

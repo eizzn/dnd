@@ -21,6 +21,7 @@ class MonstersPSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Phaerimm';
         $monster->size             = 'Large';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';

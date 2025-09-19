@@ -28,7 +28,7 @@ class ClassAssassinSeeder extends Seeder
             'Alignment' => 'Any non-good',
             'Feats'     => 'At least 2 Precision feats',
             'Skills'    => '8 or more ranks in Stealth, 4 or more ranks in Deception',
-            'Special'   => 'Must kill someone for no reason or for monetary gain',
+            'Special'   => 'Must kill someone for no reason or monetary gain',
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 6,
@@ -93,8 +93,9 @@ class ClassAssassinSeeder extends Seeder
                 'Shadow Double', 'Silent Opening', 'Sleep', 'Swift Ready', 'True Strike', ],
             2 => ['Alter Self', 'Animate Weapon', "Cat's Grace", 'Conjure Weapon', 'Darkness', 'Fell the Greatest Foe', "Hunter's Eye",
                 'Invisibility', 'Invisibility, Swift', 'Keen Edge', 'Protection From Poison', 'Quieting Weapons', 'Resist Poison',
-                'Spider Climb', 'Undetectable Alignment', ],
-            3 => ["Assassin's Darkness", "Assassin's Eye", 'Clairvoyance', 'Ebon Ray of Doom', 'Nondetection', 'Poison', 'Shade Arrow'],
+                'Spider Climb', 'Undetectable Alignment', 'Water to Poison', 'Wraith Strike', ],
+            3 => ["Assassin's Darkness", "Assassin's Eye", 'Clairvoyance', 'Ebon Ray of Doom', 'Know Vulnerabilities', 'Nondetection',
+                'Poison', 'Shade Arrow', ],
         ]);
 
         $helper->addSpellSlotsToClass($class, [
@@ -117,7 +118,6 @@ class ClassAssassinSeeder extends Seeder
         ]);
 
         $features = app()->features;
-        unset($features['stalked_enemy']);
         unset($features['ranged_sudden_strike']);
         unset($features['studied_sudden_strike']);
         app()->features = $features;

@@ -21,17 +21,18 @@ class MonstersBSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Beholder';
         $monster->size             = 'Large';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '3';
         $monster->hit_dice         = 19;
         $monster->speed            = '0 ft / Fly 20 ft hover';
         $monster->actions          = "<dl>
-    <dt>Bit</dt> <dd>Melee Weapon Attack + 5, reach 5 ft, one target, 14 (4D6) Piercing Damage</dd>
+    <dt>Bite</dt> <dd>Melee Weapon Attack + 5, reach 5 ft, one target, 14 (4D6) Piercing Damage</dd>
     <dt>Antimagic Cone</dt> <dd>The Beholder's central eye creates an area of Antimagic, as in the Antimagic Field Spell, in a 150-foot cone. At the start of its turn, the Beholder decides which way the cone faces and whether the cone is Active. The area works against the Beholder's own Eye Rays.</dd>
     <dt>Eye Ray</dt> <dd>
         <p>The Beholder, as an Action, can shoot one of the following Eye Ray. An Eye Ray cannot be used more than once per round.</p>
-        <ol>
+        <ul>
             <li>Charm Ray: The targeted creature must Succeed a DC 16 WIS Save or be Charmed for 1 hour or until the Beholder harms the target.</li>
             <li>Paralyzing Ray: The targeted creature must Succeed on a DC 16 CON Save or be Paralyzed for 1 minute. The target can Save at the end of its turns ending the effect on itself on a Success.</li>
             <li>Fear Ray: The targeted creature must Succeed on a DC 16 WIS Save or be Frightened for 1 minute. The target can repeat the Save at the end of each its turns ending the effect on itself on a Success.</li>
@@ -52,7 +53,7 @@ class MonstersBSeeder extends Seeder
                 </ul>
             </li>
             <li>Death Ray: The targeted creature must Succeed a DC 16 DEX Save or take 10D10 Negative Damage. The target dies if the Ray reduces it to 0 Hit Points or less.</li>
-        </ol>
+        </ul>
     </dd>
 </dl>";
         $helper->saveMonster($monster, ['Aberration'], [
@@ -73,6 +74,45 @@ class MonstersBSeeder extends Seeder
             'languages' => [
                 'Deep Speech',
                 'Special' => ['meta' => 'Can learn up to 5 local dialects'],
+            ],
+        ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Spectator';
+        $monster->size             = 'Large';
+        $monster->type             = 'Aberration';
+        $monster->alignment        = 'LN';
+        $monster->armor_class      = '12 (Natural Armor)';
+        $monster->damage_reduction = 2;
+        $monster->hit_dice         = 6;
+        $monster->speed            = '0 ft / Fly 30 ft hover';
+        $monster->description      = '<p>A spectator is a lesser type of beholder—a foul and deadly aberration. It resembles a floating sphere with a gaping maw and a single great eye, set within four eyestalks that shoot forth deadly rays.</p>';
+        $monster->actions          = "<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack. +1 to Hit, reach 5 ft, one Target. HIt: 2 (1D6 -1) Piercing Damage</dd>
+    <dt>Eye Rays</dt> <dd>
+        The spectator shoots up to two of the following magical eye rays at one or two creatures it can see within 90 feet of it. It can use each ray only once on a turn
+        <dl>
+            <dt>Confusion Ray</dt> <dd>the Target must Succeed on a DC 13 WIS Save or it can't take Reactions until the end of its next turn. On its turn, the Target can't move and it uses its Action make a melee or ranged attack against a randomly determined creature within range. If the Target can't attack, it does nothing on its turn</dd>
+            <dt>Paralyzing Ray</dt> <dd>The Target must Succeed on a DC 13 CON Save or be Paralyzed: 10. the Target can repeat the Save at the end of each of its turns, ending the effect on itself on a Success.</dd>
+            <dt>Fear Ray</dt> <dd>the Target must Succeed on a DC 13 WIS Save or be Frightened: 10. The Target can repeat the Save at the end of each of its turns, with Disadvantage if the Spectator is visible to the Target, ending the effect on itself on a Success.</dd>
+            <dt>Wounding Ray</dt> <dd>The Target must make a DC 13 CON Save, taking 16 (3D10) Negative Damage ona a Failed Save, or Half on a Successful one.</dd>
+        </dl>
+    </dd>
+    <dt>Create Food and Water</dt> <dd>the spectator magically creates enough food and water to sustain itself for 24 hours.</dd>
+    <dt>Spell Reflection</dt> <dd>If the spectator makes a Successful Save against a Spell, the spectator can choose another creature (including the spellcaster) it can see within 30 feet of it as a Reaction. THe spell Targets the chosen creature instead of the spectator. If the spell forced a Save, the chosen creature makes its own Save.</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Aberration'], [
+            'stats'     => [8, 14, 14, 13, 14, 11, 3, 2],
+            'skills'    => [
+                'Perception' => ['dc' => 6],
+            ],
+            'features'  => [
+                'darkvision'   => ['meta' => '120 ft'],
+                'immunity'     => ['meta' => 'Cannot be Prone'],
+            ],
+            'languages' => [
+                'Deep Speech',
+                'Telepathy' => ['meta' => '120 feet'],
             ],
         ]);
     }

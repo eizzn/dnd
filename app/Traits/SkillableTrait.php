@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Skill;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Trait SkillableTrait
@@ -12,9 +13,9 @@ use Illuminate\Database\Eloquent\Collection;
  */
 trait SkillableTrait
 {
-    public function skills()
+    public function skills(): MorphToMany
     {
-        return $this->morphToMany('App\Models\Skill', 'skillable')
+        return $this->morphToMany(Skill::class, 'skillable')
             ->withPivot('dc', 'meta');
     }
 }

@@ -21,7 +21,7 @@ class AmphibiousFeatsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Chameleon Hide';
-        $feat->requirement = 'You must be a Scaled One';
+        $feat->requirement = 'You must have scales or be able to form scales over your body without the use of magic';
         $feat->description = '<p>As a Triple Action, you can alter the color of your skin or scales to match your surroundings. Doing so grants you a +10 bonus to Hide checks</p>';
         $helper->addTypesToFeat($feat, ['Generic']);
 
@@ -31,14 +31,14 @@ class AmphibiousFeatsSeeder extends Seeder
         $feat->description = '<p>Your poison attack is more deadly.</p>
 <p>Your poison now deals secondary damage with an onset time of 1 minute. The secondary damage is equal to double your initial damage. If your Poison attack already deals secondary damage, then your Poison now deals an additional Secondary damage another 1 minute later.</p>';
         $helper->addTypesToFeat($feat, ['Poison', 'Generic']);
-        $feat->attributes()->save(app()->attributes['CON'], ['dc' => 19]);
+        $feat->attributes()->save(app()->attributes['CON'], ['dc' => 16]);
 
         $manu              = new Talent;
         $manu->name        = 'Cobra Head';
         $manu->action_type = 'Action';
         $manu->requirement = 'Serpent or serpentfolk';
         $manu->description = '<p>You can extend the skin of your neck into a cobra head.</p>
-<p>As an Action, you can dilate the skin on both sides of your neck to form a flat disk, in the manner of a cobra. While you display this "hood", you gain a +3 bonus on Intimidation checks, and the Save DC for each of your spells, spell-like abilities, and supernatural abilities that cause Fear increases by +2. Furthermore, any creature with an INT score of 2 or below perceives you to be on size category larger tha you actually are.</p>
+<p>As an Action, you can dilate the skin on both sides of your neck to form a flat disk, in the manner of a cobra. While you display this "hood", you gain a +3 bonus on Intimidation checks, and the Save DC for each of your spells, spell-like abilities, and supernatural abilities that cause Fear increases by +2. Furthermore, any creature with an INT score of 2 or below perceives you to be one size category larger tha you actually are.</p>
 <p>You can retract your skin and resume your normal appearance as a Free Action.</p>';
         $helper->addTypesToSimpleObject($manu, ['Talent' => 1]);
 

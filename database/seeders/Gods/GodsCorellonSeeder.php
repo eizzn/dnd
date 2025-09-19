@@ -3,6 +3,7 @@
 namespace Database\Seeders\Gods;
 
 use App\Models\Feat;
+use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -58,10 +59,8 @@ class GodsCorellonSeeder extends Seeder
         // Skills
         $skills = ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'];
         $helper->addSkillsToClass($class, $skills);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-        ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Demon', 4);
         $helper->addSpellsToClass($class, [
             0 => ['Daze', 'Detect Magic', 'Guidance', 'Know Direction', 'Light', 'Message', 'Prestidigitation', 'Read Aura',
                 'Shield', 'Stabilize', ],
@@ -70,14 +69,14 @@ class GodsCorellonSeeder extends Seeder
             2 => ['Augury', 'Calm Emotions', 'Continual Flame', 'Create Food and Water', 'Darkvision', 'Endure Elements',
                 'Faerie Fire', 'Remove Fear', 'Resist Elements', 'Restoration', 'Restore Senses', 'See Invisibility', 'Silence',
                 'Undead Bane Weapon', 'Water Breathing', ],
-            3 => ['Bind Undead', 'Circle of Protection From Evil', 'Dispel Magic', 'Faithful Healing', 'Heroism', 'Neutralize Poison',
+            3 => ['Circle of Protection From Evil', 'Dispel Magic', 'Faithful Healing', 'Heroism', 'Neutralize Poison',
                 'Prayer', 'Quomaniith', 'Sanctified Ground', 'Sheltered Vitality', 'Stars of Arvandor', 'Theur`foqal', 'Zone of Truth', ],
             4 => ['Air Walk', 'Ceremony', 'Dimensional Anchor', 'Divine Wrath', 'Freedom of Movement', 'Globe of Invulnerability',
                 'Ol`Iirtal`Eithun', 'Remove Curse', 'Spell Immunity', 'Vuorl`Kyshuf', ],
             5 => ['Atonement', 'Banishment', 'Commune with Texts', 'Sending', 'Tomb of Light', 'U`Aestar`Kess'],
             6 => ['Ialyshae`Seldar`Wihylos', 'Righteous Might', 'True Seeing'],
             7 => ['Akrmaesual', 'Cloak of Chaos', 'Daoin`Teague`Feer', 'Dimensional Lock', 'Divine Decree', 'Holy Aura',
-                'Kai`Soeh`takal', 'N`Maernthor', 'Plane Shift', 'Regenerate', 'Renewal Pact', ],
+                'Kai`Soeh`takal', 'N`Maernthor', 'Plane Shift', 'Regenerate', 'Renewal Pact', 'Word of Chaos', ],
             8  => ['Akh`Faen`Tel`Quess', 'Antimagic Field', 'Discern Location', 'Evaliir`Enevahr', 'N`Tel`Orar', 'Oacil`Quevan'],
             9  => ['Crusade', 'Spell Shift', 'Weapon of Judgment'],
             10 => ['Avatar', 'Fhaor`Akh`Tel`Quess', 'Gate', 'Ghaatiil', 'Miracle', 'N`Quor`Khaor'],
@@ -85,16 +84,16 @@ class GodsCorellonSeeder extends Seeder
         ]);
         $helper->addSpellSlotsToClass($class);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+        $helper->addWorshipClassesToGod($god, 'Seldarine', [
             $class->name, 'Paladin', 'Wizard', 'Fighter', 'Ranger',
         ]);
 
         $corellon = $god;
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Gnome']->id,
+            'pantheon_id' => app()->pantheons['Seldarine']->id,
             'favor'       => "<p>Corellon's favour is bestowed with his characteristic whimsy, but usually on those who possess great magical gifts, and who display a similar temperament to their progenitor.</p>
-<p>Corellon’s scions are frequently difficult travel companions despite their best intentions, displaying irregular behaviour and an insatiable curiosity.</p>
+<p>Corellon's scions are frequently difficult travel companions despite their best intentions, displaying irregular behaviour and an insatiable curiosity.</p>
 <ol>
     <li>You remember all your past lives. It can be overwhelming at times</li>
     <li>You were born with great, nigh uncontrollable sorcerous power</li>
@@ -160,78 +159,6 @@ class GodsCorellonSeeder extends Seeder
         /**********************************************************************/
 
         $god        = new God;
-        $god->name  = 'Deep Sashelas';
-        $god->level = 'Intermediate';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
-            'name'           => $god->name,
-            'title'          => 'Lord of the Undersea, The Dolphin Prince',
-            'level'          => 'Intermediate',
-            'portfolio'      => 'Sea Elves, Creativity, Knowledge, Sea',
-            'regions'        => 'The Sea of Swords, The Trackless Sea',
-            'symbol'         => 'Dolphin',
-            'alignment'      => 'CG',
-            'master_id'      => $corellon->id,
-            'favored_weapon' => 'Trifork of the Deeps (Trident)',
-        ]);
-        $god->pantheons()->save(app()->pantheons['Asathalfinare'], [
-            'name'           => $god->name,
-            'title'          => 'Lord of the Undersea, The Dolphin Prince',
-            'level'          => 'Intermediate',
-            'portfolio'      => 'Sea Elves, Creativity, Knowledge, Sea',
-            'regions'        => 'Sea of Fallen Stars',
-            'symbol'         => 'Dolphin',
-            'alignment'      => 'CG',
-            'favored_weapon' => 'Trifork of the Deeps (Trident)',
-        ]);
-
-        $class                = new Klass;
-        $class->name          = 'Priest of Deep Sashelas';
-        $class->type          = 'Priest';
-        $class->key_attribute = 'WIS';
-        $class->weapons       = 'Simple Weapons, Trident, Harpoon';
-        $class->armors        = 'Light Armor, Medium Armor';
-        $class->has_spells    = 1;
-        $helper->saveClass($class, [
-            'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
-        ], ['WIS', 'CHA'], [
-            'Elf', 'Divine',
-        ]);
-
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Fighter' => 15,
-            'Wizard'  => 15,
-            'Druid'   => 15,
-        ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Wizard',
-        ]);
-
-        // Skills
-        $helper->addSkillsToClass($class, [
-            'Athletics', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
-        ]);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-        ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Aquatic Wild Life', 4);
-        $helper->addSpellsToClass($class, [
-            0 => ['Conviction', 'Shape Water'],
-            1 => ['Create or Destroy Water', 'Cure Wounds', 'Fog Cloud', 'Neutral Water'],
-            2 => ['Feet to Fins', 'Fins to Feet', 'Resist Cold', 'Undead Bane Weapon', 'Water Breathing', 'Water Walk'],
-            3 => ['Faithful Healing', 'Stars of Arvandor', 'Tidal Wave', 'Wall of Water'],
-            4 => ['Ceremony', 'Watery Sphere'],
-            5 => ['Atonement', 'Control Water', 'Maelstrom'],
-            6 => ['Wall of Ice'],
-            8 => ['Tsunami'],
-        ]);
-        $helper->addSpellSlotsToClass($class);
-
-        /**********************************************************************/
-
-        $god        = new God;
         $god->name  = 'Labelas Enoreth';
         $god->level = 'Intermediate';
         $god->save();
@@ -263,24 +190,32 @@ class GodsCorellonSeeder extends Seeder
         ]);
 
         // Skills
-        $skills = ['Arcana', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'];
-        $helper->addSkillsToClass($class, $skills);
+        $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']);
+
+        $feature              = new Feature;
+        $feature->key         = 'channel_divinity_improve_initiative';
+        $feature->name        = 'Channel Divinity: Improve Initiative';
+        $feature->description = '<p>You can use your Channel Divinity to speed your reactions in combat.</p>
+<p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you improve your Initiative by +5 beginning on your next turn.</p>';
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+            'channel_divinity_improve_initiative' => [2],
         ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
         $helper->addSpellsToClass($class, [
             0 => ['Conviction', 'Detect Magic', 'Stabilize'],
-            1 => ['Alter Metabolism', 'Bless', 'Cure Wounds', 'Detect Alignment', 'Mending', 'Sanctuary'],
+            1 => ['Alter Metabolism', 'Bless', 'Cure Wounds', 'Detect Alignment', 'Detect Temporal Anomaly', 'Extra Steps',
+                'Mending', 'Sanctuary', 'Time Capsule', ],
             2 => ['Augury', 'Calm Emotions', 'Create Food and Water', 'Endure Elements', 'Faerie Fire', 'Faithful Healing',
-                'Remove Fear', 'Restoration', 'Restore Senses', 'Silence', ],
+                'Hurry / Delay', 'Modify Age', 'Remove Fear', 'Restoration', 'Restore Senses', 'Silence', 'Timeslip', ],
             3 => ['Circle of Protection From Evil', 'Dispel Magic', 'Haste', 'Neutralize Poison', 'Prayer', 'Sands of Time',
                 'Slow', 'Stars of Arvandor', 'Zone of Truth', ],
             4  => ['Ceremony', 'Globe of Invulnerability', 'Remove Curse', 'Spell Immunity', 'Vuorl`Kyshuf'],
-            5  => ['Atonement', 'Banishment', 'Commune with Texts', 'Sending', 'U`Aestar`Kess'],
-            6  => ['Hindsight', 'Ialyshae`Seldar`Wihylos', 'True Seeing'],
+            5  => ['Atonement', 'Banishment', 'Commune with Texts', 'Create Timeslip Gate', 'Sending', 'U`Aestar`Kess'],
+            6  => ['Conceal Temporal Anomaly', 'Hindsight', 'Ialyshae`Seldar`Wihylos', 'True Seeing'],
             7  => ['Akrmaesual', 'Dimensional Lock', 'Kai`Soeh`takal', 'Plane Shift', 'Regenerate'],
-            8  => ['Akh`Faen`Tel`Quess', 'Alter Lifeline', 'Antimagic Field', 'Temporal Stasis'],
+            8  => ['Akh`Faen`Tel`Quess', 'Alter Lifeline', 'Antimagic Field', 'Temporal Stasis', 'Time Travel', 'Timereaver'],
             9  => ['N`Tel`Orar', 'Spell Shift'],
             10 => ['Time Stop'],
         ]);

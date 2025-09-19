@@ -98,7 +98,7 @@ class PfInit extends Migration
         Schema::create('armors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 30)->unique();
-            $table->smallInteger('price')->unsigned();
+            $table->smallInteger('price')->nullable();
             $table->enum('type', ['Light', 'Medium', 'Heavy', 'Shield', 'Barding']);
             $table->enum('group', ['Cloth', 'Chain', 'Composite', 'Leather', 'Plate', 'Wood', 'Other'])->nullable();
             $table->string('bulk')->nullable();
@@ -118,9 +118,9 @@ class PfInit extends Migration
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 40);
-            $table->smallInteger('price')->unsigned();
-            $table->string('bulk', 1)->nullable();
-            $table->smallInteger('hands')->unsigned();
+            $table->decimal('price')->unsigned();
+            $table->string('bulk', 3)->nullable();
+            $table->smallInteger('hands')->unsigned()->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->foreign('parent_id')->references('id')->on('equipments');
             $table->text('description')->nullable();

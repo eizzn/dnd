@@ -206,7 +206,7 @@ class SpellsLSeeder extends Seeder
         $spell->description = '<p>Name or describe a person, place, or object. The spell brings to your mind a brief summary of the significant lore about the thing you named. The lore might consist of current tales, forgotten stories, or even secret lore that has never been widely known. If the thing you named isn’t of legendary importance, you gain no information. The more information you already have about the thing, the more precise and detailed the information you receive is.</p>
 <p>The information you learn is accurate but might be couched in figurative language. For example, if you have a mysterious magic axe on hand, the spell might yield this information: “Woe to the evildoer whose hand touches the axe, for even the haft slices the hand of the evil ones. Only a true Child of Stone, lover and beloved of Moradin, may awaken the true powers of the axe, and only with the sacred word Rudnogg on the lips.”</p>';
         $helper->addTypesToSpell($spell, ['Divination'], 5);
-        $spell->materials()->save(Material::where('name', 'Incense')->firstOrFail(), ['meta' => 'Incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each']);
+        $spell->materials()->save(Material::where('name', 'Incense')->firstOrFail(), ['meta' => 'Worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each']);
 
         $spell              = new Spell;
         $spell->name        = 'Lessen Gravity';
@@ -584,7 +584,7 @@ class SpellsLSeeder extends Seeder
         $spell->casting     = '1 minute (Material, Somatic, Verbal)';
         $spell->range       = 'Circle centered on you';
         $spell->targets     = 'Self';
-        $spell->duration    = '10 minutes';
+        $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = "<p>You sense the direction of the nearest Teleportation Circle (permanent or with a remaining duration), Gate spell, or other effect which magically connects two different locations (for example, an active magic item, a creature's special ability, or unique adventure location). Locate Gate detects only spells or effects with a permanent or ongoing duration, not instantaneous effects like Dimension Door or Teleport.</p>
 <p>Locate Gate can be blocked by spells like Nondetection, if the effect originates from a specific object or creature.</p>
 <p>However, spell effects can't likewise be warded. For example, ring gates are a specific object, but a permanent teleportation circle is not (the surface in which it's inscribed doesn't count).</p>

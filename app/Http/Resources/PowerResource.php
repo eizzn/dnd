@@ -21,6 +21,7 @@ class PowerResource extends JsonResource
             'requirements'   => $this->requirements,
             'save_attribute' => $this->save_attribute,
             'range'          => $this->range,
+            'area'           => $this->area,
             'targets'        => $this->targets,
             'duration'       => $this->duration,
             'description'    => $this->description,

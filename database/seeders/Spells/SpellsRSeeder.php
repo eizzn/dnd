@@ -238,7 +238,7 @@ class SpellsRSeeder extends Seeder
         $spell->range          = '120 feet';
         $spell->targets        = 'One creature in range';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You shoot a Ray of Light at the Target. Make a Ranged Spell Attack. If you, the Target takes 1D6 Light Damage and must make a DEX Save or be Dazzled: 1.</p>
+        $spell->description    = '<p>You shoot a Ray of Light at the Target. Make a Ranged Spell Attack. If you hit, the Target takes 1D6 Light Damage and must make a DEX Save or be Dazzled: 1.</p>
 <p>This spell Counters any Spell with the Darkness type of any level.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Not Dazzled</dd>
@@ -851,7 +851,7 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet aura';
         $spell->duration    = 'Concentration, up to 10 minutes';
-        $spell->description = '<p>This spell automatically reveals an Illusion (Figment) effect that are a lower Spell leve than this spell. This allows any observer another Save to disbelieve the Illsion with a +10 bonus to their Save. Higher level Illusion spells require a Spell check against the Illusion spell. Success means that all observers are allowed the additional Save as described with the +10 bonus, failure means that the Illusion is not revealed and all observers continue to believe the Illusion.</p>';
+        $spell->description = '<p>This spell automatically reveals an Illusion (Figment) effect that are a Spell Level one higher than this spell or lower. This allows any observer another Save to disbelieve the Illusion with a +10 bonus to their Save. Higher level Illusion spells require a Spell check against the Illusion spell. Success means that all observers are allowed the additional Save as described with the +10 bonus, Failure means that the Illusion is not revealed and all observers continue to believe the Illusion.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increasing the Spell Level increases the Illusion spells that are automatically revealed.</dd>
 </dl>';
@@ -985,21 +985,6 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
     </dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Good', 'Death'], 7);
-
-        $spell              = new Spell;
-        $spell->name        = 'Rigor Mortis';
-        $spell->casting     = 'Material Casting, Somatic Casting';
-        $spell->range       = 'Touch';
-        $spell->targets     = 'One willing creature touched';
-        $spell->duration    = '10 minutes';
-        $spell->description = '<p>This spell allows you to make the target appear dead for the Duration. The target must have a WIS Score.</p>
-<p>All vital functions are suspended. The target does not breathe, pump blood, or otherwise indicate in any way that they are alive.</p>
-<p>Any physical harm done to the target causes the target to get pulled out of the spell unless they WIS Save against the amount of Damage taken.</p>
-<dl>
-    <dt>Material Components</dt> <dd></dd>
-</dl>';
-        $spell->heightened  = '';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Ripen Plant';

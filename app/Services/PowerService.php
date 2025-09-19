@@ -17,14 +17,15 @@ class PowerService implements Contracts\PowerService
     /**
      * @throws InvalidArgumentException
      */
-    public function index(array|Request $search): Builder
+    public function index(array|Request $search, bool $sortByLevel = false): Builder
     {
         $search = $this->getData($search);
+        $query  = $sortByLevel ? Power::orderBy('default_level') : Power::query();
 
         /** @var FilterPipelinePayload $results */
         $results = app(Pipeline::class)
             ->send(new FilterPipelinePayload(
-                Power::query(),
+                $query,
                 $search
             ))
             ->through([

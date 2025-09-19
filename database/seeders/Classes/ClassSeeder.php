@@ -25,22 +25,17 @@ class ClassSeeder extends Seeder
         $class->max_level = 20;
         $helper->saveClass($class);
 
-        $feature              = new Feature;
-        $feature->key         = 'ancestry_feat';
-        $feature->name        = 'Ancestry Feat';
-        $feature->description = '<p>You gain an Ancestry Feat based on your Ancestry.</p>';
-        $helper->saveFeature($feature);
-
-        $helper->addFeaturesToClass($class, [
-            'ancestry_feat' => [1, 3, 6, 9],
-            'generic_feat'  => [2, 5, 8, 11, 14, 17],
-        ]);
-
         $class             = new Klass;
         $class->name       = 'Cleric';
         $class->type       = 'Abstract';
         $class->has_spells = 1;
         $helper->saveClass($class);
+
+        $feature              = new Feature;
+        $feature->key         = 'ancestry_feat';
+        $feature->name        = 'Ancestry Feat';
+        $feature->description = '<p>You gain an Ancestry Feat based on your Ancestry.</p>';
+        $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'cantrip_caster';
@@ -111,6 +106,7 @@ class ClassSeeder extends Seeder
         $this->call(ClassScoutSeeder::class);
         $this->call(ClassSpellThiefSeeder::class);
         $this->call(ClassSpiritShamanSeeder::class);
+        $this->call(ClassHexBladeSeeder::class);
 
         $this->call(ClassAcolyteOfTheSkinSeeder::class);
         $this->call(ClassArchMageSeeder::class);
@@ -132,7 +128,6 @@ class ClassSeeder extends Seeder
         $this->call(ClassHathranSeeder::class);
         $this->call(ClassMasterOfManyForms::class);
         $this->call(ClassRedWizardSeeder::class);
-        $this->call(ClassRaumathariBattlemageSeeder::class);
         $this->call(ClassTelflammarShadowlordSeeder::class);
         $this->call(ClassNemesisSeeder::class);
     }

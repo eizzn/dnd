@@ -67,44 +67,5 @@ class ClassFighterSeeder extends Seeder
             'improved_flexibility' => [12],
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Extra Melee Action or Extra Ranged Action']);
-
-        $helper->addFeatsToClass($class, [
-            'Power Attack'       => 1,
-            'Improved Sunder'    => 2,
-            'Improved Bull Rush' => 2,
-            'Improved Feint'     => 2,
-            'Swipe'              => 2,
-            'Cleave'             => 3,
-            'Great Cleave'       => 5,
-            'Stunning Fist'      => 8,
-
-            'Brutal Critical'          => 5,
-            'Improved Brutal Critical' => 9,
-            'Greater Brutal Critical'  => 13,
-
-            'Weapon Finesse'              => 1,
-            'Improved Disarm'             => 2,
-            'Improved Trip'               => 2,
-            'Whirlwind Strike'            => 10,
-            'Intelligent Strike'          => 1,
-            'Two-Weapon Fighter'          => 1,
-            'Improved Two-Weapon Fighter' => 8,
-            'Greater Two-Weapon Fighter'  => 15,
-            'Multi Attacker'              => 3,
-            'Improved Multi Attacker'     => 6,
-            'Sharpshooter'                => 7,
-            'Shield Master'               => 1,
-            'Improved Shield Master'      => 7,
-            'Medium Armor Master'         => 2,
-            'Heavy Armor Master'          => 2,
-            'Weapon Focus'                => 4,
-            'Weapon Specialization'       => 6,
-            'Sentinel'                    => 2,
-            'Peerless Archer'             => 9,
-            'Improved Peerless Archer'    => 13,
-            'Greater Peerless Archer'     => 17,
-
-            'Deflect Ranged Attack' => 7,
-        ]);
     }
 }

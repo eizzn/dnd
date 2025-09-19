@@ -5,16 +5,22 @@ use App\Http\Controllers\ArmorController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\FeatController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FormulaController;
 use App\Http\Controllers\GodController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\MonsterController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PantheonController;
 use App\Http\Controllers\PowerController;
 use App\Http\Controllers\RaceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SpellController;
 use App\Http\Controllers\TalentController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,10 +55,28 @@ Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
         ->name('condition')
         ->whereNumber('id');
 
+    Route::get('equipments', [EquipmentController::class, 'index'])
+        ->name('equipments');
+    Route::get('equipment/{id}', [EquipmentController::class, 'get'])
+        ->name('equipment')
+        ->whereNumber('id');
+
     Route::get('feats', [FeatController::class, 'index'])
         ->name('feats');
     Route::get('feat/{id}', [FeatController::class, 'get'])
         ->name('feat')
+        ->whereNumber('id');
+
+    Route::get('features', [FeatureController::class, 'index'])
+        ->name('features');
+    Route::get('feature/{id}', [FeatureController::class, 'get'])
+        ->name('feature')
+        ->whereNumber('id');
+
+    Route::get('formulas', [FormulaController::class, 'index'])
+        ->name('formulas');
+    Route::get('formula/{id}', [FormulaController::class, 'get'])
+        ->name('formula')
         ->whereNumber('id');
 
     Route::get('gods', [GodController::class, 'index'])
@@ -66,6 +90,24 @@ Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
         ->name('languages');
     Route::get('language/{id}', [LanguageController::class, 'get'])
         ->name('language')
+        ->whereNumber('id');
+
+    Route::get('materials', [MaterialController::class, 'index'])
+        ->name('materials');
+    Route::get('material/{id}', [MaterialController::class, 'get'])
+        ->name('material')
+        ->whereNumber('id');
+
+    Route::get('monsters', [MonsterController::class, 'index'])
+        ->name('monsters');
+    Route::get('monster/{id}', [MonsterController::class, 'get'])
+        ->name('monster')
+        ->whereNumber('id');
+
+    Route::get('pages', [PageController::class, 'index'])
+        ->name('pages');
+    Route::get('page/{id}', [PageController::class, 'get'])
+        ->name('page')
         ->whereNumber('id');
 
     Route::get('pantheons', [PantheonController::class, 'index'])
@@ -104,15 +146,15 @@ Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
         ->name('talent')
         ->whereNumber('id');
 
+    Route::get('types', [TypeController::class, 'index'])
+        ->name('types');
+    Route::get('type/{id}', [TypeController::class, 'get'])
+        ->name('type')
+        ->whereNumber('id');
+
     Route::get('weapons', [WeaponController::class, 'index'])
         ->name('weapons');
     Route::get('weapon/{id}', [WeaponController::class, 'get'])
         ->name('weapon')
-        ->whereNumber('id');
-
-    Route::get('formulas', [FormulaController::class, 'index'])
-        ->name('formulas');
-    Route::get('formula/{id}', [FormulaController::class, 'get'])
-        ->name('formula')
         ->whereNumber('id');
 });

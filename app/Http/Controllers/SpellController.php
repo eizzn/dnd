@@ -14,7 +14,7 @@ class SpellController extends Controller
         if (! $request->has('order')) {
             $request->merge(['order' => 'name']);
         }
-        $query = $service->index($request);
+        $query = $service->index($request, true);
 
         return new SpellCollectionResource(
             $query->with('types')

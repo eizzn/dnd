@@ -29,6 +29,7 @@ class GodsOghmaSeeder extends Seeder
         $oghma = $god;
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
+            'aliases'        => 'Curna (Durpar, Estagund, and Var the Golden)',
             'title'          => 'The Binder, The Binder of What is Known, Patron of Bards, Lord of Knowledge, The Wise God',
             'level'          => 'Greater',
             'portfolio'      => 'Bards, inspiration, invention, knowledge',
@@ -38,13 +39,19 @@ class GodsOghmaSeeder extends Seeder
             'favored_weapon' => 'Mortal Strike (longsword)',
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Bard'   => 40,
+            'Wizard' => 10,
+        ]);
+
         $class                = new Klass;
-        $class->name          = 'Priest of Oghma';
+        $class->name          = 'Lorekeepers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple weapons plus two choice';
         $class->armors        = 'Light Armor, Light Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priests of Oghma</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 6,
@@ -52,31 +59,27 @@ class GodsOghmaSeeder extends Seeder
         ], ['WIS', 'CHA'], [
             'Divine',
         ]);
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Bard'   => 25,
-            'Wizard' => 15,
-        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Bard',
+            $class->name, 'Bard', 'Monks', 'Wizards',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class,
-            ['Athletics', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']
+            ['Athletics', 'Arcana', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [3, 9, 15, 18, 20],
-            'skill_feat'  => [1, 6, 12],
+            'skill_feat'  => [2, 7, 12],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Scribe Scroll']);
+        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Scribe Scroll']);
         $helper->addDomainToClass($class, ['Knowledge', 'Travel']);
         $helper->addSpellsToClass($class, [
             0  => ['Allegro', 'Clean Self', 'Conviction', 'Detect Magic', 'Easy Math', 'Fine-Tuning', 'Focusing Chant',
-                'Ghost Sound', 'Harmony', 'Note', 'Percussion', 'Stabilize', 'Vicious Mockery', ],
+                'Ghost Sound', 'Harmony', 'Message', 'Note', 'Percussion', 'Stabilize', 'Vicious Mockery', ],
             1  => ['Choir', 'Cure Wounds', 'Biting Words', 'Detect Alignment', 'Disquietude', 'Ghost Pipes', 'Identify',
                 'Map', "Scholar's Touch", 'Shout', ],
             2  => ['Augury', 'Comprehend Language', 'Crescendo', 'Dissonant Chant', 'Divine Insight', 'Find Traps', 'Fortissimo',
-                'Glossolalia', 'Harmonic Chorus', 'Insignia of Alarm', 'See Invisibility', 'Journal', 'Vocalize', ],
+                'Glossolalia', 'Harmonic Chorus', 'Impart Knowledge', 'Insignia of Alarm', 'See Invisibility', 'Journal',
+                'Vocalize', ],
             3  => ['Clairvoyance', 'Dissonant Chord', 'Drums of War', 'Insignia of Blessing', 'Hymn of Praise', 'Insignia of Healing',
                 'Interplanar Message', 'Invisibility Purge', 'Power Word Deafen', 'Sending', 'Undead Bane Weapon', ],
             4  => ['Arcane Eye', 'Battle Song', 'Chronicle', 'Commune with Texts', 'Deafening Blast', 'Detect Scrying', 'Divination',
@@ -140,10 +143,10 @@ class GodsOghmaSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
             'title'          => 'Holy Maker of All Things, Inspiration Divine, Lord of All Smiths, Wonderbringer',
-            'aliases'        => 'Nebelun (Gnomes), Zionil (in the Shining Lands)',
+            'aliases'        => 'Zionil (in Durpar, Estagund, and Var the Golden)',
             'level'          => 'Lesser',
             'portfolio'      => 'Artifice, Construction, Craft, Smithwork',
-            'regions'        => 'Lantan, Silverymoon, Amn, Tethyr, Calimshan',
+            'regions'        => 'Silverymoon, Amn, Tethyr, Calimshan',
             'alignment'      => 'N',
             'symbol'         => 'Toothed cog with four spokes',
             'favored_weapon' => 'Craftmaster (warhammer)',
@@ -154,17 +157,29 @@ class GodsOghmaSeeder extends Seeder
             'title'          => 'Wonderbringer',
             'level'          => 'Demi',
             'portfolio'      => 'Invention, Construction, Luck',
+            'regions'        => 'Lantan',
             'alignment'      => 'N',
             'symbol'         => 'Toothed cog with four spokes',
             'favored_weapon' => 'Warhammer',
             'master_id'      => God::where('name', 'Garl Glittergold')->first()->id,
         ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Artificer' => 30,
+            'Wizard'    => 10,
+        ]);
+        $helper->addClassesToGod($god, 'Gnome', [
+            'Artificer' => 20,
+            'Wizard'    => 10,
+        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Artificer', 'Rogue',
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Gnome', [
             'Artificer', 'Rogue',
         ]);
 
         $feat              = new Feat;
-        $feat->name        = 'Priest of Gond';
+        $feat->name        = 'Gondsmen';
         $feat->requirement = 'Gond must be your Patron Deity';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
 <p>You are a member of the clergy of Gond. You gain the following.</p>
@@ -173,23 +188,23 @@ class GodsOghmaSeeder extends Seeder
     <li>
         <p>At each Spell Level, you are able to cast an additional Spell</p>
         <blockquote>
-            Ex. A 7th level Artificer takes this feat and becomes a Priest of Gond. He now memorizes 4 Cantrips, cast two 1st level Spell per day, cast one 2nd level Spell per day, and cast one 3rd level Spell per day.
+            Ex. A 7th level Artificer takes this feat and becomes a Gondsmen (Priest of Gond). He now memorizes 4 Cantrips, cast two 1st level Spell per day, cast one 2nd level Spell per day, and cast one 3rd level Spell per day.
         </blockquote>
     </li>
     <li>You also gain an Additional Spell List from this feat. These Spells are Divine in nature and must be prayed for just like a normal Priest. You may only memorize 1 spell per Spell Level with the exception of Cantrips.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Artificer Discipline', 'Divine']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Guidance', 'Mold Metal', 'Stabilize'],
-            1 => ['Bless', 'Cure Wounds', 'Fabricate', 'Forge Fire'],
-            2 => ['Find Traps', 'Imbue with Cold Iron', 'Imbue with Silvered', 'Insignia of Alarm', 'Resist Elements'],
+            0 => ['Guidance', 'Stabilize'],
+            1 => ['Bless', 'Cure Wounds', 'Forge Fire'],
+            2 => ['Find Traps', 'Imbue with Cold Iron', 'Imbue with Silvered', 'Insignia of Alarm', 'Resist Elements', 'Understand Device'],
             3 => ['Elemental Weapon', 'Ghost Touch', 'Insignia of Blessing', 'Insignia of Healing', 'Shrink Item', 'Undead Bane Weapon'],
-            4 => ['Creation', 'Shape Metal'],
+            4 => ['Creation', 'Fabricate', 'Shape Metal'],
             5 => ['Atonement', 'Brilliant Weapon', 'Holy Weapon'],
         ]);
 
         $feat              = new Feat;
-        $feat->name        = 'Improved Priest of Gond';
+        $feat->name        = 'Improved Gondsmen';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
 <p>You gain the following</p>
 <ul>
@@ -209,7 +224,7 @@ class GodsOghmaSeeder extends Seeder
             9  => ['Remake'],
             10 => ['Genesis'],
         ]);
-        $feat->parent_feats()->save(app()->feats['Priest of Gond']);
+        $feat->parent_feats()->save(app()->feats['Gondsmen']);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
@@ -262,7 +277,7 @@ class GodsOghmaSeeder extends Seeder
             'name'           => $god->name,
             'title'          => 'Lord of All Glyphs and Images, The Scribe of Oghma, The First Scribe',
             'level'          => 'Lesser',
-            'portfolio'      => 'Cartography, Glyphs, Images, Literature, Scribes',
+            'portfolio'      => 'Cartography, Glyphs, Images, Literature, Scribes, Pictorial and Literary Art',
             'regions'        => 'Cormyr, The North, Sembia, Silverymoon, Western Heartlands',
             'alignment'      => 'N',
             'symbol'         => 'Lit candle above purple eye with triangular pupil',
@@ -270,13 +285,19 @@ class GodsOghmaSeeder extends Seeder
             'master_id'      => $oghma->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Wizard' => 20,
+            'Cleric' => 10,
+        ]);
+
         $class                = new Klass;
-        $class->name          = 'Priest of Deneir';
+        $class->name          = 'Glyphscribes';
         $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Light Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Deneir</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 4,
@@ -301,11 +322,9 @@ class GodsOghmaSeeder extends Seeder
         $helper->saveFeature($feature, ['Scroll']);
 
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 9, 12, 15, 18, 20],
-            'skill_feat'  => [1, 3, 9, 15],
-            'any_scroll'  => [3],
+            'any_scroll'  => [4],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Scribe Scroll']);
+        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Scribe Scroll']);
         $helper->addDomainToClass($class, ['Knowledge', 'Rune']);
         $helper->addSpellsToClass($class, [
             0 => ['Clean Self', 'Conviction', 'Detect Magic', 'Message', 'Stabilize', 'Word of Radiance'],
@@ -315,7 +334,7 @@ class GodsOghmaSeeder extends Seeder
                 'Suppress Magical Writings', 'Tongues', 'Undead Bane Weapon', ],
             4 => ['Ceremony', 'Divination'],
             5 => ['Atonement', 'Planar Binding', 'Rune of Returning'],
-            6 => ['Legend Lore', 'Symbol'],
+            6 => ['Legend Lore', 'Symbol', 'Transcribe Symbol'],
             7 => ['Divine Word', 'Holy Word', 'Power Word Blind', 'Power Word Pain'],
             8 => ['Power Word Heal', 'Power Word Stun'],
             9 => ['Power Word Kill'],
@@ -370,7 +389,7 @@ class GodsOghmaSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
-            'title'          => 'Lord of Song, Lord of all Song, Guardian of Singers and Troubadours, One Who Watches While Music is Alive, One True Hand of All-Wise Oghma',
+            'title'          => 'Lord of Song, Lord of all Songs, Guardian of Singers and Troubadours, One Who Watches While Music is Alive, One True Hand of All-Wise Oghma',
             'aliases'        => "Ri'dae'mila",
             'level'          => 'Demi',
             'portfolio'      => 'Song, Poetry, Eloquence',
@@ -378,6 +397,10 @@ class GodsOghmaSeeder extends Seeder
             'symbol'         => 'Five-stringed harp made of silver leaves',
             'favored_weapon' => 'Sharptongue (rapier)',
             'master_id'      => $oghma->id,
+        ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Bard'         => 30,
+            'Swashbuckler' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             'Bard',
@@ -415,6 +438,11 @@ class GodsOghmaSeeder extends Seeder
             'favored_weapon' => 'Cloud of coins (nunchaku)',
             'master_id'      => $oghma->id,
         ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Rogue'   => 20,
+            'Fighter' => 10,
+            'Wizard'  => 10,
+        ]);
 
         $class                = new Klass;
         $class->name          = 'Goldeye';
@@ -435,11 +463,17 @@ class GodsOghmaSeeder extends Seeder
         ]);
 
         // Skills
-        $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Diplomacy', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-            'skill_feat'  => [1, 3, 9, 15],
+        $helper->addSkillsToClass($class, [
+            'Arcana', 'Concentration', 'Diplomacy', 'Lore', 'Performance', 'Religion', 'Stealth', 'Thievery',
         ]);
+        $helper->addFeaturesToClass($class, [
+            'class_group_feat' => [3, 5, 9, 12, 15, 18],
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 2,
+            'meta'  => 'Skilled',
+        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Knowledge', 'Protection', 'Travel', 'Trade']);
         $helper->addSpellsToClass($class, [
             0 => ['Bit of Luck', 'Clean Self', 'Conviction', 'Easy Math', 'Friends', 'Guidance', 'Identify', 'Light', 'Mage Hand',
@@ -448,7 +482,7 @@ class GodsOghmaSeeder extends Seeder
             2 => ['Augury', 'Comprehend Language', "Eagle's Splendor", 'Find Traps', 'Magic Mouth', 'See Invisibility',
                 'Suggestion', 'Zone of Truth', ],
             3 => ['Clairvoyance', 'Comprehension', 'Dispel Magic', 'Listening Coin', 'Undead Bane Weapon'],
-            4 => ['Ceremony', 'Divination', 'Tongues', 'True Form'],
+            4 => ['Ceremony', 'Divination', 'Doublecoin', 'Tongues', 'True Form'],
             5 => ['Atonement', 'Commune', 'Legend Lore'],
             6 => ['Glassee', 'Teleport', 'True Seeing'],
             7 => ['Dimensional Lock'],

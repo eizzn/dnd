@@ -19,47 +19,166 @@ class PotionFormulaSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $formula                = new Formula;
+        $formula->name          = 'Bottled Breath';
+        $formula->type          = 'Potion';
+        $formula->level         = 3;
+        $formula->price         = '20 gp / 75 gp';
+        $formula->crafting_time = '3 hours';
+        $formula->description   = '<p>This bottle contains a breath of Elemental Air. When you inhale it (as an Action) you can either exhale it or hold it.</p>
+<dl>
+    <dt>Exhale</dt> <dd>Your exhaled breath acts as a Gust of Wind spell.</dd>
+    <dt>Hold</dt> <dd>You do not need to breath for 1 hour. Exhaling for any reason (i.e. speaking) ends this effect</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Air', 'Potion'], [
+            'skills'    => [
+                'Arcana'   => ['dc' => 10],
+                'Crafting' => ['dc' => 12, 'meta' => 'Brewing'],
+            ],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Gust of Wind' => ['meta' => 'Heightened +1']],
+        ]);
+
+        $formula                = new Formula;
         $formula->name          = 'Holy Water';
         $formula->type          = 'Potion';
         $formula->level         = 3;
-        $formula->price         = '1 gp';
+        $formula->price         = '1 gp / 10 gp';
         $formula->crafting_time = '1 hour';
         $formula->description   = '<p>As an Action, you can splash Holy Water onto a creature within 5 feet of you or throw it up to 20 feet by making a Ranged Attack. If the target is a Fiend or Undead, it takes 3D6 Good damage.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Good', 'Water', 'Potion'], [
-            'skills'    => ['Crafting' => ['dc' => 8, 'meta' => 'Cooking']],
-            'materials' => ['Silver' => ['meta' => 'powdered']],
+            'skills'    => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
+            'materials' => ['Silver' => ['meta' => '1 sp worth shaved slivers']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Bless'],
         ]);
 
         $formula                = new Formula;
-        $formula->name          = 'Potion of Cold Resistance';
+        $formula->name          = 'Potion of Acid Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = '3';
+        $formula->price         = '2 gp / 10 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '2 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->activation    = 'Imbibed: Operate Action';
+        $formula->description   = '<p>Once this potion takes effect, you gain Resistance to Acid for 1 hour.</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Acid'], [
+            'skills'   => ['Crafting' => ['dc' => 5, 'meta' => 'Brewing']],
+            'feats'    => ['Brew Potion'],
+            'spells'   => ['Resist Acid'],
+            'monsters' => ['Carrion Crawler' => ['meta' => '1/4 oz mucus']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Beauty';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '5 gp / 30 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 1 minute after the onset of this potion, your features become more attractive, but suffer a little stupidity.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +4 item bonus to CHA</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to INT</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Eagle's Splendor"],
+            'monster' => ['Eagle' => ['meta' => '1 feather, crushed']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Beauty, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '20 gp / 500 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 1 minute after the onset of this potion, your features become more attractive, but suffer a little stupidity.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +6 item bonus to CHA</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to INT</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Eagle's Splendor" => ['meta' => 'Heightened +3']],
+            'monster' => ['Eagle' => ['meta' => '3 feathers, crushed']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Climbing';
         $formula->type          = 'Potion';
         $formula->level         = 3;
-        $formula->price         = '2 gp';
-        $formula->activation    = 'Imbibed; Operation Activation';
+        $formula->price         = '10 gp / 20 gp';
+        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->description   = '<p>For 1 hour after the onset of this potion, you gain a +10 Competence bonus to Climbing checks</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => ['Crafting' => ['dc' => 5, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Web'],
+            'materials' => ['Drojos Ivy' => ['meta' => '1/4 oz crushed']],
+            'monsters'  => ['Wolf Spider, Giant' => ['meta' => '2 hairs']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Cold Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '150 gp / 300 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
         $formula->bulk          = 'L';
         $formula->crafting_time = '3 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>1 minute</dd>';
         $formula->description   = '<p>For 24 hours after the onset of this potion, you become protected from the effects of severe cold. You gain Resistance to Cold damage and can survive in freezing weather without ill effects (as low as 0 degrees fahrenheit)</p>';
-        $helper->saveFormula($formula, ['Potion', 'Consumable'], [
-            'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Cooking']],
-            'feats'  => ['Brew Potion'],
-            'spells' => ['Endure Elements'],
+        $helper->saveFormula($formula, ['Potion', 'Consumable', 'Cold'], [
+            'skills'  => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ['Endure Elements' => ['meta' => 'Heightened +2']],
+            'monster' => ['Winter Wolf' => ['meta' => '10 drops of blood']],
+        ]);
+
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Electricity Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '150 gp / 300 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>1 minute</dd>';
+        $formula->description   = '<p>For 24 hours after the onset of this potion, you become protected from the effects of electricity. You gain Resistance to Electricity damage</p>';
+        $helper->saveFormula($formula, ['Potion', 'Consumable', 'Electricity'], [
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Endure Elements' => ['meta' => 'Heightened +2']],
+            'monster'   => ['Behir' => ['meta' => '1 oz of liver']],
+            'materials' => ['Mandrake Root' => ['meta' => '1 oz']],
         ]);
 
         $formula                = new Formula;
         $formula->name          = 'Potion of Fire Breathing';
         $formula->type          = 'Potion';
         $formula->level         = 5;
-        $formula->price         = '50 gp';
-        $formula->activation    = 'Imbibed; Operation Activation';
+        $formula->price         = '50 gp / 300 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
         $formula->bulk          = 'L';
         $formula->crafting_time = '8 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->description   = '<p>For 1 minute, you gain the ability to breath fire as if you had the Dragon Breath (Red) spell cast on yourself.</p>';
         $helper->saveFormula($formula, ['Potion', 'Consumable', 'Fire'], [
-            'skills'    => ['Crafting' => ['dc' => 9, 'meta' => 'Cooking']],
+            'skills'    => ['Crafting' => ['dc' => 9, 'meta' => 'Brewing']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Dragon Breath' => ['meta' => 'Must chose Red Dragon']],
             'materials' => ['Dragontongue Petals' => ['meta' => 'At least 3 petals, crushed']],
@@ -68,17 +187,17 @@ class PotionFormulaSeeder extends Seeder
         $formula                = new Formula;
         $formula->name          = 'Potion of Fire Resistance';
         $formula->type          = 'Potion';
-        $formula->level         = 3;
-        $formula->price         = '2 gp';
-        $formula->activation    = 'Imbibed; Operation Activation';
+        $formula->level         = 5;
+        $formula->price         = '150 gp / 300 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
         $formula->bulk          = 'L';
         $formula->crafting_time = '3 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>1 minute</dd>';
         $formula->description   = '<p>For 24 hours after the onset of this potion, you become protected from the effects of intense heat. You gain Resistance to Fire damage and can survive in sweltering heat without ill effects (as high as 120 degrees fahrenheit)</p>';
-        $helper->saveFormula($formula, ['Potion', 'Consumable'], [
-            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Cooking']],
+        $helper->saveFormula($formula, ['Potion', 'Consumable', 'Fire'], [
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
             'feats'     => ['Brew Potion'],
-            'spells'    => ['Endure Elements'],
+            'spells'    => ['Endure Elements' => ['meta' => 'Heightened +2']],
             'materials' => ['Druid Ephedra' => ['meta' => 'At least 5 leaves, boiled in oil until just a green sludge remains. Add sludge to potion']],
         ]);
 
@@ -86,31 +205,85 @@ class PotionFormulaSeeder extends Seeder
         $formula->name          = 'Potion of Flying';
         $formula->type          = 'Potion';
         $formula->level         = 6;
-        $formula->price         = '70 gp';
-        $formula->activation    = 'Imbibed; Operation Activation';
+        $formula->price         = '120 gp / 500 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
         $formula->bulk          = 'L';
         $formula->crafting_time = '6 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->description   = '<p>When you drink this potion, you gain a Flying Speed equal to your Walking Speed for 1 hour and can hover. If you are in the air when the potion wears off, you fall unless you have some other means of staying aloft.</p>';
         $helper->saveFormula($formula, ['Potion', 'Consumable'], [
-            'skills'    => ['Crafting' => ['dc' => 14, 'meta' => 'Cooking']],
+            'skills'    => ['Crafting' => ['dc' => 14, 'meta' => 'Brewing']],
             'feats'     => ['Brew Potion'],
-            'spells'    => ['Fly'],
+            'spells'    => ['Fly' => ['meta' => 'Heightened +1']],
             'materials' => ['Thunderleaf' => ['meta' => 'At least 5 leaves, crushed']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Force Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '20 gp / 200 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '6 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->description   = '';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Force'], [
+            'skills'    => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Shield'],
+            'materials' => ['Lunar Flower' => ['meta' => '1 lb reduced with any alcohol']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Gaseous Form';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '150 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '6 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->description   = '';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Air'], [
+            'skills'    => [
+                'Crafting' => ['dc' => 17, 'meta' => 'Brewing'],
+                'Arcana'   => ['dc' => 15],
+            ],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Gaseous Form'],
+            'monsters'  => ['Air Mephit' => ['meta' => 'Clipping from nail or horn']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Growth';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '100 gp / 350 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '8 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->description   = '';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => ['Crafting' => ['dc' => 11, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Enlarge'],
+            'materials' => ['White Poppy' => ['meta' => '1 lb, crushed and reduced with any alcohol']],
         ]);
 
         $formula                = new Formula;
         $formula->name          = 'Potion of Healing, Lesser';
         $formula->type          = 'Potion';
         $formula->level         = 2;
-        $formula->price         = '1 gp / 3 gp';
+        $formula->price         = '1 gp / 10 gp';
         $formula->bulk          = 'L';
         $formula->crafting_time = '2 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
-        $formula->activation    = 'Imbibed; Operate Activation';
+        $formula->activation    = 'Imbibed; Operate Action';
         $formula->description   = '<p>Upon drinking this potion, you regain 1D6 +1 Hit Points. If you are at maximum Hit Points when you drink this potion, you instead gain a +2 item bonus to Saves against toxins for 1 hour.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills' => ['Crafting' => ['dc' => 8, 'meta' => 'Cooking']],
+            'skills' => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
             'feats'  => ['Brew Potion'],
             'spells' => ['Cure Wounds'],
         ]);
@@ -119,14 +292,14 @@ class PotionFormulaSeeder extends Seeder
         $formula->name          = 'Potion of Healing';
         $formula->type          = 'Potion';
         $formula->level         = 5;
-        $formula->price         = '20 gp / 50 gp';
+        $formula->price         = '10 gp / 100 gp';
         $formula->bulk          = 'L';
         $formula->crafting_time = '8 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed; Operate Action';
         $formula->description   = '<p>Upon drinking this potion, you regain 3D6 +3 Hit Points and can attempt a new Save against any one toxin of 8th level or lower currently afflicting you. If you succeed, the toxin is neutralized.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Cooking']],
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Brewing']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Cure Wounds' => ['meta' => 'Heighten +2']],
             'materials' => [
@@ -139,18 +312,19 @@ class PotionFormulaSeeder extends Seeder
         $formula->name          = 'Potion of Healing, Greater';
         $formula->type          = 'Potion';
         $formula->level         = 10;
-        $formula->price         = '200 gp / 400 gp';
+        $formula->price         = '200 gp / 250 gp';
         $formula->rarity        = 'Rare';
         $formula->bulk          = 'L';
         $formula->crafting_time = '12 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed; Operate Action';
         $formula->description   = '<p>Upon drinking this potion, you regain 5D6 +5 Hit Points and can end a toxin afflicting you as long as it is not higher than 12th level.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
             'skills'    => ['Crafting' => ['dc' => 15, 'meta' => 'Brew Potion']],
             'feats'     => ['Improved Brew Potion'],
             'spells'    => ['Cure Wounds' => ['meta' => 'Heighten +5']],
             'materials' => ['Kreet Paste' => ['meta' => 'At least 3 oz']],
+            'monster'   => ['Troll' => ['meta' => 'At least 7 drops of blood']],
         ]);
 
         $formula                = new Formula;
@@ -162,98 +336,382 @@ class PotionFormulaSeeder extends Seeder
         $formula->bulk          = 'L';
         $formula->crafting_time = '18 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed: Operate Action';
         $formula->description   = '<p>Upon drinking this potion, you regain 8D6 +8 (reroll all 1s and 2s) Hit Points and can end a toxin afflicting you as long as it is not higher than 15th level.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills'    => ['Crafting' => ['dc' => 17, 'meta' => 'Brew Potion']],
+            'skills'    => ['Crafting' => ['dc' => 17, 'meta' => 'Brewing']],
             'feats'     => ['Improved Brew Potion'],
             'spells'    => ['Cure Wounds' => ['meta' => 'Heighten +7']],
             'materials' => ['Spineflower Berries' => ['meta' => 'At least 5 berries, crushed']],
+            'monster'   => ['Troll' => ['meta' => 'At least 1 gallon of blood, then condensed']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Health';
+        $formula->type          = 'Potion';
+        $formula->level         = 9;
+        $formula->price         = '120 gp';
+        $formula->rarity        = 'Rare';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '10 hours';
+        $formula->activation    = 'Imbibed; operate Action';
+        $formula->description   = '<p>When you drink this potion, it cures any disease afflicting you, and it removes the Blinded, and Deafened Conditions.</p>
+<p>The clear red liquid has tiny bubbles of light in it. It confers no benefit to undead or constructs.</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Disease'], [
+            'skills'    => ['Crafting' => ['dc' => 12,'meta' => 'Brewing']],
+            'feats'     => ['Improved Brew Potion'],
+            'spells'    => ['Cure Disease' => ['meta' => 'Heightened +2']],
+            'materials' => ['Livewood'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Heroism';
+        $formula->type          = 'Potion';
+        $formula->level         = 4;
+        $formula->price         = '12 gp';
+        $formula->rarity        = 'Common';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->description   = '<p>This blue potion bubbles and steams as if boiling</p>
+<p>For 1 hour after this potion takes effect, you gain the following</p>
+<ul>
+    <li>You gain 10 Temporary Hit Points</li>
+    <li>+1 Bonus to Hit and Saves</li>
+</ul>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Brew Potion']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Aid', 'Bless'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Heroism, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 6;
+        $formula->price         = '12 gp';
+        $formula->rarity        = 'Common';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->description   = '<p>This blue potion bubbles and steams as if boiling</p>
+<p>For 1 hour after this potion takes effect, you gain the following</p>
+<ul>
+    <li>You gain 15 Temporary Hit Points</li>
+    <li>You gain a +4 bonus to CON</li>
+    <li>+1 Bonus to Hit and Saves</li>
+    <li>You gain Resistance to Bludgeoning, Slashing and Piercing Damage</li>
+</ul>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => ['Crafting' => ['dc' => 12, 'meta' => 'Brew Potion']],
+            'feats'     => ['Improved Brew Potion'],
+            'spells'    => ['Aid', 'Bless', 'Stoneskin', "Bear's Endurance"],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Intelligence';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '5 gp / 30 gp';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 1 minute after the onset of this potion, you become more intelligent, but at the cost of physical strength.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +4 item bonus to INT</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to STR</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Fox's Cunning"],
+            'monster' => ['Intellect Devourer' => ['meta' => '1/2 oz Brain matter (or from any creature with Psionic abilities)']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Intelligence, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '20 gp / 500 gp';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 10 minutes after the onset of this potion, you become more intelligent, but at the cost of physical strength.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +6 item bonus to INT</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to STR</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Fox's Cunning" => ['meta' => 'Heightened +3']],
+            'monster' => ['Intellect Devourer' => ['meta' => '1/2 oz Brain matter (or from any creature with Psionic abilities)']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Invisibility';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '70 gp / 200 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '2 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->activation    = 'Imbibed: Operate Action';
+        $formula->description   = '';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 5, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ['Invisibility'],
+            'monster' => ['Spider, Giant' => ['meta' => '4 Fermented eyes']],
         ]);
 
         $formula                = new Formula;
         $formula->name          = 'Potion of Jumping';
         $formula->type          = 'Potion';
-        $formula->level         = 2;
-        $formula->price         = '2 gp';
+        $formula->level         = 3;
+        $formula->price         = '2 gp / 10 gp';
         $formula->bulk          = 'L';
         $formula->crafting_time = '2 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed: Operate Action';
         $formula->description   = '<p>For 1 minute after drinking this potion, you can attempt High Jumps and Long Jumps with a single Leap Action, rather than as a Double Action activity requiring a Stride and a Leap.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills' => ['Crafting' => ['dc' => 5, 'meta' => 'Cooking']],
-            'feats'  => ['Brew Potion'],
-            'spells' => ['Jump'],
+            'skills'  => ['Crafting' => ['dc' => 5, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ['Jump'],
+            'monster' => ['Frog' => ['meta' => '3 drops of blood']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Longevity';
+        $formula->type          = 'Potion';
+        $formula->level         = 12;
+        $formula->price         = '200 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '12 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>Over the course of 1 week</dd>';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = "<p>When you drink this potion, your physical age is reduced by 7 years. There is a 5% chance that you die at the end of the 1 week.</p>
+<p>Suspended in this amber liquid are the scorpion's tail and the imp's still beating heart. As the potion is being drunk, those items dissolves into the liquid.</p>";
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => [
+                'Crafting' => ['dc' => 15, 'meta' => 'Brewing'],
+                'Arcana'   => ['dc' => 17],
+            ],
+            'feats'     => ['Improved Brew Potion', 'Craft Wondrous Item'],
+            'spells'    => ['Slow', 'Sands of Time'],
+            'monsters'  => [
+                'Imp'             => ['meta' => 'Heart of the Imp'],
+                'Scorpion, Giant' => ['meta' => 'Tail stinger'],
+            ],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Poison Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = '3';
+        $formula->price         = '2 gp / 10 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '2 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->activation    = 'Imbibed: Operate Action';
+        $formula->description   = '<p>Once this potion takes effect, you gain Resistance to Poison Damage for 1 hour</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Poison'], [
+            'skills'    => ['Crafting' => ['dc' => 5, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Slow Poison'],
+            'materials' => ['Ecire Laurel' => ['meta' => '1/4 oz crushed']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Positive Resistance';
+        $formula->type          = 'Potion';
+        $formula->level         = 6;
+        $formula->price         = '5 gp / 10 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>Once this potion takes effect, you gain Resistance to Positive Damage</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Positive'], [
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Revivify'],
+            'materials' => ['Ucre Bramble' => ['meta' => '1 oz crushed'],],
         ]);
 
         $formula                = new Formula;
         $formula->name          = 'Potion of Quickness';
         $formula->type          = 'Potion';
-        $formula->level         = 3;
-        $formula->price         = '20 gp';
+        $formula->level         = 5;
+        $formula->price         = '5 gp / 30 gp';
         $formula->rarity        = 'Rare';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->bulk          = 'L';
         $formula->crafting_time = '3 hours';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed; Operate Action';
         $formula->description   = "<p>For 1 minute after the onset of this potion, your features become thin and angular and you become swifter and nimbler, but your body also becomes fragile.</p>
 <dl>
     <dt>Benefit</dt> <dd>You gian a +4 item bonus to DEX, and you become Accelerated 10.</dd>
     <dt>Drawback</dt> <dd>You take a –2 item penalty to CON and you can't recover Hit Points lost in this way by any means while the potion lasts.</dd>
 </dl>";
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Cooking']],
-            'feats'  => ['Brew Potion'],
-            'spells' => ["Cat's Grace"],
+            'skills'  => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Cat's Grace"],
+            'monster' => ['Cat' => ['meta' => '3 whiskers']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Quickness, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '20 gp / 500 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = "<p>For 10 minutes after the onset of this potion, your features become thin and angular and you become swifter and nimbler, but your body also becomes fragile.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +6 item bonus to DEX, and you become Accelerated 10.</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to CON and you can't recover Hit Points lost in this way by any means while the potion lasts.</dd>
+</dl>";
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Cat's Grace" => ['meta' => 'Heightened +3']],
+            'monster' => ['Cat' => ['meta' => '3 whiskers']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Shrinking';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '100 gp / 350 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '8 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->description   = '';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'    => ['Crafting' => ['dc' => 11, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Shrink'],
+            'materials' => ['White Poppy' => ['meta' => '1 lb, crushed and reduced with any alcohol']],
         ]);
 
         $formula                = new Formula;
         $formula->name          = 'Potion of Strength';
         $formula->type          = 'Potion';
         $formula->level         = 5;
-        $formula->price         = '5 gp';
+        $formula->price         = '5 gp / 30 gp';
         $formula->rarity        = 'Rare';
         $formula->bulk          = 'L';
         $formula->crafting_time = '3 hours';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
-        $formula->activation    = 'Action; Operate Activation';
+        $formula->activation    = 'Imbibed; Operate Action';
         $formula->description   = '<p>For 1 minute after the onset of this potion, you increase muscle mass, but your lumbering form is clumsy.</p>
-<dl>
-    <dt>Benefit</dt> <dd>You gain a +4 item bonus to STR.</dd>
-    <dt>Drawback</dt> <dd>You gain a -2 item penalty to DEX.</dd>
-</dl>';
+<p>You gain a +4 Item bonus to STR.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
             'skills' => ['Crafting' => ['dc' => 8, 'meta' => 'Brew Potion']],
             'feats'  => ['Brew Potion'],
             'spells' => ["Bull's Strength"],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Potion of Strength, Greater';
-        $formula->type        = 'Potion';
-        $formula->level       = 11;
-        $formula->price       = '40 gp';
-        $formula->rarity      = 'Rare';
-        $formula->bulk        = 'L';
-        $formula->meta        = '<dt>Onset</dt> <dd>End of your next turn</dd>';
-        $formula->activation  = 'Action; Operate Activation';
-        $formula->description = '<p>For 10 minutes after the onset of this mutagen, you increase muscle mass, but your lumbering form is clumsy.</p>
-<dl>
-    <dt>Benefit</dt> <dd>You gain a +6 item bonus to STR.</dd>
-</dl>';
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Strength, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '40 gp / 250 gp';
+        $formula->rarity        = 'Rare';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->activation    = 'Action; Operate Activation';
+        $formula->description   = '<p>For 10 minutes after the onset of this potion, you increase muscle mass, but your lumbering form is clumsy.</p>
+<p>You gain a +6 Item bonus to STR.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
             'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brew Potion']],
             'feats'   => ['Improved Brew Potion'],
-            'spells'  => ["Bull's Strength" => ['meta' => 'Heighten +3']],
+            'spells'  => ["Bull's Strength" => ['meta' => 'Heightened +3']],
             'monster' => ['Ogre' => ['meta' => '3 drops of blood']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Strength, Perfect';
+        $formula->type          = 'Potion';
+        $formula->level         = 15;
+        $formula->price         = '120 gp / 1000 gp';
+        $formula->rarity        = 'Rare';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->activation    = 'Action; Operate Activation';
+        $formula->description   = '<p>For 10 minutes after the onset of this potion, you increase muscle mass, but your lumbering form is clumsy.</p>
+<p>You gain a +8 Item bonus to STR.</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 15, 'meta' => 'Brew Potion']],
+            'feats'   => ['Improved Brew Potion'],
+            'spells'  => ["Bull's Strength" => ['meta' => 'Heightened +5']],
+            'monster' => ['Hill Giant' => ['meta' => '3 drops of blood']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Speed';
+        $formula->type          = 'Potion';
+        $formula->rarity        = 'Rare';
+        $formula->level         = 7;
+        $formula->price         = '200 gp - 450 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->crafting_time = '8 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting      = '<ul>
+    <li>Purified water (typically captured steam from a boiling pot of water) is first prepared and must start from room temperature</li>
+    <li>The water is then slowly heated to a simmer.</li>
+    <li>The Haste spell is cast on the simmering water. While the spell is being cast, the Quickling blood and the Horse Sweat is added. They must be added after the Haste spell is started casting and must be all added before the Haste spell is completed.</li>
+    <li>The Horse Sweat turns yellow and the Quickling blood turns black. After a total of 4 hours of simmering heat, the black substance begins to swirl in the light yellow liquid, and the potion is complete.</li>
+</ul>';
+        $formula->description = "<p>When you drink this potion, you gain the effect of the Haste Spell for 1 minute (no Concentration required). The potion's yellow fluid is streaked with black and swirls on its own.</p>";
+        $helper->saveFormula($formula, ['Potion', 'Consumable'], [
+            'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ['Haste'],
+            'monster' => [
+                'Horse, Riding' => ['meta' => '3 drops of sweat'],
+                'Quickling'     => ['meta' => '5 drops of blood'],
+            ],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Swimming';
+        $formula->type          = 'Potion';
+        $formula->rarity        = 'Common';
+        $formula->level         = 5;
+        $formula->price         = '10 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->crafting_time = '4 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->description   = '<p>This potion is made of layers of teal, light blue, and indigo fluid that resembles a deep ocean. Shaking the bottle fails to mix the colors.</p>
+<p>When you drink this potion, you gain a Swim Speed equal to your Land Stride Speed and you have Advantage on Athletics checks you make to swim.</p>';
+        $helper->saveFormula($formula, ['Potion', 'Consumable'], [
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ['Feet to Fins'],
         ]);
 
         $formula              = new Formula;
         $formula->name        = 'Potion of Vitality';
         $formula->type        = 'Potion';
         $formula->level       = 5;
-        $formula->price       = '5 gp';
+        $formula->price       = '5 gp / 150 gp';
         $formula->rarity      = 'Rare';
         $formula->bulk        = 'L';
         $formula->meta        = '<dt>Onset</dt> <dd>End of your next turn</dd>';
@@ -264,32 +722,94 @@ class PotionFormulaSeeder extends Seeder
     <dt>Drawback</dt> <dd>You take a –1 item penalty to WIS Saves, Perception checks, Medicine checks, Nature checks, Religion checks, and Survival checks.</dd>
 </dl>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Cooking']],
-            'feats'  => ['Brew Potion'],
-            'spells' => ["Bear's Endurance"],
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Brewing']],
+            'feats'     => ['Brew Potion'],
+            'spells'    => ["Bear's Endurance"],
+            'materials' => ['Wisp Stems' => ['meta' => '1/8 oz crushed']],
         ]);
 
         $formula                = new Formula;
-        $formula->name          = 'Potion of Speed';
+        $formula->name          = 'Potion of Water Breathing';
         $formula->type          = 'Potion';
-        $formula->rarity        = 'Rare';
-        $formula->level         = 6;
-        $formula->price         = '200 - 450 gp';
-        $formula->activation    = 'Imbibed';
-        $formula->crafting_time = '8 hours';
-        $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
+        $formula->level         = 5;
+        $formula->price         = '50 gp - 150 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->crafting_time = '2 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->bulk          = 'L';
-        $formula->crafting      = '<ul>
-    <li>Purified water (typically captured steam from a boiling pot of water) is first prepared and must start from room temperature</li>
-    <li>The water is then slowly heated to a simmer.</li>
-    <li>The Haste spell is cast on the simmering water. While the spell is being cast, the Quickling blood and the Horse Sweet is added. They must be added after the Haste spell is started casting and must be all added before the Haste spell is completed.</li>
-    <li>The Horse Sweet turns yellow and the Quickling blood turns black. After a total of 4 hours of simmering heat, the black substance begins to swirl in the light yellow liquid, and the potion is complete.</li>
-</ul>';
-        $formula->description = "<p>When you drink this potion, you gain the effect of the Haste Spell for 1 minute (no concentration required). The potion's yellow fluid is streaked with black and swirls on its own.</p>";
-        $helper->saveFormula($formula, ['Potion', 'Consumable'], [
-            'skills' => ['Crafting' => ['dc' => 8, 'meta' => 'Cooking']],
+        $formula->description   = '<p>When you drink this potion, you gain the ability to breath underwater for 1 hour after drinking this potion.</p>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
             'feats'  => ['Brew Potion'],
-            'spells' => ['Haste'],
+            'spells' => ['Water Breathing'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Water Form';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '2500 gp';
+        $formula->activation    = 'Imbibed; Operation Action';
+        $formula->crafting_time = '8 hours';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->description   = '<p>When this potion takes effect, you transform into a pool of water. You return to your true form after 10 minutes or if you are incapacitated or die. You are under the effects of the following effects.</p>
+<ul>
+    <li>Liquid Movement: You have a Swim Speed of 90 feet. While you are in water, you can move over or through other liquids. You can enter and occupy the space of another creature. you can rise up to your normal height, and you can pass through even tiny openings.</li>
+    <li>Watery Resilience: You have Resistance to Bludgeoning, Slashing, and Piercing Damage.</li>
+    <li>You extinguish nonmagical flames in any space you enter</li>
+    <li>You have Advantage on STR, DEX, and CON Saves</li>
+    <li>Limitations: You cannot talk, attack, cast spells, or activate magic items. Any objects you are carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you are wearing, such as armor.</li>
+</ul>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion', 'Water'], [
+            'skills'    => ['Crafting' => ['dc' => 20, 'meta' => 'Brewing']],
+            'feats'     => ['Improved Brew Potion'],
+            'spells'    => ['Investiture of Water'],
+            'materials' => ['Water' => ['meta' => '3 droplets from the Elemental Plane of Water']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Wisdom';
+        $formula->type          = 'Potion';
+        $formula->level         = 5;
+        $formula->price         = '5 gp / 30 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '3 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 1 minute after the onset of this potion, you become Wise, but your reflexes are dulled.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +4 item bonus to WIS</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to DEX</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Owl's Wisdom"],
+            'monster' => ['Owl' => ['meta' => '1/2 oz tongue']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Wisdom, Greater';
+        $formula->type          = 'Potion';
+        $formula->level         = 11;
+        $formula->price         = '20 gp / 500 gp';
+        $formula->rarity        = 'Rare';
+        $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '5 hours';
+        $formula->activation    = 'Imbibed; Operate Action';
+        $formula->description   = '<p>For 1 minute after the onset of this potion, you become Wise, but your reflexes are dulled.</p>
+<dl>
+    <dt>Benefit</dt> <dd>You gian a +6 item bonus to WIS</dd>
+    <dt>Drawback</dt> <dd>You take a –2 item penalty to DEX</dd>
+</dl>';
+        $helper->saveFormula($formula, ['Consumable', 'Potion'], [
+            'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
+            'feats'   => ['Brew Potion'],
+            'spells'  => ["Owl's Wisdom" => ['meta' => 'Heightened +3']],
+            'monster' => ['Owl' => ['meta' => '1/2 oz tongue']],
         ]);
 
         $formula                = new Formula;
@@ -297,8 +817,8 @@ class PotionFormulaSeeder extends Seeder
         $formula->type          = 'Oil';
         $formula->rarity        = 'Rare';
         $formula->level         = 13;
-        $formula->price         = '1,200 gp';
-        $formula->activation    = 'Applied to body';
+        $formula->price         = '250 gp / 1,200 gp';
+        $formula->activation    = 'Applied to body; Double Action';
         $formula->meta          = '<dt>Onset</dt> <dd>End of your next turn</dd>';
         $formula->bulk          = 'L';
         $formula->crafting_time = '10 hours';
@@ -310,7 +830,7 @@ class PotionFormulaSeeder extends Seeder
 </ul>';
         $formula->description = "<p>Beads of this cloudy gray oil form on the outside of its container and quickly evaporate. The oil can cover a Medium or smaller creature, along with the equipment it's wearing and carrying (one additional vial is required for each size category above Medium). Applying the oil takes 10 minutes. The affected creature then gains the effect of the etherealness spell for 1 hour.</p>";
         $helper->saveFormula($formula, ['Potion', 'Consumable'], [
-            'skills' => ['Crafting' => ['dc' => 15, 'meta' => 'Cooking']],
+            'skills' => ['Crafting' => ['dc' => 15, 'meta' => 'Brewing']],
             'spells' => ['Etherealness'],
             'feats'  => ['Improved Brew Potion'],
         ]);
@@ -318,9 +838,9 @@ class PotionFormulaSeeder extends Seeder
         $formula                = new Formula;
         $formula->name          = 'Oil of Slipperiness';
         $formula->type          = 'Oil';
-        $formula->price         = '100 gp';
+        $formula->price         = '100 gp / 550 gp';
         $formula->level         = 2;
-        $formula->activation    = 'Applied to body or ground (see text)';
+        $formula->activation    = 'Applied to body or ground (see text); Double Action';
         $formula->meta          = '<dt>Onset</dt> <dd>Start of your next turn</dd>';
         $formula->bulk          = 'L';
         $formula->crafting_time = '16 hours';
@@ -333,7 +853,7 @@ class PotionFormulaSeeder extends Seeder
 <p>Alternatively, the oil can be poured on the ground as an Action, where it covers a 10-foot square, duplicating the effect of the Grease spell in that area for 8 hours.</p>";
         $helper->saveFormula($formula, ['Potion', 'Consumable'], [
             'skills'    => [
-                'Crafting' => ['dc' => 11, 'meta' => 'Cooking'],
+                'Crafting' => ['dc' => 11, 'meta' => 'Brewing'],
                 'Nature'   => ['dc' => 9],
             ],
             'feats'     => ['Brew Potion'],
@@ -345,11 +865,11 @@ class PotionFormulaSeeder extends Seeder
         $formula->name          = 'Unholy Water';
         $formula->type          = 'Potion';
         $formula->level         = 3;
-        $formula->price         = '2 gp';
+        $formula->price         = '1 gp / 10 gp';
         $formula->crafting_time = '1 hour';
         $formula->description   = '<p>As an Action, you can splash Unholy Water onto a creature within 5 feet of you or throw it up to 20 feet by making a Ranged Attack. If the target is a Celestial, it takes 3D6 Evil damage.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Evil', 'Water', 'Potion'], [
-            'skills'    => ['Crafting' => ['dc' => 8, 'meta' => 'Cooking']],
+            'skills'    => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
             'materials' => ['Silver' => ['meta' => 'powdered']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Bane'],

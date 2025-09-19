@@ -21,6 +21,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ogre';
         $monster->size             = 'Large';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9 (Hide) / 8';
         $monster->damage_reduction = '3 (Hide) / 1';
@@ -46,6 +47,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Troll';
         $monster->size             = 'Large';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -71,6 +73,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ettin';
         $monster->size             = 'Large';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9 (Hide) / 8';
         $monster->damage_reduction = '3 (Hide) / 1';
@@ -112,6 +115,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Cyclops';
         $monster->size             = 'Large';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '8';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -138,6 +142,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Hill Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '8 (Hide) / 7';
         $monster->damage_reduction = '3 (Hide) / 1';
@@ -166,6 +171,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Stone Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'N';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -204,8 +210,39 @@ class MonstersGSeeder extends Seeder
         ]);
 
         $monster                   = new Monster;
+        $monster->name             = 'Fomorian';
+        $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
+        $monster->alignment        = 'CE';
+        $monster->armor_class      = '12 (Natural Armor)';
+        $monster->damage_reduction = '2 (Natural Armor)';
+        $monster->hit_dice         = 13;
+        $monster->speed            = '30 ft';
+        $monster->actions          = '<dl>
+    <dt>Greatclub</dt> <dd>Melee Weapon Attack +9 to hit, reach 15 ft, one target, 19 (3D6 + 6) Bludgeoning</dd>
+    <dt>Evil Eye</dt> <dd>The fomorian magically forces a creature it can see within 60 feet of it to make a DC 14 CHA saving throw. The creature takes 27 (6D8) Negative damage on a Failed Save, or half as much damage on a successful one.</dd>
+    <dt>Curse of the Evil Eye (Recharge after a Short or Long Rest)</dt> <dd>With a stare, the fomorian uses Evil Eye, but on a failed save, the creature is also cursed with magical deformities. While deformed, the creature has its Speed halved and has Disadvantage on ability checks, Saves, and attacks based on STR or DEX. The transformed creature can repeat the Save whenever it finishes a long rest, ending the effect on a success.</dd>
+</dl>';
+        $monster->description      = '<p>Fomorians are tall beings, ranging from 20 to 30 feet in height. They are ugly, with goat-heads, large ears, and gaping mouths.</p>
+<p>Fomorians are supernatural giants, possibly fallen gods, known for terrorizing others. Their origins are debated, with some stories suggesting they emerged from the depths of the sea or the netherworld beneath the earth. Their magical powers include control over destructive elements like storms, darkness, drought, and blight.</p>
+<p>Despite their brute strength, fomorians lack finesse in battle and are better known for causing chaos and destruction. They possess some magical abilities, such as summoning fog and controlling the weather. When not raiding, they have supreme agricultural skills, introducing plowing to the lands where they reside and having a sense of the right time to plant and harvest.</p>
+<p>Some fomorians are truly massive horrors that have an additional eye in their forehead. This eye can poison, petrify, or immolate foes. Known as foawr, these fomorians enjoy throwing boulders at passing sailors they cannot reach with their spears.</p>
+<p>Most fomorians live in the Underdark or the FeyDark in the FeyWild. In the FeyWild, they work to get their revenge against the fey for cursing them into their hideous forms.</p>';
+        $helper->saveMonster($monster, ['Giant'], [
+            'stats'     => [23, 10, 20, 9, 14, 6, 8, 4],
+            'skills'    => [
+                'Nature' => ['dc' => 5],
+            ],
+            'features'  => [
+                'darkvision' => ['meta' => '120 ft'],
+            ],
+            'languages' => ['Jotun'],
+        ]);
+
+        $monster                   = new Monster;
         $monster->name             = 'Frost Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '9 (Chain Mail) / 7';
         $monster->damage_reduction = '6 (Chain Mail) / 2';
@@ -252,6 +289,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Fire Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '10 (Full Plate) / 7';
         $monster->damage_reduction = '8 (Full Plate) / 2';
@@ -292,6 +330,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Cloud Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'N(G or E)';
         $monster->armor_class      = '10 (Breast Plate) / 8';
         $monster->damage_reduction = '5 (Breast Plate) / 2';
@@ -344,6 +383,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Storm Giant';
         $monster->size             = 'Huge';
+        $monster->type             = 'Giant';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '11 (Scale Mail) / 10';
         $monster->damage_reduction = '4 (Scale Mail) / 2';
@@ -396,6 +436,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gnoll';
         $monster->size             = 'Medium';
+        $monster->type             = 'Gnoll';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '14 (Hide, Shield) / 11';
         $monster->damage_reduction = '3 (Hide) / 0';
@@ -436,6 +477,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gorynych';
         $monster->size             = 'Huge';
+        $monster->type             = 'Dragon';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -474,6 +516,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Musteval';
         $monster->size             = 'Tiny';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '17 (Leather) / 16';
         $monster->damage_reduction = '1 (Leather) / 0';
@@ -515,6 +558,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Cervidal';
         $monster->size             = 'Medium';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '13 (Hide) / 12';
         $monster->damage_reduction = '3 (Hide) / 1';
@@ -565,6 +609,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Equinal';
         $monster->size             = 'Large';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '11 (Hide Armor +1) / 9';
         $monster->damage_reduction = '4 (Hide +1) / 2';
@@ -619,6 +664,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Lupinal';
         $monster->size             = 'Medium';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '17 (Hide +1) / 15';
         $monster->damage_reduction = '4 (Hide +1) / 2';
@@ -670,6 +716,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Avoral';
         $monster->size             = 'Medium';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '18 (Studded Leather +1) / 16';
         $monster->damage_reduction = '3 (Studded Leather +1) / 2';
@@ -728,6 +775,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Ursinal';
         $monster->size             = 'Medium';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '14 (Scale Mail +2) / 11';
         $monster->damage_reduction = '6 (Scale Mail +2) / 3';
@@ -784,6 +832,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Leonal';
         $monster->size             = 'Medium';
+        $monster->type             = 'Guardinal';
         $monster->alignment        = 'NG';
         $monster->armor_class      = '18 (Breast Plate +2) / 14';
         $monster->damage_reduction = '7 (Breast Plate +2) / 3';

@@ -15,6 +15,7 @@ class PantheonCollectionResource extends ResourceCollection
                 return [
                     'id'          => $pantheon->id,
                     'name'        => $pantheon->name,
+                    'description' => mb_substr(str_replace(["\r", "\n"], '', strip_tags($pantheon->description)), 0, 100) . '...',
                 ];
             }),
         ];

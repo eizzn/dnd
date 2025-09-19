@@ -21,6 +21,7 @@ class MonstersCSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Chosen One';
         $monster->size             = 'Medium';
+        $monster->type             = 'Humanoid';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -44,6 +45,7 @@ class MonstersCSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Cloaker';
         $monster->size             = 'Large';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -71,6 +73,7 @@ class MonstersCSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Couatl';
         $monster->size             = 'Medium';
+        $monster->type             = 'Celestial';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '15';
         $monster->damage_reduction = '4 (Natural Armor)';

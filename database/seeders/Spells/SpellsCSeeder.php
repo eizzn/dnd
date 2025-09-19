@@ -400,7 +400,7 @@ class SpellsCSeeder extends Seeder
         $spell->range          = '120 feet';
         $spell->area           = '20 foot radius';
         $spell->duration       = '3 rounds';
-        $spell->description    = '<p>you create a bank of smoke, similar in effect to a fog cloud. In addition to obscureing sight, the cloud deals 1D6 Acid damage per to all creatures within it. The fumes burn the eyes, imposing a -3 penalty to all Attack rolls and Perception checks while in the smoke and for 1 round after. A successful CON Save ignores these penalties for that round.</p>';
+        $spell->description    = '<p>You create a bank of smoke, similar in effect to a fog cloud. In addition to obscureing sight, the cloud deals 1D6 Acid damage per to all creatures within it. The fumes burn the eyes, imposing a -3 penalty to all Attack rolls and Perception checks while in the smoke and for 1 round after. A successful CON Save ignores these penalties for that round.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Ignore the penalties to Attack rolls and Perception checks for that round</dd>
     <dt>Failure</dt> <dd>-3 penalty to all Attack rolls and Perception checks for that round.</dd>
@@ -768,25 +768,6 @@ class SpellsCSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Cold'], 2);
 
-        $spell              = new Spell;
-        $spell->name        = 'Chill Touch';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = 'Touch';
-        $spell->targets     = 'One living or undead creature';
-        $spell->duration    = 'Instantaneous';
-        $spell->description = "<p>You touch weakens the living and disorients undead. Make a melee touch attack. The effect of a hit depends on whether the target is living or undead. Heightening increases the damage.</p>
-<dl>
-    <dt>Living Creature</dt> <dd>1D8 negative damage. On a critical hit, double damage and enfeebled 1 for 1 round.</dd>
-    <dt>Undead Creature</dt> <dd>Flat-footed for 1 round. On a critical hit, it's also fleeing for 1 round unless it succeeds at a WIS Save.</dd>
-</dl>";
-        $spell->heightened = '<dl>
-    <dt>Heightened (+3)</dt> <dd>Damage of 1D8 + your spellcasting ability modifier.</dd>
-    <dt>Heightened (+5)</dt> <dd>Damage of 2D8 + your spellcasting ability modifier.</dd>
-    <dt>Heightened (+7)</dt> <dd>Damage of 3D8 + your spellcasting ability modifier.</dd>
-    <dt>Heightened (+9)</dt> <dd>Damage of 4D8 + your spellcasting ability modifier.</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Attack', 'Necromancy', 'Negative'], 0);
-
         $spell                = new Spell;
         $spell->name          = 'Chilling Chamber';
         $spell->casting       = 'Somatic Casting, Verbal Casting';
@@ -904,6 +885,7 @@ class SpellsCSeeder extends Seeder
         $spell->description = '<p>This spell functions as Circle of Protection From Evil, except that it effects Chaotic creatures and effects.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Lawful'], 3);
         $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
@@ -922,7 +904,8 @@ class SpellsCSeeder extends Seeder
 <p>Summoned evil creatures can't willingly enter without a WIS Save. Use the first result for repeated attempts.</p>
 <p>The circle can also be used to prepare a Summoning Circle, used to trap an outsider that you are about to summon. See Summoning Circle Formula.</p>";
         $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Good'], 3);
         $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
@@ -939,6 +922,7 @@ class SpellsCSeeder extends Seeder
         $spell->description = '<p>This spell functions as Circle of Protection From Evil, except that it effects Good creatures and effects.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Evil'], 3);
         $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
@@ -955,6 +939,7 @@ class SpellsCSeeder extends Seeder
         $spell->description = '<p>This spell functions as Circle of Protection From Evil, except that it effects Lawful creatures and effects.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Chaotic'], 3);
         $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
@@ -1310,7 +1295,7 @@ class SpellsCSeeder extends Seeder
         $spell->targets        = 'One humanoid in range';
         $spell->save_attribute = 'CON';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = "<p>You created a magical force that grips the target's heart (or similar vital organ) and begins crushing it. The target takes 1D6 Bludgeoning damage per round and is Paralyzed while the target is under the effect of this spell.</p>
+        $spell->description    = "<p>You created a magical force that grips the Target's heart (or similar vital organ) and begins crushing it. The Target takes 1D6 Bludgeoning damage per round and is Paralyzed while the target is under the effect of this spell.</p>
 <p>On the round after the first, and each round after until the spell ends, the target can make a CON Save to end this spell. If the target dies as a result of this spell, their chest ruptures and bursts, and their smoking heart appears in your hand.</p>";
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Does not take damage and the spell ends.</dd>
@@ -1425,6 +1410,9 @@ class SpellsCSeeder extends Seeder
     <dt>Failure</dt> <dd>You command the undead for 10 minutes</dd>
     <dt>Critical Failure</dt> <dd>You command the undead for 1 hour</dd>
 </dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+1)</dt> <dd>The Duration becomes the next time frame better. Turn becomes minute, minute becomes hour and hour becomes day.</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Negative', 'Evil', 'Undead'], 2);
 
         $spell               = new Spell;
@@ -1469,18 +1457,12 @@ class SpellsCSeeder extends Seeder
 </ul>";
         $helper->addTypesToSpell($spell, ['Divination'], 4);
 
-        $spell               = new Spell;
-        $spell->name         = 'Commune with Earth';
-        $spell->casting      = '1 day (Material, Somatic, Verbal, Secondary Caster)';
-        $spell->area         = '5-mile radius emanation';
-        $spell->targets      = 'Self';
-        $spell->requirements = '<dl>
-    <dt>Secondary Casters</dt> <dd>At least one other caster of the same organization</dd>
-</dl>';
-        $spell->duration     = 'Instantaneous';
-        $spell->description  = '<p>As Commune with Nature, except you instantly gain knowledge of the ground, minerals, bodies of water, general animal population, burrowing or subterranean creatures, fungi and so on.</p>
-<p>This spell is only effective in hills, mountains, or underground (including mines)</p>';
-        $helper->addTypesToSpell($spell, ['Divination', 'Ritual', 'Earth'], 5);
+        $spell              = new Spell;
+        $spell->name        = 'Commune with Earth';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->duration    = '10 minutes';
+        $spell->description = '<p>You can ask questions of and receive answers from natural or worked stone. While stone is not intelligent, you speak with the natural spirits of the stone, which have a personality colored by the type of stone, as well as by the type of structure the stone is part of, for worked stone. A stone\'s perspective, perception, and knowledge give it a worldview different enough form a human\'s that it doesn\'t consider the same details important. Stones can mostly answer questions about those that touched them in the past and what is concealed beneath them.</p>';
+        $helper->addTypesToSpell($spell, ['Divination', 'Earth'], 6);
 
         $spell               = new Spell;
         $spell->name         = 'Commune with Nature';
@@ -2142,20 +2124,6 @@ class SpellsCSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Bless'], 0);
 
-        $spell                = new Spell;
-        $spell->name          = 'Cooling Breeze';
-        $spell->casting       = 'Somatic Casting, Verbal Casting';
-        $spell->spell_creator = 'Darsson';
-        $spell->range         = '60 feet';
-        $spell->area          = '5 foot line starting up to 10 feet away away from you';
-        $spell->duration      = '8 hours';
-        $spell->description   = '<p>You create a light breeze (approximately 9 mph) that originates from a point you designate, affecting all creatures, gasses, clouds, and fogs in its path. Any airborne vapors, fumes, clouds, smoke, and gases drift away from the point at a speed of 80 feet per round and dissipates in one-forth the normal time.</p>
-<p>In addition to the effects noted, the cooling breeze can do anything that a normal breeze would be expected to do. It can move wind chimes, scatter pieces of paper or parchment, cause candle or hearth to flicker, and so forth.</p>';
-        $spell->heightened = '<dl>
-    <dt>Permanency (Heightened +2)</dt> <dd>200 gp</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Cold', 'Air'], 1);
-
         $spell                 = new Spell;
         $spell->name           = "Copper Dragon's Trickery";
         $spell->casting        = 'Verbal Casting';
@@ -2344,7 +2312,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting, Material Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '10 minutes';
-        $spell->description = '<p>You shroud of dark, writhing tentacles around your body. The tentacles do not interfere with your movements or spell casting, and you gain the following.</p>
+        $spell->description = '<p>You shroud yourself in dark, writhing tentacles around your body. The tentacles do not interfere with your movements or spell casting, and you gain the following.</p>
 <ul>
     <li>You gain 1/2 Concealment (attacks against you have a 20% miss chance)</li>
     <li>Your features are completely shrouded so that you cannot be identified.</li>
@@ -2637,6 +2605,23 @@ class SpellsCSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>The item is expert quality and can use minerals.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Transmutation', 'Ritual'], 4);
+
+        $spell              = new Spell;
+        $spell->name        = 'Creature of Darkness';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = '360 feet';
+        $spell->duration    = '10 minute';
+        $spell->description = '<p>You create a mobile, upright, vaguely human-shaped, bipedal field of magical Darkness that quenches Light and Continual Light spells on contact. You may use an Action to control this shadow and has a Fly Speed (only) of 30. You can perceive the shadows surroundings dimly (the vision is not good enough to read, see expressions, or recognize the features of a being). This un-intelligent thing cannot manipulate its surroundings, but it can motion and point. If at any time the Creature of Darkness moves beyond the Range of this spell, the spell ends.</p>
+<p>If you were to step into the Creature of Darkness, its magic expands to completely cloak you and conceal your identity. You may see through the gloom as if it did not exist. While cloaked by the Creature of Darkness, you may Fly at the Speed of the Darkness.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A bit of Black or gray fur or down from any flying creature, a pinch of soot, and a strand of spider web.</dd>
+</dl>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
+    <dt>Heightened (+4)</dt> <dd>You may cast spells through the Creature of Darkness, as if it were the one casting the spell. This requires an extra Casting Action</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Shadow', 'Phantasm', 'Darkness'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Crescendo';

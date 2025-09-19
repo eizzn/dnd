@@ -59,12 +59,17 @@ class GodsYondallaSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action or Reaction</dd>
+    <dt>Spell</dt> <dd>Shield</dd>
+</dl>',
         ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addSpellsToClass($class, [
             0 => ['Boon', 'Conviction', 'Detect Magic', 'Disrupt Undead', 'Forbidding Ward', 'Guidance', 'Light', 'Mending',
-                'Mold Earth', 'Shield', 'Stabilize', ],
+                'Mold Earth', 'Shield', 'Stabilize', 'Virtue', ],
             1 => ['Alarm', 'Alleviate Addiction', 'Animal Friendship', 'Bless', 'Create or Destroy Water' => 'Create only',
                 'Cure Wounds', 'Detect Evil', 'Detect Poison and Disease', 'Divine Inspiration', 'Exorcism', 'Faith Healing',
                 'Sanctuary', 'Shield of Faith', ],
@@ -72,7 +77,7 @@ class GodsYondallaSeeder extends Seeder
                 'Glorious Raiment', 'Hold Person', 'Insignia of Alarm', 'Protection From Arrows', 'Protection From Poison',
                 'Remove Fear', 'Remove Paralysis', 'Restoration', 'Resist Elements', 'See Invisible', 'Status', 'Undead Bane Weapon',
                 'Zone of Truth', ],
-            3 => ['Bind Undead', 'Circle of Protection From Evil', 'Dispel Magic', 'Faithful Healing', 'Forbiddance', 'Glyph of Warding',
+            3 => ['Circle of Protection From Evil', 'Dispel Magic', 'Faithful Healing', 'Forbiddance', 'Glyph of Warding',
                 'Insignia of Blessing', 'Insignia of Healing', 'Inspire Defense', 'Invisibility Purge', 'Neutralize Poison',
                 'Prayer', 'Prophecy', 'Toxin Immunity', 'Vitality Shield', ],
             4 => ['Ceremony', 'Divination', 'Remove Curse'],
@@ -167,8 +172,7 @@ class GodsYondallaSeeder extends Seeder
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']);
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-            'skill_feat'  => [1, 3, 6, 15],
+            'rogue_feat' => [2, 3, 5, 7, 9, 12, 15, 18],
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Bit of Luck', 'Conviction', 'Dancing Lights', 'Detect Magic', 'Ghost Sound', 'Guidance', 'Light', 'Stabilize'],
@@ -242,6 +246,79 @@ class GodsYondallaSeeder extends Seeder
             'favored_weapon' => 'Camaradestave (Club, wielded like a quarterstaff)',
             'master_id'      => $yondalla->id,
         ]);
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+            'name'           => 'Lliira',
+            'title'          => 'Our Lady of Joy, Joybringer, The Goddess of Joy, Mistress of the Reveals',
+            'level'          => 'Demi',
+            'alignment'      => 'CG',
+            'portfolio'      => 'Joy, Happiness, Dance, Festivals, Carefree Celebration, Contentment, Release, Hospitality, Freedom/Liberty',
+            'regions'        => 'Cormyr, Sembia, the Dalelands, the Sword Coast',
+            'symbol'         => 'Three six-pointed stars arranged in a triangle with their points touching with the orange start uppermost, yellow on the left, and the red on the right',
+            'favored_weapon' => 'Sparkle (Shuriken)',
+            'master_id'      => God::where('name', 'Sehanine Moonbow')->firstOrFail()->id,
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Favored Soul' => 20,
+            'Wizard'       => 10,
+            'Bard'         => 5,
+        ]);
+
+        $class                = new Klass;
+        $class->name          = 'Joydancers';
+        $class->type          = 'Priest';
+        $class->key_attribute = 'WIS or DEX';
+        $class->weapons       = 'Lasso and Net (Bludgeoning weapons in extreme circumstances)';
+        $class->armors        = 'Light Armor';
+        $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Lliira</p>';
+        $helper->saveClass($class, [
+            'hit_dice'       => 8,
+            'skill_points'   => 6,
+            'skill_progress' => 4,
+        ], ['WIS', 'CHA'], [
+            'Divine', 'Good',
+        ]);
+        // Skills
+        $helper->addSkillsToClass($class, [
+            'Acrobatics', 'Athletics', 'Concentration', 'Diplomacy', 'Language', 'Religion', 'Society',
+        ]);
+
+        $class->features()->save(app()->features['feat'], [
+            'level' => 2,
+            'meta'  => 'Improved Unarmed Strike',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Beautiful Defense',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 4,
+            'meta'  => 'Sacred Vow',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 5,
+            'meta'  => 'Vow of Nonviolence',
+        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
+        $helper->addSpellsToClass($class, [
+            0 => ['Clean Self', 'Forbidding Ward', 'Friends', 'Guidance', 'Light', 'Mending', 'Message', 'Stabilize',
+                'Virtue', ],
+            1 => ['Alarm', 'Alleviate Addition', 'Animal Friendship', 'Bless', 'Calm Animals', 'Charm', 'Consecrate', 'Cure Wounds',
+                'Detect Poison and Disease', 'Divine Favor', 'Exorcism', 'Faith Healing', 'Locate Water', 'Remove Disease',
+                'Unseen Servant', ],
+            2 => ['Absorb Elements', 'Aid', 'Animal Messenger', 'Aura of Hope', 'Bliss', 'Calm Emotions', 'Ceremony', 'Comprehend Language',
+                'Continual Flame', 'Delay Disease', 'Delay Poison', 'Insignia of Alarm', 'Remove Fear', 'Remove Paralysis',
+                'Restoration', 'Resist Elements', 'Status', 'Undead Bane Weapon', ],
+            3 => ['Celebration', 'Dispel Magic', 'Faithful Healing', 'Heart Sight', 'Insignia of Blessing', 'Insignia of Healing',
+                'Invisibility Purge', 'Neutralize Poison', 'Prayer', 'Revivify', 'Vitality Shield', ],
+            4 => ['Anti-Summoning Shell', 'Calm Air', 'Divination', 'Remove Curse'],
+            5 => ['Atonement', 'Banishment', 'Call Guardinal Servants', 'Commune', 'Hallow', 'Healing Circle', 'Sustain'],
+            6 => ['Field of Life', 'Heal', "Hero's Feast", 'True Seeing'],
+            7 => ['Bastion of Good', 'Divine Decree', 'Divine Word', 'Feast of Champions', 'Holy Aura', 'Sequester'],
+            8 => ['Control Weather', 'Divine Aura'],
+        ]);
+        $helper->addSpellSlotsToClass($class, 'eight');
 
         $class                = new Klass;
         $class->name          = 'Priest of Cyrrollalee';
@@ -258,28 +335,32 @@ class GodsYondallaSeeder extends Seeder
             'Divine', 'Halfling', 'Good',
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Cleric' => 20,
-            'Wizard' => 10,
-        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Priest of Cyrrollalee',
+            $class->name, 'Favored Soul', 'Divine Oracle',
         ]);
+        // TODO: create Cyrrollalee Favored Soul feat
 
         // Skills
-        $skills = ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'];
-        $helper->addSkillsToClass($class, $skills);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $helper->addSkillsToClass($class, [
+            'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'
         ]);
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 4,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Aid</dd>
+</dl>',
+        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addSpellsToClass($class, [
-            0 => ['Clean Self', 'Forbidding Ward', 'Friends', 'Guidance', 'Light', 'Mending', 'Message', 'Stabilize'],
-            1 => ['Alarm', 'Alleviate Addition', 'Animal Friendship', 'Bless', 'Calm Animals', 'Charm', 'Cure Wounds',
+            0 => ['Clean Self', 'Forbidding Ward', 'Friends', 'Guidance', 'Light', 'Mending', 'Message', 'Stabilize',
+                'Virtue', ],
+            1 => ['Alarm', 'Alleviate Addition', 'Animal Friendship', 'Bless', 'Calm Animals', 'Charm', 'Consecrate', 'Cure Wounds',
                 'Detect Poison and Disease', 'Divine Favor', 'Exorcism', 'Faith Healing', 'Locate Water', 'Remove Disease',
                 'Unseen Servant', ],
             2 => ['Absorb Elements', 'Aid', 'Animal Messenger', 'Aura of Hope', 'Calm Emotions', 'Ceremony', 'Comprehend Language',
-                'Consecrate', 'Continual Flame', 'Delay Disease', 'Delay Poison', 'Insignia of Alarm', 'Remove Fear',
-                'Remove Paralysis', 'Restoration', 'Resist Elements', 'Status', 'Undead Bane Weapon', ],
+                'Continual Flame', 'Delay Disease', 'Delay Poison', 'Insignia of Alarm', 'Remove Fear', 'Remove Paralysis',
+                'Restoration', 'Resist Elements', 'Status', 'Undead Bane Weapon', ],
             3 => ['Celebration', 'Dispel Magic', 'Faithful Healing', 'Heart Sight', 'Insignia of Blessing', 'Insignia of Healing',
                 'Invisibility Purge', 'Neutralize Poison', 'Prayer', 'Revivify', 'Vitality Shield', ],
             4 => ['Anti-Summoning Shell', 'Calm Air', 'Divination', 'Remove Curse'],
@@ -288,6 +369,6 @@ class GodsYondallaSeeder extends Seeder
             7 => ['Bastion of Good', 'Divine Decree', 'Divine Word', 'Feast of Champions', 'Holy Aura', 'Sequester'],
             8 => ['Control Weather', 'Divine Aura'],
         ]);
-        $helper->addSpellSlotsToClass($class);
+        $helper->addSpellSlotsToClass($class, 'eight');
     }
 }

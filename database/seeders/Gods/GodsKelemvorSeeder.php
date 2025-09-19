@@ -34,6 +34,11 @@ class GodsKelemvorSeeder extends Seeder
             'symbol'         => 'Upright skeletal arm holding the golden scales of justice',
             'favored_weapon' => 'Fatal Touch (Bastard Sword)',
         ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Cleric'  => 20,
+            'Wizard'  => 20,
+            'Fighter' => 10,
+        ]);
         $kelemvor = $god;
 
         $class                = new Klass;
@@ -56,17 +61,18 @@ class GodsKelemvorSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['resistance'], [
+            'level' => 5,
+            'meta'  => 'Negative',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Death', 'Law']);
         $helper->addSpellsToClass($class, [
-            0  => ['Clean Self', 'Detect Undead', 'Disrupt Undead', 'Resist Negative Energy', 'Stabilize'],
+            0  => ['Clean Self', 'Detect Undead', 'Disrupt Undead', 'Resist Negative Energy', 'Stabilize', 'Virtue'],
             1  => ['Bless', 'Command Undead', 'Cure Wounds', 'Curse', 'Detect Magic', 'False Life', 'Fear', 'Hide from Undead',
                 'Painless Death', 'Undead Bane Weapon', ],
-            2  => ['Augury', "Bear's Endurance", 'Bind Undead', 'Death Knell', 'Healing Spirit', 'Insignia of Alarm', 'Living Undeath',
-                'Restoration', 'Revivify', 'Rigor Mortis', 'Speak with Dead', ],
+            2  => ['Augury', "Bear's Endurance", 'Death Knell', 'Feign Death', 'Healing Spirit', 'Insignia of Alarm', 'Living Undeath',
+                'Restoration', 'Revivify', 'Speak with Dead', ],
             3  => ["Bear's Hex", 'Circle of Protection From Evil', 'Circle of Protection From Good', 'Create Food and Water',
                 'Glyph of Rebuking', 'Glyph of Turning', 'Hold Person', 'Insignia of Blessing', 'Insignia of Healing', 'Spirit Guardians',
                 'Prayer', 'Tongues', ],
@@ -83,10 +89,6 @@ class GodsKelemvorSeeder extends Seeder
         ]);
         $helper->addSpellSlotsToClass($class);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Cleric' => 25,
-            'Wizard' => 15,
-        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             $class->name, 'Paladin', 'Wizard', 'Monk',
         ]);
@@ -171,8 +173,16 @@ class GodsKelemvorSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 4,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Triple Action</dd>
+    <dt>Spell</dt> <dd>Speak with Dead</dd>
+</dl>',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Scribe Scroll',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Death', 'Knowledge', 'Law']);
@@ -181,10 +191,10 @@ class GodsKelemvorSeeder extends Seeder
                 'Touch of Death', ],
             1 => ['Bless', 'Cure Wounds', 'Detect Charm', 'Fear', 'Illusory Script', 'Note'],
             2 => ['Abeyance', 'Aid', 'Augury', 'Calm Emotions', 'Command Undead', 'Comprehend Language', 'Death Knell',
-                'Hold Person', 'Insignia of Alarm', 'Life Pact', 'Map', "Owl's Wisdom", 'Rigor Mortis', 'Undead Bane Weapon', ],
-            3 => ['Amanuensis', 'Animate Dead', 'Bind Undead', 'Comprehension', 'Dispel Magic', 'Geas', 'Insignia of Blessing',
-                'Insignia of Healing', 'Journal', 'Know Bloodline', 'Prophecy', 'Revivify', 'Seek Eternal Rest', 'Sending',
-                'Speak with Dead', 'Spirit Guardians', 'Tongues', ],
+                'Feign Death', 'Hold Person', 'Insignia of Alarm', 'Life Pact', 'Map', "Owl's Wisdom", 'Undead Bane Weapon', ],
+            3 => ['Amanuensis', 'Animate Dead', 'Comprehension', 'Dispel Magic', 'Geas', 'Insignia of Blessing', 'Insignia of Healing',
+                'Journal', 'Know Bloodline', 'Prophecy', 'Revivify', 'Seek Eternal Rest', 'Sending', 'Speak with Dead',
+                'Spirit Guardians', 'Tongues', ],
             4  => ['Commune with Texts', 'Curse of Aging', 'Detect Scrying', 'Divination', 'Remove Curse'],
             5  => ['Atonement', 'Chronicle', 'Incorporeal Nova', 'Legend Lore', 'Scrying'],
             6  => ['Circle of Death', 'Create Undead', 'Raise Dead', 'Slay Living', 'Temporal Eye', 'True Seeing'],
@@ -217,18 +227,16 @@ class GodsKelemvorSeeder extends Seeder
         ]);
 
         // Skills
-        $skills = ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'];
-        $helper->addSkillsToClass($class, $skills);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $helper->addSkillsToClass($class, [
+            'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Blade Ward', 'Disrupt Undead', 'Light', 'Mold Earth', 'Resist', 'Resist Negative Energy', 'Stabilize'],
             1 => ['Bless', 'Calm Animals', 'Command', 'Cure Wounds', 'Detect Magic', 'Divine Favor', 'Fear', 'Sanctuary'],
             2 => ['Command Undead', 'Consecrate', 'Endure Elements', 'Hold Person', 'Insignia of Alarm', 'Remove Fear',
                 'Restoration', 'Stone Sphere', 'Undead Bane Weapon', ],
-            3 => ['Bind Undead', 'Burrow', 'Dispel Magic', 'Faithful Hound', 'Insignia of Blessing', 'Insignia of Healing',
-                'Meld into Stone', 'Neutralize Poison', 'Nondetection', 'Prayer', 'Sending', ],
+            3 => ['Burrow', 'Dispel Magic', 'Faithful Hound', 'Insignia of Blessing', 'Insignia of Healing', 'Meld into Stone',
+                'Neutralize Poison', 'Nondetection', 'Prayer', 'Sending', ],
             4  => ['Ceremony', 'Land Womb', 'Stoneskin'],
             5  => ['Atonement', 'Banishment', 'Commune with Nature', 'Hibernate', 'Summon Elemental' => 'Earth Elemental only'],
             6  => ['Druid Grove', "Hero's Feast", 'Raise Dead'],

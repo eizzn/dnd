@@ -38,7 +38,7 @@ class ClassRogueSeeder extends Seeder
 
         $helper->addFeaturesToClass($class, [
             'class_group_feat'    => [3, 6, 9, 12, 15, 18, 20],
-            'skill_feat'          => [1, 4, 7, 10, 13, 16, 19],
+            'skill_feat'          => [1, 7, 13, 16],
             'surprise_attack'     => [1],
             'precision_attack'    => [2, 5, 8, 11, 14, 17, 20],
             'uncanny_dodge'       => [5],
@@ -82,10 +82,7 @@ class ClassRogueSeeder extends Seeder
         $feat->name        = 'Skirmish';
         $feat->description = '<p>This ability qualifies as a Sneak Attack. You have the ability to deal extra damage under the following conditions</p>
 <ul>
-    <li>
-        <p>You use an Action to move at least 15 feet before attacking. The extra damage applies with all attacks made with Actions, not Reactions.</p>
-        <p>If you use this feat while mounted, you deal -1D6 damage for each Action your mount used to Move. If you have the Mounted Archery Talent, the penalty is reduced by 1D6.</p>
-    </li>
+    <li>You use an Action to move at least 15 feet before attacking. The extra damage applies with all attacks made with Actions, not Reactions.</li>
 </ul>
 <p>You can deal your Sneak Attack damage to the following attack types</p>
 <ul>
@@ -99,7 +96,7 @@ class ClassRogueSeeder extends Seeder
         $feat->name        = 'Bleeding Strike';
         $feat->trigger     = 'You successfully Hit with a Sneak Attack';
         $feat->description = '<p>Deal one Sneak Attack dice less damage. The target now has Persistent Damage [Bleed] 1.</p>';
-        $helper->addTypesToFeat($feat, [7 => 'Precision']);
+        $helper->addTypesToFeat($feat, ['Precision']);
 
         $feat              = new Feat;
         $feat->name        = 'Debilitating Strike';
@@ -109,13 +106,13 @@ class ClassRogueSeeder extends Seeder
     <li><strong>Debilitation</strong> The target becomes Entangled</li>
     <li><strong>Debilitation</strong> The target becomes Enfeebled 1</li>
 </ul>';
-        $helper->addTypesToFeat($feat, [9 => 'Precision']);
+        $helper->addTypesToFeat($feat, ['Precision']);
 
         $feat              = new Feat;
         $feat->name        = 'Double Debilitating Strike';
         $feat->trigger     = 'Your Strike hits a flat-footed creature';
         $feat->description = '<p>When you use Debilitating Strike, you can apply two debilitation simultaneously. Curing one cures both.</p>';
-        $helper->addTypesToFeat($feat, [15 => 'Precision']);
+        $helper->addTypesToFeat($feat, ['Precision']);
         $feat->parent_feats()->save(app()->feats['Debilitating Strike']);
 
         $feat              = new Feat;
@@ -129,7 +126,7 @@ class ClassRogueSeeder extends Seeder
     <dt>Failure</dt> <dd>The target is Paralyzed for 4 rounds</dd>
     <dt>Critical Failure</dt> <dd>The target is Paralyzed for 4 rounds, knocked unconscious for 2 hours, or killed (your choice)</dd>
 </dl>';
-        $helper->addTypesToFeat($feat, [19 => 'Precision']);
+        $helper->addTypesToFeat($feat, ['Precision']);
         $feat->parent_feats()->save(app()->feats['Double Debilitating Strike']);
 
         $helper->addFeatsToClass($class, [

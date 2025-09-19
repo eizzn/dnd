@@ -19,7 +19,7 @@ class GodsSlaadsSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $god = God::where('name', 'Garyx')->first();
+        $god = God::where('name', 'Kossuth')->first();
         $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
             'name'      => 'Bazim-Gorag',
             'title'     => 'The Firebringer, Lord of the Pandemonium Stone',
@@ -39,7 +39,7 @@ class GodsSlaadsSeeder extends Seeder
             'alignment' => 'CN',
         ]);
 
-        $god = God::where('name', 'Kereska')->first();
+        $god = God::where('name', 'Hyrsam')->first();
         $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
             'name'      => 'Rennbuu',
             'title'     => 'Lord of Colors',
@@ -97,6 +97,8 @@ class GodsSlaadsSeeder extends Seeder
         $feat->description = '<p>You have made a Pact with one of the Slaad Lords.</p>
 <p>You gain the following benefits.</p>
 <ul>
+    <li>You gain 2 Power Points</li>
+    <li>You are immune to Chaos Phage and you cannot be inflicted with a Slaad Tadpole</li>
     <li>You gain the Slaad Language</li>
     <li>You gain one of the following feats
         <ul>
@@ -110,15 +112,16 @@ class GodsSlaadsSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Slaad', 'Chaotic', 'Neutral']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Detect Law', 'Dragon Claws' => 'This spell creates claws like the Red Slaad'],
+            0 => ['Daze', 'Detect Law', 'Dragon Claws' => 'This spell creates claws like the Red Slaad', 'Minor Illusion'],
             1 => ['Contagion' => 'If this spell is Heightened +5, you may inflict Chaos Phage with your Dragon Claws',
-                'Fear', 'Protection From Law', ],
-            2 => ['Bestow Curse', "Bull's Strength", "Cat's Grace", 'Haste'],
-            3 => ['Circle of Protection From Law', 'Confusion', 'Hammer of Chaos'],
+                'Fear', 'Jump', 'Protection From Law', ],
+            2 => ['Bestow Curse', "Bull's Strength", "Cat's Grace", 'Haste', 'Touch of Madness'],
+            3 => ['Amorphous Form' => 'Self only. Material Component not needed but the Action to cast is', 'Circle of Protection From Law',
+                'Confusion', 'Hammer of Chaos'],
             4 => ['Crushing Despair', 'Polymorph Self'],
             5 => ['Cloak of Chaos', 'Dispel Law'],
             6 => ['Baleful Polymorph', 'Slaad Form'],
-            7 => ['Dictum'],
+            7 => ['Word of Balance', 'Word of Chaos'],
             8 => ['Chain Chaos', 'Power Word Stun'],
             9 => ['Shapechange'],
         ]);

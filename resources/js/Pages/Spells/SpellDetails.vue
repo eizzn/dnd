@@ -38,11 +38,7 @@ onMounted(fetchSpellDetails);
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ spell?.name || "Spell Details" }}</span>
-                <span v-if="spell?.rarity" class="text-sm opacity-75">&nbsp;&nbsp;({{ spell?.rarity }})</span>
-            </h2>
-            <span v-if="spell?.spell_creator" class="text-sm opacity-75">({{ spell?.spell_creator }})</span>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Spell</h2>
         </template>
 
         <div class="py-12">
@@ -52,6 +48,11 @@ onMounted(fetchSpellDetails);
                         <div v-if="error" class="text-red-500">{{ error }}</div>
                         <div v-else-if="spell">
                             <section class="m-2">
+                                <h3 class="text-xl">
+                                    <span>{{ spell.name }}</span>
+                                    <span v-if="spell.rarity" class="text-sm opacity-75">&nbsp;&nbsp;({{ spell.rarity }})</span>
+                                </h3>
+                                <span v-if="spell.spell_creator" class="text-sm opacity-75">({{ spell.spell_creator }})</span>
                                 <table class="w-full border-collapse border border-gray-300">
                                     <colgroup>
                                         <col style="width: 25%;" />
@@ -88,7 +89,13 @@ onMounted(fetchSpellDetails);
                                             <td class="px-4 py-2 border border-gray-300">
                                                 <ul class="list-disc ml-4">
                                                     <li v-for="(type, index) in spell.types" :key="index">
-                                                        {{ type.name }}
+                                                        <NavLink
+                                                            :href="`/type/${type.id}`"
+                                                            class="text-blue-800 hover:underline p-0"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >
+                                                            {{ type.name }}
+                                                        </NavLink>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -113,9 +120,9 @@ onMounted(fetchSpellDetails);
                                     </tbody>
                                 </table>
                             </section>
-                            <section class="m-2">
-                                <h3 class="text-lg font-bold">Description</h3>
-                                <div v-html="spell.description" class="mb-4"></div>
+                            <section class="m-2 pt-2">
+                                <h3 class="text-lg font-bold border-b-2">Description</h3>
+                                <div v-html="spell.description" class="mb-4 description-container"></div>
                                 <div v-if="Array.isArray(spell.materials) && spell.materials.length > 0" class="border-t">
                                     <dl>
                                         <dt>Material Components</dt>
@@ -130,9 +137,21 @@ onMounted(fetchSpellDetails);
                                         </dd>
                                     </dl>
                                 </div>
-                                <div v-if="spell.requirements != null" class="border-t">
-                                    <h4 class="text-md font-bold">Requirements</h4>
+                                <div v-if="spell.requirements != null || (Array.isArray(spell.skills) && spell.skills.length > 0)" class="border-t-4">
+                                    <h4 class="text-md font-bold border-b-2">Requirements</h4>
                                     <div v-html="spell.requirements" class="mb-4"></div>
+                                    <ul>
+                                        <li v-for="(skill, index) in spell.skills" :key="index">
+                                            <NavLink
+                                                :href="`/skill/${skill.id}`"
+                                                class="text-blue-800 hover:underline p-0"
+                                                style="border-bottom-width: 0 !important;"
+                                            >
+                                                {{ skill.name }}
+                                            </NavLink>
+                                            <span class="text-sm px-3">DC: {{ skill.dc }}</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </section>
                             <section class="m-2">

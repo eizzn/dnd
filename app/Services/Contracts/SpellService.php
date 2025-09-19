@@ -7,5 +7,5 @@ use Illuminate\Http\Request;
 
 interface SpellService
 {
-    public function index(array|Request $search): Builder;
+    public function index(array|Request $search, bool $sortByLevel = false): Builder;
 }

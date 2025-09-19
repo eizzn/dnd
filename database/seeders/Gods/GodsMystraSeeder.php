@@ -34,6 +34,20 @@ class GodsMystraSeeder extends Seeder
             'alignment' => 'LN',
             'symbol'    => 'Blue-white star',
         ]);
+        $god->pantheons()->save(app()->pantheons['Draconic'], [
+            'name'      => 'Kereska',
+            'aliases'   => 'Kalzareinad',
+            'title'     => 'Light of Magic, Wonderbringer',
+            'level'     => 'Intermediate',
+            'portfolio' => 'Magic, Dragon Magic',
+            'alignment' => 'CN',
+            'symbol'    => 'A five-pointed star with the lower two points extended',
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Wizard' => 30,
+            'Cleric' => 20,
+        ]);
 
         $class                = new Klass;
         $class->name          = 'Dweomerkeepers';
@@ -50,15 +64,13 @@ class GodsMystraSeeder extends Seeder
             'Divine',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Wizard', 'Sorcerer', 'Spellthief',
+            $class->name, 'Paladin', 'Wizard', 'Sorcerer', 'Spellthief', 'Mystic Theurge',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Religion']);
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [3, 9, 15, 20],
-            'wizard_feat' => [1, 6, 12, 18],
-            'spell_pool'  => [2],
+            'spell_pool' => [2],
         ]);
         $class->features()->save(app()->features['extra_spells'], [
             'level' => 1,
@@ -70,8 +82,8 @@ class GodsMystraSeeder extends Seeder
         ]);
         $helper->addDomainToClass($class, ['Magic']);
         $helper->addSpellsToClass($class, [
-            0 => ['Clean Self', 'Dancing Light', 'Daze', 'Detect Magic', 'Disrupt Undead', 'Electric Arc', 'Light', 'Mage Hand',
-                'Magic Weapon', 'Message', 'Prestidigitation', 'Produce Flame', 'Shield', 'Stabilize', ],
+            0 => ['Clean Self', 'Dancing Light', 'Daze', 'Detect Magic', 'Disrupt Undead', 'Electric Arc', 'Identify', 'Light',
+                'Mage Hand', 'Magic Weapon', 'Message', 'Prestidigitation', 'Produce Flame', 'Shield', 'Stabilize', ],
             1 => ['Bless', 'Burning Hands', 'Charm', 'Command', 'Create Water', 'Cure Wounds', 'Detect Alignment', 'Detect Poison',
                 'Feather Fall', 'Lock', 'Mage Armor', 'Mending', 'Protection From Chaos', 'Protection From Evil', 'Protection From Good',
                 'Protection From Law', 'Resist Planar Alignment', 'Remove Disease', 'Summon Elemental, Lesser', 'Unseen Servant', ],
@@ -79,11 +91,11 @@ class GodsMystraSeeder extends Seeder
                 'Insignia of Alarm', 'Interplanar Message', 'Knock', 'Magic Mouth', 'Mirror Image', 'Remove Fear', 'Resist Energy',
                 'Silence', 'Spectral Hand', 'Status', 'Telekinetic Maneuver', 'Water Walk', "Bear's Endurance", "Bull's Strength",
                 "Eagle's Splendor", "Fox's Cunning", "Owl's Wisdom", 'Resist Elements', ],
-            3 => ['Bind Undead', 'Clairvoyance', 'Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
+            3 => ['Clairvoyance', 'Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
                 'Circle of Protection From Law', 'Copy Spell', 'Diamond Spray', 'Dispel Magic', 'Forceward', 'Insignia of Blessing',
                 'Invisibility', 'Invisibility Purge', 'Levitate', 'Neutralize Poison', 'Nondetection', 'Rend Shadow Weave',
                 'Secret Page', 'Spell Shield', 'Undead Bane Weapon', ],
-            4 => ['Blink', 'Dimensional Anchor', 'Detect Scrying', 'Fly', 'Globe of Invulnerability', 'Hallucinatory Terrain',
+            4 => ['Anyspell', 'Blink', 'Dimensional Anchor', 'Detect Scrying', 'Fly', 'Globe of Invulnerability', 'Hallucinatory Terrain',
                 'Haste', 'Mantle of Mystra', 'Mystic Aegis', 'Remove Curse', 'Slow', 'Spell Immunity', 'Spell Matrix', 'Stars of Mystra',
                 'Suppress Magical Writings', 'Telepathy', 'Warp and Weave', ],
             5  => ['Atonement', 'Banishment', 'Might of Mystra', 'Planar Adaption', 'Resilient Sphere', 'Revelation', 'Sending',
@@ -100,11 +112,16 @@ class GodsMystraSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Knights of the Mystic Fire';
         $feat->requirement = 'Paladin of Mystra';
-        $feat->description = '<p>You are a Paladin of Mystra.</p>';
+        $feat->description = '<p>You are a Paladin of Mystra.</p>
+<ul>
+    <li>Add Arcana to your list of Class Skills</li>
+    <li>You gain the Combat Casting Feat</li>
+    <li>You may take the Improved Combat Casting Feat when you qualify for it.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Detect Magic', 'Light', 'Prestidigitation', 'Shield', 'Stabilize', 'Thaumaturgy'],
-            1 => ['Detect Alignment', 'Divine Smite', 'Identify', 'Mage Armor', 'Heroism'],
+            1 => ['Detect Alignment', 'Divine Smite', 'Identify', 'Mage Armor', 'Magic Missile', 'Heroism'],
             2 => ['Aura of Hope', 'Aura of the Fox', 'Branding Smite', 'Create Food and Water', 'Daylight', 'Diamond Spray',
                 'Insignia of Alarm', 'Invisibility Purge', 'Magic Missile', 'Remove Curse', 'Restoration', 'Resist Elements',
                 'Undead Bane Weapon', ],
@@ -113,8 +130,6 @@ class GodsMystraSeeder extends Seeder
             4 => ['Globe of Invulnerability', 'Mystic Aegis', 'Spell Matrix', 'Stars of Mystra'],
             5 => ['Antimagic Ray', 'Aura of Power', 'Wall of Dispel Magic'],
         ]);
-
-        // TODO: add wizard feat that grants the spell Rend Shadow Weave. focused on devotion to Mystra
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
@@ -173,7 +188,7 @@ class GodsMystraSeeder extends Seeder
             'name'           => $god->name,
             'title'          => 'High One, Patron of Wizards, Patron of Mages, Lord of Spells, Hand of Sorcery, Lord of Spellcraft, The First Magister',
             'level'          => 'Lesser',
-            'portfolio'      => 'Wizards, mages, spellcasters',
+            'portfolio'      => 'Wizards, Mages, Spellcasters, Evocation',
             'regions'        => 'Calimshan, Chessenta, Halruaa, Lantan, Sembia',
             'alignment'      => 'LN',
             'symbol'         => 'Human left hand pointing upward outlined in blue fire.',
@@ -182,11 +197,12 @@ class GodsMystraSeeder extends Seeder
         ]);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Azuth';
+        $class->name          = 'Magistrati';
         $class->type          = 'Priest';
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Azuth</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
             'skill_points'   => 2,
@@ -201,15 +217,11 @@ class GodsMystraSeeder extends Seeder
             'Sorcerer' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Evocation'], 'Monk', 'Enlightened Fist',
+            $class->name, 'Wizard' => ['meta' => 'Evocation'], 'Monk', 'Enlightened Fist', 'Mystic Theurge',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [3, 9, 15, 20],
-            'wizard_feat' => [1, 6, 12, 18],
-        ]);
         $class->features()->save(app()->features['extra_spells'], [
             'level' => 1,
             'meta'  => 'You may memorize arcane spells as a Wizard but at one spell level higher',
@@ -222,17 +234,17 @@ class GodsMystraSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             0 => ['Clean Self', 'Dancing Light', 'Daze', 'Detect Magic', 'Electric Arc', 'Light', 'Mage Hand', 'Magic Weapon',
                 'Message', 'Prestidigitation', 'Produce Flame', 'Radiant Mark', 'Shield', 'Stabilize', ],
-            1 => ['Bane', 'Bless', 'Magic Missile', 'Protection From Chaos', 'Protection From Evil', 'Protection From Good',
+            1 => ['Bane', 'Bless', 'Identify', 'Magic Missile', 'Protection From Chaos', 'Protection From Evil', 'Protection From Good',
                 'Protection From Law', 'Remove Disease', ],
             2 => ['Cure Wounds', "Bear's Endurance", "Bull's Strength", "Eagle's Splendor", "Fox's Cunning", "Owl's Wisdom",
                 'Resist Elements', ],
-            3 => ['Bind Undead', 'Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
+            3 => ['Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
                 'Circle of Protection From Law', 'Clairvoyance', 'Copy Spell', 'Dispel Magic', 'Interplanar Message', 'Invisibility',
                 'Invisibility Purge', 'Levitate', 'Neutralize Poison', 'Nondetection', 'Rend Shadow Weave', 'Secret Page',
                 'Spell Shield', ],
-            4 => ['Blink', 'Dimensional Anchor', 'Detect Scrying', 'Fireball', 'Fly', 'Globe of Invulnerability', 'Hallucinatory Terrain',
-                'Haste', 'Lightning Bolt', 'Mantle of Mystra', 'Mystic Aegis', 'Remove Curse', 'Slow', 'Spell Immunity',
-                'Spell Matrix', 'Telepathy', 'Warp and Weave', ],
+            4 => ['Anyspell', 'Blink', 'Dimensional Anchor', 'Detect Scrying', 'Fireball', 'Fly', 'Globe of Invulnerability',
+                'Hallucinatory Terrain', 'Haste', 'Lightning Bolt', 'Mantle of Mystra', 'Mystic Aegis', 'Remove Curse', 'Slow',
+                'Spell Immunity', 'Spell Matrix', 'Telepathy', 'Warp and Weave', ],
             5  => ['Atonement', 'Banishment', 'Planar Adaption', 'Resilient Sphere', 'Sending', 'Telepathic Bond', 'Tongues'],
             6  => ["Azuth's Exalted Triad", 'Scrying', 'Teleport', 'True Seeing', 'Wall of Dispel Magic'],
             7  => ['Antimagic Ray', 'Contingency', 'Dimensional Lock', 'Plane Shift', 'Regenerate', 'Spell Turning'],
@@ -264,8 +276,8 @@ class GodsMystraSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => '<p>Azuth is concerned with components, spells and rituals. He eschews the chaotic nature of sorcery and the dubious Pact Magic of warlocks for the reliable results of the Art.</p>
-<p>Azuth’s scions are almost always wizards, though he has a small and devoted clergy who seek to blend divine magic with arcane theurgy in his name.</p>
+            'favor'       => "<p>Azuth is concerned with components, spells and rituals. He eschews the chaotic nature of sorcery and the dubious Pact Magic of warlocks for the reliable results of the Art.</p>
+<p>Azuth's scions are almost always wizards, though he has a small and devoted clergy who seek to blend divine magic with arcane theurgy in his name.</p>
 <ol>
     <li>You invented a new spell</li>
     <li>You started a school for magic users</li>
@@ -282,7 +294,7 @@ class GodsMystraSeeder extends Seeder
     <dt>Power</dt> <dd>I get a guilty thrill from bending the world to my will with magic</dd>
     <dt>Tutelage</dt> <dd>We must pass on our knowledge to the next generation</dd>
     <dt>Tradition</dt> <dd>Innovation only leads to disaster</dd>
-</dl>',
+</dl>",
             'earn_piety' => [
                 'Learning a new spell',
                 'Casting a ritual magic',
@@ -335,15 +347,11 @@ class GodsMystraSeeder extends Seeder
             'Divine', 'Arcane', 'Divination',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Divination'], 'Monk', 'Enlightened Fist',
+            $class->name, 'Wizard' => ['meta' => 'Divination'], 'Monk', 'Enlightened Fist', 'Divine Oracle', 'Mystic Theurge',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat'      => [3, 9, 15, 20],
-            'class_group_feat' => [1, 18],
-        ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 2,
             'meta'  => 'Activate Magic Item',
@@ -360,32 +368,30 @@ class GodsMystraSeeder extends Seeder
             'level' => 14,
             'meta'  => 'Master Diviner',
         ]);
-        $helper->addDomainToClass($class, ['Knowledge', 'Magic']);
+        $helper->addDomainToClass($class, ['Knowledge', 'Magic', 'Divination']);
         $helper->addSpellsToClass($class, [
-            0 => ['Clean Self', 'Detect Magic', 'Know Direction', 'Light', 'Read Aura', 'Shield', 'Stabilize', 'True Strike'],
+            0 => ['Clean Self', 'Detect Magic', 'Forbidding Ward', 'Guidance', 'Know Direction', 'Light', 'Read Aura', 'Shield',
+                'Stabilize', 'True Strike', ],
             1 => ['Bless', 'Cure Wounds', 'Detect Alignment', 'Detect Chaos', 'Detect Evil', 'Detect Good', 'Detect Law',
-                'Detect Poison', 'Lock', 'Mage Armor', 'Remove Disease', 'Unseen Servant', ],
-            2 => ['Augury', 'Clairvoyance', 'Comprehend Language', 'Darkvision', 'Divine Insight', 'Interplanar Message',
-                'Invisibility Purge', 'Locate Object', 'Remove Fear', 'Resist Energy', 'Restoration', 'See Invisibility',
-                'Silence', 'Status', ],
+                'Detect Poison and Disease', 'Detect Secret Doors', 'Identify', 'Know Wizard School', 'Locate Water', 'Lock',
+                'Mage Armor', 'Remove Disease', 'Unseen Servant', ],
+            2 => ['Augury', 'Clairvoyance', 'Comprehend Language', 'Darkvision', 'Discern Lies', 'Divine Insight', 'Interplanar Message',
+                'Invisibility Purge', 'Locate Object', 'Pierce Disguise', 'Remove Fear', 'Resist Energy', 'Restoration',
+                'Reveal Illusion', 'Reveal True Shape', 'See Invisibility', 'Silence', 'Status', 'Zone of Truth', ],
             3 => ['Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
-                'Circle of Protection From Law', 'Dispel Magic', 'Neutralize Poison', 'Nondetection', 'Secret Page', 'Tongues',
-                'Zone of Truth', 'Warp and Weave', ],
+                'Circle of Protection From Law', 'Dispel Magic', 'Neutralize Poison', 'Nondetection', 'Prophecy', 'Secret Page',
+                'Sending', 'Tongues', 'Warp and Weave', ],
             4 => ['Amanuensis', 'Arcane Eye', 'Detect Scrying', 'Dimensional Anchor', 'Divination', 'Globe of Invulnerability',
                 'Psychic Poison', 'Rend Shadow Weave', 'Spell Immunity', 'Telepathy', ],
             5 => ['Atonement', 'Banishment', 'Commune', 'Legend Lore', 'Mind Probe', 'Mystic Aegis', 'Prying Eyes', 'Psychic Turmoil',
-                'Revelation', 'Scrying', 'Sending', 'Telepathic Bond', 'True Seeing', ],
-            6  => ['Choose Destiny', 'Illusion Purge', 'Planar Adaption', 'Stone Tell'],
+                'Revelation', 'Scrying', 'Telepathic Bond', 'True Seeing', ],
+            6  => ['Choose Destiny', 'Commune with Earth', 'Illusion Purge', 'Planar Adaption'],
             7  => ['Antimagic Ray', 'Contingency', 'Dimensional Lock'],
-            8  => ['Antimagic Field', 'Discern Location'],
+            8  => ['Antimagic Field', 'Discern Location', 'Eye of Power'],
             9  => ['Absorption', 'Foresight'],
             10 => ['Miracle', 'Spell Shift'],
         ]);
         $helper->addSpellSlotsToClass($class);
-
-        $helper->addFeatsToClass($class, [
-            'Spell Focus'    => 3,
-        ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
@@ -458,18 +464,14 @@ class GodsMystraSeeder extends Seeder
             'skill_points'   => 3,
             'skill_progress' => 3,
         ], ['INT', 'WIS'], [
-            'Divine', 'Arcane', 'Necromancy',
+            'Divine', 'Arcane', 'Necromancy', 'Undead',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Necromancy'],
+            $class->name, 'Wizard' => ['meta' => 'Necromancy'], 'Mystic Theurge',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Arcana', 'Concentration', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat'      => [3, 9, 15, 20],
-            'class_group_feat' => [1, 18],
-        ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 2,
             'meta'  => 'Activate Magic Item',
@@ -494,20 +496,26 @@ class GodsMystraSeeder extends Seeder
             'Master of Shrouds' => 8,
         ]);
         $helper->addSpellsToClass($class, [
-            0 => ['Chill Touch', 'Clean Self', 'Detect Magic', 'Detect Undead', 'Disrupt Undead', 'Hide from Undead', 'Resist Negative Energy',
-                'Resist Positive Energy', 'Stabilize', ],
-            1 => ['Cause Wounds', 'Cure Wounds', 'Deathwatch', 'Pleasant Visage', 'Ray of Enfeeblement', 'Remove Disease'],
-            2 => ['Animate Dead', 'Create Crawling Claw', 'Command Undead', 'Gentle Repose', 'Living Undeath', 'Necrostasis',
+            0 => ['Clean Self', 'Detect Magic', 'Detect Undead', 'Disrupt Undead', 'Hide from Undead', 'Necrotic Touch',
+                'Resist Negative Energy', 'Resist Positive Energy', 'Stabilize', 'Touch of Death', 'Touch of Fatigue', ],
+            1 => ['Cause Wounds', 'Contagion', 'Cure Wounds', 'Deathwatch', 'Divine Favor', 'Identify', 'Negative Energy Ray',
+                'Pleasant Visage', 'Ray of Enfeeblement', 'Remove Disease', 'Undead Servant', ],
+            2 => ['Animate Dead', 'Create Crawling Claw', 'Command Undead', 'Death Armor', 'Death Knell', 'Feign Death',
+                'Gentle Repose', 'Ghoul Touch', 'Living Undeath', 'Necrostasis', 'Resist Turning', 'Shroud of Undeath',
                 'Spectral Hand', ],
-            3 => ['Blindness', 'Consumptive Field', 'Glyph of Rebuking', 'Hold Undead', "Night's Mantle", 'Revivify', 'Seed of Undeath',
-                'Speak with Dead', 'Undead Bane Weapon', 'Vampiric Touch', 'Wound', ],
-            4 => ['Daywalker', 'Finger of Agony', 'Life Drain', 'Life Ward', 'Remove Curse'],
-            5 => ['Antilife Shell', 'Create Undead', 'Ghoul Gauntlet', 'Haunt Shift', 'Incorporeal Nova', 'Kiss of the Vampire',
-                "Night's Caress", 'Power Leech', 'Drain Life', ],
-            6 => ['Atonement', 'Harm', 'Heal', 'Magic Jar', 'Revive Undead', 'Slay Living', 'Vampiric Exsanguination', 'Undead Lieutenant'],
-            7 => ['Finger of Death', 'Raise Dead', 'Undeath after Death'],
-            8 => ['Clone', 'Death Pact', 'General of the Undead', 'Horrid Wilting', 'Power Word Stun'],
-            9 => ['Massacre', 'Power Word Kill', 'Soul Bind'],
+            3 => ['Blindness', 'Consumptive Field', 'Glyph of Rebuking', 'Hold Undead', "Night's Mantle", 'Ray of Exhaustion',
+                'Revivify', 'Seed of Undeath', 'Speak with Dead', 'Undead Bane Weapon', 'Vampiric Touch', 'Wound', ],
+            4 => ['Daywalker', 'Drain Life', 'Drain Strength', 'Dread Blast', 'Ebon Ray of Doom', 'Enervation', 'Exhaustion',
+                'Finger of Agony', 'Life Ward', 'Liquid Pain', 'Raise as Ghost', 'Remove Curse', 'Sickness', ],
+            5 => ['Antilife Shell', 'Aura of Undeath', 'Circlet of Enervation', 'Create Undead', 'Ghoul Gauntlet', 'Haunt Shift',
+                'Incorporeal Nova', 'Kiss of the Vampire', 'Necrotic Grasp', 'Negative Energy Flood', "Night's Caress",
+                'Power Leech', 'Soul Scour', "Vampire's Kiss", ],
+            6 => ['Atonement', 'Awaken Undead', 'Circle of Death', 'Drain Constitution', 'Enervating Touch', 'Harm', 'Heal',
+                'Magic Jar', 'Revive Undead', 'Slay Living', 'Soul Cage', 'Twin Form', 'Vampiric Exsanguination', 'Undead Lieutenant',
+                'Vile Undead', ],
+            7 => ['Finger of Death', 'Raise Dead', 'Orb of the Void', 'Undeath after Death'],
+            8 => ['Clone', 'Death Pact', 'General of the Undead', 'Horrid Wilting', 'Power Word Stun', 'Soul Theft'],
+            9 => ['Massacre', 'Plague of Undead', 'Power Word Kill', 'Soul Bind'],
         ]);
         $helper->addSpellSlotsToClass($class);
 

@@ -79,7 +79,7 @@ class ClassAcolyteOfTheSkinSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'skin_familiar';
         $feature->name        = 'Skin Familiar';
-        $feature->description = '<p>You fiendish skin can now Concentrate on spells as if it was your familiar.</p>';
+        $feature->description = '<p>Your fiendish skin can now Concentrate on spells as if it was your familiar.</p>';
         $helper->saveFeature($feature, ['Fiend']);
 
         $feature              = new Feature;

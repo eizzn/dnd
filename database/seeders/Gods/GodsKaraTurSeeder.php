@@ -36,6 +36,7 @@ class GodsKaraTurSeeder extends Seeder
             'title'       => 'Mistress of Love and Fidelity',
             'level'       => 'Intermediate',
             'portfolio'   => 'Love, marriage',
+            'regions'     => 'Shou Lung',
             'master_id'   => $emperor->id,
             'description' => "<p>Ai Ch'ing, the Mistress of Love and Fidelity, is one of the Nine Immortals who serve the Celestial Emperor in the Celestial Empire. She is the goddess of love, marriage, and fidelity and represents the virtues of love and fidelity in the Path of Enlightenment.</p>
 <h4>Description</h4>
@@ -50,6 +51,7 @@ class GodsKaraTurSeeder extends Seeder
             'title'       => 'Mighty Lord of Heroes',
             'level'       => 'Intermediate',
             'portfolio'   => 'Bravery, Combat, Martial Arts, War',
+            'regions'     => 'Shou Lung',
             'master_id'   => $emperor->id,
             'description' => '',
         ]);
@@ -58,6 +60,7 @@ class GodsKaraTurSeeder extends Seeder
             'name'      => "Ch'en Hsiang",
             'level'     => 'Intermediate',
             'portfolio' => 'Literature, Music, Poetry',
+            'regions'   => 'Shou Lung',
             'master_id' => $emperor->id,
         ]);
 
@@ -66,6 +69,7 @@ class GodsKaraTurSeeder extends Seeder
             'title'       => 'Lord of the Sages',
             'level'       => 'Lesser',
             'portfolio'   => 'History, Lore, Tradition',
+            'regions'     => 'Shou Lung',
             'master_id'   => $emperor->id,
             'description' => '',
         ]);
@@ -73,6 +77,7 @@ class GodsKaraTurSeeder extends Seeder
         God::where('name', 'Tyr')->firstOrFail()->pantheons()->save(app()->pantheons['Celestial Empire'], [
             'name'      => 'Fa Kuan',
             'level'     => 'Intermediate',
+            'regions'   => 'Shou Lung',
             'portfolio' => 'Justice',
             'master_id' => $emperor->id,
         ]);
@@ -81,6 +86,7 @@ class GodsKaraTurSeeder extends Seeder
             'name'        => 'Hsing Yong',
             'title'       => 'The Lucky One, Most Fortune One, God of Fortune and Prosperity',
             'level'       => 'Lesser',
+            'regions'     => 'Shou Lung',
             'portfolio'   => 'Fortune, Prosperity',
             'master_id'   => $emperor->id,
             'description' => '',
@@ -90,6 +96,7 @@ class GodsKaraTurSeeder extends Seeder
             'name'        => 'Kwan Ying',
             'title'       => 'Compassionate Kwan Ying, Sapphire Empress',
             'level'       => 'Intermediate',
+            'regions'     => 'Shou Lung',
             'portfolio'   => 'Compassion, Mercy, Joy',
             'master_id'   => $emperor->id,
             'description' => '',
@@ -99,6 +106,7 @@ class GodsKaraTurSeeder extends Seeder
             'name'        => 'Nung Chiang',
             'title'       => 'Teacher of the Plow, Master of the Red Earth',
             'level'       => 'Intermediate',
+            'regions'     => 'Shou Lung',
             'portfolio'   => 'Agriculture, Fertility',
             'master_id'   => $emperor->id,
             'description' => '',
@@ -107,6 +115,7 @@ class GodsKaraTurSeeder extends Seeder
         God::where('name', 'Gond')->firstOrFail()->pantheons()->save(app()->pantheons['Celestial Empire'], [
             'name'      => 'Shu Chia',
             'level'     => 'Lesser',
+            'regions'   => 'Shou Lung',
             'portfolio' => 'Artificers, the Arts',
             'master_id' => $emperor->id,
         ]);

@@ -21,6 +21,7 @@ class MonstersWSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Wyvern';
         $monster->size             = 'Large';
+        $monster->type             = 'Dragon';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '3 (Natural Armor)';

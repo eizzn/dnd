@@ -35,7 +35,7 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->level       = 1;
         $formula->price       = '3 gp';
         $formula->bulk        = 'L';
-        $formula->description = "<p>Alchemist's fire is combination of several volatile liquids that ignite when exposed to air, typically stored in a sealed flask. Alchemist's fire deals 1D8 fire damage, 1 persistent fire damage, and 1 fire splash damage. The target can end this persistent damage by spending an Interact action or by becoming submerged in water or otherwise entering an area deprived of air. A creature adjacent to the target can also end the persistent damage by spending an Interact action.</p>";
+        $formula->description = "<p>Alchemist's fire is combination of several volatile liquids that ignite when exposed to air, typically stored in a sealed flask. Alchemist's fire deals 1D8 Fire damage, 1 Persistent Fire damage, and 1 Fire Splash damage. The target can end this Persistent damage by spending an Interact Action or by becoming submerged in water or otherwise entering an area deprived of air. A creature adjacent to the target can also end the Persistent damage by spending an Interact Action.</p>";
         $helper->saveFormula($formula, ['Alchemical', 'Bomb', 'Consumable', 'Fire', 'Splash'], [
             'skills'    => ['Crafting' => ['dc' => 5, 'meta' => 'Alchemy and Bomb Making']],
             'materials' => ['Ellond Shrub' => ['meta' => 'At least 5oz of the bark, ground into a fine powder']],
@@ -226,30 +226,30 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->activation  = 'Action; Operate Activation';
         $formula->description = '<p>Upon you drinking this elixir, your sight becomes sharper in darkness. This elixir has three types: standard, greater, and true. Upon drinking the standard elixir, you gain Darknvision for 10 minutes. The greater version grants Darkvision for 1 hour, and the true elixir grants Darkvision for 8 hours.</p>
 <table>
-    <tr>
-        <th>Type</th>
-        <td>Standard</td>
-        <th>Level</th>
-        <td>1</td>
-        <th>Price</th>
-        <td>2 gp</td>
-    </tr>
-    <tr>
-        <th>Type</th>
-        <td>Greater</td>
-        <th>Level</th>
-        <td>3</td>
-        <th>Price</th>
-        <td>6 gp</td>
-    </tr>
-    <tr>
-        <th>Type</th>
-        <td>True</td>
-        <th>Level</th>
-        <td>6</td>
-        <th>Price</th>
-        <td>24 gp</td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Level</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Standard</td>
+            <td>1</td>
+            <td>2 gp</td>
+        </tr>
+        <tr>
+            <td>Greater</td>
+            <td>3</td>
+            <td>6 gp</td>
+        </tr>
+        <tr>
+            <td>True</td>
+            <td>6</td>
+            <td>24 gp</td>
+        </tr>
+    </tbody>
 </table>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Elixir'], [
             'skills' => ['Crafting' => ['dc' => 9, 'meta' => 'Brew Potion']],
@@ -268,6 +268,21 @@ class AlchemicalFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
+        $formula->name        = 'Fake Blood';
+        $formula->type        = 'Elixir';
+        $formula->level       = 3;
+        $formula->price       = '10 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>This concoction looks, smells and even tastes the same as real blood. An DC 17 Investigation can reveal the truth.</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Elixir'], [
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Alchemy']],
+            'materials' => [
+                'Bloodberry Bush' => ['meta' => '10 berries'],
+                'Iron'            => ['meta' => '1/2 oz of powdered iron'],
+            ],
+        ]);
+
+        $formula              = new Formula;
         $formula->name        = "Frog's Feet Potion";
         $formula->type        = 'Elixir';
         $formula->level       = 5;
@@ -277,7 +292,7 @@ class AlchemicalFormulasSeeder extends Seeder
 </dl>';
         $formula->bulk        = 'L';
         $formula->activation  = 'Action; Operate Activation';
-        $formula->description = '<p>After the onset of this potion, the spaces between your fingers and toes become webbed, granting you a swim Speed of 20 feet for the next 10 minutes.</p>';
+        $formula->description = '<p>After the onset of this elixir, the spaces between your fingers and toes become webbed, granting you a swim Speed of 20 feet for the next 10 minutes.</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Potion'], [
             'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Brew Potion']],
             'spells' => ['Feet to Fins'],
@@ -307,6 +322,69 @@ class AlchemicalFormulasSeeder extends Seeder
 <p>A single vial holds 10 uses.</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Healing'], [
             'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Alchemy']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Ink, Spell Writing (Common)';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 1;
+        $formula->rarity      = 'Common';
+        $formula->price       = '1 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>1 oz bottle used in the writing of spells. Can be used for levels 1 - 3 spells (both scrolls and books)</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
+            'skills'    => ['Arcana'   => ['dc' => 5]],
+            'materials' => ['Charcoal' => ['meta' => '1/8 oz finely crushed']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Ink, Spell Writing (Uncommon)';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 5;
+        $formula->rarity      = 'Uncommon';
+        $formula->price       = '7 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>1 oz bottle used in the writing of spells. Can be used for levels 4 - 6 spells (both scrolls and books)</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
+            'skills'    => ['Arcana'   => ['dc' => 12]],
+            'materials' => [
+                'Charcoal' => ['meta' => '1/8 oz finely crushed'],
+                'Iron'     => ['meta' => '1/8 oz finely ground'],
+            ],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Ink, Spell Writing (Rare)';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 5;
+        $formula->rarity      = 'Rare';
+        $formula->price       = '250 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>1 oz bottle used in the writing of spells. Can be used for levels 7 - 8 spells (both scrolls and books)</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
+            'skills'    => ['Arcana'   => ['dc' => 15]],
+            'materials' => [
+                'Charcoal' => ['meta' => '1/8 oz finely crushed'],
+                'Iron'     => ['meta' => '1/8 oz finely ground'],
+                'Livewood' => ['meta' => '1/4 oz powdered leaves and reduced with any alcohol'],
+            ],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Ink, Spell Writing (Very Rare)';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 12;
+        $formula->rarity      = 'Rare';
+        $formula->price       = '500 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>1 oz bottle used in the writing of spells. Can be used for levels 9 - 11 spells (both scrolls and books)</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
+            'skills'    => ['Arcana'   => ['dc' => 17]],
+            'materials' => [
+                'Charcoal' => ['meta' => '1/8 oz finely crushed'],
+                'Iron'     => ['meta' => '1/8 oz finely ground'],
+                'Livewood' => ['meta' => '1/4 oz powdered leaves and reduced with any alcohol'],
+            ],
         ]);
 
         $formula              = new Formula;
@@ -355,9 +433,10 @@ class AlchemicalFormulasSeeder extends Seeder
     </tbody>
 </table>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
-            'skills' => [
+            'skills'   => [
                 'Crafting' => ['dc' => 18, 'meta' => 'Alchemy'],
             ],
+            'monsters' => ['Pixie' => ['meta' => 'At least 3 grains of dust from the Pixie']],
         ]);
 
         $formula              = new Formula;

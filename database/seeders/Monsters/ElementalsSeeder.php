@@ -21,6 +21,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Air Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '13';
         $monster->hit_dice    = 5;
@@ -31,7 +32,7 @@ class ElementalsSeeder extends Seeder
 </dl>';
         $monster->description = '<p>An air mephit are about four feet tall and weighed only a pound. They have pale white skin. Like all mephits, air mephits are impish in appearance and have wispy wings, which sprouted from their humanoid upper torsos. They have whirlwinds where one would expect their legs to be.</p>
 <p>Air mephits tend to me more skittish than other mephits.</p>';
-        $helper->saveMonster($monster, ['Elemental', 'Earth', 'Air', 'Outer Planes', 'Outsider'], [
+        $helper->saveMonster($monster, ['Elemental', 'Earth', 'Outer Planes', 'Outsider'], [
             'stats'  => [5, 16, 10, 8, 11, 10, .5, 3],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -52,6 +53,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Dust Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '12';
         $monster->hit_dice    = 5;
@@ -86,6 +88,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Earth Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '12 (Natural Armor +1)';
         $monster->hit_dice    = 5;
@@ -116,6 +119,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Fire Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '12';
         $monster->hit_dice    = 5;
@@ -150,6 +154,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ice Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '11';
         $monster->hit_dice    = 6;
@@ -178,6 +183,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Magma Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '11';
         $monster->hit_dice    = 5;
@@ -210,6 +216,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Mud Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '11';
         $monster->hit_dice    = 6;
@@ -237,6 +244,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Smoke Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '12';
         $monster->hit_dice    = 5;
@@ -269,6 +277,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Steam Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '10';
         $monster->hit_dice    = 6;
@@ -296,6 +305,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Water Mephit';
         $monster->size        = 'Small';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N(E)';
         $monster->armor_class = '10';
         $monster->hit_dice    = 6;
@@ -320,8 +330,9 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Air Elemental';
         $monster->size        = 'Large';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N';
-        $monster->armor_class = '14';
+        $monster->armor_class = '15';
         $monster->hit_dice    = 10;
         $monster->speed       = '0 ft / Fly 90 ft';
         $monster->actions     = "<dl>
@@ -347,8 +358,9 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Earth Elemental';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'N';
-        $monster->armor_class      = '8';
+        $monster->armor_class      = '9';
         $monster->damage_reduction = '8 (Natural Armor)';
         $monster->hit_dice         = 10;
         $monster->speed            = '30 ft / Burrow 30 ft';
@@ -361,11 +373,11 @@ class ElementalsSeeder extends Seeder
 <p>Earth elementals are not especially intelligent. However, like all elementals, they instinctively resent any creature that conjures them from their home plane and bind them into its service.</p>
 <p>Being elementals, these creatures do not require any air, food, drink, or sleep to survive.</p>';
         $helper->saveMonster($monster, ['Elemental', 'Earth', 'Outer Planes', 'Outsider'], [
-            'stats'    => [20, 8, 20, 6, 10, 5, 5, 4],
+            'stats'    => [20, 8, 20, 6, 11, 5, 5, 4],
             'features' => [
                 'darkvision'    => ['meta' => '60 ft'],
-                'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Acid, Sonic)'],
-                'immunity'      => ['meta' => 'Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
+                'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Fire, Electricity)'],
+                'immunity'      => ['meta' => 'Poison, Sickened, Exhaustion, Petrified, Prone, Unconscious'],
                 'vulnerability' => ['meta' => 'Acid, Sonic'],
                 'siege'         => ['meta' => 'Double damage'],
             ],
@@ -376,8 +388,9 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Fire Elemental';
         $monster->size        = 'Large';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N';
-        $monster->armor_class = '12';
+        $monster->armor_class = '13';
         $monster->hit_dice    = 10;
         $monster->speed       = '50 ft';
         $monster->actions     = '<dl>
@@ -394,8 +407,8 @@ class ElementalsSeeder extends Seeder
             'stats'    => [10, 17, 16, 6, 10, 7, 5, 4],
             'features' => [
                 'darkvision'    => ['meta' => '60 ft'],
-                'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Cold)'],
-                'immunity'      => ['meta' => 'Fire, Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
+                'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Electricity, Sonic)'],
+                'immunity'      => ['meta' => 'Fire, Poison, Sickened, Exhaustion, Grapple, Petrified, Prone, Restrained, Unconscious'],
                 'vulnerability' => ['meta' => 'Cold, Water'],
             ],
             'feats'     => ['Weapon Finesse'],
@@ -405,6 +418,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Ice Elemental';
         $monster->size        = 'Large';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N';
         $monster->armor_class = '16 (Natural Armor)';
         $monster->hit_dice    = 12;
@@ -419,8 +433,8 @@ class ElementalsSeeder extends Seeder
             'features' => [
                 'darkvision'    => ['meta' => '60 ft'],
                 'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing]'],
-                'immunity'      => ['meta' => 'Cold, Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
-                'vulnerability' => ['meta' => 'Fire'],
+                'immunity'      => ['meta' => 'Cold, Poison, Sickened, Exhaustion, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
+                'vulnerability' => ['meta' => 'Fire, Sonic'],
             ],
             'languages' => ['Aquan', 'Auran'],
         ]);
@@ -428,6 +442,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Water Elemental';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'N';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -435,7 +450,7 @@ class ElementalsSeeder extends Seeder
         $monster->speed            = '30 ft / Swim 90 ft';
         $monster->actions          = "<dl>
     <dt>Slam</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 + 4) Bludgeoning.</dd>
-    <dt>Whelm (Recharge 4-6)</dt> <dd>As a Triple Action, each creature in the elemental's space must make a DC 15 STR Save. On a failure, a target takes 13 (2D8 + 4) Bludgeoning damage. If it is Large or smaller, it is also Grappled (escape DC 14). Until this grapple ends, the target is Restrained and unable to breathe unless it can breathe water. If the Save is successful, the target is pushed out of the elemental\'s space. The elemental can Grapple one Large creature or up to two Medium or smaller creatures at one time. At the start of each of the elemental\'s turns, each target grappled by it takes 13 (2D8 + 4) Bludgeoning damage. A creature within 5 feet of the elemental can pull a creature or object out of it by taking an Action to make a DC 14 STR check and succeeding.</dd>
+    <dt>Whelm (Recharge 4-6)</dt> <dd>As a Triple Action, each creature in the elemental's space must make a DC 15 STR Save. On a failure, a target takes 13 (2D8 + 4) Bludgeoning damage. If it is Large or smaller, it is also Grappled (escape DC 14). Until this grapple ends, the target is Restrained and unable to breathe unless it can breathe water. If the Save is successful, the target is pushed out of the elemental's space. The elemental can Grapple one Large creature or up to two Medium or smaller creatures at one time. At the start of each of the elemental\'s turns, each target grappled by it takes 13 (2D8 + 4) Bludgeoning damage. A creature within 5 feet of the elemental can pull a creature or object out of it by taking an Action to make a DC 14 STR check and succeeding.</dd>
     <dt>Water Form</dt> <dd>The elemental can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.</dd>
     <dt>Freeze</dt> <dd>If the elemental takes Cold damage, it partially freezes. It gains the Slowed Condition for a number of rounds equal to the Cold damage divided by 10 (rounded up).</dd>
 </dl>";
@@ -450,7 +465,7 @@ class ElementalsSeeder extends Seeder
             'stats'    => [18, 14, 18, 5, 10, 8, 5, 4],
             'features' => [
                 'darkvision'    => ['meta' => '60 ft'],
-                'resistance'    => ['meta' => 'Acid, [Bludgeoning, Piercing, Slashing] (Fire)'],
+                'resistance'    => ['meta' => 'Acid, [Bludgeoning, Piercing, Slashing] (Sonic)'],
                 'immunity'      => ['meta' => 'Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
                 'vulnerability' => ['meta' => 'Fire'],
             ],
@@ -463,8 +478,9 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Dao';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'NE';
-        $monster->armor_class      = '12 (Scale Mail) / 10';
+        $monster->armor_class      = '13 (Scale Mail +1)';
         $monster->damage_reduction = '5 (Scale Mail +1) /  2 (Natural Armor)';
         $monster->hit_dice         = 13;
         $monster->speed            = '30 ft / Burrow 30 ft / Fly 30 ft';
@@ -509,6 +525,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Djinni';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'CG';
         $monster->armor_class      = '13 (Leather +1) / 11';
         $monster->damage_reduction = '2 (Leather +1) / 2 (Natural Armor)';
@@ -561,6 +578,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Efreeti';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '12 (Scale Mail +1) / 10';
         $monster->damage_reduction = '5 (Scale Mail +1) / 2 (Natural Armor)';
@@ -608,6 +626,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Marid';
         $monster->size             = 'Large';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'CN';
         $monster->armor_class      = '13 (Scale Mail +1) / 16';
         $monster->damage_reduction = '5 (Scale Mail +1) / 2 (Natural Armor)';
@@ -653,6 +672,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Azer';
         $monster->size             = 'Medium';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '13 (Shield)';
         $monster->damage_reduction = '6 (Natural Armor)';
@@ -687,6 +707,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gargoyle';
         $monster->size             = 'Medium';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'N';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -713,6 +734,7 @@ class ElementalsSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Water Weird';
         $monster->size        = 'Medium';
+        $monster->type        = 'Elemental';
         $monster->alignment   = 'N';
         $monster->armor_class = '13';
         $monster->hit_dice    = 9;
@@ -741,6 +763,7 @@ class ElementalsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Xorn';
         $monster->size             = 'Medium';
+        $monster->type             = 'Elemental';
         $monster->alignment        = 'N';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '9 (Natural Armor)';

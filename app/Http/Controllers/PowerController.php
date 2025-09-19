@@ -14,7 +14,7 @@ class PowerController extends Controller
         if (! $request->has('order')) {
             $request->merge(['order' => 'name']);
         }
-        $query = $service->index($request);
+        $query = $service->index($request, true);
 
         return new PowerCollectionResource(
             $query->with('types')

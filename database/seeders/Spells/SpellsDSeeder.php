@@ -99,10 +99,10 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Touched creature or self';
         $spell->duration    = '1 minute';
-        $spell->description = "<p>This spell causes the growth of bat wings from the shoulder of the caster or another touched creature. The target gains a Fly Speed equal to 30 feet.</p>
+        $spell->description = "<p>This spell causes the growth of bat wings from the shoulder of the caster or another touched creature. The Target gains a Fly Speed equal to 30 feet.</p>
 <p>The wings have a tip-to-tip span of 15 feet. They allow only clumsy flight. However, their value lies in their strength. These wings can carry double the spell's recipient's body mass without problems and even triple the aforementioned mass could be securely made to land safety.</p>
 <p>The wings can be used to make buffeting attacks, dealing 2D4 Bludgeoning damage. The wings can be used to provide cover. With an Action (similar to the Raise a Shield Action), you can gain an AC bonus of +3. You cannot use this Action while you are using your wings for flying. The wings have 30 Hit Points and Hardness 5.</p>
-<p>The wings cause the target's land Speed by 10 feet. The caster nor the target can dismiss the wings, and must wait till the spell's duration expires.</p>";
+<p>The wings cause the target's land Speed by 10 feet. The caster nor the Target can dismiss the wings, and must wait till the spell's duration expires.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation'], 3);
 
         $spell                = new Spell;
@@ -118,7 +118,7 @@ class SpellsDSeeder extends Seeder
         <ul>
             <li>Darkness</li>
             <li>Any Spell with the Light type of level 2 or lower</li>
-            <li>Any Spell with the Light type with a successful Spell Level Check (DC 10 + target spell's level)</li>
+            <li>Any Spell with the Light type with a successful Spell Level Check (DC 10 + Target spell's level)</li>
         </ul>
     </dd>
 </dl>";
@@ -173,7 +173,7 @@ class SpellsDSeeder extends Seeder
         $spell->duration    = '24 hours';
         $spell->description = "<p>You reshape the substance of a willing undead creature to resemble a living, breathing creature of the same size. This is a physical change to the undead creature's bone, flesh, or incorporeal ectoplasm, adding new flesh or bone and even hair, teeth, and blood, all of which demonstrate false signs of life that mimic a living creature's breathing and other physiological processes. An incorporeal undead creature using daywalker ceases to be incorporeal for the duration of the spell, gaining a physical corpse body. Creatures interacting with the undead can attempt a Perception check (DC = 30 or DC = 21 + the undead's Disguise modifier, whichever is higher) to realize that the signs of life are false, and a close examination with a Medicine check always reveals the truth of the dead flesh.</p>
 <p>If the undead has the frightful presence, incorporeal, light blindness, light sensitivity, stench, sunlight powerlessness, or unnatural aura abilities, the spell suppresses them. An undead creature whose touch normally deals damage, ability drain, or energy drain doesn't do so while under the spell's effects.</p>
-<p>The target of this spell may end its duration at any time with an Action.</p>";
+<p>The Target of this spell may end its duration at any time with an Action.</p>";
         $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Ritual'], 5);
 
         $spell                 = new Spell;
@@ -183,11 +183,11 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = '1 creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 round';
-        $spell->description    = "<p>You cloud the target's mind with effects determined by its WIS Save.</p>";
+        $spell->description    = "<p>You cloud the Target's mind with effects determined by its WIS Save.</p>";
         $spell->saves          = '<dl>
-    <dt>Success</dt> <dd>The target is unaffected</dd>
-    <dt>Failure</dt> <dd>The target is Flat-Footed</dd>
-    <dt>Critical Failure</dt> <dd>The target is flat-footed and slowed 1</dd>
+    <dt>Success</dt> <dd>The Target is unaffected</dd>
+    <dt>Failure</dt> <dd>The Target is Flat-Footed</dd>
+    <dt>Critical Failure</dt> <dd>The Target is flat-footed and slowed 1</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Illusion', 'Disorienting'], 0);
 
@@ -199,12 +199,12 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->spell_creator  = 'Cragh';
         $spell->duration       = '1 minute';
-        $spell->description    = '<p>The target loses hearing, depending on its Save, and is bolstered against all castings of Deafness.</p>';
+        $spell->description    = '<p>The Target loses hearing, depending on its Save, and is bolstered against all castings of Deafness.</p>';
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
-    <dt>Success</dt> <dd>The target is deafened for 1 round</dd>
-    <dt>Failure</dt> <dd>The target is deafened for 10 minutes</dd>
-    <dt>Critical Failure</dt> <dd>The target is deafened permanently</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
+    <dt>Success</dt> <dd>The Target is deafened for 1 round</dd>
+    <dt>Failure</dt> <dd>The Target is deafened for 10 minutes</dd>
+    <dt>Critical Failure</dt> <dd>The Target is deafened permanently</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Curse', 'Enchantment', 'Transmutation'], 2);
 
@@ -233,9 +233,9 @@ class SpellsDSeeder extends Seeder
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>You snuff out a creature at the brink of death, based on its Save. If this kills it, you gain 10 temporary Hit Points and a +1 conditional bonus to attack and damage rolls for 10 minutes.</p>';
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
-    <dt>Success</dt> <dd>The target increases its dying value by 1</dd>
-    <dt>Failure</dt> <dd>The target dies</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
+    <dt>Success</dt> <dd>The Target increases its dying value by 1</dd>
+    <dt>Failure</dt> <dd>The Target dies</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Attack', 'Death', 'Necromancy'], 2);
 
@@ -250,14 +250,14 @@ class SpellsDSeeder extends Seeder
     <dt>Sacrifice</dt> <dd>An innocent humanoid must be ritually sacrificed as part of the casting of this spell.</dd>
 </dl>';
         $spell->duration     = 'Permanent until triggered';
-        $spell->description  = '<p>This spell allows the target to enter a binding agreement with your deity that brings the target back to life if slain.</p>
-<p>The following spells are cast upon the target should they die.</p>
+        $spell->description  = '<p>This spell allows the Target to enter a binding agreement with your deity that brings the Target back to life if slain.</p>
+<p>The following spells are cast upon the Target should they die.</p>
 <ul>
-    <li>The target is teleported to a known location (as the spell Word of Recall)</li>
+    <li>The Target is teleported to a known location (as the spell Word of Recall)</li>
     <li>A Raise Dead spell is cast on the target</li>
     <li>A Heal spell is cast on the target.</li>
 </ul>
-<p>If the Raise Dead spell could not return the target back to life (for example, if the target was disintegrated), the Death Pact spell fails.</p>';
+<p>If the Raise Dead spell could not return the Target back to life (for example, if the Target was disintegrated), the Death Pact spell fails.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Enchantment', 'Evil', 'Ritual'], 8);
         $spell->materials()->save(Material::where('name', 'Diamond')->firstOrFail(), ['price' => 'At least 500 gp']);
 
@@ -267,7 +267,7 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature touched';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>The target is protected from negative energy. It receives a +4 conditional bonus to saves against death and negative effects, gains resistance 10 to negative, and suppresses the effects of enervated.</p>';
+        $spell->description = '<p>The Target is protected from negative energy. It receives a +4 conditional bonus to saves against death and negative effects, gains resistance 10 to negative, and suppresses the effects of enervated.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+4)</dt> <dd>The spell targets all within a 30-foot radius</dd>
 </dl>';
@@ -295,7 +295,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets     = 'Self';
         $spell->duration    = '1 minute';
         $spell->description = '<p>You conjure into existence a quarterstaff of force, approximately 8 feet long and 2 inches in diameter. The Decastave lasts so long as you keep it in hand; if you give it to another creature or drop it, it vanishes.</p>
-<p>You can use the Decastave in combat to strike with a Melee Attack, dealing 1D6 points of Bludgeoning damage. Since the Decastave is made of Force, it affects incorporeal and ethereal creatures normally (provided you can see such creatures). In a Critical Hit, the target must succeed on a CON Save or be Deafened for 3 rounds.</p>';
+<p>You can use the Decastave in combat to strike with a Melee Attack, dealing 1D6 points of Bludgeoning damage. Since the Decastave is made of Force, it affects incorporeal and ethereal creatures normally (provided you can see such creatures). In a Critical Hit, the Target must succeed on a CON Save or be Deafened for 3 rounds.</p>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 2);
         $spell->materials()->save(Material::where('name', 'Duskwood')->firstOrFail(), ['meta' => 'A slender wand of Duskwood']);
 
@@ -330,7 +330,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets       = 'Metal weapon touched';
         $spell->duration      = '10 minutes';
         $spell->description   = '<p>You empower the touched weapon with magic that causes it to emit a loud clang when it is struck against a hard surface, such as a floor, wall, or creature. The weapon can create this noise only once per turn.</p>
-<p>The clang causes 1D6 Sonic Damage to all within 5 ft of the point of impact (except for your self). If the weapon is used as an attack against a target but the attack roll was sufficient for a Touch attack to succeed, then the target still suffers the Sonic damage.</p>';
+<p>The clang causes 1D6 Sonic Damage to all within 5 ft of the point of impact (except for your self). If the weapon is used as an attack against a Target but the attack roll was sufficient for a Touch attack to succeed, then the Target still suffers the Sonic damage.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Sonic'], 1);
 
         $spell              = new Spell;
@@ -350,8 +350,8 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature touched';
         $spell->duration    = '24 Hours';
-        $spell->description = "<p>The target becomes temporarily immune to disease. Any disease to which it is exposed during the spell's duration does not affect the target until the spell's duration has expired (the target cannot become Diseased while the spell is in effect). Delay disease does not cure any damage a disease may have already done.</p>
-<p>If the target is currently infected with a disease, this spell temporarily moves the victim of the Disease one Stage closer to being healed. If the victim is at Stage 1, then they are treated as being cured until the spell ends, then the victim returns to being at Stage 1 of the Disease. Until the spell ends, all Save checks are delayed until the spell ends (the victim does not move to a worse Stage of the Disease).</p>";
+        $spell->description = "<p>The Target becomes temporarily immune to disease. Any disease to which it is exposed during the spell's duration does not affect the Target until the spell's duration has expired (the Target cannot become Diseased while the spell is in effect). Delay disease does not cure any damage a disease may have already done.</p>
+<p>If the Target is currently infected with a disease, this spell temporarily moves the victim of the Disease one Stage closer to being healed. If the victim is at Stage 1, then they are treated as being cured until the spell ends, then the victim returns to being at Stage 1 of the Disease. Until the spell ends, all Save checks are delayed until the spell ends (the victim does not move to a worse Stage of the Disease).</p>";
         $helper->addTypesToSpell($spell, ['Abjuration', 'Disease'], 2);
 
         $spell              = new Spell;
@@ -360,27 +360,8 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Touched poisoned creature';
         $spell->duration    = '3 hours';
-        $spell->description = '<p>You delay the effects of poison that has infected a creature. The target is unaffected by poison until the spell expires. The target is not cured and will continue to suffer the effects of the poison when the spell expires.</p>';
+        $spell->description = '<p>You delay the effects of poison that has infected a creature. The Target is unaffected by poison until the spell expires. The Target is not cured and will continue to suffer the effects of the poison when the spell expires.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Poison'], 2);
-
-        $spell                 = new Spell;
-        $spell->name           = 'Delayed Blast Fireball';
-        $spell->casting        = 'Somatic Casting, Verbal Casting';
-        $spell->range          = '20-foot radius. 150 foot range';
-        $spell->save_attribute = 'DEX';
-        $spell->spell_creator  = 'Noanar';
-        $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = "<p>A beam of yellow light flashes from your pointing finger, then condenses to linger at a chosen point within range as a glowing bead for the duration. When the spell ends, either because your concentration is broken or because you decide to end it, the bead blossoms with a low roar into an explosion of flame that spreads around corners. Each creature in a 20-foot-radius sphere centered on that point must make a DEX Save. A creature takes 12D5 fire damage. If at the end of your turn the bead has not yet detonated, the damage increases by 1D6. If the glowing bead is touched before the interval has expired, the creature touching it must make a DEX Save. On a failed save, the spell ends immediately, causing the bead to erupt in flame. On a successful save, the creature can throw the bead up to 40 feet. When it strikes a creature or a solid object, the spell ends, and the bead explodes. The fire damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>";
-        $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>No damage</dd>
-    <dt>Success</dt> <dd>Half damage</dd>
-    <dt>Failure</dt> <dd>Full damage</dd>
-    <dt>Critical Failure</dt> <dd>Double damage</dd>
-</dl>';
-        $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Fire'], 7);
 
         $spell                 = new Spell;
         $spell->name           = 'Deliquescence';
@@ -406,8 +387,8 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 round';
         $spell->description    = '<p>This spell functions like Sending, but the message can also contain a Suggestion, which the subject does its best to carry out. A Successful WIS Save negates the Suggestion but not the message itself.</p>
-<p>The target of the Demand must be able to understand you (you must speak in a language that the target understands).</p>
-<p>The target can also give a short reply as the Sending spell.</p>
+<p>The Target of the Demand must be able to understand you (you must speak in a language that the Target understands).</p>
+<p>The Target can also give a short reply as the Sending spell.</p>
 <dl>
     <dt>Material Components</dt> <dd>A short piece of copper wire and some small part of the subject (a strand of hair, a fingernail, etc).</dd>
 </dl>';
@@ -528,7 +509,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One creature within range';
         $spell->save_attribute = 'CON';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = "<p>This spell instantly slays the target and consumes his remains (but not its equipment or possessions). If the target makes a CON Save, then it takes 10D6 Negative damage instead. This spell fails if Kelemvor does not want the target to die (DM's choice)</p>
+        $spell->description    = "<p>This spell instantly slays the Target and consumes his remains (but not its equipment or possessions). If the Target makes a CON Save, then it takes 10D6 Negative damage instead. This spell fails if Kelemvor does not want the Target to die (DM's choice)</p>
 <p>The only way to restore life to a creature killed in this way is to plead to Kelemvor, a Chosen of Kelemvor, or his High Priest (who must cast True Resurrection or Revival).</p>
 <dl>
     <dt>Material Components</dt> <dd>A holy symbol of Kelemvor worth at least 500 gp.</dd>
@@ -606,7 +587,7 @@ class SpellsDSeeder extends Seeder
         $spell->rarity      = 'Rare';
         $spell->range       = '30 feet aura centered on you';
         $spell->duration    = 'Concentration, up to 10 minutes';
-        $spell->description = "<p>Your eyes glow as you sense aligned auras. Choose chaotic, evil, good, or lawful. You detect auras of that alignment. You receive no information beyond presence or absence. You can choose not to detect creatures or effects you're aware have that alignment.</p>
+        $spell->description = "<p>Your eyes glow as you sense aligned auras. Choose Chaotic, Evil, Good, or Lawful. You detect auras of that alignment. You receive no information beyond presence or absence. You can choose not to detect creatures or effects you're aware have that alignment.</p>
 <p>Only divine spellcasters, undead, and beings from the Outer Planes have an alignment aura if they are 6th level or higher.</p>";
         $spell->heightened = "<dl>
     <dt>Heightened (+1)</dt> <dd>You also learn each aura's location and strength.</dd>
@@ -634,7 +615,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '60 foot cone-shaped emanation';
         $spell->duration    = 'Concentration, up to 1 hour';
-        $spell->description = '<p>This spell functions as per Detect Magic, except that it detects only Charm, Compulsion, and Possession effects. You immediately detect the strength and location of each such aura on all creatures in the area. You can attempt to identify the properties of each aura (see Spellcraft). In addition to noticing the targets of these effects, you can recognize when creatures in the area are using these effects on others by attempting a Sense Motive check as a standard action (DC = 20 + caster level). If you succeed, you can attempt a Spellcraft check to identify what magic it is using (even if the target is not in the area).</p>';
+        $spell->description = '<p>This spell functions as per Detect Magic, except that it detects only Charm, Compulsion, and Possession effects. You immediately detect the strength and location of each such aura on all creatures in the area. You can attempt to identify the properties of each aura (see Spellcraft). In addition to noticing the targets of these effects, you can recognize when creatures in the area are using these effects on others by attempting a Sense Motive check as a standard action (DC = 20 + caster level). If you succeed, you can attempt a Spellcraft check to identify what magic it is using (even if the Target is not in the area).</p>';
         $helper->addTypesToSpell($spell, ['Detection', 'Divination'], 1);
 
         $spell              = new Spell;
@@ -785,7 +766,7 @@ class SpellsDSeeder extends Seeder
         $spell->duration    = '1 minute';
         $spell->description = '<p>When you cast this spell, you become attuned to turbulence in the timestream and can scan a 90-degree area every round. After locating an anomaly, the severity can be determined by another round of concentration. You have a 50% chance to recognize the cause.</p>
 <p>On Temporal Prime, distance is not a factor, and the spell detects the nearest turbulence in any scanned direction. On the Prime Material, the range is 200 feet. In either case, sight is also a limiting factor.</p>';
-        $helper->addTypesToSpell($spell, ['Chronomancy'], 1);
+        $helper->addTypesToSpell($spell, ['Divination', 'Detection', 'Chronomancy'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Detect Undead';
@@ -793,7 +774,7 @@ class SpellsDSeeder extends Seeder
         $spell->range       = '60 foot cone';
         $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = '<p>You can detect the aura that surrounds undead creatures.</p>';
-        $helper->addTypesToSpell($spell, ['Divination', 'Undead'], 0);
+        $helper->addTypesToSpell($spell, ['Divination', 'Detection', 'Undead'], 0);
 
         $spell              = new Spell;
         $spell->name        = 'Devil Form';
@@ -875,9 +856,9 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You teleport the willing creature touched up to 30 feet from your current position. The destination must be an unoccupied space within line of sight. If the target does not wish to be teleported, then the spell fails. You cannot use this spell on yourself.</p>';
+        $spell->description = '<p>You teleport the willing creature touched up to 30 feet from your current position. The destination must be an unoccupied space within line of sight. If the Target does not wish to be teleported, then the spell fails. You cannot use this spell on yourself.</p>';
         $spell->heightened  = '<dl>
-    <dt>Heightened (+2 Somatic Casting)</dt> <dd>You may target an additional target by using an additional 2 Casting Actions.</dd>
+    <dt>Heightened (+2 Somatic Casting)</dt> <dd>You may Target an additional Target by using an additional 2 Casting Actions.</dd>
     <dt>Heightened (+1)</dt> <dd>Double the distance</dd>
     <dt>Heightened (+3)</dt> <dd>You may attempt to teleport an unwilling creature. They receive a CHA Save to resist being teleported.</dd>
 </dl>';
@@ -905,7 +886,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One creature';
         $spell->duration       = 'Varies';
         $spell->save_attribute = 'CHA';
-        $spell->description    = "<p>You interfere with the target's ability to travel dimensions. The target is immune to teleportation and any effect that would move it to a different plane. The duration is determined by its Save.</p>";
+        $spell->description    = "<p>You interfere with the target's ability to travel dimensions. The Target is immune to teleportation and any effect that would move it to a different plane. The duration is determined by its Save.</p>";
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>The effect lasts for 1 round</dd>
@@ -935,7 +916,7 @@ class SpellsDSeeder extends Seeder
     <dt>Success</dt> <dd>Unaffected this round</dd>
     <dt>Failure</dt> <dd>Affected this round</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Compulsion', 'Emotion', 'Illusion'], 5);
+        $helper->addTypesToSpell($spell, ['Compulsion', 'Emotion', 'Illusion', 'Auditory'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Dirge of Doom';
@@ -943,7 +924,7 @@ class SpellsDSeeder extends Seeder
         $spell->area        = '30-foot aura';
         $spell->duration    = '1 round';
         $spell->description = '<p>Foes within the area are Frightened 1 and unable to reduce it for as long as they remain in the area.</o>';
-        $helper->addTypesToSpell($spell, ['Compulsion', 'Emotion', 'Fear', 'Illusion'], 1);
+        $helper->addTypesToSpell($spell, ['Compulsion', 'Emotion', 'Fear', 'Illusion', 'Auditory'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Disappearance';
@@ -951,7 +932,7 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One creature';
         $spell->duration    = '10 minutes';
-        $spell->description = '<p>The target becomes invisible and is completely silent. This defeats all forms of blindsense and blindsight.<p>';
+        $spell->description = '<p>The Target becomes invisible and is completely silent. This defeats all forms of blindsense and blindsight.<p>';
         $helper->addTypesToSpell($spell, ['Figment', 'Illusion', 'Visual'], 8);
 
         $spell                 = new Spell;
@@ -961,12 +942,12 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'CHA';
         $spell->targets        = 'One creature per round';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = '<p>You can instantly tell the race of the targeted individual, plus any inherited templates possessed by the target (such as celestial, or half-dragon). The target gets a CHA Save. Each round you may target a new target within range.</p>
+        $spell->description    = '<p>You can instantly tell the race of the targeted individual, plus any inherited templates possessed by the Target (such as celestial, or half-dragon). The Target gets a CHA Save. Each round you may Target a new Target within range.</p>
 <dl>
     <dt>Material Components</dt> <dd>A drop of blood</dd>
 </dl>';
         $spell->saves          = '<dl>
-    <dt>Success</dt> <dd>The spell fails to divine any information, and the target is immune to this spell for 1 hour</dd>
+    <dt>Success</dt> <dd>The spell fails to divine any information, and the Target is immune to this spell for 1 hour</dd>
     <dt>Failure</dt> <dd>The spell succeeds</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination', 'Detection'], 1);
@@ -978,10 +959,10 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'CHA';
         $spell->targets        = 'One creature within range';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = '<p>Each round, you focus on a target within range. The target receives a CHA Save. You know if the subject deliberately and knowingly speaks a lie by discerning disturbances in its aura caused by lying. The spell does not reveal teh truth, uncover unintentional inaccuracies, or necessarily reveal evasions. Each round, as an Action, you may focus on a different target, who gains a CHA Save.</p>';
+        $spell->description    = '<p>Each round, you focus on a Target within range. The Target receives a CHA Save. You know if the subject deliberately and knowingly speaks a lie by discerning disturbances in its aura caused by lying. The spell does not reveal teh truth, uncover unintentional inaccuracies, or necessarily reveal evasions. Each round, as an Action, you may focus on a different target, who gains a CHA Save.</p>';
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>As Success, but the target also becomes aware of the spell, but not who cast it</dd>
-    <dt>Success</dt> <dd>The spell fails against the target and the target is immune to this spell for the next 1 hour.</dd>
+    <dt>Critical Success</dt> <dd>As Success, but the Target also becomes aware of the spell, but not who cast it</dd>
+    <dt>Success</dt> <dd>The spell fails against the Target and the Target is immune to this spell for the next 1 hour.</dd>
     <dt>Failure</dt> <dd>The spell succeeds</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination'], 2);
@@ -994,7 +975,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets     = 'One creature or object';
         $spell->duration    = 'Instantaneous';
         $spell->description = "<p>You discover the target's exact location by name (including the building, community, and country) and plane of existence.</p>
-<p>You can target a creature only if you've seen it in person or have a significant belonging or piece of its body. To target an object, you must have touched it or have a fragment. Discern Location overcomes lower-level protections against detection and divination.</p>";
+<p>You can Target a creature only if you've seen it in person or have a significant belonging or piece of its body. To Target an object, you must have touched it or have a fragment. Discern Location overcomes lower-level protections against detection and divination.</p>";
         $helper->addTypesToSpell($spell, ['Detection', 'Divination', 'Ritual'], 8);
 
         $spell              = new Spell;
@@ -1042,12 +1023,12 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->spell_creator  = 'Aksa';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You fire a green ray at your target. Make a ranged touch attack. You deal 12D10 damage and the target must attempt a CON Save. On a critical hit, treat the save result as one degree worse. A creature reduced to 0 HP is reduced to fine powder; gear remains.</p>
+        $spell->description    = '<p>You fire a green ray at your target. Make a ranged touch attack. You deal 12D10 damage and the Target must attempt a CON Save. On a critical hit, treat the save result as one degree worse. A creature reduced to 0 HP is reduced to fine powder; gear remains.</p>
 <p>An object you hit is destroyed (no save), regardless of Hardness, unless it\'s an artifact or similarly hard to destroy. A single casting can destroy no more than a 10-foot cube of matter. This automatically destroys any force construct, such as a Wall of Force.</p>';
         $spell->saves = '<dl>
-    <dt>Success</dt> <dd>The target takes half damage</dd>
-    <dt>Failure</dt> <dd>The target takes full damage</dd>
-    <dt>Critical Failure</dt> <dd>The target takes double damage</dd>
+    <dt>Success</dt> <dd>The Target takes half damage</dd>
+    <dt>Failure</dt> <dd>The Target takes full damage</dd>
+    <dt>Critical Failure</dt> <dd>The Target takes double damage</dd>
 </dl>';
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>The damage increases by 2D10</dd>
@@ -1069,7 +1050,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '1 minute or until discharged';
-        $spell->description = '<p>This spell creates a disk of sunlike flames behind your head. The flames give you resistance to Cold. In addition, if any creature strikes you with a Natural Attack, an Unarmed Strike, or a Melee Weapon that is not a reach weapon, it takes 2D6 Fire damage after dealing its normal damage to you. This instantly discharges the spell. You can also use the spell to attack as if it were a Touch Spell, dealing 2D6 Fire damage.</p>';
+        $spell->description = '<p>This spell creates a disk of sun-like flames behind your head. The flames give you Resistance to Cold. In addition, if any creature strikes you with a Natural Attack, an Unarmed Strike, or a Melee Weapon that is not a reach weapon, it takes 2D6 Fire damage after dealing its normal damage to you. This instantly discharges the spell. You can also use the spell to attack as if it were a Touch Spell, dealing 2D6 Fire damage.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
@@ -1095,16 +1076,8 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Touched chaotic creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant, blue lawful energy, and the spell affects Chaotic creatures and spells rather than Evil ones.</p>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Chaos</li>
-            <li>Protection From Law</li>
-            <li>Dispel Law with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+        $spell->description    = '<p>This spell functions like Dispel Evil, except that you are surrounded by a constant, blue lawful energy, and the spell affects Chaotic creatures and spells rather than Evil ones.</p>
+<p>This spell Counters and is Countered by Dispel Law</p>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1118,16 +1091,8 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Touched evil creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant blue-white cold energy, and the spell affects Cold creatures and spells rather than Evil ones.</p>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Fire</li>
-            <li>Protection from Fire</li>
-            <li>Dispel Fire with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+        $spell->description    = '<p>This spell functions like Dispel Evil, except that you are surrounded by a constant blue-white cold energy, and the spell affects Cold creatures and spells rather than Evil ones.</p>
+<p>This spell Counters and is Countered by Dispel Fire</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1147,15 +1112,7 @@ class SpellsDSeeder extends Seeder
     <li>On make a successful Melee Touch attack against an Evil creature from another plane, you can choose to drive that creature back to its home plane. The creature can negate the effects with a successful WIS Save. This use discharges and ends the spell.</li>
     <li>With a touch you can automatically dispel any one spell effect by an Evil creature or any Evil spell. Spells that can't be dispelled by Dispel Magic also can't be dispelled by Dispel Evil. This use discharges and ends the spell.</li>
 </ul>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Evil</li>
-            <li>Protection From Good</li>
-            <li>Dispel Good with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+<p>This spell Counters and is Countered by Dispel Good</p>";
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1169,30 +1126,13 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Touched evil creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by a constant red, orange, and yellow flames, and the spell affects Fire creatures and spells rather than Evil ones.</p>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Cold</li>
-            <li>Protection from Cold</li>
-            <li>Dispel Cold with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+        $spell->description    = '<p>This spell functions like Dispel Evil, except that you are surrounded by a constant red, orange, and yellow flames, and the spell affects Fire creatures and spells rather than Evil ones.</p>
+<p>This spell Counters and is Countered by Dispel Cold</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Cold', 'Counterspell'], 5);
-
-        $spell              = new Spell;
-        $spell->name        = 'Dispel Fog';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = '200 feet, 100 ft cube';
-        $spell->duration    = '10 minutes';
-        $spell->description = '<p>You make normal or magical fog within the affected area instantly and completely vanish. This spell is effective against fog and mist from any source, including spells such as Obscuring Mist or Cloudkill, but not against bodies of water, precipitation, or smoke. The dispelled area stays clear for the duration, after which it can fill in again if there is sufficient fog in the surrounding vicinity. Natural fog is automatically cleared in the affected area; natural fog reforms within 1 minute after the expiration of the spell.</p>
-<p>Creatures in fog or mist form who are in the area must succeed on a CON Save or take 2D10 points of damage. Regardless of the out come of the Save, the target must assume a different shape.</p>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 2);
 
         $spell                 = new Spell;
         $spell->name           = 'Dispel Good';
@@ -1201,16 +1141,8 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Touched good creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by dark, wavering unholy energy, and the spell affects Good creatures and spells rather than Evil ones.</p>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Good</li>
-            <li>Protection From Evil</li>
-            <li>Dispel Evil with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+        $spell->description    = '<p>This spell functions like Dispel Evil, except that you are surrounded by dark, wavering unholy energy, and the spell affects Good creatures and spells rather than Evil ones.</p>
+<p>This spell Counters and is Countered by Dispel Evil</p>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1224,16 +1156,8 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Touched lawful creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell functions like Dispel Evil, except that you are surrounded by flickering, yellow chaotic energy, and the spell affects Lawful creatures and spells rather than Evil ones.</p>
-<dl>
-    <dt>Counterspell</dt> <dd>
-        <ul>
-            <li>Dispel Law</li>
-            <li>Protection From Chaos</li>
-            <li>Dispel Chaos with a successful Spell Level Check (DC 12 + target spell's level)</li>
-        </ul>
-    </dd>
-</dl>";
+        $spell->description    = '<p>This spell functions like Dispel Evil, except that you are surrounded by flickering, yellow chaotic energy, and the spell affects Lawful creatures and spells rather than Evil ones.</p>
+<p>This spell Counters and is Countered by Dispel Chaos</p>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1246,12 +1170,12 @@ class SpellsDSeeder extends Seeder
         $spell->range       = '120 feet';
         $spell->targets     = 'One spell effect or unattended magic item';
         $spell->duration    = 'Instantaneous';
-        $spell->description = "<p>Choose one creature, object, or magical effect within range. Any spell of equivalent level or lower on the target ends. For each spell of higher level, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a successful check, the spell ends.</p>
+        $spell->description = "<p>Choose one creature, object, or magical effect within range. Any spell of equivalent level or lower on the Target ends. For each spell of higher level, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a successful check, the spell ends.</p>
 <dl>
     <dt>Counterspell</dt> <dd>
         <ul>
             <li>Dispel Magic</li>
-            <li>Any other spell with a successful Spell Level Check (DC 12 + target spell's level)</li>
+            <li>Any other spell with a successful Spell Level Check (DC 12 + Target spell's level)</li>
         </ul>
     </dd>
 </dl>";
@@ -1277,8 +1201,9 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = '0';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>This spell functions like Dispel Magic, except as noted here and that it only works against effects that create an area of silence.</p>';
-        $helper->addTypesToSpell($spell, ['Abjuration'], 2);
+        $spell->description = '<p>This spell functions like Dispel Magic, except as noted here and that it only works against effects that create an area of silence.</p>
+<p>This spell Counters and is Countered by Silence</p>';
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Counterspell'], 2);
 
         $spell                 = new Spell;
         $spell->name           = 'Disquietude';
@@ -1287,7 +1212,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'On living creature within range';
         $spell->save_attribute = 'CHA';
         $spell->duration       = '1 minute';
-        $spell->description    = '<p>Your song or poem instills a feeling of paranoia in your target. The affected target restricts their movement to avoid any physical contact even with allies. If they are attacked and cannot flee, they must use the Full Defense Action.</p>';
+        $spell->description    = '<p>Your song or poem instills a feeling of paranoia in your target. The affected Target restricts their movement to avoid any physical contact even with allies. If they are attacked and cannot flee, they must use the Full Defense Action.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Unaffected</dd>
     <dt>Failure</dt> <dd>Affected</dd>
@@ -1303,9 +1228,9 @@ class SpellsDSeeder extends Seeder
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>This spell functions like Disrupt Undead except that it only targets ectoplasmic creatures. This spell effects creatures in the Ethereal Plane as if it had the Ghost Touch Feat.</p>';
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target takes no damage</dd>
-    <dt>Success</dt> <dd>The target takes half damage</dd>
-    <dt>Failure</dt> <dd>The target takes no damage</dd>
+    <dt>Critical Success</dt> <dd>The Target takes no damage</dd>
+    <dt>Success</dt> <dd>The Target takes half damage</dd>
+    <dt>Failure</dt> <dd>The Target takes no damage</dd>
     <dt>Critical Failure</dt> <dd>Double damage and Enfeebled 1 for 1 round</dd>
 </dl>';
         $spell->heightened = '<dl>
@@ -1323,11 +1248,11 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One undead creature';
         $spell->save_attribute = 'CHA';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You infuse the target with energy. You deal 1D10 positive damage; the target must attempt a Save. Heightening increases damage.</p>';
+        $spell->description    = '<p>You infuse the Target with energy. You deal 1D10 positive damage; the Target must attempt a Save. Heightening increases damage.</p>';
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target takes no damage</dd>
-    <dt>Success</dt> <dd>The target takes half damage</dd>
-    <dt>Failure</dt> <dd>The target takes no damage</dd>
+    <dt>Critical Success</dt> <dd>The Target takes no damage</dd>
+    <dt>Success</dt> <dd>The Target takes half damage</dd>
+    <dt>Failure</dt> <dd>The Target takes no damage</dd>
     <dt>Critical Failure</dt> <dd>Double damage and Enfeebled 1 for 1 round</dd>
 </dl>';
         $spell->heightened = '<dl>
@@ -1354,7 +1279,8 @@ class SpellsDSeeder extends Seeder
         $spell                 = new Spell;
         $spell->name           = 'Disruption';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
-        $spell->range          = '60 feet / 30 foot sphere';
+        $spell->range          = '60 feet';
+        $spell->area           = '30-ft emanation';
         $spell->save_attribute = 'CHA';
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>This powerful spell can utterly destroy undead and other magically animated creatures, including the following</p>
@@ -1376,7 +1302,7 @@ class SpellsDSeeder extends Seeder
         $spell->name        = 'Dissonant Chant';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
-        $spell->area        = '100 foot radius emanation';
+        $spell->area        = '100-ft emanation';
         $spell->duration    = '1 minute';
         $spell->description = '<p>You create a distracting and discordant chant. Affected creatures that attempt spellcasting or other activities that require Concentration must make Concentration checks (DC 18) to succeed. Activities that already require Concentration checks have their DC increased by +5.</p>
 <p>Creatures within the area gain a +4 bonus on Saves vs Lingual effects.</p>';
@@ -1385,7 +1311,8 @@ class SpellsDSeeder extends Seeder
         $spell                 = new Spell;
         $spell->name           = 'Dissonant Chord';
         $spell->casting        = 'Verbal Casting';
-        $spell->area           = '10 foot radius burst centered on you';
+        $spell->area           = '10-ft emanation';
+        $spell->targets        = 'Self';
         $spell->save_attribute = 'CON';
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>You emit a terrible piercing note. Creatures (other than you) in the area take 3D8 Sonic damage.</p>';
@@ -1403,7 +1330,7 @@ class SpellsDSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Instantaneous';
         $spell->description    = "<p>You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain.</p>
-<p>The target must make a WIS Save, dealing 3D6 Sonic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit.</p>";
+<p>The Target must make a WIS Save, dealing 3D6 Sonic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit.</p>";
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>Half damage</dd>
     <dt>Failure</dt> <dd>Full damage and must flee from the source</dd>
@@ -1417,10 +1344,10 @@ class SpellsDSeeder extends Seeder
         $spell->name        = 'Distilled Joy';
         $spell->casting     = '8 hours (Material, Somatic, Verbal)';
         $spell->range       = 'Touch';
-        $spell->targets     = 'One living creature touched';
+        $spell->targets     = 'One living creature Touched';
         $spell->duration    = 'Instantaneous';
         $spell->description = "<p>You draw forth the material essence of joy from a creature experiencing great bliss. This physical manifestation of joy, called ambrosia, can be used in the creation of good magic items, as a special spell component, or as a drug-like substance (with no addictive qualities).</p>
-<p>The caster draws ambrosia from the target and contains it within a tiny receptacle, such as a vial. Ambrosia can only be drawn from a blissful creature; how the creature achieves this state of bliss can vary from one individual to the next. For example, distilled joy can be cast on a deliriously lovestruck character, a dryad dreaming near her tree, an artist crafting his life's masterpiece, or a character experiencing a moment of rapture or undiluted sexual pleasure.</p>
+<p>The caster draws ambrosia from the Target and contains it within a tiny receptacle, such as a vial. Ambrosia can only be drawn from a blissful creature; how the creature achieves this state of bliss can vary from one individual to the next. For example, distilled joy can be cast on a deliriously lovestruck character, a dryad dreaming near her tree, an artist crafting his life's masterpiece, or a character experiencing a moment of rapture or undiluted sexual pleasure.</p>
 <dl>
     <dt>Material Components</dt> <dd>A vial or similar container in which to contain the ambrosia</dd>
 </dl>";
@@ -1430,10 +1357,10 @@ class SpellsDSeeder extends Seeder
         $spell->name           = 'Distort Speech';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '60 ft';
-        $spell->targets        = 'One creature within range';
+        $spell->targets        = 'One creature within Range';
         $spell->save_attribute = 'CHA';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = "<p>You distort a creature's vocalization. The voice of the affected target becomes warped and incomprehensible. Any spell with a Verbal Casting component automatically fails.</p>";
+        $spell->description    = "<p>You distort a creature's vocalization. The voice of the affected Target becomes warped and incomprehensible. Any spell with a Verbal Casting component automatically fails.</p>";
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1485,8 +1412,8 @@ class SpellsDSeeder extends Seeder
         $spell->targets     = 'Allies in the aura';
         $spell->duration    = 'Concentration, up to 1 minute';
         $spell->description = "<p>Divine power wards the targets, granting a +1 conditional bonus to AC and saves while in the area.</p>
-<p>Choose chaotic, evil, good, or lawful. If you choose chaos, this spell gains the lawful trait and so on. The bonuses increase to +2 against attacks by creatures of the chosen alignment and effects created by such creatures. The bonuses increase to +4 against effects from such creatures that directly control the target and attacks made by summoned creatures of the chosen alignment.</p>
-<p>When a creature of the chosen alignment hits a target with a melee attack, it must succeed at a WIS Save or be blinded for 1 minute. It's bolstered against all divine auras for the duration.</p>
+<p>Choose chaotic, evil, good, or lawful. If you choose chaos, this spell gains the lawful trait and so on. The bonuses increase to +2 against attacks by creatures of the chosen alignment and effects created by such creatures. The bonuses increase to +4 against effects from such creatures that directly control the Target and attacks made by summoned creatures of the chosen alignment.</p>
+<p>When a creature of the chosen alignment hits a Target with a melee attack, it must succeed at a WIS Save or be blinded for 1 minute. It's bolstered against all divine auras for the duration.</p>
 <p>The first time you Concentrate on the Spell each round, the radius grows 10 feet.</p>";
         $helper->addTypesToSpell($spell, ['Abjuration', 'Bless', 'Enchantment'], 8);
 
@@ -1525,7 +1452,7 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Free Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1D6 positive or negative damage on hit.</p>';
+        $spell->description = '<p>Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1D6 Positive or Negative damage on hit.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Negative', 'Positive'], 1);
 
         $spell                 = new Spell;
@@ -1561,8 +1488,8 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One willing creature';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You infuse a target with spiritual energy, refreshing its magic. It recovers one 3rd level Divine Spell Slot or lower. A target can benefit from this spell only once per Long Rest.</p>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 1);
+        $spell->description = '<p>You infuse a Target with spiritual energy, refreshing its magic. It recovers one 3rd level Divine Spell Slot or lower. A Target can benefit from this spell only once per Long Rest.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Divine Power';
@@ -1575,7 +1502,7 @@ class SpellsDSeeder extends Seeder
     <li>You gain +1 Temporary Hit Point per Character Level.</li>
     <li>You gain the Quickened condition (which can be used on Strike and Stride Actions</li>
 </ul>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 4);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Divine Presence';
@@ -1585,8 +1512,8 @@ class SpellsDSeeder extends Seeder
         $spell->description = "<p>You channel a tiny spark of the divine, granting yourself nearly inhuman presence. You gain the following</p>
 <ul>
     <li>You gain a +5 bonus (Sacred or Profane, based on your deity) to all Intimidation checks against creatures who do not worship your deity.</li>
-    <li>The bonus becomes +10 if the target has one alignment component opposed by your deity's alignment</li>
-    <li>The bonus becomes +15 if the target has an alignment that is diametrically opposed to your deity's alignment</li>
+    <li>The bonus becomes +10 if the Target has one alignment component opposed by your deity's alignment</li>
+    <li>The bonus becomes +15 if the Target has an alignment that is diametrically opposed to your deity's alignment</li>
 </ul>";
         $helper->addTypesToSpell($spell, ['Enchantment'], 2);
 
@@ -1652,7 +1579,7 @@ class SpellsDSeeder extends Seeder
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 7);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Auditory'], 7);
 
         $spell                 = new Spell;
         $spell->name           = 'Divine Wrath';
@@ -1680,21 +1607,21 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One humanoid creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Concentration, up to 10 minutes';
-        $spell->description    = "<p>You take command of the target, forcing it to obey your orders. If you issue an obviously self-destructive order, the target doesn't act until you issue a new order. The effect depends on its WIS Save.</p>";
+        $spell->description    = "<p>You take command of the Target, forcing it to obey your orders. If you issue an obviously self-destructive order, the Target doesn't act until you issue a new order. The effect depends on its WIS Save.</p>";
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
     <dt>Success</dt> <dd>Slowed 1 for 1 round as it fights off your commands</dd>
-    <dt>Failure</dt> <dd>The target follows your orders but attempts a WIS Save at the end of each of its turns. On success, the spell is dismissed</dd>
-    <dt>Critical Failure</dt> <dd>As failure, but the target receives a new save only whenever you give it a new order, and even then only if the new order is against its nature, such as killing its allies</dd>
+    <dt>Failure</dt> <dd>The Target follows your orders but attempts a WIS Save at the end of each of its turns. On success, the spell is dismissed</dd>
+    <dt>Critical Failure</dt> <dd>As failure, but the Target receives a new save only whenever you give it a new order, and even then only if the new order is against its nature, such as killing its allies</dd>
 </dl>';
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>The Duration becomes 1 hour</dd>
     <dt>Heightened (+2)</dt> <dd>The Duration becomes 8 hour</dd>
     <dt>Heightened (+3)</dt> <dd>The Duration becomes 24 hour</dd>
     <dt>Heightened (+4)</dt> <dd>the Duration becomes Permanent</dd>
-    <dt>Heightened (+3)</dt> <dd>You can target a non-humanoid creature</dd>
+    <dt>Heightened (+3)</dt> <dd>You can Target a non-humanoid creature</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Compulsion', 'Illusion'], 6);
+        $helper->addTypesToSpell($spell, ['Compulsion', 'Illusion', 'Mental'], 6);
 
         $spell                 = new Spell;
         $spell->name           = 'Dominate Animal';
@@ -1703,13 +1630,13 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One beast';
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Concentration, up to 10 minutes';
-        $spell->description    = "<p>You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.</p>";
+        $spell->description    = "<p>You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the Target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.</p>";
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration becomes 1 hour</dd>
     <dt>Heightened (+2)</dt> <dd>The duration becomes 8 hour</dd>
     <dt>Heightened (+3)</dt> <dd>The duration becomes 24 hour</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Compulsion', 'Illusion'], 3);
+        $helper->addTypesToSpell($spell, ['Compulsion', 'Illusion', 'Mental'], 3);
 
         $spell                 = new Spell;
         $spell->name           = 'Doom';
@@ -1718,13 +1645,27 @@ class SpellsDSeeder extends Seeder
         $spell->range          = '120 feet';
         $spell->targets        = 'One living creature within range';
         $spell->duration       = '10 minutes';
-        $spell->description    = '<p>This spell fills the target with a feeling of dread. It must make a CHA Save or be Shaken for the duration.</p>
+        $spell->description    = '<p>This spell fills the Target with a feeling of dread. It must make a CHA Save or be Shaken for the duration.</p>
 <p>This spell is countered by any spell with the Bless type</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Not affected</dd>
     <dt>Failure</dt> <dd>Shaken</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Illusion', 'Fear', 'Emotion'], 1);
+
+        $spell               = new Spell;
+        $spell->name         = 'Doom of Bane';
+        $spell->casting      = 'Material Casting, Somatic Casting, Verbal Casting, Secondary Caster, Sacrifice';
+        $spell->requirements = '<dl>
+    <dt>Secondary Caster</dt> <dd>Another caster must cast Bane on the corpse</dd>
+    <dt>Sacrifice</dt> <dd>You must make a DC 15 Sacrifice check and Sacrifice a living creature</dd>
+</dl>';
+        $spell->range        = '30 feet';
+        $spell->targets      = 'A humanoid to be sacrificed and a suit of plate armor with medium shield and long sword';
+        $spell->duration     = 'Permanent';
+        $spell->description  = "<p>This spell transforms the sacrificed creature's soul into the animate force of a Helmed Horror. Three rounds after casting this spell, if you Succeeded your Sacrifice check, the soul of the sacrificed creature becomes the animating force of a new Helmed Horror. The sacrificed creatures soul now powers the Helmed Horror, so it cannot be reached with Speak with Dead or Raised. If the Helmed Horror is destroyed, then the soul is released and can then be reached or Raised.</p>
+<p>This spell was the result of some confrontation between Bane and Gond, where Bane had stolen this secret from Gond. Gond demands his servants to destroy all Helmed Horrors.</p>";
+        $helper->addTypesToSpell($spell, ['Necromancy'], 4);
 
         $spell                 = new Spell;
         $spell->name           = 'Doom Scarabs';
@@ -1738,6 +1679,21 @@ class SpellsDSeeder extends Seeder
     <dt>Failure</dt> <dd>Full damage</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Evil'], 4);
+
+        $spell               = new Spell;
+        $spell->name         = 'Doublecoin';
+        $spell->casting      = 'Material Casting, Somatic Casting, Verbal Casting, Ability Damage';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>1 CON Damage</dd>
+</dl>';
+        $spell->targets      = '1 metal coin or disk';
+        $spell->duration     = 'Instantaneous';
+        $spell->description  = '<p>This spell consumes a single coin or metal disk and replaces it with two identical coins. The coins are absolutely identical, not just similar in type (scratches, special markings, and the like are reproduced).</p>
+<p>The spell destroys any magical effects that may be in on the Target coin or metal disk.</p>
+<dl>
+    <dt>Material Components</dt> <dd>The metal coin or disk that the spell consumes and creates 2 identical copies.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Draconic Might';
@@ -2121,7 +2077,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One construct within range';
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Concentration, up to 10 rounds';
-        $spell->description    = '<p>You weaken a target Construct, temporarily sapping its animating force.</p>
+        $spell->description    = '<p>You weaken a Target Construct, temporarily sapping its animating force.</p>
 <ul>
     <li>Loses all Damage Reduction</li>
     <li>Loses all Fast Healing</li>
@@ -2141,7 +2097,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Creature touched';
         $spell->save_attribute = 'CON';
         $spell->duration       = '3 rounds';
-        $spell->description    = '<p>After casting this spell, you gain the ability to cause CON damage with a Melee Touch Attack for the duration. You may only make this attack once per round. The CON damage is treated as normal Ability score damage and may be recovered in the normal way.</p>';
+        $spell->description    = '<p>After casting this spell, you gain the ability to cause CON damage with a Melee Touch Attack for the Duration. You may only make this attack once per round. The CON damage is treated as normal Ability score damage and may be recovered in the normal way.</p>';
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>1 point of CON damage</dd>
@@ -2151,7 +2107,7 @@ class SpellsDSeeder extends Seeder
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Ability Damage'], 6);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Ability Damage', 'Attack', 'Melee'], 6);
 
         $spell                 = new Spell;
         $spell->name           = 'Drain Strength';
@@ -2160,7 +2116,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'Creature touched';
         $spell->save_attribute = 'CON';
         $spell->duration       = '3 rounds';
-        $spell->description    = '<p>After casting this spell, you gain the ability to make a cause STR damage with a Melee Touch Attack for the duration. You may only make this attack once per round. The STR damage is treated as normal Ability score damage and may be recovered in the normal way.</p>';
+        $spell->description    = '<p>After casting this spell, you gain the ability to cause STR damage with a Melee Touch Attack for the Duration. You may only make this attack once per round. The STR damage is treated as normal Ability score damage and may be recovered in the normal way.</p>';
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>1 point of STR damage</dd>
@@ -2170,7 +2126,7 @@ class SpellsDSeeder extends Seeder
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Ability Damage'], 4);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Ability Damage', 'Attack', 'Melee'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Drain Life';
@@ -2178,16 +2134,16 @@ class SpellsDSeeder extends Seeder
         $spell->range       = '30 feet';
         $spell->targets     = 'One living creature within range';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You attempt to drain the life out of a creature you can see within range. The target must make a CON Save at the start of each of its turns, taking 1D6 CON Damage on a Failed Save, or half as much on a successful one. This spell has no effect on Undead and Constructs.</p>';
+        $spell->description = '<p>You attempt to drain the life out of a creature you can see within range. The Target must make a CON Save at the start of each of its turns, taking 1D6 CON Damage on a Failed Save, or half as much on a successful one. This spell has no effect on Undead and Constructs.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
     <dt>Heightened (+2)</dt> <dd>If this spell is cast in an area that is Desecrated or Unhallowed and under a Full Moon, then you become 1 week younger for each point of CON Damage that is caused. This effect is Permanent.</dd>
 </dl>';
         $spell->saves = '<dl>
     <dt>Critical Success</dt> <dd>The spell ends</dd>
-    <dt>Success</dt> <dd>The target takes half damage. If this is the 3rd successful Save, the spell ends.</dd>
-    <dt>Failure</dt> <dd>The target takes full damage</dd>
-    <dt>Critical Failure</dt> <dd>As Failure, plus the target gains a level of Exhaustion</dd>
+    <dt>Success</dt> <dd>The Target takes half damage. If this is the 3rd successful Save, the spell ends.</dd>
+    <dt>Failure</dt> <dd>The Target takes full damage</dd>
+    <dt>Critical Failure</dt> <dd>As Failure, plus the Target gains a level of Exhaustion</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Evil', 'Negative'], 4);
 
@@ -2198,14 +2154,14 @@ class SpellsDSeeder extends Seeder
         $spell->range          = '120 feet';
         $spell->targets        = 'One creature in range';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You fire a black ray of Negative energy at a single target as a Ranged Spell Attack. Any creature struck by this ray takes 4D8 Points of Negative damage. The target must make a WIS Save, on a failure, you become Sluggish: 2 until the beginning of your next turn.</p>
+        $spell->description    = '<p>You fire a black Ray of Negative energy at a single Target as a Ranged Spell Attack. Any creature struck by this ray takes 4D8 Points of Negative damage. The Target must make a WIS Save, on a Failure, you become Sluggish: 2 until the beginning of your next turn.</p>
 <p>This spell has no effect on Constructs or Inanimate objects.</p>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>You are not Sluggish</dd>
     <dt>Failure</dt> <dd>You are Sluggish:2 for one round</dd>
     <dt>Critical Failure</dt> <dd>You are Sluggish: 3 for 3 rounds</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Negative', 'Ray'], 4);
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Negative', 'Ray', 'Attack', 'Ranged'], 4);
 
         $spell                 = new Spell;
         $spell->name           = 'Dread Word';
@@ -2221,7 +2177,7 @@ class SpellsDSeeder extends Seeder
     <dt>Success</dt> <dd>Half damage</dd>
     <dt>Failure</dt> <dd>Full damage</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 3);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Auditory'], 3);
 
         $spell                = new Spell;
         $spell->name          = 'Dream';
@@ -2229,10 +2185,10 @@ class SpellsDSeeder extends Seeder
         $spell->range         = 'Special';
         $spell->spell_creator = 'Efteran';
         $spell->duration      = '8 hours';
-        $spell->description   = "<p>This spell shapes a creature's dreams. Choose a creature known to you as the target of this spell. The target must be on the same plane of existence as you. Creatures that don't sleep, such as elves, can't be contacted by this spell. You, or a willing creature you touch, enters a trance state, acting as a messenger. While in the trance, the messenger is aware of his or her surroundings, but can't take actions or move.</p>
-<p>If the target is asleep, the messenger appears in the target's dreams and can converse with the target as long as it remains asleep, through the duration of the spell. The messenger can also shape the environment of the dream, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the effect of the spell early. The target recalls the dream perfectly upon waking. If the target is awake when you cast the spell, the messenger knows it, and can either end the trance (and the spell) or wait for the target to fall asleep, at which point the messenger appears in the target's dreams.</p>
-<p>You can make the messenger appear monstrous and terrifying to the target. If you do, the messenger can deliver a message of no more than ten words and then the target must make a WIS Save. On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of the target's sleep and prevents the target from gaining any benefit from that rest. In addition, when the target wakes up, it takes 3d6 psychic damage.</p>
-<p>If you have a body part, lock of hair, clipping from a nail, or similar portion of the target's body, the target makes its saving throw with disadvantage.</p>";
+        $spell->description   = "<p>This spell shapes a creature's dreams. Choose a creature known to you as the Target of this spell. The Target must be on the same plane of existence as you. Creatures that don't sleep, such as elves, can't be contacted by this spell. You, or a willing creature you touch, enters a trance state, acting as a messenger. While in the trance, the messenger is aware of his or her surroundings, but can't take actions or move.</p>
+<p>If the Target is asleep, the messenger appears in the target's dreams and can converse with the Target as long as it remains asleep, through the duration of the spell. The messenger can also shape the environment of the dream, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the effect of the spell early. The Target recalls the dream perfectly upon waking. If the Target is awake when you cast the spell, the messenger knows it, and can either end the trance (and the spell) or wait for the Target to fall asleep, at which point the messenger appears in the target's dreams.</p>
+<p>You can make the messenger appear monstrous and terrifying to the target. If you do, the messenger can deliver a message of no more than ten words and then the Target must make a WIS Save. On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of the target's sleep and prevents the Target from gaining any benefit from that rest. In addition, when the Target wakes up, it takes 3d6 psychic damage.</p>
+<p>If you have a body part, lock of hair, clipping from a nail, or similar portion of the target's body, the Target makes its saving throw with disadvantage.</p>";
         $helper->addTypesToSpell($spell, ['Illusion', 'Mental', 'Phantasm', 'Ritual'], 5);
 
         $spell                 = new Spell;
@@ -2290,13 +2246,13 @@ class SpellsDSeeder extends Seeder
         $spell->range          = 'Unlimited';
         $spell->targets        = 'One sentient, living creature';
         $spell->duration       = 'Concentration, up to 3 hours';
-        $spell->description    = "<p>You take control of the physical body of a sleeping creature. At the beginning of the spell, you must name the target or identify them by some title that leaves no doubt as to their identity. You then enter a trance and appear in the target's dream. So long as you remain in their dream, you see the world through the eyes of the target and you control their body as the Dominate spell.</p>
-<p>The target is aware of you in their dream, and can identify you if they know you personally. Once the spell ends, or if the target shakes off the effects due to a new Save granted by instructions contrary to their moral code (as the Dominate spell). These memories are dreamlike and not entirely clear, but the target recalls the gist of all that happened.</p>
-<p>If the target is awake when the spell begins, you can choose to wake up (ending the spell) or remain asleep in hopes that the target goes to sleep soon (the duration of the spell counts this waiting time). If you are disturbed and awakened, the spell ends.</p>
+        $spell->description    = "<p>You take control of the physical body of a sleeping creature. At the beginning of the spell, you must name the Target or identify them by some title that leaves no doubt as to their identity. You then enter a trance and appear in the target's dream. So long as you remain in their dream, you see the world through the eyes of the Target and you control their body as the Dominate spell.</p>
+<p>The Target is aware of you in their dream, and can identify you if they know you personally. Once the spell ends, or if the Target shakes off the effects due to a new Save granted by instructions contrary to their moral code (as the Dominate spell). These memories are dreamlike and not entirely clear, but the Target recalls the gist of all that happened.</p>
+<p>If the Target is awake when the spell begins, you can choose to wake up (ending the spell) or remain asleep in hopes that the Target goes to sleep soon (the duration of the spell counts this waiting time). If you are disturbed and awakened, the spell ends.</p>
 <p>You are unaware of your own surroundings or the activities around you while you sleep (you are defenseless and Fail all Saves while asleep).</p>";
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>You are barred from ever casting this spell on the target. Your soul is lost in the Ethereal. You must cast another spell to return to your physical body, or someone must travel to the Ethereal Plane and rescue you. Your physical body continues to require food and water (a slightly less amount), and will eventually die (usually in 10 days).</dd>
-    <dt>Success</dt> <dd>The spell fails, and you cannot cast it on the same target for 3 days</dd>
+    <dt>Success</dt> <dd>The spell fails, and you cannot cast it on the same Target for 3 days</dd>
     <dt>Failure</dt> <dd>The spell succeeds as normal</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Mental', 'Ritual'], 6);
@@ -2307,7 +2263,7 @@ class SpellsDSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One living creature touched';
         $spell->duration    = '3 hours';
-        $spell->description = '<p>The creature touched is immune drug addiction. Drugs still have their normal effects. If the spell ends while the target is still under the influence of the drug, they suffer the normal chances of becoming addicted, but they receive a +2 bonus to the Save if any.</p>
+        $spell->description = '<p>The creature touched is immune drug addiction. Drugs still have their normal effects. If the spell ends while the Target is still under the influence of the drug, they suffer the normal chances of becoming addicted, but they receive a +2 bonus to the Save if any.</p>
 <dl>
     <dt>Material Components</dt> <dd>Three drops of pure water</dd>
 </dl>';
@@ -2404,7 +2360,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets       = '1 creature';
         $spell->duration      = 'Instantaneous';
         $spell->description   = "<p>You counterspell an opponent's spell or spell-like ability before it is even cast and without knowing what spell you are countering.</p>
-<p>If the target prepares spells, you counterspell the highest level spell currently prepared, eliminating it from the target's list of prepared spells for that day. If the target casts spells spontaneously (and does not prepare spells), you effectively reduce by one the number of spells per day of the highest level spell slot available. If the target has spell-like abilities (and does not prepare spells or cast spontaneously), it loses one use of the highest-level ability available. Otherwise, this spell has no effect.</p>
+<p>If the Target prepares spells, you counterspell the highest level spell currently prepared, eliminating it from the target's list of prepared spells for that day. If the Target casts spells spontaneously (and does not prepare spells), you effectively reduce by one the number of spells per day of the highest level spell slot available. If the Target has spell-like abilities (and does not prepare spells or cast spontaneously), it loses one use of the highest-level ability available. Otherwise, this spell has no effect.</p>
 <p>You must make a successful Dispel Check (as the spell Dispel Magic) to successfully counter or remove your opponent's prepared spell, spell slot, or use of a spell-lie ability.</p>
 <dl>
     <dt>Material Components</dt> <dd>A crystal lens worth at least 1,000 gp</dd>

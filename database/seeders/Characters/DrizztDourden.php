@@ -27,6 +27,7 @@ class DrizztDourden extends Seeder
         $char->int         = 17;
         $char->wis         = 17;
         $char->cha         = 12;
+        $char->hit_points  = 185;
         $char->alignment   = 'CG';
         $char->sub_race_id = SubRace::where('name', 'Drow')->firstOrFail()->id;
 
@@ -358,8 +359,8 @@ class DrizztDourden extends Seeder
                 20 => [
                     'class' => 'Monk',
                     'feats' => [
-                        'class' => [],
-                        'skill' => [],
+                        'class' => ['Deflect Ranged Attack'],
+                        'skill' => ['Alertness'],
                     ],
                     'skills' => [
                         'Stealth'    => 1,
@@ -370,8 +371,48 @@ class DrizztDourden extends Seeder
                         'Diplomacy'  => 1,
                     ],
                     'powers' => [
-                        1 => ['Wisdom Defense', 'Heal'],
+                        1 => ['Heal'],
                     ],
+                ],
+                21 => [
+                    'class'   => 'Monk',
+                    'feats'   => ['Focused Mind'],
+                    'talents' => ['Quick Stand'],
+                    'skills'  => [
+                        'Stealth'    => 1,
+                        'Acrobatics' => 1,
+                        'Athletics'  => 1,
+                        'Medicine'   => 1,
+                        'Lore'       => 1,
+                        'Diplomacy'  => 1,
+                    ],
+                    'powers'  => [
+                        1 => ['Wisdom Defense'],
+                    ],
+                ],
+                22 => [
+                    'class'  => 'Monk',
+                    'skills' => [
+                        'Stealth'    => 1,
+                        'Acrobatics' => 1,
+                        'Athletics'  => 1,
+                        'Medicine'   => 1,
+                        'Lore'       => 1,
+                        'Diplomacy'  => 1,
+                    ],
+                    'powers' => ['Body Equilibrium'],
+                ],
+                23 => [
+                    'class'  => 'Monk',
+                    'skills' => [
+                        'Stealth'    => 1,
+                        'Acrobatics' => 1,
+                        'Athletics'  => 1,
+                        'Medicine'   => 1,
+                        'Lore'       => 1,
+                        'Diplomacy'  => 1,
+                    ],
+                    'powers' => ['Biofeedback'],
                 ],
             ],
         ]);

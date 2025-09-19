@@ -22,49 +22,30 @@ class GodsDragonsSeeder extends Seeder
 
         $asgorath        = new God;
         $asgorath->name  = 'Asgorath';
-        $asgorath->level = 'Greater';
+        $asgorath->level = 'Dead';
         $asgorath->save();
         $asgorath->pantheons()->save(app()->pantheons['Draconic'], [
             'name'           => $asgorath->name,
             'title'          => 'The World Shaper, The Concordant Dragon, The Great Eternal Wheel, Swallower of Shades, The Ninefold Dragon, Creator of Dragonkind',
             'aliases'        => 'Io, Shekinester',
-            'level'          => 'Greater',
+            'level'          => 'Dead',
             'portfolio'      => 'Dragonkind, Balance and Peace, Creation Maintenance, Destruction, Knowledge',
             'alignment'      => 'N',
             'symbol'         => 'A multicolored metallic disk',
+            'description'    => '<p>Asgorath was killed by the Primordial called the King of Terror. Asgorath, split in half, formed into Tiamat and Bahamut. In truth, Sardior was also formed from this event, but few are aware of this.</p>',
             'favored_weapon' => 'Claw (scimitar)',
         ]);
 
         /**********************************************************************/
 
-        $god        = new God;
-        $god->name  = 'Task';
-        $god->level = 'Intermediate';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Draconic'], [
-            'name'           => $god->name,
+        God::where('name', 'Loki')->firstOrFail()->pantheons()->save(app()->pantheons['Draconic'], [
+            'name'           => 'Task',
             'title'          => 'The Taker and Holder, Wrestler',
             'level'          => 'Intermediate',
             'portfolio'      => 'Greed, Selfishness',
             'alignment'      => 'CE',
             'symbol'         => 'A pile of five coins',
             'favored_weapon' => 'Bite',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Kereska';
-        $god->level = 'Intermediate';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Draconic'], [
-            'name'      => $god->name,
-            'aliases'   => 'Kalzareinad',
-            'title'     => 'Light of Magic, Wonderbringer',
-            'level'     => 'Intermediate',
-            'portfolio' => 'Magic, Dragon Magic',
-            'alignment' => 'CN',
-            'symbol'    => 'A five-pointed star with the lower two points extended',
         ]);
 
         /**********************************************************************/
@@ -116,7 +97,7 @@ class GodsDragonsSeeder extends Seeder
             3 => ['Aspect of the Deity, Lesser', 'Dragon Wings', 'Remove Curse'],
             4 => ['Atonement', 'Divine Power', 'Dragon Ally', 'Draconic Might'],
             5 => ['Aura of Power', 'Dragon Form'],
-            6 => ['Aspect of the Deity, Greater', 'Holy Aura'],
+            6 => ['Aspect of the Deity, Greater', 'Holy Aura', 'Commune Archetype'],
         ]);
 
         $feat              = new Feat;
@@ -238,8 +219,8 @@ class GodsDragonsSeeder extends Seeder
             4 => ['Ceremony', 'Dragon Wings'],
             5 => ['Abate Dracorage', 'Aggravate Dracorage', 'Atonement', 'Chromatic Ray', 'Dragon Ally',
                 'Reincarnate' => 'Always reincarnates into a Dragon Born', 'Spawn of Tiamat', ],
-            6 => ['Dragon Form', "Dragon's Head"],
-            7 => ['Aspect of the Deity, Greater', 'Enervating Breath'],
+            6 => ['Commune Archetype', 'Dragon Form', "Dragon's Head"],
+            7 => ['Aspect of the Deity, Greater', 'Death Door', 'Enervating Breath'],
         ]);
 
         $feat              = new Feat;
@@ -279,39 +260,6 @@ class GodsDragonsSeeder extends Seeder
             'favored_weapon' => 'Claw',
         ]);
 
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Garyx';
-        $god->level = 'Lesser';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Draconic'], [
-            'name'           => $god->name,
-            'title'          => 'All-Destroyer, Cleanser of Worlds, Firelord',
-            'level'          => 'Lesser',
-            'portfolio'      => 'Fire, destruction, Renewal',
-            'alignment'      => 'CE',
-            'symbol'         => 'A reptilian eye superimposed over a red flame',
-            'favored_weapon' => 'Claw (sickle)',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Hlal';
-        $god->level = 'Demi';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Draconic'], [
-            'name'           => $god->name,
-            'title'          => 'Messenger of Asgorath, The Jester, The Pursued, Quicksilver (Seldarine)',
-            'aliases'        => 'Avachel (Seldarine, ally of Erevan), Aasterinian',
-            'level'          => 'Demi',
-            'portfolio'      => 'Humor, Inspiration, Messages, Storytelling, Tricks',
-            'alignment'      => 'CG',
-            'symbol'         => 'An open book',
-            'favored_weapon' => 'Claw (short sword, spear)',
-            'master_id'      => $asgorath->id,
-        ]);
 
         /**********************************************************************/
 
@@ -327,7 +275,7 @@ class GodsDragonsSeeder extends Seeder
             'alignment'      => 'CN',
             'symbol'         => 'A male naga head with feathered ears',
             'favored_weapon' => 'Tail Scythe (tail scythe)',
-            'master_id'      => $asgorath->id,
+            'master_id'      => God::where('name', 'Sardior')->firstOrFail()->id,
         ]);
     }
 }

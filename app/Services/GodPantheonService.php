@@ -37,6 +37,7 @@ class GodPantheonService implements Contracts\GodPantheonService
                 \App\Filters\GodPantheonId::class,
                 \App\Filters\PantheonId::class,
                 \App\Filters\Name::class,
+                \App\Filters\Level::class,
                 \App\Filters\Title::class,
                 \App\Filters\Portfolio::class,
                 \App\Filters\Order::class,

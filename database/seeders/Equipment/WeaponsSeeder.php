@@ -28,9 +28,9 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This is a piece of stout wood shaped or repurposed to bludgeon an enemy. Clubs can be intricately carved pieces of martial art or a simple as a tree branch or piece of wood.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '10'],
-            'Ranged Damage' => ['value' => '1D6 B'],
+            'Ranged Damage' => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -41,11 +41,11 @@ class WeaponsSeeder extends Seeder
         $weapon->hands  = 1;
         $weapon->group  = 'Knife';
         $weapon->type   = 'Simple Melee';
-        $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Thrown', 'Versatile', 'Piercing', 'Slashing']);
+        $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Backstabber', 'Thrown', 'Versatile', 'Piercing', 'Slashing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 P/S'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D4 P/S'],
+            'Ranged Damage' => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -56,7 +56,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Bludgeoning', 'Finesse', 'Nonlethal', 'Unarmed']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 B'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -69,7 +69,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Bludgeoning', 'Free-Hand']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 B'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -82,9 +82,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Slashing', 'Sweep', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 S'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D6 S'],
+            'Ranged Damage' => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -97,7 +97,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Bludgeoning', 'Finesse', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 B'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -110,9 +110,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Reach', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D8 P'],
+            'Melee Damage'  => ['value' => '1D8'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D8 P'],
+            'Ranged Damage' => ['value' => '1D8'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -125,7 +125,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -138,7 +138,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Piercing', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B/P'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -151,7 +151,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Slashing', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 S'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -164,9 +164,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 P'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D6 P'],
+            'Ranged Damage' => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -179,7 +179,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Free-Hand', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 P'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -193,8 +193,8 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This long piece of wood can aid in walking and deliver a mighty blow.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Two-Hand']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'    => ['value' => '1D4 B'],
-            '2 Handed Damage' => ['value' => '1D8 B'],
+            'Melee Damage'    => ['value' => '1D4'],
+            '2 Handed Damage' => ['value' => '1D8'],
             'Threat Range'    => ['value' => 2],
         ]);
 
@@ -208,8 +208,8 @@ class WeaponsSeeder extends Seeder
         $weapon->description  = '<p>This broad-bladed sword, sometimes called the hand-and-a-half sword, has a longer grip so it can be held in one hand or used with two hands to provide extra slashing power.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Two-Hand']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'    => ['value' => '1D8 P'],
-            '2 Handed Damage' => ['value' => '1D12 P'],
+            'Melee Damage'    => ['value' => '1D8'],
+            '2 Handed Damage' => ['value' => '1D12'],
             'Threat Range'    => ['value' => 3],
         ]);
 
@@ -223,7 +223,7 @@ class WeaponsSeeder extends Seeder
         $weapon->description  = '<p>These axes are designed explicitly as weapons, rather than tools. They typically weigh less, with a shaft reinforced with metal bands or bolts, and have a sharper blade, making them ideal for chopping limbs rather than wood.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Slashing', 'Sweep']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D8 S'],
+            'Melee Damage'  => ['value' => '1D8'],
             'Threat Range'  => ['value' => 3],
         ]);
 
@@ -236,7 +236,22 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Unarmed', 'Parry', 'Reach', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D8 B'],
+            'Melee Damage'  => ['value' => '1D8'],
+            'Threat Range'  => ['value' => 2],
+        ]);
+
+        $weapon              = new Weapon;
+        $weapon->name        = 'Boomerang';
+        $weapon->price       = 1;
+        $weapon->bulk        = '1';
+        $weapon->hands       = 1;
+        $weapon->group       = 'Club';
+        $weapon->type        = 'Martial Ranged';
+        $weapon->description = '<p>The boomerang is a Ranged Weapon. On a miss, a boomerang returns to the thrower.</p>';
+        $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Thrown']);
+        $helper->addPropertiesToSimpleObject($weapon, [
+            'Ranged Damage' => ['value' => '1D4'],
+            'Range'         => ['value' => '30/90'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -249,7 +264,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Forceful', 'Slashing', 'Sweep']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D10 S'],
+            'Melee Damage'  => ['value' => '1D10'],
             'Threat Range'  => ['value' => 3],
         ]);
 
@@ -262,7 +277,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Disarm', 'Sweep', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -275,7 +290,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Forceful', 'Slashing', 'Trip', 'Reach']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D8 S'],
+            'Melee Damage'  => ['value' => '1D8'],
             'Deadly'        => ['value' => '1D8'],
             'Threat Range'  => ['value' => 2],
         ]);
@@ -289,7 +304,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Slashing', 'Sweep']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D12 S'],
+            'Melee Damage'  => ['value' => '1D12'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -302,7 +317,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Backswing', 'Bludgeoning', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D10 B'],
+            'Melee Damage'  => ['value' => '1D10'],
             'Threat Range'  => ['value' => 3],
         ]);
 
@@ -315,8 +330,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Fatal', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D10 P'],
-            'Fatal'        => ['value' => '1D12 P'],
+            'Melee Damage' => ['value' => '1D10'],
+            'Fatal'        => ['value' => '1D12'],
             'Threat Range' => ['value' => 3],
         ]);
 
@@ -329,7 +344,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Slashing', 'Piercing', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D12 S/P'],
+            'Melee Damage'  => ['value' => '1D12'],
             'Threat Range'  => ['value' => 3],
         ]);
 
@@ -342,7 +357,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Reach', 'Slashing', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D10 S'],
+            'Melee Damage'  => ['value' => '1D10'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -355,7 +370,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Slashing', 'Reach', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D10 P/S'],
+            'Melee Damage'  => ['value' => '1D10'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -366,7 +381,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D4 B'],
+            'Melee Damage'  => ['value' => '1D4'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -376,9 +391,9 @@ class WeaponsSeeder extends Seeder
         $weapon->hands  = 1;
         $weapon->group  = 'Shield';
         $weapon->type   = 'Martial Melee';
-        $helper->addTypesToSimpleObject($weapon, ['Shove']);
+        $helper->addTypesToSimpleObject($weapon, ['Shove', 'Bludgeoning']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -388,9 +403,9 @@ class WeaponsSeeder extends Seeder
         $weapon->hands  = 1;
         $weapon->group  = 'Shield';
         $weapon->type   = 'Martial Melee';
-        $helper->addTypesToSimpleObject($weapon, ['Shove']);
+        $helper->addTypesToSimpleObject($weapon, ['Shove', 'Versatile', 'Piercing', 'Bludgeoning']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 P'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -403,8 +418,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Charge', 'Deadly', 'Piercing', 'Reach']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 P'],
-            'Deadly'       => ['value' => '1D8 P'],
+            'Melee Damage' => ['value' => '1D8'],
+            'Deadly'       => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -417,9 +432,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Bludgeoning', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 B'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D6 B'],
+            'Ranged Damage' => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -432,8 +447,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Fatal', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P'],
-            'Fatal'        => ['value' => '1D8 P'],
+            'Melee Damage' => ['value' => '1D4'],
+            'Fatal'        => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -444,7 +459,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D3 B'],
+            'Melee Damage' => ['value' => '1D3'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -468,7 +483,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P'],
+            'Melee Damage' => ['value' => '1D4'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -481,7 +496,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Slashing', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S/P'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -494,7 +509,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Disarm', 'Finesse', 'Parry', 'Piercing', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P'],
+            'Melee Damage' => ['value' => '1D4'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -507,7 +522,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D12 B'],
+            'Melee Damage' => ['value' => '1D12'],
             'Threat Range' => ['value' => 3],
         ]);
 
@@ -520,8 +535,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Fatal', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 P'],
-            'Fatal'        => ['value' => '1D10 P'],
+            'Melee Damage' => ['value' => '1D6'],
+            'Fatal'        => ['value' => '1D10'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -534,7 +549,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Disarm', 'Piercing', 'Reach']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D10 P'],
+            'Melee Damage' => ['value' => '1D10'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -547,8 +562,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Disarm', 'Finesse', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 P'],
-            'Deadly'       => ['value' => '1D8 P'],
+            'Melee Damage' => ['value' => '1D6'],
+            'Deadly'       => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -561,7 +576,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Bludgeoning', 'Nonlethal']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 B'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -574,7 +589,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Forceful', 'Slashing', 'Sweep']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -587,9 +602,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Slashing', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D10 S'],
+            'Melee Damage' => ['value' => '1D10'],
             'Threat Range' => ['value' => 3],
-            'Deadly'       => ['value' => '1D10 S'],
+            'Deadly'       => ['value' => '1D10'],
         ]);
 
         $weapon         = new Weapon;
@@ -601,7 +616,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Piercing', 'Slashing', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 P/S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -614,10 +629,10 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Deadly', 'Finesse', 'Piercing', 'Slashing', 'Thrown', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 P/S'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '20'],
-            'Ranged Damage' => ['value' => '1D6 P/S'],
-            'Deadly'        => ['value' => '1D6 P/S'],
+            'Ranged Damage' => ['value' => '1D6'],
+            'Deadly'        => ['value' => '1D6'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -630,9 +645,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D8 P'],
+            'Melee Damage'  => ['value' => '1D8'],
             'Range'         => ['value' => '20/60'],
-            'Ranged Damage' => ['value' => '1D8 P'],
+            'Ranged Damage' => ['value' => '1D8'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -645,7 +660,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Disarm', 'Sweep', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D10 B'],
+            'Melee Damage' => ['value' => '1D10'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -658,7 +673,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Shove']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 B'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 3],
         ]);
 
@@ -671,7 +686,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Disarm', 'Finesse', 'Nonlethal', 'Reach', 'Slashing', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 S'],
+            'Melee Damage' => ['value' => '1D4'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -699,7 +714,7 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>These thin, light darts are typically made of hardwood and stabilized with fletching of down or fur. They are often hollow so they can be used to deliver poison</p>';
         $helper->addTypesToSimpleObject($weapon, ['Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D1 P'],
+            'Ranged Damage' => ['value' => '1D1'],
         ]);
 
         $weapon              = new Weapon;
@@ -712,7 +727,7 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This ranged weapon has a bow-like assembly mounted on a handled frame called a tiller. The tiller has a mechanism to lock the bowstring in place, attached to a trigger mechanism that releases the tension and launches a bolt.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Propulsive']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D8 P'],
+            'Ranged Damage' => ['value' => '1D8'],
             'Range'         => ['value' => '100/300'],
             'Reload'        => ['value' => '2 Action'],
             'Threat Range'  => ['value' => 2],
@@ -790,7 +805,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D10 P'],
+            'Ranged Damage' => ['value' => '1D10'],
         ]);
 
         $weapon         = new Weapon;
@@ -802,9 +817,9 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D6 P'],
+            'Melee Damage'  => ['value' => '1D6'],
             'Range'         => ['value' => '30/120'],
-            'Ranged Damage' => ['value' => '1D8 P'],
+            'Ranged Damage' => ['value' => '1D8'],
             'Threat Range'  => ['value' => 2],
         ]);
 
@@ -830,7 +845,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Simple Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D6 B'],
+            'Ranged Damage' => ['value' => '1D6'],
         ]);
 
         $weapon              = new Weapon;
@@ -844,7 +859,7 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Propulsive', 'Volley']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '150/700'],
-            'Ranged Damage' => ['value' => '1D8 P'],
+            'Ranged Damage' => ['value' => '1D8'],
             'Volley'        => ['value' => '50 ft'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
@@ -861,8 +876,8 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Propulsive']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '90/350'],
-            'Ranged Damage' => ['value' => '1D6 P'],
-            'Deadly'        => ['value' => '1D10 P'],
+            'Ranged Damage' => ['value' => '1D6'],
+            'Deadly'        => ['value' => '1D10'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
         ]);
@@ -877,8 +892,8 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Volley']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '150/600'],
-            'Ranged Damage' => ['value' => '1D8 P'],
-            'Deadly'        => ['value' => '1D10 P'],
+            'Ranged Damage' => ['value' => '1D8'],
+            'Deadly'        => ['value' => '1D10'],
             'Volley'        => ['value' => '50 ft'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
@@ -894,8 +909,8 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '80/120'],
-            'Ranged Damage' => ['value' => '1D6 P'],
-            'Deadly'        => ['value' => '1D10 P'],
+            'Ranged Damage' => ['value' => '1D6'],
+            'Deadly'        => ['value' => '1D10'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
         ]);
@@ -909,7 +924,7 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. it is stabilized in flight by fletching at one end and bears a metal head on the other.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D6 P'],
+            'Ranged Damage' => ['value' => '1D6'],
         ]);
 
         $weapon              = new Weapon;
@@ -922,7 +937,7 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This broad dagger is carried by dwarves as a weapon, tool, and designation of clan. Losing or having to surrender a clan dagger is considered a mark of embarrassment to most dwarves.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Dwarf', 'Parry', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P/B'],
+            'Melee Damage' => ['value' => '1D4'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -935,8 +950,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Simple Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Deadly', 'Unarmed']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P'],
-            'Deadly'       => ['value' => '1D6 P'],
+            'Melee Damage' => ['value' => '1D4'],
+            'Deadly'       => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -949,7 +964,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Backstabber', 'Finesse', 'Goblin']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -962,7 +977,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Elf', 'Finesse', 'Forceful']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -975,8 +990,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Backstabber', 'Deadly', 'Finesse', 'Halfling', 'Thrown']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P'],
-            'Deadly'       => ['value' => '1D6 P'],
+            'Melee Damage' => ['value' => '1D4'],
+            'Deadly'       => ['value' => '1D6'],
             'Range'        => ['value' => '20/60'],
             'Threat Range' => ['value' => 2],
         ]);
@@ -990,8 +1005,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Gnome', 'Trip', 'Two-Hand', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 B/P'],
-            'Deadly'       => ['value' => '1D10 B/P'],
+            'Melee Damage' => ['value' => '1D6'],
+            'Deadly'       => ['value' => '1D10'],
             'Threat Range' => ['value' => 3],
         ]);
 
@@ -1004,7 +1019,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Goblin', 'Reach', 'Trip', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S/P'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1017,7 +1032,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Unarmed', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1030,7 +1045,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S/P'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1043,7 +1058,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1056,7 +1071,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Backswing', 'Disarm', 'Finesse', 'Unarmed']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 B'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1069,7 +1084,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Disarm', 'Orc']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 P'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1082,7 +1097,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Disarm', 'Finesse', 'Unarmed', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D4 P/B'],
+            'Melee Damage' => ['value' => '1D4'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1095,7 +1110,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Disarm', 'Finesse', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1108,7 +1123,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Unarmed', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1121,8 +1136,8 @@ class WeaponsSeeder extends Seeder
         $weapon->type         = 'Uncommon Exotic Melee';
         $helper->addTypesToSimpleObject($weapon, ['Dwarf', 'Sweep', 'Two-Hand']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S'],
-            'Deadly'       => ['value' => '1D12 S'],
+            'Melee Damage' => ['value' => '1D8'],
+            'Deadly'       => ['value' => '1D12'],
             'Threat Range' => ['value' => 3],
         ]);
 
@@ -1135,7 +1150,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Exotic Melee';
         $helper->addTypesToSimpleObject($weapon, ['Gnome', 'Reach']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 B'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1148,7 +1163,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Exotic Melee';
         $helper->addTypesToSimpleObject($weapon, ['Forceful', 'Orc', 'Versatile']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D8 S/P'],
+            'Melee Damage' => ['value' => '1D8'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1161,7 +1176,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Exotic Melee';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Finesse', 'Twin']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
 
@@ -1174,7 +1189,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Halfling', 'Propulsive']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D10 B'],
+            'Ranged Damage' => ['value' => '1D10'],
             'Range'         => ['value' => '50/200'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
@@ -1188,7 +1203,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D6 B'],
+            'Ranged Damage' => ['value' => '1D6'],
         ]);
 
         $weapon         = new Weapon;
@@ -1199,7 +1214,7 @@ class WeaponsSeeder extends Seeder
         $weapon->type   = 'Uncommon Martial Ranged';
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Unarmed', 'Thrown', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D4 P'],
+            'Ranged Damage' => ['value' => '1D4'],
             'Range'         => ['value' => '20/60'],
             'Reload'        => ['value' => 'Draw Action'],
             'Threat Range'  => ['value' => 2],
@@ -1224,8 +1239,8 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This weapon has a 10-foot reach and cannot be used against an adjacent opponent. If you hit an opponent within one size category of yourself with a pincer staff, you may attempt to start a Grapple as an Action without provoking an Attack of Opportunity. If you get a hold, the staff grabs the opponent. Once grabbed, the wielder may automatically deal damage to the target with an Action.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Two-Hand', 'Reach']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage'  => ['value' => '1D10 B + Grapple'],
-            'Ranged Damage' => ['value' => '1D10 B'],
+            'Melee Damage'  => ['value' => '1D10 + Grapple'],
+            'Ranged Damage' => ['value' => '1D10'],
             'Range'         => ['value' => '10'],
             'Threat Range'  => ['value' => 2],
         ]);
@@ -1240,7 +1255,7 @@ class WeaponsSeeder extends Seeder
 <p>Because of a tail scythe's shape, you can also use it to make trip attacks. However, if you are tripped during your own trip attempt, you cannot drop the tail scythe to avoid being tripped. Donning or removing a tail scythe takes 1 Action with the benefit of hands or assistance, or with a Triple Action without.</p>";
         $helper->addTypesToSimpleObject($weapon, ['Agile', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Melee Damage' => ['value' => '1D6 P/S'],
+            'Melee Damage' => ['value' => '1D6'],
             'Threat Range' => ['value' => 2],
         ]);
     }

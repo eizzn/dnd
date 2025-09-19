@@ -65,14 +65,20 @@ const filters = {
                                         </optgroup>
                                         <optgroup label="Damage Type">
                                             <option value="acid">Acid</option>
+                                            <option value="air">Air</option>
                                             <option value="cold">Cold</option>
+                                            <option value="darkness">Darkness</option>
+                                            <option value="earth">Earth</option>
                                             <option value="electricity">Electricity</option>
                                             <option value="fire">Fire</option>
                                             <option value="force">Force</option>
+                                            <option value="light">Light</option>
                                             <option value="negative">Negative</option>
                                             <option value="poison">Poison</option>
                                             <option value="positive">Positive</option>
+                                            <option value="shadow">Shadow</option>
                                             <option value="sonic">Sonic</option>
+                                            <option value="water">Water</option>
                                         </optgroup>
                                         <optgroup label="Alignment">
                                             <option value="chaotic">Chaotic</option>
@@ -80,6 +86,7 @@ const filters = {
                                             <option value="neutral">Neutral</option>
                                             <option value="good">Good</option>
                                             <option value="lawful">Lawful</option>
+                                            <option value="demon">Demon</option>
                                         </optgroup>
                                         <optgroup label="Miscellaneous">
                                             <option value="aura">Aura</option>
@@ -88,6 +95,7 @@ const filters = {
                                             <option value="healing">Healing</option>
                                             <option value="mind-affecting">Mind-Affecting</option>
                                             <option value="polymorph">Polymorph</option>
+                                            <option value="ray">Ray</option>
                                             <option value="ritual">Ritual</option>
                                             <option value="smite">Smite</option>
                                             <option value="summoning">Summoning</option>

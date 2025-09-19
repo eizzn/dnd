@@ -21,6 +21,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kobold';
         $monster->size             = 'Small';
+        $monster->type             = 'Kobold';
         $monster->alignment        = 'N';
         $monster->armor_class      = '12';
         $monster->damage_reduction = 1;
@@ -43,6 +44,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kobold, Winged';
         $monster->size             = 'Small';
+        $monster->type             = 'Kobold';
         $monster->alignment        = 'N';
         $monster->armor_class      = '13';
         $monster->damage_reduction = 1;
@@ -65,6 +67,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kraken';
         $monster->size             = 'Gargantuan';
+        $monster->type             = 'Titan';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '7';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -119,6 +122,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kuo-Toa';
         $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Sticky Shield)';
         $monster->damage_reduction = 1;
@@ -142,6 +146,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kuo-Toa, Whip';
         $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = 1;
@@ -172,6 +177,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kuo-Toa, Monitor';
         $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '14 (Leather Armor)';
         $monster->damage_reduction = 2;
@@ -204,6 +210,7 @@ class MonstersKSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kuo-Toa, Archpriest';
         $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = 1;

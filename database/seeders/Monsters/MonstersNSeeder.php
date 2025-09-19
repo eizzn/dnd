@@ -21,6 +21,7 @@ class MonstersNSeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Nishruu';
         $monster->size        = 'Large';
+        $monster->type        = 'Aberration';
         $monster->alignment   = 'CN';
         $monster->armor_class = '9';
         $monster->hit_dice    = 9;

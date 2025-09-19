@@ -64,13 +64,13 @@ class GodsEladrinsSeeder extends Seeder
             'regions'   => 'Sea of Fallen Stars',
             'alignment' => 'NG',
             'symbol'    => "A pearl held in a selkie's paw",
-            'master_id' => God::where('name', 'Deep Sashelas')->first()->id,
+            'master_id' => God::where('name', 'Istishia')->first()->id,
         ]);
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'        => 'Eldath',
             'title'       => 'Goddess of Singing Waters, Mother of Guardian of Groves, The Quiet One, Mother of the Waters',
             'level'       => 'Demi',
-            'portfolio'   => 'Peace, Waterfalls, Springs, Pools, Stillness, Quite Glades',
+            'portfolio'   => 'Peace, Waterfalls, Springs, Pools, Stillness, Quite Glades, Druid Groves',
             'alignment'   => 'NG',
             'symbol'      => 'Waterfall plunging into a still pool',
             'master_id'   => God::where('name', 'Silvanus')->first()->id,
@@ -78,6 +78,11 @@ class GodsEladrinsSeeder extends Seeder
 <h4>Major Centers of Worship</h4>
 <p>The most revered center of Eldathyn worship is Duskwood Dell in Amn, east of Eshpurta. There the waters of the River Rumril, a tributary of the Esmel River, plunge down the western cliffs of Eldath's Mount in the Troll Mountains via the Green Goddess Falls in a descent of over 400 feet and thence through a series of pools and lesser falls (called the Steps) out into Arundath, the Quiet Forest (known most commonly as the Snakewood for the serpentine denizens the Eldathyn use to scare away intruders). Here Most Exalted Fallskepper Alatoasz Berendim presides over a tree city of Eldathyn who train under priests in the service of the Green Goddess and send them out all over Faerun to find their personal place in Eldath's service.</p>
 <p>Elah'zad, an ancient Eldathyn holy site in Anauroch, is also a place of great power. According to the Bedine, Elah'zad was the home of the moon goddess, Elah (Selûne), but At'ar the sun goddess drove her away and made it a prison for Eldath, the Mother of the Waters, because she was jealous of Eldath's beauty. Here Eldath can choose to speak through the mouth of any woman who enters the House of the Moon, a nearly circular palatial temple formed of chalky, translucent desert rock in the midst of a lake set in a sacred grove surrounded by over a hundred small springs. (The woman falls asleep and the goddess directly and completely controls her body.) At the House of the Moon charged magical items of the Eldathyn faith can be recharged through prayer and ritual by the grace of Eldath.</p>",
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Spirit Shaman' => 20,
+            'Bard'          => 15,
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
@@ -151,6 +156,17 @@ class GodsEladrinsSeeder extends Seeder
             'alignment' => 'CN',
             'symbol'    => 'Clover leaf or Pointed red hat',
             'master_id' => $oberon->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Draconic'], [
+            'name'           => 'Hlal',
+            'title'          => 'Messenger of Asgorath, The Jester, The Pursued, Quicksilver (Seldarine)',
+            'aliases'        => 'Avachel (Seldarine, ally of Erevan), Aasterinian',
+            'level'          => 'Demi',
+            'portfolio'      => 'Humor, Inspiration, Messages, Storytelling, Tricks',
+            'alignment'      => 'CG',
+            'symbol'         => 'An open book',
+            'favored_weapon' => 'Claw (short sword, spear)',
+            'master_id'      => God::where('name', 'Bahamut')->firstOrFail()->id,
         ]);
 
         $eachthighern        = new God;
@@ -277,7 +293,7 @@ class GodsEladrinsSeeder extends Seeder
             'portfolio' => 'Mischief, Pranks, Pseudodragons, Faerie Dragons',
             'alignment' => 'CG',
             'symbol'    => 'A Smile',
-            'master_id' => God::where('name', 'Asgorath')->first()->id,
+            'master_id' => God::where('name', 'Bahamut')->first()->id,
         ]);
 
         $god        = new God;
@@ -392,6 +408,14 @@ class GodsEladrinsSeeder extends Seeder
         $helper->addWorshipClassesToGod($god, 'The Court of Stars', [
             $class->name, 'Fighter', 'Barbarian',
         ]);
+        $helper->addSkillsToClass($class,
+            ['Athletics', 'Concentration', 'Diplomacy', 'Intimidation', 'Religion']
+        );
+        $helper->addFeaturesToClass($class, [
+            'fighter_feat'   => [1, 3, 15, 20],
+            'combat_mastery' => [7],
+        ]);
+        $helper->addDomainToClass($class, ['Goblins', 'Cooperation', 'War']);
         $helper->addSpellsToClass($class, [
             0 => ['Blade Ward', 'Booming Blade', 'Call Attuned Weapon', 'Detect Magic', 'True Strike'],
             1 => ['Aura of Courage', 'Bless', 'Compelled Duel', 'Cure Wounds', 'Divine Favor', 'Heroism'],
@@ -560,7 +584,7 @@ class GodsEladrinsSeeder extends Seeder
             'name'      => $god->name,
             'title'     => 'Lord of Bats',
             'level'     => 'Archfey',
-            'portfolio' => 'Bats',
+            'portfolio' => 'Bats, Were-bats',
             'alignment' => 'NE',
             'master_id' => $qad->id,
         ]);
@@ -596,21 +620,24 @@ class GodsEladrinsSeeder extends Seeder
             'portfolio'   => 'Fey of Kryptgarden',
             'regions'     => 'Kryptgarden Forest',
             'alignment'   => 'NE',
-            'description' => '<p>Witchthorn has a relationship with the Adardent noble family of Waterdeep. They send their firstborn child of each generation to pledge an oath to Witchthorn (a Warlock Fey Pact), and in return, they perform some unknown service before their 11th birthday, and in exchange, the family businesses and their homes are protected by secret fey guardians.</p>',
+            'description' => "<p>Witchthorn has a relationship with the Adarbrent noble family of Waterdeep. They send their firstborn child of each generation to pledge an oath to Witchthorn (a Warlock Fey Pact), and in return, they perform some unknown service before their 11th birthday, and in exchange, the family businesses and their homes are protected by secret fey guardians.</p>
+<p>Witchthorn's wife, the dryad Ishaldra, was killed by the Great Green Dragon Claugiyliamatar. Witchthorn seeks a way to slay the dragon, or at least drive it from Kryptgarden forest.</p>",
         ]);
         $witchthorn = $god;
         $god        = new God;
         $god->name  = 'Ishaldra';
         $god->level = 'Archfey';
+        $god->deleted_at = \Carbon\Carbon::now();
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'        => $god->name,
             'title'       => 'Princess of Kryptgarden',
-            'level'       => 'Archfey',
+            'level'       => 'Dead',
             'alignment'   => 'N',
             'regions'     => 'Kryptgarden Forest',
             'master_id'   => $witchthorn->id,
-            'description' => '<p>Ishaldra is a dryad and wife to the Archfey Lord of Kryptgarden, Witchthorn, balancing his evil inclinations with her good nature.</p>',
+            'description' => "<p>Ishaldra is a dryad and wife to the Archfey Lord of Kryptgarden, Witchthorn, balancing his evil inclinations with her good nature.</p>
+<p>Ishaldra was slain by the Great Green Dragon Claugiyliamatar, when he corrupted Ishaldra's tree.</p>",
         ]);
 
         $god        = new God;
@@ -630,7 +657,7 @@ class GodsEladrinsSeeder extends Seeder
 <p>Absalom agrees to offer the aid of the fey that are under his rule in the defence of Rashemen. He agrees to offer his magical aid in the creation of magical items for the Wychlaren and the Barbarian lodges. In return, he is gifted from the people of Rashemen, male children who show a gift for the Arcane. This agreement of male children is not known to the people in general (most times, not even the Huhrong knows of this) and only the upper Wychlaren know of this.</p>
 <p>Most of these boys make a Warlock Pact with Absalom and become his agents. Absalom entitles 5 of these Warlocks as his lieutenants, (Winter, Summer, Dusk, Dawn, and Green). The Green Warlock is the title of the highest ranking soldier, and in Absalom's absence, is entitled to rule. Those boys that do not make a Warlock Pact with Absalom either become Artificers and return to the Wychlaren to serve, or are wiped of all memory and sent into the Horde lands of the Far East.</p>
 <p>Long ago, Absalom was banished to the Prime World by his father. He has since mended his relationship and is welcomed back to the FeyWild. However, Absalom has formed an interest in this patch of the Prime, and always returns in Winter, while spending the rest of his time in the FeyWild.</p>
-<p>While Absalom works openly with the Wychlaren, he actually favors the Durthans, for Absalom wishes to take a more aggressive approach towards Thay and Narfell. In the court of Absalom, Durthans are freely welcome. However, Absalom works with the Wychlaren becomes they are more numerous and have the sway of the Rashemi people.</p>
+<p>While Absalom works openly with the Wychlaren, he actually favors the Durthans, for Absalom wishes to take a more aggressive approach towards Thay and Narfell. In the court of Absalom, Durthans are freely welcome. However, Absalom works with the Wychlaren because they are more numerous and have the sway of the Rashemi people.</p>
 <p>Most Rashemi do not know of Absalom, and the Wychlaren wishes to keep it this way, to hide the dark agreement they have made with the Fey King. Absalom has also warned the Durthans from revealing his existence, as he does not wish to have to start a war with the people that surrounds his forest and his beloved land.</p>
 <p>Those fey in Rashemen that oppose Absalom gathers to the Unseelie Court, and the rule of Aurilandur.</p>
 <p>Absalom fears the encroachment of the Drow, the minions of his dark Mother-in-law (Lolth).</p>",
@@ -676,15 +703,17 @@ class GodsEladrinsSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Pact to Witchthorn';
         $feat->requirement = 'You must be Chaotic';
-        $feat->description = '<p>You have made a Pact with the Archfey Witchthorn of Kryptgarden (who only deals with the Adardent noble family of Waterdeep).</p>
+        $feat->description = "<p>You have made a Pact with the Archfey Witchthorn of Kryptgarden (who only deals with the Adarbrent noble family of Waterdeep). The Adarbrent family has an arrangement with Witchthorn where they would send the fey king the firstborn of each generation to serve the fey king. In return, the Adarbrent family was blessed with wealth and success in their business.</p>
+<p>Since this arrangement, Claugiyliamatar (the great green dragon) has entered Kryptgarden forest and caused the death of Witchthorn's wife, the dryad Ishaldra. Witchthorn is now in a subtle war with the dragon for dominance of Kryptgarden forest.</p>
 <ul>
-    <li>You are from the Adardent noble family of Waterdeep. You have 3 times the normal starting money.</li>
-</ul>';
+    <li>You are from the Adarbrent noble family of Waterdeep. You have 3 times the normal starting money.</li>
+    <li>You have the Favored Enemy Class Feature against Claugiyliamatar and any of his servants and minions.</li>
+</ul>";
         $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Dancing Lights', 'Eldritch Blast', 'Minor Illusion'],
-            1 => ['Animal Friendship', 'Leaf into Dagger', 'Sleep'],
-            2 => ['Misty Step', 'Speak with Animals'],
+            0 => ['Dancing Lights', 'Detect Magic', 'Eldritch Blast', 'Gust', 'Minor Illusion'],
+            1 => ['Animal Friendship', 'Leaf into Dagger', 'Resist Poison', 'Sleep'],
+            2 => ['Detect Metal and Mineral', 'Misty Step', 'Speak with Animals'],
             3 => ['Catnap', 'Fly', 'Haste'],
             4 => ['Dimension Door', 'Gaseous Form'],
             5 => ['Animate Objects', 'Summon Fey'],
@@ -721,18 +750,20 @@ class GodsEladrinsSeeder extends Seeder
         $feat->requirement = 'You must be Chaotic or Neutral';
         $feat->description = "<p>You have made a Pact with the Fey Lord Absalom. Absalom's interests lie with the defense and expansion of the fey lands of the Unapproachable East. The main enemies of Absalom are the Red Wizards of Thay and the demons from Narfell.</p>
 <ul>
-    <li>You gain the Animal Companion Class Feature, as if you were a Ranger, except that you do not have to sacrifice a Spell Slot. The Animal Companion is always treated as if you had sacrificed a Spell Slot of the highest level you can cast.</li>
+    <li>You gain the Animal Companion Class Feature, as if you were a Ranger. You do not have to sacrifice any Spell Slots to obtain an Animal Companion, but you are limited to one that can be obtained as if you had sacrificed a 4th level spell slot. You are limited to the highest level Spell Slot that you can actually cast.</li>
+    <li>Your Animal Companion can change its form between three different Animals that you must choose when you gain the Animal Companion. Whenever you gain a level, you may change one of the chosen forms</li>
+    <li>You gain the Chastise Spirit Class Feature. Add half your Warlock levels, rounded down, to the number of dice it deals.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Pact', 'Fey']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Dancing Lights', 'Eldritch Blast', 'Ghost Sound', 'Magic Fang'],
+            0 => ['Dancing Lights', 'Detect Crossroads', 'Detect Magic', 'Eldritch Blast', 'Ghost Sound', 'Magic Fang'],
             1 => ['Animal Friendship', 'Sleep', 'Summon Animals'],
             2 => ['Animal Messenger', 'Pest Form', 'Speak with Animals'],
             3 => ['Animal Form', 'Nondetection'],
             4 => ['Aerial Form', 'Speak with Plants'],
             5 => ['Commune with Nature', 'Summon Fey'],
             6 => ['Elemental Form', 'Spirit Walk'],
-            7 => ['Wind Walk'],
+            7 => ['Create Crossroads and Backroads', 'Wind Walk'],
             8 => ['Monstrosity Form'],
             9 => ['Astral Projection'],
         ]);
@@ -742,14 +773,17 @@ class GodsEladrinsSeeder extends Seeder
         $feat->requirement = 'You must be CE';
         $feat->description = "<p>You have made a Pact with the Archfey Aurilandur. Aurilandur's interests lie with undermining Absalom and his rule over the fey court, maintaining Aurilandur's friendly relationship with the Ogres and Giants of the North Country, and gaining more power in general to use against Absalom.</p>
 <ul>
-    <li>You gain the Animal Companion Class Feature, as if you were a Ranger</li>
+    <li>You gain the Animal Companion Class Feature, as if you were a Ranger. You do not have to sacrifice any Spell Slots to obtain an Animal Companion, but you are limited to one that can be obtained as if you had sacrificed a 4th level spell slot. You are limited to the highest level Spell Slot that you can actually cast.</li>
+    <li>You gain Resistance to Cold Damage</li>
+    <li>All your Cold Spells deal an additional Die of Damage and you add your Proficiency bonus to the Damage as well</li>
+    <li>You gain Immunity to Cold Damage at 7th level</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Chaotic', 'Evil']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Chill Touch', 'Dancing Lights', 'Detect Magic', 'Frostbite', 'Ray of Frost'],
+            0 => ['Dancing Lights', 'Detect Magic', 'Frostbite', 'Necrotic Touch', 'Ray of Frost'],
             1 => ['Animal Friendship', 'Armor of Frost', 'Gust of Wind', 'Summon Animals'],
-            2 => ['Endure Elements' => 'Cold only', 'Ice Armor', 'Locate Animals or Plants', 'Speak with Animals'],
-            3 => ['Animal Form', 'Sleet Storm'],
+            2 => ['Ice Armor', 'Locate Animals or Plants', 'Speak with Animals'],
+            3 => ['Animal Form', 'Fly', 'Sleet Storm'],
             4 => ['Ice Storm', "Nixie's Lure"],
             5 => ['Icy Prison'],
             6 => ['Investiture of Ice', 'Wall of Ice'],

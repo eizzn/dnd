@@ -21,6 +21,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Monodrone';
         $monster->size             = 'Medium';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -56,6 +57,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Duodrone';
         $monster->size             = 'Medium';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -92,6 +94,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Tridrone';
         $monster->size             = 'Medium';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -127,6 +130,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Quadrone';
         $monster->size             = 'Medium';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -168,6 +172,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Pentadrone';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '10';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -204,6 +209,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Decaton';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -247,6 +253,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Nonaton';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -300,6 +307,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Octon';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -342,6 +350,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Septon';
         $monster->size             = 'Medium';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '14';
         $monster->damage_reduction = '2 (Natural Armor)';
@@ -384,6 +393,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Hexton';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '14';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -425,6 +435,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Quinton';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '15';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -465,6 +476,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Quarton';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '17';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -505,6 +517,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Tertian';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '18';
         $monster->damage_reduction = '8 (Natural Armor)';
@@ -548,6 +561,7 @@ class ModronsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Secundus';
         $monster->size             = 'Large';
+        $monster->type             = 'Modron';
         $monster->alignment        = 'LN';
         $monster->armor_class      = '19';
         $monster->damage_reduction = '9 (Natural Armor)';

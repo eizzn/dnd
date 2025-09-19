@@ -21,6 +21,20 @@ import AlphabetList from "@/Pages/Alphabets/AlphabetList.vue";
 import AlphabetDetails from "@/Pages/Alphabets/AlphabetDetails.vue";
 import LanguageList from "@/Pages/Languages/LanguageList.vue";
 import LanguageDetails from "@/Pages/Languages/LanguageDetails.vue";
+import PageList from "@/Pages/Pages/PageList.vue";
+import PageDetails from "@/Pages/Pages/PageDetails.vue";
+import FeatureList from "@/Pages/Features/FeatureList.vue";
+import FeatureDetails from "@/Pages/Features/FeatureDetails.vue";
+import PantheonList from "@/Pages/Pantheons/PantheonList.vue";
+import PantheonDetails from "@/Pages/Pantheons/PantheonDetails.vue";
+import TypeList from "@/Pages/Types/TypeList.vue";
+import TypeDetails from "@/Pages/Types/TypeDetails.vue";
+import EquipmentList from "@/Pages/Equipments/EquipmentList.vue";
+import EquipmentDetails from "@/Pages/Equipments/EquipmentDetails.vue";
+import MonsterList from "@/Pages/Monsters/MonsterList.vue";
+import MonsterDetails from "@/Pages/Monsters/MonsterDetails.vue";
+import MaterialList from "@/Pages/Materials/MaterialList.vue";
+import MaterialDetails from "@/Pages/Materials/MaterialDetails.vue";
 
 export default [
     {
@@ -64,6 +78,16 @@ export default [
         component: ConditionDetails,
     },
     {
+        path: '/equipments',
+        name: 'EquipmentList',
+        component: EquipmentList,
+    },
+    {
+        path: '/equipment/:id',
+        name: 'EquipmentDetails',
+        component: EquipmentDetails,
+    },
+    {
         path: '/feats',
         name: 'FeatList',
         component: FeatList,
@@ -72,6 +96,16 @@ export default [
         path: '/feat/:id',
         name: 'FeatDetails',
         component: FeatDetails,
+    },
+    {
+        path: '/features',
+        name: 'FeatureList',
+        component: FeatureList,
+    },
+    {
+        path: '/feature/:id',
+        name: 'FeatureDetails',
+        component: FeatureDetails,
     },
     {
         path: '/formulas',
@@ -102,6 +136,46 @@ export default [
         path: '/language/:id',
         name: 'LanguageDetails',
         component: LanguageDetails,
+    },
+    {
+        path: '/materials',
+        name: 'MaterialList',
+        component: MaterialList,
+    },
+    {
+        path: '/material/:id',
+        name: 'MaterialDetails',
+        component: MaterialDetails,
+    },
+    {
+        path: '/monsters',
+        name: 'MonsterList',
+        component: MonsterList,
+    },
+    {
+        path: '/monster/:id',
+        name: 'MonsterDetails',
+        component: MonsterDetails,
+    },
+    {
+        path: '/pantheons',
+        name: 'PantheonList',
+        component: PantheonList,
+    },
+    {
+        path: '/pantheon/:id',
+        name: 'PantheonDetails',
+        component: PantheonDetails,
+    },
+    {
+        path: '/pages',
+        name: 'PageList',
+        component: PageList,
+    },
+    {
+        path: '/page/:id',
+        name: 'PageDetails',
+        component: PageDetails,
     },
     {
         path: '/powers',
@@ -142,5 +216,15 @@ export default [
         path: '/talent/:id',
         name: 'TalentDetails',
         component: TalentDetails,
+    },
+    {
+        path: '/types',
+        name: 'TypeList',
+        component: TypeList,
+    },
+    {
+        path: '/type/:id',
+        name: 'TypeDetails',
+        component: TypeDetails,
     }
 ];

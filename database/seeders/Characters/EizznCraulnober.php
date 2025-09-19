@@ -27,6 +27,7 @@ class EizznCraulnober extends Seeder
         $char->int         = 18;
         $char->wis         = 18;
         $char->cha         = 14;
+        $char->hit_points  = 150;
         $char->sub_race_id = SubRace::where('name', 'Moon Elf')->firstOrFail()->id;
 
         $helper->saveCharacter($char, [

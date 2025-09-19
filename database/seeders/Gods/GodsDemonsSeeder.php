@@ -236,7 +236,7 @@ class GodsDemonsSeeder extends Seeder
             'title'          => 'Price of Beasts, Demon Lord of Minotaurs, Horned King',
             'level'          => 'Demon Lord',
             'alignment'      => 'CE',
-            'portfolio'      => 'Vengeance, minotaurs',
+            'portfolio'      => 'Vengeance, Minotaurs',
             'symbol'         => 'Twisted circular maze awash in blood',
             'favored_weapon' => 'Club',
         ]);
@@ -269,7 +269,7 @@ class GodsDemonsSeeder extends Seeder
             'symbol'         => 'A one eyed Ghoul skull with a sickle in the background',
             'favored_weapon' => 'Talon of Doresain (Large Sickle +3 Icy Burst, Speed, Unholy)',
             'master_id'      => God::where('name', 'Orcus')->first()->id,
-            'description'    => "<p>Doresain is the demon lord of Ghouls and cannibalism. He appears as a 8ft tall emaciated humanoid with pointed ears, skin as pale and hard as marble, and yellow eyes that burn with a never ending hunger. His skin is completely hairless and would be flawless if not for the fact that his bones are clearly visible beneath it. He has huge hands that end in midnight black talons that match his huge teeth. Doresain's Mantle is  a patchwork robe that is open in the front, made different kinds of humanoid skin, and he wears a black metal crown with finger bones that stick straight up and have giant ruby rings on them. The hem of his robe is lined with jewel encrusted humanoid skulls. Inside the gems on the skulls are the souls of countless dead heroes. He carries an ancient black sickle sheathed on a rotting belt at his waist, it can easily part flesh from bone and imparts the hunger of the Ghoul on whomever it touches.</p>
+            'description'    => "<p>Doresain is the demon lord of Ghouls and cannibalism. He appears as a 8 ft tall emaciated humanoid with pointed ears, skin as pale and hard as marble, and yellow eyes that burn with a never ending hunger. His skin is completely hairless and would be flawless if not for the fact that his bones are clearly visible beneath it. He has huge hands that end in midnight black talons that match his huge teeth. Doresain's Mantle is a patchwork robe that is open in the front, made of different kinds of humanoid skin, and he wears a black metal crown with finger bones that stick straight up and have giant ruby rings on them. The hem of his robe is lined with jewel encrusted humanoid skulls. Inside the gems on the skulls are the souls of countless dead heroes. He carries an ancient black sickle sheathed on a rotting belt at his waist, it can easily part flesh from bone and imparts the hunger of the Ghoul on whomever it touches.</p>
 <p>Doresain's domain is Volenroft, the White Kingdom on the 112th layer of the abyss. The entire layer is a massive necropolis and hunting ground for him and his ghoul servants. There are many gates to the negative energy plane and the Orcus' domain hidden throughout the layer. His Citadel, the Tower of Teeth, is a great charnel house filled with screams and the sounds of chewing and breaking bones. Other places of interest are the Alter of Flesh, where even less savory acts than cannibalism occur, and Black Pool, a great lake of unholy water that is the main portal to the realm of Doresain's former master. The Black Pool is guarded by a unique Ghoul-like Charnel Colossus named Coraxival. There is also rumor of an ancient Qlippoth Lord that Doresain feasts on to increase his strength.</p>
 <p>Doresain's primary worshippers are Ghouls and creatures that have turned to cannibalism for pleasure, though many necromancers and evil warlords worship him as well. He prefers undead to demons, though his servants have a great deal of demonic power, and similarly can impart Ghoul-like powers on his demonic servants. His favorite heralds are his concubines, a female 18th level Ghast Barbarian named, Korvaka, and a unique ghoulish Succubus, Nimevere. He also keeps an aerie full of demonic dire bats that act as his eyes and ears throughout his domain and across the planes. His cult teaches that the weak are meant to feed the strong and his rites involve sacrificing sentient creatures to ghouls. He rewards his worshippers with access to divine magic and Ghoulish might. Simply eating sentient creatures is not enough to feed his church, they must first suffer to sweeten the meat.</p>
 <p>Doresain was once a mortal elf and a worshiper of Orcus. In order to honor his deity, he feasted on the flesh of his fellow elves. Impressed by the raw and savage act, Orcus turned Doresain into the very first ghoul.</p>
@@ -339,7 +339,6 @@ class GodsDemonsSeeder extends Seeder
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Religion']);
 
         $helper->addFeaturesToClass($class, [
-            'divine_feat'      => [1, 3, 9, 15, 18, 20],
             'acid_resistance'  => [6],
             'acid_immunity'    => [12],
         ]);
@@ -353,9 +352,9 @@ class GodsDemonsSeeder extends Seeder
             1 => ['Acid Stream', 'Bless', 'Cause Wounds', 'Cure Wounds', 'Curse', 'Fear', 'Immunity to Adhesive', 'Locate Water',
                 'Protection From Law', 'Remove Disease', ],
             2 => ['Aquavision', 'Augury', "Bear's Endurance", 'Bestow Curse', "Bull's Strength", 'Comprehend Language',
-                'Darkness', 'Darkvision', 'Fearsome Grapple', 'Humanoid Form', ],
+                'Darkness', 'Darkvision', 'Fearsome Grapple', 'Humanoid Form', 'Toothed Tentacle', 'Touch of Madness', ],
             3 => ['Air Breathing', 'Amorphous Form', 'Call Gelatinous Cube', 'Meld into Stone', 'Mold Touch', 'Poison',
-                'Ray of Exhaustion', 'Spore Cloak', 'Toxin Immunity', ],
+                'Ray of Exhaustion', 'Spore Cloak', 'Touch of Juiblex', 'Toxin Immunity', ],
             4 => ['Aura of Confusion', 'Blight', 'Shape Stone', 'Slime'],
             5 => ['Atonement', 'Black Tentacle', 'Dispel Law', 'Drain Life', 'Ooze Form', 'Viscus Glob'],
             6 => ['Drain Constitution', 'Malevolent Tentacles'],
@@ -428,10 +427,10 @@ class GodsDemonsSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Booming Blade', 'Chill Touch'],
+            0 => ['Booming Blade', 'Necrotic Touch'],
             1 => ['Demonflesh', 'Fear', 'Fey Hunter'],
             2 => ['Dispel Magic', 'Invisibility', 'Shadow Blade'],
-            3 => ['Circle of Protection From Good', 'Dread Word', 'Summon Demon, Lesser'],
+            3 => ['Circle of Protection From Good', 'Dread Word', 'Summon Demon, Lesser' => 'Casting this again dispels any previous casting'],
             4 => ['Blight'],
             5 => ['Calling' => 'Servant of Eltab only', 'Word of Recall'],
             6 => ['Arcane Gate', 'Spirit Blast'],
@@ -622,10 +621,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Rhyxali';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Ruler of the 48th layer of the Abyss, Nerebdian Vast';
+        $god        = new God;
+        $god->name  = 'Rhyxali';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -637,10 +635,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = "Sess'innek";
-        $god->level       = 'Demon Lord';
-        $god->description = 'Ruler of the 7th layer of the Abyss, Kearackinin (Phantom Plane)';
+        $god        = new God;
+        $god->name  = "Sess'innek";
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -687,11 +684,10 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Arlgolcheir';
-        $god->level       = 'Demon Lord';
-        $god->description = '<p>Destroyed by Laeral Silverhad (the Symbol) with the aid of Khelben and the mage Alduth of Neverwinter</p>';
-        $god->deleted_at  = \Carbon\Carbon::now()->timestamp;
+        $god             = new God;
+        $god->name       = 'Arlgolcheir';
+        $god->level      = 'Demon Lord';
+        $god->deleted_at = \Carbon\Carbon::now()->timestamp;
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -703,10 +699,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Obox-ob';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Ruler of the 663rd layer of the Abyss, Zionyn';
+        $god        = new God;
+        $god->name  = 'Obox-ob';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -718,10 +713,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Dagon';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Ruler of the 89th layer of the Abyss, Shadowsea. One of the High Old Ones';
+        $god        = new God;
+        $god->name  = 'Dagon';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -733,10 +727,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Pazuzu';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Ruler of the 1st layer of the Abyss, Pazunia and the 503rd layer, Toramor. One of the High Old Ones';
+        $god        = new God;
+        $god->name  = 'Pazuzu';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -749,9 +742,9 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Adimarchus';
-        $god->level       = 'Demon Lord';
+        $god        = new God;
+        $god->name  = 'Adimarchus';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -766,9 +759,9 @@ class GodsDemonsSeeder extends Seeder
         ]);
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Ugudenk';
-        $god->level       = 'Demon Lord';
+        $god        = new God;
+        $god->name  = 'Ugudenk';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -787,24 +780,23 @@ class GodsDemonsSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Ardat';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Demon Queen of Harpies';
+        $god        = new God;
+        $god->name  = 'Ardat';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'      => $god->name,
-            'title'     => 'Demon Queen of Harpies, The Unavowed',
-            'level'     => 'Demon Lord',
-            'alignment' => 'CE',
+            'name'        => $god->name,
+            'title'       => 'Demon Queen of Harpies, The Unavowed',
+            'level'       => 'Demon Lord',
+            'description' => '<p>Demon Queen of Harpies</p>',
+            'alignment'   => 'CE',
         ]);
 
         /**********************************************************************/
 
-        $god              = new God;
-        $god->name        = 'Ilsidahur';
-        $god->level       = 'Demon Lord';
-        $god->description = 'Demon Queen of Barlguras';
+        $god        = new God;
+        $god->name  = 'Ilsidahur';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
@@ -919,7 +911,7 @@ class GodsDemonsSeeder extends Seeder
             'level'       => 'Demon',
             'alignment'   => 'CE',
             'description' => "<p>Balor served all the demon lords at one point or another in his life. He was favored by Baphomet and Kostchtchie.</p>
-<p>In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane.</p>",
+<p>In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane. While Balor cannot move directly against Lolth, he takes any opportunity to oppose Errtu.</p>",
         ]);
 
         /**********************************************************************/
@@ -930,7 +922,7 @@ class GodsDemonsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
-            'title'       => 'Balor',
+            'title'       => 'Balor, The Mad Balor',
             'level'       => 'Demon',
             'alignment'   => 'CE',
             'description' => '<p>Belaphoss the Mad is a powerful balor who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</p>',
@@ -951,19 +943,32 @@ class GodsDemonsSeeder extends Seeder
             'description' => "<p>Wendonai was the balor lord who was tasked by Lolth to seduce the Sethomiir clan, rulers of the Ilythiiri, into her worship and granting them evil magics (who would eventually become the drow).</p>
 <p>After the Descent, Wendonai continued his work, acting as an adviser, tutor, and sometimes consort to the most powerful drow Matron Mothers. He tried to claim a little power for himself by leading a successful drow and duergar attack against the Elven Court in −4400 DR, called the Dark Court Slaughter. Wendonai\'s efforts at personal growth over the next two millennia earned Lolth\'s ire. Lolth withdrew her favor from the demon in −2549 DR and the Matrons followed suit.</p>
 <p>Wendonai then allied himself with Eltab, serving as his emissary. He was summoned by a Nar Demonbinder but was soon banished by an incredibly powerful priest of Horus-Re and was banished till 1377. Wendonai seeks revenge for this.</p>
-<p>Wendonai then returned to Lolth's service when the goddess needed his services again.</p>",
+<p>Wendonai then returned to Lolth's service when the goddess needed his services again. He opposes Errtu for Lolth's favor.</p>",
             'master_id' => God::where('name', 'Araushnee')->first()->id,
         ]);
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Wendonai';
+        $feat->requirement = 'You must have drow blood';
         $feat->description = '<p>You have made a Pact with the Balor Demon Wendonai. Wendonai is interested in making himself more valuable to Lolth, or gaining revenge on the Mulhorandi pantheon.</p>
 <ul>
-    <li>TBD</li>
+    <li>You gain a Talent</li>
+    <li>You gain the Stealth Skill as a Class Skill</li>
+    <li>You are proficient with the hand crossbow</li>
+    <li>You gain immunity to all Spider venom. This includes the drow sleep poison</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Demon']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Drow']);
         $helper->addSpellsToFeat($feat, [
-
+            0 => ['Detect Magic', 'Eldritch Blast'],
+            1 => ['Cloak of Dark Power', 'Command', 'Disguise Self'],
+            2 => ['Comprehend Language', 'Darkness', 'Web'],
+            3 => ['Spider Form', 'Summon Demon, Lesser' => 'Casting this again dispels any previous casting'],
+            4 => ['Armor of Darkness' => 'Self only', 'Summon Demon' => 'Casting this again dispels any previous casting'],
+            5 => ['Commune', 'Dispel Outsider'],
+            6 => ['Dispel Good'],
+            7 => ['Blasphemy'],
+            8 => ['Power Word Stun'],
+            9 => ['Abyssal Army'],
         ]);
 
         /**********************************************************************/
@@ -978,7 +983,8 @@ class GodsDemonsSeeder extends Seeder
             'level'       => 'Demon',
             'alignment'   => 'CE',
             'description' => "<p>Errtu seeked to gain possession of the artifact Crenshinibon. He ended up being banished by Drizz't Do'Urden and has sworn revenge.</p>
-<p>Errtu has since formed a loose alliance with Lolth when she approached him to guard Menzoberranzan during the Time of Troubles.</p>",
+<p>Errtu has since formed a loose alliance with Lolth when she approached him to guard Menzoberranzan during the Time of Troubles.</p>
+<p>The balor Wendonai opposes Errtu for the favor of Lolth.</p>",
             'master_id' => God::where('name', 'Araushnee')->first()->id,
         ]);
 

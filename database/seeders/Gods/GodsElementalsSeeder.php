@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -25,7 +26,7 @@ class GodsElementalsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Elemental'], [
             'name'           => $god->name,
-            'title'          => 'The Lady of Air, Lady of the Winds, Queen of Air',
+            'title'          => 'The Lady of Air, Lady of the Winds, Queen of Air, The Four Winds',
             'level'          => 'Greater',
             'aliases'        => 'Teylas (Hordelands)',
             'portfolio'      => 'Elemental Air, Flying Creatures, Movement, Speed(in the Hordelands, Archery, Rain [stolen from Istishia])',
@@ -61,13 +62,20 @@ class GodsElementalsSeeder extends Seeder
             'alignment' => 'CN',
         ]);
 
+        $helper->addClassesToGod($god, 'Elemental', [
+            'Fighter' => 20,
+            'Wizard'  => 20,
+            'Cleric'  => 10,
+        ]);
+
         $class                = new Klass;
-        $class->name          = 'Priest of Akadi';
+        $class->name          = 'Airwalkers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons, all spears, and all bows';
         $class->armors        = 'Trained in all light armor';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Akadi</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 3,
@@ -82,23 +90,32 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSkillsToClass($class, [
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
+
+        $feature              = new Feature;
+        $feature->key         = 'channel_divinity_wind';
+        $feature->name        = 'Channel Divinity: Gust of Wind';
+        $feature->description = '<p>You can use your Channel Divinity to cause a wind to blow.</p>
+<p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you cast the spell Gust of Wind.</p>';
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            'channel_divinity_wind' => [2],
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Air Elementals');
         $helper->addDomainToClass($class, ['Air']);
         $helper->addSpellsToClass($class, [
-            0 => ['Air Shield', 'Ease of Breath', 'Gust', 'Feather Fall'],
+            0 => ['Air Shield', 'Ease of Breath', 'Gust', 'Feather Fall', 'Stabilize'],
             1 => ['Air Bubble', 'Animal Friendship' => 'Avian creatures only', 'Cure Wounds', 'Floating Step', 'Gust of Wind',
-                'Summon Animals' => 'Avian creatures only', 'Warding Wind', 'Weather Sense', ],
+                'Summon Animals' => 'Avian creatures only', 'Summon Elemental, Lesser' => 'Air Elementals only', 'Updraft',
+                'Warding Wind', 'Weather Sense', ],
             2 => ['Air Sphere', 'Animal Messenger' => 'Avian creatures only', 'Blur', "Cat's Grace", 'Dust Devil', 'Heart of Air',
-                'Levitate', 'Obscuring Mist', 'Sonic Burst', ],
-            3 => ['Capricious Zephyr', 'Cloak of Winds', 'Eradicate Air', 'Fly', 'Haste', 'Protection From Elements' => 'Cold only',
-                'Shockwave', ],
+                'Levitate', 'Obscuring Mist', 'Sonic Burst', 'Wings of Air', ],
+            3 => ['Capricious Zephyr', 'Cloak of Winds', 'Elemental Ward' => 'Air only', 'Eradicate Air', 'Fly', 'Haste',
+                'Protection From Elements' => 'Cold only', 'Shockwave', ],
             4 => ['Air Walk', 'Calm Air', 'Clean Air', 'Divine Agility', 'Storm Sphere'],
-            5 => ['Control Winds', 'Energy Buffer' => 'Cold only', 'Hard Water', 'Summon Elemental' => 'Air Elementals only'],
+            5 => ['Binding Wind', 'Cloudkill', 'Control Winds', 'Energy Buffer' => 'Cold only', 'Summon Elemental' => 'Air Elementals only'],
             6 => ['Investiture of Wind', 'Wall of Wind'],
-            7 => ['Energy Immunity' => 'Cold only', 'Whirlwind'],
+            7 => ['Plane Shift' => 'Elemental Plane of Air or from the Plane of Air to the Prime material only', 'Whirlwind'],
             8 => ['Punishing Winds', 'Wind Walk'],
             9 => ['Storm of Vengeance'],
         ]);
@@ -171,6 +188,59 @@ class GodsElementalsSeeder extends Seeder
             'master_id'      => God::where('name', 'Horus-Re')->first()->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Elemental', [
+            'Fighter' => 20,
+            'Wizard'  => 20,
+            'Cleric'  => 10,
+        ]);
+
+        $class                = new Klass;
+        $class->name          = 'Earthwalkers';
+        $class->type          = 'Priest';
+        $class->key_attribute = 'WIS';
+        $class->weapons       = 'Trained Bludgeoning Weapons';
+        $class->armors        = 'Trained in all light armor, medium armor, heavy armor, and shields';
+        $class->description   = '<p>Priest of Grumbar</p>';
+        $class->has_spells    = 1;
+        $helper->saveClass($class, [
+            'hit_dice'       => 8,
+            'skill_points'   => 3,
+            'skill_progress' => 2,
+        ], ['WIS', 'CHA']);
+
+        $helper->addWorshipClassesToGod($god, 'Elemental', [
+            $class->name, 'Monk',
+        ]);
+
+        // Skills
+        $helper->addSkillsToClass($class, [
+            'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
+        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Earth Elementals');
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 5);
+        $helper->addDomainToClass($class, ['Protection', 'Earth', 'Knowledge']);
+        $helper->addSpellsToClass($class, [
+            0  => ['Light', 'Mold Earth', 'Sand Dagger' => 'Can use dirt instead', 'Stabilize'],
+            1  => ['Bless', 'Cure Wounds', 'Detect Metal and Mineral', 'Earth Tremor', 'Earthfast', 'Fist of Stone', 'Mold Metal',
+                'Quick Burrow', 'Zone of Truth', ],
+            2  => ["Bear's Endurance", "Bull's Strength", 'Earthen Grasp', 'Gentle Repose', 'Hardening' => 'Earth and metal items only',
+                'Lay of the Land', 'Locate Node', 'Remove Paralysis', 'Rock Whip', 'Stone Sphere', 'Tremorsense', 'Resist Force',
+                'Rockburst', ],
+            3  => ['Burrow', 'Clearstone', 'Eradicate Earth', 'Erupting Earth', 'Ground Stomp', 'Maskstone', 'Speak with Dead',
+                'Unmovable'],
+            4  => ['Animate with Spirit', 'Elemental Ward' => 'Earth only', 'Heart of Earth', 'Planar Adaption' => 'Elemental Earth only',
+                'Stone Metamorphosis', 'Shape Metal', 'Shape Stone', 'Stoneskin', ],
+            5  => ['Atonement', 'Earth Glide', 'Earthenport', 'Passwall', 'Ritual of the March', 'Summon Elemental' => 'Earth Elementals only',
+                'Hibernate', 'Transmute Rock', 'Wall of Stone', ],
+            6  => ['Bones of the Earth', 'Commune with Earth', 'Excavate', 'Field of Life', 'Heal', 'Investiture of Stone',
+                'Move Earth', 'Raise Dead', 'Stone Body', 'Stone to Flesh', 'Purifying Light', 'Stone Trap', 'Wall of Iron', ],
+            7  => ['Holy Aura', 'Regenerate'],
+            8  => ['Earthquake', 'Iron Body', 'Repel Metal or Stone'],
+            9  => ['Erupt', 'Foresight', 'Invulnerability'],
+            10 => ['Earthmaster'],
+        ]);
+        $helper->addSpellSlotsToClass($class);
+
         $class                = new Klass;
         $class->name          = 'Talhund';
         $class->type          = 'Priest';
@@ -193,28 +263,28 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSkillsToClass($class, [
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-        ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Earth Elementals');
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 5);
         $helper->addDomainToClass($class, ['Death', 'Earth', 'Knowledge']);
         $helper->addSpellsToClass($class, [
-            0  => ['Light', 'Mold Earth', 'Stabilize'],
-            1  => ['Bless', 'Cure Wounds', 'Detect Metal and Mineral', 'Earth Tremor', 'Earthfast', 'Quick Burrow', 'Zone of Truth'],
+            0  => ['Light', 'Mold Earth', 'Sand Dagger' => 'Can use dirt instead', 'Stabilize'],
+            1  => ['Bless', 'Cure Wounds', 'Detect Metal and Mineral', 'Earth Tremor', 'Earthfast', 'Fist of Stone', 'Mold Metal',
+                'Quick Burrow', 'Zone of Truth', ],
             2  => ["Bear's Endurance", "Bull's Strength", 'Earthen Grasp', 'Gentle Repose', 'Hardening' => 'Earth and metal items only',
-                'Lay of the Land', 'Locate Node', 'Remove Paralysis', 'Tremorsense', 'Resist Force', 'Rockburst', ],
-            3  => ['Burrow', 'Clearstone', 'Erupting Earth', 'Ground Stomp', 'Maskstone', 'Speak with Dead'],
-            4  => ['Animate with Spirit', 'Commune with Earth', 'Heart of Earth', 'Planar Adaption' => 'Elemental Earth only',
-                'Shape Stone', 'Stoneskin', ],
-            5  => ['Atonement', 'Earth Glide', 'Passwall', 'Ritual of the March', 'Summon Elemental' => 'Earth Elementals only',
+                'Lay of the Land', 'Locate Node', 'Remove Paralysis', 'Rock Whip', 'Stone Sphere', 'Tremorsense', 'Resist Force',
+                'Rockburst', ],
+            3  => ['Burrow', 'Clearstone', 'Eradicate Earth', 'Erupting Earth', 'Ground Stomp', 'Maskstone', 'Speak with Dead',
+                'Unmovable'],
+            4  => ['Animate with Spirit', 'Elemental Ward' => 'Earth only', 'Heart of Earth', 'Planar Adaption' => 'Elemental Earth only',
+                'Stone Metamorphosis', 'Shape Metal', 'Shape Stone', 'Stoneskin', ],
+            5  => ['Atonement', 'Earth Glide', 'Earthenport', 'Passwall', 'Ritual of the March', 'Summon Elemental' => 'Earth Elementals only',
                 'Hibernate', 'Transmute Rock', 'Wall of Stone', ],
-            6  => ['Bones of the Earth', 'Excavate', 'Field of Life', 'Heal', 'Investiture of Stone', 'Move Earth', 'Raise Dead',
-                'Stone Body', 'Stone Tell', 'Stone to Flesh', 'Purifying Light', 'Stone Trap', ],
+            6  => ['Bones of the Earth', 'Commune with Earth', 'Excavate', 'Field of Life', 'Heal', 'Investiture of Stone',
+                'Move Earth', 'Raise Dead', 'Stone Body', 'Stone to Flesh', 'Purifying Light', 'Stone Trap', 'Wall of Iron', ],
             7  => ['Holy Aura', 'Regenerate', 'Resurrection'],
-            8  => ['Earthquake', 'Iron Body'],
+            8  => ['Earthquake', 'Iron Body', 'Repel Metal or Stone'],
             9  => ['Erupt', 'Foresight', 'Invulnerability'],
-            10 => ['True Resurrection', 'Revival'],
+            10 => ['Earthmaster', 'True Resurrection', 'Revival'],
         ]);
         $helper->addSpellSlotsToClass($class);
 
@@ -244,19 +314,25 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Animal Handling', 'Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Performance', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Earth Elementals');
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2, 1);
         $helper->addDomainToClass($class, ['Craft', 'Gnome', 'Protection', 'Trickery']);
         $helper->addSpellsToClass($class, [
-            0 => ['Light', 'Mold Earth', 'Stabilize'],
-            1 => ['Bless', 'Cure Wounds', 'Earthfast', 'Treasure Scent'],
-            2 => ["Bear's Endurance", 'Burrow', 'Detect Metal and Mineral', 'Earthen Grasp', 'Hardening' => 'Earth and metal items only',
-                'Gentle Repose', 'Resist Force', ],
-            4 => ['Commune with Earth', 'Heart of Earth'],
-            5 => ['Atonement', 'Hibernate'],
-            6 => ['Heal'],
-            7 => ['Excavate'],
+            0  => ['Light', 'Mold Earth', 'Stabilize'],
+            1  => ['Bless', 'Cure Wounds', 'Earth Tremor', 'Earthfast', 'Quick Burrow', 'Treasure Scent'],
+            2  => ["Bear's Endurance", 'Burrow', 'Detect Metal and Mineral', 'Earthen Grasp', 'Gentle Repose', 'Hardening' => 'Earth and metal items only',
+                'Lay of the Land', 'Locate Node', 'Remove Paralysis', 'Resist Force', 'Rock Whip', 'Stone Sphere',
+                'Tremorsense', 'Rockburst', ],
+            3  => ['Clearstone', 'Eradicate Earth', 'Erupting Earth', 'Ground Stomp', 'Maskstone', 'Speak with Dead'],
+            4  => ['Elemental Ward' => 'Earth only', 'Heart of Earth', 'Planar Adaption' => 'Elemental Earth only',
+                'Stone Metamorphosis', 'Shape Stone', 'Stoneskin', ],
+            5  => ['Atonement', 'Commune with Earth', 'Earth Glide', 'Earthenport', 'Hibernate', 'Passwall', 'Summon Elemental' => 'Earth Elementals only',
+                'Transmute Rock', 'Wall of Stone', ],
+            6  => ['Bones of the Earth', 'Heal', 'Investiture of Stone', 'Move Earth', 'Raise Dead', 'Stone Trap'],
+            7  => ['Excavate', 'Resurrection', 'Wall of Iron'],
+            8  => ['Earthquake', 'Iron Body'],
+            9  => ['Erupt', 'Invulnerability'],
+            10 => ['True Resurrection', 'Revival'],
         ]);
         $helper->addSpellSlotsToClass($class);
 
@@ -284,8 +360,12 @@ class GodsElementalsSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Detect Metal and Mineral</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Earth Elementals');
         $helper->addDomainToClass($class, ['Cavern', 'Craft', 'Earth', 'Protection']);
@@ -295,11 +375,11 @@ class GodsElementalsSeeder extends Seeder
             2 => ['Detect Metal and Mineral', 'Earthen Grasp', 'Hardening' => 'Earth and metal items only', 'Locate Node',
                 'Remove Paralysis', 'Tremorsense', 'Rockburst', ],
             3 => ['Erupting Earth', 'Ground Stomp', 'Know Bloodline'],
-            4 => ['Commune with Earth', 'Heart of Earth', 'Shape Stone', 'Stoneskin'],
-            5 => ['Atonement', 'Earth Glide', 'Passwall', 'Summon Elemental' => 'Earth Elementals only', 'Hibernate', 'Transmute Rock',
-                'Wall of Stone', ],
-            6 => ['Bones of the Earth', 'Investiture of Stone', 'Move Earth', 'Stone Tell'],
-            7 => ['Excavate', 'Stone Trap', 'Volcanic Eruption'],
+            4 => ['Heart of Earth', 'Shape Metal', 'Shape Stone', 'Stoneskin'],
+            5 => ['Atonement', 'Earth Glide', 'Earthenport', 'Passwall', 'Summon Elemental' => 'Earth Elementals only',
+                'Hibernate', 'Transmute Rock', 'Wall of Stone', ],
+            6 => ['Bones of the Earth', 'Commune with Earth', 'Excavate', 'Investiture of Stone', 'Move Earth'],
+            7 => ['Stone Trap', 'Volcanic Eruption', 'Wall of Iron'],
             8 => ['Earthquake'],
             9 => ['Erupt'],
         ]);
@@ -407,15 +487,26 @@ class GodsElementalsSeeder extends Seeder
             'symbol'         => 'Cresting wave',
             'favored_weapon' => 'A wave (warhammer)',
         ]);
+        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+            'name'           => 'Deep Sashelas',
+            'title'          => 'Lord of the Undersea, The Dolphin Prince',
+            'level'          => 'Intermediate',
+            'portfolio'      => 'Sea Elves, Creativity, Knowledge, Sea',
+            'regions'        => 'The Sea of Swords, The Trackless Sea',
+            'symbol'         => 'Dolphin',
+            'alignment'      => 'CG',
+            'master_id'      => God::where('name', 'Corellon Larethian')->firstOrFail()->id,
+            'favored_weapon' => 'Trifork of the Deeps (Trident)',
+        ]);
         $god->pantheons()->save(app()->pantheons['Asathalfinare'], [
-            'name'           => $god->name,
-            'title'          => 'The Water Lord, King of the Water Elementals',
-            'level'          => 'Greater',
+            'name'           => 'Deep Sashelas',
+            'title'          => 'Lord of the Undersea, The Dolphin Prince',
+            'level'          => 'Intermediate',
+            'portfolio'      => 'Sea Elves, Creativity, Knowledge, Sea',
             'regions'        => 'Sea of Fallen Stars',
-            'portfolio'      => 'Water',
-            'alignment'      => 'N',
-            'symbol'         => 'Cresting wave',
-            'favored_weapon' => 'A wave (warhammer)',
+            'symbol'         => 'Dolphin',
+            'alignment'      => 'CG',
+            'favored_weapon' => 'Trifork of the Deeps (Trident)',
         ]);
         $god->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Azul',
@@ -425,13 +516,20 @@ class GodsElementalsSeeder extends Seeder
             'alignment' => 'LE',
         ]);
 
+        $helper->addClassesToGod($god, 'Elemental', [
+            'Fighter' => 20,
+            'Wizard'  => 20,
+            'Cleric'  => 10,
+        ]);
+
         $class                = new Klass;
-        $class->name          = 'Priest of Istishia';
+        $class->name          = 'Waterwalkers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
-        $class->weapons       = 'Trained in all simple weapons';
+        $class->weapons       = 'Trained in all Bludgeoning Weapons, Nets, Harpoons, and Tridents';
         $class->armors        = 'Trained in all light armor, medium armor';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Istishia</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 3,
@@ -445,22 +543,73 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSkillsToClass($class, [
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Create or Destroy Water</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Water Elementals');
-        $helper->addDomainToClass($class, ['Water']);
+        $helper->addDomainToClass($class, ['Healing', 'Purification', 'Water']);
         $helper->addSpellsToClass($class, [
-            0 => ['Create or Destroy Water', 'Hydraulic Blast', 'Shape Water'],
-            1 => ['Animate Water', 'Cure Wounds', 'Neutral Water', 'Quick Swim'],
-            2 => ['Aquavision', 'Resist Cold', 'Water Whip', 'Water Breathing', 'Water Walk'],
-            3 => ['Cloak of the Sea', 'Coral Growth', 'Eradicate Water', 'Heart of Water', 'Tidal Wave', 'Quench', 'Undersea Current',
-                'Wall of Water', ],
-            4 => ['Aqueous Column', 'Hydraulic Torrent', 'Ride the Waves', 'Watery Form', 'Watery Sphere'],
-            5 => ['Control Water', 'Maelstrom', 'Summon Elemental' => 'Water Elementals only'],
-            6 => ['Investiture of Water'],
-            8 => ['Horrid Wilting'],
-            9 => ['Tsunami'],
+            0  => ['Acid Splash', 'Clean Self', 'Hydraulic Blast', 'Shape Water', 'Stabilize'],
+            1  => ['Acid Stream', 'Animate Water', 'Bless', 'Cure Wounds', 'Create or Destroy Water', 'Detect Poison and Disease',
+                'Faith Healing', 'Locate Water', 'Neutral Water', 'Quick Swim', 'Remove Disease', 'Resist Acid', ],
+            2  => ['Acid Arrow', 'Aquavision', 'Delay Poison', 'Protection From Poison', 'Remove Fear', 'Resist Cold',
+                'Resist Poison', 'Restore Senses', 'Restoration', 'Turbidity', 'Water Breathing', 'Water Walk', 'Water Whip', ],
+            3  => ['Cloak of the Sea', 'Coral Growth', 'Eradicate Water', 'Heart of Water', 'Neutralize Poison', 'Quench',
+                'Planar Adaption' => 'Elemental Water only', 'Quick Cure Wounds', 'Tidal Wave', 'Undersea Current', 'Wall of Water', ],
+            4  => ['Aqueous Column', 'Elemental Ward' => 'Water only', 'Hydraulic Torrent', 'Remove Curse', 'Ride the Waves',
+                'Watery Form', 'Watery Sphere', ],
+            5  => ['Atonement', 'Control Water', 'Hard Water', 'Maelstrom', 'Summon Elemental' => 'Water Elementals only'],
+            6  => ['Heal', 'Investiture of Water', 'Raise Dead'],
+            7  => ['Holy Aura', 'Regenerate'],
+            8  => ['Horrid Wilting', 'Power Word Heal', 'Tsunami'],
+            9  => ['Storm of Vengeance'],
+            10 => ['Revival'],
+        ]);
+        $helper->addSpellSlotsToClass($class);
+
+        $class                = new Klass;
+        $class->name          = 'Priest of Deep Sashelas';
+        $class->type          = 'Priest';
+        $class->key_attribute = 'WIS';
+        $class->weapons       = 'Simple Weapons, Trident, Harpoon';
+        $class->armors        = 'Light Armor, Medium Armor';
+        $class->has_spells    = 1;
+        $helper->saveClass($class, [
+            'hit_dice'       => 8,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
+        ], ['WIS', 'CHA'], [
+            'Elf', 'Divine',
+        ]);
+
+        $helper->addClassesToGod($god, 'Seldarine', [
+            'Fighter' => 15,
+            'Wizard'  => 15,
+            'Druid'   => 15,
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Seldarine', [
+            $class->name, 'Paladin', 'Wizard',
+        ]);
+
+        // Skills
+        $helper->addSkillsToClass($class, [
+            'Athletics', 'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
+        ]);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Aquatic Wild Life', 4);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 5);
+        $helper->addSpellsToClass($class, [
+            0 => ['Conviction', 'Shape Water'],
+            1 => ['Create or Destroy Water', 'Cure Wounds', 'Fog Cloud', 'Neutral Water'],
+            2 => ['Feet to Fins', 'Fins to Feet', 'Resist Cold', 'Turbidity', 'Undead Bane Weapon', 'Water Breathing', 'Water Walk'],
+            3 => ['Faithful Healing', 'Stars of Arvandor', 'Tidal Wave', 'Wall of Water'],
+            4 => ['Ceremony', 'Watery Sphere'],
+            5 => ['Atonement', 'Control Water', 'Maelstrom'],
+            6 => ['Wall of Ice'],
+            8 => ['Tsunami'],
         ]);
         $helper->addSpellSlotsToClass($class);
 
@@ -472,7 +621,7 @@ class GodsElementalsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Elemental'], [
             'name'           => $god->name,
-            'title'          => 'The Firelord, Lord of Flames, The Tyrant-King',
+            'title'          => 'The Firelord, The Lord of Flames, The Tyrant-King among Fire',
             'level'          => 'Greater',
             'portfolio'      => 'Elemental Fire, Purification through Fire (in the Hordelands, Witchcraft, Black Magic)',
             'alignment'      => 'N',
@@ -496,21 +645,37 @@ class GodsElementalsSeeder extends Seeder
             'portfolio' => 'The Sun, Fire, Heat',
             'alignment' => 'CE',
         ]);
+        $god->pantheons()->save(app()->pantheons['Draconic'], [
+            'name'           => 'Garyx',
+            'title'          => 'All-Destroyer, Cleanser of Worlds, Firelord',
+            'level'          => 'Lesser',
+            'portfolio'      => 'Fire, destruction, Renewal',
+            'alignment'      => 'CE',
+            'symbol'         => 'A reptilian eye superimposed over a red flame',
+            'favored_weapon' => 'Claw (sickle)',
+        ]);
+
+        $helper->addClassesToGod($god, 'Elemental', [
+            'Fighter' => 20,
+            'Wizard'  => 20,
+            'Cleric'  => 10,
+        ]);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Kossuth';
+        $class->name          = 'Firewalkers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Trained in all simple weapons';
         $class->armors        = 'Trained in all light armor, medium armor, and shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Kossuth</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'Elemental', [
-            $class->name,
+            $class->name, 'Monk',
         ]);
 
         // Skills
@@ -518,23 +683,22 @@ class GodsElementalsSeeder extends Seeder
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
         $helper->addFeaturesToClass($class, [
-            'divine_feat'     => [1, 3, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20],
             'fire_resistance' => [5],
             'fire_immunity'   => [12],
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Fire Elementals');
         $helper->addDomainToClass($class, ['Fire']);
         $helper->addSpellsToClass($class, [
-            0 => ['Control Flame', 'Fire Bolt', 'Produce Flame'],
-            1 => ['Burning Hands', 'Cure Wounds', 'Resist Fire'],
-            2 => ['Animate Fire', 'Continual Flame', 'Divine Flame', 'Flame Blade', 'Flaming Sphere', 'Heat Metal', 'Pyrotechnics',
-                'Scorching Ray', ],
-            3 => ['Eradicate Fire', 'Fire Step', 'Fire Whip', 'Fireball', 'Protection From Elements' => 'Fire only'],
-            4 => ['Everlasting Fire', 'Fire Shield', 'Fire Stride', 'Wall of Fire'],
-            5 => ['Dispel Cold', 'Energy Buffer' => 'Fire only', 'Firebrand', 'Fiery Protector', 'Flameproof', 'Heart of Fire',
-                'Immolation', 'Summon Elemental' => 'Fire Elementals only', ],
+            0 => ['Control Flames', 'Fire Bolt', 'Green-Flame Blade', 'Produce Flame', 'Ray of Flame', 'Resistance' => 'Fire only'],
+            1 => ['Absorb Elements' => 'Fire only', 'Burning Hands', 'Cure Wounds', 'Resist Fire'],
+            2 => ['Animate Fire', 'Continual Flame', 'Divine Flame', 'Fireburst', 'Flame Blade', 'Flaming Sphere', 'Heat Metal',
+                'Pyrotechnics', 'Scorching Ray', ],
+            3 => ['Eradicate Fire', 'Fire Step', 'Fire Whip', 'Fireball', 'Flame Arrows', 'Minute Meteors', 'Protection From Elements' => 'Fire only'],
+            4 => ['Everlasting Fire', 'Fire Eyes', 'Fire Shield', 'Fire Stride', 'Wall of Fire'],
+            5 => ['Antifire Sphere', 'Dispel Cold', 'Energy Buffer' => 'Fire only', 'Firebrand', 'Fiery Protector', 'Flameproof',
+                'Flame Strike', 'Heart of Fire', 'Immolation', 'Summon Elemental' => 'Fire Elementals only', ],
             6 => ['Fire Seeds', 'Investiture of Flame'],
-            7 => ['Energy Immunity' => 'Fire only', 'Fiery Body', 'Fire Storm'],
+            7 => ['Fiery Body', 'Fire Storm'],
             8 => ['Incendiary Cloud'],
             9 => ['Erupt', 'Meteor Swarm'],
         ]);
@@ -718,7 +882,7 @@ class GodsElementalsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Elemental'], [
             'name'      => $god->name,
-            'title'     => 'Great Caliph of the Djinn, Master of the Clouds, Son of the Breezes',
+            'title'     => 'Great Caliph of the Djinn, Master of the Clouds, Son of the Breezes, Commander of the Four Winds, Ruler of All Djinn, Defender of the Heavens, Price of Birds, Storm of the Righteous',
             'level'     => 'Archomental',
             'portfolio' => 'Djinni genies',
             'alignment' => 'CG',

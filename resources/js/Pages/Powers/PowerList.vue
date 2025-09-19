@@ -73,7 +73,7 @@ const filters = {
                                             <option value="light">Light</option>
                                             <option value="psionic combat">Psionic Combat</option>
                                             <option value="sonic">Sonic</option>
-                                            <option value="time">time</option>
+                                            <option value="time">Time</option>
                                         </optgroup>
                                     </select>
                                 </th>

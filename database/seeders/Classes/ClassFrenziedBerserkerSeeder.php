@@ -26,7 +26,7 @@ class ClassFrenziedBerserkerSeeder extends Seeder
         $class->key_attribute = 'STR';
         $class->requirements  = $helper->getClassRequirementsString([
             'Alignment' => 'Any nonlawful',
-            'Feats'     => 'Power Attack, Cleave, 3 Rage feats',
+            'Feats'     => 'Power Attack, Cleave, 2 Rage Feats',
             'Regional'  => 'You must be from a tribe or culture that supports and trains Frenzied Berserkers',
         ]);
         $class->max_level = 10;
@@ -46,9 +46,9 @@ class ClassFrenziedBerserkerSeeder extends Seeder
 <ul>
     <li>+4 bonus to STR</li>
     <li>-3 penalty to AC</li>
-    <li>Take 2 points of nonlethal damage per round</li>
     <li>You gain the Frenzied Blow Talent</li>
-    <l>You can't use Actions that have the Concentrate trait unless they also have the Rage trait. The Seek basic action gains the Rage trait while you’re raging.</li>
+    <li>You may not make Ranged Attacks or cast spells (unless it has the Rage trait), or activate any magical items (although you may activate items before entering a Frenzy)</li>
+    <li>You can't use Actions that have the Concentrate trait unless they also have the Rage trait. The Seek basic action gains the Rage trait while you’re raging.</li>
     <li>While you are in a Frenzy, you may ignore up to 2 levels of Exhaustion until your Frenzy ends.</li>
 </ul>
 <p>A Frenzy lasts for 10 rounds. To end the Frenzy before its duration expires, you may attempt a DC 20 WIS Save once per round as an Action. Success ends the Frenzy immediately; failure means it continues. The effects of Frenzy stack with those from any Rage ability you may have.</p>
@@ -68,7 +68,11 @@ class ClassFrenziedBerserkerSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Extra Frenzy';
-        $feat->description = '<p>You may Frenzy an additional time.</p>';
+        $feat->description = '<p>You gain the following</p>
+<ul>
+    <li>You may Frenzy an additional time.</li>
+    <li>At the end of your Frenzy, you may make a DC 15 CON check. If you succeed, your Frenzy lasts an additional round and the DC to continue your Frenzy increases by +1.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Rage']);
         $feat->features()->save(app()->features['frenzy']);
 

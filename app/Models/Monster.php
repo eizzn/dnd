@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int         id
  * @property string      name
  * @property string      size
+ * @property string      type
  * @property string      alignment
  * @property string      armor_class
  * @property string|null damage_reduction

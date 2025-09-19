@@ -46,12 +46,26 @@ Route::get('/condition/{id}', function () {
     return Inertia::render('Conditions/ConditionDetails');
 })->middleware(['auth', 'verified'])->name('condition');
 
+Route::get('/equipments', function () {
+    return Inertia::render('Equipments/EquipmentList');
+})->middleware(['auth', 'verified'])->name('equipments');
+Route::get('/equipment/{id}', function () {
+    return Inertia::render('Equipments/EquipmentDetails');
+})->middleware(['auth', 'verified'])->name('equipment');
+
 Route::get('/feats', function () {
     return Inertia::render('Feats/FeatList');
 })->middleware(['auth', 'verified'])->name('feats');
 Route::get('/feat/{id}', function () {
     return Inertia::render('Feats/FeatDetails');
 })->middleware(['auth', 'verified'])->name('feat');
+
+Route::get('/features', function () {
+    return Inertia::render('Features/FeatureList');
+})->middleware(['auth', 'verified'])->name('features');
+Route::get('/feature/{id}', function () {
+    return Inertia::render('Features/FeatureDetails');
+})->middleware(['auth', 'verified'])->name('feature');
 
 Route::get('/formulas', function () {
     return Inertia::render('Formulas/FormulaList');
@@ -73,6 +87,34 @@ Route::get('/languages', function () {
 Route::get('/language/{id}', function () {
     return Inertia::render('Languages/LanguageDetails');
 })->middleware(['auth', 'verified'])->name('language');
+
+Route::get('/materials', function () {
+    return Inertia::render('Materials/MaterialList');
+})->middleware(['auth', 'verified'])->name('materials');
+Route::get('/material/{id}', function () {
+    return Inertia::render('Materials/MaterialDetails');
+})->middleware(['auth', 'verified'])->name('material');
+
+Route::get('/monsters', function () {
+    return Inertia::render('Monsters/MonsterList');
+})->middleware(['auth', 'verified'])->name('monsters');
+Route::get('/monster/{id}', function () {
+    return Inertia::render('Monsters/MonsterDetails');
+})->middleware(['auth', 'verified'])->name('monster');
+
+Route::get('/pantheons', function () {
+    return Inertia::render('Pantheons/PantheonList');
+})->middleware(['auth', 'verified'])->name('pantheons');
+Route::get('/pantheon/{id}', function () {
+    return Inertia::render('Pantheons/PantheonDetails');
+})->middleware(['auth', 'verified'])->name('pantheon');
+
+Route::get('/pages', function () {
+    return Inertia::render('Pages/PageList');
+})->middleware(['auth', 'verified'])->name('pages');
+Route::get('/page/{id}', function () {
+    return Inertia::render('Pages/PageDetails');
+})->middleware(['auth', 'verified'])->name('page');
 
 Route::get('/powers', function () {
     return Inertia::render('Powers/PowerList');
@@ -108,6 +150,13 @@ Route::get('/talents', function () {
 Route::get('/talent/{id}', function () {
     return Inertia::render('Talents/TalentDetails');
 })->middleware(['auth', 'verified'])->name('talent');
+
+Route::get('/types', function () {
+    return Inertia::render('Types/TypeList');
+})->middleware(['auth', 'verified'])->name('types');
+Route::get('/type/{id}', function () {
+    return Inertia::render('Types/TypeDetails');
+})->middleware(['auth', 'verified'])->name('type');
 
 Route::get('/weapons', function () {
     return Inertia::render('Weapons/WeaponList');

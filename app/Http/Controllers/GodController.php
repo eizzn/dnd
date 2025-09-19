@@ -18,6 +18,7 @@ class GodController extends Controller
 
         return new GodPantheonCollectionResource(
             $query->with('pantheon')
+                ->distinct()
                 ->paginate($request->query('per_page', 15))
                 ->appends($request->all())
         );

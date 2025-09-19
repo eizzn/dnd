@@ -92,21 +92,45 @@ const showingNavigationDropdown = ref(false);
                                     </div>
                                 </div>
 
-                                <NavLink
-                                    :href="route('gods')"
-                                    :active="route().current('gods') || route().current('god')"
-                                >Gods</NavLink>
+                                <div
+                                    class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
+                                    :class="{
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('gods') || route().current('god')
+                                            || route().current('pantheons') || route().current('pantheon'),
+                                    }"
+                                >
+                                    <span class="cursor-pointer">Gods</span>
+                                    <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('gods')"
+                                            :active="route().current('gods') || route().current('god')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Gods</NavLink>
+                                        <br/>
+                                        <NavLink
+                                            :href="route('pantheons')"
+                                            :active="route().current('pantheons') || route().current('pantheon')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Pantheons</NavLink>
+                                    </div>
+                                </div>
 
                                 <div
                                     class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
                                     :class="{
                                         'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
                                             || route().current('armors') || route().current('armor')
-                                            || route().current('formulas') || route().current('formula'),
+                                            || route().current('formulas') || route().current('formula')
+                                            || route().current('materials') || route().current('material')
                                     }"
                                 >
                                     <span class="cursor-pointer">Equipment</span>
                                     <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('equipments')"
+                                            :active="route().current('equipments') || route().current('equipment')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Equipments</NavLink>
                                         <NavLink
                                             :href="route('armors')"
                                             :active="route().current('armors') || route().current('armor')"
@@ -124,19 +148,34 @@ const showingNavigationDropdown = ref(false);
                                             :active="route().current('formulas') || route().current('formula')"
                                             class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
                                         >Formulas</NavLink>
+                                        <NavLink
+                                            :href="route('materials')"
+                                            :active="route().current('materials') || route().current('material')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Materials</NavLink>
                                     </div>
                                 </div>
                                 <div
                                     class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
                                     :class="{
-                                        'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
-                                            || route().current('rules') || route().current('rule')
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('features') || route().current('feature')
                                             || route().current('skills') || route().current('skill')
-                                            || route().current('conditions') || route().current('condition'),
+                                            || route().current('conditions') || route().current('condition')
+                                            || route().current('types') || route().current('type')
                                     }"
                                 >
                                     <span class="cursor-pointer">Rules</span>
                                     <div class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg group-hover:block" style="top: 45px;">
+                                        <NavLink
+                                            :href="route('pages')"
+                                            :active="route().current('pages') || route().current('page')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Rules</NavLink>
+                                        <NavLink
+                                            :href="route('features')"
+                                            :active="route().current('features') || route().current('feature')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Features</NavLink>
                                         <NavLink
                                             :href="route('conditions')"
                                             :active="route().current('conditions') || route().current('condition')"
@@ -147,13 +186,17 @@ const showingNavigationDropdown = ref(false);
                                             :active="route().current('skills') || route().current('skill')"
                                             class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
                                         >Skills</NavLink>
+                                        <NavLink
+                                            :href="route('types')"
+                                            :active="route().current('types') || route().current('type')"
+                                            class="block px-4 py-2 text-sm text-gray-700 w-48 bg-gray-200 hover:bg-gray-300 hover:text-gray-900"
+                                        >Types</NavLink>
                                     </div>
                                 </div>
                                 <div
                                     class="group relative inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out"
                                     :class="{
-                                        'border-b-2 border-blue-500 text-gray-900': route().current('equipments') || route().current('equipment')
-                                            || route().current('races') || route().current('race')
+                                        'border-b-2 border-blue-500 text-gray-900': route().current('races') || route().current('race')
                                             || route().current('alphabets') || route().current('alphabet')
                                             || route().current('languages') || route().current('language'),
                                     }"
@@ -177,6 +220,10 @@ const showingNavigationDropdown = ref(false);
                                         >Languages</NavLink>
                                     </div>
                                 </div>
+                                <NavLink
+                                    :href="route('monsters')"
+                                    :active="route().current('monsters') || route().current('monster')"
+                                >Monsters</NavLink>
                                 <!--
                                 monsters
                                 locations

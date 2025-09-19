@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Feat;
 use App\Models\Klass;
 use App\Models\Material;
+use App\Models\Skill;
 use App\Models\Spell;
 use App\Models\Type;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -62,6 +63,13 @@ class SpellResource extends JsonResource
                     'quantity'    => $material->pivot->quantity,
                     'price'       => $material->pivot->price,
                     'meta'        => $material->pivot->meta,
+                ];
+            }),
+            'skills'        => $this->skills->map(function (Skill $skill) {
+                return [
+                    'id'   => $skill->id,
+                    'name' => $skill->name,
+                    'dc'   => $skill->pivot->dc,
                 ];
             }),
         ];

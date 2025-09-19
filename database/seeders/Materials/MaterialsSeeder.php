@@ -96,20 +96,36 @@ class MaterialsSeeder extends Seeder
     <li>The Sword Coast</li>
     <li>The Sea of Fallen Stars</li>
 </ul>';
-        $mat->price       = '';
-        $mat->description = '';
-        $mat->armor       = '';
+        $mat->price       = '200 gp';
+        $mat->description = '<p>Grown rather than forged. The coral must be immersed in water constantly, otherwise the coral begins to die and fall apart, even if enchanted.</p>';
+        $mat->armor       = '<p>Any heavy armor made with deep coral grants an additional +1 to AC. Any creature that swallows coral armor will suffer 1D6 Poison damage after 10 rounds for 10 consecutive rounds.</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Deep Crystal';
+        $mat->type   = 'Mineral';
+        $mat->source = '<ul>
+    <li>The Sword Coast</li>
+    <li>The Sea of Fallen Stars</li>
+</ul>';
+        $mat->price       = '5000 gp';
+        $mat->description = '<p>Collecting the purist parts of crystal clusters, these gems can be alchemically bonded together to then be refined to make a perfectly solid crystal weapon.</p>
+<p>Once alchemically bonded and refined (a process that requires a psionicly enhanced smith), the refined deep crystal begins to build up a store of Psionic Power Points, 1 point per week, to a maximum of based on the amount of deep crystal. Psionic characters can use an Action to draw as many Power Points from the deep crystal as needed to refill their own pool of Power Points. They may also use a Triple Action and 10 Power Points to fill the deep crystal with 1 Power Point.</p>
+<p>Legends say that items that are allowed to fill up to the maximum amount of Power Points for a long time without ever expending it can become sentient.</p>';
+        $mat->armor       = '<p>Replaces the metal. Only Heavy Armors can be made with deep crystal. The armor provides 1 point less Damage Reduction and is twice as heavy, but can store up to 20 Power Points. Add an additional 5000 gp to the cost to create an armor with deep crystal, for a total of 10000 gp.</p>';
+        $mat->weapon      = '<p>Replaces the metal. Weapons made with deep crystal is easier to break than normal steel weapons. Weapons made with deep crystal has 1 point of Hardness less than steel weapons, but can store up to 10 Power Points</p>';
         $mat->save();
 
         $mat         = new Material;
         $mat->name   = 'Elukian Clay';
         $mat->type   = 'Clay';
+        $mat->rarity = 'Rare';
         $mat->source = '<ul>
     <li>Wherever the Plane of Water releases onto the Prime Material Plane</li>
 </ul>';
         $mat->description = '<p>Where waters run from the Plane of Water to the Prime Material, in their wake is left Elukian Clay.</p>
 <p>This almost unworkable clay can be shaped into armor.</p>';
-        $mat->armor = '<p>Armor made from Elukian Clay offers 1 point of Damage Reduction. If the armor does not normally impose a penalty on DEX (Stealth) checks, the Elukian Clay version does.</p>';
+        $mat->armor = '<p>Armor made from Elukian Clay offers an additional +1 point of Damage Reduction. If the armor does not normally impose a penalty on DEX (Stealth) checks, the Elukian Clay version does.</p>';
         $mat->save();
 
         $mat              = new Material;

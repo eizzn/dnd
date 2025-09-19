@@ -11,6 +11,9 @@ class PantheonController extends Controller
 {
     public function index(Request $request, PantheonService $service): PantheonCollectionResource
     {
+        if (! $request->has('order')) {
+            $request->merge(['order' => 'name']);
+        }
         $query = $service->index($request);
 
         return new PantheonCollectionResource(
@@ -19,7 +22,7 @@ class PantheonController extends Controller
         );
     }
 
-    public function get(PantheonService $service, int $id)
+    public function get(PantheonService $service, int $id): PantheonResource
     {
         return new PantheonResource(
             $service->index(['id' => $id])

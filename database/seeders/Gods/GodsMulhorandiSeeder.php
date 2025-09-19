@@ -3,6 +3,7 @@
 namespace Database\Seeders\Gods;
 
 use App\Models\Feat;
+use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -74,8 +75,12 @@ class GodsMulhorandiSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Disk of Solar Vengeance</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Law', 'Nobility', 'Retribution', 'Sun']);
@@ -94,7 +99,7 @@ class GodsMulhorandiSeeder extends Seeder
                 'Sunmantle', ],
             5  => ['Atonement', 'Banishment', 'Celestial Brand', 'Dawn', 'Dispel Chaos', 'Divine Weapon', 'Sun Scepter',
                 'Wall of Light', ],
-            6  => ['Crown of Brilliance', 'Purifying Light', 'Raise Dead', 'Sunbeam'],
+            6  => ['Crown of Brilliance', 'Purifying Light', 'Raise Dead', 'Sunbeam', "Undeath's Eternal Foe"],
             7  => ['Bastion of Good', 'Divine Word', 'Holy Aura', 'Regenerate', 'Renewal Pact', 'Shield of Law', 'Temple of the Gods'],
             8  => ['Control Weather', 'Crown of Glory', 'Sunburst'],
             9  => ['Blinding Glory'],
@@ -118,7 +123,7 @@ class GodsMulhorandiSeeder extends Seeder
             2 => ['Daylight', 'Divine Presence', 'Resist Elements', 'Sun Bolt'],
             3 => ['Aura of the Sun', 'Blinding Smite', 'Circle of Protection From Chaos', 'Commune with City', 'Searing Light'],
             4 => ['Divine Wrath', 'Sun Scepter', 'Sunmantle'],
-            5 => ['Aerial Form' => 'Hawk only', 'Banishing Smite', 'Dawn', 'Dispel Chaos'],
+            5 => ['Aerial Form' => 'Hawk only', 'Banishing Smite', 'Dawn', 'Dispel Chaos', "Undeath's Eternal Foe"],
         ]);
 
         $class                = new Klass;
@@ -139,22 +144,30 @@ class GodsMulhorandiSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']);
+        $feature              = new Feature;
+        $feature->key         = 'superior_light';
+        $feature->name        = 'Superior Light';
+        $feature->description = '<p>Whenever you cast a spell with the Light type, it is treated as 1 level higher to determine if it can Counter or Dispel a spell with the Darkness type. This also counts towards a Darkness spell can Counter or Dispel the Light spell.</p>
+<p>You may spend 1 Spell Point to cast the Light Spell</p>';
+        $helper->saveFeature($feature, ['Light']);
+
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+            'superior_light' => [2],
         ]);
+
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Knowledge', 'Law', 'Light']);
         $helper->addSpellsToClass($class, [
             0  => ['Clean Self', 'Dancing Lights', 'Detect Magic', 'Light', 'Stabilize'],
-            1  => ['Bless', 'Cloak of Shade', 'Cure Wounds', 'Detect Chaos', 'Disk of Solar Vengeance',
+            1  => ['Bless', 'Cloak of Shade', 'Command', 'Cure Wounds', 'Detect Chaos', 'Disk of Solar Vengeance',
                 'Endure Elements' => 'Fire or Light only', 'Nimbus of Light', 'Protection From Chaos', 'Resist Fire', 'Zone of Truth', ],
             2  => ['Aid', 'Daylight', 'Delay Poison', 'Exorcism', 'Glorious Raiment', 'Produce Flame', 'Scorching Ray',
-                'Sun Bolt', 'Undead Bane Weapon', ],
+                'Sun Bolt', 'Undead Bane Weapon', 'Zone of Truth', ],
             3  => ['Aura of the Sun', 'Circle of Protection Chaos', 'Fireball', 'Prayer', 'Searing Light'],
             4  => ['Ceremony', 'Commune with City', 'Control Sand', 'Sunmantle'],
             5  => ['Atonement', 'Dawn', 'Dispel Chaos', 'Flame Strike', 'Sun Scepter', 'Wall of Light'],
-            6  => ['Purifying Light', 'Sunbeam'],
-            7  => ['Shield of Law'],
+            6  => ['Purifying Light', 'Sunbeam', "Undeath's Eternal Foe"],
+            7  => ['Shield of Law', 'Word of Law'],
             8  => ['Sunburst'],
             9  => ['Blinding Glory'],
             10 => ['Eternal Sun'],
@@ -348,20 +361,20 @@ class GodsMulhorandiSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 12, 18],
-            'wizard_feat' => [3, 9, 15, 20],
-        ]);
         $class->features()->save(app()->features['extra_spells'], [
-            'level' => 1,
+            'level' => 2,
             'meta'  => 'You may memorize an arcane spell in the extra spell slot in the same way that a Wizard does.',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Enchanter',
         ]);
         $helper->addDomainToClass($class, ['Air', 'Enchantment', 'Water']);
         $helper->addSpellsToClass($class, [
             0 => ['Air Shield', 'Conviction', 'Dancing Lights', 'Detect Magic', 'Guidance', 'Gust', 'Light', 'Resist',
-                'Stabilize', ],
-            1 => ['Bless', 'Charm', 'Cooling Breeze', 'Cure Wounds', 'Detect Poison and Disease', 'Divine Favor', 'Gust of Wind',
-                'Love Bite', 'Protection From Evil', 'Sanctuary', 'Weather Sense', ],
+                'Stabilize', 'Virtue', ],
+            1 => ['Bless', 'Charm', 'Cure Wounds', 'Detect Poison and Disease', 'Divine Favor', 'Gust of Wind', 'Love Bite',
+                'Protection From Evil', 'Sanctuary', 'Weather Sense', ],
             2 => ['Aquavision', 'Augury', 'Aura of Hope', 'Darkvision', 'Delay Disease', 'Delay Poison', "Eagle's Splendor",
                 'Endure Elements', 'Lay of the Land', 'Restoration', 'Water Whip', 'Resist Elements', ],
             3 => ['Air Breathing', 'Dispel Magic', 'Faithful Healing', 'Know Bloodline', "Love's Lament", 'Neutralize Poison',
@@ -369,7 +382,7 @@ class GodsMulhorandiSeeder extends Seeder
             4 => ['Calm Air', 'Ceremony', 'Divination', 'Ice Storm', 'Ride the Waves'],
             5 => ['Atonement', 'Commune with Nature', 'Control Water', 'Control Winds', 'Dispel Evil', 'Hallow', 'Healing Circle'],
             6 => ['Field of Life', 'Find the Path', 'Heal', "Hero's Feast", 'Oasis'],
-            7 => ['Create Crossroads and Backroads', 'Regenerate', 'Spirit Walk'],
+            7 => ['Regenerate', 'Spirit Walk'],
             8 => ['Control Weather', 'Divine Aura', 'Discern Location'],
             9 => ['Unearthly Beauty'],
         ]);
@@ -430,7 +443,7 @@ class GodsMulhorandiSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Rogue',
+            $class->name, 'Rogue', 'Bard',
         ]);
 
         // Skills
@@ -438,13 +451,12 @@ class GodsMulhorandiSeeder extends Seeder
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
-            'skill_feat'  => [1, 3, 9, 15],
+            'class_group_feat' => [2, 3, 5, 7, 9, 12, 15, 18],
         ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 3);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
         $helper->addDomainToClass($class, ['Protection', 'Trade']);
         $helper->addSpellsToClass($class, [
-            0 => ['Bit of Luck', 'Clean Self', 'Friends', 'Guidance', 'Light', 'Stabilize'],
+            0 => ['Bit of Luck', 'Clean Self', 'Friends', 'Guidance', 'Light', 'Stabilize', 'Virtue'],
             1 => ['Alarm', 'Bless', 'Cure Wounds', 'Detect Evil', 'Detect Poison and Disease', 'Locate City', 'Protection From Evil',
                 'Remove Disease', ],
             2 => ['Aid', 'Augury', 'Comprehend Language', 'Consecrate', 'Darkvision', 'Hold Person', 'Remove Fear', 'Resist Elements'],
@@ -476,8 +488,13 @@ class GodsMulhorandiSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Command</dd>
+</dl>',
         ]);
         $helper->addDomainToClass($class, ['Knowledge', 'Law', 'Nobility']);
         $helper->addSpellsToClass($class, [
@@ -545,11 +562,10 @@ class GodsMulhorandiSeeder extends Seeder
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 12, 18],
-            'wizard_feat' => [3, 9, 15, 20],
+            'spell_pool' => [2],
         ]);
         $class->features()->save(app()->features['extra_spells'], [
-            'level' => 1,
+            'level' => 2,
             'meta'  => 'You may memorize an arcane spell in the extra spell slot in the same way that a Wizard does.',
         ]);
         $helper->addDomainToClass($class, ['Knowledge', 'Magic']);
@@ -615,14 +631,14 @@ class GodsMulhorandiSeeder extends Seeder
             ['Arcana', 'Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 6, 12, 18],
-            'wizard_feat' => [3, 9, 15, 20],
+            'spell_pool'      => [2],
+            'chastise_spirit' => [3],
         ]);
         $helper->addDomainToClass($class, ['Knowledge', 'Magic']);
         $helper->addSpellsToClass($class, [
             0 => ['Disrupt Ectoplasm', 'Detect Aberration', 'Detect Ghost', 'Detect Magic', 'Resist Planar Alignment'],
-            1 => ['Cloak Astral Pool', 'Comprehend Languages', 'Ectoplasmic Armor', 'Ethereal Alarm', 'Portal Stabilization',
-                'Unseen Servant', 'Ventriloquism', ],
+            1 => ['Cloak Astral Pool', 'Comprehend Languages', 'Ectoplasmic Armor', 'Ethereal Alarm', 'Planar Orientation',
+                'Portal Stabilization', 'Unseen Servant', 'Ventriloquism', ],
             2 => ['Analyze Portal', 'Anticipate Teleportation', 'Dimension Hop', 'Discolor Astral Pool', 'Distort Summons',
                 'Ectoplasmic Web', 'Ethereal Mount', 'Invoke the Cerulean Sign', 'Misty Step', 'Spectral Hand', ],
             3 => ['Anti-Summoning Shell', 'Banishment', 'Blink', 'Dimensional Anchor', 'Dispel Magic', 'Ectoplasmic Decay',
@@ -728,8 +744,12 @@ class GodsMulhorandiSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion'],
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 2,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Aid</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Family', 'Fate', 'Good', 'Moon']);
@@ -777,21 +797,6 @@ class GodsMulhorandiSeeder extends Seeder
             'symbol'         => 'Coiled cobra',
             'favored_weapon' => 'Scimitar',
         ]);
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'           => 'Bhaal',
-            'title'          => 'Lord of Murder',
-            'level'          => 'Hero',
-            'portfolio'      => 'Murder',
-            'alignment'      => 'NE',
-            'symbol'         => 'Skull surrounded by ring of bloody droplets',
-            'favored_weapon' => 'Dagger',
-            'master_id'      => God::where('name', 'Bane')->first()->id,
-        ]);
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Rogue'     => 10,
-            'Ninja'     => 5,
-            'Assassin'  => 5,
-        ]);
         $set = $god;
 
         $class                = new Klass;
@@ -822,11 +827,10 @@ class GodsMulhorandiSeeder extends Seeder
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Religion']);
         $helper->addFeaturesToClass($class, [
-            'divine_feat'     => [6, 15, 18, 20],
             'surprise_attack' => [3],
             'spider_climb'    => [9],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Poison Resistance']);
+        $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Poison Resistance']);
         $class->features()->save(app()->features['wild_shape'], ['level' => 12, 'meta' => 'As if you have the Improved Wild Shape feat. Snakes only']);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead, Desert Jackals, Desert Insects, Desert Snakes');
         $helper->addDomainToClass($class, ['Air', 'Darkness', 'Evil', 'Hatred', 'Scalykind']);
@@ -837,11 +841,11 @@ class GodsMulhorandiSeeder extends Seeder
             0 => ['Air Shield', 'Clean Self', 'Detect Undead', 'Gust', 'Poison Spray', 'Sand Dagger', 'Stabilize'],
             1 => ['Bane', 'Charm', 'Contagion', 'Create or Destroy Water' => 'Destroy only', 'Cure Wounds', 'Deathwatch',
                 'Detect Good', 'Doom', 'Fetid Breath', 'Fear', 'Gust of Wind', 'Protection From Good', 'Protection From Poison',
-                'Scales of the Lizard', 'Scimitar of Sand', 'Serpent Arrow', 'Summon Animals' => 'Snakes only', ],
+                'Scales of the Lizard', 'Scimitar of Sand', 'Serpent Arrow', 'Summon Animals' => 'Snakes only', 'Wall of Smoke', ],
             2 => ['Aura of Fear', 'Command Undead', 'Darkness', 'Desecrate', 'Dust Devil', 'Handfang', 'Hold Person', 'Pillar of Sand',
                 'Poison', 'Restoration', 'Sticks to Snakes', 'Tremorsense', 'Undead Bane Weapon', 'Warding Wind', ],
             3 => ['Animate Dead', 'Circle of Protection From Good', 'Control Sand', 'Know Bloodline', 'Ray of Exhaustion',
-                'Serpent Arms', 'Toxin Immunity', 'Venom Bolt', 'Wound', ],
+                'Serpent Arms', 'Tongue Snake', 'Toxin Immunity', 'Venom Bolt', 'Wound', ],
             4 => ['Blight', 'Drain Life', 'Doom Scarabs', 'Ebon Ray of Doom', 'Fang Trap', 'Sand Form', 'Sickness'],
             5 => ['Atonement', 'Control Winds', 'Dispel Good', 'Insect Form' => 'Scorpions, Snakes, and Jackals only',
                 'Insect Plague', ],
@@ -850,7 +854,7 @@ class GodsMulhorandiSeeder extends Seeder
             8 => ['Power Word Stun', 'Punishing Winds'],
             9 => ['Power Word Kill'],
         ]);
-        $helper->addSpellSlotsToClass($class);
+        $helper->addSpellSlotsToClass($class, 'eight');
 
         /**********************************************************************/
 

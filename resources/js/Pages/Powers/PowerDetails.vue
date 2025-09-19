@@ -33,14 +33,14 @@ const pageTitle = computed(() => power.value?.name || "Loading...");
 onMounted(fetchPowerDetails);
 </script>
 
-
 <template>
     <Head :title="pageTitle" />
 
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ power?.name || "Power Details" }}</span>
+                <span>Power:</span><br/>
+                <span>{{ power?.name }}</span>
             </h2>
         </template>
 
@@ -87,7 +87,13 @@ onMounted(fetchPowerDetails);
                                             <td class="px-4 py-2 border border-gray-300">
                                                 <ul class="list-disc ml-4">
                                                     <li v-for="(type, index) in power.types" :key="index">
-                                                        {{ type.name }}
+                                                        <NavLink
+                                                            :href="`/type/${type.id}`"
+                                                            class="text-blue-800 hover:underline p-0"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >
+                                                            {{ type.name }}
+                                                        </NavLink>
                                                     </li>
                                                 </ul>
                                             </td>

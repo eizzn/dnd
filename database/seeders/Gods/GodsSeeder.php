@@ -31,7 +31,6 @@ class GodsSeeder extends Seeder
         $this->call(GodsTycheSeeder::class);
         $this->call(GodsBaneSeeder::class);
         $this->call(GodsCyricSeeder::class);
-        $this->call(GodsMystraSeeder::class);
         $this->call(GodsSilvanusSeeder::class);
         $this->call(GodsChaunteaSeeder::class);
         $this->call(GodsTalosSeeder::class);
@@ -44,7 +43,6 @@ class GodsSeeder extends Seeder
 
         $this->call(GodsMulhorandiSeeder::class);
         $this->call(GodsUnthericSeeder::class);
-        $this->call(GodsZakaraSeeder::class);
         $this->call(GodsMazticaSeeder::class);
         $this->call(GodsKaraTurSeeder::class);
 
@@ -53,30 +51,15 @@ class GodsSeeder extends Seeder
         $this->call(GodsGruumshSeeder::class);
 
         $this->call(GodsArchonsSeeder::class);
-        $this->call(GodsGaurdinalsSeeder::class);
+        $this->call(GodsGuardinalsSeeder::class);
         $this->call(GodsEladrinsSeeder::class);
+        $this->call(GodsZakaraSeeder::class);
         $this->call(GodsDevilsSeeder::class);
         $this->call(GodsDemonsSeeder::class);
         $this->call(GodsSlaadsSeeder::class);
         $this->call(GodsYugolothsSeeder::class);
 
         $this->call(GodsMonstrousSeeder::class);
-
-        $class  = Klass::where('name', 'Base Class')->first();
-        /** @var SeedHelper $helper */
-        $helper = app()->seedHelper;
-        $helper->addFeatsToClass($class, [
-            'Defender of Sealtiel'         => 7,
-            'Thrall to Demogorgon'         => 7,
-            'Greater Thrall to Demogorgon' => 11,
-            'Master Thrall to Demogorgon'  => 16,
-            'Skull of Orcus'               => 7,
-            'Skull Lord of Orcus'          => 11,
-            'Skull King of Orcus'          => 16,
-            "Thrall to Graz'zt"            => 7,
-            "Improved Thrall to Graz'zt"   => 10,
-            "Greater Thrall to Graz'zt"    => 15,
-        ]);
 
         /**
          * In the beginning, there were the fey (eladrin) and the archons.
@@ -97,12 +80,12 @@ class GodsSeeder extends Seeder
          */
 
         /**
-         * levels 1-20 is normal
-         * levels 20-30 is epic
-         * levels 30-35 is Hero
-         * levels 35-40 is Demi power
-         * levels 40-45 is Lesser power
-         * levels 45-50 is Intermediate
+         * level 1-20 is normal
+         * level 20-30 is epic
+         * level 30 is Hero
+         * level 35 is Demi power
+         * level 40 is Lesser power
+         * level 45 is Intermediate
          * level 50 is Greater
          */
     }

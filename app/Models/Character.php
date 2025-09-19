@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int int
  * @property int wis
  * @property int cha
+ * @property int hit_points
  * @property int sub_race_id
  * @property string alignment
  * @property array proficiencies

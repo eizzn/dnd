@@ -39,7 +39,8 @@ onMounted(fetchAlphabetDetails);
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ alphabet?.name || "Alphabet Details" }}</span>
+                <span>Alphabet:</span><br/>
+                <span>{{ alphabet?.name }}</span>
             </h2>
         </template>
 

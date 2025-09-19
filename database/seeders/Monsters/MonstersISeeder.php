@@ -21,6 +21,7 @@ class MonstersISeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Illithid';
         $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'LE';
         $monster->armor_class      = '13 (Breast Plate armor +2)';
         $monster->damage_reduction = '5 (Breast Plate armor)';
@@ -54,6 +55,7 @@ class MonstersISeeder extends Seeder
         $monster              = new Monster;
         $monster->name        = 'Intellect Devourer';
         $monster->size        = 'Tiny';
+        $monster->type        = 'Aberration';
         $monster->alignment   = 'LE';
         $monster->armor_class = '12';
         $monster->hit_dice    = 6;

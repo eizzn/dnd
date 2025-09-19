@@ -19,6 +19,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Lantern Archon';
         $monster->size             = 'Small';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '14';
         $monster->damage_reduction = '4 (Natural Armor)';
@@ -26,7 +27,7 @@ class MonstersASeeder extends Seeder
         $monster->speed            = '0 ft / Fly 60 ft';
         $monster->actions          = '<dl>
     <dt>Light Ray</dt> <dd>Ranged Spell Attack, reach 30/60 ft, one target. 1D6 Positive Holy Light.</dd>
-    <dt>Gestalt</dt> <dd>Nine lantern archons can fuse together as a Triple Action, becoming a single Large entity that appeared as a whirlwind of dancing firefly lights. The gestalt has the abilities of a Large Air Elemental. The lantern archons can remain in this form for 10 rounds. When the gestalt separates back into individual lantern archons, its remaining Hit Points are divided evenly among them. If it had less than 9 Hit Points, some component archons die when the gestalt ends.</dd>
+    <dt>Gestalt</dt> <dd>Nine lantern archons can fuse together as a Triple Action, becoming a single Large entity that appears as a whirlwind of dancing firefly lights. The gestalt has the abilities of a Large Air Elemental. The lantern archons can remain in this form for 10 rounds. When the gestalt separates back into individual lantern archons, its remaining Hit Points are divided evenly among them. If it had less than 9 Hit Points, some component archons die when the gestalt ends.</dd>
 </dl>';
         $monster->description = '<p>Lantern archons are the lowest-ranking of the archons. They appear as spheres of soft, glowing light, about as bright as a torch, from about one to three feet in diameter.</p>';
         $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful'], [
@@ -56,6 +57,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Hound Archon';
         $monster->size             = 'Medium';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '13 (Full Plate) / 10';
         $monster->damage_reduction = '8 (Full Plate) / 2';
@@ -98,6 +100,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Justice Archon';
         $monster->size             = 'Medium';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '14 (Plate Mail Armor) / 11';
         $monster->damage_reduction = '8 (Full Plate) / 2';
@@ -141,6 +144,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Warden Archon';
         $monster->size             = 'Large';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '13 (Full Plate +1) / 9';
         $monster->damage_reduction = '9 (Full Plate +1) / 2';
@@ -189,6 +193,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Word Archon';
         $monster->size             = 'Medium';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '14 (Plate Mail Armor +1) / 10';
         $monster->damage_reduction = '9 (Full Plate +1) / 2';
@@ -237,6 +242,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Sword Archon';
         $monster->size             = 'Large';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '15 (Full Plate +1) / 12';
         $monster->damage_reduction = '9 (Full Plate +1) / 3';
@@ -287,6 +293,7 @@ class MonstersASeeder extends Seeder
                 'Imbue with Adamantine' => ['meta' => '1/day'],
                 'Imbue with Cold Iron'  => ['meta' => '1/day'],
                 'Imbue with Silvered'   => ['meta' => '1/day'],
+                'Wages of Sin'          => ['meta' => '1/day'],
             ],
             'languages' => ['Celestial', 'Auld Wyrmish', 'Infernal', 'Telepathy' => ['meta' => '120 ft']],
         ]);
@@ -294,6 +301,7 @@ class MonstersASeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Throne Archon';
         $monster->size             = 'Large';
+        $monster->type             = 'Archon';
         $monster->alignment        = 'LG';
         $monster->armor_class      = '15 (Full Plate +1) / 12';
         $monster->damage_reduction = '9 (Full Plate + 1) / 3';

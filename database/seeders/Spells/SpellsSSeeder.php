@@ -125,7 +125,7 @@ class SpellsSSeeder extends Seeder
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 30 minutes';
         $spell->description = "<p>This spell turns a handful of sand into a keen-edged, metallic blade. It is as hard as steel, but can't be affected by magnetic forces or heat and is not a good conductor. It cannot be larger than twice the length of the caster's hand, nor weigh more than twice the weight of the hand. It deals damage as a dagger +1 and is considered a magical weapon.</p>
-<p>A Sand Jambiya crumbles into loose sand if dispelled, on the caster's mental command, or instantly upon your death. This spell can be combined with a Flying Dagger spell.</p>
+<p>A Sand Dagger crumbles into loose sand if dispelled, on the caster's mental command, or instantly upon your death. This spell can be combined with a Flying Dagger spell.</p>
 <dl>
     <dt>Material Components</dt> <dd>A handful of sand.</dd>
 </dl>";
@@ -358,8 +358,9 @@ class SpellsSSeeder extends Seeder
         $spell->name        = 'Scorching Ray';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '120 feet';
+        $spell->targets     = '1 - 3 creatures within Range';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You strike with three rays of fire. You can aim at one target or several. Make a ranged attack for each ray. On a hit, the target takes 2D6 Fire damage.</p>';
+        $spell->description = '<p>You strike with three rays of fire. You can aim at one Target or several. Make a ranged attack for each ray. On a hit, a Target takes 2D6 Fire damage.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>You shoot an additional ray.</dd>
 </dl>';
@@ -487,7 +488,7 @@ class SpellsSSeeder extends Seeder
 <p>While the chest remains on the Ethereal Plane, you can use an action and touch the replica to recall the chest. It appears in an unoccupied space on the ground within 5 feet of you. You can send the chest back to the Ethereal Plane by using an action and touching both the chest and the replica.</p>
 <p>After 60 days, there is a cumulative 5 percent chance per day that the spell’s effect ends. This effect ends if you cast this spell again, if the smaller replica chest is destroyed, or if you choose to end the spell as an action. If the spell ends and the larger chest is on the Ethereal Plane, it is irretrievably lost.</p>';
         $helper->addTypesToSpell($spell, ['Conjuration'], 4);
-        $spell->materials()->save(Material::where('name', 'Zardazik')->firstOrFail(), [
+        $spell->materials()->save(Material::where('name', 'Zardazil')->firstOrFail(), [
             'price' => '5,050 gp',
             'meta'  => 'An exquisite chest (3 ft X 2 ft X 2 ft), and a tiny replica',
         ]);
@@ -540,10 +541,11 @@ class SpellsSSeeder extends Seeder
         $spell->name        = 'See Invisibility';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->duration    = '10 minutes';
-        $spell->description = '<p>You can see invisible creatures and objects. They appear to you as translucent shapes, you treat them as if they were concealed.</p>';
+        $spell->description = '<p>You can see invisible creatures and objects as well as creatures in the Ethereal and Shadow Plane. They appear to you as translucent shapes, you treat them as if they were concealed.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+3)</dt> <dd>The spell has a duration of 8 hours</dd>
-    <dt>Permanency</dt> <dd></dd>
+    <dt>Heightened (+2)</dt> <dd>The spell gains an Area of 30-ft. All invisible creatures and creatures in the Ethereal or Shadow Plane are visible so long as they remain in the Area.</dd>
+    <dt>Permanency Heightened (+3)</dt> <dd>2000 gp, 2 CON Damage</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Divination', 'Enchantment', 'Permanency'], 2);
 
@@ -567,6 +569,40 @@ class SpellsSSeeder extends Seeder
 <p>Once the mythal is seeded, it cannot be dispelled, disjoined, or suppressed by any non-epic spell.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Ritual'], 11);
         $spell->skills()->save(app()->skills['Arcana'], ['meta' => 'DC Based on component spells that are to be added.']);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Seed of Moander';
+        $spell->casting        = '1 minute (Material, Somatic, Verbal, Secondary Caster)';
+        $spell->requirements   = '<dl>
+    <dt>Secondary Caster</dt> <dd>At 2 other priests of Moander must cast this spell</dd>
+</dl>';
+        $spell->spell_creator  = 'Moander';
+        $spell->save_attribute = 'CON';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'One living humanoid creature touched';
+        $spell->duration       = 'Permanent';
+        $spell->description    = '<p>When this spell is completed, it creates a seed. This seed must immediately be attached to the skin of the Target. The seed bursts and tries to implant itself on the Target. The Target makes a CON Save, or be affected. Affected creatures have a growing mold growing within them, turning them into a Puppet of Moander in 10 days. The mold turns their entrails into a festering mass of rotting, mold-encrusted tendrils that eventually reduce the Target into a dried-out husk, killing them. Externally, the Target appears unchanged until death except for a faint odor of pollen and a small flowered vine wrapped around one ear.</p>
+<ul>
+    <li>If the Target drinks Holy Water within 1 hour of being affected, the mold dies and the Target is no longer affected</li>
+    <li>If Holy Water is drunk within 2 days of being affected, then the molds growth is slowed to half rate</li>
+    <li>A Cure Disease Spell or Heal Spell used within 30 days of being affected stops the molds growth and the Target can then heal any damage to their innards normally</li>
+    <li>Cold Damage that deals at least 20 Damage kills the mold. The Target can then heal any damage to their innards normally.</li>
+</ul>
+<p>An affected Target retains all of their abilities and skills, but not spells above 3rd level.</p>
+<p>An affected Target can sprout up to 2 10-foot long tendril from any orifice or directly through the skin. This tendril has the following stats.</p>
+<dl>
+    <dt>AC</dt> <dd>18</dd>
+    <dt>HP</dt> <dd>12</dd>
+    <dt>Attack</dt> <dd>10-foot reach, Melee Attack, single Target, can deal 2D8 Bludgeoning or start a Grapple</dd>
+</dl>
+<dl>
+    <dt>Material Components</dt> <dd>Emerald worth at least 1,000 gp, which the spell consumes.</dd>
+</dl>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Fully effected</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Seed of Undeath';
@@ -1137,7 +1173,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting       = 'Verbal Casting (Reaction)';
         $spell->targets       = 'Self';
         $spell->spell_creator = 'Matick';
-        $spell->duration      = 'Until your next turn or until dismissed';
+        $spell->duration      = 'Until the beginning of your next turn or until dismissed';
         $spell->description   = "<p>You raise a magical shield of Force to protect you. You gain a +5 bonus to your AC while the shield is in effect.</p>
 <p>While the spell is in effect, you can also use the Shield Block Reaction with your magic shield. The shield has Hardness 5. After you use Shield Block, the spell is dismissed and you can't cast it again for 3 rounds.</p>
 <p>You take no damage from Magic Missiles while your Shield spell is active.</p>
@@ -2111,7 +2147,7 @@ class SpellsSSeeder extends Seeder
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy'], 7);
+        $helper->addTypesToSpell($spell, ['Divination', 'Enchantment'], 7);
 
         $spell                 = new Spell;
         $spell->name           = 'Soul Scour';
@@ -2944,13 +2980,6 @@ class SpellsSSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Earth', 'Transmutation'], 2);
 
         $spell              = new Spell;
-        $spell->name        = 'Stone Tell';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->duration    = '10 minutes';
-        $spell->description = '<p>You can ask questions of and receive answers from natrual or worked stone. While stone is not intelligent, you speak with the natural spirits of the stone, which have a personality colored by the type of stone, as well as by the type of structure the stone is part of, for worked stone. A stone\'s perspective, perception, and knowledge give it a worldview different enough form a human\'s that it doesn\'t consider the same details important. Stones can mostly answer questions about those that touched them in the past and what is concealed beneath them.</p>';
-        $helper->addTypesToSpell($spell, ['Divination', 'Earth'], 6);
-
-        $spell              = new Spell;
         $spell->name        = 'Stone to Flesh';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
@@ -3170,7 +3199,12 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '90 feet';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You summon a tiny animal or insect with a CR of 0 to a space within range. This animal must be something that naturally appears in the environment you are in (ex. rats in cities, scorpions in deserts, rabbits in forests, etc.). This animal is friendly towards you and your companions. The animal cannot make any attacks of any kind but will follow your instructions if you have the ability to communicate with it (such as a Speak with Animals spell), otherwise it will behave as a normal animal of its type. If the animal is attacked in any way, it immediately flees and the spell ends the following turn. If killed, the animal disappears immediately and the spell ends.</p>';
+        $spell->description = '<p>You summon an Monster with the Animal type (Animal or Insect) with a CR of 1/4 to a space within range. This animal must be something that naturally appears in the environment you are in (ex. rats in cities, scorpions in deserts, rabbits in forests, etc.). This animal is friendly towards you and your companions. You may use an Action to give the animal simple commands (Attack, Defend), otherwise it will behave as a normal animal of its type. If killed, the animal disappears immediately and the spell ends.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>You may summon an Animal with CR 1/2</dd>
+    <dt>Heightened (+5)</dt> <dd>You may summon an Animal with CR 1</dd>
+    <dt>Heightened (+7)</dt> <dd>You may summon an Animal with CR 2</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Summoning', 'Animal'], 0);
 
         $spell              = new Spell;
@@ -3305,6 +3339,19 @@ class SpellsSSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Summoning', 'Lingual'], 6);
 
+        $spell                = new Spell;
+        $spell->name          = 'Summon Spectator';
+        $spell->casting       = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->spell_creator = 'Helm';
+        $spell->range         = '120 feet';
+        $spell->duration      = 'Special';
+        $spell->description   = "<p>This spell summons a spectator to act as a guardian. It serves for up to 101 years in a specified task. The task must involve the guarding of some location or inanimate physical object, such as a portal, shrine, or a holy relic. It allows no one except the one who summoned it or another of the same faith to enter the location it is guarding or to use, borrow, or examine an item or treasure it watches over. It is not gullible and can fairly easily detect false claims to membership of your faith by questioning such claimants telepathically about details of the faith's rituals and beliefs.</p>
+<p>A spectator does not abandon its post unless slain or blinded in all five eyes, in which case it automatically returns to the other plane from where it came. There, it regenerates any damages and returns in 24 hours, after which time it returns to its post. If the object is gone or the location breached when it returns (it can automatically tell), it again leaves for the outer planes, and ending this spell.</p>
+<dl>
+    <dt>Material Components</dt> <dd>An eye stalk from a beholder, which the spell consumes</dd>
+</dl>";
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Summoning'], 5);
+
         $spell              = new Spell;
         $spell->name        = 'Summon Woodland Beings';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
@@ -3352,8 +3399,9 @@ class SpellsSSeeder extends Seeder
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '120 feet';
         $spell->save_attribute = 'DEX';
+        $spell->targets        = 'One creature within Range';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>A ray of burning sunlight springs from your hand. You must make a Ranged Spell Attack to hit your target. A creature struck by the bolt is Blinded for 1 round and takes 2D6 points of Light damage. Creatures harmed by sunlight take double damage. Fungi, molds, oozes, and slimes always take double damage. Undead always takes triple damage.</p>';
+        $spell->description    = '<p>A ray of burning sunlight springs from your hand. You must make a Ranged Spell Attack to hit your Target. A creature struck by the bolt is Blinded for 1 round and takes 2D6 points of Light damage. Creatures harmed by sunlight take double damage. Fungi, molds, oozes, and slimes always take double damage. Undead always takes triple damage.</p>';
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
@@ -3600,8 +3648,10 @@ class SpellsSSeeder extends Seeder
         $spell->save_attribute = 'DEX';
         $spell->range          = '5 feet';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = "<p>You create a momentary circle of spectral blades that sweep around you. Each creature within range other than you, must make a DEX Save or take 1D6 damage.</p>
-<p>The spell's damage increases to 2D6 when you reach 5th spell caster level, 3D6 at 11th spell caster level, and 4D6 at 17th spell caster level.</p>";
+        $spell->description    = '<p>You create a momentary circle of spectral blades that sweep around you. Each creature within range other than you, must make a DEX Save or take 1D6 damage.</p>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+5)</dt> <dd>Increase the Damage by +1D6</dd>
+</dl>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>Unaffected</dd>
     <dt>Failure</dt> <dd>Take full damage</dd>
@@ -3613,10 +3663,10 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = '5 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You create an area of Force shaped like a Long Sword. As part of the casting of this spell, you make a Melee attack with the area of Force. The area of Force only exists long enough to make a single Melee attack.</p>';
+        $spell->description = '<p>You create an area of Force shaped like a Long Sword. You make a Melee attack with the area of Force. The area of Force only exists long enough to make a single Melee attack. At the beginning of your next turn, the spell ends if you have not made a Melee Attack with the sword of force.</p>';
         $spell->heightened  = '<dl>
-    <dt>Heightened (+1)</dt> <dd>You gain a +1 bonus to Hit</dd>
-    <dt>Heightened (+1)</dt> <dd>The sword deals an Additional +2 Damage</dd>
+    <dt>Heightened (+4)</dt> <dd>You gain a +1 bonus to Hit</dd>
+    <dt>Heightened (+2)</dt> <dd>The sword deals an Additional +1 Damage</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 0);
 

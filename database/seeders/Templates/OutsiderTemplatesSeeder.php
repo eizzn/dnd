@@ -100,7 +100,7 @@ class OutsiderTemplatesSeeder extends Seeder
         $temp->details     = '<dl>
     <dt>Size and Type</dt> <dd>The base creature gains the Fiend type. Size is unchanged.</dd>
     <dt>Special Attacks</dt> <dd>
-        <p>A celestial creature retains all the special attacks of the base creature and also gains the following attacks.</p>
+        <p>A fiendish creature retains all the special attacks of the base creature and also gains the following.</p>
         <dl>
             <dt>Darkvision</dt> <dd>60 feet</dd>
             <dt>Damage Resistance</dt> <dd>Cold, and Fire as well as Bludgeoning, Piercing, and Slashing damage.</dd>

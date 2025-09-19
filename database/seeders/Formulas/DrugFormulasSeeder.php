@@ -23,6 +23,9 @@ class DrugFormulasSeeder extends Seeder
         $formula->type        = 'Drug';
         $formula->price       = '200 gp';
         $formula->method      = 'Ingested DC 18';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 25</li>
+</ul>';
         $formula->bulk        = '-';
         $formula->description = '<p>This thick, reddish liquid is the distilled essence of pain, captured using special spells or items*. It is highly sought after by outsiders.</p>
 <dl>
@@ -53,6 +56,25 @@ class DrugFormulasSeeder extends Seeder
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;
+        $formula->name        = 'Baccaran';
+        $formula->type        = 'Drug';
+        $formula->price       = '10 gp';
+        $formula->method      = 'Ingested DC 14';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 20</li>
+</ul>';
+        $formula->bulk        = '-';
+        $formula->description = '<p>This pasty substance is dried and kept as a powder or sometimes left as a paste. The ingredients are numerous and difficult to obtain.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>1D4 STR Damage</dd>
+    <dt>Secondary Effect</dt> <dd>1D4 +1 Enhancement Bonus to WIS for 10 minutes</dd>
+    <dt>Side Effects</dt> <dd>Those under the effect of baccaran take a -4 circumstance penalty on Save involving illusion for 2D4 hours after using this mild hallucinogen</dd>
+    <dt>Overdose</dt> <dd>If more than one dose is taken in a 24-hour period, the user immediately takes 2D6 points of damage and the side effect is doubled</dd>
+    <dt>Addiction</dt> <dd>Low</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
+
+        $formula              = new Formula;
         $formula->name        = 'Chaunsel';
         $formula->type        = 'Drug';
         $formula->price       = '20 gp';
@@ -67,6 +89,26 @@ class DrugFormulasSeeder extends Seeder
     <dt>Overdose</dt> <dd>If you take a second does within twelve hours of the first, you must make a WIS Save DC 16 or overstimulate your nerves, suffering 2D6 Poison damage and suffer Disadvantage on all INT (Insight), WIS (Perception), and thieve\'s tools checks for 1D4 days</dd>
     <dt>Addiction</dt> <dd>Low</dd>
 </dl>";
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
+
+        $formula              = new Formula;
+        $formula->name        = 'Devilweed';
+        $formula->type        = 'Drug';
+        $formula->price       = '20 gp';
+        $formula->method      = 'Contact DC 12';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 20</li>
+</ul>';
+        $formula->bulk        = '-';
+        $formula->description = '<p>Leaves from the wyssin plant are dried and rolled into a tobacco-like substance and smoked.</p>
+<p>It is often used by thieves or others working in darkness, applied to their fingertips to make them able to feel tiny details, seams, and such. Overdosing causes days of numbness in the affected area.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>1 WIS Damage</dd>
+    <dt>Secondary Effect</dt> <dd>The smoker gains a +2 alchemical bonus to STR for 2 hours</dd>
+    <dt>Side Effect</dt> <dd>A creature under the effect of devilweed is easily confused and acts skittish (treat as Shaken)</dd>
+    <dt>Overdose</dt> <dd>None</dd>
+    <dt>Addiction</dt> <dd>Low</dd>
+</dl>';
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;
@@ -104,7 +146,8 @@ class DrugFormulasSeeder extends Seeder
         $formula->method      = 'Ingested DC 15';
         $formula->bulk        = '-';
         $formula->description = '<p>Also called Firewine, this dark reddish brew is made from certain grapes, fruits, and herbs grown  near the city of Urling. It is a common drink for wealthier berserkers in Rashemen. Like alcoholic drinks jhuild is technically a poison, and a character who drinks it must succeed a CON Save to avoid its effects. Those who desire .</p>
-<p>A bottle of jhuild costs 70 gp in Rashemen, but in other countries, it can cost 100 gp or more because of its scarcity. Non-berserkers are usually content to drink a weakened  from of firewine diluted with ale, which sells for 2 sp a tankard in Rashemen, 7 to 15 gp elsewhere. This weak brew has almost eh same flavor as the true drink but does not grant a STR bonus or cause unconsciousness. Visitors to Rashemen who believe themselves accustomed to jhuild are surprised to find they have been drinking the diluted version. This causes no end of amusement to the Rashemi, especially in a drinking contest with a berserker.</p>
+<p>A bottle of jhuild costs 70 gp in Rashemen, but in other countries, it can cost 100 gp or more because of its scarcity. Non-berserkers are usually content to drink a weakened form of firewine diluted with ale, which sells for 2 sp a tankard in Rashemen, 7 to 15 gp elsewhere. This weak brew has almost the same flavor as the true drink but does not grant a STR bonus or cause unconsciousness. Visitors to Rashemen who believe themselves accustomed to jhuild are surprised to find they have been drinking the diluted version. This causes no end of amusement to the Rashemi, especially in a drinking contest with a berserker.</p>
+<p>In Thay, this drink is given to the slaves, to dull their wits and strengthen them for labor.</p>
 <dl>
     <dt>Initial Effect</dt> <dd>1 point of WIS damage</dd>
     <dt>Secondary Effect</dt> <dd>One minute later, you gain a +2 bonus to STR, which lasts for 2 hours</dd>
@@ -115,7 +158,7 @@ class DrugFormulasSeeder extends Seeder
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;
-        $formula->name        = 'Kammarth';
+        $formula->name        = 'Karnmarth';
         $formula->type        = 'Drug';
         $formula->price       = '80 gp';
         $formula->method      = 'Contact DC 10 or Ingested DC 13';
@@ -147,10 +190,32 @@ class DrugFormulasSeeder extends Seeder
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable', 'Magical']);
 
         $formula              = new Formula;
+        $formula->name        = 'Luhix';
+        $formula->type        = 'Drug';
+        $formula->price       = '80 gp';
+        $formula->method      = 'Contact DC 18';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 30</li>
+</ul>';
+        $formula->bulk        = '-';
+        $formula->description = '<p>Powdered stalks of plants that grow only in the Abyss, luhix is normally sprinkled onto a bleeding, self- inflicted wound. Then the wound is sealed either with magical healing or tightly wound bandages.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>1 Ability Damage to each Ability</dd>
+    <dt>Secondary Effect</dt> <dd>+2 Alchemical Bonus to all ability scores for 1 hour</dd>
+    <dt>Side Effect</dt> <dd>For the first minute of application, the user feels intense pain. During the time that the secondary effect is in effect, the user is immune to pain (including the effects of spells such as symbol of pain). The character takes damage as normal, but may not react normally to that damage.</dd>
+    <dt>Overdose</dt> <dd>Those who take this drug more than once in 24 hours must make a separate save (CON DC 25 negates) or die in terrible pain.</dd>
+    <dt>Addiction</dt> <dd>Vicious</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable', 'Magical']);
+
+        $formula              = new Formula;
         $formula->name        = 'Mordayn Vapor';
         $formula->type        = 'Drug';
         $formula->price       = '200 gp';
         $formula->method      = 'Inhaled DC 17';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 25</li>
+</ul>';
         $formula->bulk        = '-';
         $formula->description = '<p>Also called Dreammist, this drug is made of roughly ground leaves of a rare herb found in southern forests, mordayn is so potent that it is taken by steeping a small amount in hot water, and then inhaling the vapors of the resultant tea. Raw mordayn powder and mordayn-tainted water are deadly poison. Taking the powder directly or drinking the water produces an immediate overdose.</p>
 <p>Dreammist is renowned for the beautiful visions it induces, and the deadly peril of its sinister embrace.</p>
@@ -168,6 +233,9 @@ class DrugFormulasSeeder extends Seeder
         $formula->type        = 'Drug';
         $formula->price       = '100 gp';
         $formula->method      = 'Inhaled DC 15';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 25</li>
+</ul>';
         $formula->bulk        = '-';
         $formula->description = '<p>Taken from a rare blue mushroom, this powder must be inhaled. It is popular among arcane spellcasters.</p>
 <dl>
@@ -222,6 +290,9 @@ class DrugFormulasSeeder extends Seeder
         $formula->type        = 'Drug';
         $formula->price       = '300 gp';
         $formula->method      = 'Ingested DC 10';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 27</li>
+</ul>';
         $formula->bulk        = '-';
         $formula->description = '<p>These crushed leaves of a tiny red bog flower native to Cormyr, Sembia, and the Dragon Coast are known for their ability to improve hand-to-eye coordination.</p>
 <dl>
@@ -231,22 +302,6 @@ class DrugFormulasSeeder extends Seeder
     <dt>Overdose</dt> <dd>Taking a second dose before the first has worn off causes you to be Nauseated for 1D4 X 10 minutes.</dd>
     <dt>Addiction</dt> <dd>Low</dd>
 </dl>';
-        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
-
-        $formula              = new Formula;
-        $formula->name        = 'Rhul';
-        $formula->type        = 'Drug';
-        $formula->price       = '6 gp';
-        $formula->method      = 'Ingested DC 15';
-        $formula->bulk        = '-';
-        $formula->description = "<p>Also called Thrallwine, this is a spicy red fluid with a bitter aftertaste is made from certain fruits grown near the Surmarsh. Slaveholders and overseers use it to strengthen captives engaged in hard labor while dulling their wills and minds.</p>
-<dl>
-    <dt>Initial Effect</dt> <dd>1 point of temporary WIS damage</dd>
-    <dt>Secondary Effect</dt> <dd>You gain a +2 Alchemical bonus to STR for 1D3 hours</dd>
-    <dt>Side Effect</dt> <dd>You become susceptible to suggestion. You are shaken while under the drug's influence, and you suffer a -10 penalty to resist Intimidation.</dd>
-    <dt>Overdose</dt> <dd>None</dd>
-    <dt>Addiction</dt> <dd>None</dd>
-</dl>";
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;
@@ -264,6 +319,25 @@ class DrugFormulasSeeder extends Seeder
     <dt>Addiction</dt> <dd>None</dd>
 </dl>';
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable', 'Magical']);
+
+        $formula              = new Formula;
+        $formula->name        = 'Sannish';
+        $formula->type        = 'Drug';
+        $formula->price       = '500 gp';
+        $formula->method      = 'Ingested DC 9';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 20</li>
+</ul>';
+        $formula->bulk        = '-';
+        $formula->description = "<p>A bluish liquid distilled from wolves' milk and a powdered desert plant, this concoction is very popular. Addicts are easily found by the permanent blue stains on their lips.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>1 WIS Damage</dd>
+    <dt>Secondary Effect</dt> <dd>The user becomes numbed to pain for 3 hours, immune to pain-inducing penalties.</dd>
+    <dt>Side Effect</dt> <dd>Causes euphoria. While the drug is in effect, the user takes a -2 penalty on all initiative checks.</dd>
+    <dt>Overdose</dt> <dd>A second dose taken while the first dose is still in effect causes a numbing stupor for 6 hours. The user becomes Slowed: 1 until the stupor wears off.</dd>
+    <dt>Addiction</dt> <dd>Medium</dd>
+</dl>";
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 
         $formula              = new Formula;
         $formula->name        = 'Sezarad Root';
@@ -294,6 +368,45 @@ class DrugFormulasSeeder extends Seeder
     <dt>Side Effect</dt> <dd>Causes lethargy. While the drug is in effect, you suffer a -2 penalty on Initiative checks</dd>
     <dt>Overdose</dt> <dd>A second dose take while the first dose is still in effect cause a numbing stupor for 2D4 hours. You lose 1 Action per turn while the stupor is in effect.</dd>
     <dt>Addiction</dt> <dd>Medium</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
+
+        $formula              = new Formula;
+        $formula->name        = 'Terran Brandy';
+        $formula->type        = 'Drug';
+        $formula->price       = '500 gp';
+        $formula->method      = 'Ingested DC 19';
+        $formula->bulk        = '-';
+        $formula->crafting    = "<ul>
+    <li>Alchemy DC 30</li>
+    <li>Cast Death Knell to capture a dying Fey's essence. Then before the bonuses from Death Knell goes away, you must add 3 drops of your own blood to the brew</li>
+</ul>";
+        $formula->description = '<p>A potent alcohol, this magical drink is favored by heartless spellcasters of all types. This green liquid is distilled from the essence of dying fey.</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>+2 Alchemical Bonus to effective Caster Level for 30 minutes</dd>
+    <dt>Secondary Effect</dt> <dd>2 CON Damage</dd>
+    <dt>Side Effect</dt> <dd>None</dd>
+    <dt>Overdose</dt> <dd>If more than one dose is taken in a 8-hour period, the user immediately takes 3 CON Damage.</dd>
+    <dt>Addiction</dt> <dd>Low</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable', 'Magical']);
+
+        $formula              = new Formula;
+        $formula->name        = 'Vodare';
+        $formula->type        = 'Drug';
+        $formula->price       = '40 gp';
+        $formula->method      = 'Ingested DC 13';
+        $formula->crafting    = '<ul>
+    <li>Alchemy DC 15</li>
+</ul>';
+        $formula->bulk        = '-';
+        $formula->description = '<p>An extremely bitter brown powder, vodare is usually mixed with honeyed water or sweet wine to dilute the taste. It is made from the crushed petals of a flower that grows only on the graves of those who dedicated their lives to the worship of Rallaster (a very minor vile god.).</p>
+<dl>
+    <dt>Initial Effect</dt> <dd>+2 Alchemical Bonus to Intimidate checks and Saves against Fear effects for 3 hours</dd>
+    <dt>Secondary Effect</dt> <dd>-4 alchemical penalty on Diplomacy and Bluff checks for 3 hours</dd>
+    <dt>Side Effects</dt> <dd>Mild euphoria and fierce confidence while the drug is in effect</dd>
+    <dt>Overdose</dt> <dd>If more than one does is taken in a 4-hour period, the user becomes catatonic (CON Save 15 negates)</dd>
+    <dt>Addiction</dt> <dd>High</dd>
 </dl>';
         $helper->addTypesToSimpleObject($formula, ['Drug', 'Consumable']);
 

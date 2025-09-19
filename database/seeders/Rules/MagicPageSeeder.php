@@ -70,13 +70,11 @@ class MagicPageSeeder extends Seeder
         $rule              = new Rule;
         $rule->key         = 'cantrips';
         $rule->name        = 'Cantrips';
-        $rule->description = "<p>You are able to cast simple spells called Cantrips. The number can have 2 different meanings.</p>
+        $rule->description = "<p>You are able to cast simple spells called Cantrips.</p>
 <ul>
-    <li>If you have the Cantrip Caster Class Feature, the number indicates the number of Cantrips you can have. You may cast as many Cantrips as you wish without using Spell Slots.</li>
-    <li>
-        <p>If you don't have the Cantrip Caster Class Feature, the number indicates the number of Cantrips you can have and how many you may cast per Long Rest. You can choose to cast the same Cantrip with all of your Cantrip Slots if you wish.</p>
-        <p>You may swap out the Cantrips that you know between Long Rests (unless otherwise stated)</p>
-    </li>
+    <li>If you have the Cantrip Caster Class Feature, you may cast as many Cantrips as you wish without using Spell Slots.</li>
+    <li>if you don't have the Cantrip Caster Class Feature, then you should have a number indicating how many Cantrips you may memorize and another indicating how many Cantrips you may cast</li>
+    <li>You may swap out the Cantrips that you know between Long Rests (unless otherwise stated)</li>
 </ul>";
         $rule->order = 10;
         $page->rules()->save($rule);
@@ -235,77 +233,13 @@ class MagicPageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
-        $rule->key         = 'grafts';
-        $rule->name        = 'Grafts';
-        $rule->description = "<p>Grafts and symbionts are not complete monsters in themselves. Rather, they are monstrous body parts or even sentient beings (in the case of symbionts) that merge with existing creatures to enhance them. Grafts are non-sentient body parts - arms, legs, wings and the like - while symbionts have minds of their own and attach to their hosts in a variety of ways</p>
-<p>Grafts have no statistics of their own. A graft might enhance some ability or characteristic of the creature it's attached to, or grant the creature some new ability. Some grafts are capable of independent action.</p>
-<p>Grafts are not magic items, but in game terms they function very much like magic items. If you have the Graft Flesh Feat, you can create and apply grafts that they have the formula for. You must be in a quiet and comfortable setting, usually an alchemical laboratory.</p>
-<p>A graft is not a magic item. It does not radiate magic once completed, it does not have a caster level, and it is very hard, if not impossible, to salvage as treasure.</p>
-<table>
-    <thead>
-        <tr>
-            <th>Graft Type</th>
-            <th>Max Number of Grafts</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Head Graft</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Skin Graft</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Eye Graft</td>
-            <td>2 (one for each eye)</td>
-        </tr>
-        <tr>
-            <td>Ear Graft</td>
-            <td>2 (one for each ear)</td>
-        </tr>
-        <tr>
-            <td>Nose Graft</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>Mouth Graft</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>Torso Graft</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>Arm Graft</td>
-            <td>2 (one for each arm)</td>
-        </tr>
-        <tr>
-            <td>Leg Graft</td>
-            <td>2 (one for each leg)</td>
-        </tr>
-        <tr>
-            <td>Hand Graft</td>
-            <td>2 (one for each hand)</td>
-        </tr>
-        <tr>
-            <td>Foot Graft</td>
-            <td>2 (one for each foot)</td>
-        </tr>
-    </tbody>
-</table>";
-        $rule->order       = 210;
-        $page->rules()->save($rule);
-
-        $rule              = new Rule;
         $rule->key         = 'magic-tattoo-inks';
         $rule->name        = 'Magical Tattoo Inks';
         $rule->description = "<p>One ounce of ink is sufficient to create 1 Large Simple tattoo, 2 Medium Simple tattoos, or 4 Small Simple tattoos. Average tattoos halve this number, and Ornate tattoos quarter it. In order to gain a special effect from a type of ink, the entire tattoo must be made with that type.</p>
 <table>
     <thead>
         <tr>
-            <th colspan=\"3\">Available Materials</th>
+            <th colspan=\"4\">Available Materials</th>
         </tr>
         <tr>
             <th>Item</th>
@@ -462,6 +396,70 @@ class MagicPageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
+        $rule->key         = 'grafts';
+        $rule->name        = 'Grafts';
+        $rule->description = "<p>Grafts and symbionts are not complete monsters in themselves. Rather, they are monstrous body parts or even sentient beings (in the case of symbionts) that merge with existing creatures to enhance them. Grafts are non-sentient body parts - arms, legs, wings and the like - while symbionts have minds of their own and attach to their hosts in a variety of ways</p>
+<p>Grafts have no statistics of their own. A graft might enhance some ability or characteristic of the creature it's attached to, or grant the creature some new ability. Some grafts are capable of independent action.</p>
+<p>Grafts are not magic items, but in game terms they function very much like magic items. If you have the Graft Flesh Feat, you can create and apply grafts that they have the formula for. You must be in a quiet and comfortable setting, usually an alchemical laboratory.</p>
+<p>A graft is not a magic item. It does not radiate magic once completed, it does not have a caster level, and it is very hard, if not impossible, to salvage as treasure.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Graft Type</th>
+            <th>Max Number of Grafts</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Head Graft</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Skin Graft</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Eye Graft</td>
+            <td>2 (one for each eye)</td>
+        </tr>
+        <tr>
+            <td>Ear Graft</td>
+            <td>2 (one for each ear)</td>
+        </tr>
+        <tr>
+            <td>Nose Graft</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Mouth Graft</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Torso Graft</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Arm Graft</td>
+            <td>2 (one for each arm)</td>
+        </tr>
+        <tr>
+            <td>Leg Graft</td>
+            <td>2 (one for each leg)</td>
+        </tr>
+        <tr>
+            <td>Hand Graft</td>
+            <td>2 (one for each hand)</td>
+        </tr>
+        <tr>
+            <td>Foot Graft</td>
+            <td>2 (one for each foot)</td>
+        </tr>
+    </tbody>
+</table>";
+        $rule->order       = 210;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
         $rule->key         = 'magic-circle-magic';
         $rule->name        = 'Item Creation';
         $rule->description = '<p>The process of enchanting takes time and money. To create a magical item, a character must have the formula for the item, or create one themselves if one does not already exist. The formula describes any Feats, Spells, Powers, Skills, and/or Materials needed to create the item. The time needed to create the item is dependent on the items cost and your skill in Arcana.</p>
@@ -494,7 +492,7 @@ class MagicPageSeeder extends Seeder
 <p>Each full days of enchanting adds the GP value listed in the above table towards the full cost of the magic item you are creating. Once the total GP amount matches or exceeds the GP cost of the magic item, then the enchanting has been completed.</p>
 <p>A full days work of enchanting is considered to be at least 8 hours per day. Each day, the amount of gold that is applied to the completion of the magic item must be spent as well.</p>
 <p>Multiple casters can cooperate towards the creation of a magic item. A second spell caster must also be qualified to use the formula and all of his work counts the full amount towards the completion of the magic item. Third and forth spell casters only count 75% of their GP work amount towards the completion of the magic item, and any additional spell casters only count 50%. In all cases, the full GP amount they contribute must be spent.</p>';
-        $rule->order       = '300';
+        $rule->order       = '50';
         $page->rules()->save($rule);
 
         $rule              = new Rule;
@@ -549,7 +547,7 @@ class MagicPageSeeder extends Seeder
     </tbody>
 </table>
 <p>A dose of pain can also be used as a special evil spell component. Some infernal magic items are powered by pain.</p>';
-        $rule->order       = 1300;
+        $rule->order       = 1400;
         $page->rules()->save($rule);
 
         $rule              = new Rule;
@@ -604,7 +602,7 @@ class MagicPageSeeder extends Seeder
     </dd>
     <dt>Corrupter</dt> <dd>
         <p>The possessed item radiates a cursed, befouling presence. Anyone touching the possessed object must succeed at a Will save (DC 10 + 1/2 fiend's HD + fiend's CHA modifier) or fall under the effect of a bestow curse spell with a caster level equal to the fiend's Hit Dice. Unlike the bestow curse spell, the subject does not necessarily know that the curse is in effect or that it came from the item. Nothing about the object's appearance suggests that it is possessed (although there might be residual evil effects, as described in the Lingering Evil section below). The curse lasts until removed with break enchantment, limited wish, miracle, remove curse, or wish, even if the fiend vacates the possessed object.</p>
-        <p>A particularly crafty fiend might possess a small fountain as a corruptor, affecting anyone who touches or drinks the water. Similarly, a fiend could corrupt a patch of ground, affecting anyone who walks over it.</p>
+        <p>A particularly crafty fiend might possess a small fountain as a corrupter, affecting anyone who touches or drinks the water. Similarly, a fiend could corrupt a patch of ground, affecting anyone who walks over it.</p>
     </dd>
     <dt>Enhancer</dt> <dd>
         <p>A fiend can possess a Tiny or larger weapon or armor and enhance it as if it were a magic item. The fiend can duplicate magic item powers worth up to 2,000 gp per Hit Die. For example, a hezrou (9 HD) that enhances a longsword could bestow up to 18,000 gp worth of powers on it. It could duplicate the effect of a +3 longsword, a +1 unholy longsword, or another combination. A fiend that possesses magic armor or a magic weapon can increase its power by the same amount. Table 8–3: Armors and Table 8–10: Weapons in the DUNGEON MASTER's Guide give prices for various enhancements.</p>

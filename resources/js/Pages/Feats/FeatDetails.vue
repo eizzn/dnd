@@ -33,15 +33,12 @@ const pageTitle = computed(() => feat.value?.name || "Loading...");
 onMounted(fetchFeatDetails);
 </script>
 
-
 <template>
     <Head :title="pageTitle" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ feat?.name || "Feat Details" }}</span>
-            </h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Feat</h2>
         </template>
 
         <div class="py-12">
@@ -51,6 +48,7 @@ onMounted(fetchFeatDetails);
                         <div v-if="error" class="text-red-500">{{ error }}</div>
                         <div v-else-if="feat">
                             <section class="m-2">
+                                <h2 class="text-xl">{{ feat?.name }}</h2>
                                 <table class="w-full border-collapse border border-gray-300">
                                     <colgroup>
                                         <col style="width: 25%;" />
@@ -78,7 +76,13 @@ onMounted(fetchFeatDetails);
                                             <td class="px-4 py-2 border border-gray-300">
                                                 <ul class="list-disc ml-4">
                                                     <li v-for="(type, index) in feat.types" :key="index">
-                                                        {{ type.name }}
+                                                        <NavLink
+                                                            :href="`/type/${type.id}`"
+                                                            class="text-blue-800 hover:underline p-0"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >
+                                                            {{ type.name }}
+                                                        </NavLink>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -104,7 +108,7 @@ onMounted(fetchFeatDetails);
                                     </tbody>
                                 </table>
                             </section>
-                            <section class="m-2">
+                            <section class="m-2 description-container">
                                 <div v-html="feat.description"></div>
                             </section>
                             <section v-if="feat.spells && Object.keys(feat.spells).length > 0" class="m-3">

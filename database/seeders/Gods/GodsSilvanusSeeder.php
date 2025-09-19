@@ -160,7 +160,7 @@ class GodsSilvanusSeeder extends Seeder
             'aliases'        => 'Khelliara (Rashemen)',
             'title'          => 'Our Lady of the Forrest, the Forrest Queen',
             'level'          => 'Lesser',
-            'portfolio'      => 'Autumn, Dryads, Forrest creatures, Forrest, Rangers, Swanmays',
+            'portfolio'      => 'Autumn, Dryads, Forest creatures, Forests, Rangers, Swanmays',
             'regions'        => 'Chondalwood, Dalelands, High Forest, the North, Rashemen, Silverymoon',
             'alignment'      => 'NG',
             'symbol'         => "Golden-horned, blue-eyed unicorn's head facing left",
@@ -169,9 +169,8 @@ class GodsSilvanusSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Ranger' => 20,
-            'Druid'  => 10,
-            'Bard'   => 5,
+            'Ranger' => 25,
+            'Druid'  => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Ranger', 'Druid']);
         $mielikki = $god;
@@ -192,7 +191,7 @@ class GodsSilvanusSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Ranger' => 25,
+            'Ranger' => 30,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Ranger']);
 
@@ -215,8 +214,8 @@ class GodsSilvanusSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Spirit Shaman' => 10,
-            'Druid'         => 10,
+            'Spirit Shaman' => 15,
+            'Druid'         => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Druid', 'Spirit Shaman']);
 
@@ -248,8 +247,8 @@ class GodsSilvanusSeeder extends Seeder
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Paladin' => 10,
-            'Ranger'  => 10,
+            'Paladin' => 15,
+            'Ranger'  => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Paladin', 'Ranger']);
 

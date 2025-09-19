@@ -16,7 +16,7 @@ trait PowerableTrait
 {
     public function powers(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Power::class, 'powerable')
+        return $this->morphToMany(Power::class, 'powerable')
             ->withPivot('level', 'meta');
     }
 }

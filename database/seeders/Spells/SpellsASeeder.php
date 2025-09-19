@@ -194,11 +194,11 @@ class SpellsASeeder extends Seeder
         $spell->spell_creator = 'Melf';
         $spell->targets       = 'One creature or object';
         $spell->duration      = 'Instantaneous';
-        $spell->description   = '<p>Make a Ranged Touch Attack against the target. On a hit, you deal Acid damage equal to 1D8 plus your spellcasting ability modifier plus 1D6 persistent acid damage. On a critical hit, double the damage, but not the perisstent damage.</p>';
+        $spell->description   = '<p>Make a Ranged Touch Attack against the target. On a hit, you deal Acid damage equal to 1D8 plus your spellcasting ability modifier plus 1D6 persistent Acid Damage. On a critical hit, double the damage, but not the persistent damage.</p>';
         $spell->heightened    = '<dl>
-    <dt>Heightened (+2)</dt> <dd>1D8 extra damage and 1D6 extra persistent damage</dd>
+    <dt>Heightened (+2)</dt> <dd>1D8 extra damage and 1D6 extra Persistent damage</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Acid', 'Attack', 'Transmutation'], 2);
+        $helper->addTypesToSpell($spell, ['Acid', 'Attack', 'Ranged', 'Transmutation'], 2);
 
         $spell                 = new Spell;
         $spell->name           = 'Acid Rain';
@@ -234,23 +234,23 @@ class SpellsASeeder extends Seeder
     <dt>Heightened (+2)</dt> <dd>The acid does not dissipate.</dd>
     <dt>Heightened (+2)</dt> <dd>You now add your Spellcasting ability modifier to the damage, but only once. Increase the Acid damage by +1D4, the splash damage by +1, and the persistent damage by +1.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Acid', 'Transmutation'], 0);
+        $helper->addTypesToSpell($spell, ['Acid', 'Attack', 'Ranged', 'Transmutation'], 0);
 
         $spell                 = new Spell;
         $spell->name           = 'Acid Stream';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '30 foot long and 5 foot wide line';
         $spell->save_attribute = 'DEX';
-        $spell->duration       = '1 minute';
-        $spell->description    = "<p>A stream of Acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a DEX Save or be covered in Acid for the spell's duration or until a creature uses its Action to scrape or wash the Acid off itself or another creature. A creature covered in the acid takes 3D4 Acid damage at start of each of its turns.</p>";
+        $spell->duration       = 'Instantaneous';
+        $spell->description    = '<p>A stream of Acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a DEX Save, on a Failure, a creature takes 1D4 Acid Damage and 1D4 Persistent Acid Damage.</p>';
         $spell->saves          = '<dl>
-    <dt>Success</dt> <dd>No damage</dd>
-    <dt>Failure</dt> <dd>Covered in Acid</dd>
+    <dt>Success</dt> <dd>No Damage</dd>
+    <dt>Failure</dt> <dd>Full Damage</dd>
 </dl>';
         $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D4</dd>
+    <dt>Heightened (+1)</dt> <dd>Increase the damage of both the initial Damage and the Persistent Damage by +1D4</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Acid'], 1);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Attack', 'Ranged', 'Acid'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Aerial Form';
@@ -685,6 +685,24 @@ class SpellsASeeder extends Seeder
 <p>The target's gear melds into the new form. The target can't activate, wield, or otherwise benefit from any of its equipment.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Polymorph'], 3);
 
+        $spell              = new Spell;
+        $spell->name        = 'Animal Transfer';
+        $spell->casting     = '1 minute (Somatic, Verbal)';
+        $spell->range       = '60 feet';
+        $spell->targets     = 'One Animal within range';
+        $spell->duration    = '1 hour (special)';
+        $spell->description = "<p>You Target an Animal within range. While you are casting this spell, the Animal must stay within Range. You transfer your mind into the Target Animal (no Save). Targets with an INT of 3 or higher may make a WIS Save to resist.</p>
+<p>After you successfully transfer your mind into the Target, your body becomes Unconscious and you become unaware of your body's condition.</p>
+<p>The Target's mind becomes suppressed within it's body that you are controlling.</p>
+<p>If the Targets body dies while you are in control of it, the spell ends and you are transferred back to your body. If your body dies while you are still transferred in the Targets body, then your are now stuck in the Targets body, and the spell ends.</p>
+<p>If you Target a Familiar, Animal Companion, or Divine Mount, they gain a +3 bonus to the Save.</p>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>The casting time is 2 Actions</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+2)</dt> <dd>You may also Target Beasts</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy'], 4);
+
         $spell                = new Spell;
         $spell->name          = 'Animate Dead';
         $spell->casting       = '10 minute (Verbal, Somatic, Material)';
@@ -918,6 +936,22 @@ The spirit remains within the body until the spell is dismissed, the duration en
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 1);
 
+        $spell                 = new Spell;
+        $spell->name           = 'Annihilate Spirit';
+        $spell->casting        = '3 rounds (Somatic, Verbal)';
+        $spell->save_attribute = 'CHA';
+        $spell->range          = 'Touch';
+        $spell->targets        = 'One Dying or recently Dead creature';
+        $spell->description    = "<p>This spell completely annihilates the Target's spirit, wiping the spirit from existence. The Target's spirit cannot find rest in the Outer Planes, and indeed it never even reaches them. The spirit is caught up by the force of this spell and utterly shattered, or its energy is diverted to some foul use. An annihilated spirit cannot be reached with spells like Speak with Dead and cannot be Raised back to life.</p>
+<p>This spell is usable on victims who have the Dying state, or has died in the last hour. The Target may make a CHA Save to avoid this effect.</p>
+<p>This spell can also be used against an ethereal creature or possessing spirit. They take 15D6 Positive damage, CHA Save for half damage. If this damage brings the Target to 0 HP, the Target is annihilated.</p>
+<p>Casting this spell is an insult to the god Kelemvor, and may attract his attention.</p>";
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Spirit is not annihilated or Half Damage</dd>
+    <dt>Failure</dt> <dd>Spirit is annihilated or Full Damage</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy'], 6);
+
         $spell              = new Spell;
         $spell->name        = 'Anti-Summoning Shell';
         $spell->casting     = 'Somatic Casting, Verbal Casting, Material Casting';
@@ -1033,7 +1067,7 @@ A magic weapon's properties and powers are suppressed if it is used against a ta
     <dt>Failure</dt> <dd>The spell takes effect, but you may make another Save at the end of your next turn.</dd>
     <dt>Critical Failure</dt> <dd>The spell takes effect and you do not gain any more attempts to Save in subsequent turns.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment'], 7);
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Ray', 'Attack', 'Ranged'], 7);
 
         $spell              = new Spell;
         $spell->name        = 'Antiplant Shell';
@@ -1060,6 +1094,20 @@ A magic weapon's properties and powers are suppressed if it is used against a ta
 <p>Ending the Effect. If an affected creature ends its turn while not within 60 feet of the target or able to see it, the creature makes a WIS Save. On a successful save, the creature is no longer affected by the target and recognizes the feeling of repugnance or attraction as magical. In addition, a creature affected by the spell is allowed another WIS Save every 24 hours while the spell persists.</p>
 <p>A creature that successfully saves against this effect is immune to it for 1 minute, after which time it can be affected again.</p>";
         $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Ritual', 'Compulsion'], 8);
+
+        $spell               = new Spell;
+        $spell->name         = 'Anyspell';
+        $spell->casting      = 'Somatic Casting, Verbal Casting, Ability Damage';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>1 CON Damage</dd>
+</dl>';
+        $spell->targets      = 'Self';
+        $spell->duration     = '1 round';
+        $spell->description  = '<p>This spell allows you to cast any Wizard spell of 3rd level or lower that you have seen before. After casting this spell, the desired Wizard spell becomes known to you. You must cast it before the end of your next turn. You must provide all requirements (such as Material Components, Secondary Casters, etc).</p>';
+        $spell->heightened   = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Increase the maximum level of Wizard spell that you can select and increase the Ability Damage by +1</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Apport Object';
@@ -1147,6 +1195,9 @@ A magic weapon's properties and powers are suppressed if it is used against a ta
         $spell->description = "<p>You create an invisible, magical eye within range that hovers in the air for the duration.</p>
 <p>You mentally receive visual information from the eye, which has normal vision and darkvision out to 30 feet. The eye can look in every direction.
 As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can't enter another plane of existence. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter.</p>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>You Arcane Eye can travel through stone and metal (but not wood or other living materials and objects with the Force Type)</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Divination', 'Scrying'], 4);
 
         $spell              = new Spell;
@@ -1187,7 +1238,7 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         </ul>
     </dd>
 </dl>";
-        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 5);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force', 'Attack'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Arcane Lock';
@@ -1246,15 +1297,16 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         $spell->duration      = 'Concentration, up to 1 minute';
         $spell->description   = '<p>You create a sword-shaped plane of force that hovers within range. It lasts for the duration.</p>
 <p>With an Action, you can make a melee spell attack against a target of your choice within 5 feet of the sword. On a hit, the target takes 3D10 Force damage. Until the spell ends, you can use an Action on each of your turns to move the sword up to 20 feet to a spot you can see and repeat this attack against the same target or a different one. The sword may attack only once each turn.</p>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Force'], 7);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Force', 'Attack'], 7);
         $spell->materials()->save(Material::where('name', 'Platinum')->firstOrFail(), ['price' => '250 gp', 'meta' => 'A miniature Platinum sword with a grip and pommel of copper and zinc']);
 
-        $spell              = new Spell;
-        $spell->name        = "Arcanist's Magic Aura";
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = 'Touch';
-        $spell->duration    = '24 hours';
-        $spell->description = "<p>You place an illusion on a creature or an object you touch so that divination spells reveal false information about it. The target can be a willing creature or an object that isn't being carried or worn by another creature.</p>
+        $spell                = new Spell;
+        $spell->name          = "Arcanist's Magic Aura";
+        $spell->casting       = 'Somatic Casting, Verbal Casting';
+        $spell->spell_creator = 'Nystul';
+        $spell->range         = 'Touch';
+        $spell->duration      = '24 hours';
+        $spell->description   = "<p>You place an illusion on a creature or an object you touch so that divination spells reveal false information about it. The target can be a willing creature or an object that isn't being carried or worn by another creature.</p>
 <p>When you cast the spell, choose one or both of the following effects. The effect lasts for the duration. If you cast this spell on the same creature or object every day for 30 days, placing the same effect on it each time, the illusion lasts until it is dispelled.</p>
 <p>False Aura. You change the way the target appears to spells and magical effects, such as detect magic, that detect magical auras. You can make a nonmagical object appear magical, a magical object appear nonmagical, or change the object's magical aura so that it appears to belong to a specific school of magic that you choose. When you use this effect on an object, you can make the false magic apparent to any creature that handles the item.</p>
 <p>Mask. You change the way the target appears to spells and magical effects that detect creature types, such as a paladin's Divine Sense or the trigger of a symbol spell. You choose a creature type and other spells and magical effects treat the target as if it were a creature of that type or of that alignment.</p>";
@@ -1359,7 +1411,7 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = "<p>Two clawed arms grow out of the subject's body. The arms are roughly humanoid, but are either scaly or furred and end in sharp talons. The arms will try to break through any clothing or armor the character is wearing. If the target is wearing any armor, the target takes 1D4 Crushing damage, as the arms try to break out of the armor. The character can make a STR check to break the armor they are wearing. Failing causes the spell to end.</p>
+        $spell->description = "<p>Two clawed arms grow out of the Target's body. The arms are roughly humanoid, but are either scaly or furred and end in sharp talons. The arms will try to break through any clothing or armor the character is wearing. If the target is wearing any armor, the target takes 1D4 Crushing damage, as the arms try to break out of the armor. The character can make a STR check to break the armor they are wearing. Failing causes the spell to end.</p>
 <p>This spell grants the target an additional Action. This additional Action can only be used to make a Melee Attack with one of the clawed arms. The clawed arms deals 1D6 Slashing damage (or 1D4 if the target is size Small or smaller) + their STR modifier. If you hit with both claws in the same round against the same opponent, then you can rend the target for an additional 2D6 + STR modifier Slashing damage.</p>
 <p>Multiple castings on the same target does not stack, instead the duration is simply reset.</p>
 <dl>
@@ -1394,7 +1446,7 @@ As an action, you can move the eye up to 30 feet in any direction. There is no l
         $spell->targets     = 'Self';
         $spell->duration    = '1 round';
         $spell->description = '<p>The next Ranged Weapon attack you make with a Bow (longbow, shortbow, etc.), causes an arrow to fired at every opponent in your bows range (to a maximum limit of your class level). If you do not make the Ranged Attack the same round you cast this spell, then the spell ends with no effect.</p>';
-        $helper->addTypesToSpell($spell, ['Transmutation'], 4);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Attack', 'Ranged'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Aspect of the Deity, Greater';

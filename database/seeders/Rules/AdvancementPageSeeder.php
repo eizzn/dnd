@@ -32,6 +32,7 @@ class AdvancementPageSeeder extends Seeder
             <th>Experience Points</th>
             <th>Level</th>
             <th>Proficiency Bonus</th>
+            <th>Feats</th>
         </tr>
     </thead>
     <tbody>
@@ -39,101 +40,121 @@ class AdvancementPageSeeder extends Seeder
             <td>0</td>
             <td>1</td>
             <td>+0</td>
+            <td>Ancestry Feat</td>
         </tr>
         <tr>
             <td>300</td>
             <td>2</td>
             <td>+1</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>900</td>
             <td>3</td>
             <td>+1</td>
+            <td>Ancestry Feat</td>
         </tr>
         <tr>
             <td>2,700</td>
             <td>4</td>
             <td>+2</td>
+            <td></td>
         </tr>
         <tr>
             <td>6,500</td>
             <td>5</td>
             <td>+2</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>14,000</td>
             <td>6</td>
             <td>+3</td>
+            <td>Ancestry Feat</td>
         </tr>
         <tr>
             <td>23,00</td>
             <td>7</td>
             <td>+3</td>
+            <td></td>
         </tr>
         <tr>
             <td>34,000</td>
             <td>8</td>
             <td>+3</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>48,000</td>
             <td>9</td>
             <td>+4</td>
+            <td>Ancestry Feat</td>
         </tr>
         <tr>
             <td>64,000</td>
             <td>10</td>
             <td>+4</td>
+            <td></td>
         </tr>
         <tr>
             <td>85,000</td>
             <td>11</td>
             <td>+4</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>100,000</td>
             <td>12</td>
             <td>+4</td>
+            <td></td>
         </tr>
         <tr>
             <td>120,000</td>
             <td>13</td>
             <td>+5</td>
+            <td></td>
         </tr>
         <tr>
             <td>140,000</td>
             <td>14</td>
             <td>+5</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>165,000</td>
             <td>15</td>
             <td>+5</td>
+            <td></td>
         </tr>
         <tr>
             <td>195,000</td>
             <td>16</td>
             <td>+5</td>
+            <td></td>
         </tr>
         <tr>
             <td>225,000</td>
             <td>17</td>
             <td>+6</td>
+            <td>Generic Feat</td>
         </tr>
         <tr>
             <td>265,000</td>
             <td>18</td>
             <td>+6</td>
+            <td></td>
         </tr>
         <tr>
             <td>305,000</td>
             <td>19</td>
             <td>+6</td>
+            <td></td>
         </tr>
         <tr>
             <td>355,000</td>
             <td>20</td>
             <td>+6</td>
+            <td></td>
         </tr>
     </tbody>
 </table>';

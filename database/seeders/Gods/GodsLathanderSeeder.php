@@ -23,7 +23,6 @@ class GodsLathanderSeeder extends Seeder
         $god              = new God;
         $god->name        = 'Lathander';
         $god->level       = 'Greater';
-        $god->description = '';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
@@ -34,6 +33,12 @@ class GodsLathanderSeeder extends Seeder
             'alignment'      => 'NG',
             'symbol'         => 'Sunrise made of pink, red and yellow gems',
             'favored_weapon' => 'Dawnspeaker (light or heavy mace)',
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Fighter' => 20,
+            'Cleric'  => 20,
+            'Wizard'  => 10,
         ]);
 
         $class                = new Klass;
@@ -53,29 +58,34 @@ class GodsLathanderSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Monk',
+            $class->name, 'Paladin',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Ray of Light</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Good', 'Protection', 'Strength']);
         $helper->addSpellsToClass($class, [
-            0 => ['Clean Self', 'Conviction', 'Dancing Lights', 'Detect Magic', 'Flare', 'Light', 'Stabilize', 'True Strike'],
+            0 => ['Clean Self', 'Conviction', 'Dancing Lights', 'Detect Magic', 'Flare', 'Light', 'Stabilize', 'True Strike',
+                'Virtue', ],
             1 => ['Bless', 'Cure Wounds', 'Detect Evil', 'Exorcism', 'Jump', 'Longstrider', 'Luminous Gaze', 'Nimbus of Light',
                 'Ray of Light', 'Rosemantle', ],
             2 => ["Bear's Endurance", "Bull's Strength", 'Consecrate', 'Divine Insight', 'Glorious Raiment', 'Resist Elements',
                 'Sun Bolt', 'Undead Bane Weapon', ],
             3 => ['Brilliant Emanation', 'Circle of Protection From Evil', 'Daylight', 'Diamond Spray', 'Faithful Healing',
                 'Prayer', 'Radiance', 'Sheltered Vitality', 'Sunrise', 'Vitality Shield', ],
-            4 => ['Aura of Life', 'Life Ward', 'Sacred Item', 'Shadowblast', 'Sunmantle'],
+            4 => ['Aura of Life', 'Haste', 'Life Ward', 'Sacred Item', 'Shadowblast', 'Sunmantle'],
             5 => ['Atonement', 'Dawn', 'Perfection', 'Stalwart Covenant', 'Sun Scepter', 'Wall of Light'],
-            6 => ['Heal', 'Purifying Light', 'Sunbeam', 'Undead to Death'],
+            6 => ['False Dawn', 'Heal', 'Purifying Light', 'Sunbeam', 'Undead to Death', "Undeath's Eternal Foe"],
             7 => ['Channel Celestial', 'Divine Word', 'Radiant Assault', 'Regenerate'],
             8 => ['Divine Aura', 'Sunburst'],
             9 => ['Blinding Glory'],
@@ -97,10 +107,9 @@ class GodsLathanderSeeder extends Seeder
             1 => ['Angelic Halo', 'Aura of Courage', 'Exorcism', 'Luminous Gaze', 'Undead Bane Weapon'],
             2 => ['Aura of Hope', "Bear's Endurance", "Bull's Strength", 'Diamond Spray', 'Divine Insight', 'Divine Presence',
                 'See Invisibility', ],
-            3 => ['Bind Undead', 'Blinding Smite', 'Brilliant Emanation', 'Circle of Protection From Evil', 'Daylight',
-                'Sheltered Vitality', ],
+            3 => ['Blinding Smite', 'Brilliant Emanation', 'Circle of Protection From Evil', 'Daylight', 'Sheltered Vitality'],
             4 => ['Aura of Life', 'Aura of Purity', 'Perfection', 'Sacred Item'],
-            5 => ['Banishing Smite', 'Celestial Brand', 'Dawn', 'Holy Weapon'],
+            5 => ['Banishing Smite', 'Celestial Brand', 'Dawn', 'Holy Weapon', "Undeath's Eternal Foe"],
         ]);
     }
 }

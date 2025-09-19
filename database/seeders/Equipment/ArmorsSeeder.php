@@ -19,7 +19,7 @@ class ArmorsSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $armor              = new Armor;
-        $armor->name        = 'Padded armor';
+        $armor->name        = 'Padded';
         $armor->price       = 5;
         $armor->type        = 'Light';
         $armor->group       = 'Cloth';
@@ -33,6 +33,7 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction' => ['value' => 1],
             'DEX Mod Cap'      => ['value' => 4],
             'Spell Failure'    => ['value' => '5%'],
+            // piercing dam reduction 0
         ]);
 
         $armor              = new Armor;
@@ -40,7 +41,7 @@ class ArmorsSeeder extends Seeder
         $armor->price       = 10;
         $armor->type        = 'Light';
         $armor->group       = 'Leather';
-        $armor->bulk        = '1';
+        $armor->bulk        = 'L';
         $armor->weight      = 10;
         $armor->description = '<p>A mix of flexible and molded boiled leather, a suit of this type or armor provides some protection with maximum flexibility</p>';
         $helper->addTypesToSimpleObject($armor);
@@ -48,6 +49,7 @@ class ArmorsSeeder extends Seeder
             'Armor Class'      => ['value' => 1],
             'Damage Reduction' => ['value' => 1],
             'Spell Failure'    => ['value' => '10%'],
+            // piercing dam reduction 0
         ]);
 
         $armor              = new Armor;
@@ -55,7 +57,7 @@ class ArmorsSeeder extends Seeder
         $armor->price       = 45;
         $armor->type        = 'Light';
         $armor->group       = 'Leather';
-        $armor->bulk        = '1';
+        $armor->bulk        = 'L';
         $armor->weight      = 13;
         $armor->description = '<p>This leather armor is reinforced with metal studs and sometimes small metal plates, providing most of the flexibility of leather armor with more robust protection</p>';
         $helper->addTypesToSimpleObject($armor);
@@ -64,6 +66,7 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction'    => ['value' => 2],
             'Spell Failure'       => ['value' => '15%'],
             'Skill Check Penalty' => ['value' => 1],
+            // slashing dam reduction 1
         ]);
 
         $armor              = new Armor;
@@ -71,7 +74,7 @@ class ArmorsSeeder extends Seeder
         $armor->price       = 50;
         $armor->type        = 'Light';
         $armor->group       = 'Chain';
-        $armor->bulk        = '2';
+        $armor->bulk        = 'L';
         $armor->weight      = 20;
         $armor->description = "<p>Sometimes called a hauberk, this is a long shirt constructed of the same metal rings as chainmail. However, it is much lighter than chainmail and protects only the torso, upper arms, and upper legs of its wearer.</p>
 <p>The armor is flexible enough that it doesn't hinder most Actions. You don't apply its check penalty to Acrobatics and Athletics checks.</p>
@@ -83,6 +86,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '20%'],
+            // slashing dam reduction 4
+            // bludgeoning dam reduction 1
         ]);
 
         $armor              = new Armor;
@@ -90,7 +95,7 @@ class ArmorsSeeder extends Seeder
         $armor->price       = 10;
         $armor->type        = 'Medium';
         $armor->group       = 'Leather';
-        $armor->bulk        = '2';
+        $armor->bulk        = 'M';
         $armor->weight      = 12;
         $armor->description = '<p>A mix of furs, sturdy hide, and sometimes molded boiled leather, this armor provides protection due to its layers of leather, though its bulkiness slows the wearer down and decreases mobility.</p>';
         $helper->addTypesToSimpleObject($armor);
@@ -100,6 +105,7 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            // piercing dam reduction 1
         ]);
 
         $armor              = new Armor;
@@ -139,6 +145,8 @@ class ArmorsSeeder extends Seeder
             'Spell Failure'       => ['value' => '30%'],
             'Speed Penalty'       => ['value' => '5 ft'],
             'Minimum STR'         => ['value' => 13],
+            // bludgeoning dam reduction 2
+            // slashing dam reduction 7
         ]);
 
         $armor              = new Armor;
@@ -158,6 +166,7 @@ class ArmorsSeeder extends Seeder
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '25%'],
             'Speed Penalty'       => ['value' => '5 ft'],
+            // slashing dam reduction 7
         ]);
 
         $armor              = new Armor;
@@ -165,7 +174,7 @@ class ArmorsSeeder extends Seeder
         $armor->type        = 'Heavy';
         $armor->group       = 'Composite';
         $armor->price       = 200;
-        $armor->bulk        = 3;
+        $armor->bulk        = '3';
         $armor->weight      = 60;
         $armor->description = "<p>This type of armor is chain mail reinforced with flexible, interlocking metal plates, typically located on the wearer's torso, upper arms, and legs. A suit of this armor comes with an undercoat of padded armor and a pair of gauntlets.</p>
 <p>This armor's DEX modifier cap also applies to DEX Saves and on all DEX-based skill and ability checks that don't have the attack trait.</p>";
@@ -177,6 +186,7 @@ class ArmorsSeeder extends Seeder
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            // bludgeoning dam reduction 8
         ]);
 
         $armor              = new Armor;
@@ -195,6 +205,7 @@ class ArmorsSeeder extends Seeder
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            // slashing dam reduction 7
         ]);
 
         $armor              = new Armor;
@@ -215,6 +226,8 @@ class ArmorsSeeder extends Seeder
             'Spell Failure'       => ['value' => '35%'],
             'Speed Penalty'       => ['value' => '10 ft'],
             'Minimum STR'         => ['value' => 16],
+            // slashing dam reduction 9
+            // piercing dam reduction 9
         ]);
 
         $armor              = new Armor;
@@ -322,6 +335,7 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 5],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '5%'],
+            // piercing dam reduction 0
         ]);
 
         $armor              = new Armor;
@@ -339,6 +353,7 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 5],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '10%'],
+            // piercing dam reduction 1
         ]);
 
         $armor              = new Armor;
@@ -356,6 +371,7 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 6],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '10%'],
+            // piercing dam reduction 2
         ]);
 
         $armor              = new Armor;
@@ -373,6 +389,7 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            // piercing dam reduction 2
         ]);
 
         $armor              = new Armor;
@@ -408,6 +425,7 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction'    => ['value' => 2],
             'DEX Mod Cap'         => ['value' => 6],
             'Spell Failure'       => ['value' => '10%'],
+            // piercing dam reduction 0
         ]);
 
         $armor              = new Armor;
@@ -443,6 +461,211 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '20%'],
+            // piercing dam reduction 1
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Padded';
+        $armor->price       = 20;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Cloth';
+        $armor->bulk        = 'L';
+        $armor->weight      = 16;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Fragile', 'Lightweight']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'      => ['value' => 0],
+            'Damage Reduction' => ['value' => 1],
+            'DEX Mod Cap'      => ['value' => 4],
+            'Spell Failure'    => ['value' => '5%'],
+            // piercing dam reduction 0
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Leather';
+        $armor->price       = 40;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Leather';
+        $armor->bulk        = 'L';
+        $armor->weight      = 20;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Lightweight']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'      => ['value' => 1],
+            'Damage Reduction' => ['value' => 1],
+            'Spell Failure'    => ['value' => '10%'],
+            // piercing dam reduction 0
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Studded Leather';
+        $armor->price       = 180;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Leather';
+        $armor->bulk        = '2';
+        $armor->weight      = 26;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 1],
+            'Damage Reduction'    => ['value' => 2],
+            'Spell Failure'       => ['value' => '15%'],
+            'Skill Check Penalty' => ['value' => 1],
+            // slashing dam reduction 1
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Chain Shirt';
+        $armor->price       = 200;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Chain';
+        $armor->bulk        = '4';
+        $armor->weight      = 40;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 1],
+            'Damage Reduction'    => ['value' => 3],
+            'DEX Mod Cap'         => ['value' => 4],
+            'Skill Check Penalty' => ['value' => 1],
+            'Spell Failure'       => ['value' => '20%'],
+            // slashing dam reduction 4
+            // bludgeoning dam reduction 1
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Hide';
+        $armor->price       = 40;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Leather';
+        $armor->bulk        = '4';
+        $armor->weight      = 24;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 0],
+            'Damage Reduction'    => ['value' => 3],
+            'DEX Mod Cap'         => ['value' => 4],
+            'Skill Check Penalty' => ['value' => 3],
+            'Spell Failure'       => ['value' => '20%'],
+            // piercing dam reduction 1
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Scale Mail';
+        $armor->price       = 200;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Composite';
+        $armor->bulk        = '2';
+        $armor->weight      = 90;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 1],
+            'Damage Reduction'    => ['value' => 4],
+            'DEX Mod Cap'         => ['value' => 2],
+            'Skill Check Penalty' => ['value' => 2],
+            'Spell Failure'       => ['value' => '25%'],
+            'Speed Penalty'       => ['value' => '5 ft'],
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Chain Mail';
+        $armor->price       = 300;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Chain';
+        $armor->bulk        = '4';
+        $armor->weight      = 110;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 2],
+            'Damage Reduction'    => ['value' => 6],
+            'DEX Mod Cap'         => ['value' => 1],
+            'Skill Check Penalty' => ['value' => 3],
+            'Spell Failure'       => ['value' => '30%'],
+            'Speed Penalty'       => ['value' => '5 ft'],
+            'Minimum STR'         => ['value' => 15],
+            // bludgeoning dam reduction 2
+            // slashing dam reduction 7
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Breastplate';
+        $armor->price       = 1200;
+        $armor->type        = 'Barding';
+        $armor->group       = 'Plate';
+        $armor->bulk        = '4';
+        $armor->weight      = 40;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 2],
+            'Damage Reduction'    => ['value' => 5],
+            'DEX Mod Cap'         => ['value' => 2],
+            'Skill Check Penalty' => ['value' => 4],
+            'Spell Failure'       => ['value' => '25%'],
+            'Speed Penalty'       => ['value' => '5 ft'],
+            // slashing dam reduction 7
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Splint Mail';
+        $armor->type        = 'Barding';
+        $armor->group       = 'Composite';
+        $armor->price       = 800;
+        $armor->bulk        = '6';
+        $armor->weight      = 120;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 3],
+            'Damage Reduction'    => ['value' => 7],
+            'DEX Mod Cap'         => ['value' => 1],
+            'Skill Check Penalty' => ['value' => 3],
+            'Spell Failure'       => ['value' => '40%'],
+            'Speed Penalty'       => ['value' => '10 ft'],
+            // bludgeoning dam reduction 8
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Half Plate';
+        $armor->type        = 'Barding';
+        $armor->group       = 'Plate';
+        $armor->price       = 3000;
+        $armor->bulk        = '6';
+        $armor->weight      = 80;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 3],
+            'Damage Reduction'    => ['value' => 6],
+            'DEX Mod Cap'         => ['value' => 2],
+            'Skill Check Penalty' => ['value' => 4],
+            'Spell Failure'       => ['value' => '40%'],
+            'Speed Penalty'       => ['value' => '10 ft'],
+            // slashing dam reduction 7
+        ]);
+
+        $armor              = new Armor;
+        $armor->name        = 'Barding, Full Plate';
+        $armor->type        = 'Barding';
+        $armor->group       = 'Plate';
+        $armor->price       = 6000;
+        $armor->bulk        = '8';
+        $armor->weight      = 130;
+        $armor->description = "<p>This armor is designed to protect an animal's head, neck, chest, and body.</p>";
+        $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
+        $helper->addPropertiesToSimpleObject($armor, [
+            'Armor Class'         => ['value' => 3],
+            'Damage Reduction'    => ['value' => 8],
+            'DEX Mod Cap'         => ['value' => 2],
+            'Skill Check Penalty' => ['value' => 5],
+            'Spell Failure'       => ['value' => '35%'],
+            'Speed Penalty'       => ['value' => '10 ft'],
+            'Minimum STR'         => ['value' => 18],
+            // slashing dam reduction 9
+            // piercing dam reduction 9
         ]);
     }
 }

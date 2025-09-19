@@ -16,7 +16,7 @@ trait SpellableTrait
 {
     public function spells(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Spell::class, 'spellable')
+        return $this->morphToMany(Spell::class, 'spellable')
             ->withPivot('level', 'meta');
     }
 }

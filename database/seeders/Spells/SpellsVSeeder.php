@@ -161,6 +161,23 @@ class SpellsVSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Evocation', 'Sonic'], 5);
 
         $spell                 = new Spell;
+        $spell->name           = 'Vertigo';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '30 feet';
+        $spell->targets        = 'One living creature within Range';
+        $spell->duration       = '1 minute';
+        $spell->description    = '<p>You cripple the Target with a sensation of falling. The Target must make a WIS Save or becomes Dizzy: 2. If the Target Fails their Save, then anytime they wish to take a Move Action, they must first Succeed in a DEX (Balance) Check. If the Check Fails, they cannot move, and if they Critically Fail, they fall Prone.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>No affect</dd>
+    <dt>Failure</dt> <dd>Affected</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+2)</dt> <dd>The spell gains an Area of 20-ft emanation. Anyone who starts their turn in the Area is affected by the spell and must make a WIS Save.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Mental'], 2);
+
+        $spell                 = new Spell;
         $spell->name           = 'Vicious Mockery';
         $spell->casting        = 'Verbal Casting';
         $spell->range          = '30 feet';
@@ -187,6 +204,30 @@ class SpellsVSeeder extends Seeder
     <dt>Material Components</dt> <dd>A tiny ball of spider silk</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Transmutation'], 5);
+
+        $spell               = new Spell;
+        $spell->name         = 'Vile Undead';
+        $spell->casting      = '1 minute (Material, Somatic, Verbal, Ability Damage';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>1 CON Damage</dd>
+</dl>';
+        $spell->range        = 'Touch';
+        $spell->targets      = 'One corporeal undead creature under your control';
+        $spell->duration     = 'Permanent';
+        $spell->description  = '<p>You summon the spirit of a demon and bind it into the body of a corporeal undead that is under your control. The undead gains the Fiend Template and the resulting creature is no longer under your control. Its initial attitude toward you is Indifferent.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A bit of brimstone and a bloodstone worth at least 200 gp.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Calling', 'Evil', 'Undead', 'Chaotic'], 6);
+
+        $spell              = new Spell;
+        $spell->name        = 'Virtue';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Living creature Touched';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>The Target gains 1 Temporary Hit Point</p>';
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Healing'], 0);
 
         $spell              = new Spell;
         $spell->name        = 'Vitality Shield';

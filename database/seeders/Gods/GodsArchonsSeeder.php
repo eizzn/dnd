@@ -159,7 +159,7 @@ class GodsArchonsSeeder extends Seeder
             'level'       => 'Tome Archon',
             'alignment'   => 'LG',
             'master_id'   => $zaphkiel->id,
-            'description' => "<p>Terxyx appeared as a winged humanoid with a hawk's head.</p>
+            'description' => "<p>Terxyx appears as a winged humanoid with a hawk's head.</p>
 <p>In 1357 DR, Terxyx led a company of sword archons in the Astral Plane to save Gareth Dragonsbane and his party from pursuing demons and to accompany them to meet his master Saint Sollars. Sometime after this, Terxyx ceased being the Lord of Mercuria. Weather he was destroyed or promoted is not known, but Domiel has since this time became the new Lord of Mercuria.</p>",
         ]);
 
@@ -193,7 +193,7 @@ class GodsArchonsSeeder extends Seeder
         $god->name  = 'Yonel';
         $god->level = 'Archon';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'        => $god->name,
             'title'       => "Guardian of the North Gate in Bahamut's Palace",
             'level'       => 'Archon',
@@ -206,7 +206,7 @@ class GodsArchonsSeeder extends Seeder
         $god->name  = 'Kerkhoutha';
         $god->level = 'Archon';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'        => $god->name,
             'title'       => "Guardian of the South Gate in Bahamut's Palace",
             'level'       => 'Archon',
@@ -219,7 +219,7 @@ class GodsArchonsSeeder extends Seeder
         $god->name  = 'Moriel';
         $god->level = 'Archon';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'        => $god->name,
             'title'       => "Guardian of the West Gate in Bahamut's Palace",
             'level'       => 'Archon',
@@ -232,7 +232,7 @@ class GodsArchonsSeeder extends Seeder
         $god->name  = 'Ruhiel';
         $god->level = 'Archon';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'        => $god->name,
             'title'       => "Guardian of the East Gate in Bahamut's Palace",
             'level'       => 'Archon',
@@ -330,7 +330,7 @@ class GodsArchonsSeeder extends Seeder
                 </tr>
                 <tr>
                     <td>Neutral Evil or Chaotic Evil</td>
-                    <td>Enthralled, Stunned and Shaken (As Lawful Evil and Affected creatures Shaken for the next 10 minutes.</td>
+                    <td>Enthralled, Stunned and Shaken (As Lawful Evil and Affected creatures Shaken for the next 10 minutes).</td>
                 </tr>
             </tbody>
         </table>
@@ -359,7 +359,7 @@ class GodsArchonsSeeder extends Seeder
     <li>You cannot take Move Actions, use any Feat, Talent, Class Features, or Skill that includes a Movement</li>
     <li>You gain a +5 bonus to any roll you make to prevent you from being moved.</li>
 </ul>
-<p>Your Defensive Stance lasts for 1 minute. You may end your Defensive Stance voluntarily at any time as a Free Action. At the end of your Defensive Stance, you become Fatigued for 3 round (the number of rounds of Fatigue stacks with other abilities that causes Fatigue, such as Rage).</p>
+<p>Your Defensive Stance lasts for 1 minute. You may end your Defensive Stance voluntarily at any time as a Free Action. At the end of your Defensive Stance, you become Fatigued for 3 rounds (the number of rounds of Fatigue stacks with other abilities that causes Fatigue, such as Rage).</p>
 <p>Once you have used Defensive Stance the maximum number of times, you must finish a Long Rest before you can use Defensive Stance again. When you first get this feat, you may use Defensive Stance equal to the number of Exalted feats that you have (including this feat).</p>';
         $helper->addTypesToFeat($feat, ['Archon', 'Exalted', 'Good', 'Lawful']);
         $feat->parent_feats()->save(app()->feats['Endurance']);
@@ -448,7 +448,7 @@ class GodsArchonsSeeder extends Seeder
         $feat->description = "<p>You gain the following:</p>
 <ul>
     <li>You gain 2 Spell Points.</li>
-    <li>As an Action, you can spend 1 Spell Point to manifest angelic wings which grants Flying 60' for up to 1 hour.</li>
+    <li>As an Action, you can spend 1 Spell Point to manifest angelic wings which grants Flying 60 for up to 1 hour.</li>
     <li>Your Eldritch Blast now deals Double damage vs. all Undead and Evil Outsiders.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Good', 'Pact', 'Lawful', 'Archon', 'Invocation' => 6]);
@@ -490,7 +490,7 @@ class GodsArchonsSeeder extends Seeder
     </li>
     <li>You gain the Wild Talent feat</li>
     <li>If you have the Find Familiar feat, you gain a Monodrone as your Familiar.</li>
-    <li>If you have the Enhanced Familiar feat, you gain 4 Monodrones, 2 Duodrones and a Tridrone. You may not sacrifice Spell Slots to gain additional Familiars.</li>
+    <li>If you have the Enhanced Familiar feat, you gain 4 Monodrones, 2 Duodrones and a Tridrone.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Modron', 'Neutral', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
@@ -537,7 +537,8 @@ class GodsArchonsSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Pact', 'Modron', 'Neutral', 'Lawful', 'Invocation' => 9]);
         $helper->addSpellsToFeat($feat, [
             0 => ['True Strike'],
-            6 => ['Call Kolyarut'],
+            6 => ['Call Kolyarut', 'Wall of Gears'],
+            7 => ['Dictum', 'Word of Balance', 'Word of Law'],
             9 => ['Call Marut'],
         ]);
         $feat->parent_feats()->save(app()->feats['Improved Modron Pact']);

@@ -34,6 +34,26 @@ class SpellsWSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Auditory', 'Death', 'Necromancy'], 9);
 
+        $spell                 = new Spell;
+        $spell->name           = 'Wages of Sin';
+        $spell->casting        = 'Verbal, Abstinence';
+        $spell->requirements   = '<dl>
+    <dt>Abstinence</dt> <dd>You must refrain from intoxicants and stimulants for one week before casting this spell.</dd>
+</dl>';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '120 feet';
+        $spell->area           = '60-ft radius emanation';
+        $spell->targets        = 'All evil creature in the Area';
+        $spell->duration       = '1 minute';
+        $spell->description    = "<p>Evil creature's in the Area own evil thoughts and impulses blossom in their minds into intense suspicion and distrust.</p>
+<p>Each subject becomes convinced that its own allies are plotting to kill it an any moment, and attacks the nearest evil creature using whatever attack form (Melee or Ranged Attack, Spell, Supernatural or Spell-like ability) is most effective against that foe, to the best of its knowledge.</p>
+<p>Affected creatures do not completely ignore other threats, but attack evil creatures in preference to any other foe.</p>";
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Affected</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Good', 'Mental', 'Exalted'], 6);
+
         $spell              = new Spell;
         $spell->name        = 'Wall of Dispel Magic';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
@@ -70,16 +90,44 @@ class SpellsWSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 5);
 
         $spell              = new Spell;
+        $spell->name        = 'Wall of Gears';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = '120 feet';
+        $spell->area        = '50-ft X 5-ft Wall';
+        $spell->duration    = '10 minutes';
+        $spell->description = "<p>This spell taps into the planar energy of Mechanus to create a 6-inch-thick wall of moving iron cogs, wheels, gears, pistons, and assorted mechanical parts.</p>
+<p>Each 5-foot square of the wall's surface has Hardness 10 and 180 Hit Points.</p>
+<p>Both sides of the wall have hundreds of moving parts that flail out, dealing 10D6 points of Bludgeoning to all creatures within 10 feet of the wall. A successful DEX Save halves the Damage</p>
+<dl>
+    <dt>Material Components</dt> <dd>A small gear (not consumed)</dd>
+</dl>";
+        $helper->addTypesToSpell($spell, ['Conjuration'], 6);
+
+        $spell              = new Spell;
         $spell->name        = 'Wall of Ice';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '120 feet';
         $spell->duration    = '10 minute or until dispelled';
         $spell->description = "<p>You create either a 1-foot-thick, 60-foot-long, 10-foot-high wall of ice in a straight line (the wall doesn’t have to be vertical but it must be anchored on both sides to a solid surface) or a 1-foot- thick, 10-foot hemisphere of ice. The ice that makes up the wall is opaque. If you wish, the wall can be of a smaller length, height, or radius. You must evoke the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost.</p>
 <p>Each 10-foot-by-10-foot section of the wall has AC 10, TAC 8, and Hardness 13. Each section is immune to cold and water. A section also has weakness to fire 15; a section of the wall broken by fire is completely destroyed immediately, melting and evaporating into water and steam. A section broken or destroyed by means other than fire can be moved through as difficult terrain and deals 2D6 Cold damage to anyone passing through it.</p>";
-        $spell->heightened = '<dl>
+        $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>The Hardness of each section of the wall increases by 4 and the cold damage for crossing a broken or destroyed section increases by 1D6.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Transmutation', 'Cold', 'Water'], 6);
+
+        $spell              = new Spell;
+        $spell->name        = 'Wall of Iron';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = '120 feet';
+        $spell->area        = '6-inch X 50-ft Wall';
+        $spell->duration    = '10 minutes';
+        $spell->description = '<p>You cause a flat, vertical iron wall to spring into being. The wall cannot be created so that it occupies the same space as a creature or another object. It must always be a flat plane, through you can shape its edges to fit the available space. You can double the Area by halving its thickness.</p>
+<p>Each 5-ft square of the wall has 30 Hit Points per inch of thickness and Hardness 10. A section of wall whose Hit Points drop to 0 is breached. If a creature tries to break through the wall with a single attack, they must Succeed a DC 25 + 2 per inch of thickness STR Check.</p>
+<p>You may create the wall so that it is not anchored to the ground. If the wall is created in this way, it can be tipped over with a DC 40 STR check. Any creature can make a DEX Save to avoid being crushed by the tipped wall. Creatures crushed by the wall takes 10D6 Bludgeoning Damage (the wall cannot crush Huge and larger creatures).</p>
+<dl>
+    <dt>Material Components</dt> <dd>A small piece of sheet iron plus gold dust worth 50 gp (which the spell consumes)</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 6);
 
         $spell                 = new Spell;
         $spell->name           = 'Wall of Light';
@@ -95,6 +143,28 @@ class SpellsWSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>The damage increases by 1D8</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Positive', 'Light'], 5);
+
+        $spell               = new Spell;
+        $spell->name         = 'Wall of Moonlight';
+        $spell->casting      = 'Somatic Casting, Verbal Casting';
+        $spell->requirements = '<dl>
+    <dt>Castable Time</dt> <dd>This spell can only be cast at night, and not during a new moon</dd>
+</dl>';
+        $spell->range        = '120 feet';
+        $spell->area         = '50-ft square Wall';
+        $spell->duration     = '1 minute';
+        $spell->description  = '<p>An immobile, shimming tapestry of swirling, pearl-white light springs into existence. The wall need not be anchored to any surface, and creatures can readily pass through it.</p>
+<ul>
+    <li>Any undead creature that comes into contact with the wall takes 4D12 Positive Damage.</li>
+    <li>Any Evil Outsider or Divine worshiper of Shar (Priest of Shar or Favored Soul) takes 2D10 Light Damage.</li>
+    <li>Magic Items that come into contact with the wall glow with a red Faerie Fire effect for 4 rounds.</li>
+    <li>The wall sheds bright light for 20 feet in all directions and creates shadowy illumination in a 40-ft radius</li>
+</ul>
+<p>This spell Dispels any Spell with the Darkness Type of 3rd Level or lower within 40 feet of any part of it. This spell Counters any Darkness spell of 4th Level or lower and can be Countered by any Darkness Spell of 4th Level or higher.</p>';
+        $spell->heightened   = '<dl>
+    <dt>Permanency (Heightened (+2)</dt> <dd>Permanency spell and 4 CON Damage</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Good', 'Light'], 4);
 
         $spell                 = new Spell;
         $spell->name           = 'Wall of Pain';
@@ -117,6 +187,16 @@ class SpellsWSeeder extends Seeder
         $spell->duration    = '10 minutes or until dispelled';
         $spell->description = "<p>You conjure up a wall of swirling sand on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. You may dispel your wall with an Action. It blocks line of sight but not movement. A creature is blinded while in the wall's space and must spend 3 feet of movement for every 1 foot it moves there.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Wall of Smoke';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '30 feet';
+        $spell->area        = '50-ft straight Wall';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>This spell creates a thin wall of black smoke. The wall is stationary once created. The wall blocks sight to a limited degree. Creatures on opposite sides of the wall that cannot see over it gain Concealment from each other. A creature can pass through a wall of smoke, but it must make a CON Save to avoid being Nauseated: 1. A moderate wind (11+ mph), such as from a Gust of Wind Spell, destroys the wall in 1 round.</p>
+<p>This spell does not function underwater.</p>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Wall of Stone';
@@ -205,12 +285,41 @@ class SpellsWSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 6);
 
         $spell              = new Spell;
+        $spell->name        = 'War Cry';
+        $spell->casting     = 'Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>You attack with a cry that bolsters your own courage as well as intimidating your enemies. You gain the following.</p>
+<ul>
+    <li>+2 Morale Bonus to Hit and Damage Rolls</li>
+    <li>+2 Morale Bonus to all Charge Attack Rolls to Hit and Damage</li>
+    <li>Any foe that you successfully deal damage to must make a WIS Save or gain the Fleeing Condition. A creature that Successfully makes this Save does not have to make this Save again.</li>
+</ul>
+<p>As a result of this spell, you gain a +2 Morale Bonus on Attack Rolls and Damage Rolls, or a +4 Morale Bonus </p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Compulsion', 'Mental', 'Auditory'], 4);
+
+        $spell              = new Spell;
         $spell->name        = 'Warding Bond';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->duration    = '1 hour';
         $spell->description = '<p>This spell wards a willing creature you touch and creates a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has resistance to all damage. Also, each time it takes damage, you take the same amount of damage.</p>
 <p>The spell ends if you drop to 0 hit points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures. You can also dismiss the spell as an action.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 2);
+
+        $spell              = new Spell;
+        $spell->name        = 'Warding Gems';
+        $spell->casting     = '1 minute (Material, Somatic, Verbal)';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Gem Touched';
+        $spell->duration    = 'Permanent, until used';
+        $spell->description = '<p>You cast this spell upon a gem, imbuing it with healing magic. As an Action, you may activate it, and it circles the head of the Creature within 30 feet of you (you may also choose yourself).</p>
+<p>Once the gem is circling a creatures head, that creature can use an Action to cause the gems stored healing magic to be cast on the creature. A gem can heal up to 10 Hit Points. Once all the healing magic is used from a gem, the gem crumbles to dust. If a gem still has some healing magic left, then it can be taken off of the creature and the gem can be used again later.</p>
+<p>A gem has AC 20, Hardness 10, and 10 HP. If a gem is destroyed due to damage, it loses any remaining healing magic and crumbles to dust.</p>
+<p>You can have at most 5 gems at a time. Creating another gem when you already have your max causes this spell to fail.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A gem worth at least 50 gp</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Warding Wind';
@@ -285,6 +394,48 @@ class SpellsWSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Transmutation', 'Water', 'Bless', 'Ritual'], 5);
 
         $spell              = new Spell;
+        $spell->name        = 'Water to Acid';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = '120 feet';
+        $spell->area        = 'Up to 5 cubic feet of water';
+        $spell->targets     = 'A volume of pure water';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>You transform a volume of Water into an equal volume of Acid. This Acid deals 1D6 Acid Damage per round of contact, up to 3 rounds.</p>
+<p>You cannot affect any water that is inside a living creature. Water that contains more than a trace of dissolved or suspended substances cannot be affected.</p>
+<p>Underwater, the Acid created by this spell dissipates after 3 rounds.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A few drops of vinegar</dd>
+</dl>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Area (Amount) of water</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Water', 'Acid'], 2);
+
+        $spell              = new Spell;
+        $spell->name        = 'Water to Poison';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->area        = '2 ounces of water becomes Poison';
+        $spell->targets     = 'Volume of Water Touched';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = "<p>You transform a volume of Water into an equal amount of colorless, tasteless, ingested Poison with a Save DC equal to this spell's DC. The Poison has the following characteristics.</p>
+<dl>
+    <dt>Onset</dt> <dd>1 minute</dd>
+    <dt>Maximum Duration</dt> <dd>10 minutes</dd>
+    <dt>Stage 1</dt> <dd>1 CON Damage (CON this spell's DC)</dd>
+    <dt>Stage 2</dt> <dd>4 CON Damage (CON this spell's DC)</dd>
+</dl>
+<p>A single swallow (1 ounce) is enough to Poison the drinker. Drinking additional amounts does not have any effect.</p>
+<p>This Poison can be sold for 20 gp per ounce.</p>
+<dl>
+    <dt>Material Components</dt> <dd>The fang of a poisonous snake and a bloodstone worth at least 50 gp (which the spell consumes)</dd>
+</dl>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Amount</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Poison'], 4);
+
+        $spell              = new Spell;
         $spell->name        = 'Water Walk';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
@@ -337,6 +488,75 @@ class SpellsWSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Transmutation', 'Water'], 4);
 
         $spell                 = new Spell;
+        $spell->name           = 'Wave of Grief';
+        $spell->casting        = 'Material Casting, Somatic Casting';
+        $spell->save_attribute = 'WIS';
+        $spell->range          = '0';
+        $spell->area           = '30-ft Cone';
+        $spell->duration       = '1 minute';
+        $spell->description    = '<p>All within the cone are overcome with sorrow and grief. All take a -2 Morale Penalty on all Attack Rolls, Saves, Ability Checks, and Skill Checks for 1 minute</p>
+<dl>
+    <dt>Material Components</dt> <dd>Three tears</dd>
+</dl>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>-3 penalty to all Attacks, Saves, Ability Checks, and Skill Checks</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Illusion', 'Mental'], 2);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Wave of Pain';
+        $spell->casting        = 'Material Casting, Somatic Casting';
+        $spell->save_attribute = 'CON';
+        $spell->range          = '0';
+        $spell->area           = '30-ft Cone';
+        $spell->duration       = '1 minute';
+        $spell->description    = '<p>All living creatures within the Area are overcome with Pain and Suffering. All creatures must make a CON Save or be Stunned until the end of their next turn. Success or Fail, they must make that Save again at the end of their next turn for the Duration.</p>
+<dl>
+    <dt>Material Components</dt> <dd>A needle</dd>
+</dl>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not Stunned for until the end of that creatures next turn. At the end of that creatures turn, they must make another Save.</dd>
+    <dt>Failure</dt> <dd>Stunned until the end of that creatures next turn. At the end of that creatures turn, they may make another Save.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Evil'], 7);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Waves of Fatigue';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'CON';
+        $spell->area           = '60-ft Cone';
+        $spell->duration       = 'Instantaneous';
+        $spell->description    = '<p>Waves of Negative energy causes all living creatures in the Area to make a CON Save or gain Exhaustion: 1.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not affected</dd>
+    <dt>Failure</dt> <dd>Gains Fatigue</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+2)</dt> <dd>Instead of Fatigue, the if the Save Fails, then gains Exhaustion: 1</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Negative'], 4);
+
+        $spell              = new Spell;
+        $spell->name        = 'Weapon Shift';
+        $spell->casting     = 'Material Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'One melee weapon of up to 15 lb';
+        $spell->duration    = '1 hour';
+        $spell->description = '<p>This spell causes the Touched weapon to temporarily transform into a different melee weapon.</p>
+<blockquote>
+    You touch a greatclub and transform it into a battleaxe.
+</blockquote>
+<p>Weapons retains the material they are made of and all magical properties.</p>
+<dl>
+    <dt>Material Components</dt> <dd>The melee weapon to be transformed (not consumed)</dd>
+</dl>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 1);
+
+        $spell                 = new Spell;
         $spell->name           = 'Weapon Storm';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '30-foot cone or 10-foot aura';
@@ -359,9 +579,12 @@ class SpellsWSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Instantaneous';
-        $spell->description = "<p>This spell enables the caster (who must be able to see the sky and listen to the winds) to predict the general weather conditions for the upcoming 3 hours. These are the natural weather conditions at the caster's current location (and probably the nearby area) assuming that no magical manipulation occurs. Thus, this spell could predict the natural rain shower which will be coming in three hours, but could not predict the magically created storm tomorrow morning.</p>
-<p>Upon casting ths spell, the caster discovers the general wind speed and prevailing direction of the wind which will be extant for the indicated time period. Specific timing of gusts and wind shifts is not available, however.</p>
-<p>Similarly, the caster discovers whether it will be raining (or snowing), and approximately how hard any precipitation will be. Exceptional weather patterns (such as tornadoes) are revealed to the caster, but he cannot predict their path with any accuracy.</p>";
+        $spell->description = '<p>This spell enables you (you must be able to see the sky and listen to the winds) to predict the general weather conditions for the upcoming 12 hours. These are the natural weather conditions at your current location (and probably the nearby area) assuming that no magical manipulation occurs. Thus, this spell could predict the natural rain shower which will be coming in three hours, but could not predict the magically created storm tomorrow morning.</p>
+<p>Upon casting ths spell, you discovers the general wind speed and prevailing direction of the wind which will be extant for the indicated time period. Specific timing of gusts and wind shifts is not available, however.</p>
+<p>Similarly, you discover whether it will be raining (or snowing), and approximately how hard any precipitation will be. Exceptional weather patterns (such as tornadoes) are revealed to you, but you cannot predict their path with any accuracy.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the amount of time you see weather patterns into the future.</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Divination'], 1);
 
         $spell                 = new Spell;
@@ -412,6 +635,30 @@ class SpellsWSeeder extends Seeder
 </dl>";
         $helper->addTypesToSpell($spell, ['Enchantment', 'Curse', 'Ritual'], 8);
 
+        $spell              = new Spell;
+        $spell->name        = 'Whip';
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>You create a physical whip that forms in your hand. You can use the whip in the following ways.</p>
+<ul>
+    <li>You may use the whip as a normal weapon (note: this spell does not grant proficiency with the whip)</li>
+    <li>As an Action, you can crack the whip. This causes all Animals within 30-ft to make a CHA Save or be forced to move away from you and stay at least 30-ft away from you for as long as you have the whip. If the Animal Critically Fails the Save, they are Frightened: 5.</li>
+</ul>';
+        $spell->heightened  = '';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 1);
+
+        $spell              = new Spell;
+        $spell->name        = 'Whirling Blade';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>This spell creates a shimmering translucent silvery blade of Force equal in dimensions and damage to a Long Sword. it orbits of your hands and you may Strike with it with an Action (treat the blade as a +1 magical Long Sword).</p>
+<p>The blade is weightless and passes through metallic things as though they did not exist, without affecting them.</p>
+<p>Metal armor does not provide AC or Damage Reduction (although any magical bonus to AC does apply), nor AC bonus from metal shields. The blade also passes through you without harm.</p>
+<p>The blade cannot break but is destroyed instantly by contact with any spell with the Force type, Anti-Magic Shell spell, or Dispel Magic spell.</p>
+<p>The blade emits a continuous high-pitched shrieking noise - vibrations of magical force that cannot be silenced by normal means. You may hold objects in your hands while wielding the blade (unless the carried object is so large as to obstruct your view of the blade or so heavy that you cannot lift your arm). Wielding and attacking with a normal weapon in the hand that the Whirling Blade is wielded in causes the spell to end.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 3);
+
         $spell                 = new Spell;
         $spell->name           = 'Whirlwind';
         $spell->casting        = 'Material Casting, Verbal Casting';
@@ -425,17 +672,6 @@ class SpellsWSeeder extends Seeder
     <dt>Materials</dt> <dd>A piece of straw</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 7);
-
-        $spell              = new Spell;
-        $spell->name        = 'Whirling Blade';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>This spell creates a shimmering translucent silvery blade of Force equal in dimensions and damage to a Long Sword. it orbits of your hands and you may Strike with it with an Action (treat the blade as a +1 magical Long Sword).</p>
-<p>The blade is weightless and passes through metallic things as though they did not exist, without affecting them.</p>
-<p>Metal armor does not provide AC or Damage Reduction (although any magical bonus to AC does apply), nor AC bonus from metal shields. The blade also passes through you without harm.</p>
-<p>The blade cannot break but is destroyed instantly by contact with any spell with the Force type, Anti-Magic Shell spell, or Dispel Magic spell.</p>
-<p>The blade emits a continuous high-pitched shrieking noise - vibrations of magical force that cannot be silenced by normal means. You may hold objects in your hands while wielding the blade (unless the carried object is so large as to obstruct your view of the blade or so heavy that you cannot lift your arm). Wielding and attacking with a normal weapon in the hand that the Whirling Blade is wielded in causes the spell to end.</p>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Wind Compass';
@@ -457,6 +693,50 @@ class SpellsWSeeder extends Seeder
         $spell->duration    = '8 hours';
         $spell->description = "<p>When you cast this spell, all targets transform into a vaguely cloud-like form and are picked up by a wind moving in the direction of your choice. You can Concentrate on the Spell to change the wind's direction. The wind carries the targets at a Speed of 20 miles per hour, but if any of the targets make an attack, Cast a Spell, come under attack, or otherwise enter encounter mode, the spell ends for all targets and they drift gently to the ground.</p>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Air', 'Ritual'], 8);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Wingbind';
+        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->save_attribute = 'DEX';
+        $spell->range          = '120 feet';
+        $spell->targets        = 'One creature within Range';
+        $spell->duration       = '1 minute';
+        $spell->description    = '<p>A web of force surrounds the target, entangling it like a net. If the Target Fails its DEX Save, it is Entangled.</p>
+<p>Also, a creature cannot use wings to fly. A creature flying with wings falls immediately if it is Entangled. An Entangled creature can escape with an Escape Artist check, with the DC equal to the Spells DC.</p>
+<p>The force net requires a DC 30 STR check to break. It has 20 HP and Hardness 20.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Avoids the Force net. Not affected</dd>
+    <dt>Failure</dt> <dd>Entangled</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 4);
+
+        $spell              = new Spell;
+        $spell->name        = 'Winged Mount';
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Summoned mount Touched';
+        $spell->duration    = '1 hour';
+        $spell->description = '<p>You cause your mount to sprout giant, feathery white wings. The wings grants Fly Speed of 60 with good Maneuverability. Encumbrance applies as normal.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Wings of Air';
+        $spell->casting     = 'Verbal Casting';
+        $spell->range       = 'Touch';
+        $spell->targets     = 'Winged creature Touched';
+        $spell->duration    = '10 minutes';
+        $spell->description = "<p>The creature you touch becomes more agile in the air. The Target's Flying Maneuverability improves by one step. A single creature cannot benefit from multiple applications of this spell.</p>";
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+2)</dt> <dd>The creatures Maneuverability improves by 2 steps</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Air'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Wish';
@@ -502,6 +782,123 @@ class SpellsWSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Negative', 'Smite'], 1);
 
+        $spell              = new Spell;
+        $spell->name        = 'Word of Balance';
+        $spell->casting     = 'Verbal Casting';
+        $spell->area        = '30-ft emanation';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>Any non-neutral divine creature or Outsider with those alignments who hears this spell suffers ill effects according to their relative HD.</p>
+<table>
+    <tbody>
+        <tr>
+            <th>Relative HD</th>
+            <td>Effect</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Greater than your caster level</td>
+            <td>Not affected</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level</td>
+            <td>Nauseated for 1 round</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 1</td>
+            <td>Enfeebled: 3 for 5 rounds</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 5</td>
+            <td>Paralyzed for 5 rounds</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 10</td>
+            <td>Dead / Destroyed</td>
+        </tr>
+    </tbody>
+</table>
+<p>In addition, if you are on your home Plane, any Outsider affected by this spell is also Banished so long as they have the same or lower HD to your Caster Level.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Neutral', 'Auditory'], 7);
+
+        $spell              = new Spell;
+        $spell->name        = 'Word of Chaos';
+        $spell->casting     = 'Verbal Casting';
+        $spell->area        = '30-ft emanation';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>Any non-chaotic divine creature or Outsider with those alignments who hears this spell suffers ill effects according to their relative HD.</p>
+<table>
+    <tbody>
+        <tr>
+            <th>Relative HD</th>
+            <td>Effect</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Greater than your caster level</td>
+            <td>Not affected</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level</td>
+            <td>Deafened for 1 round</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 1</td>
+            <td>Stunned for 1 round</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 5</td>
+            <td>Confused for 5 minutes</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 10</td>
+            <td>Dead / Destroyed</td>
+        </tr>
+    </tbody>
+</table>
+<p>In addition, if you are on your home Plane, any Outsider affected by this spell is also Banished so long as they have the same or lower HD to your Caster Level.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Chaotic', 'Auditory'], 7);
+
+        $spell              = new Spell;
+        $spell->name        = 'Word of Law';
+        $spell->casting     = 'Verbal Casting';
+        $spell->area        = '30-ft emanation';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>Any non-lawful divine creature or Outsider with those alignments who hears this spell suffers ill effects according to their relative HD.</p>
+<table>
+    <tbody>
+        <tr>
+            <th>Relative HD</th>
+            <td>Effect</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>Greater than your caster level</td>
+            <td>Not affected</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level</td>
+            <td>Shaken for 1 round</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 1</td>
+            <td>Stunned for 1 round</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 5</td>
+            <td>Restrained for 1 minute</td>
+        </tr>
+        <tr>
+            <td>Up to your caster level - 10</td>
+            <td>Dead / Destroyed</td>
+        </tr>
+    </tbody>
+</table>
+<p>In addition, if you are on your home Plane, any Outsider affected by this spell is also Banished so long as they have the same or lower HD to your Caster Level.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Lawful', 'Auditory'], 7);
+
         $spell                 = new Spell;
         $spell->name           = 'Word of Radiance';
         $spell->casting        = 'Verbal Casting';
@@ -537,5 +934,21 @@ class SpellsWSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D8</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Harm', 'Negative'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Wounding Whispers';
+        $spell->casting     = 'Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>You surround yourself with whispers that injure any creature that comes into contact with you. Any creature striking with a Melee Attack takes 1D6 + your Spell Casting Modifier Sonic Damage. Melee Attacks made with reach are not affected. Only when a creature attacks you are they affected, not when you attack them.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Sonic'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Wraith Strike';
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = 'Until the beginning of your next turn or until used';
+        $spell->description = '<p>Until the beginning of your next turn, your next Melee Attack is made as a Melee Touch Attack.</p>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 2);
     }
 }

@@ -14,12 +14,8 @@ class GodsZakaraSeeder extends Seeder
      */
     public function run()
     {
-        $god        = new God;
-        $god->name  = 'Hajama';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
+        God::where('name', 'Tyr')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'           => 'Hajama',
             'title'          => 'The Courageous, Brave Hajama',
             'level'          => 'Greater',
             'portfolio'      => 'Bravery',
@@ -30,12 +26,8 @@ class GodsZakaraSeeder extends Seeder
 <p>Hajama's faith is especially strong in regions bordering dangerous areas like deserts and mountains. It is on friendly terms with the faith of Najm in the Cities of the Pantheon, Brave Hajama is said to be the son of Kor and Najm's twin.</p>",
         ]);
 
-        $god        = new God;
-        $god->name  = 'Hakiyah';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'        => $god->name,
+        God::where('name', 'Istishia')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'        => 'Hakiyah',
             'title'       => 'Hakiyah of the Sea Breezes, Hakiyah the Honest',
             'level'       => 'Greater',
             'portfolio'   => 'Honesty, Truth',
@@ -45,12 +37,8 @@ class GodsZakaraSeeder extends Seeder
 <p>The Holy Slayer organization is known as the Soft Whisper worships Hakiyah.</p>",
         ]);
 
-        $god        = new God;
-        $god->name  = 'Haku';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
+        God::where('name', 'Akadi')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'           => 'Haku',
             'title'          => 'Master of the Desert Wind, Free Haku',
             'level'          => 'Greater',
             'portfolio'      => 'Freedom, Independence',
@@ -62,12 +50,8 @@ class GodsZakaraSeeder extends Seeder
 <p>Free Haku has many worshipers among Al-Badia, the desert nomads of Zakhara. In the Cities of the Pantheon, however, his faith is persecuted. He is also the deity most worshiped by the djinn.</p>",
         ]);
 
-        $god        = new God;
-        $god->name  = 'Jisan';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'        => $god->name,
+        God::where('name', 'Chauntea')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'        => 'Jisan',
             'title'       => 'The Bountiful, Jisan of the Floods',
             'level'       => 'Greater',
             'portfolio'   => 'Fruitfulness',
@@ -78,12 +62,8 @@ class GodsZakaraSeeder extends Seeder
 <p>Jisan is said to sometimes bestow a great artifact, the Coin of Jisan the Bountiful, to a worshiper of noble intent.</p>",
         ]);
 
-        $god        = new God;
-        $god->name  = 'Kor';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
+        God::where('name', 'Bahamut')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'           => 'Kor',
             'title'          => 'The Venerable, Old Kor',
             'level'          => 'Greater',
             'portfolio'      => 'Wisdom',
@@ -93,12 +73,8 @@ class GodsZakaraSeeder extends Seeder
 <p>Old Kor is mainly venerated by ethoists. Centers of his worship are the cities of Dihlz, Halwa, Huzuz, Jumlat, Liham, Luluk, Qadib, Rog'osto, Umara, and Wasat.</p>",
         ]);
 
-        $god        = new God;
-        $god->name  = 'Najm';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
+        God::where('name', 'Tymora (Tyche)')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'           => 'Najm',
             'title'          => 'The Adventurous',
             'level'          => 'Greater',
             'portfolio'      => 'Adventure, Curiosity',
@@ -107,12 +83,8 @@ class GodsZakaraSeeder extends Seeder
             'description'    => '',
         ]);
 
-        $god        = new God;
-        $god->name  = 'Selan';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'        => $god->name,
+        God::where('name', 'Sehanine Moonbow')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'        => 'Selan',
             'title'       => 'The Beautiful Moon, The Gracious, Selan of the Garden',
             'level'       => 'Greater',
             'portfolio'   => 'Beauty',
@@ -120,24 +92,16 @@ class GodsZakaraSeeder extends Seeder
             'description' => '',
         ]);
 
-        $god        = new God;
-        $god->name  = 'Zann';
-        $god->level = 'Greater';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'      => $god->name,
+        God::where('name', 'Oghma')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'      => 'Zann',
             'title'     => 'The Learned, The Marvelous',
             'level'     => 'Greater',
             'portfolio' => 'Learning, Intelligence',
             'symbol'    => 'Jet of a fountain',
         ]);
 
-        $god        = new God;
-        $god->name  = 'Bala';
-        $god->level = 'Demi';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'      => $god->name,
+        God::where('name', 'Milil')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'      => 'Bala',
             'title'     => 'Bala of the Tidings, Bala of Ill Tidings',
             'level'     => 'Demi',
             'portfolio' => 'Music',
@@ -156,24 +120,16 @@ class GodsZakaraSeeder extends Seeder
             'symbol'    => 'Jann on his knees near a well',
         ]);
 
-        $god        = new God;
-        $god->name  = 'Jauhar';
-        $god->level = 'Demi';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'      => $god->name,
+        God::where('name', 'Waukeen')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'      => 'Jauhar',
             'title'     => 'The Gemmed, The Gem Studded',
             'level'     => 'Demi',
             'portfolio' => 'Wealth',
             'symbol'    => 'Gold dinar',
         ]);
 
-        $god        = new God;
-        $god->name  = 'Vataqatal';
-        $god->level = 'Demi';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'      => $god->name,
+        God::where('name', 'Helm')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'      => 'Vataqatal',
             'title'     => 'The Warrior-Slave, Master of the Battlefield',
             'level'     => 'Demi',
             'portfolio' => 'War, Duty',
@@ -192,12 +148,8 @@ class GodsZakaraSeeder extends Seeder
             'alignment' => 'NE',
         ]);
 
-        $god        = new God;
-        $god->name  = "Kar'r'rga";
-        $god->level = 'Demi';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'      => $god->name,
+        God::where('name', 'Verenestra')->firstOrFail()->pantheons()->save(app()->pantheons['Al-Qadim'], [
+            'name'      => "Kar'r'rga",
             'title'     => 'God of the waters',
             'level'     => 'Demi',
             'portfolio' => '',

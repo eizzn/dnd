@@ -53,9 +53,10 @@ class ConstructFormulasSeeder extends Seeder
 </ul>';
         $formula->description = '<p>You create a Clay Golem. At the time of completion, whoever is to be the owner of the golem must sacrifice 7 drops of their own blood. The blood must be fresh (straight from a wound).</p>';
         $helper->saveFormula($formula, ['Construct'], [
-            'skills' => ['Crafting' => ['dc' => 15, 'meta' => 'Sculpting or Pottery']],
-            'feats'  => ['Craft Armament', 'Craft Wondrous Item'],
-            'spells' => ['Shape Stone', 'Stone Metamorphosis', 'Animate Objects', 'Summon Elemental, Lesser'],
+            'skills'    => ['Crafting' => ['dc' => 15, 'meta' => 'Sculpting or Pottery']],
+            'feats'     => ['Craft Armament', 'Craft Wondrous Item'],
+            'spells'    => ['Shape Stone', 'Stone Metamorphosis', 'Animate Objects', 'Summon Elemental, Lesser'],
+            'materials' => ['Blood' => ['meta' => '7 drops of your blood at the time of completion']],
         ]);
 
         $formula                = new Formula;

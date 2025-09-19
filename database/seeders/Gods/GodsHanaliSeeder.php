@@ -78,21 +78,22 @@ class GodsHanaliSeeder extends Seeder
             'Bard'   => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin',
+            $class->name, 'Paladin', 'Divine Oracle',
         ]);
         $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            $class->name, 'Sorcerer',
+            $class->name, 'Sorcerer', 'Divine Oracle',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Bard',
+            $class->name, 'Bard', 'Divine Oracle',
         ]);
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']);
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['feat'], [
+            'level' => 3,
+            'meta'  => 'Diviner',
         ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 3);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Charm', 'Protection', 'Prophecy']);
         $helper->addSpellsToClass($class, [
             0 => ['Boon', 'Clean Self', 'Conviction', 'Detect Magic', 'Know Direction', 'Light', 'Love Bite', 'Radiant Mark',

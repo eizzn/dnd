@@ -341,7 +341,7 @@ class SpellsPSeeder extends Seeder
         $spell->targets        = 'Self';
         $spell->save_attribute = 'DEX';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>This spell creates a 10' radius circle of sand under you and those you are touching to rise up. This spell is only useful in a sandy area, the rising level, stable circle of sand draws surrounding sand up underneath it to create a sylindrical pillar. The pillar rises as high as available sand allows, or as high as the caster desires, to a maximum of 40' feet. Beings atop the pillar can see a long way, reach high things, and possibly escape spells cast at 'ground-level'. The pillar rises or sinks up to 10' per round, as you will.</p>
+        $spell->description    = "<p>This spell creates a 10' radius circle of sand under you and those you are touching to rise up. This spell is only useful in a sandy area, the rising level, stable circle of sand draws surrounding sand up underneath it to create a cylindrical pillar. The pillar rises as high as available sand allows, or as high as the caster desires, to a maximum of 40' feet. Beings atop the pillar can see a long way, reach high things, and possibly escape spells cast at 'ground-level'. The pillar rises or sinks up to 10' per round, as you will.</p>
 <p>The pillar has AC 15 and 50 HP. If physical attacks on the pillar destroys it, or a Dispel Magic or other magical effect ends this spell, it collapses.</p>
 <p>Beings atop the pillar can fall if winds are high (and you fail a DEX Save), or the pillar collapses, normal falling damage applies.</p>
 <p>You can collapse the pillar at any time with an Action. However, the pillar will persist even if you go unconscious or die.</p>";
@@ -588,6 +588,19 @@ class SpellsPSeeder extends Seeder
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full damage</dd>
 </dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Poison'], 0);
+
+        $spell                 = new Spell;
+        $spell->name           = 'Poison Touch';
+        $spell->casting        = 'Somatic Casting';
+        $spell->save_attribute = 'CON';
+        $spell->duration       = 'Until the beginning of your next turn';
+        $spell->description    = "<p>After casting this spell, you may either enchant your hand or a small melee weapon with Poison. If you hit with your enchanted fist or melee weapon, the Target takes an additional 1D6 Poison damage and gains the Sickened Condition. At the end of the Target's next turn, they must make a CON Save. If they Fail, they take 1 Poison Damage and the Sickened Condition continues, otherwise the Sickened Condition ends and does not take any more Poison Damage.</p>
+<p>Once you hit or at the beginning of your next turn, the enchanted fist or melee weapon no longer has Poison.</p>";
+        $spell->saves          = "<dl>
+    <dt>Success</dt> <dd>The Sickened Condition ends and stops taking Poison Damage</dd>
+    <dt>Failure</dt> <dd>Sickened Condition continues and takes 1 Poison Damage. You may make another CON Save at the end of Target's next turn.</dd>
+</dl>";
         $helper->addTypesToSpell($spell, ['Transmutation', 'Poison'], 0);
 
         $spell                 = new Spell;
@@ -1093,7 +1106,7 @@ class SpellsPSeeder extends Seeder
         $spell->range       = '30 feet';
         $spell->targets     = 'One creature';
         $spell->duration    = '10 minutes';
-        $spell->description = '<p>A flame appears in your palm. Make a melee or ranged touch attack. On a Success, you deal 1D4 fire damage. On a critical success, the target takes 1D4 persistent fire damage in addition to the cantrip dealing double damage.</p>
+        $spell->description = '<p>A flame appears in your palm. Make a melee or ranged touch attack. On a Success, you deal 1D4 fire damage. On a Critical Success, the Target takes 1D4 Persistent Fire damage in addition to the cantrip dealing double damage.</p>
 <p>The target gains a +1 conditional bonus to their Armor Class against attacks by creatures of the chosen alignment and on saving throws against effects created by such creatures. This bonus increases to +3 against effects from such creatures that would directly control the target and against attacks made by summoned creatures of the chosen alignment.</p>';
         $spell->heightened = '<dl>
     <dt>Heightened (+3)</dt> <dd>1D6 + your spellcasting ability modifier.</dd>
@@ -1143,7 +1156,7 @@ class SpellsPSeeder extends Seeder
         $spell->casting     = '1 hour';
         $spell->targets     = 'Self';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You divine patron sends you visions that are important to your patron or your church. The vision is not a foretelling of the future, but a call to action. This spell does not always provide a vision, only when there is a quest that is required.</p>
+        $spell->description = '<p>Your divine patron sends you visions that are important to your patron or your church. The vision is not a foretelling of the future, but a call to action. This spell does not always provide a vision, only when there is a quest that is required.</p>
 <p>In game terms, this spell can be used to give the players a quest through their own casting of this spell or through an NPC who casts this spell.</p>';
         $helper->addTypesToSpell($spell, ['Divination', 'Ritual'], 3);
 
@@ -1187,6 +1200,7 @@ class SpellsPSeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the amount of damage that can be absorbed by +200</dd>
+    <dt>Heightened (+3)</dt> <dd>You gain Immunity instead</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Evocation', 'Cold', 'Electricity', 'Fire', 'Light', 'Sonic'], 3);
 

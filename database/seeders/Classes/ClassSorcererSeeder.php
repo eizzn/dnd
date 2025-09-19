@@ -87,12 +87,11 @@ class ClassSorcererSeeder extends Seeder
         $helper->saveFeature($feature, ['Spell Pool']);
 
         $helper->addFeaturesToClass($class, [
-            'cantrip_caster'        => [1],
-            'spell_pool'            => [2, 5, 10, 15, 20],
-            'sorcerer_feat'         => [3, 6, 9, 12, 16, 19],
             'bloodline_feat'        => [1],
-            'improved_spell_points' => [2],
-            'flexible_casting'      => [3],
+            'cantrip_caster'        => [2],
+            'spell_pool'            => [3, 5, 10, 15, 20],
+            'improved_spell_points' => [3],
+            'flexible_casting'      => [4],
         ]);
 
         $helper->addSpellsToClass($class, [
@@ -343,10 +342,10 @@ class ClassSorcererSeeder extends Seeder
             1  => ['Earth Tremor', 'Fist of Stone', 'Summon Elemental, Lesser' => 'Earth Elemental only'],
             2  => ["Bear's Endurance" => 'Self only', "Bull's Strength" => 'Self only', 'Earthen Grasp', 'Pillar of Sand',
                 'Rockburst', 'Stone Sphere', 'Resist Force', ],
-            3  => ['Earthbolt', 'Eradicate Earth', 'Erupting Earth', 'Meld into Stone', 'Stoneskin' => 'Self only', 'Wall of Sand'],
+            3  => ['Eradicate Earth', 'Erupting Earth', 'Meld into Stone', 'Stoneskin' => 'Self only', 'Wall of Sand'],
             4  => ['Ground Stomp', 'Passwall' => 'Stone surfaces only', 'Stone Metamorphosis', 'Shape Stone'],
             5  => ['Move Earth', 'Summon Elemental' => 'Earth Elemental only', 'Transmute Rock', 'Wall of Stone'],
-            6  => ['Bones of the Earth', 'Investiture of Stone', 'Stone Tell', 'Stone to Flesh'],
+            6  => ['Bones of the Earth', 'Commune with Earth', 'Investiture of Stone', 'Stone to Flesh'],
             7  => ['Repel Metal or Stone', 'Stone Trap'],
             8  => ['Earthquake'],
             9  => ['Invulnerability'],
@@ -391,7 +390,7 @@ class ClassSorcererSeeder extends Seeder
             4  => ['Fire Shield', 'Wall of Fire'],
             5  => ['Everlasting Fire', 'Immolation', 'Summon Elemental' => 'Fire Elemental only'],
             6  => ['Investiture of Flame'],
-            7  => ['Delayed Blast Fireball', 'Fiery Body', 'Fire Storm'],
+            7  => ['Fiery Body', 'Fire Storm'],
             8  => ['Incendiary Cloud'],
             9  => ['Meteor Swarm'],
             10 => ['Wish'],

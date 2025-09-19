@@ -51,12 +51,13 @@ class GodsTyrSeeder extends Seeder
         ]);
 
         $class                = new Klass;
-        $class->name          = 'Priest of Tyr';
+        $class->name          = 'Holy Justice';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
         $class->weapons       = 'Simple Weapons plus two choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Tyr</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 4,
@@ -69,16 +70,28 @@ class GodsTyrSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion', 'Society']
         );
-        $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 3, 6, 9, 12, 15, 18, 20],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Divine Favor</dd>
+</dl>',
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Paladin' => 30,
+            'Cleric'  => 20,
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            $class->name, 'Paladin',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Law', 'Retribution']);
         $helper->addSpellsToClass($class, [
             0  => ['Clean Self', 'Conviction', 'Detect Magic', 'Detect Undead', 'Forbidding Ward', 'Light', 'Message', 'Radiant Mark',
                 'Resist', 'Stabilize', ],
-            1  => ['Bless', 'Command', 'Cure Wounds', 'Detect Chaos', 'Detect Evil', 'Divine Favor', 'Hand of the Faithful',
-                'Note', 'Silvered Weapon', ],
+            1  => ['Bless', 'Command', 'Cure Wounds', 'Detect Chaos', 'Detect Evil', 'Divine Favor' => 'Positive only',
+                'Hand of the Faithful', 'Note', 'Silvered Weapon', ],
             2  => ['Aid', 'Augury', 'Blindsight', 'Discern Lies', 'Enchant Item', 'Glorious Raiment', 'Hold Person', 'Insignia of Alarm',
                 "Owl's Wisdom", 'Remove Fear', 'Restoration', 'Resist Elements', 'Spiritual Weapon', 'Undead Bane Weapon', ],
             3  => ['Air of Authority', 'Aspect of the Deity, Lesser', 'Create Lantern Archon', 'Grace', 'Halt', "Heart's Ease",
@@ -139,7 +152,7 @@ class GodsTyrSeeder extends Seeder
         );
         $helper->addFeaturesToClass($class, [
             'divine_feat'  => [3, 9, 15, 20],
-            'fighter_feat' => [1, 6, 12, 18],
+            'fighter_feat' => [2, 6, 12, 18],
         ]);
         $helper->addDomainToClass($class, ['War']);
         $helper->addSpellsToClass($class, [
@@ -149,30 +162,22 @@ class GodsTyrSeeder extends Seeder
             2  => ['Aid', 'Aura of War', "Bear's Endurance", "Bull's Strength", 'Enlarge', 'Halt', 'Imbue with Cold Iron',
                 'Imbue with Silvered', 'Magic Weapon', 'Protection From Arrows', 'Protection From Poison', 'Rage', 'Remove Fear',
                 'Restoration', 'Resist Fire', 'Undead Bane Weapon', ],
-            3  => ['Elemental Weapon', 'Ghost Touch', 'Grace', 'Prayer', 'Toxin Immunity'],
+            3  => ['Elemental Weapon', 'Ghost Touch', 'Grace', 'Imbue with Adamantine', 'Prayer', 'Toxin Immunity'],
             4  => ['Celestial Fortress', 'Ceremony', 'Divine Power', 'Ritual of the March', 'Stoneskin'],
             5  => ['Banishing Smite', 'Commune', 'Divine Weapon', 'Holy Weapon'],
-            6  => ['Atonement', "Hero's Feast", 'Imbue with Adamantine'],
+            6  => ['Atonement', "Hero's Feast"],
             7  => ['Aspect of the Deity, Greater', 'Feast of Champions', 'Holy Aura', 'Raise Dead', 'Shield of the Archons'],
-            9  => ['Heavenly Host' => 'The summoned host will appear dwarven'],
-            10 => ['Crusade'],
+            8  => ['Crusade', 'Heavenly Host' => 'The summoned host will appear dwarven'],
         ]);
-        $helper->addSpellSlotsToClass($class);
-
-        $helper->addClassesToGod($god, 'Faeruneon', [
-            'Paladin' => 20,
-            'Cleric'  => 10,
-        ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Priest of Tyr', 'Paladin',
-        ]);
+        $helper->addSpellSlotsToClass($class, 'eight');
         $helper->addClassesToGod($god, 'Morndinsamman', [
-            'Fighter' => 20,
-            'Cleric'  => 5,
-            'Bard'    => 5,
+            'Fighter'   => 25,
+            'Cleric'    => 1,
+            'Bard'      => 5,
+            'Barbarian' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Fighter',
+            $class->name, 'Fighter', 'Barbarian' => ['meta' => 'Must take the Dwarven Battle Rager Feat'],
         ]);
 
         $helper->addPietyToGod($god, [
@@ -235,13 +240,19 @@ class GodsTyrSeeder extends Seeder
             'master_id'      => $tyr->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Monk'   => 30,
+            'Cleric' => 10,
+        ]);
+
         $class                = new Klass;
-        $class->name          = 'Priest of Ilmater';
+        $class->name          = 'Painbearers';
         $class->type          = 'Priest';
         $class->key_attribute = 'CON or WIS';
         $class->weapons       = 'Simple Weapons plus two choice';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $class->has_spells    = 1;
+        $class->description   = '<p>Priest of Ilmater</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 10,
             'skill_points'   => 4,
@@ -256,7 +267,7 @@ class GodsTyrSeeder extends Seeder
         );
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Monk',
+            $class->name, 'Monk', 'Paladin',
         ]);
 
         $feature              = new Feature;
@@ -266,11 +277,10 @@ class GodsTyrSeeder extends Seeder
         $helper->saveFeature($feature, []);
 
         $helper->addFeaturesToClass($class, [
-            'divine_feat'     => [1, 18, 20],
             'fear_immunity'   => [6],
             'holy_resistance' => [12],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Die Hard']);
+        $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Die Hard']);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Great Fortitude', 'idx' => 1]);
         $class->features()->save(app()->features['feat'], ['level' => 9, 'meta' => 'Mettle']);
         $class->features()->save(app()->features['feat'], ['level' => 15, 'meta' => 'Improved Mettle']);
@@ -286,17 +296,16 @@ class GodsTyrSeeder extends Seeder
                 'Warding Bond', 'Zone of Truth', ],
             3  => ['Aspect of the Deity, Lesser', 'Blindness', 'Comprehension', 'Dispel Magic', 'Glorious Raiment', "Heart's Ease",
                 'Insignia of Blessing', 'Insignia of Healing', 'Neutralize Poison', 'Prayer', 'Revivify', 'Tongues', 'Undead Bane Weapon', ],
-            4  => ['Aura of Life', 'Condemnation', 'Divination', 'Favor of Ilmater', 'Freedom of Movement', 'Globe of Invulnerability',
-                'Guardian of Faith', 'Remove Curse', 'Sacred Item', 'Stoneskin', ],
+            4  => ['Aura of Life', 'Condemnation', 'Endurance of Ilmater', 'Divination', 'Favor of Ilmater', 'Freedom of Movement',
+                'Globe of Invulnerability', 'Guardian of Faith', 'Remove Curse', 'Sacred Item', 'Stoneskin', ],
             5  => ['Atonement', 'Banishment', 'Celestial Blood', 'Celestial Brand', 'Commune', 'Dispel Outsider'],
             6  => ['Heal', "Hero's Feast", 'Stone to Flesh'],
             7  => ['Aspect of the Deity, Greater', 'Bastion of Good', 'Holy Aura', 'Phoenix Fire', 'Raise Dead', 'Shield of Law',
                 'Shield of the Archons', ],
             8  => ['Divine Aura', 'Exalted Fury', 'Invulnerability', 'Last Judgment', 'Mind Blank'],
-            9  => ['Blinding Glory', 'Empty Body', 'End to Strife'],
-            10 => ['Miracle', 'Revival'],
+            9  => ['Blinding Glory', 'Empty Body', 'End to Strife', 'Miracle', 'Revival'],
         ]);
-        $helper->addSpellSlotsToClass($class);
+        $helper->addSpellSlotsToClass($class, 'eight');
 
         /**********************************************************************/
 
@@ -311,7 +320,7 @@ class GodsTyrSeeder extends Seeder
             'portfolio'      => 'Duty, loyalty, courage, obedience',
             'regions'        => 'Dalelands, Tethyr, The Vast',
             'alignment'      => 'LG',
-            'symbol'         => 'Hands bound at the wrist with red cord.',
+            'symbol'         => 'A right-handed metal gauntlet held upright, palm open and toward the viewer.',
             'favored_weapon' => "Duty's Bond (greatsword)",
             'master_id'      => $tyr->id,
         ]);
@@ -346,6 +355,23 @@ class GodsTyrSeeder extends Seeder
             'symbol'         => 'Shining bronze or brass mask with two eyeholes of flame',
             'master_id'      => God::where('name', 'Odin Borrson')->first()->id,
             'favored_weapon' => 'Axegard (Battleaxe)',
+        ]);
+
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Paladin' => 30,
+            'Cleric'  => 10,
+        ]);
+        $helper->addClassesToGod($god, "Yondalla's Children", [
+            'Paladin' => 20,
+            'Ranger'  => 20,
+        ]);
+        $helper->addClassesToGod($god, 'Gnome', [
+            'Paladin' => 20,
+            'Fighter' => 15,
+        ]);
+        $helper->addClassesToGod($god, 'Morndinsamman', [
+            'Paladin' => 20,
+            'Fighter' => 15,
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
@@ -632,6 +658,26 @@ class GodsTyrSeeder extends Seeder
             'symbol'         => 'A star above a milky nebula',
             'favored_weapon' => 'Bite (heavy pick)',
             'master_id'      => $tyr->id,
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Platinum Knights';
+        $feat->requirement = 'You must LG and Bahamut must be your Patron Deity';
+        $feat->description = '<p>You are a Paladin of Bahamut.</p>
+<ul>
+    <li>You gain a +3 Diplomacy checks with Metallic Dragons.</li>
+    <li>You are immune to the Fear aura of all Dragons</li>
+    <li>You can gain a draconic mount by sacrificing 3 Spell Points and a 3rd level Spell Slot.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Dragon', 'Good']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Acid Splash', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Poison Spray'],
+            1 => ['Bless', 'Dragon Claws', 'Fear', 'Wrathful Smite'],
+            2 => ['Aura of Fear', 'Aura of War', 'Dragon Breath'],
+            3 => ['Aspect of the Deity, Lesser'],
+            4 => ['Aggravate Dracorage', 'Draconic Might', 'Dragon Ally', 'Dragon Wings'],
+            5 => ['Chromatic Ray', 'Dispel Evil'],
+            6 => ['Dragon Form'],
         ]);
 
         $god        = new God;

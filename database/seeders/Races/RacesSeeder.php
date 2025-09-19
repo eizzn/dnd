@@ -15,8 +15,6 @@ class RacesSeeder extends Seeder
      */
     public function run()
     {
-        // https://oakthorne.net/wiki/index.php/Forgotten_Realms_Languages
-        // add alphabets
         $thoras              = new Alphabet;
         $thoras->name        = 'Thorass';
         $thoras->description = '<p>An ancient near-universal language of the long-ago Realms, Thorass has fallen into extinction. It is frequently found on tombs and other ancient structures, but most relevantly is the alphabet used in many regional languages.</p>';
@@ -87,7 +85,8 @@ class RacesSeeder extends Seeder
         $nexalan->description = '<p>The alphabet used in Maztica</p>';
         $nexalan->save();
 
-        // add languages
+        /***************************************************************************/
+
         $lang              = new Language;
         $lang->name        = 'Aglarondan';
         $lang->type        = 'Regional';
@@ -281,7 +280,7 @@ class RacesSeeder extends Seeder
         $lang->family      = "Faerunian (Uluo, D'Tarig)";
         $lang->local       = 'Old Prussian/Lithuanian';
         $lang->speakers    = 'Anaurock';
-        $lang->description = "<p>The tribal language of the D\'tarig people of southeastern Anauroch, D'Tarig is a throaty tongue that is part of the Uluo language family (along with languages such as Damaran and lost Netherese).</p>";
+        $lang->description = "<p>The tribal language of the D'tarig people of southeastern Anauroch, D'Tarig is a throaty tongue that is part of the Uluo language family (along with languages such as Damaran and lost Netherese).</p>";
         $lang->save();
 
         $lang              = new Language;
@@ -527,6 +526,16 @@ class RacesSeeder extends Seeder
         $lang->save();
 
         $lang              = new Language;
+        $lang->name        = 'Raurindi';
+        $lang->type        = 'Regional';
+        $lang->alphabet_id = $thoras->id;
+        $lang->family      = 'Rauric (Mulani)';
+        $lang->local       = 'Slavic/Russian';
+        $lang->speakers    = 'Raurin';
+        $lang->description = '<p>A rare tribal language spoken by the people of the Raurin.</p>';
+        $lang->save();
+
+        $lang              = new Language;
         $lang->name        = 'Reghedjic';
         $lang->type        = 'Regional';
         $lang->alphabet_id = $thoras->id;
@@ -761,6 +770,15 @@ class RacesSeeder extends Seeder
         /**********************************************************************/
 
         $lang              = new Language;
+        $lang->name        = 'Aragrakh';
+        $lang->type        = 'Racial';
+        $lang->alphabet_id = $draconic->id;
+        $lang->family      = 'Draconic (Wyrmish, Common)';
+        $lang->speakers    = 'Dragons';
+        $lang->description = '<p>Dragons. An ancient language, also known as "Old High Wyrmish", used as a formal ritual language by dragons. Woe to those who are not dragons that are overheard using it by wyrm-kind.</p>';
+        $lang->save();
+
+        $lang              = new Language;
         $lang->name        = 'Auld Wyrmish';
         $lang->type        = 'Racial';
         $lang->alphabet_id = $draconic->id;
@@ -885,7 +903,7 @@ class RacesSeeder extends Seeder
         $lang->alphabet_id = $espruar->id;
         $lang->family      = "Elven (Ssri'Tel'Quessir)";
         $lang->speakers    = 'Drow';
-        $lang->description = '<p>Also called Low Drow or Drowic, this is the common language of the drow. Each community has its own dialect, but can reasonably undertand one another.</p>';
+        $lang->description = '<p>Also called Low Drow or Drowic, this is the common language of the drow. Each community has its own dialect, but can reasonably understand one another.</p>';
         $lang->save();
 
         $lang              = new Language;
@@ -1203,6 +1221,7 @@ class RacesSeeder extends Seeder
         $lang              = new Language;
         $lang->name        = 'Zhentarim Argot';
         $lang->type        = 'Trade';
+        $lang->alphabet_id = $ruathlek->id;
         $lang->family      = 'Faerunian (Thorass, North)';
         $lang->local       = 'Old Prussian/Lithuanian';
         $lang->speakers    = 'Zhentarim';

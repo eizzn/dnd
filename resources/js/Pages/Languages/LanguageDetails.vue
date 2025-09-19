@@ -39,7 +39,8 @@ onMounted(fetchLanguageDetails);
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ language?.name || "Language Details" }}</span>
+                <span>Language:</span><br/>
+                <span>{{ language?.name }}</span>
             </h2>
         </template>
 
@@ -67,10 +68,12 @@ onMounted(fetchLanguageDetails);
                                         <tr>
                                             <td class="border border-gray-300 px-4 py-2">{{ language.type }}</td>
                                             <td class="border border-gray-300 px-4 py-2">
-                                                <NavLink :href="`/alphabet/${language.alphabet.id}`">{{ language.alphabet.name }}</NavLink>
+                                                <NavLink v-if="language.alphabet" :href="`/alphabet/${language.alphabet.id}`">
+                                                    {{ language.alphabet.name }}
+                                                </NavLink>
                                             </td>
                                             <td class="border border-gray-300 px-4 py-2">{{ language.family }}</td>
-                                            <td class="border border-gray-300 px-4 py-2">{{ language.locale }}</td>
+                                            <td class="border border-gray-300 px-4 py-2">{{ language.local }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -81,7 +84,7 @@ onMounted(fetchLanguageDetails);
                                 </dl>
                             </section>
                             <section class="m-2 border-t">
-                                <div v-html="language.description"></div>
+                                <div class="description-container" v-html="language.description"></div>
                             </section>
                         </div>
                     </div>

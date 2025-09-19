@@ -38,7 +38,8 @@ onMounted(fetchSkillDetails);
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                <span>{{ skill?.name || "Skill Details" }}</span>
+                <span>Skill:</span><br/>
+                <span>{{ skill?.name }}</span>
             </h2>
         </template>
 

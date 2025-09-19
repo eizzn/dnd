@@ -25,7 +25,7 @@ class SpellsESeeder extends Seeder
         $spell->targets        = 'One creature within range';
         $spell->duration       = '10 minutes';
         $spell->save_attribute = 'CHA';
-        $spell->description    = "<p>You curse the target with low self-esteem unless they make a successful CHA Save.</p>
+        $spell->description    = "<p>You curse the Target with low self-esteem unless they make a successful CHA Save.</p>
 <p>This spell Counters and is Countered by Eagle's Splendor.</p>";
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>Unaffected</dd>
@@ -34,7 +34,7 @@ class SpellsESeeder extends Seeder
     <dt>Critical Failure</dt> <dd>You suffer a -8 penalty to your CHA</dd>
 </dl>';
         $spell->heightened = '<dl>
-    <dt>Heightened (+4)</dt> <dd>You can target up to 10 creatures</dd>
+    <dt>Heightened (+4)</dt> <dd>You can Target up to 10 creatures</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Curse', 'Enchantment'], 2);
 
@@ -44,10 +44,10 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Touched creature';
         $spell->duration    = '10 minutes';
-        $spell->description = "<p>The target gets a +4 enchantment bonus to CHA.</p>
+        $spell->description = "<p>The Target gets a +4 enchantment bonus to CHA.</p>
 <p>This spell Counters and is Countered by Eagle's Hex.</p>";
         $spell->heightened  = '<dl>
-    <dt>Heightened (+4)</dt> <dd>The range becomes 30 feet and you can target up to 10 creatures.</dd>
+    <dt>Heightened (+4)</dt> <dd>The range becomes 30 feet and you can Target up to 10 creatures.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Bless', 'Enchantment'], 2);
 
@@ -57,8 +57,8 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = '1 hour';
-        $spell->description = '<p>You give the target the ability to glide through earth and stone as easily as an earth elemental does.</p>
-<p>The affected creature can glide through stone, dirt, or almost any other sort of earth except metal as easily as a fish swims through water. The target can also "breathe" earth, so that the target does not suffocate while within the earth.</p>
+        $spell->description = '<p>You give the Target the ability to glide through earth and stone as easily as an earth elemental does.</p>
+<p>The affected creature can glide through stone, dirt, or almost any other sort of earth except metal as easily as a fish swims through water. The Target can also "breathe" earth, so that the Target does not suffocate while within the earth.</p>
 <p>Its burrowing leaves behind no tunnel or hole, nor does it create any ripple or other signs of its presence.</p>
 <p>A Move Earth spell cast on an area containing the affected creature flings the creature back 30 feet and Stuns the creature for 1 round unless it succeeds on a DC 15 CON Save.</p>';
         $spell->heightened = '<dl>
@@ -86,36 +86,28 @@ class SpellsESeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 1);
 
         $spell                 = new Spell;
-        $spell->name           = 'Earthbolt';
-        $spell->casting        = 'Somatic Casting, Verbal Casting';
-        $spell->save_attribute = 'DEX';
-        $spell->range          = '60 feet line';
-        $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You strike the ground at your feet and create a bolt of seismic force that causes earth, rock, and sand to fly into the air striking creatures along its path. Any creature caught in the spell\'s path takes 6D6 Bludgeoning damage.</p>
-<p>This spell functions only if you are standing on dirt, clay, sand, or stone (not on wooden floors or other surfaces).</p>';
-        $spell->saves = '<dl>
-    <dt>Critical Success</dt> <dd>No Damage</dd>
-    <dt>Success</dt> <dd>Half damage</dd>
-    <dt>Failure</dt> <dd>Full damage</dd>
-    <dt>Critical Failure</dt> <dd>Double damage</dd>
-</dl>';
-        $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Increase the damage by +2D6</dd>
-</dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 3);
-
-        $spell                 = new Spell;
         $spell->name           = 'Earthen Grasp';
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->range          = '5-foot square. 30 foot range';
         $spell->save_attribute = 'STR';
         $spell->spell_creator  = 'Maximillian';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The target must make a STR Save. On a failed save, the target takes 2D6 bludgeoning damage and is restrained for the spell's duration.</p>
+        $spell->description    = "<p>You choose a 5-foot-square unoccupied space on the ground that you can see within range. A Medium hand made from compacted soil rises there and reaches for one creature you can see within 5 feet of it. The Target must make a STR Save. On a Failed Save, the Target takes 2D6 Bludgeoning Damage and is Restrained for the spell's Duration.</p>
 <p>As an Action, you can cause the hand to crush the restrained target, who must make a STR Save. It takes 2D6 Bludgeoning damage on a failed save, or half as much damage on a successful one.</p>
-<p>To break out, the restrained target can use its action to make a STR check against your spell save DC. On a success, the target escapes and is no longer restrained by the hand.</p>
-<p>As an Action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either.</p>";
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 2);
+<p>To break out, the restrained Target can use its action to make a STR check against your spell save DC. On a success, the Target escapes and is no longer restrained by the hand.</p>
+<p>As an Action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained Target if you do either.</p>";
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Earth', 'Attack', 'Melee'], 2);
+
+        $spell              = new Spell;
+        $spell->name        = 'Earthenport';
+        $spell->casting     = '1 minute (Somatic, Verbal)';
+        $spell->range       = 'Same Plane';
+        $spell->targets     = 'Self';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = "<p>When you cast this spell, you attune to a large amount of solid rock (not dirt) that is at least double your volume. You can then Teleport to any location on the same Continent that you are aware of that also has an amount of solid rock at least double your volume.</p>
+<p>The first 5 rounds of casting this spell is spent melding into the solid rock, then the remaining 5 rounds are spend manifesting at your destination.</p>
+<p>During the casting time of this spell, you are visible at both ends, but you are intangible. If the either rock you are transporting from or to is affected by spell with the Earth type that can change it's shape or Transmute it, you take 5D6 damage and are stunned for 1 hour. The spell still Teleports you to your destination.</p>";
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation', 'Earth'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Earthfast';
@@ -130,6 +122,32 @@ class SpellsESeeder extends Seeder
     <dt>Permanency (Heightened +4)</dt> <dd>2,500 gp. 5 CON damage.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Earth', 'Permanency'], 2);
+
+        $spell               = new Spell;
+        $spell->name         = 'Earthmaster';
+        $spell->casting      = 'Verbal Casting, Ability Damage';
+        $spell->requirements = '<dl>
+    <dt>Ability Damage</dt> <dd>2 CON Damage</dd>
+</dl>';
+        $spell->targets      = 'Self';
+        $spell->duration     = '1 minute';
+        $spell->description  = '<p>You take up the mantle of the earth, gaining power over it as long as you stand upon it or beneath its surface. You gain the ability to cast the following spells as a Double Action</p>
+<ul>
+    <li>Burrow</li>
+    <li>Commune with Earth</li>
+    <li>Earthquake</li>
+    <li>Excavate</li>
+    <li>Flesh to Stone</li>
+    <li>Meld into Stone</li>
+    <li>Move Earth</li>
+    <li>Shape Stone</li>
+    <li>Stone Sphere</li>
+    <li>Stone Tell</li>
+    <li>Stone to Flesh</li>
+    <li>Transmute Rock</li>
+    <li>Wall of Stone</li>
+</ul>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Earth'], 10);
 
         $spell                 = new Spell;
         $spell->name           = 'Earthquake';
@@ -160,7 +178,7 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = '6 hours';
-        $spell->description = '<p>You grant the target the ability to survive in thin air. The target gains a +20 Inherent bonus to CON Saves to resist altitude sickness and becoming Fatigued due to altitude or thin air.</p>';
+        $spell->description = '<p>You grant the Target the ability to survive in thin air. The Target gains a +20 Inherent bonus to CON Saves to resist altitude sickness and becoming Fatigued due to altitude or thin air.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number of targets</dd>
     <dd>Heightened (+1)</dd> <dd>Double the duration</dd>
@@ -173,7 +191,7 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>This spell immediately removes any lingering effects of pain. It does not heal any damage or other effects not directly related to pain. If the target is under some effect that causes continuing pain, You may Concentrate on this spell to continue the easing the targets pain, up to 3 hours.</p>';
+        $spell->description = '<p>This spell immediately removes any lingering effects of pain. It does not heal any damage or other effects not directly related to pain. If the Target is under some effect that causes continuing pain, You may Concentrate on this spell to continue the easing the targets pain, up to 3 hours.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number targets</dd>
     <dt>Heightened (+2)</dt> <dd>The duration becomes 12 hours without Concentration</dd>
@@ -204,7 +222,7 @@ class SpellsESeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->targets        = 'One creature in range';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You fire a ray of black energy that drastically slows down the rate at which the subject can recover Hit Points. Any creature attempting to restore HIt Points to the subject by means of any sort of healing magic must succeed on a caster level check, or the healing effect fails. A subject with Fast Healing or Regeneration ability must make a CON Save at the beginning of its turn each round. Failure indicates that the ability does not function in that round.</p>';
+        $spell->description    = '<p>You fire a Ray of black energy that drastically slows down the rate at which the subject can recover Hit Points. Any creature attempting to restore HIt Points to the subject by means of any sort of healing magic must succeed on a caster level check, or the healing effect fails. A subject with Fast Healing or Regeneration ability must make a CON Save at the beginning of its turn each round. Failure indicates that the ability does not function in that round.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Can heal this round</dd>
     <dt>Failure</dt> <dd>Fails to heal this round</dd>
@@ -291,7 +309,7 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = '10 minute or until discharged';
-        $spell->description = "<p>You surround your hand or some other part of your body with light resembling moonlight. You can change the intensity from a faint glow equivalent to a candle to a clear, bright light equivalent to a torch. it varies in color as you desire, whether blue-white, soft green, white or silver. You can use ths moonfire as a Melee Touch attack that deals 3D6 Cold damage. Whether or not the attack hits, the spell effect is discharged.</p>
+        $spell->description = "<p>You surround your hand or some other part of your body with light resembling moonlight. You can change the intensity from a faint glow equivalent to a candle to a clear, bright light equivalent to a torch. it varies in color as you desire, whether blue-white, soft green, white or silver. You can use ths moonfire as a Melee Touch attack that deals 3D6 Light damage. Whether or not the attack hits, the spell effect is discharged.</p>
 <p>You can cause the moonlight to leave your body and move about as a single light to Dancing Lights. Once it leaves your body, the effect's duration is 10 minute and the effect can no longer be used to attack.</p>";
         $helper->addTypesToSpell($spell, ['Evocation', 'Light'], 1);
 
@@ -318,15 +336,15 @@ class SpellsESeeder extends Seeder
         </ul>
     </dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Exalted'], 2);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Exalted', 'Auditory'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Eldritch Blast';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '120 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1D10 Force damage.</p>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Force'], 1);
+        $spell->description = '<p>A beam of crackling energy streaks toward a creature within range. Make a Ranged spell attack against the target. On a hit, the Target takes 1D10 Force damage.</p>';
+        $helper->addTypesToSpell($spell, ['Evocation', 'Force', 'Attack', 'Ranged'], 1);
 
         $spell                 = new Spell;
         $spell->name           = 'Electric Arc';
@@ -337,8 +355,8 @@ class SpellsESeeder extends Seeder
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>A stroke of electricity forming a line 15 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a DEX Save or take 1D8 Electricity damage.</p>';
         $spell->saves          = '<dl>
-    <dt>Success</dt> <dd>The target takes no damage</dd>
-    <dt>Failure</dt> <dd>The target takes full damage</dd>
+    <dt>Success</dt> <dd>The Target takes no damage</dd>
+    <dt>Failure</dt> <dd>The Target takes full damage</dd>
 </dl>';
         $spell->heightened = '<dl>
     <dt>Heightened (+4)</dt> <dd>Increase the damage by +1D8.</dd>
@@ -402,7 +420,7 @@ class SpellsESeeder extends Seeder
                     <li>Fire resistance: 5</li>
                 </ul>
             </td>
-            <td>Wave 1D12 bludgeoning, and you can spend an Action immediately after a hit to push the target 5 feet</td>
+            <td>Wave 1D12 bludgeoning, and you can spend an Action immediately after a hit to push the Target 5 feet</td>
         </tr>
     </tbody>
 </table>";
@@ -538,16 +556,31 @@ class SpellsESeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Good'], 9);
 
+        $spell                = new Spell;
+        $spell->name          = 'Endurance of Ilmater';
+        $spell->casting       = 'Somatic Casting, Verbal Casting';
+        $spell->spell_creator = 'Ilmater';
+        $spell->targets       = 'Self';
+        $spell->duration      = '10 minutes';
+        $spell->description   = '<p>This spell grants you the following</p>
+<ul>
+    <li>You gain a number of Temporary Hit Points equal to your Hit Point Maximum</li>
+    <li>You gain a +2 bonus to all Saves</li>
+    <li>You gain Advantage on all STR and CON checks and Saves</li>
+    <li>You cannot be knocked Prone</li>
+</ul>';
+        $helper->addTypesToSpell($spell, ['Transmutation'], 4);
+
         $spell              = new Spell;
         $spell->name        = 'Endure Elements';
         $spell->casting     = '10 minutes (Somatic, Verbal)';
         $spell->range       = 'Touch';
         $spell->targets     = 'One willing creature';
         $spell->duration    = '24 Hours';
-        $spell->description = '<p>Choose severe cold or heat. The target is protected from the temperature you chose (but not extreme cold or heat).</p>';
+        $spell->description = '<p>Choose severe cold or heat. The Target is protected from the temperature you chose (but not extreme cold or heat).</p>';
         $spell->heightened  = '<dl>
-    <dt>Heightened (+1)</dt> <dd>The target is protected from severe cold and heat.</dd>
-    <dt>Heightened (+3)</dt> <dd>The target is protected from severe cold, severe heat, extreme cold, and extreme heat.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Target is protected from severe cold and heat.</dd>
+    <dt>Heightened (+3)</dt> <dd>The Target is protected from severe cold, severe heat, extreme cold, and extreme heat.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Ritual'], 2);
 
@@ -557,8 +590,8 @@ class SpellsESeeder extends Seeder
         $spell->range       = '120 feet';
         $spell->targets     = 'On creature within range';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = "<p>You reach into the mind of one creature you can see and force it to make an INT Save. A creature automatically succeeds if it is immune to being Frightened. On a Failed Save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the spell ends. Each time the target takes damage, it can repeat the Save, ending the effect on itself on a success.</p>
-<p>Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack , spell, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>";
+        $spell->description = "<p>You reach into the mind of one creature you can see and force it to make an INT Save. A creature automatically succeeds if it is immune to being Frightened. On a Failed Save, the Target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the spell ends. Each time the Target takes damage, it can repeat the Save, ending the effect on itself on a success.</p>
+<p>Whenever the affected creature chooses another creature as a target, it must choose the Target at random from among the creatures it can see within range of the attack , spell, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>";
         $helper->addTypesToSpell($spell, ['Illusion', 'Mental', 'Figment'], 3);
 
         $spell              = new Spell;
@@ -591,15 +624,6 @@ class SpellsESeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Cold', 'Electricity', 'Fire', 'Sonic'], 5);
 
-        $spell              = new Spell;
-        $spell->name        = 'Energy Immunity';
-        $spell->casting     = '1 minute (Somatic, Verbal)';
-        $spell->range       = 'Touch';
-        $spell->targets     = 'Creature touched';
-        $spell->duration    = 'Concentration, up to 24 hours';
-        $spell->description = '<p>When you cast this spell, chose Cold, Electricity, Fire, or Sonic. The target gains the ability to, as an Action, gain Immunity from the chosen energy type until the beginning of their next turn. This immunity applies after any Resistance, Damage Reduction, and Absorption effects that may apply.</p>';
-        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Cold', 'Electricity', 'Fire', 'Sonic'], 7);
-
         $spell                 = new Spell;
         $spell->name           = 'Energy Spheres';
         $spell->casting        = 'Material Casting, Somatic Casting, Verbal Casting';
@@ -608,8 +632,8 @@ class SpellsESeeder extends Seeder
         $spell->duration       = 'Concentration, up to 10 minutes or until discharged';
         $spell->description    = '<p>You create a circle of four colored spheres that orbit your head at a distance of 1 foot. These spheres provide as much light as a torch. Each sphere corresponds to the energy types: Cold (blue), Electricity (yellow), Fire (red), Sonic (gray) and can be used in the following ways.</p>
 <ul>
-    <li>As an Action, you can have one of the spheres attack a target within 60 feet. The sphere does damage in a 10-foot radius and deals 20 points of damage of the energy type of the sphere. That sphere then dissipates.</li>
-    <li>If you are the target of an attack of one of the energy types, and you still have the sphere of that type, you may, as a Reaction, have the sphere of that type absorb the damage. This only works if you are the sole target of the attack and cannot absorb damage that affects an area.</li>
+    <li>As an Action, you can have one of the spheres attack a Target within 60 feet. The sphere does damage in a 10-foot radius and deals 20 points of damage of the energy type of the sphere. That sphere then dissipates.</li>
+    <li>If you are the Target of an attack of one of the energy types, and you still have the sphere of that type, you may, as a Reaction, have the sphere of that type absorb the damage. This only works if you are the sole Target of the attack and cannot absorb damage that affects an area.</li>
 </ul>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Half damage</dd>
@@ -682,7 +706,7 @@ class SpellsESeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>Your hand becomes infused with Negative Energy. You may make Touch Attacks with your infused hand. On a hit, the target is Enervated: 1 and you gain 5 Temporary Hit Points (These Temporary Hit Points lasts for 1 hour). This attack is not treated as being Armed, so you Provoke Attacks of Opportunity unless you have the Improved Unarmed Strike feat.</p>
+        $spell->description = '<p>Your hand becomes infused with Negative Energy. You may make Touch Attacks with your infused hand. On a hit, the Target is Enervated: 1 and you gain 5 Temporary Hit Points (These Temporary Hit Points lasts for 1 hour). This attack is not treated as being Armed, so you Provoke Attacks of Opportunity unless you have the Improved Unarmed Strike feat.</p>
 <p>Attacking an Undead with this attack heals the Undead 5 Hit Points and you are Enervated: 1.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 6);
 
@@ -693,12 +717,12 @@ class SpellsESeeder extends Seeder
         $spell->targets        = 'One creature';
         $spell->save_attribute = 'CON';
         $spell->duration       = '1 minute';
-        $spell->description    = "<p>Make a ranged touch attack. If you succeed, the effect depends on the target's CON Save; if you critically succeed, treat the result as one degree worse. Enervated effects last for only the duration.</p>.";
+        $spell->description    = "<p>Make a Ranged Touch Attack. If you Succeed, the effect depends on the target's CON Save; if you critically Succeed, treat the result as one degree worse. Enervated effects last for only the duration.</p>.";
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
-    <dt>Success</dt> <dd>The target is Enervated 1</dd>
-    <dt>Failure</dt> <dd>The target is Enervated 2</dd>
-    <dt>Critical Failure</dt> <dd>The target is Enervated 4</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
+    <dt>Success</dt> <dd>The Target is Enervated 1</dd>
+    <dt>Failure</dt> <dd>The Target is Enervated 2</dd>
+    <dt>Critical Failure</dt> <dd>The Target is Enervated 4</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Attack', 'Necromancy', 'Negative'], 4);
 
@@ -708,12 +732,12 @@ class SpellsESeeder extends Seeder
         $spell->targets        = 'Self';
         $spell->save_attribute = 'STR';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = "<p>The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1D6 Negative damage. Additionally, the target must make a STR Save or gain the Enfeebled condition.</p>";
+        $spell->description    = "<p>The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1D6 Negative damage. Additionally, the Target must make a STR Save or gain the Enfeebled condition.</p>";
         $spell->saves          = '<dl>
-    <dt>Critical Success</dt> <dd>The target is unaffected</dd>
-    <dt>Success</dt> <dd>The target gains enfeebled 1</dd>
-    <dt>Failure</dt> <dd>The target gains enfeebled 2</dd>
-    <dt>Critical Failure</dt> <dd>The target gains enfeebled 3</dd>
+    <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
+    <dt>Success</dt> <dd>The Target gains enfeebled 1</dd>
+    <dt>Failure</dt> <dd>The Target gains enfeebled 2</dd>
+    <dt>Critical Failure</dt> <dd>The Target gains enfeebled 3</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Smite'], 2);
 
@@ -724,7 +748,7 @@ class SpellsESeeder extends Seeder
         $spell->targets       = 'One willing creature';
         $spell->spell_creator = 'Aksa';
         $spell->duration      = '1 minute';
-        $spell->description   = '<p>The target grows to size Large. Its equipment grows with it but returns to natural size if removed. The creature is sluggish 1. Its reach increases by 5 feet (or by 10 feet if it started out Tiny) and it gains a +2 conditional bonus to melee damage. This spell has no effect on a Large or larger creature.</p>
+        $spell->description   = '<p>The Target grows to size Large. Its equipment grows with it but returns to natural size if removed. The creature is sluggish 1. Its reach increases by 5 feet (or by 10 feet if it started out Tiny) and it gains a +2 conditional bonus to melee damage. This spell has no effect on a Large or larger creature.</p>
 <p>This spell Counters and is Countered by Shrink.</p>';
         $spell->heightened    = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number of Targets</dd>
@@ -774,10 +798,10 @@ class SpellsESeeder extends Seeder
         $spell->range          = '60 feet';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 minute';
-        $spell->description    = '<p>You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a WIS Save. Any creature that can’t be charmed succeeds on this Save automatically, and if you or your companions are fighting a creature, it has advantage on the save. On a failed save, the target has disadvantage on WIS (Perception) checks made to perceive any creature other than you until the spell ends or until the target can no longer hear you. The spell ends if you are incapacitated or can no longer speak.</p>';
+        $spell->description    = '<p>You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a WIS Save. Any creature that can’t be charmed succeeds on this Save automatically, and if you or your companions are fighting a creature, it has advantage on the save. On a failed save, the Target has disadvantage on WIS (Perception) checks made to perceive any creature other than you until the spell ends or until the Target can no longer hear you. The spell ends if you are incapacitated or can no longer speak.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Unaffected</dd>
-    <dt>Failure</dt> <dd>The target is enthralled and suffers the Perception penalty as described</dd>
+    <dt>Failure</dt> <dd>The Target is enthralled and suffers the Perception penalty as described</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion'], 3);
 
@@ -831,7 +855,7 @@ class SpellsESeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->area           = '60 foot radius burst centered on you';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>A burst of force radiates from you, seismically damaging all earth creatures nearby. Any creature with the Earth type within the area takes 10D6 Negative damage. Creatures without the Earth type are unaffected.</p>';
+        $spell->description    = '<p>A burst of force radiates from you, seismically damaging all Earth creatures nearby. Any creature with the Earth type within the area takes 10D6 Negative damage. Creatures without the Earth type are unaffected.</p>';
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No damage</dd>
     <dt>Success</dt> <dd>Half damage</dd>
@@ -849,7 +873,7 @@ class SpellsESeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->area           = '60 foot radius burst centered on you';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>A burst of force radiates from you, damaging all fire creatures nearby. Any creature with the Fire type within the area takes 10D6 Negative. Creatures without the Fire type are unaffected.</p>';
+        $spell->description    = '<p>A burst of force radiates from you, damaging all Fire creatures nearby. Any creature with the Fire type within the area takes 10D6 Negative. Creatures without the Fire type are unaffected.</p>';
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>Half damage</dd>
@@ -981,14 +1005,16 @@ class SpellsESeeder extends Seeder
         $spell->range          = '60 feet';
         $spell->targets        = 'One Ethereal creature';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You create a translucent prison of pure crystalline force around a target in the Ethereal Plane. You must be able to see the target.</p>
-<p>The target within the prison cannot make physical attacks or be attacked and is unaffected by most spells and supernatural abilities (Attacks with the Force and Sonic types cause the prison damage and spells that affect Ectoplasm can also affect the prison). Gaze attacks function through the walls of the prison, but the creature in the prison makes its Saves with Advantage.</p>
-<p>The target can break the prison by making a STR Check (DC 10 + your caster level). A Disintegrate spell automatically destroys the prison.</p>
+        $spell->description    = '<p>You create a translucent prison of pure crystalline force around a Target in the Ethereal Plane. You must be able to see the Target.</p>
+<p>The Target within the prison cannot make physical attacks or be attacked and is unaffected by most spells and supernatural abilities (Attacks with the Force and Sonic types cause the prison damage and spells that affect Ectoplasm can also affect the prison). Gaze attacks function through the walls of the prison, but the creature in the prison makes its Saves with Advantage.</p>
+<p>The Target can break the prison by making a STR Check (DC 10 + your caster level). A Disintegrate spell automatically destroys the prison.</p>
 <dl>
     <dt>Material Components</dt> <dd>A piece of translucent glass</dd>
 </dl>';
-        $spell->saves          = '';
-        $spell->heightened     = '';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not trapped</dd>
+    <dt>Failure</dt> <dd>Trapped in the prison</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Evocation', 'Force'], 4);
 
         $spell              = new Spell;
@@ -1011,7 +1037,7 @@ class SpellsESeeder extends Seeder
         $spell->duration    = 'Up to 8 hours';
         $spell->description = "<p>You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can’t see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren’t on the Ethereal Plane can’t perceive you and can’t interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren’t on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn't border it, such as one of the Outer Planes.</p>";
         $spell->heightened  = '<dl>
-    <dt>Heightened (+1)</dt> <dd>You can target 3 additional targets. The additional targets must be within 10 feet of you when you cast the spell.</dd>
+    <dt>Heightened (+1)</dt> <dd>You can Target 3 additional targets. The additional targets must be within 10 feet of you when you cast the spell.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 7);
 
@@ -1060,7 +1086,7 @@ class SpellsESeeder extends Seeder
         $spell->range          = '30 feet';
         $spell->targets        = 'One creature in range';
         $spell->duration       = 'Instantaneous (see text)';
-        $spell->description    = '<p>You focus your malevolent wishes through your gaze and curse someone with bad luck. The target makes a WIS Save or suffers a -4 penalty to all attack rolls, Saves and Checks. The spell ends at the next sunrise, when you dismiss the spell, or when you deal at least 1 point of damage to the target.</p>';
+        $spell->description    = '<p>You focus your malevolent wishes through your gaze and curse someone with bad luck. The Target makes a WIS Save or suffers a -4 penalty to all attack rolls, Saves and Checks. The spell ends at the next sunrise, when you dismiss the spell, or when you deal at least 1 point of damage to the target.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Full effect</dd>
@@ -1074,7 +1100,7 @@ class SpellsESeeder extends Seeder
         $spell->range          = '30 feet';
         $spell->targets        = 'Living creature';
         $spell->duration       = '1 minute';
-        $spell->description    = '<p>You gain a Gaze attack. As a Double Action, you may look at any living target within range. If they meet your gaze, they must make a WIS Save or Frightened: 3. Targeting a creature that is already Frightened only resets their Frightened level back to 3.</p>';
+        $spell->description    = '<p>You gain a Gaze attack. As a Double Action, you may look at any living Target within range. If they meet your gaze, they must make a WIS Save or Frightened: 3. Targeting a creature that is already Frightened only resets their Frightened level back to 3.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Not affected</dd>
     <dt>Failure</dt> <dd>Affected</dd>
@@ -1193,7 +1219,7 @@ class SpellsESeeder extends Seeder
         $spell->range          = 'Touch';
         $spell->targets        = 'Creature touched';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>The target gains 1 level of Exhaustion.</p>';
+        $spell->description    = '<p>The Target gains 1 level of Exhaustion.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No affect</dd>
     <dt>Failure</dt> <dd>Gain 1 level of Exhaustion</dd>
@@ -1215,7 +1241,7 @@ class SpellsESeeder extends Seeder
     <dt>Material Components</dt> <dd>Powdered silver worth 1 gp</dd>
 </dl>';
         $spell->heightened  = '<dl>
-    <dt>Heightened (+3)</dt> <dd>You may cast this spell on another target with a touch.</dd>
+    <dt>Heightened (+3)</dt> <dd>You may cast this spell on another Target with a touch.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Ritual'], 1);
 
@@ -1246,7 +1272,7 @@ class SpellsESeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Creature touched';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You warp time around the target. The target gains an additional Action. This additional Action can only be used to make a Stride or Step Action.</p>';
+        $spell->description = '<p>You warp time around the Target. The Target gains an additional Action. This additional Action can only be used to make a Stride or Step Action.</p>';
         $helper->addTypesToSpell($spell, ['Chronomancy'], 1);
 
         $spell              = new Spell;
@@ -1254,16 +1280,8 @@ class SpellsESeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '120 feet';
         $spell->duration    = 'Concentration, up to 3 hours';
-        $spell->description = '<p>This spell functions like Arcane Eye, except as noted here. You may also cast spells of 7th level or lower that has a Range and the target is not Self through the eye. Any spell cast this way functions as though it had been cast from the eyes location. Unlike an Arcane Eye, an Eye of Power is visible and corporeal, so it can be destroyed. The eye is a Fine Sized object with AC 20 and 77 Hit Points. It makes Saves using your values (excluding bonuses from magical items).</p>';
+        $spell->description = '<p>This spell functions like Arcane Eye, except as noted here. You may also cast spells of 7th level or lower that has a Range and the Target is not Self through the eye. Any spell cast this way functions as though it had been cast from the eyes location. Unlike an Arcane Eye, an Eye of Power is visible and corporeal, so it can be destroyed. The eye is a Fine Sized object with AC 20 and 77 Hit Points. It makes Saves using your values (excluding bonuses from magical items).</p>';
         $helper->addTypesToSpell($spell, ['Divination', 'Enchantment', 'Scrying'], 8);
-
-        $spell              = new Spell;
-        $spell->name        = 'Eye of Stone';
-        $spell->casting     = 'Somatic Casting, Verbal Casting';
-        $spell->range       = '120 feet';
-        $spell->duration    = 'Concentration, up to 2 hours';
-        $spell->description = '<p>This spell functions like Arcane Eye, except that it can travel through stone and metal (but not wood or other living materials and objects with the Force type).</p>';
-        $helper->addTypesToSpell($spell, ['Divination', 'Scrying'], 6);
 
         $spell                 = new Spell;
         $spell->name           = 'Eyebite';
@@ -1271,11 +1289,11 @@ class SpellsESeeder extends Seeder
         $spell->targets        = 'Self';
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = "<p>For the spell's duration, your eyes become an inky void imbued with dread power. One creature of your choice within 60 feet of you that you can see must succeed on a WIS Save or be affected by one of the following effects of your choice for the duration. On each of your turns until the spell ends, you can use an Action to target another creature but can’t target a creature again if it has Succeeded on a Save against this casting of eyebite.</p>
+        $spell->description    = "<p>For the spell's duration, your eyes become an inky void imbued with dread power. One creature of your choice within 60 feet of you that you can see must succeed on a WIS Save or be affected by one of the following effects of your choice for the duration. On each of your turns until the spell ends, you can use an Action to Target another creature but can’t Target a creature again if it has Succeeded on a Save against this casting of eyebite.</p>
 <dl>
-    <dt>Asleep</dt> <dd>The target falls unconscious. It wakes up if it takes any damage or if another creature uses its action to shake the sleeper awake.</dd>
-    <dt>Panicked</dt> <dd>The target is frightened of you. On each of its turns, the frightened creature must take the Dash action and move away from you by the safest and shortest available route, unless there is nowhere to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</dd>
-    <dt>Sickened</dt> <dd>The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends.</dd>
+    <dt>Asleep</dt> <dd>The Target falls unconscious. It wakes up if it takes any damage or if another creature uses its action to shake the sleeper awake.</dd>
+    <dt>Panicked</dt> <dd>The Target is frightened of you. On each of its turns, the frightened creature must take the Dash action and move away from you by the safest and shortest available route, unless there is nowhere to move. If the Target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</dd>
+    <dt>Sickened</dt> <dd>The Target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Necromancy'], 6);
     }

@@ -62,8 +62,8 @@ class ClassEnlightenedFistSeeder extends Seeder
             'fist_of_energy'            => [2],
             'arcane_fist'               => [5],
         ]);
-        $class->features()->save(app()->features['class_group_feat'], ['level' => 2, 'meta' => 'Arcane or Monk feat']);
-        $class->features()->save(app()->features['class_group_feat'], ['level' => 5, 'meta' => 'Arcane or Monk feat']);
+        $class->features()->save(app()->features['class_group_feat'], ['level' => 3, 'meta' => 'Arcane or Monk feat']);
+        $class->features()->save(app()->features['class_group_feat'], ['level' => 6, 'meta' => 'Arcane or Monk feat']);
         $class->features()->save(app()->features['class_group_feat'], ['level' => 9, 'meta' => 'Arcane or Monk feat']);
 
         $helper->addPowersToClass($class, [

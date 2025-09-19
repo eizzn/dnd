@@ -21,6 +21,7 @@ class MonstersDSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Darkenbeast';
         $monster->size             = 'Medium';
+        $monster->type             = 'Monstrosity';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '3 (Natural Armor)';
@@ -31,7 +32,7 @@ class MonstersDSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, +8 to hit, 5 ft range, one target. 1D6+3 Piercing Damage</dd>
     <dd>Spell Imprinting</dd> <dd>When a Darkenbeast is created, the creator can imprint a spell onto the Darkenbeast. As a Triple Action, the creator can have the spell be cast as if the Darkenbeast had cast it. After the Imprinted Spell is cast, the Darkenbeast dies and reverts to its original form.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Monstrosity', 'Animal'], [
+        $helper->saveMonster($monster, ['Monstrosity'], [
             'stats'     => [16, 15, 16, 5, 11, 4, 4, 3],
             'skills'    => [
                 'Perception' => ['dc' => 2],
@@ -48,6 +49,7 @@ class MonstersDSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Deepspawn';
         $monster->size             = 'Huge';
+        $monster->type             = 'Aberration';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '9';
         $monster->damage_reduction = '5 (Natural Armor)';
@@ -94,6 +96,7 @@ class MonstersDSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Farastu';
         $monster->size             = 'Medium';
+        $monster->type             = 'Demodand';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '14 (Natural Armor)';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -134,6 +137,7 @@ class MonstersDSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Kelubar';
         $monster->size             = 'Medium';
+        $monster->type             = 'Demodand';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '15 (Natural Armor)';
         $monster->damage_reduction = '7 (Natural Armor)';
@@ -172,6 +176,7 @@ class MonstersDSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Shator';
         $monster->size             = 'Large';
+        $monster->type             = 'Demodand';
         $monster->alignment        = 'NE';
         $monster->armor_class      = '16 (Natural Armor)';
         $monster->damage_reduction = '8 (Natural Armor)';
