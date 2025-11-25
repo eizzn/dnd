@@ -274,10 +274,10 @@ class GodsTempusSeeder extends Seeder
 
         // Priests of Uthgar are all Spirit Shamans, although some tribes have welcomed priests of other gods
 
-        // Black Lion       => Fury Totem
-        // Elk              => Fury Totem
-        // Great Worm       => Fury Totem
-        // Griffon          => Fury Totem
+        // Black Lion       => The Black Lions have forsaken their barbarian ways and few become barbarians. Their enemies are the Tundra Barbarians
+        // Elk              => Fury Totem (Raiders and Bandits)
+        // Great Worm       => Fury Totem. Used to ruled by a dragon? named Elrem, but Elrem was slain.
+        // Griffon          => Fury Totem. Considers all the cities and their residents their enemies.
         // Red Tiger        => Superstition Totem
         // Sky Pony         => Fury Totem
         // Thunderbeast     => Fury Totem
@@ -288,14 +288,20 @@ class GodsTempusSeeder extends Seeder
         $feat->requirement = 'You must be from the Black Raven Uthgardt barbarian tribe';
         $feat->description = '<p>Your tribe trains Giant Ravens and rides them into raids.</p>
 <h4>Anathema</h4>
-<p>You do not have an Anathema</p>
+<p>You must adhere closely to the old ways. Hunter/Gatherer (Raiding), no outside religions, keep the Uthgar traditions. You are at war with those Uthgardt barbarian tribes that have forsaken the old ways (Thunderbeast, Griffon, and Black Lion).</p>
 <ul>
     <li>You gain Animal Handling as a Class Skill</li>
-    <li>You gain a +4 bonus to your Animal Handling check</li>
+    <li>You have Advantage on all Animal Handling checks in regard to Giant Ravens</li>
     <li>You gain the Mounted Combatant feat</li>
+    <li>At 5th level, you gain an Animal Companion and it must be a Giant Raven. You do not need to sacrifice any Spell Slots.</li>
 </ul>
 <h4>Raging Resistance</h4>
-<p>When you gain your Raging Resistance, you do not gain any damage types that you are resistant to. Instead, you gain an Animal Companion (as if you were a Ranger but you do not need to sacrifice any Spell Slots). This Animal Companion must be a Giant Raven.</p>';
+<ul>
+    <li>Piercing</li>
+    <li>Slashing</li>
+</ul>
+<h4>Ancestor Mound</h4>
+<p>Ravenrock</p>';
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
 
         $feat              = new Feat;
@@ -318,13 +324,16 @@ class GodsTempusSeeder extends Seeder
         $feat->requirement = 'You must be from the Gray Wolf Uthgar barbarian tribe';
         $feat->description = "<p>Your tribe members are all Werewolves.</p>
 <h4>Anathema</h4>
-<p>You do not have an Anathema</p>
+<p>You do not have an Anathema (however, your tribe considers all orcs enemies)</p>
 <ul>
     <li>You gain the Curse of Lycanthropy feat (you must choose Were Wolf)</li>
     <li>You gain the Lycanthrope Mastery feat</li>
 </ul>
 <h4>Raging Resistance</h4>
-<p>You do not gain any Raging Resistance. You may take the Lycanthrope's Vigor Feat instead.</p>";
+<p>You do not gain any Raging Resistance. You may take the Lycanthrope's Vigor Feat instead.</p>
+<h4>Ancestor Mound</h4>
+<p>Ravenrock</p>
+<p>The tribe is slowing turning from Uthgardt to the worship of Malar. This puts them at odds with the Black Raven tribe, with whom they share Ravenrock as their Ancestor Mound.</p>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
     }
 }

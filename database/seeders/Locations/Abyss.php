@@ -40,9 +40,23 @@ class Abyss extends Seeder
 
         /**********************************************************************/
 
+        $sub              = new SubPlane;
+        $sub->parent_id   = $plane->id;
+        $sub->name        = "Driller's Hives";
+        $sub->natives     = 'Demons, Poisonous Vermin';
+        $sub->gravity     = 'Normal';
+        $sub->time        = 'Normal';
+        $sub->pantheon_id = app()->pantheons['Demonic']->id;
+        $sub->description = "<p>The air of this plane contains a disease that transforms visitors into giant poisonous insect creatures. At the end of each day, creatures must make a DC 13 CON Save or contract the disease. If you Fail the Save, you begin transforming into a random giant insect over the course of 3 days. Whatever insect you transform into, it will also have some form of Poison attack.</p>
+<p>This plane is inhabited by countless numbers of insects, continually waging war with each other from gargantuan insect hives. They attack visitors to the plane.</p>
+<p>The plane's demonic inhabitants include ekolids, and primeval demonic insects.</p>";
+        $sub->save();
+        $sub->ruler()->save(God::where('name', 'Tharzax')->firstOrFail());
+
+        /**********************************************************************/
+
         // Locations: https://forgottenrealms.fandom.com/wiki/Pazunia
 
-        // 2nd: (Driller's Hives) Tharzax
         // 3rd: (The Forgotten Land) Zzyczesiya
         // 4th: (The Grand Abyss)
         // 5th: (Wormblood)

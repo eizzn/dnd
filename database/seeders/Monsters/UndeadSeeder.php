@@ -228,15 +228,42 @@ class UndeadSeeder extends Seeder
         $monster->armor_class = '12';
         $monster->hit_dice    = 4;
         $monster->speed       = '0 ft / Fly 40 ft (hover)';
-        $monster->actions     = '<dl>
-    <dt>Withering Touch</dt> <dd>Melee Touch Attack +2 to hit, reach 5 ft, one target. 2 (1D4) Negative damage + 2 STR damage.</dd>
-    <dt>Etherealness</dt> <dd>The ghost can enter the Ethereal Plane from the Material Plane, or vice cersa as a Double Action. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can\'t affect or be affected by anything on the other plane. This ability also allows the ghost to see into the Ethereal Plane from the Material Plane or into the Material Plane from the Ethereal Plane.</dd>
-    <dt>Horrifying Visage</dt> <dd>Each non-undead creature within 60 ft of the ghost that can see it must succeed on a DC 13 WIS Save or be Frightened for 1 minute. If the Save fails by 5 or more, the target also ages 1D4 X 10 years. A frightened target can repeat the Save at the end of each of its turns, ending the Frightened condition on itself on a Success. If a target\'s Save is successful or the effect ends, the target is immune to this ghost\'s Horrifying Visage for the next 24 hours. The aging effect can be reversed with a Restoration spell, but only within 24 hours of it occuring.</dd>
-    <dt>Possession (Recharge 6)</dt> <dd>One humanoid that the ghost can see within 5 ft of it must succeed on a DC 13 CHA Save or be possessed by the ghost; the ghost then disappears, and the target is incapacitated and loses control of its body. The ghost now controls the body but doesn\'t deprive the target of awareness. The ghost can\'t be targeted by any attack, spell, or other effect, except ones that turn undead, and it retains its alignment, INT, WIS, CHA, and immunity to being Charmed, and Frightened. It otherwise uses the possessed target\'s statistics, but doesn\'t gain access to the target\'s knowledge, class features, or proficiencies. The possession lasts until the body drops to 0 Hit Points, the ghost ends it as an Action, or the ghost is turned or forced out by an effect like the Dispel Evil and Good spell. When the possession ends, the ghost reappears in an unoccupied space within 5 ft of the body. The target is immune to this ghost\'s Possession for 24 hours after succeeding on the Save or after the possession ends.</dd>
-</dl>';
+        $monster->actions     = "<dl>
+    <dt>Withering Touch</dt> <dd>Melee Touch Attack +2 to hit, reach 5 ft, one target. 1D3 Negative Damage + 1 STR Damage.</dd>
+    <dt>Etherealness</dt> <dd>The ghost can enter the Ethereal Plane from the Material Plane, or vice versa as a Double Action. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can't affect or be affected by anything on the other plane. This ability also allows the ghost to see into the Ethereal Plane from the Material Plane or into the Material Plane from the Ethereal Plane.</dd>
+</dl>";
         $helper->saveMonster($monster, ['Undead', 'Incorporeal'], [
             'hit_points' => 10,
             'stats'      => [null, 14, null, 10, 10, 11, 1, 2],
+            'features'   => [
+                'darkvision'    => ['meta' => '60 ft'],
+                'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
+                'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
+                'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained'],
+                'incorporeal',
+            ],
+            'languages' => [
+                'Special' => ['meta' => 'All languages it knew in life'],
+            ],
+        ]);
+
+        $monster              = new Monster;
+        $monster->name        = 'Ghost, Greater';
+        $monster->size        = 'Medium';
+        $monster->type        = 'Undead';
+        $monster->alignment   = 'any';
+        $monster->armor_class = '12';
+        $monster->hit_dice    = 5;
+        $monster->speed       = '0 ft / Fly 40 ft (hover)';
+        $monster->actions     = "<dl>
+    <dt>Withering Touch</dt> <dd>Melee Touch Attack +2 to hit, reach 5 ft, one target. 1D4 Negative Damage + 2 STR Damage.</dd>
+    <dt>Etherealness</dt> <dd>The ghost can enter the Ethereal Plane from the Material Plane, or vice versa as a Double Action. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can't affect or be affected by anything on the other plane. This ability also allows the ghost to see into the Ethereal Plane from the Material Plane or into the Material Plane from the Ethereal Plane.</dd>
+    <dt>Horrifying Visage</dt> <dd>Each non-undead creature within 60 ft of the ghost that can see it must succeed on a DC 13 WIS Save or be Frightened for 1 minute. If the Save Critically Fails, the Target also ages 1D4 X 10 years. A Frightened Target can repeat the Save at the end of each of its turns, ending the Frightened Condition on itself on a Success. If a target's Save is successful or the effect ends, the Target is immune to this ghost's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a Restoration Spell.</dd>
+    <dt>Possession (Recharge 6)</dt> <dd>One humanoid that the ghost can see within 5 ft of it must succeed on a DC 13 CHA Save or be possessed by the ghost; the ghost then disappears, and the target is incapacitated and loses control of its body. The ghost now controls the body but doesn't deprive the target of awareness. The ghost can't be targeted by any attack, spell, or other effect, except ones that turn undead, and it retains its alignment, INT, WIS, CHA, and immunity to being Charmed, and Frightened. It otherwise uses the possessed target's statistics, but doesn't gain access to the Target's knowledge, class features, or proficiencies. The possession lasts until the body drops to 0 Hit Points, the ghost ends it as an Action, or the ghost is turned or forced out by an effect like the Dispel Evil and Good spell. When the possession ends, the ghost reappears in an unoccupied space within 5 ft of the body. The target is immune to this ghost's Possession for 24 hours after succeeding on the Save or after the possession ends.</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Undead', 'Incorporeal'], [
+            'hit_points' => 12,
+            'stats'      => [null, 14, null, 10, 10, 11, 2, 2],
             'features'   => [
                 'darkvision'    => ['meta' => '60 ft'],
                 'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],

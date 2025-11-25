@@ -129,8 +129,7 @@ class GodsTyrSeeder extends Seeder
                 'Emerald Burst', 'Hand of the Faithful', 'Insignia of Blessing', 'Insignia of Healing', 'Lawful Sword',
                 'Prayer', 'Remove Curse', ],
             4 => ['Aura of Life', 'Aura of Purity', 'Celestial Fortress', 'Divine Power', 'Favor of Ilmater', 'Sacred Item'],
-            5 => ['Holy Weapon'],
-            6 => ['Exalted Fury', 'Holy Aura', 'Shield of Law'],
+            5 => ['Exalted Fury', 'Holy Aura', 'Holy Weapon', 'Shield of Law'],
         ]);
 
         $class                = new Klass;
@@ -280,7 +279,7 @@ class GodsTyrSeeder extends Seeder
             'fear_immunity'   => [6],
             'holy_resistance' => [12],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Die Hard']);
+        $class->features()->save(app()->features['talent'], ['level' => 2, 'meta' => 'Die Hard']);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Great Fortitude', 'idx' => 1]);
         $class->features()->save(app()->features['feat'], ['level' => 9, 'meta' => 'Mettle']);
         $class->features()->save(app()->features['feat'], ['level' => 15, 'meta' => 'Improved Mettle']);
@@ -419,9 +418,8 @@ class GodsTyrSeeder extends Seeder
                 'Insignia of Healing', "King's Castle", 'Lawful Sword', 'Prayer', 'Remove Curse', 'Zone of Truth', ],
             4 => ['Aura of Life', 'Aura of Purity', 'Celestial Blood', 'Celestial Fortress', 'Divine Power', 'Favor of Ilmater',
                 'Sacred Item', ],
-            5 => ['Aura of Power', 'Holy Weapon'],
-            6 => ['Exalted Fury', 'Fiery Vision', 'Holy Aura', 'Righteous Glare', 'Shield of Law'],
-            7 => ['Heavenly Host'],
+            5 => ['Aura of Power', 'Exalted Fury', 'Fiery Vision', 'Holy Aura', 'Holy Weapon', 'Righteous Glare', 'Shield of Law'],
+            6 => ['Heavenly Host'],
         ]);
 
         $feat              = new Feat;
@@ -443,9 +441,8 @@ class GodsTyrSeeder extends Seeder
                 'Hand of the Faithful', 'Insignia of Blessing', 'Insignia of Healing', 'Lawful Sword', 'Prayer', 'Remove Curse',
                 'Safe Clearing', ],
             4 => ['Aura of Purity', 'Celestial Fortress', 'Giant Form'],
-            5 => ['Aura of Power', 'Holy Weapon'],
-            6 => ['Holy Aura'],
-            7 => ['Heavenly Host'],
+            5 => ['Aura of Power', 'Holy Aura', 'Holy Weapon'],
+            6 => ['Heavenly Host'],
         ]);
 
         $feat              = new Feat;
@@ -485,9 +482,8 @@ class GodsTyrSeeder extends Seeder
                 'Emerald Burst', 'Fire Eyes', 'Hand of the Faithful', 'Insignia of Blessing', 'Insignia of Healing', 'Lawful Sword',
                 'Prayer', 'Remove Curse', 'Resist Fire', ],
             4 => ['Celestial Fortress', 'Divine Power'],
-            5 => ['Aura of Power', 'Holy Weapon'],
-            6 => ['Exalted Fury', 'Righteous Glare'],
-            7 => ['Heavenly Host' => 'The summoned host will appear dwarven'],
+            5 => ['Aura of Power', 'Exalted Fury', 'Holy Weapon', 'Righteous Glare'],
+            6 => ['Heavenly Host' => 'The summoned host will appear dwarven'],
         ]);
 
         $helper->addPietyToGod($god, [
@@ -676,8 +672,7 @@ class GodsTyrSeeder extends Seeder
             2 => ['Aura of Fear', 'Aura of War', 'Dragon Breath'],
             3 => ['Aspect of the Deity, Lesser'],
             4 => ['Aggravate Dracorage', 'Draconic Might', 'Dragon Ally', 'Dragon Wings'],
-            5 => ['Chromatic Ray', 'Dispel Evil'],
-            6 => ['Dragon Form'],
+            5 => ['Chromatic Ray', 'Dispel Evil', 'Dragon Form'],
         ]);
 
         $god        = new God;

@@ -18,6 +18,38 @@ class ItemFormulasSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
+        $formula                = new Formula;
+        $formula->name          = 'Amulet of Health';
+        $formula->type          = 'Item';
+        $formula->level         = 7;
+        $formula->price         = '10,000 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '1 week';
+        $formula->description = '<ul>
+    <li>You gain a +4 Bonus to CON.</li>
+</ul>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'skills'    => ['Crafting' => ['dc' => 8]],
+            'feats'     => ['Craft Wondrous Item'],
+            'spells'    => ["Bear's Endurance" => ['meta' => 'Heightened +2']],
+        ]);
+
+        $formula              =  new Formula;
+        $formula->name        = 'Bag of Holding';
+        $formula->type        = 'Item';
+        $formula->level       = 7;
+        $formula->price       = '500 gp';
+        $formula->activation  = 'Manipulate Action';
+        $formula->bulk        = 'L';
+        $formula->description = "<p>This bag has an interior space considerably larger than its outside dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The bag can hold up to 500 lbs, not exceeding a volume of 64 cubic feet. The bag weighs 15 lbs, regardless of its contents. Retrieving an item from the bag requires an Action.</p>
+<p>If the bag is overloaded, pierced, or torn, it ruptures and is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth, unharmed, but the bag must be put right before it can be used again. Breathing creatures inside the bag can survive up to a number of minutes equal to 10 divided by the number of creatures (minimum 1 minute), after which time they begin to suffocate.</p>
+<p>Placing a Bag of Holding inside an extradimensional space created by a Heward's Handy Haversack, Portable hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate is sucked through it to a random location on the Astral Plane. the gate then closes. The gate is one-way only and can't be reopened.</p>";
+        $helper->saveFormula($formula, ['Magical', 'Astral'], [
+            'skills'    => ['Crafting' => ['dc' => 8, 'meta' => 'Clothes making or sewing']],
+            'feats'     => ['Craft Wondrous Item'],
+            'spells'    => ['Arcane Pocket' => ['meta' => 'Heightened +3']],
+        ]);
+
         $formula              = new Formula;
         $formula->name        = 'Boots of Elvenkind';
         $formula->type        = 'Item';
@@ -56,10 +88,38 @@ class ItemFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
+        $formula->name        = 'Boots of Levitation';
+        $formula->type        = 'Item';
+        $formula->level       = 7;
+        $formula->price       = '1,200 gp';
+        $formula->bulk        = 'L';
+        $formula->activation  = 'Manipulate Action';
+        $formula->description = '<p>Once per day, you may use an Action to gain the effects of a Levitate Spell.</p>';
+        $helper->saveFormula($formula, ['Magical'], [
+            'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Shoe making']],
+            'feats'  => ['Craft Wondrous Item'],
+            'spells' => ['Levitate' => ['meta' => 'Heightened +1']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Boots of Speed';
+        $formula->type        = 'Item';
+        $formula->level       = 6;
+        $formula->price       = '1,000 gp';
+        $formula->bulk        = 'L';
+        $formula->activation  = 'Manipulate Action';
+        $formula->description = '<p>While you wear these boots, you can use a Manipulate Action to activate the boots. While they are active, you gain an additional Action. This additional Action can only be used to make a Move Action. You must use another Manipulate Action to end this effect. Once the boots have been active for a total of 10 minutes, they lose this ability until 24 hours later. After any consecutive 24 hours of non-use, the boots reset.</p>';
+        $helper->saveFormula($formula, ['Magical'], [
+            'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Shoe making']],
+            'feats'  => ['Craft Wondrous Item'],
+            'spells' => ['Swift' => ['meta' => 'Heightened +2']],
+        ]);
+
+        $formula              = new Formula;
         $formula->name        = 'Broom of Flying';
         $formula->type        = 'Item';
         $formula->level       = 7;
-        $formula->price       = '17,000 gp';
+        $formula->price       = '1,700 gp';
         $formula->bulk        = 'M';
         $formula->description = '<p>This broom is able to fly through the air as if affected by an overland flight spell (average maneuverability) for up to 9 hours per day (split up as its owner desires). The broom can carry 200 pounds and fly at a speed of 40 feet, or up to 400 pounds at a speed at 30 feet.</p>
 <p>In addition, the broom can travel alone to any destination named by the owner as long as she has a good idea of the location and layout of that destination. It comes to its owner from as far away as 300 yards when she speaks the command word. The broom of flying has a speed of 40 feet when it has no rider.</p>';
@@ -67,6 +127,54 @@ class ItemFormulasSeeder extends Seeder
             'skills' => ['Crafting' => ['dc' => 5, 'meta' => 'Woodworking']],
             'feats'  => ['Craft Wondrous Item'],
             'spells' => ['Animate Objects', 'Fly'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Cloak of Protection';
+        $formula->type          = 'Item';
+        $formula->level         = 10;
+        $formula->price         = '3,000 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '1 week';
+        $formula->description   = '<p>You gain a +1 Bonus to AC and all Saves while wearing this cloak.</p>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'feats'     => ['Craft Wondrous Item'],
+            'spells'    => [
+                'Shield' => ['meta' => 'Heightened +3'],
+                'Bless'  => ['meta' => 'Heightened +3'],
+            ],
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Clothes Making']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Gauntlets of Strength';
+        $formula->type        = 'Item';
+        $formula->level       = 7;
+        $formula->price       = '5,000 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<ul>
+    <li>You gain a +4 Bonus to STR.</li>
+    <li>1/month, you can give yourself +6 to STR for 1 minute</li>
+</ul>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'skills' => ['Crafting' => ['dc' => 11, 'meta' => 'Metalworking']],
+            'feats'  => ['Craft Wondrous Item'],
+            'spells' => ["Bull's Strength" => ['meta' => 'Heightened +2']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Headband of Intellect';
+        $formula->type        = 'Item';
+        $formula->level       = 7;
+        $formula->price       = '5,000 gp';
+        $formula->bulk        = 'L';
+        $formula->description = '<p>This headband always contains a gem worth at least 2,000 gp.</p>
+<ul>
+    <li>You gain a +4 Bonus to INT.</li>
+</ul>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'feats'  => ['Craft Wondrous Item'],
+            'spells' => ["Fox's Cunning" => ['meta' => 'Heightened +2']],
         ]);
 
         $formula              = new Formula;
@@ -172,13 +280,67 @@ class ItemFormulasSeeder extends Seeder
     <li>The wearer can communicate verbally with any dragon (as with the Tongues spell)</li>
     <li>1/day, the wearer can create an image of any dragon they have seen with their own eyes (as with the Silent Image spell)</li>
     <li>The wearer can call on any dracolich or evil dragon by name, although this did not guarantee that the creature will respond or arrive, or be helpful. The dragon or dracolich knows the wearer's location and could use it to locate them. The call continues until the user ends it, removes the ring, or dies.</li>
-    <li>When worn with on of the six Amulets of Draconic Might, an individual becomes immune to Fear effects of dragons and gains Immunity to all Breath Weapons from dragons. They also gain the ability to Rebuke evil-aligned dragons as if the wearer used the Rebuke Undead ability (treat the wearers Character Level as the Caster Level). Due to the dangers of attempting to compel a dragon, this power is seldom used.</li>
+    <li>When worn with one of the six Amulets of Draconic Might, an individual becomes immune to Fear effects of dragons and gains Immunity to all Breath Weapons from dragons. They also gain the ability to Rebuke evil-aligned dragons as if the wearer used the Rebuke Undead ability (treat the wearers Character Level as the Caster Level). Due to the dangers of attempting to compel a dragon, this power is seldom used.</li>
 </ul>";
         $helper->saveFormula($formula, ['Magical', 'Dragon', 'Attunement'], [
             'feats'     => ['Forge Ring'],
             'spells'    => ['Sending', 'Silent Image', 'Tongues'],
-            'skills'    => ['Lore' => ['dc' => '15', 'meta' => 'Dragons']],
+            'skills'    => [
+                'Lore'     => ['dc' => '15', 'meta' => 'Dragons'],
+                'Crafting' => ['dc' => '9', 'meta' => 'Metal Working'],
+            ],
             'materials' => ['Blood' => ['meta' => '10 drops from a true dragon']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Ring of Invisibility';
+        $formula->type          = 'Ring';
+        $formula->level         = 12;
+        $formula->price         = '12,000 gp';
+        $formula->bulk          = 'L';
+        $formula->activation    = 'Action; Operate Activation';
+        $formula->crafting_time = '1 week';
+        $formula->description   = '<p>As an Action, you may become Invisible as the Spell for 1 hour up to 3/day.</p>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'feats'     => ['Forge Ring'],
+            'spells'    => ['Invisibility' => ['meta' => 'Heightened +3']],
+            'skills'    => ['Crafting' => ['dc' => '9', 'meta' => 'Metal Working']],
+            'materials' => ['Gold'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Ring of Protection';
+        $formula->type          = 'Ring';
+        $formula->level         = 10;
+        $formula->price         = '3,000 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '1 week';
+        $formula->description   = '<p>You gain a +1 Bonus to AC and all Saves while wearing this ring.</p>';
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'feats'     => ['Forge Ring'],
+            'spells'    => [
+                'Shield' => ['meta' => 'Heightened +3'],
+                'Bless'  => ['meta' => 'Heightened +3'],
+            ],
+            'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Metal Working']],
+            'materials' => ['Silver'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Ring of Spell Storing';
+        $formula->type          = 'Ring';
+        $formula->level         = 12;
+        $formula->price         = '15,000 gp';
+        $formula->bulk          = 'L';
+        $formula->crafting_time = '2 weeks';
+        $formula->description   = "<p>This ring stores spells cast into it, holding them until the attuned wearer uses them. The ring can store up to 5 levels worth of spells at a time.</p>
+<p>Any creature can cast a spell of 1st through 5th level into the ring by touching the ring as the spell is cast. The spell has no effect, other than to be stored in the ring. If the ring can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines ow much space it uses. Spells cast with meta magic modifications cannot be stored in the ring.</p>
+<p>While wearing this ring, you can cast any spell stored in it as a Double Action. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster, but is otherwise treated as if you cast the spell. The spell cast from the ring is no longer stored in it, freeing up space.</p>";
+        $helper->saveFormula($formula, ['Magical', 'Attunement'], [
+            'feats'     => ['Forge Ring', 'Scribe Scroll'],
+            'skills'    => ['Crafting' => ['dc' => '10', 'meta' => 'Metal Working']],
+            'spells'    => ['Anyspell'],
+            'materials' => ['Mithral'],
         ]);
 
         $formula                = new Formula;
@@ -195,7 +357,7 @@ class ItemFormulasSeeder extends Seeder
 <p>Once the armor is forged, it can then be enchanted further. Each Rune that is to be added also requires the casting of the Control Water spell.</p>";
         $helper->saveFormula($formula, ['Water', 'Magical'], [
             'feats'  => ['Craft Armament'],
-            'spells' => ['Shape Water'],
+            'spells' => ['Shape Water' => ['meta' => 'Cast 20 times over the course of the crafting']],
         ]);
 
         $formula                = new Formula;
@@ -234,3 +396,4 @@ class ItemFormulasSeeder extends Seeder
         ]);
     }
 }
+// https://www.aidedd.org/dnd-filters/magic-items.php

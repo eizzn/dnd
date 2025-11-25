@@ -73,12 +73,12 @@ class ClassSorcererSeeder extends Seeder
         </tr>
         <tr>
             <td>4th</td>
-            <td>6</td>
+            <td>7</td>
             <td>Action</td>
         </tr>
         <tr>
             <td>5th</td>
-            <td>7</td>
+            <td>9</td>
             <td>Action</td>
         </tr>
     </tbody>
@@ -89,9 +89,10 @@ class ClassSorcererSeeder extends Seeder
         $helper->addFeaturesToClass($class, [
             'bloodline_feat'        => [1],
             'cantrip_caster'        => [2],
-            'spell_pool'            => [3, 5, 10, 15, 20],
-            'improved_spell_points' => [3],
+            'spell_pool'            => [10, 20],
             'flexible_casting'      => [4],
+            'improved_spell_points' => [5],
+            'sorcerer_feat'         => [3, 6, 9, 12, 15],
         ]);
 
         $helper->addSpellsToClass($class, [
@@ -104,22 +105,22 @@ class ClassSorcererSeeder extends Seeder
             2  => ['cantrips' => 4, 'known' => 1, 'one' => 1],
             3  => ['cantrips' => 4, 'known' => 2, 'one' => 2],
             4  => ['cantrips' => 4, 'known' => 3, 'one' => 3],
-            5  => ['cantrips' => 5, 'known' => 4, 'one' => 3, 'two' => 2],
+            5  => ['cantrips' => 4, 'known' => 4, 'one' => 3, 'two' => 2],
             6  => ['cantrips' => 5, 'known' => 5, 'one' => 4, 'two' => 3],
             7  => ['cantrips' => 5, 'known' => 6, 'one' => 4, 'two' => 3, 'three' => 2],
             8  => ['cantrips' => 5, 'known' => 7, 'one' => 4, 'two' => 4, 'three' => 3],
-            9  => ['cantrips' => 6, 'known' => 8, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
-            10 => ['cantrips' => 6, 'known' => 9, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 2],
-            11 => ['cantrips' => 6, 'known' => 10, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
-            12 => ['cantrips' => 6, 'known' => 11, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2],
-            13 => ['cantrips' => 6, 'known' => 12, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            14 => ['cantrips' => 7, 'known' => 13, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
-            15 => ['cantrips' => 7, 'known' => 14, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            16 => ['cantrips' => 7, 'known' => 15, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
-            17 => ['cantrips' => 7, 'known' => 16, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
-            18 => ['cantrips' => 7, 'known' => 17, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 1, 'eight' => 1],
-            19 => ['cantrips' => 7, 'known' => 18, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
-            20 => ['cantrips' => 8, 'known' => 19, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
+            9  => ['cantrips' => 5, 'known' => 8, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
+            10 => ['cantrips' => 5, 'known' => 9, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 2],
+            11 => ['cantrips' => 5, 'known' => 10, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
+            12 => ['cantrips' => 5, 'known' => 11, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2],
+            13 => ['cantrips' => 5, 'known' => 12, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
+            14 => ['cantrips' => 5, 'known' => 13, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
+            15 => ['cantrips' => 5, 'known' => 14, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            16 => ['cantrips' => 5, 'known' => 15, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1],
+            17 => ['cantrips' => 5, 'known' => 16, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1, 'seven' => 1, 'eight' => 1],
+            18 => ['cantrips' => 5, 'known' => 17, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 1, 'eight' => 1],
+            19 => ['cantrips' => 5, 'known' => 18, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
+            20 => ['cantrips' => 5, 'known' => 19, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 3, 'six' => 2, 'seven' => 2, 'eight' => 1, 'nine' => 1],
         ]);
 
         $feat              = new Feat;
@@ -161,7 +162,7 @@ class ClassSorcererSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Demonic Bloodline';
-        $feat->description = "<p>The demons of the Abyss debase all they touch, and one of your ancestors fell victim to their corruption. You\'re burdened with dark thoughts and the desire for destruction. This urge can be overcome if you choose to fight it, but the variety of sin calls to you always.</p>
+        $feat->description = "<p>The demons of the Abyss debase all they touch, and one of your ancestors fell victim to their corruption. You're burdened with dark thoughts and the desire for destruction. This urge can be overcome if you choose to fight it, but the variety of sin calls to you always.</p>
 <ul>
     <li>You may spend a Spell Point to gain a +2 bonus to CON for 1 hour. This stacks with the bonus from Bear's Endurance.</li>
     <li>You may take Vile Feats</li>
@@ -173,12 +174,14 @@ class ClassSorcererSeeder extends Seeder
             1 => ['Bane', 'Burning Hands', 'Fear', 'Mage Armor', 'Protection From Good', 'Protection From Law', 'Wrathful Smite'],
             2 => ['Aura of War', "Bear's Endurance" => 'Self only', "Bull's Strength", 'Continual Flame', 'Darkness', 'Desecrate',
                 'Hold Person', 'Magic Weapon', ],
-            3 => ['Animate Dead', 'Call Dretch Horde', 'Fireball', 'Fly', 'Haste', 'Lightning Bolt', 'Summon Demon, Lesser'],
-            4 => ['Calling' => 'Summon Demons only'],
-            6 => ['Arcane Gate', 'Demon Form', 'Slay Living', 'Teleport'],
-            7 => ['Unholy Aura'],
-            8 => ['Bodak Birth'],
-            9 => ['Invulnerability'],
+            3 => ['Animate Dead', 'Call Dretch Horde', 'Dimensional Anchor', 'Fireball', 'Fly', 'Haste', 'Lightning Bolt',
+                'Summon Demon, Lesser'],
+            4 => ['Blight', 'Call Dretch Horde', 'Summon Demon'],
+            5 => ['Banishment', 'Fiend Form' => 'Demon only', "Vampire's Kiss"],
+            6 => ['Slay Living', 'Teleport'],
+            7 => ['Finger of Death', 'Unholy Aura'],
+            8 => ['Bodak Birth', 'Power Word Stun'],
+            9 => ['Abyssal Army', 'Invulnerability'],
         ]);
 
         $feat              = new Feat;
@@ -191,14 +194,16 @@ class ClassSorcererSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Devil']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Blade Ward', 'Control Flames', 'Fire Bolt'],
-            1 => ['Bane', 'Burning Hands', 'Charm'],
-            2 => ['Desecrate', 'Pyrotechnics', 'Resist Fire'],
-            3 => ['Animal Form', 'Fireball'],
-            4 => ['Calling' => 'Summon Devils only', 'Call Nightmare'],
-            6 => ['Arcane Gate', 'Devil Form', 'Investiture of Flame'],
-            7 => ['Fiery Body', 'Fire Storm'],
-            8 => ['Power Word Stun'],
+            0 => ['Blade Ward', 'Control Flames', 'Fire Bolt', 'Minor Illusion', 'Poison Spray'],
+            1 => ['Bane', 'Burning Hands', 'Charm', 'Comprehend Languages', 'Mage Armor', 'Ray of Clumsiness'],
+            2 => ['Alter Self', "Fox's Cunning", 'Desecrate', 'Pyrotechnics', 'Misty Step', 'Resist Fire'],
+            3 => ['Animal Form', 'Distort Summons', 'Fireball', 'Fly', 'Power Word Deafen'],
+            4 => ['Call Lemure Horde', 'Call Nightmare', 'Calling' => 'Devil only', 'Fire Shield'],
+            5 => ['Banishment', 'Fiend Form' => 'Devil only', "Vampire's Kiss"],
+            6 => ['Investiture of Flame', 'Perfect Invisibility', 'True Seeing'],
+            7 => ['Fiery Body', 'Fire Storm', 'Possession'],
+            8 => ['Binding', 'Power Word Stun'],
+            9 => ['Shapechange', 'Soul Theft'],
         ]);
 
         $feat              = new Feat;

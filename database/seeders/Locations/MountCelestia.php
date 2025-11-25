@@ -69,7 +69,7 @@ class MountCelestia extends Seeder
         $location->type        = 'Divine Realm';
         $location->pantheon_id = app()->pantheons['Faeruneon']->id;
         $location->description = "<p>The Court is one of the Divine Realms of the god Tyr. It includes a massive marble hall from which Tyr ruled his realm much like a court of law. It is impossible to lie in Tyr's realm.</p>
-<p>the Court is on the summit of one of three great mountains surrounding the base of Mount Celestia, making it a part of Lunia. The realm is adjacent to that of Siamorphe, whose Alabaster Palace is located in a lush vale between the Court and Celestia.</p>";
+<p>The Court is on the summit of one of three great mountains surrounding the base of Mount Celestia, making it a part of Lunia. The realm is adjacent to that of Siamorphe, whose Alabaster Palace is located in a lush vale between the Court and Celestia.</p>";
         $sub->locations()->save($location);
         $location->ruler()->save(God::where('name', 'Tyr')->firstOrFail());
 
@@ -92,15 +92,7 @@ class MountCelestia extends Seeder
         $sub->locations()->save($location);
         $location->ruler()->save(God::where('name', 'Torm')->firstOrFail());
 
-        $location              = new Location;
-        $location->name        = "Bahamut's Palace";
-        $location->type        = 'Divine Realm';
-        $location->pantheon_id = app()->pantheons['Draconic']->id;
-        $location->description = "<p>Accounts differ in the descriptions of Bahamut's legendary palace. In the oldest records, it is described as a palace made of crystal. In the more modern accounts, the palace is described as a wondrous, glittering fortress with windows made from gems set in silver and gold, walls with inlaid copper and ivory on the inside and platinum on the outside, and floors of beaten mithral. Regardless of the source, all accounts state that the castle is built entirely from Bahamut's enormous treasure hoard (as well as of bones of thousands of would-be thieves), and that it reflected the eternal light of Celestia like a beacon on the horizon.</p>
-<p>Bahamut's Palace is also connected to the Elemental Plane of Air by four portals named after the four winds, each guarded by a warden archon. The guardian of the gate to the North Wind is Yonel, the guardian of the gate to the South Wind is Kerkhoutha, the guardian of the gate to the West Wind is Moriel, and the guardian of the gate to the East Wind is Ruhiel.</p>
-<p>Bahamut can move his Palace to any of the 7 layers of Mount Celestia, something that no other being has been able to do any Other Plane.</p>";
-        $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Bahamut')->firstOrFail());
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
 
         /**********************************************************************/
 
@@ -125,6 +117,8 @@ class MountCelestia extends Seeder
         $sub->locations()->save($location);
         $location->ruler()->save(God::where('name', 'Domiel')->firstOrFail());
 
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
+
         /**********************************************************************/
 
         $sub              = new SubPlane;
@@ -146,6 +140,8 @@ class MountCelestia extends Seeder
         $location->description = '<p>The Green Fields is the celestial home of the Halfling Pantheon. As its name aptly implies, Green Fields consists of a green field expanding ever outward in every direction. One can even find winged-halflings in Green Fields.</p>';
         $sub->locations()->save($location);
         $location->ruler()->save(God::where('name', 'Yondalla')->firstOrFail());
+
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
 
         /**********************************************************************/
 
@@ -170,6 +166,8 @@ class MountCelestia extends Seeder
 <p>The ability to magically create new things is considerably amplified in Erackinor. Spells such as heroes' feast lasts twice as long, for example, while spells that produce new materials result in twice the normal amount. Enchantment magic does not enjoy these benefits, however, since it is not considered an act of creation.</p>";
         $sub->locations()->save($location);
         $location->ruler()->save(God::where('name', 'Odin Borrson')->firstOrFail());
+
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
 
         /**********************************************************************/
 

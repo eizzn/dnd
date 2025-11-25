@@ -35,7 +35,7 @@ class PsionicTalentsSeeder extends Seeder
         $manu->name        = 'Swift Invisibility';
         $manu->requirement = 'You must have the Chameleon Psychometabolism power';
         $manu->action_type = 'Free';
-        $manu->description = '<p>As part of using this Talent, spend 1 Power Point. You become invisible until the end of this current turn. You do not become visible for Attacking, Casting Spells or Manifesting Powers.</p>';
+        $manu->description = '<p>As part of using this Talent, spend 1 Power Point. You become invisible until the end of this current turn cycle. You do not become visible for Attacking, Casting Spells or Manifesting Powers.</p>';
         $helper->addTypesToSimpleObject($manu, ['Talent' => 2, 'Psychometabolism', 'Psionic']);
 
         $manu              = new Talent;
@@ -77,7 +77,8 @@ class PsionicTalentsSeeder extends Seeder
         $manu->name        = 'Improved Flurry of Blows';
         $manu->requirement = 'You must have the Flurry of Blows Class Feature';
         $manu->description = '<ul>
-    <li>You may spend 2 Power Points to gain the benefits of the Improved Two-Weapon Fighter Feat instead of the Two-Weapon Fighter Feat when using Flurry of Blows. Note: this does not give you the additional Action from Flurry of Blows. You must spend the Power Points for the additional Action from Flurry of Blows separately.</li>
+    <li>You may spend 3 Power Points to gain the benefits of the Improved Two-Weapon Fighter Feat along with the Two-Weapon Fighter Feat when using Flurry of Blows.</li>
+    <li>If at some point you gain the Improved Two-Weapon Fighter Feat, then you may choose to replace this Talent with the Greater Flurry of Blows Talent.</li>
 </ul>';
         $helper->addTypesToSimpleObject($manu, ['Psionic', 'Talent' => 7]);
 
@@ -85,7 +86,8 @@ class PsionicTalentsSeeder extends Seeder
         $manu->name        = 'Greater Flurry of Blows';
         $manu->requirement = 'You must have the Flurry of Blows Class Feature';
         $manu->description = '<ul>
-    <li>You may spend 3 Power Points to gain the benefits of the Greater Two-Weapon Fighter Feat instead of the Two-Weapon Fighter Feat when using Flurry of Blows. Note: this does not give you additional Action from Flurry of Blows or the benefits of the Improved Two-Weapon Fighter Feat. You must spend the Power Points for those separately</li>
+    <li>You may spend 5 Power Points to gain the benefits of the Greater Two-Weapon Fighter Feat instead of the Two-Weapon Fighter Feat when using Flurry of Blows.</li>
+    <li>If at some point you gain the Greater Two-Weapon Fighter Feat, then you may choose to replace this Talent with any other Talent that you qualify for.</li>
 </ul>';
         $helper->addTypesToSimpleObject($manu, ['Psionic', 'Talent' => 12]);
 
@@ -180,8 +182,8 @@ class PsionicTalentsSeeder extends Seeder
         $manu->description = '<p>You gain the following</p>
 <ul>
     <li>When you get up from Prone, it is a Free Action instead of an Action.</li>
-    <li>If you are Psionically Focused, then you may move up to 10 feet as part of getting up from Prone. This movement does not provoke Attacks of Opportunity.</li>
-    <li>If you expend your Psionic Focus, then you may move up to 10 feet and make one Unarmed Strike, before or after your movement. This movement does not provoke Attacks of Opportunity.</li>
+    <li>If you are Psionically Focused, then you may move up to 5 feet as part of getting up from Prone. This movement does not provoke Attacks of Opportunity.</li>
+    <li>If you expend your Psionic Focus, then you may move up to 10 feet and make a one Action Unarmed Strike, before or after your movement. This movement does not provoke Attacks of Opportunity.</li>
 </ul>';
         $helper->addTypesToSimpleObject($manu, ['Psionic', 'Talent' => 1]);
 

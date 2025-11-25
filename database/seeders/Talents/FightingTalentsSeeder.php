@@ -196,9 +196,9 @@ class FightingTalentsSeeder extends Seeder
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are not wearing any armor and lightly encumbered or less';
         $talent->description = "<p>The Shor'yuken, commonly referred to as the Dragon Punch, is a jumping uppercut in which the user spins upwards with some horizontal movement as well, knocking the opponent to the ground and inflicting damage.</p>
-<p>You make a single melee Unarmed Strike that deals an Additional 2 Unarmed Strike damage dices. You also rise 5 feet into the air and suffer a -5 penalty to your Initiative.</p>
-<p>You may also make this attack as a Triple Action, if you do, you gain 5 Additional Unarmed Strike damage dice instead of 2, rise into the air 10 feet, and suffer a -10 penalty to your Initiative.</p>";
-        $helper->addTypesTosimpleObject($talent, ['Strike', 'Talent' => 5]);
+<p>You make a single melee Unarmed Strike that deals an Additional 2 Unarmed Strike damage dices. You also rise 5 feet into the air and suffer a -5 penalty to your Initiative starting at the next initiative cycle.</p>
+<p>You may also make this attack as a Triple Action, if you do, you gain 5 Additional Unarmed Strike damage dice instead of 2, rise into the air 10 feet, and suffer a -10 penalty to your Initiative starting at the next initiative cycle.</p>";
+        $helper->addTypesTosimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Shoto Style']);
 
         $talent              = new Talent;
@@ -208,9 +208,9 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', "Shor'yuken")->first()->id;
         $talent->description = '<p>You can now perform a Shinryuken.</p>
 <ul>
-    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Points. You make a single Melee Unarmed Strike that deals an Additional +10 Unarmed Strike Damage per Damage Die. You also rise 10 feet and suffer a -10 penalty to your Initiative.</li>
+    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Points. You make a single Melee Unarmed Strike that deals an Additional +10 Unarmed Strike Damage per Damage Die. You also rise 10 feet and suffer a -10 penalty to your Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = "Ha'doken";
@@ -237,9 +237,9 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Spinning Bird Kick')->first()->id;
         $talent->description = '<p>You can now perform an Improved Spinning Bird Kick.</p>
 <ul>
-    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +5 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative.</li>
+    <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +5 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Lightning Kick';
@@ -247,8 +247,8 @@ class FightingTalentsSeeder extends Seeder
         $talent->requirement = 'You are not wearing any armor and are lightly encumbered or less';
         $talent->description = '<p>You unleash a flurry of kicks.</p>
 <p>You spend 1 Power Point and make 4 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike.</p>
-<p>You may also spend a Heroic Surge (you still gain the additional Action). If you do, you make 6 Melee Unarmed Strikes instead and suffer a -7 to your Initiative.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 6]);
+<p>You may also spend a Heroic Surge. If you do, you make 6 Melee Unarmed Strikes instead and suffer a -5 to your Initiative starting at the next initiative cycle.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 6]);
         $talent->feats()->save(app()->feats['Tu Lung Style']);
 
         $talent              = new Talent;
@@ -258,7 +258,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->parent_id   = Talent::where('name', 'Lightning Kick')->first()->id;
         $talent->description = '<p>You can perform an Improved Lightning Kick.</p>
 <ul>
-    <li>Spend a Heroic Surge (you still gain an additional Action) and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +2D4 Bludgeoning damage.</li>
+    <li>Spend a Heroic Surge and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +1D4 Bludgeoning damage.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
 
@@ -267,7 +267,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are not wearing any armor and are lightly encumbered or less';
         $talent->parent_id   = Talent::where('name', 'Lightning Kick')->first()->id;
-        $talent->description = '<p>As part of this attack, you do a forward somersault, which moves you 5 feet. This movement does not provoke Attacks of Opportunity. Make an Athletics check DC 15. If you fail, this attack misses. Instead of ending on your feet, you bring one of your legs down like an Axe Kick, but landing in a splits position (one leg straight behind you and the other leg straight in front of you with your hands touching the ground). You are considered Prone. You gain a +1 bonus to AC, a -1 penalty to Hit, and a +10 bonus to Damage.</p>';
+        $talent->description = '<p>As part of this attack, you do a forward somersault, which moves you 5 feet. This movement does not provoke Attacks of Opportunity. Make an Athletics check DC 12. If you Fail, this attack misses. Instead of ending on your feet, you bring one of your legs down like an Axe Kick, but landing in a splits position (one leg straight behind you and the other leg straight in front of you with your hands touching the ground). You are considered Prone. You gain a +1 bonus to AC, a -1 penalty to Hit, and a +10 bonus to Damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
 
         $talent              = new Talent;
@@ -278,9 +278,9 @@ class FightingTalentsSeeder extends Seeder
 <ul>
     <li>When you gain this Talent, you gain 1 Power Point</li>
     <li>You spend 1 Power Point and make 3 Melee Unarmed Strikes against the same opponent with both hands. Each hit deals your normal Unarmed Strike Bludgeoning damage. After all attacks have completed, the target must make a STR Save against the total damage taken or be pushed back 5 ft.</li>
-    <li>You may also make this attack using a Triple Action and 1 Power Point. If you do, you make 4 Melee Unarmed Strikes instead and suffer a -7 Initiative.</li>
+    <li>You may also make this attack using a Triple Action and 1 Power Point. If you do, you make 4 Melee Unarmed Strikes instead and suffer a -5 Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Improved Bull Rush']);
 
         $talent              = new Talent;

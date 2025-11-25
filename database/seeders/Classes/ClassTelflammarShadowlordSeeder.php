@@ -28,7 +28,7 @@ class ClassTelflammarShadowlordSeeder extends Seeder
         $class->max_level     = 6;
         $class->requirements  = $helper->getClassRequirementsString([
             'Race'          => 'The character must possess the shadow-walker template, which is conferred by a special rite consecrated by Mask. A character who is not a shadow-walker can still qualify for this class if they meet the SpellCasting requirements.',
-            'Spellcasting'  => 'If the character is not a shadow-walker, they must possess the abiity to Shadow Walk, cast Dimension Door as a Spell or Spell-like Ability',
+            'Spellcasting'  => 'If the character is not a shadow-walker, they must possess the ability to Shadow Walk, cast Dimension Door as a Spell or Spell-like Ability',
             'Class Feature' => 'You must have the Sneak Attack Feat at least twice',
             'Region'        => 'Thesk',
         ]);

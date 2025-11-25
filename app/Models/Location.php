@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\LocationableTrait;
+use App\Traits\SubPlaneable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property string      name
  * @property string|null aliases
  * @property string      type
- *  [World, Continent, Country, City, Ruin, Divine Realm]
+ *  [World, Continent, Country, City, Building, Ruin, Site, Divine Realm, Planar Conduit]
  * @property string      meta
  * @property string      description
  * @property int|null    pantheon_id
@@ -24,6 +25,7 @@ class Location extends Model
     use LocationableTrait {
         locations as sub_locations;
     }
+    use SubPlaneable;
 
     public $timestamps = false;
 

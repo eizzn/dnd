@@ -22,6 +22,14 @@ class PlantMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat              = new Material;
+        $mat->name        = 'Beetle Palm';
+        $mat->type        = 'Plant or Herb';
+        $mat->description = "<p>Beetle Palm trees, named for their black bark, which looks like a beetle's carapace, are found mainly in the mid-wood of the great forest Cormanthor. On average, they grow to 70 feet in height, but a few grow to heights of 100 feet or more. Clusters of spindly, spiky fronds often mistaken for leafless branches crown their otherwise smooth trunks, and a small cluster of soft-rinded, smooth, black, bitter-tasting nuts the size and general shape of plums grow under the fronds, dropping off once a year after the first snowfall.</p>
+<p>Beetle Palm wood is a dull brown and lightens as it dries, becoming a mellow tan. Beetle Palm wood contains oily deposits that make it exceptionally flammable, but long-burning rather than volatile; it burns nearly three times as long as other types of wood and produces about half the amount of smoke. The wood is sturdy, but not outstanding, and it has a tendency to snap in sections from 2 to 3 feet long after it has dried, so it is not often used in making buildings or carts.</p>
+<p>Beetle Palm wood conveys no special properties to items made from it or spells cast when using it as a material component. Beetle Palm nuts, however, are exceptionally effective if used as a substitute material component in the Goodberry spell. When used, they enable up to a huge size hungry creature to eat the soft outer rind and be as well-nourished as if a full normal meal.</p>";
+        $mat->save();
+
+        $mat              = new Material;
         $mat->name        = 'Belladonna';
         $mat->type        = 'Plant or Herb';
         $mat->rarity      = 'Uncommon';
@@ -67,17 +75,17 @@ class PlantMaterialsSeeder extends Seeder
         $mat->alchemy     = '<p>Used to craft Potions of Healing</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Bluewood';
-        $mat->type   = 'Wood';
-        $mat->rarity = 'Uncommon';
-        $mat->source = "<ul>
+        $mat              = new Material;
+        $mat->name        = 'Bluewood';
+        $mat->type        = 'Wood';
+        $mat->rarity      = 'Uncommon';
+        $mat->source      = "<ul>
     <li>North of Amn, in humid temperate and subarctic areas</li>
     <li>Evereska</li>
     <li>Ardeep Forest or the Sword Coast North</li>
     <li>High Torog in the Nether Mountains</li>
     <li>Banks of the Laughingflow in the Evermoors</li>
-    <li>Silverymon (Silver Marches), where most streets are lined with Bluleaf</li>
+    <li>Silverymoon (Silver Marches), where most streets are lined with Blueleaf</li>
     <li>Hermit's Wood in Cormyr</li>
     <li>In the Nelanther Isles, these trees grow in the southern section of the pair of islets known as the Tusks</li>
     <li>The Vast Swamp, with stunted trees growing around the fringe</li>
@@ -87,6 +95,18 @@ class PlantMaterialsSeeder extends Seeder
         $mat->description = '<p>Bluewood trees can be hardened to be as hard as steel after being treated with alchemy.</p>';
         $mat->armor       = '<p>Replaces the metal. Armor made with Bluewood is as hard as steel, but weighs half as much. Volodni of the Unapproachable East are the only ones know to be able to make Bluewood armor.</p>';
         $mat->other       = '<p>The leaves of the Bluewood (called Blueleaf) and the sap can be crushed to make a bright blue dye. The leaves can also be burned, which causes the fire to burn with a bright blue color.</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Calantra';
+        $mat->type        = 'Wood';
+        $mat->source      = '<ul>
+    <li>Forest of Tethir</li>
+    <li>Northern Chult</li>
+    <li>Shaar</li>
+</ul>';
+        $mat->description = '<p>This species is found south and east of Mosstone in the Forest of Tethir and in all the woodlands south and east of there as far as northern Chult and the Shaar. One of the favorite carving woods of Calimshan and the Tashalar thanks to its durability and ability to absorb human oils and moisture for years after being cut so as to avoid decaying, drying out or splitting, calantra is th heartwood of the calan tree. Calans are stout, red-barded trees with deep brown wood that grow to no more than 11 feet in height and consist of thick trunks with no side-branches that rise up into a gnarly crown of many small, interwoven branches. Most humans can traverse calan stands only in a hunched-over posture, making such travelers easy prey for shorter creatures who can move at will among the trees below the canopy.</p>
+<p>Calan trees are as hardy alive as they are dead, withstanding most frosts, fires, and floods. Much used in the making of furniture, travel chests, and waling sticks, calantra is prized by those who craft magical items because of this hardiness.</p>';
         $mat->save();
 
         $mat         = new Material;
@@ -265,6 +285,14 @@ class PlantMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>Serren wood is harvested from the trees of the same name.</p>';
         $mat->weapon      = '<p>Wooden weapons made with Serren can affect Ethereal creatures as if they are not Ethereal. Most often times Serren wood is used to make arrows and crossbow bolts.</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Silverbark';
+        $mat->type        = 'Wood';
+        $mat->price       = '10 gp';
+        $mat->description = '<p>This species flourishes in wet ground throughout Faerun, generally near bogs and swamps, but sometimes in deep, flooded ravines in the depths of large forests. Silverbarks are thin and straight, seldom growing more than 15 feet tall or more than 4 inches in diameter. They are plentiful, and grow in thickets, from which they are easily cut. Silverbark wood is reddish and dries out thoroughly after it is cut, becoming very light but also very brittle after a year or so. The deep red leaves are large and oval with pointed tips, tiny saw-toothed edges, and purple bases. They are waxy and strong and are sometimes used to wrap game in - or even to carry kindling - in the wilds. The silver bark for which the tree is named is loose and can be easily torn away (whereupon it crumbles).</p>
+<p>Silverbark trunks serve the poor as staves, poles, and as defensive stakes (once points have been whittled and hardened in a slow fire). The weakness of the wood makes it unsuitable for lance shafts, fence rails, or structural work, but its sap is an essential ingredient in poison antidotes and Sweet Water potions. It can be used as a universal replacement component in all purification and antitoxin magics, taking nothing from the effectiveness of such spells.</p>';
         $mat->save();
 
         $mat              = new Material;

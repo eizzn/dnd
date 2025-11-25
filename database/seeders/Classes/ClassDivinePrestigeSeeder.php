@@ -79,6 +79,8 @@ class ClassDivinePrestigeSeeder extends Seeder
             9 => ['Foresight'],
         ]);
 
+        /**********************************************************************/
+
         // Divine Disciple
         $class                = new Klass;
         $class->name          = 'Divine Disciple';

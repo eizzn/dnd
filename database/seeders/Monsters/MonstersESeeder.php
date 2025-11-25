@@ -3,6 +3,7 @@
 namespace Database\Seeders\Monsters;
 
 use App\Models\Monster;
+use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class MonstersESeeder extends Seeder
@@ -14,6 +15,7 @@ class MonstersESeeder extends Seeder
      */
     public function run()
     {
+        /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
         $monster              = new Monster;
@@ -495,6 +497,50 @@ class MonstersESeeder extends Seeder
         ]);
 
         $this->call(ElementalsSeeder::class);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Ethereal Filcher';
+        $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
+        $monster->alignment        = '-';
+        $monster->armor_class      = 14;
+        $monster->damage_reduction = '1 (Natural Armor)';
+        $monster->hit_dice         = 5;
+        $monster->speed            = '40 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, +3 to hit, 5 ft reach, one target. 1D6 Piercing</dd>
+</dl>';
+        $monster->description      = '<p>Ethereal Filchers are bizarre-looking creatures with one foot and four arms ending in hands with long, spindly fingers. They appear to have two heads, one on a long stalk of a neck and another on their abdomen. They have a penchant for snatching trinkets from passersby. Their ability to move quickly between the Ethereal Plane and the Material Plane makes them spectacular pickpockets.</p>';
+        $helper->saveMonster($monster, ['Aberration', 'Ethereal'], [
+            'stats'     => [10, 18, 11, 7, 12, 10, 2, 2],
+            'skills'    => [
+                'Thievery' => ['dc' => 10],
+                'Stealth'  => ['dc' => 5],
+            ],
+            'features'  => ['ethereal_jaunt', 'darkvision'],
+            'spells'    => ['Detect Magic' => ['meta' => 'At will']],
+            'languages' => ['Aberration Speech'],
+        ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Ethereal Marauder';
+        $monster->size             = 'Medium';
+        $monster->type             = 'Aberration';
+        $monster->alignment        = '-';
+        $monster->armor_class      = 11;
+        $monster->damage_reduction = '3 (Natural Armor)';
+        $monster->hit_dice         = 3;
+        $monster->speed            = '40 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, +4 to hit, 5 ft reach, one target. 1D6 +3 Piercing</dd>
+</dl>';
+        $monster->description      = '<p>Ethereal Marauders live and hunt in the Ethereal Plane. Ethereal Marauders have a coloration that ranges from bright blue to deep violet. An ethereal marauder stands about 4 feet tall, but its overall length is about 7 feet. It weighs about 200 pounds.</p>';
+        $helper->saveMonster($monster, ['Aberration', 'Ethereal'], [
+            'stats'     => [14, 12, 11, 7, 12, 10, 3, 2],
+            'feats'     => ['Improved Initiative'],
+            'features'  => ['ethereal_jaunt', 'darkvision'],
+            'languages' => ['Aberration Speech'],
+        ]);
 
         $monster                   = new Monster;
         $monster->name             = 'Ettercap';

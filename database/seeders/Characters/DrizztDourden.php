@@ -69,9 +69,10 @@ class DrizztDourden extends Seeder
                 2 => [
                     'class' => 'Fighter',
                     'feats' => [
-                        'class'   => ['Improved Reaction'],
+                        'class'   => ['Improved Feint'],
                         'generic' => ['Two-Weapon Fighter'],
                     ],
+                    'talents'  => ['Deny Advantage', 'Improved Reaction'],
                     'features' => ['good_at_talents'],
                     'skills'   => [
                         'Athletics' => 1,
@@ -173,7 +174,7 @@ class DrizztDourden extends Seeder
                         'combat_mastery' => ['Weapon Focus' => ['meta' => 'Scimitar']],
                         'ancestry'       => ['Greater Drow Magic'],
                     ],
-                    'talents'   => ['Slasher'],
+                    'talents'   => ['Slasher', /** +1 more **/],
                     'skills'    => [
                         'Athletics'  => 1,
                         'Insight'    => 1,
@@ -239,8 +240,9 @@ class DrizztDourden extends Seeder
                 14 => [
                     'class' => 'Ranger',
                     'feats' => [
-                        'generic' => ['Daylight Adaptation'],
+                        'generic' => ['Improved Weapon Focus'],
                     ],
+                    'talents'   => ['Daylight Adaptation', /** +1 more**/],
                     'features'  => ['favored_enemy' => 'Evil Outsiders'],
                     'spells'    => [
                         1 => [

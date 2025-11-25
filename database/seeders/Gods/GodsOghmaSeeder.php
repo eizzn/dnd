@@ -60,7 +60,7 @@ class GodsOghmaSeeder extends Seeder
             'Divine',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Bard', 'Monks', 'Wizards',
+            $class->name, 'Bard', 'Monk', 'Wizard',
         ]);
 
         // Skills

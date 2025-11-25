@@ -298,7 +298,6 @@ class ClassMonkSeeder extends Seeder
             'Greater Psionic Fist' => 7,
 
             'Disease Immunity' => 10,
-            'Poison Immunity'  => 10,
             'Timeless Body'    => 14,
 
             'Deflect Ranged Attack'  => 3,

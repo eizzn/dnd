@@ -50,6 +50,18 @@ class CombatPageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
+        $rule->key         = 'dodge';
+        $rule->name        = 'Dodge';
+        $rule->description = '<p>As a Double Action, you focus on avoiding attacks. Until the start of your next turn, you gain the following</p>
+<ul>
+    <li>All attacks made against you is made at Disadvantage</li>
+    <li>If you can see the attacker, you make all DEX Saves with Advantage.</li>
+</ul>
+<p>You lose these benefits if become incapacitated or if your Speed drops to 0.</p>';
+        $rule->order       = 22;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
         $rule->key         = 'critical_hits';
         $rule->name        = 'Critical Hits';
         $rule->description = "<p>When you score a Critical Hit, you get to roll extra dice for the attack's  damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.</p>
@@ -71,6 +83,13 @@ class CombatPageSeeder extends Seeder
         $rule->description = "<p>When you and an ally are on opposite sides of an enemy, you're flanking that enemy. While the enemy is flanked, it is Flat-Footed (taking a -1 circumstance penalty to AC) to the creature who are flanking it. To flank a foe, you and your ally must be on opposites sides or opposite corners of the creature. A line drawn between the center of your space to the center of your ally's space must pass through either opposite sides or opposite corners of the enemy's space.</p>
 <p>Both you and the ally have to be threatening that enemy: this means you both must be wielding weapons or ready to make unarmed attacks and not under any effects that prevent you from making attacks. If you have reach, you determine whether you are flanking creatures out to the distance of your reach because you threaten all of those squares.</p>";
         $rule->order = 30;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'disengage';
+        $rule->name        = 'Disengage';
+        $rule->description = '<p>As a Double Action, you may make 1 move Action. This move Action does not Provoke Attacks of Opportunity.</p>';
+        $rule->order       = 40;
         $page->rules()->save($rule);
 
         $rule              = new Rule;
@@ -179,6 +198,15 @@ class CombatPageSeeder extends Seeder
         $rule->description = '<p>You can focus on defending yourself. You cannot be weilding a shield and you must be considered armed (either armed with a Melee Weapon or have the Improved Unarmed Strike Feat).</p>
 <p>While armed, you may spend an Action and gain a +1 bonus to your AC until the beginning of your next turn. You may spend up to 3 Actions a turn to Parry.</p>';
         $rule->order = 500;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'heavy_armor_use';
+        $rule->name        = 'Heavy Armor Use';
+        $rule->description = '<p>Fighting in heavy armor is tiring.</p>
+<p>If you are not proficient in Heavy Armor, after 3 rounds of combat (making melee, ranged attacks, moving or casting spells), you must make a DC 12 CON Save or become Fatigued. You must make this Save each round after the 3rd until you Fail or combat ends</p>
+<p>If you are proficient in Heavy Armor, then you must start making Saves after 10 rounds.</p>';
+        $rule->order       = 1000;
         $page->rules()->save($rule);
     }
 }

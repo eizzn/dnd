@@ -127,7 +127,7 @@ class RaceMiscSeeder extends Seeder
 <h3>Serene and Introspective</h3>
 <p>Spirit folk feel at home in the lands of their ancestors and experience a deep sense of peace with the natural world. Their ancestry provides them with a connection to the spirit world, yet because of their complementary relationship with nature, they do not seek to interfere with the natural balance through the use of magic. Most humans look at spirit folk with envy for their inherent, nearly unshakable love for life.</p>
 <h3>Diverse and Striking</h3>
-<p>Though appearing much like humans, spirit folk possess highly-refined and attractive features. Appearing in all the diversity that humans display, spirit folk embody the natural beauty of their human and spirit ancestries. With complexions that range from delicately pale to a golden-sheened mahogany, spirit folk have luxurious heads of hair, thin eyebrows, but a complete lack of body hair otherwise. They are famously considered strikingly beautiful.</p>
+<p>Though appearing much like humans, spirit folk possess highly-refined and attractive features. Appearing in all the diversity that humans display, spirit folk embody the natural beauty of their human and spirit ancestries. With complexions that range from delicately pale to a golden sheen mahogany, spirit folk have luxurious heads of hair, thin eyebrows, but a complete lack of body hair otherwise. They are famously considered strikingly beautiful.</p>
 <h3>Venerated Visitors</h3>
 <p>Spirit folk feel at home in human society though they most often only remain for one human generation, this to keep themselves from standing out as long- lived beings within a tight knit community. They try to integrate wholly into the society they have chosen and accept the local human rules. Though most humans who interact with spirit folk do not wholly understand their ancestry, they regard spirit folk with reverence, referring to them as “wise ones” who possess a deeper understanding of the natural world than most other beings can only hope to achieve. Spirit folk thrive in human society, but also enjoy the company of elves and fey creatures of all sorts, in addition to the spirit guardians that live within Rashemen.</p>';
         $race->benefits    = '<dl>
@@ -318,6 +318,24 @@ class RaceMiscSeeder extends Seeder
         $race->speed       = 30;
         $race->description = '';
         $race->benefits    = '';
+        $helper->addTypesToSimpleObject($race);
+
+        $race              = new Race;
+        $race->name        = 'Ratatosk';
+        $race->age         = 'Ratatosks reach adulthood at age 10 and, due to their celestial nature, live up to 180 years';
+        $race->hit_points  = 6;
+        $race->size        = 'Small';
+        $race->speed       = 25;
+        $race->description = '<p>Ratatosks are squirrel-like creatures that dwell on Yggdrasil. They often act as guides and consider Yggdrasil to be their divine patron.</p>
+<p>Thanks to their Message spell ability, they are known to spread gossips all across the Outer Planes.</p>';
+        $race->benefits    = '<dl>
+    <dt>Ability Score Increase</dt> <dd>You DEX score increases by +2, but your STR is decreased by -2</dd>
+    <dt>Darkvision</dt> <dd>You have darkvision out to 60 ft</dd>
+    <dt>Celestial</dt> <dd>Your creature type is Celestial</dd>
+    <dd>Sharp Tusks</dd> <dd>Your tusks are Natural Weapons, which can be used to make Unarmed Strikes that deals 1D4 + STR Piercing</dd>
+    <dt>Language</dt> <dd>You know Celestial and can communicate Telepathically to a range of 120 ft</dd>
+    <dt>Message Spell</dt> <dd>You may cast the Message spell at will.</dd>
+</dl>';
         $helper->addTypesToSimpleObject($race);
     }
 }

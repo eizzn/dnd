@@ -1249,5 +1249,10 @@ class RacesSeeder extends Seeder
         $lang->type        = 'Special';
         $lang->description = '<p>You have the ability to communicate using your mind. You can only communicate with creatures that have a INT, WIS, and CHA above 2.</p>';
         $lang->save();
+
+        $lang              = new Language;
+        $lang->name        = 'Aberration Speech';
+        $lang->description = '<p>The language is alien, and likely conveyed in a way that humanoids cannot reproduce or possibly interpret.</p>';
+        $lang->save();
     }
 }

@@ -208,7 +208,7 @@ class ClassFeaturePageSeeder extends Seeder
         $rule->name        = 'Channel Divinity';
         $rule->description = '<p>You gain Divine energy from your deity which you can use for various effects.</p>
 <ul>
-    <li>You may spend 2 Spell Points and use your Channel Divinity to turn/rebuke certain creatures. The type of creatures depends on your deity.</li>
+    <li>You may spend 2 Spell Points and use your Channel Divinity to Turn/Rebuke certain creatures. The type of creatures depends on your deity.</li>
     <li>You may spend 1 Spell Points to cast the Cure Wounds spell as a 1st level spell.</li>
 </ul>';
         $rule->order = 50;

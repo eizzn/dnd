@@ -25,7 +25,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<p>Your study of magic allows you to sense its presence around you instinctively.</p>
 <ul>
     <li>You gain a +3 bonus to your Arcana checks.</li>
-    <li>You can cast Detect Magic as an innate spell at will.</li>
+    <li>You can cast Detect Magic as a Triple Action at will.</li>
     <li>If you have the Diviner Feat, you can perceive the presence of magic passively and the range of Detect Magic is doubled.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Arcane', 'Generic' => 1]);
@@ -34,30 +34,11 @@ class FeatsSeeder extends Seeder
             0 => ['Detect Magic'],
         ]);
 
-        $feat                    = new Feat;
-        $feat->name              = 'Deny Advantage';
-        $feat->short_description = 'You are skilled at fighting while Flanked';
-        $feat->description       = '<ul>
-    <li>You gain a Talent</li>
-    <li>You are not treated as Flat-Footed when you are Flanked. This does not negate any other bonus from Flanking, such as the bonus to hit from Improved Flanking.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Flanking', 'Generic' => 15]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Improved Reaction';
-        $feat->action_type = 'Reaction';
-        $feat->trigger     = "A creature within your reach uses a manipulate action or a move Action, makes a ranged attack, or leaves a square during a move Action it's using.";
-        $feat->description = '
-<ul>
-    <li>You gain a Reaction.</li>
-    <li>You may take this feat multiple times. Each time you gain another Reaction, allowing you to take more Reactions each turn. You may not take more than 3 Reactions each turn.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Reaction', 'Generic' => 1]);
-
         $feat              = new Feat;
         $feat->name        = 'Alertness';
         $feat->description = "<ul>
     <li>Increase your WIS by 1, up to a maximum of 20.</li>
+    <li>You gain a Talent</li>
     <li>You gain a +3 bonus to your Initiative</li>
     <li>You can't be surprised while you are conscious.</li>
 </ul>";
@@ -65,7 +46,10 @@ class FeatsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Ancestral Paragon';
-        $feat->description = '<p>Whether instinctively, through study, or through a mystic sense, you feel a deeper connection to your ancestry than most of those who share that ancestry. You gain a level-1 ancestry feat.</p>';
+        $feat->description = '<ul>
+    <li>You gain a Talent</li>
+    <li>Whether instinctively, through study, or through a mystic sense, you feel a deeper connection to your ancestry than most of those who share that ancestry. You gain an ancestry feat of your level or lower.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Generic' => 1]);
 
         $feat              = new Feat;
@@ -113,6 +97,8 @@ class FeatsSeeder extends Seeder
         $feat->short_description = 'You have reserves of endurance far beyond those of normal people.';
         $feat->description       = '<ul>
     <li>Increase your CON by 1, up to a maximum of 20.</li>
+    <li>You gain a +1 bonus to all CON Saves</li>
+    <li>You ignore the effects of 1 level of Exhaustion</li>
     <li>
         You have Advantage on Athletics checks for the following
         <ul>
@@ -127,20 +113,12 @@ class FeatsSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
-        $feat                    = new Feat;
-        $feat->name              = 'Die Hard';
-        $feat->short_description = 'It takes more to kill you than most.';
-        $feat->description       = '<p>Increase your CON by 1, up to a maximum of 20.</p>
-<p>You gain a +3 bonus to your recovery Save. You die from the Dying condition at Dying 5, rather than Dying 4.</p>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 2]);
-        $feat->parent_feats()->save(app()->feats['Endurance']);
-
         $feat              = new Feat;
         $feat->name        = 'Mobile';
         $feat->description = '<p>You are exceptionally speedy and agile. You gain the following benefits.</p>
 <ul>
-    <li>Your speed increases by 5</li>
-    <li>When you use the Dash Action, difficult terrain costs 5 less.</li>
+    <li>Your Speed increases by 5</li>
+    <li>When you use the Stride Action, difficult terrain costs 5 less.</li>
     <li>When you make a melee attack against a creature, if you hit, that creature suffers a -5 penalty to any Attacks of Opportunity against you until the beginning of your next turn.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Stride', 'Generic' => 1]);
@@ -151,7 +129,8 @@ class FeatsSeeder extends Seeder
         $feat->requirement = 'You are aware of an opponent within 30 feet of you.';
         $feat->description = '<ul>
     <li>Increase your DEX score by 1, to a maximum of 20.</li>
-    <li>You gain a +1 bonus to all attacks that you are aware of within 30 feet of you. If you take the Full Defense action, this bonus becomes +2.</li>
+    <li>You gain a Heroic Surge</li>
+    <li>You gain a +1 Bonus to all attacks that you are aware of within 30 feet of you. If you take the Full Defense Action, this bonus becomes +2.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
@@ -159,7 +138,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Impressive Strength';
         $feat->description = '<ul>
     <li>Increase your STR by 1, up to a maximum of 20</li>
-    <li>Your strength is impressive. You gain a +3 bonus to STR Saves.</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +3 Bonus to STR Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
@@ -167,6 +147,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Brute Force';
         $feat->description = '<ul>
     <li>Increase your STR by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +2 bonus on STR Checks</li>
     <li>When you succeed at a STR Save, treat it as a Critical Success.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -177,6 +159,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Brute Force';
         $feat->description = '<ul>
     <li>Increase your STR by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +4 bonus to STR Checks. This replaces the bonus from Brute Force.</li>
     <li>When you Critically Fail a STR Save, treat it as a Failure instead. When you Fail a STR Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -187,7 +171,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Great Fortitude';
         $feat->description = '<ul>
     <li>Increase your CON by 1, up to a maximum of 20</li>
-    <li>Your physique is incredibly hardy. You gain a +3 bonus to CON Saves.</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +3 Bonus to CON Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
 
@@ -195,6 +180,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Mettle';
         $feat->description = '<ul>
     <li>Increase your CON by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>When you Succeed at a CON Save, treat it as a Critical Success.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -205,6 +191,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Mettle';
         $feat->description = '<ul>
     <li>Increase you CON by 1, up to maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>When you Critically Fail a CON Save, treat it as a Failure. When you Fail a CON Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -215,6 +202,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Iron Will';
         $feat->description = '<ul>
     <li>Increase your WIS by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>Your mental defenses are an iron fortress. You gain +3 bonus to WIS Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
@@ -223,6 +211,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Resolve';
         $feat->description = '<ul>
     <li>Increase your WIS by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>When you succeed at a WIS Save, treat it as a Critical Success.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -233,6 +222,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Resolve';
         $feat->description = '<ul>
     <li>Increase your WIS by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>When you Critically Fail a WIS Save, treat it as a Failure. When you Fail a WIS Save against an effect that deals damage, you halve the damage you take.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -243,6 +233,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Lightning Reflexes';
         $feat->description = '<ul>
     <li>Increase your DEX by 1, up to a maximum of 20</li>
+    <li>You gain a Heroic Surge</li>
     <li>Your reflexes are lightning fast. Your gain a +3 bonus to DEX Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
@@ -251,6 +242,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Evasion';
         $feat->description = '<ul>
     <li>Increase your DEX by 1, up to a maximum of 20</li>
+    <li>You gain a Heroic Surge</li>
     <li>When you Succeed at a DEX Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -261,6 +253,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Evasion';
         $feat->description = '<ul>
     <li>Increase your DEX by 1, up to a maximum of 20</li>
+    <li>You gain a Heroic Surge</li>
     <li>When you Critically Fail a DEX Save, treat the outcome as a Failure instead. When you Fail a DEX Save against an effect deals damage, you take only half damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -271,6 +264,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Superior Intellect';
         $feat->description = '<ul>
     <li>Increase your INT by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>You are quick thinking. Your gain a +3 bonus to INT Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
@@ -279,6 +273,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Quick Mind';
         $feat->description = '<ul>
     <li>Increase your INT by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +2 Bonus to INT Checks</li>
     <li>When you Succeed at an INT Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -289,6 +285,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Quick Mind';
         $feat->description = '<ul>
     <li>Increase your INT by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +4 Bonus to INT Checks. This replaces the Bonus from Quick Mind.</li>
     <li>When you Critically Fail an INT Save, treat the outcome as a Failure instead. When you fail an INT Save against an effect deals damage, you take only half damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -299,6 +297,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Stunning Personality';
         $feat->description = '<ul>
     <li>Increase your CHA by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>You exude confidence. Your gain a +3 bonus to CHA Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 1]);
@@ -307,6 +306,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Stubborn';
         $feat->description = '<ul>
     <li>Increase your CHA by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +2 Bonus to CHA Checks.</li>
     <li>When you Succeed at a CHA Save, treat the outcome as a Critical Success instead.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 7]);
@@ -317,6 +318,8 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Improved Stubborn';
         $feat->description = '<ul>
     <li>Increase your CHA by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
+    <li>You gain a +4 Bonus to CHA Checks. This replaces the Bonus from Stubborn.</li>
     <li>When you Critically Fail a CHA Save, treat the outcome as a Failure instead. When you fail a CHA Save against an effect deals damage, you take only half damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Generic' => 13]);
@@ -329,7 +332,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>Increase your STR score by 1, to a maximum of 20</li>
     <li>While you are wearing only Light Armor and have a Martial Melee weapon in hand, you gain Damage Reduction equal to your STR modifier. This Damage Reduction stacks with the Damage Reduction from the Light Armor. You can use a Shield and still gain this benefit.</li>
-    <li>You may benefit from only one Unarmored Defense feat at any time</li>
+    <li>You may benefit from only one Unarmored Defense Feat at any time</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Unarmored Defense']);
         $feat->parent_feats()->save(app()->feats['Brute Force']);
@@ -339,7 +342,7 @@ class FeatsSeeder extends Seeder
         $feat->requirement = 'You are not wearing any armor';
         $feat->description = '<ul>
     <li>Increase your CON score by 1, to a maximum of 20</li>
-    <li>While you are not wearing any armor, you gain Damage Reduction equal to your CON modifier. You can use a Shield and still gain this benefit.</li>
+    <li>While you are not wearing any armor, you gain Damage Reduction equal to your CON modifier. You can use a Shield and still gain this benefit. This Damage Reduction stacks with any other Damage Reduction from other sources (ie. Rage)</li>
     <li>You may benefit from only one Unarmored Defense feat at any time</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Unarmored Defense']);
@@ -369,10 +372,10 @@ class FeatsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Beautiful Defense';
-        $feat->requirement = 'You are not wearing any Medium or Heavy armor (no head gear that covers the face) and not holding a Shield';
+        $feat->requirement = 'You are not wearing any Medium or Heavy armor (no head gear that covers the face)';
         $feat->description = '<ul>
     <li>Increase your CHA score by 1, to a maximum of 20</li>
-    <li>While you are not wearing Medium or Heavy armor and not holding a Shield, add your CHA modifier to your AC. You must not have any gear or effect that obscures your face.</li>
+    <li>While you are not wearing Medium or Heavy armor, add your CHA modifier to your AC. You must not have any gear or effect that obscures your face.</li>
     <li>You may benefit from only one Unarmored Defense feat at any time</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Unarmored Defense']);
@@ -383,6 +386,7 @@ class FeatsSeeder extends Seeder
         $feat->description = '<ul>
     <li>You gain a Talent</li>
     <li>You react more quickly than others can in any situation. You gain a +5 circumstance bonus to all initiative rolls.</li>
+    <li>As an Action, you may modify your initiative by +/- 2</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Melee', 'Generic' => 1]);
 
@@ -428,6 +432,7 @@ class FeatsSeeder extends Seeder
         $feat->description = "<p>You are a genius at Crafting, easily able to determine how things are made and create new inventions.</p>
 <ul>
     <li>Increase you INT score by 1, up to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>You can spend downtime to invent a common formula that you don't know. This works just like the Craft skill: you spend a number of days in preparation and half the Price of the formula up front, roll a Crafting check, and on a success either finish the formula by paying the difference or work for longer to decrease the Price. The difference is that you spend the additional time in research, design, and development, rather than in creating an item.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Skill', 'Generic' => 7]);
@@ -438,8 +443,8 @@ class FeatsSeeder extends Seeder
         $feat->description = '<p>You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits</p>
 <ul>
     <li>You gain a Talent</li>
-    <li>When a creature within 5 feet of you casts a spell, you can make an Attack of Opportunity to make a melee weapon attack against that creature, even if they are casting defensively.</li>
-    <li>When you damage a creature that is Concentrating on a spell, that creature suffers a -5 penalty on the check to maintain its Concentration.</li>
+    <li>When a creature within 5 feet of you casts a spell, you gain a Reaction. You may only gain 1 Reaction per turn. You can use a Reaction to make an Attack of Opportunity to make a melee weapon attack against that creature, even if they are casting defensively.</li>
+    <li>When you damage a creature that is Concentrating on a spell, that creature suffers a Disadvantage on the check to maintain its Concentration.</li>
     <li>You gain a +5 bonus to Saves vs spells cast by creatures within 5 feet of you.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Generic' => 3]);
@@ -449,37 +454,20 @@ class FeatsSeeder extends Seeder
         $feat->description = '<p>You are better at resisting Petrification effects.</p>
 <ul>
     <li>You gain a Talent</li>
-    <li>You gain a +5 bonus to all Saves vs. Petrification</li>
+    <li>You gain Advantage to all Saves vs. Petrification</li>
     <li>If you Failed your initial Save and if the Petrifying effect does not allow a second Save, then you gain a Second Save attempt the next turn.</li>
 </ul>';
         $helper->addTypesToFeat($feat);
 
         $feat              = new Feat;
-        $feat->name        = 'Petrification Immunity';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You are now immune to Petrification effects.</li>
-</ul>';
-        $helper->addTypesToFeat($feat);
-        $feat->parent_feats()->save(app()->feats['Petrification Resistance']);
-
-        $feat              = new Feat;
         $feat->name        = 'Poison Resistance';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>You have Resistance to Poison</li>
+    <li>You gain Advantage on all Saves vs Poison</li>
+    <li>You have Resistance to Poison Damage</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Poison']);
         $feat->attributes()->save(app()->attributes['CON'], ['dc' => 12]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Poison Immunity';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You are immune to Poison</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Poison']);
-        $feat->attributes()->save(app()->attributes['CON'], ['dc' => 16]);
 
         $feat              = new Feat;
         $feat->name        = 'Skilled';
@@ -514,7 +502,7 @@ class FeatsSeeder extends Seeder
         $feat->name        = 'Observant';
         $feat->description = '<ul>
     <li>Increase your INT or WIS by 1, to a maximum of 20</li>
-    <li>You gain a +3 bonus to your passive Perception and Investigation checks.</li>
+    <li>You gain Advantage on your passive Perception and Investigation checks.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Skill', 'Generic' => 2]);
 
@@ -781,19 +769,10 @@ class FeatsSeeder extends Seeder
         $feat->description = '<p>You are difficult to Charm.</p>
 <ul>
     <li>Increase your CHA by 1, to a maximum of 20</li>
-    <li>You gain a +5 bonus to your Saves vs Charm effects.</li>
+    <li>You gain Advantage to your Saves vs Charm effects.</li>
     <li>If you failed the initial Save and the Charming effect does not allow a second Save, then you gain a second Save on your next turn.</li>
 </ul>';
         $helper->addTypesToFeat($feat);
-
-        $feat              = new Feat;
-        $feat->name        = 'Charm Immunity';
-        $feat->description = '<ul>
-    <li>Increase your CHA by 1, to a maximum of 20</li>
-    <li>You are now immune to Charm effects.</li>
-</ul>';
-        $helper->addTypesToFeat($feat);
-        $feat->parent_feats()->save(app()->feats['Charm Resistance']);
 
         $feat              = new Feat;
         $feat->name        = 'Flyby Attack';
@@ -803,16 +782,6 @@ class FeatsSeeder extends Seeder
     <li>Add an extra damage dice to the weapon when used in a Flyby Attack.</li>
 </ul>';
         $helper->addTypesToFeat($feat);
-
-        $feat              = new Feat;
-        $feat->name        = 'Daylight Adaptation';
-        $feat->requirement = 'Light blindness or light sensitivity';
-        $feat->description = '<p>You have become accustomed to living under the bright light of day.</p>
-<ul>
-    <li>Increase your CON by 1, up to a maximum of 20.</li>
-    <li>You no longer suffer the penalties form Light Blindness and/or Sunlight Sensitivity</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Generic' => 3]);
 
         $this->call(FeatsAncestrySeeder::class);
         $this->call(FeatsMainTreeSeeder::class);

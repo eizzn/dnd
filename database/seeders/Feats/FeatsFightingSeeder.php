@@ -78,6 +78,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>Increase your STR score by 1, to a maximum of 20</li>
     <li>While you are wearing Heavy Armor, you gain an additional Damage Reduction / 1 vs Bludgeoning, Piercing, and Slashing damage.</li>
+    <li>You do not have to make CON Saves to prevent becoming Fatigued.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic' => 6, 'Fighter Feat' => 2]);
 
@@ -107,9 +108,9 @@ class FeatsFightingSeeder extends Seeder
         $feat->description = "<p>You are skilled at using a shield.</p>
 <ul>
     <li>Increase your STR or CON score by +1, to a maximum of 20</li>
-    <li>If you are wielding a Shield, you gain a +1 bonus to AC, even if you do not use an Action to raise your shield.</li>
+    <li>If you are wielding a Shield, you gain a +1 Bonus to AC, even if you do not use an Action to raise your shield.</li>
     <li>If you have taken the Raise a Shield Action and you must make a DEX Save that allows half damage a successful Save, you may use a Reaction to add the shields' bonus to AC to your DEX Save</li>
-    <li>You gain a +2 bonus to Bull Rush attacks</li>
+    <li>You gain a +2 bonus to Bull Rush attacks and deal an additional +3 Damage if you hit</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Armor', 'Fighter Feat' => 2]);
 
@@ -118,6 +119,7 @@ class FeatsFightingSeeder extends Seeder
         $feat->requirement = 'You are wielding a shield';
         $feat->description = '<p>You gain the following</p>
 <ul>
+    <li>Increase your STR or CON score by +1, to a maximum of 20</li>
     <li>You gain a Talent</li>
     <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action.</li>
 </ul>';
@@ -180,7 +182,7 @@ class FeatsFightingSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Weapon Specialization';
         $feat->description = '<ul>
-    <li>You gain 1 Talent.</li>
+    <li>You gain a Talent.</li>
     <li>Choose a weapon you have Weapon Focus with. You gain a +5 bonus to damage to all attacks made with that weapon.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat' => 6]);
@@ -222,11 +224,10 @@ class FeatsFightingSeeder extends Seeder
     <li>When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can make an Attack of Opportunity against the attacking creature.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Stance', 'Attack of Opportunity', 'Fighter Feat' => 2]);
-        $feat->parent_feats()->save(app()->feats['Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Sharpshooter';
-        $feat->requirement = 'You are wielding a ranged weapon';
+        $feat->requirement = 'You cannot take Move Actions while in this Stance';
         $feat->description = "<p>You have mastered range weapons and can make shots that others find impossible. You gain the following benefits.</p>
 <ul>
     <li>You do not suffer the long range penalty for making a ranged attack at long range</li>
@@ -235,7 +236,7 @@ class FeatsFightingSeeder extends Seeder
     <li>If you have the Improved Disarm feat, you may make Disarm attempts at range with a ranged attack without any penalties</li>
     <li>If you have the Improved Trip feat, you may make Trip attempts at range with a ranged attack without any penalties</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 7]);
+        $helper->addTypesToFeat($feat, ['Stance', 'Ranged', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
         $feat->parent_feats()->save(app()->feats['Ranged Mastery']);
 
@@ -244,7 +245,8 @@ class FeatsFightingSeeder extends Seeder
         $feat->action_type = 'Double Action';
         $feat->description = '<ul>
     <li>You gain a Heroic Surge</li>
-    <li>Your Unarmed Strike has a chance to Stun your target. To attempt a Stunning Strike, you must add an Action to your Strike and spend a Heroic Surge, 2 Spell Points, or 3 Power Points, and if the Strike successfully hits, the target must make a Stunning Save (10 + Character Proficiency Bonus + WIS modifier). If the target fails their Save, they gain the Stunned: 1 condition.</li>
+    <li>Your Unarmed Strike has a chance to Stun your target. To attempt a Stunning Strike, you must add an Action to your Strike and spend a Heroic Surge, 2 Spell Points, or 3 Power Points, and if the Strike successfully hits, the target must make a Stunning Save (10 + Character Proficiency Bonus + WIS modifier). If the Target Fails their Save, they gain the Stunned: 1 condition.</li>
+    <li>You may use a Heroic Surge as part of making a Stunning Fist attack. If you do, you gain a +2 Bonus to Hit and if the Target Fails their Save, they are Stunned for an additional round.</li>
     <li>Each additional time this Action is used against the same opponent in the same Encounter, they gain a +2 bonus to their Save.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8]);
@@ -254,6 +256,7 @@ class FeatsFightingSeeder extends Seeder
         $feat->action_type = 'Double Action';
         $feat->description = '<ul>
     <li>You gain a Heroic Surge</li>
+    <li>The DC for your Stun Save is increased by +1</li>
     <li>Your Stunning Fist now causes Stunned 2.</li>
 </ul>>';
         $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Fighter Feat']);

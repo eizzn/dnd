@@ -364,14 +364,14 @@ class SpellsCSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->targets        = 'One living creature or one undead creature';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = '<p>You channel negative energy to harm the living or heal the undead. You cause 1D8 plus your spell casting ability modifier to a target or deal that amount of negative damage to an undead target. The number of Actions you spend when casting this spell determines its targets, range, area, and other parameters.</p>
+        $spell->description    = '<p>You channel Negative energy to harm the living or heal the undead. You cause 1D8 plus your spell casting ability modifier to a Target or heal that amount to an undead target. The number of Actions you spend when casting this spell determines its targets, range, area, and other parameters.</p>
 <dl>
-    <dt>Somatic Casting</dt> <dd>The spell has a range of touch. You must succeed at a melee touch attack to damage an undead target</dd>
-    <dt>Somatic Casting, Verbal Casting</dt> <dd>The spell has a range of 30 feet and requires a ranged spell attack. A living target must make a CON Save, taking half damage on a success, no damage on a critical success, or double damage on a critical failure</dd>
-    <dt>Material Casting, Somatic Casting, Verbal Casting</dt> <dd>You disperse Negative energy in a 30-foot aura. This has the same effect as the two-Action version, but it targets all living and undead creatures in the burst and does not add your spell casting modifier.</dd>
+    <dt>Somatic Casting</dt> <dd>The spell has a range of Touch. You must succeed at a melee touch attack to damage a living Target</dd>
+    <dt>Somatic Casting, Verbal Casting</dt> <dd>The spell has a Range of 30 feet and requires a Ranged Spell Attack. A living Target must make a CON Save, taking half damage on a Success, no damage on a Critical Success, or double damage on a Critical Failure</dd>
+    <dt>Material Casting, Somatic Casting, Verbal Casting</dt> <dd>You disperse Negative energy in a 30-foot aura. This has the same effect as the two-Action version, but it Targets all living and undead creatures in the burst.</dd>
 </dl>';
         $spell->heightened = "<dl>
-    <dt>Heightened (+1)</dt> <dd>The amount of damage or healing increases to 1D8, or by 2D8 if you're using the 1 or 2 Action version to harm the living.</dd>
+    <dt>Heightened (+1)</dt> <dd>The amount of damage or healing increases to 1D8</dd>
 </dl>";
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>See text</dd>
@@ -2371,7 +2371,11 @@ class SpellsCSeeder extends Seeder
     <dt>Ability Damage</dt> <dd>4 CON damage</dd>
     <dt>Secondary Caster</dt> <dd>1. The caster or the assistant must have some Fey blood</dd>
 </dl>';
-        $spell->description = '<p>Create a Crossroads and a Backroad that links them. You must have personally visited the other Crossroads location. This spell summons a crossroads guardian.</p>';
+        $spell->description = '<p>This spell has 2 options.</p>
+<ul>
+    <li>You may create 2 Crossroads and a Backroads that links them. You must have personally visited the other Crossroads location. This spell summons a crossroads guardian to protect both Crossroads.</li>
+    <li>You create a Crossroads and it leads to the FeyWild. This spell summons a crossroads guardian.</li>
+</ul>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Ritual'], 7);
         $spell->skills()->save(app()->skills['Nature'], ['dc' => 25]);
 
@@ -2445,7 +2449,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = '10 minutes (Somatic, Verbal)';
         $spell->range       = '30 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You create 45 pounds of food and 30 gallons of water on the ground or in containers within range, enough to sustain up to fifteen humanoids or five steeds for 24 hours. The food is bland but nourishing, and spoils if uneaten after 24 hours. The water is clean and doesn\'t go bad.</p>';
+        $spell->description = "<p>You create 45 pounds of food and 30 gallons of water on the ground or in containers within range, enough to sustain up to fifteen humanoids or five steeds for 24 hours. The food is bland but nourishing, and spoils if uneaten after 24 hours. The water is clean and doesn't go bad.</p>";
         $spell->heightened  = '<dl>
     <dt>heightened (+2)</dt> <dd>You can feed 12 Medium creatures.</dd>
     <dt>heightened (+4)</dt> <dd>You can feed 50 Medium creatures.</dd>
@@ -2902,17 +2906,17 @@ class SpellsCSeeder extends Seeder
         $spell->range          = 'See text';
         $spell->targets        = 'One willing living creature or one undead creature';
         $spell->duration       = 'Instantaneous';
-        $spell->description    = "<p>You channel positive energy to heal the living or damage the undead. You restore Hit Points equal to 1D8 plus your spellcasting ability modifier to a willing living target and restore 1 point of CON damage, or deal that amount of positive damage to an undead target. The number of Actions you spend when casting this spell determines its targets, range, area, and other parameters.</p>
+        $spell->description    = "<p>You channel positive energy to heal the living or damage the undead. You restore Hit Points equal to 1D8 plus your spellcasting ability modifier to a willing living Target and restore 1 point of CON damage, or deal that amount of positive damage to an undead target. The number of Actions you spend when casting this spell determines its Targets, Range, Area, and other parameters.</p>
 <dl>
-    <dt>Somatic Casting</dt> <dd>The spell has a range of Touch. You must succeed at a melee touch attack to damage an undead target</dd>
+    <dt>Somatic Casting</dt> <dd>The spell has a range of Touch. You must succeed at a melee touch attack to damage an undead Target</dd>
     <dt>Somatic Casting, Verbal Casting</dt> <dd>The spell has a range of 30 feet and doesn't require a touch attack when targeting an undead creature. An undead target must attempt a CON Save, taking half damage on a success, no damage on a critical success, or double damage on a critical failure.</dd>
-    <dt>Material Casting, Somatic Casting, Verbal Casting</dt> <dd>You disperse positive energy in a 30-foot emanation. This has the same effect as the two-Action version, but it targets all living and undead creatures in the burst.</dd>
+    <dt>Material Casting, Somatic Casting, Verbal Casting</dt> <dd>You disperse positive energy in a 30-foot emanation. This has the same effect as the two-Action version, but it Targets all living and undead creatures in the burst.</dd>
 </dl>
 <dl>
     <dt>Material Component</dt> <dd>Your Holy Symbol or a vial of Sweet Water</dd>
 </dl>";
         $spell->heightened = "<dl>
-    <dt>Heightened (+1)</dt> <dd>The amount of healing or damage increases by 1D8 + 1 CON damage, or by 2D8 + 1 CON damage if you're using the 1 or 2 Action version to heal the living.</dd>
+    <dt>Heightened (+1)</dt> <dd>The amount of healing or damage increases by 1D8 + 1 CON damage.</dd>
 </dl>";
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>See text</dd>
@@ -2927,10 +2931,10 @@ class SpellsCSeeder extends Seeder
         $spell->targets        = 'One creature';
         $spell->save_attribute = 'CHA';
         $spell->duration       = 'Based on Save';
-        $spell->description    = '<p>You curse the target. The target has Disadvantage on all attack rolls, Saves, and Skill Checks.</p>';
+        $spell->description    = '<p>You curse the Target. The Target has Disadvantage on all Attack Rolls, Saves, and Skill Checks.</p>';
         $spell->saves          = "<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
-    <dt>Success</dt> <dd>Until the start of the target's next turn</dd>
+    <dt>Success</dt> <dd>Until the start of the Target's next turn</dd>
     <dt>Failure</dt> <dd>For 3 rounds</dd>
     <dt>Critical Failure</dt> <dd>For 10 rounds</dd>
 </dl>";

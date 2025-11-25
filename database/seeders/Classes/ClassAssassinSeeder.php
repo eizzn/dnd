@@ -114,7 +114,6 @@ class ClassAssassinSeeder extends Seeder
             'Quick Study Enemy'    => 5,
 
             'Poison Resistance' => 1,
-            'Poison Immunity'   => 3,
         ]);
 
         $features = app()->features;

@@ -199,10 +199,10 @@ class MonstersKSeeder extends Seeder
                 'Weapon Finesse',
                 'Improved Disarm',
                 'Improved Trip',
-                'Improved Reaction',
                 'Weapon Focus' => ['meta' => 'Whip'],
                 'Extra Melee Action',
             ],
+            'talents'   => ['Improved Reaction'],
             'classes'   => ['Fighter' => ['level' => 5]],
             'languages' => ['Deep Speech'],
         ]);

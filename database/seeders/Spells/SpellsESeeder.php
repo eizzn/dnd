@@ -1039,7 +1039,7 @@ class SpellsESeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>You can Target 3 additional targets. The additional targets must be within 10 feet of you when you cast the spell.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 7);
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation', 'Ethereal'], 7);
 
         $spell              = new Spell;
         $spell->name        = 'Evaliir`Enevahr';

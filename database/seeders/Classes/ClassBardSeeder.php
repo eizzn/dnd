@@ -45,8 +45,9 @@ class ClassBardSeeder extends Seeder
         $feature->name        = 'Bardic Inspiration';
         $feature->description = '<ul>
     <li>You can inspire others through stirring words or music. To do so, Spend 1 Spell Point and use an Action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.</li>
-    <li>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or Save it makes. The creature can wait until after it rolls before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</li>
+    <li>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, Attack Roll, or Save it makes. The creature can wait until after it rolls before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.</li>
     <li>Using a musical instrument can count as your Somatic Casting component, as if you had the Combat Casting feat.</li>
+    <li>You may use this feature a number of times per day equal to your CHA Bonus (minimum of 1). You regain 1 use after a Short Rest and all uses after a Long Rest.</li>
 </ul>';
         $helper->saveFeature($feature, ['Emotion', 'Bardic Inspiration', 'Auditory']);
 
@@ -62,7 +63,8 @@ class ClassBardSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You gain 2 Spell Points</li>
-    <li>Your Bardic Inspiration die becomes a D8</li>
+    <li>You gain an additional use of Bardic Inspiration</li>
+    <li>Your Bardic Inspiration die gains a +2 bonus</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration']);
         $feat->features()->save(app()->features['bardic_inspiration']);
@@ -73,7 +75,8 @@ class ClassBardSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You gain 2 Spell Points</li>
-    <li>Your Bardic Inspiration die becomes a D10</li>
+    <li>You gain an additional use of Bardic Inspiration</li>
+    <li>Your Bardic Inspiration die gains a +4 bonus. This bonus replaces the bonus from Improved Bardic Inspiration</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration']);
         $feat->parent_feats()->save(app()->feats['Improved Bardic Inspiration']);
@@ -84,14 +87,18 @@ class ClassBardSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You gain 2 Spell Points</li>
-    <li>Your Bardic Inspiration die becomes a D12</li>
+    <li>You gain an additional use of Bardic Inspiration</li>
+    <li>Your Bardic Inspiration die gains a +6 bonus. This bonus replaces the bonus from Improved Bardic Inspiration and Greater Bardic Inspiration</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration']);
         $feat->parent_feats()->save(app()->feats['Greater Bardic Inspiration']);
 
         $feat              = new Feat;
         $feat->name        = 'Fast Bardic Inspiration';
-        $feat->description = '<p>You gain an additional Action. This additional Action can only be used to grant Bardic Inspirations.</p>';
+        $feat->description = '<ul>
+    <li>You gain an additional use of your Bardic Inspiration</li>
+    <li>You gain an additional Action. This additional Action can only be used to grant Bardic Inspirations.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration']);
         $feat->parent_feats()->save(app()->feats['Improved Bardic Inspiration']);
 
@@ -100,8 +107,9 @@ class ClassBardSeeder extends Seeder
         $feat->description = '<p>You may only have one Bardic Muse feat.</p>
 <ul>
     <li>You may now use Bardic Inspiration on yourself</li>
+    <li>You gain the Melee Mastery Feat</li>
     <li>
-        <p>If you hit with a Melee Weapon attack, you may use a Bardic Inspiration to apply the Bardic Inspiration die to the weapon damage and one of the following effects. You may use not use Bardic Inspiration in this more than once per turn.</p>
+        <p>If you hit with a Melee Weapon attack, you may use a Bardic Inspiration as a Free Action to apply the Bardic Inspiration die to the weapon damage and one of the following effects. You may use not use Bardic Inspiration in this way more than once per turn.</p>
         <ul>
             <li>You may also add the Bardic Inspiration die to your AC. This bonus to your AC lasts until the beginning of your next turn.</li>
             <li>You may use a Reaction to move up to your Land Speed. This movement does not provoke Attacks of Opportunity.</li>
@@ -125,27 +133,38 @@ class ClassBardSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Spellcaster Muse';
-        $feat->description = '<p>You may only have one Bardic Muse feat. You trade some of your Bardic Inspiration for more Arcane ability. You gain the following.</p>
+        $feat->description = '<p>You may only have one Bardic Muse feat.</p>
+<p>You trade some of your Bardic Inspiration for more Arcane ability. You gain the following.</p>
 <ul>
     <li>You sacrifice 2 uses of your Bardic Inspiration (you never regain them).</li>
+    <li>You gain a Meta Magic Feat</li>
     <li>You gain 2 additional Cantrips</li>
     <li>You gain an additional Spell Slot at each level up to 7th.</li>
     <li>You now have an Arcane Spell book, and can memorize Arcane spells from your Spell Book into your extra spell slot.</li>
+    <li>You may use a use of Bardic Inspiration as an Action to gain 5 Spell Points.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Bardic Muse']);
 
         $feat              = new Feat;
         $feat->name        = 'Fey Muse';
-        $feat->description = "<p>You may use your Bardic Inspiration to cast the following Spells as a Double Action. The spell is automatically Heightened to the highest Spell Level you can cast.</p>
+        $feat->description = "<p>You may only have one Bardic Muse feat.</p>
 <ul>
-    <li>Charm</li>
-    <li>Hideous Laughter</li>
-    <li>Eagle's Splendor</li>
-    <li>Invisibility</li>
+    <li>
+        You may use your Bardic Inspiration to cast the following Spells as a Double Action. The spell is automatically Heightened to the highest Spell Level you can cast.
+        <ul>
+            <li>Sleep</li>
+            <li>Charm</li>
+            <li>Hideous Laughter</li>
+            <li>Eagle's Splendor</li>
+            <li>Invisibility</li>
+        </ul>
+    </li>
+    <li>You gain a +4 bonus to Diplomacy checks when used against Fey creatures. Satyrs are particularly friendly to Bards with the Fey Muse Feat.</li>
+    <li>You gain a +4 bonus to all Saves vs spells and abilities from Fey creatures.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Bardic Muse']);
         $helper->addSpellsToFeat($feat, [
-            1 => ['Charm', 'Hideous Laughter'],
+            1 => ['Charm', 'Hideous Laughter', 'Sleep'],
             2 => ["Eagle's Splendor", 'Invisibility'],
             4 => ['Blinding Beauty'],
             6 => ['Summon Fey'],

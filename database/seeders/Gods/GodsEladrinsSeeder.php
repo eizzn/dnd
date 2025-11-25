@@ -23,10 +23,10 @@ class GodsEladrinsSeeder extends Seeder
         $oberon = God::where('name', 'Corellon Larethian')->first();
         $oberon->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => 'Oberon',
-            'title'     => 'The Green Lord, King of the Seelie Court',
-            'portfolio' => 'Fey',
+            'title'     => 'The Green Lord, The Ever-changing, King of the Seelie Court, Lord of Beasts, Summer King',
+            'portfolio' => 'Fey, Magic',
             'level'     => 'Fey Lord',
-            'aliases'   => 'Oran, Faerinaal',
+            'aliases'   => 'Oran, Faerinaal, The Hidden One (Rashemen)',
             'alignment' => 'CG',
         ]);
 
@@ -35,8 +35,8 @@ class GodsEladrinsSeeder extends Seeder
             'name'        => 'Titania',
             'title'       => 'Summer Queen, Faerie Queen, Queen of Light, Queen of Stars, Lady of the Lake, Lady of Stars, Sovereign of the Twilight Realm, Queen of the Seelie Court',
             'level'       => 'Fey Lord',
-            'aliases'     => 'Tiandra, Morwel',
-            'portfolio'   => 'Fey, friendship, magic',
+            'aliases'     => 'Tiandra, Morwel, Bhalla (Rashemen)',
+            'portfolio'   => 'Fey, Friendship',
             'alignment'   => 'CG',
             'symbol'      => 'White diamond & blue star',
             'master_id'   => $oberon->id,
@@ -135,10 +135,10 @@ class GodsEladrinsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $god->name,
-            'title'     => 'The Prince of Fools',
+            'title'     => 'The Prince of Fools, The Debaucher',
             'level'     => 'Archfey',
             'aliases'   => 'Damh',
-            'portfolio' => 'Dance, Song, Celebrations, Satyrs',
+            'portfolio' => 'Dance, Song, Celebrations, Satyrs, Sex',
             'alignment' => 'CN',
             'symbol'    => 'Flute, pipes and drum',
             'master_id' => $oberon->id,
@@ -255,9 +255,9 @@ class GodsEladrinsSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $god->name,
-            'title'     => '',
+            'title'     => 'The Shy',
             'level'     => 'Archfey',
-            'portfolio' => 'Food, shy friendship, Killoulis',
+            'portfolio' => 'Food, Shy Friendship, Killoulis',
             'alignment' => 'N',
             'symbol'    => 'Tiny bowl and pin',
             'master_id' => $oberon->id,
@@ -406,7 +406,7 @@ class GodsEladrinsSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'The Court of Stars', [
-            $class->name, 'Fighter', 'Barbarian',
+            $class->name, 'Fighter', 'Barbarian', 'Artificer',
         ]);
         $helper->addSkillsToClass($class,
             ['Athletics', 'Concentration', 'Diplomacy', 'Intimidation', 'Religion']
@@ -482,9 +482,9 @@ class GodsEladrinsSeeder extends Seeder
             'master_id' => $maglubiyet->id,
         ]);
         $helper->addClassesToGod($god, 'The Court of Stars', [
-            'Fighter' => 20,
-            'Cleric'  => 15,
-            'Wizard'  => 5,
+            'Fighter'   => 20,
+            'Cleric'    => 15,
+            'Artificer' => 5,
         ]);
 
         $god        = new God;
@@ -605,7 +605,7 @@ class GodsEladrinsSeeder extends Seeder
             'name'      => 'Cegilune',
             'title'     => 'Mother of All Witches, The Hag Witch',
             'level'     => 'Yugoloth',
-            'portfolio' => 'Witches, Hags, The Moon',
+            'portfolio' => 'Witches, Hags, The Moon, Larvae',
             'alignment' => 'NE',
         ]);
 
@@ -765,7 +765,7 @@ class GodsEladrinsSeeder extends Seeder
             6 => ['Elemental Form', 'Spirit Walk'],
             7 => ['Create Crossroads and Backroads', 'Wind Walk'],
             8 => ['Monstrosity Form'],
-            9 => ['Astral Projection'],
+            9 => ['Nature Incarnate' => 'Green Man only, only in Rashemen'],
         ]);
 
         $feat              = new Feat;
@@ -774,8 +774,8 @@ class GodsEladrinsSeeder extends Seeder
         $feat->description = "<p>You have made a Pact with the Archfey Aurilandur. Aurilandur's interests lie with undermining Absalom and his rule over the fey court, maintaining Aurilandur's friendly relationship with the Ogres and Giants of the North Country, and gaining more power in general to use against Absalom.</p>
 <ul>
     <li>You gain the Animal Companion Class Feature, as if you were a Ranger. You do not have to sacrifice any Spell Slots to obtain an Animal Companion, but you are limited to one that can be obtained as if you had sacrificed a 4th level spell slot. You are limited to the highest level Spell Slot that you can actually cast.</li>
-    <li>You gain Resistance to Cold Damage</li>
     <li>All your Cold Spells deal an additional Die of Damage and you add your Proficiency bonus to the Damage as well</li>
+    <li>You gain Resistance to Cold Damage</li>
     <li>You gain Immunity to Cold Damage at 7th level</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Chaotic', 'Evil']);

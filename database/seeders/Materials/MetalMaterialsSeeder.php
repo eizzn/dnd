@@ -29,6 +29,21 @@ class MetalMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat              = new Material;
+        $mat->name        = 'Adamant';
+        $mat->type        = 'Metal';
+        $mat->rarity      = 'Uncommon';
+        $mat->price       = '50 gp';
+        $mat->source      = '<ul>
+    <li>Great Rift (the largest source in Faerun)</li>
+    <li>Gauntlgrym</li>
+</ul>';
+        $mat->description = '<p>This is the pure metal form of the hard, jet-black ferromagnetic ore known as adamntite, from which the famous adamantine is made. Adamant is rarely found in nature, but when it is, it always will be in large spherical pockets in hardened volcanic flows.</p>
+<p>Adamant is one of the hardest substances known on Toril, but it is also brittle. A sword made of adamant could slice through most metals, but would snap off if struck by another. It sees use in Faerun only in dwarven experimentation and in styluses used to etch metal with runes or markings. Such a stylus shatters if dropped to the flour, though the chips can be used to scratch things. Adamant styluses typically costs 35 to 50 gp, if one can be found at all, Waterdeep and the Great Rift of the dwarves are the best places to shop for one.</p>
+<p>Adamant is a gleaming, glossing black. Any reflections seen in it acquire rainbow edges, and this peculiar optical property is the sure-fire way to identify this surprisingly light, valuable metal.</p>
+<p>Adamant is worth five times its weight in gold and takes enchantments readily.</p>';
+        $mat->save();
+
+        $mat              = new Material;
         $mat->name        = 'Adamantine';
         $mat->type        = 'Metal';
         $mat->rarity      = 'Uncommon';
@@ -36,10 +51,8 @@ class MetalMaterialsSeeder extends Seeder
         $mat->source      = '<ul>
     <li>Great Rift (the largest source in Faerun)</li>
     <li>Gauntlgrym</li>
-    <li>Citadel Adbar</li>
 </ul>';
-        $mat->description = "<p>Adamantine is an alloy composed of many substances, the most prominent being adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened valcanic flows, or the deepest chasms.</p>
-<p>Adamant itself is one of the hardest substances' known, being able to cut or scratch almost any object imaginable. However, the material is extremely brittle - shattering into pieces at the slightest impact. This makes it unsuitable for weapons or armor, though it remains in use amongst dwarven scholars as pens for its ability to etch runes in hard stone.</p>
+        $mat->description = "<p>Adamantine is an alloy composed of many substances, the most prominent being adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened volcanic flows, or the deepest chasms.</p>
 <p>Combining five-eights adamant to two-eighths silver and one-eighth electrum (an alloy of silver and gold) forms adamantine. This perfected alloy retains the hardness of adamant while increasing its durability tremendously, allowing for the construction of weaponry and armor. Through powerful arcane magic, master dwarf smiths have even been able to combine steel and mithral into adamantine, though the process requires divine intervention and is considered a holy - and secret - endeavor.</p>
 <p>Adamantine is black with a clear, green sheen when seen through candlelight. The smelting of this alloy is almost exclusively a dwarven secret which they care not to share with anyone else.</p>";
         $mat->armor = "<p>Armor (Chain Shirt, Scale Mail, Breastplate, Half Plate, Ring Mail, Chain Mail, Splint, or Plate). This jet-black armor is nigh impenetrable, a bulwark against all harm.</p>
@@ -228,10 +241,11 @@ class MetalMaterialsSeeder extends Seeder
         $mat->other  = '<p>Fey and Demons have difficulty passing a barrier of Cold Iron. To do so, they must first pass a CON check of DC 15.</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Copper';
-        $mat->type   = 'Metal';
-        $mat->rarity = 'Ubiquitous';
+        $mat              = new Material;
+        $mat->name        = 'Copper';
+        $mat->type        = 'Metal';
+        $mat->rarity      = 'Ubiquitous';
+        $mat->description = "<p>This well-known pure metal, with its distinctive pinkish sheen, is the best widely available purifier and amalgamator among metals. It is soft and easily worked, widely known in Faerun, and appears here because its role as a magical purifier and neutralizing agent cannot be overemphasized. The wizard and especially the priest seeking to work with a substance or item not suited to his or her faith or purpose can make the offending item usable by adding at least half the item's weight of copper to the item. (For example, by sheathing it in copper or adding a longer handle plated in copper, or similar means). Holy or unholy water should not be stored for any length of time in copper vessels, because the metal will neutralize either in 2D4 mounts, changing them to normal water.</p>";
         $mat->save();
 
         $mat         = new Material;
@@ -248,6 +262,17 @@ class MetalMaterialsSeeder extends Seeder
         $mat->type        = 'Metal';
         $mat->price       = '500 gp';
         $mat->weapon      = '<p>Weapons made with Darksteel automatically deal a Critical Hit when used to break objects.</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Dlarun';
+        $mat->type        = 'Metal';
+        $mat->source      = '<ul>
+    <li>Luiren</li>
+    <li>Calimshan</li>
+</ul>';
+        $mat->description = '<p>This bone-white metal can take a high polish and is often mistaken for ivory when seen in finished items, but it has a distinctive greenish sheen in candlelight and when in the presence of magical radiances. Dlarun is a little-known metal of the halflings, who take care to keep word of it as paltry and as inaccurate as possible. Dlarun is usually encountered after having been formed by halflings into small figurines, inlay plates, or knobs and pommels.</p>
+<p>Derived from roasting clay dug from the banks of certain rivers, dlarun is first gathered as white chips among fire ash that are then melted in a hot crucible that is filled with a secret mixture of liquids. A lump of soft, soap-like metal results that can be readily carved by anyone with a sharp knife. When the desired end result has been achieved, a second heating, in the open flames of a fire fueled and supplemented by secret ingredients, this time, transforms the metal into a lightweight rigidity. It is thus ideal for item adornment.</p>';
         $mat->save();
 
         $mat         = new Material;
@@ -326,9 +351,11 @@ class MetalMaterialsSeeder extends Seeder
         $mat->armor       = '<p>Replaces the metal. The wearer gains Resistance to Acid damage. A metal shield can be made of glassteel. While it does not provide any resistance to Acid, the shield is transparent, allowing the wielder to see through his shield.</p>';
         $mat->save();
 
-        $mat       = new Material;
-        $mat->name = 'Gold';
-        $mat->type = 'Metal';
+        $mat              = new Material;
+        $mat->name        = 'Gold';
+        $mat->type        = 'Metal';
+        $mat->description = '<p>This well-known pure metal is the softest of workable metallic substances, and one of the best conductors among them. Despite its high value, it is relatively common and is favored for use in ornamentation in the making of magical items, often being used as an inlay in graven runes or inscriptions</p>
+<p>Gold has the important ability to hold multiple enchantments - even conflicting ones - and keep them from affecting each other or the stability of the gold-adorned item.</p>';
         $mat->save();
 
         $mat              = new Material;
@@ -387,10 +414,11 @@ class MetalMaterialsSeeder extends Seeder
         $mat->description = '<p>Also known as Mercury.</p>';
         $mat->save();
 
-        $mat         = new Material;
-        $mat->name   = 'Silver';
-        $mat->type   = 'Metal';
-        $mat->rarity = 'Ubiquitous';
+        $mat              = new Material;
+        $mat->name        = 'Silver';
+        $mat->type        = 'Metal';
+        $mat->rarity      = 'Ubiquitous';
+        $mat->description = '<p>This relatively common valuable pure metal is known to the elves as "the sheath and shield of Art" because, of all metals, it is the most associated with and suitable with magic. Some Faerunians believe silver is the hardened tears of the goddess Selune, and in the eldest dwarven tongues, the names for silver meant "the blood of alloys", referring to its versatility in making one metal combine with another. Many dwarves use silver in various alloy formulae of their own devising - or that have been handed down through clans for generations. Most of the beauty of metalwork down through the ages has been associated with the gleam and hue of mirror-polished, untarnished silver, and it has always been associated with the adornment of magical items.</p>';
         $mat->save();
 
         $mat         = new Material;
@@ -402,6 +430,14 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>Mined in the Forth layer of Mount Celestia, this fine silver ore is as strong as steel and shines brightly. It is easily worked into weapons.</p>';
         $mat->weapon      = "<p>Metal edged weapons made of Solarian Truesteel gain a +1 to Hit and Damage. When it deals a Critical Hit, re-roll all 1's.</p>";
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Telstang';
+        $mat->type        = 'Metal';
+        $mat->description = "<p>Originally a gnomish secret, this alloy of copper, mithral, platinum, and silver has been adopted by the halflings and by certain elven and orc peoples in the Sword Coast North. Its making remains known to few, and in many writings it is hidden behind the term 'truesilver', which has been applied to mithral, or the phrase 'the trusty metal', often misunderstood by human sages to mean steel or perhaps bronze - the very mistake the writers hoped they would make.</p>
+<p>Telstang is a dull silver hue, rather like pewter, and is known as the singing metal because it gives off a clear bell-like tone whe struck. It is non-ferromagnetic but readily forgeable, through it tends to be brittle and easily snapped off or shattered in large pieces. It never oxidizes and so lasts forever if not struck or dropped.</p>
+<p>Telstang's shortcomings make it unsuitable for use in weapons or armor, but it is often worn (by folk who know of and can get it) as bracers, bucklers, brooches, pendants, and the like because of its most valuable property. Telstang and all organic material in contact with or encased in it cannot be altered in state, that is a warrior wearing telstang and the telstang itself cannot be affected by Polymorph, Petrification, Shape Change and similar effects. However, such a being also cannot be aided by beneficial magical state-altering effects.</p>";
         $mat->save();
 
         $mat              = new Material;

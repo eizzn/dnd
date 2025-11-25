@@ -438,10 +438,7 @@ class GodsMoradinSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god        = new God;
-        $god->name  = 'Sif';
-        $god->level = 'Lesser';
-        $god->save();
+        $god = God::where('name', 'Eilistraee')->firstOrFail();
         $god->pantheons()->save(app()->pantheons['Morndinsamman'], [
             'name'           => 'Haela Brightaxe',
             'title'          => 'Lady of the Fray, Luckmaiden',

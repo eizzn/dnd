@@ -4,6 +4,7 @@ namespace Database\Seeders\Gods;
 
 use App\Models\Feat;
 use App\Models\God;
+use App\Models\Talent;
 use App\Services\SeedHelper;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -363,8 +364,8 @@ class GodsArchonsSeeder extends Seeder
 <p>Once you have used Defensive Stance the maximum number of times, you must finish a Long Rest before you can use Defensive Stance again. When you first get this feat, you may use Defensive Stance equal to the number of Exalted feats that you have (including this feat).</p>';
         $helper->addTypesToFeat($feat, ['Archon', 'Exalted', 'Good', 'Lawful']);
         $feat->parent_feats()->save(app()->feats['Endurance']);
-        $feat->parent_feats()->save(app()->feats['Die Hard']);
         $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
+        $feat->talents()->save(Talent::where('name', 'Die Hard')->firstOrFail());
 
         $feat              = new Feat;
         $feat->name        = 'Initiate of Pistis Sophia';

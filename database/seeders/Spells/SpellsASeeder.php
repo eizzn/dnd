@@ -391,7 +391,7 @@ class SpellsASeeder extends Seeder
     <li>Shifting of weather to a milder climate, cancelling drought and blight</li>
     <li>Acceleration of decomposition which improves soil fertility</li>
     <li>Remove Curse</li>
-    <li>Cure Disease</li>
+    <li>Remove Disease</li>
 </ul>';
         $helper->addTypesToSpell($spell, ['High Magic', 'Transmutation', 'Enchantment'], 7);
         $spell->skills()->save(app()->skills['Nature'], ['dc' => 22]);

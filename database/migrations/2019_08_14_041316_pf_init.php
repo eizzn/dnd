@@ -225,7 +225,7 @@ class PfInit extends Migration
                 'Archomental',
                 'Dead', 'Departed',
             ]);
-            $table->string('aliases', 120)->nullable();
+            $table->string('aliases', 200)->nullable();
             $table->string('portfolio')->nullable();
             $table->string('alignment', 7)->nullable();
             $table->string('symbol', 200)->nullable();

@@ -50,7 +50,7 @@ class MonstersGSeeder extends Seeder
         $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '10';
-        $monster->damage_reduction = '4 (Natural Armor)';
+        $monster->damage_reduction = '2 (Natural Armor)';
         $monster->hit_dice         = 8;
         $monster->speed            = '30 feet';
         $monster->actions          = '<dl>
@@ -214,7 +214,7 @@ class MonstersGSeeder extends Seeder
         $monster->size             = 'Huge';
         $monster->type             = 'Giant';
         $monster->alignment        = 'CE';
-        $monster->armor_class      = '12 (Natural Armor)';
+        $monster->armor_class      = '8 (Natural Armor)';
         $monster->damage_reduction = '2 (Natural Armor)';
         $monster->hit_dice         = 13;
         $monster->speed            = '30 ft';
@@ -436,7 +436,7 @@ class MonstersGSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Gnoll';
         $monster->size             = 'Medium';
-        $monster->type             = 'Gnoll';
+        $monster->type             = 'Gnoll Fiend';
         $monster->alignment        = 'CE';
         $monster->armor_class      = '14 (Hide, Shield) / 11';
         $monster->damage_reduction = '3 (Hide) / 0';

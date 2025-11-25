@@ -294,10 +294,10 @@ class GodsKelemvorSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
-            'title'          => 'Crown Prince of Murghom, Lord of Bones, Old Lord Skull, The Reaper, The Deathless Lord of Death',
+            'title'          => 'Crown Prince of Murghom, Lord of Bones, Old Lord Skull, The Reaper of Souls',
             'aliases'        => "N'asr (Bedine)",
-            'level'          => 'Demi',
-            'portfolio'      => 'Dying, Death, Undead',
+            'level'          => 'Hero',
+            'portfolio'      => 'Dying',
             'alignment'      => 'NE',
             'symbol'         => 'White human skull',
             'favored_weapon' => 'Scythe',
@@ -320,7 +320,7 @@ class GodsKelemvorSeeder extends Seeder
 </dl>",
         ]);
         $helper->addClassesToGod($god, 'Faeruneon', [
-            'Wizard' => ['level' => 20, 'meta' => 'Necromancer'],
+            'Wizard' => ['level' => 30, 'meta' => 'Necromancer'],
         ]);
     }
 }

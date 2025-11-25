@@ -5,6 +5,7 @@ namespace Database\Seeders\Classes;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\Klass;
+use App\Models\Talent;
 use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
@@ -61,7 +62,7 @@ class ClassFrenziedBerserkerSeeder extends Seeder
             'class_group_feat' => [3, 4, 5, 6, 7, 8, 9, 10],
             'frenzy'           => [1],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 1, 'idx' => 1, 'meta' => 'Die Hard']);
+        $class->features()->save(app()->features['talent'], ['level' => 1, 'idx' => 1, 'meta' => 'Die Hard']);
         $class->features()->save(app()->features['feat'], ['level' => 2, 'idx' => 2, 'meta' => 'Supreme Cleave']);
         $class->features()->save(app()->features['talent'], ['level' => 5, 'meta' => 'Improved Power Attack']);
         $class->features()->save(app()->features['feat'], ['level' => 10, 'idx' => 3, 'meta' => 'Supreme Power Attack']);
@@ -83,7 +84,7 @@ class ClassFrenziedBerserkerSeeder extends Seeder
 <p>This ability does not prevent death from massive damage or from spells such as Slay Living or Disintegrate.</p>';
         $helper->addTypesToFeat($feat, ['Rage']);
         $feat->parent_feats()->save(app()->feats['Extra Frenzy']);
-        $feat->parent_feats()->save(app()->feats['Die Hard']);
+        $feat->talents()->save(Talent::where('name', 'Die Hard')->firstOrFail());
         $feat->features()->save(app()->features['frenzy']);
 
         $feat              = new Feat;

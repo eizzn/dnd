@@ -103,27 +103,27 @@ class RuneFormulasSeeder extends Seeder
             <td>+1</td>
             <td>4</td>
             <td>100 gp</td>
-            <td>Rune Etching 10+</td>
+            <td>Rune Etching 7+</td>
             <td>Ink, Spell Writing (Common)</td>
         </tr>
         <tr>
             <td>+2</td>
             <td>9</td>
             <td>5,000 gp</td>
-            <td>Rune Etching 20+</td>
+            <td>Rune Etching 15+</td>
             <td>Ink, Spell Writing (Uncommon)</td>
         </tr>
         <tr>
             <td>+3</td>
             <td>15</td>
             <td>25,000 gp</td>
-            <td>Rune Etching 30+</td>
+            <td>Rune Etching 20+</td>
             <td>Ink, Spell Writing (Rare)</td>
         </tr>
     </tbody>
 </table>';
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Magical', 'Rune'], [
-            'skills'   => ['Crafting' => ['dc' => 5, 'meta' => 'Rune Etching']],
+            'skills'   => ['Crafting' => ['dc' => 7, 'meta' => 'Rune Etching']],
             'spells'   => ['Enchant Item'],
             'feats'    => ['Craft Armament'],
             'formulas' => ['Ink, Spell Writing (Common)'],
@@ -138,13 +138,14 @@ class RuneFormulasSeeder extends Seeder
         $formula->method      = 'Etched, weapon without an Axiomatic Rune';
         $formula->activation  = 'Passive';
         $formula->description = '<p>A weapon with this rune deals 1d6 additional chaotic damage against lawful targets. If you are lawful, you are Enfeebled 2 while carrying or wielding this weapon.</p>
-<p>When you critically succeed at an attack roll with this weapon against a lawful creature, add one extra weapon damage die (after doubling for the Critical Hit), and all your weapon damage dice are treated as the maximum result on an even roll and treated as a 1 on an odd roll. For example, if your attack with a +1 anarchic greatsword is a Critical Hit and you rolled a 2, 8, 9, 3, and 6, the 2, 8, and 6 would each be treated as a 10, and the 9 and 3 would each be treated as a 1, for a total of 32 damage.</p>
+<p>A Lawful creature who holds this weapon takes 1D6 Chaotic damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For a Lawful creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>
+<p>The weapon with this Rune can cast Detect Law at will</p>
 <dl>
-    <dt>Requirements</dt> <dd>You must be Chaotic</dd>
+    <dt>Requirements</dt> <dd>You must cast the Dispel Law spell while in the presence of an Eladrin, Slaad or Demon of CR 6 or higher. This can be ignored if the Dispel Law Spell is cast by a Priest of a Chaotic god.</dd>
 </dl>';
         $helper->saveFormula($formula, ['Chaotic', 'Enchantment', 'Formula', 'Magical', 'Rune'], [
             'skills'   => ['Crafting' => ['dc' => 13, 'meta' => 'Rune Etching']],
-            'spells'   => ['Dispel Law'],
+            'spells'   => ['Dispel Law', 'Detect Law'],
             'feats'    => ['Craft Armament'],
             'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
@@ -191,14 +192,15 @@ class RuneFormulasSeeder extends Seeder
         $formula->rarity      = 'Rare';
         $formula->method      = 'Etched, weapon without an Anarchic Rune';
         $formula->activation  = 'Passive';
-        $formula->description = '<p>A weapon with this rune deals 1d6 additional lawful damage against chaotic targets. When you critically succeed at an attack roll with this weapon against a chaotic creature, instead of rolling, count each weapon damage die as average damage rounded up (3 for d4, 4 for d6, 5 for d8, 6 for d10, 7 for d12).</p>
-<p>If you are chaotic, you become enfeebled 2 while carrying or wielding this weapon.</p>
+        $formula->description = '<p>A weapon with this rune deals 1d6 additional Lawful damage against chaotic targets. When you critically succeed at an attack roll with this weapon against a chaotic creature, instead of rolling, count each weapon damage die as average damage rounded up (3 for d4, 4 for d6, 5 for d8, 6 for d10, 7 for d12).</p>
+<p>A Chaotic creature who holds this weapon takes 1D6 Lawful damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For a Chaotic creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>
+<p>The weapon with this Rune can cast Detect Chaos at will</p>
 <dl>
-    <dt>Requirements</dt> <dd>You must be Lawful</dd>
+    <dt>Requirements</dt> <dd>You must cast the Dispel Chaos spell while in the presence of an Archon, Modron or Devil of CR 6 or higher. This can be ignored if the Dispel Chaos Spell is cast by a Priest of a Lawful god.</dd>
 </dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Lawful', 'Magical', 'Rune'], [
             'skills'   => ['Crafting' => ['dc' => 13, 'meta' => 'Rune Etching']],
-            'spells'   => ['Dispel Chaos'],
+            'spells'   => ['Dispel Chaos', 'Detect Chaos'],
             'feats'    => ['Craft Armament'],
             'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
@@ -713,10 +715,14 @@ class RuneFormulasSeeder extends Seeder
         $formula->method      = 'Etched, weapon without an Unholy Rune';
         $formula->activation  = 'Passive';
         $formula->description = '<p>A weapon with this rune deals 1D6 additional Good damage against Evil targets. If you are Evil, you become Enfeebled 2 while wielding or carrying this weapon.</p>
-<p>An evil creature who holds this weapon takes 1D6 Good damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For an evil creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>';
+<p>An evil creature who holds this weapon takes 1D6 Good damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For an evil creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>
+<p>The weapon with this Rune can cast Detect Evil at will.</p>
+<dl>
+    <dt>Requirements</dt> <dd>You must cast the Dispel Evil spell while in the presence of an Archon, Guardinal or Eladrin of CR 6 or higher. This can be ignored if the Dispel Chaos Evil is cast by a Priest of a Good god.</dd>
+</dl>';
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Good', 'Magical', 'Rune'], [
             'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Rune Etching']],
-            'spells'    => ['Bless' => ['meta' => 'Caster must be a servant of a good aligned deity. Heightened +4']],
+            'spells'    => ['Dispel Evil', 'Detect Evil'],
             'feats'     => ['Craft Armament'],
             'materials' => ['Aurorum'],
             'formulas'  => ['Ink, Spell Writing (Uncommon)'],
@@ -819,7 +825,6 @@ class RuneFormulasSeeder extends Seeder
             'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Rune Etching']],
             'spells'   => ['Vampiric Touch'],
             'feats'    => ['Craft Armament'],
-            'monsters' => ['Vampire' => ['meta' => 'At least 10 drops of fresh blood from an un-destroyed vampire']],
             'formulas' => ['Ink, Spell Writing (Uncommon)'],
         ]);
 
@@ -1038,11 +1043,11 @@ class RuneFormulasSeeder extends Seeder
         $formula->name        = 'Improved Summoning Circle';
         $formula->type        = 'Rune';
         $formula->level       = 12;
-        $formula->price       = '25,500 gp';
+        $formula->price       = '2,750 gp';
         $formula->method      = 'Inscribe';
         $formula->activation  = 'Action Command Activation';
-        $formula->description = '<p>This is similar to the Summoning Circle vs Evil, except that it works on all outsiders. The cost includes the price for making this Permanent.</p>';
-        $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Rune', 'Calling', 'Permanency'], [
+        $formula->description = '<p>This is similar to the Summoning Circle vs Evil, except that it works on all outsiders.</p>';
+        $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Rune', 'Calling', 'Permanency' => ['meta' => 'Price: 25,000 gp']], [
             'skills'   => ['Arcana' => ['dc' => 18]],
             'spells'   => [
                 'Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
@@ -1122,11 +1127,14 @@ class RuneFormulasSeeder extends Seeder
         $formula->activation  = 'Reaction Command Activation';
         $formula->meta        = '<dt>Trigger</dt> <dd>You critically succeed at an attack roll on a good-aligned creature with the weapon</dd>';
         $formula->description = "<p>A weapon with this rune deals 1D6 additional Evil damage when it hits a good target. If you are good, you become Enfeebled 2 while carrying or wielding this weapon.</p>
-<p>When you activate this weapon, the target of your Critical Hit takes 1D4 Persistent bleed damage, plus 1D4 additional persistent bleed damage for each point of the weapon's item bonus to attack rolls from its potency rune, if any.</p>
-<p>A good creature who holds this weapon takes 1D6 Evil damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For a good creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>";
+<p>A good creature who holds this weapon takes 1D6 Evil damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For a good creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>
+<p>The weapon with this Rune can cast Detect Good at will</p>
+<dl>
+    <dt>Requirements</dt> <dd>You must cast the Dispel Good spell while in the presence of an Devil, Yugoloth or Demon of CR 6 or higher. This can be ignored if the Dispel Good Spell is cast by a Priest of an Evil god.</dd>
+</dl>";
         $helper->saveFormula($formula, ['Evil', 'Enchantment', 'Formula', 'Magical', 'Rune'], [
             'skills'    => ['Crafting' => ['dc' => 13, 'meta' => 'Rune Etching']],
-            'spells'    => ['Bane'],
+            'spells'    => ['Dispel Good', 'Detect Good'],
             'feats'     => ['Craft Armament'],
             'materials' => ['Gehennan Morghuth Iron'],
             'formulas'  => ['Ink, Spell Writing (Uncommon)'],
@@ -1171,7 +1179,7 @@ class RuneFormulasSeeder extends Seeder
         $formula->price       = '15,000 gp';
         $formula->method      = 'Etched, melee weapon that deals slashing damage';
         $formula->activation  = 'Action Focus Activation';
-        $formula->meta        = "<dt>Trigger</dt> <dd>You roll a triple six's and critically succeed at a Strike with the weapon targeting a creature with at least one head.</dd>";
+        $formula->meta        = "<dt>Trigger</dt> <dd>You roll at least 2 sixes on your Hit roll and critically succeed at a Strike with the weapon targeting a creature with at least one head.</dd>";
         $formula->description = "<p>When you activate a vorpal weapon, the triggering creature must succeed at a DC 20 CON Save, or it is decapitated. This kills any creature except ones that don't require a head to live (such as constructs, oozes, and some aberrations and undead). For creatures with multiple heads (such as ettins or hydras), this usually kills the creature only if you sever its last head.</p>";
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Magical', 'Rune'], [
             'skills'   => ['Crafting' => ['dc' => 19, 'meta' => 'Rune Etching']],
@@ -1184,10 +1192,10 @@ class RuneFormulasSeeder extends Seeder
         $formula->name        = 'Weakening';
         $formula->type        = 'Rune';
         $formula->level       = 7;
-        $formula->price       = '50,000 gp';
+        $formula->price       = '500 gp';
         $formula->method      = 'Etched melee or ranged weapon';
         $formula->activation  = 'Weapon deals maximum damage';
-        $formula->description = "<p>Weakening weapons deal 1 point of STR damage when you roll maximum damage on the weapon die rolls. Alternatively, you may spend 2 Spell Points whenever you hit. This weakness lasts for 10 minutes, and multiple strikes on the same creature are cumulative, but the creature's STR score cannot drop below 1.</p>
+        $formula->description = "<p>Weakening weapons deal 1 point of STR damage when you roll maximum damage on the weapon die rolls. The creature's STR score cannot drop below 1.</p>
 <p>This rune can be etched onto ranged weapon ammunition. Each crafting places this rune on 50 ammunition items.</p>";
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Necromancy', 'Magical', 'Rune'], [
             'skills'   => ['Crafting' => ['dc' => 12, 'meta' => 'Rune Etching']],

@@ -168,6 +168,7 @@ class ClassSpiritShamanSeeder extends Seeder
 <p>The exact form of the spirit guide is chosen by you, usually for the qualities it represents. The exact form of the spirit guide is purely personal preference, and confers no special advantages or disadvantages.</p>
 <p>Your spirit guide qualifies as a familiar for the purposes of class feature</p>
 <p>During a Long Rest, your spirit guide may be sent out to retrieve a new spell from the spirits. This spell that your spirit guide brings must be a spell on your Spirit Shaman spell list, and you must be sufficient level to cast it. When your spirit guide returns with the spell, you must choose one of your other spells known to replace it with. You may replace up to 2 spells in this way during a Long Rest.</p>';
+        $helper->saveFeature($feature, ['Primal', 'Spirit']);
 
         $feature              = new Feature;
         $feature->key         = 'chastise_spirit';
@@ -180,10 +181,6 @@ class ClassSpiritShamanSeeder extends Seeder
         $feature->name        = 'Detect Spirit';
         $feature->description = 'You may cast Detect Ghost as an Action. When you do, triple the duration and range.';
         $helper->saveFeature($feature, ['Primal', 'Spirit']);
-        $class->features()->save($feature, [
-            'level' => 3,
-            'meta'  => 'You Detect Spirits through your Spirit Guide. If you lose access to your Spirit Guide, you lose this ability.',
-        ]);
 
         $feature              = new Feature;
         $feature->key         = 'recall_spirit';
@@ -379,6 +376,7 @@ The blessing performs just like Protection from Evil, except it protects against
 
         $helper->addFeaturesToClass($class, [
             'class_group_feat'     => [3, 5, 7, 9, 12, 15, 18, 20],
+            'spirit_guide'         => [1],
             'wild_empathy'         => [1],
             'spell_pool'           => [2],
             'chastise_spirit'      => [2],
@@ -386,32 +384,138 @@ The blessing performs just like Protection from Evil, except it protects against
             'exorcism'             => [13],
             'spirit_journey'       => [17],
         ]);
+        $class->features()->save($feature, [
+            'level' => 3,
+            'meta'  => 'You Detect Spirits through your Spirit Guide. If you lose access to your Spirit Guide, you lose this ability.',
+        ]);
 
         $helper->addSpellsToClass($class, [
-            0 => ['Detect Ghost', 'Dancing Lights', 'Detect Magic', 'Disrupt Ectoplasm', 'Light', 'Magic Fang', 'Naturewatch',
-                'Tanglefoot', ],
+            0 => ['Detect Ghost', 'Dancing Lights', 'Detect Magic', 'Disrupt Ectoplasm', 'Know Direction', 'Light', 'Magic Fang',
+                'Naturewatch', 'Tanglefoot', ],
             1 => ['Animal Friendship', 'Beast Bond', 'Calm Animals', 'Create Water', 'Cure Wounds', 'Deathwatch', 'Detect Crossroads',
                 'Detect Poison', 'Exorcism', 'Gaze Screen', 'Goodberry', 'Gust of Wind', 'Locate Water', 'Longstrider',
                 'Mending', 'Negate Aroma', 'Pass Without Trace', 'Protection From Possession', 'Purify Food and Drink',
-                'Remove Disease', 'Shillelagh', 'Summon Animals', 'Summon Elemental, Lesser', ],
+                'Remove Disease', 'Shillelagh', 'Summon Animals', 'Summon Elemental, Lesser', 'Weather Sense', ],
             2 => ['Animal Messenger', 'Animal Sense', 'Barkskin', "Bear's Endurance", "Bull's Strength", "Cat's Grace",
                 'Consecrate', 'Create Food and Water', 'Darkvision', 'Delay Poison', 'Dust Devil', "Eagle's Splendor", 'Endure Elements',
                 'Enlarge', 'Entangle', 'Faerie Fire', 'Forced Incorporeality', 'Forced Manifestation', "Fox's Cunning",
-                'Know Motivation', 'Obscuring Mist', "Owl's Wisdom", 'Plant Renewal', 'Possess Animal', 'Restoration', 'Shrink',
-                'Speak with Animals', 'Spider Climb', 'Tree Shape', 'Water Breathing', 'Water Walk', 'Warding Wind', 'Web', ],
-            3 => ['Call Lightning', 'Commune With Spirit', 'Dispel Magic', 'Earthbind', 'Eradicate Air', 'Eradicate Earth',
-                'Eradicate Fire', 'Eradicate Water', 'Heal Animal Companion', 'Meld into Stone', 'Neutralize Poison', "Nature's Exile",
-                'Nondetection', 'Stinking Cloud', 'Tidal Wave', 'Wall of Thorns', 'Wall of Wind', ],
-            4 => ['Air Walk', 'Control Winds', 'Exhaustion', 'Fly', 'Hallucinatory Terrain', 'Healing Spirit', 'Make Manifest',
+                'Healing Spirit', 'Know Motivation', 'Lay of the Land', 'Obscuring Mist', "Owl's Wisdom", 'Plant Renewal',
+                'Possess Animal', 'Resist Poison', 'Restoration', 'Shrink', 'Speak with Animals', 'Spider Climb', 'Tree Shape',
+                'Water Breathing', 'Water Walk', 'Warding Wind', ],
+            3 => ['Call Lightning', 'Commune With Spirit', 'Dispel Magic', 'Dominate Animal', 'Earthbind', 'Eradicate Air',
+                'Eradicate Earth', 'Eradicate Fire', 'Eradicate Water', 'Heal Animal Companion', 'Meld into Stone', 'Neutralize Poison',
+                "Nature's Exile", 'Neutralize Poison', 'Nondetection', 'Tidal Wave', 'Wall of Thorns', 'Wall of Wind', ],
+            4 => ['Air Walk', 'Control Winds', 'Exhaustion', 'Fly', 'Hallucinatory Terrain', 'Make Manifest',
                 'Raise as Ghost', 'Solid Fog', 'Speak with Plants', 'Summon Woodland Beings', ],
-            5 => ['Animate with Spirit', 'Awaken', 'Cloudkill', 'Commune with Nature', 'Control Water', 'Dream', 'Elemental Form',
-                'Passwall', 'Raise Dead', 'Repel Ectoplasm', 'Summon Fey', 'Summon Elemental', 'Tree Stride', 'Wall of Stone',
+            5 => ['Animate with Spirit', 'Atonement', 'Awaken', 'Cloudkill', 'Commune with Nature', 'Control Water', 'Dream',
+                'Elemental Form', 'Passwall', 'Repel Ectoplasm', 'Summon Elemental', 'Summon Fey', 'Tree Stride', 'Wall of Stone',
                 'Wrath of Nature', ],
-            6  => ['Commune with Earth', 'Flesh to Stone', 'Oasis', 'Stone to Flesh', 'Spirit Blast', 'Spirit Walk'],
+            6  => ['Commune with Earth', 'Flesh to Stone', 'Oasis', 'Raise Dead', 'Stone to Flesh', 'Spirit Blast', 'Spirit Walk'],
             7  => ['Create Crossroads and Backroads', 'Possession', 'Regenerate', 'Volcanic Eruption'],
-            8  => ['Earthquake', 'Punishing Wind', 'Tsunami', 'Wind Walk'],
+            8  => ['Control Weather', 'Earthquake', 'Punishing Wind', 'Tsunami', 'Wind Walk'],
             9  => ['Astral Projection', "Nature's Enmity", 'Storm of Vengeance'],
             10 => ['Nature Incarnate', 'Primal Phenomenon'],
+        ]);
+
+        /**********************************************************************/
+
+        $class                = new Klass;
+        $class->name          = 'Shaman';
+        $class->type          = 'Base';
+        $class->key_attribute = 'WIS';
+        $class->weapons       = 'Simple Weapons';
+        $class->armors        = 'Light Armor';
+        $class->has_spells    = true;
+        $helper->saveClass($class, [
+            'hit_dice'       => 8,
+            'skill_points'   => 6,
+            'skill_progress' => 4,
+        ], ['WIS', 'CHA'], [
+            'Divine', 'Spirit', 'Primal',
+        ]);
+
+        // Skills
+        $helper->addSkillsToClass($class, [
+            'Animal Handling', 'Athletics', 'Concentration', 'Diplomacy', 'Nature', 'Survival'
+        ]);
+
+        $feature              = new Feature;
+        $feature->key         = 'soul_blast';
+        $feature->name        = 'Soul Blast';
+        $feature->description = '<p>As an Action, you emit a Ray that disturbs the soul or spirit of a living creature or creature that exists on the Ethereal Plane. Make a Ranged Touch Attack, if you hit, you deal 3D6 Positive Damage and 1 STR Damage.</p>
+<p>You may use this ability 1/day for each time you gain this ability.</p>';
+        $helper->saveFeature($feature, ['Primal', 'Spirit', 'Ray']);
+
+        $feature              = new Feature;
+        $feature->key         = 'summon_ghost';
+        $feature->name        = 'Summon Ghost';
+        $feature->description = '<p>As a Triple Action, you summon a Ghost that fights for you. The ghost will not speak (unless a spell allows you to communicate with the ghost). After 1 minute, the ghost returns to the Ethereal.</p>
+<p>You may use this ability 1/day for each time you gain this ability.</p>';
+        $helper->saveFeature($feature, ['Primal', 'Spirit']);
+
+        $feature              = new Feature;
+        $feature->key         = 'transmute_into_ghost';
+        $feature->name        = 'Transmute into Ghost';
+        $feature->description = '<p>As a 1-minute Ritual, you may transform a willing humanoid into a ghost for 1 hour. For the Duration, the Target gains the Returned as Ghost Feat. Only the Target is turned into a Ghost, none of their equipment and enchantments carry over to the incorporeal ghost (though they do persist on the physical body when this effect ends).</p>
+<p>You may use this ability 1/week for each time you gain this ability.</p>';
+        $helper->saveFeature($feature, ['Primal', 'Spirit']);
+
+        $feature              = new Feature;
+        $feature->key         = 'transmute_into_greater_ghost';
+        $feature->name        = 'Transmute into Greater Ghost';
+        $feature->description = '<p>Your Transmute into Ghost Feature now turns the willing Target into a Greater Ghost.</p>';
+        $helper->saveFeature($feature, ['Primal', 'Spirit']);
+
+        $helper->addFeaturesToClass($class, [
+            'spirit_guide'                 => [1],
+            'wild_empathy'                 => [1],
+            'cantrip_caster'               => [2],
+            'soul_blast'                   => [3, 4, 5, 7, 12, 15],
+            'summon_ghost'                 => [5, 7, 15],
+            'transmute_into_ghost'         => [9, 17],
+            'transmute_into_greater_ghost' => [12],
+            'recall_spirit'                => [10],
+        ]);
+        $helper->addSpellSlotsToClass($class, [
+            1  => ['known' => 4, 'cantrips' => 3],
+            2  => ['known' => 5, 'cantrips' => 4, 'one' => 2],
+            3  => ['known' => 6, 'cantrips' => 4, 'one' => 3],
+            4  => ['known' => 7, 'cantrips' => 4, 'one' => 3, 'two' => 1],
+            5  => ['known' => 8, 'cantrips' => 4, 'one' => 4, 'two' => 2],
+            6  => ['known' => 9, 'cantrips' => 4, 'one' => 4, 'two' => 3],
+            7  => ['known' => 10, 'cantrips' => 4, 'one' => 4, 'two' => 3, 'three' => 1],
+            8  => ['known' => 11, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 2],
+            9  => ['known' => 12, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 3],
+            10 => ['known' => 13, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
+            11 => ['known' => 14, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 2],
+            12 => ['known' => 15, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3],
+            13 => ['known' => 16, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 1],
+            14 => ['known' => 17, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 2],
+            15 => ['known' => 18, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 2],
+            16 => ['known' => 19, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 2, 'six' => 1],
+            17 => ['known' => 20, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 2, 'six' => 1],
+            18 => ['known' => 21, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 2, 'six' => 1],
+            19 => ['known' => 22, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 3, 'six' => 1],
+            20 => ['known' => 23, 'cantrips' => 4, 'one' => 4, 'two' => 4, 'three' => 4, 'four' => 3, 'five' => 3, 'six' => 2],
+        ]);
+
+        // TODO: complete spells list
+        $helper->addSpellsToClass($class, [
+            0 => ['Blade Ward', 'Boon', 'Conviction', 'Dancing Lights', 'Daze', 'Detect Ghost', 'Disrupt Ectoplasm', 'Ghost Sound',
+                'Focusing Chant', 'Ghost Sound', 'Hex', 'Know Direction', 'Light', 'Produce Flame', 'Resist Negative Energy', ],
+            1 => ['Bless', 'Calm Animals', 'Command', 'Cure Wounds', 'Detect Evil', 'Doom', 'Exorcism', 'Fear', 'Protection From Possession',
+                'Remove Disease', 'Sanctuary', 'Summon Elemental, Lesser', ],
+            2 => ['Augury', "Bear's Endurance", 'Bestow Curse', "Bull's Strength", 'Consecrate', 'Ethereal Sight', 'Forced Incorporeality',
+                'Forced Manifestation', 'Gentle Repose', 'Ghost Touch', 'Healing Spirit', 'Hold Undead', 'Obscuring Mist',
+                "Owl's Wisdom", 'Possess Animal', 'Rain', 'Remove Disease', 'Remove Fear', 'Restoration', 'Restore Senses',
+                'Reveal True Shape', 'Restoration', 'Sticks to Snakes', ],
+            3 => ['Abolish Shadows', 'Banishment', 'Ceremony', 'Circle of Protection From Evil', 'Commune With Spirit',
+                'Dimensional Anchor', 'Dominate Animal', 'Ethereal Mount', 'Ethereal Sight', 'Neutralize Poison', 'Prophecy',
+                'Raise as Ghost', 'Revivify', 'Skywrite', 'Speak with Dead', 'Spirit Guardians', ],
+            4 => ['Animate with Spirit', 'Annihilate Spirit', 'Atonement', 'Banishment', 'Calm Air', 'Commune with Nature',
+                'Control Winds', 'Ethereal Cyclone', 'Ethereal Prison', 'Remove Curse', 'Spirit Blast', 'Spirit Walk', ],
+            5 => ['Dimensional Lock', 'Etherealness', 'Hallow'],
+            6 => ['Baleful Polymorph', 'Control Weather', 'Etherealness'],
         ]);
 
         $features = app()->features;

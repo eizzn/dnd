@@ -812,9 +812,6 @@ class PoisonFormulasSeeder extends Seeder
                 'Crafting' => ['dc' => 13, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 12, 'meta' => 'The Spider Venom must be harvested in a special way'],
             ],
-            'monsters' => [
-                'Spider, Giant' => ['meta' => 'Fermented venom'],
-            ],
         ]);
 
         $formula              = new Formula;
@@ -834,9 +831,6 @@ class PoisonFormulasSeeder extends Seeder
             'skills' => [
                 'Crafting' => ['dc' => 15, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 16, 'meta' => 'Find and harvest from the Slime Mold'],
-            ],
-            'monsters' => [
-                'Slime Mold' => ['meta' => 'Poison must be extracted in a very special way'],
             ],
         ]);
 

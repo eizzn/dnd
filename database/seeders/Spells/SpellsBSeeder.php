@@ -401,13 +401,15 @@ class SpellsBSeeder extends Seeder
     <li>While cursed, the target suffers Disadvantage to Attack rolls.</li>
     <li>While cursed, the target must make a WIS Save at the start of each of its turns. If it fails, it wastes its Action that turn doing nothing.</li>
     <li>While cursed, attacks and spells deal an extra 1D8 Necrotic damage to the target.</li>
+    <li>Name a spell, while cursed, the target cannot cast the named spell.</li>
 </ul>
 <p>A Remove Curse spell ends this effect, even if it is Heightened (even if made Permanent).</p>
 <p>At the DM's option, you may choose an alternative curse effect, but it should be no more powerful than those described above. The DM has final say on such effects.</p>";
         $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Duration 30 minutes.</dd>
-    <dt>Heightened (+2)</dt> <dd>Duration 8 hours.</dd>
-    <dt>Heightened (+3)</dt> <dd>Duration 24 hours.</dd>
+    <dt>Heightened (+1)</dt> <dd>Duration 1 hour.</dd>
+    <dt>Heightened (+2)</dt> <dd>Duration 12 hours.</dd>
+    <dt>Heightened (+3)</dt> <dd>Duration 3 days.</dd>
+    <dt>Heightened (+4)</dt> <dd>Duration 10 days</dd>
     <dt>Heightened (+5)</dt> <dd>Permanent.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Curse', 'Enchantment'], 2);

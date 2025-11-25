@@ -193,10 +193,15 @@ class GodsDevilsSeeder extends Seeder
         $feat->description = '<p>You formally supplicate yourself to Mammon. You gain the following abilities.</p>
 <ul>
     <li>You gain the Reaction Feat</li>
+    <li>
+        <p>When you cast the Arcane Pocket Spell, once per month, you find 10 gp in your pocket. This gold comes from the treasury of Mammon. If you are not in good standing with Mammon, no gold will be found.</p>
+        <p>If you leave any coins in your Arcane Pocket when the Duration ends, the coins are taken by Mammon. When a great amount of coins are "tithed" in this way (at least 10,000 gp in a month), Mammon will sometimes send a Vrock to serve the Warlock for 1 month</p>
+    </li>
+    <li>You gain the Thievery Skill as a Class Skill</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Ghost Sound', 'Hex', 'Mage Hand', 'Minor Illusion'],
+            0 => ['Eldritch Blast', 'Ghost Sound', 'Hex', 'Mage Hand', 'Minor Illusion'],
             1 => ['Arcane Pocket', 'Silent Image'],
             2 => ['Darkness', 'Sticks to Snakes'],
             3 => ['Major Image'],
@@ -282,11 +287,15 @@ class GodsDevilsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Levistus';
-        $feat->description = '<p>You have made a Pact to Levistus</p>';
+        $feat->description = '<p>You have made a Pact to Levistus</p>
+<ul>
+    <li>You gain Resistance to Cold Damage</li>
+    <li>You gain a Heroic Surge</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Evil', 'Vile', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Fist of Ice', 'Ray of Frost'],
-            1 => ['Armor of Frost', 'Frost Fingers', 'Ice Knife'],
+            0 => ['Ice Knife', 'Ray of Frost'],
+            1 => ['Armor of Frost', 'Frost Fingers'],
             2 => ['Chill Metal', 'Chilling Chamber', 'Ice Armor', 'Resist Cold', 'Frost Whip'],
             3 => ['Sleet Storm'],
             4 => ['Ice Blade', 'Ice Storm'],
@@ -456,7 +465,7 @@ class GodsDevilsSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
             'title'          => 'The Hidden Lord, The Lord Who Watches, The Lost Lord of the Pit, The Outcast, The Tenth Lord of Nine',
-            'level'          => 'Demi',
+            'level'          => 'Hero',
             'aliases'        => '(Astaroth), Gargoth',
             'portfolio'      => 'Betrayal, cruelty, political corruption, powerbrokers',
             'alignment'      => 'LE',
@@ -491,7 +500,7 @@ class GodsDevilsSeeder extends Seeder
             'alignment'   => 'LE',
             'master_id'   => $asmodeus->id,
             'description' => "<p>Moloch was once an archdevil in the service of Baalzebul, serving as his viceroy in Malbolge before being exiled after the Reckoning. Though formerly the greatest duke of Hell, he is untrusted by his masters and betrayed by his subjects in a devious coup, after which Moloch plots his resurgence.</p>
-<p>Standing over 14.5 ft tall, Moloch is a powerful, almost square physique. His short amrs and legs are especially thick and ended in enormous hands and feet that are both cubic and clawed. He has reddish-orange skin and a bestial visage, his huge, horned head hosts fiery, slanting, unblinking eyes and a salivating, gaped mouth filled with shark-like teeth.</p>
+<p>Standing over 14.5 ft tall, Moloch is a powerful, almost square physique. His short arms and legs are especially thick and ended in enormous hands and feet that are both cubic and clawed. He has reddish-orange skin and a bestial visage, his huge, horned head hosts fiery, slanting, unblinking eyes and a salivating, gaped mouth filled with shark-like teeth.</p>
 <p>As a solider, Moloch is a dauntless foe that strikes fear into the hearts of tanar'ri hordes with just a mention of his name. He is known for his unending hatred of his opposition and his malice isn't halted by his rise to power nor tempered by the nature of his victims. Gleefully, he torters and disfigures other devils in a variety of creative ways with cruelty rivaling that of Baalzebul. Being deposed has not stemmed his ambition and the prideful devil has no qualms about using deception and confusion to return to power.</p>",
         ]);
 

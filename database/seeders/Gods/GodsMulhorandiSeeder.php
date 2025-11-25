@@ -162,7 +162,7 @@ class GodsMulhorandiSeeder extends Seeder
             1  => ['Bless', 'Cloak of Shade', 'Command', 'Cure Wounds', 'Detect Chaos', 'Disk of Solar Vengeance',
                 'Endure Elements' => 'Fire or Light only', 'Nimbus of Light', 'Protection From Chaos', 'Resist Fire', 'Zone of Truth', ],
             2  => ['Aid', 'Daylight', 'Delay Poison', 'Exorcism', 'Glorious Raiment', 'Produce Flame', 'Scorching Ray',
-                'Sun Bolt', 'Undead Bane Weapon', 'Zone of Truth', ],
+                'Sun Bolt', 'Undead Bane Weapon', ],
             3  => ['Aura of the Sun', 'Circle of Protection Chaos', 'Fireball', 'Prayer', 'Searing Light'],
             4  => ['Ceremony', 'Commune with City', 'Control Sand', 'Sunmantle'],
             5  => ['Atonement', 'Dawn', 'Dispel Chaos', 'Flame Strike', 'Sun Scepter', 'Wall of Light'],

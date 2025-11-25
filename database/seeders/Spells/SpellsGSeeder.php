@@ -316,8 +316,11 @@ class SpellsGSeeder extends Seeder
         $spell->targets        = 'One living creature touched';
         $spell->duration       = '1 round';
         $spell->description    = '<p>Your hand glows as if you are wearing a black lit transparent black gauntlet. Until the beginning of your next turn, touching a creature with the gauntlet forces the creature to make a CON Save. On a Failure, the creature is cursed. On each of their turns, they take 3D4 Negative damage. If the creature dies do to this damage, they will rise again as a Ghoul at the first night.</p>
-<p>Cure Disease, Remove Curse, Heal, Restoration, Disjunction, Limited Wish, Wish, and Miracle can remove this curse if cast before the creature dies.</p>';
-        $spell->saves          = '';
+<p>Remove Disease, Remove Curse, Heal, Restoration, Disjunction, Limited Wish, Wish, and Miracle can remove this curse if cast before the creature dies.</p>';
+        $spell->saves          = '<dl>
+    <dt>Success</dt> <dd>Not Affected</dd>
+    <dt>Failure</dt> <dd>Affected</dd>
+</dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Evil', 'Curse'], 5);
 
         $spell                 = new Spell;
@@ -650,7 +653,7 @@ class SpellsGSeeder extends Seeder
         $spell->casting     = 'Material Casting';
         $spell->range       = '5 feet';
         $spell->duration    = '1 round';
-        $spell->description = "<p>With an Action, you may make a Melee Attack with a weapon against one creature within the spell's range, otherwise the spell fails. On a hit, the Target suffers the attack's normal effects, and green fire leaps from the Target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.</p>";
+        $spell->description = "<p>Until the beginning of your next turn, your blade is wreathed in green flame. The next Target you hit with your weapon suffers the attack's normal effects, and the green fire leaps from the Target to a different creature of your choice that you can see within 5 feet of it. The second creature takes fire damage equal to your spellcasting ability modifier.</p>";
         $spell->heightened  = '<dl>
     <dt>Heightened (+3)</dt> <dd>Increase the fire damage by +1D8 to both the first and second targets</dd>
 </dl>';

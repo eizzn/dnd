@@ -19,12 +19,15 @@ class WandFormulaSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Acid';
-        $formula->type        = 'Item';
-        $formula->rarity      = 'Common';
-        $formula->price       = '50 gp';
-        $formula->description = '';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Acid';
+        $formula->type          = 'Item';
+        $formula->level         = 2;
+        $formula->rarity        = 'Common';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Double Spell Trigger Action to activate. When activated, you cast Acid Splash as a 2nd Level caster.</p>';
         $helper->saveFormula($formula, ['Wand', 'Acid'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Acid Splash' => ['meta' => 'A second level Spell Slot must be used']],
@@ -36,12 +39,14 @@ class WandFormulaSeeder extends Seeder
             'formulas'  => ['Aqua Regia' => ['meta' => '1 oz']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Detect Magic';
-        $formula->type        = 'Item';
-        $formula->rarity      = 'Common';
-        $formula->price       = '50 gp';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Detect Magic';
+        $formula->type          = 'Item';
+        $formula->rarity        = 'Common';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Detect Magic' => ['meta' => 'A second level Spell Slot must be used']],
@@ -52,11 +57,28 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Fire Bolt';
-        $formula->type        = 'Item';
-        $formula->price       = '50 gp';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Double Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Fear';
+        $formula->type          = 'Item';
+        $formula->price         = '150 gp';
+        $formula->level         = 6;
+        $formula->crafting_time = '5 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. When activated you cast the Fear Spell.</p>';
+        $helper->saveFormula($formula, ['Wand'], [
+            'feats'     => ['Craft Implement'],
+            'spells'    => ['Fear' => ['meta' => 'Heightened +1']],
+            'skills'    => ['Crafting' => ['dc' => 5, 'meta' => 'Metal Working']],
+            'materials' => ['Gehennan Morghuth Iron' => ['meta' => 'Wand is forged and then wrapped in leather']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Fire Bolt';
+        $formula->type          = 'Item';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Double Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Fire Bolt' => ['meta' => 'A second level Spell Slot must be used']],
@@ -67,11 +89,13 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Ellond Shrub' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Frost';
-        $formula->type        = 'Item';
-        $formula->price       = '50 gp';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Double Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Frost';
+        $formula->type          = 'Item';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Double Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Ray of Frost' => ['meta' => 'A second level Spell Slot must be used']],
@@ -83,11 +107,13 @@ class WandFormulaSeeder extends Seeder
             'formulas'  => ['Liquid Ice' => ['meta' => '1 oz']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Fireballs';
-        $formula->type        = 'Item';
-        $formula->price       = '350 gp';
-        $formula->description = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Fireballs';
+        $formula->type          = 'Item';
+        $formula->price         = '350 gp';
+        $formula->crafting_time = '14 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Fireball' => ['meta' => 'Heightened +1']],
@@ -98,12 +124,14 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Serpent Tree' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Light';
-        $formula->type        = 'Item';
-        $formula->rarity      = 'Uncommon';
-        $formula->price       = '20 gp';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Light';
+        $formula->type          = 'Item';
+        $formula->rarity        = 'Uncommon';
+        $formula->price         = '20 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Light' => ['meta' => 'A second level Spell Slot must be used']],
@@ -114,11 +142,13 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Ucre Bramble' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Lightning Bolts';
-        $formula->type        = 'Item';
-        $formula->price       = '350 gp';
-        $formula->description = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Lightning Bolts';
+        $formula->type          = 'Item';
+        $formula->price         = '350 gp';
+        $formula->crafting_time = '14 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Lightning Bolt' => ['meta' => 'Heightened +1']],
@@ -130,12 +160,14 @@ class WandFormulaSeeder extends Seeder
             'formulas'  => ['Bottled Lightning'=> ['meta' => '1 oz']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Magic Missiles';
-        $formula->type        = 'Item';
-        $formula->rarity      = 'Uncommon';
-        $formula->price       = '120 gp';
-        $formula->description = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. Each Spell Trigger Action used to activate the wand causes two missiles to fire. You may use another Action to fire an additional missile (3 missiles max) Firing 3 missiles still uses only 1 charge.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Magic Missiles';
+        $formula->type          = 'Item';
+        $formula->rarity        = 'Uncommon';
+        $formula->price         = '120 gp';
+        $formula->crafting_time = '5 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. Each Spell Trigger Action used to activate the wand causes two missiles to fire. You may use another Action to fire an additional missile (3 missiles max) Firing 3 missiles still uses only 1 charge.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Magic Missile' => ['meta' => 'Heightened +1']],
@@ -146,10 +178,12 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Shield';
-        $formula->type        = 'Item';
-        $formula->price       = '50 gp';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Shield';
+        $formula->type          = 'Item';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '3 days';
+        $formula->activation    = 'Manipulation: Spell Trigger Action';
         $formula->description = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
@@ -161,11 +195,13 @@ class WandFormulaSeeder extends Seeder
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Wand of Shock';
-        $formula->type        = 'Item';
-        $formula->price       = '50 gp';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate and a Melee Touch Attack to deliver the Shocking Grasp.</p>';
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Shock';
+        $formula->type          = 'Item';
+        $formula->price         = '50 gp';
+        $formula->crafting_time = '2 days';
+        $formula->activation    = 'Manipulation: Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate and a Melee Touch Attack to deliver the Shocking Grasp.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Shocking Grasp' => ['meta' => 'A second level Spell Slot must be used']],
@@ -174,6 +210,39 @@ class WandFormulaSeeder extends Seeder
                 'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry']
             ],
             'materials' => ['Thundertree' => ['meta' => 'Wand is whittled from a branch of this plant']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Viscus Globs';
+        $formula->type          = 'Item';
+        $formula->level         = 6;
+        $formula->rarity        = 'Rare';
+        $formula->price         = '200 gp';
+        $formula->crafting_time = '10 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. When activated, you shoot a globe of a sticky substance that will stick to whatever it hits. This requires a Ranged Touch Attack. This can cause the Target to stick to another object, causing the Target to become Restrained. It requires a DC 15 STR check to break free of the stick substance. This sticky substances dissipates after 1 hour.</p>
+<p>On a Critical Hit on the Ranged Touch Attack, the globe strikes the Targets head, causing them to not be able to breathe. This has no effect on creatures that do not need to breathe, such as Undead, Constructs and Outsiders.</p>
+<p>The sticky substance can be dissolved with a pint of alcohol, or Oil of Etherealness, or Universal Solvent.</p>';
+        $helper->saveFormula($formula, ['Wand'], [
+            'feats'     => ['Craft Implement'],
+            'spells'    => ['Web' => ['meta' =>['meta' => 'Heightened +2']]],
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']],
+            'monsters'  => ['Spider, Giant' => ['meta' => 'Undamaged Silk Gland']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Wand of Web';
+        $formula->type          = 'Item';
+        $formula->level         = 6;
+        $formula->price         = '200 gp';
+        $formula->crafting_time = '10 days';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. When activated, you cast the Web Spell.</p>';
+        $helper->saveFormula($formula, ['Wand'], [
+            'feats'     => ['Craft Implement'],
+            'spells'    => ['Web' => ['meta' =>['meta' => 'Heightened +2']]],
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']],
+            'monsters'  => ['Spider, Giant' => ['meta' => 'Undamaged Silk Gland']],
         ]);
     }
 }

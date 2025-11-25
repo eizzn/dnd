@@ -90,7 +90,7 @@ class SpellsRSeeder extends Seeder
         $spell->range       = '10 feet';
         $spell->targets     = 'One dead creature';
         $spell->duration    = 'Instantaneous';
-        $spell->description = "<p>You attempt to call forth the dead creature’s soul, requiring the creature’s body be present and relatively intact. The creature must have died within the past 3 days. If the target patron god decides that the creature's time has come (GM discretion), or if the creature doesn't wish to return to life, this spell automatically fails, but the material components are still consumed.</p>
+        $spell->description = "<p>You attempt to call forth the Target dead creature's soul, requiring the Target creature's body be present and relatively intact. The Target creature must have died within the past 3 days. If the Target's patron god decides that the creature's time has come (GM discretion), or if the creature doesn't wish to return to life, this spell automatically fails, but the material components are still consumed.</p>
 <p>If the spell is successful, the creature is no longer dead and returns to life with 1 Hit Point, no spells prepared, no points in any pools, and it is still suffering from any long term debilitation of the old body. The time spent being dead leaves the target temporarily debilitated, making it enervated 2 for 1 week; this condition can't be removed or reduced by any means until the week has passed. The creature is also permanently changed in some way by their time in the afterlife, such as a slight personality shift, a streak of white in their hair, or a strange new birthmark.</p>";
         $helper->addTypesToSpell($spell, ['Healing', 'Necromancy', 'Ritual'], 6);
         $spell->materials()->save(Material::where('name', 'Diamond')->firstOrFail(), [
@@ -104,9 +104,9 @@ class SpellsRSeeder extends Seeder
         $spell->range       = '10 feet';
         $spell->targets     = 'One dead creature';
         $spell->duration    = 'Instantaneous';
-        $spell->description = "<p>This spell is similar to Raise Dead, except that the target returns as a Ghost. The target's soul is aware that it will return as a ghost and can refuse to return.</p>
+        $spell->description = "<p>This spell is similar to Raise Dead, except that the target returns as a Ghost. The Target's soul is aware that it will return as a ghost and can refuse to return.</p>
 <dl>
-    <dt>Material Components</dt> <dd>Something of value to the target or at least 1 lb of the target's body.</dd>
+    <dt>Material Components</dt> <dd>Something of value to the Target or at least 1 lb of the target's body.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Necromancy', 'Ritual'], 4);
 

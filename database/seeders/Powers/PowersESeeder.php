@@ -297,7 +297,7 @@ class PowersESeeder extends Seeder
         $power->targets      = 'You and 5 other willing creatures';
         $power->duration     = 'Up to 8 hours';
         $power->description  = '<p>As the spell Etherealness, except as noted here.</p>';
-        $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation'], 7);
+        $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation', 'Ethereal'], 7);
 
         $power               = new Power;
         $power->name         = 'Exhaust';

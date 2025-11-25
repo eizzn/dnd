@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\FeatableTrait;
 use App\Traits\Propertyable;
+use App\Traits\TalentableTrait;
 use App\Traits\TypeableTrait;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -34,7 +35,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  */
 class Power extends Model
 {
-    use FeatableTrait, Propertyable, TypeableTrait;
+    use FeatableTrait, Propertyable, TypeableTrait, TalentableTrait;
 
     public $timestamps = false;
 

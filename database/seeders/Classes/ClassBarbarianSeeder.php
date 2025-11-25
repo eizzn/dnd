@@ -76,7 +76,11 @@ class ClassBarbarianSeeder extends Seeder
 <h4>Anathema</h4>
 <p>Wielding weapons or flagrantly disrespecting any animal of your totem animal's kind are anathema to your totem.</p>
 <h4>Bestial Rage (Totem Ability)</h4>
-<p>When you Rage, you gain your chosen animal's unarmed attack (or attacks). The specific attack gained, the damage it deals, and its traits are listed on the Animal Totems table. All of these unarmed attacks are in the brawling group. Your Rage action gains the morph, primal, and transmutation traits.</p>
+<ul>
+    <li>When you Rage, you gain your chosen animal's unarmed attack (or attacks). The specific attack gained, the damage it deals, and its traits are listed on the Animal Totems table. All of these unarmed attacks are in the brawling group. Your Rage action gains the morph, primal, and transmutation traits.</li>
+    <li>As a Triple Action, you may cast Animal Friendship on your chosen animal type 1/day</li>
+    <li>You gain a +2 Knowledge Bonus on Lore, Animal Handling, and Tracking checks for your chosen animal</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
     <li>Piercing</li>
@@ -89,6 +93,7 @@ class ClassBarbarianSeeder extends Seeder
             <th>Attack</th>
             <th>Damage</th>
             <th>Traits</th>
+            <th>Bonus</th>
         </tr>
     </thead>
     <tbody>
@@ -97,58 +102,70 @@ class ClassBarbarianSeeder extends Seeder
             <td>Fist</td>
             <td>1D10 B</td>
             <td>Unarmed</td>
+            <td>+3 Bonus to Climb and Jump checks</td>
         </tr>
         <tr>
             <td>Bear</td>
             <td>Jaws<br>Claw</td>
             <td>1D10 P<br>1D6 S</td>
             <td>Unarmed<br>Agile, Unarmed</td>
+            <td>Advantage on CON Saves and CON Checks</td>
         </tr>
         <tr>
             <td>Bull</td>
             <td>Horn</td>
             <td>1D10 P</td>
             <td>Unarmed</td>
+            <td>+1 Bonus to Hit and +2 Bonus to Damage when making a Charge Attack</td>
         </tr>
         <tr>
             <td>Cat</td>
             <td>Jaws<br>Claw</td>
             <td>1D10 P<br>1D8 S</td>
             <td>Unarmed<br>Agile, Unarmed</td>
+            <td>Advantage on DEX Saves and DEX Checks</td>
         </tr>
         <tr>
             <td>Deer</td>
             <td>Antler</td>
             <td>1D10 P</td>
             <td>Unarmed</td>
+            <td>+5 Speed</td>
         </tr>
         <tr>
             <td>Frog</td>
             <td>Jaws</td>
             <td>1D10 B</td>
             <td>Unarmed</td>
+            <td>Advantage on Jump checks. +1 Bonus vs Poison Saves</td>
         </tr>
         <tr>
             <td>Shark</td>
             <td>Jaws</td>
             <td>1D10 P</td>
             <td>Unarmed</td>
+            <td>+1 to all Damage</td>
         </tr>
         <tr>
             <td>Snake</td>
             <td>Fangs</td>
             <td>1D10 P</td>
             <td>Unarmed</td>
+            <td>You are immune to Snake venom, and you gain a +2 Bonus on all Saves vs Poison</td>
         </tr>
         <tr>
             <td>Wolf</td>
             <td>Jaws</td>
             <td>1D10 P</td>
             <td>Unarmed</td>
+            <td>You gain the Improved Reaction Feat</td>
         </tr>
     </tbody>
 </table>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Animal Friendship'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Dragon Totem';
@@ -156,10 +173,16 @@ class ClassBarbarianSeeder extends Seeder
 <h4>Anathema</h4>
 <p>Defying a dragon of your chosen type or letting a personal insult against you slide is anathema to your totem.</p>
 <h4>Draconic Rage (Totem Ability)</h4>
-<p>When you are raging, you can make your conditional bonus to damage deal the type of damage to your chosen dragon's breath weapon, rather than your weapon or unarmed attack's usual damage type, which increases the damage by 1 (after halving for agile weapons, if applicable). If you do this, your Rage action gains the arcane and evocation traits, as well as the trait matching the damage type.</p>
+<ul>
+    <li>When you are Raging, you can make your conditional bonus to damage deal the type of damage to your chosen dragon's breath weapon, rather than your weapon or unarmed attack's usual damage type, which increases the damage by 1 (after halving for agile weapons, if applicable). If you do this, your Rage Action gains the Arcane and Evocation traits, as well as the trait matching the damage type.</li>
+    <li>You gain Advantage on Diplomacy with dragons of your chosen type.</li>
+    <li>At 5th level, While Raging, you may cast Dragon Breath 1/day</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
+    <li>Bludgeoning</li>
     <li>Piercing</li>
+    <li>Slashing</li>
     <li>The damage type of your chosen dragon's breath weapon</li>
 </ul>
 <table>
@@ -225,12 +248,18 @@ class ClassBarbarianSeeder extends Seeder
 </table>";
         $feat->save();
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Dragon Breath'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Fury Totem';
         $feat->description = "<p>Your rage comes from a deep well within you, rather than from an external source. You use your rage as you choose.</p>
 <h4>Anathema</h4>
-<p>You don't have an anathema or totem ability. Instead, you gain an additional 1st-level Barbarian Feat.</p>
+<p>You don't have an anathema or totem ability.</p>
+<ul>
+    <li>You gain an additional Barbarian Feat.</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
     <li>Bludgeoning</li>
@@ -245,10 +274,18 @@ class ClassBarbarianSeeder extends Seeder
 <h4>Anathema</h4>
 <p>Failing to accept a personal challenge of your strength is anathema to your totem.</p>
 <h4>Titan Mauler (Totem Ability)</h4>
-<p>You can use a weapon built for a Large creature if you are Small or Medium, you can use a weapon built for a creature one size larger than you. You also gain access to your choice of weapon at character creation. When you are wielding such a weapon in combat, double your conditional bonus to damage rolls from raging, but you have the Sluggish 1 Condition because of the weapon's unwieldy size. You can't remove this sluggish condition or ignore its penalties by any means while you're wielding the weapon.</p>
+<ul>
+    <li>Increase your STR by +1, to a maximum of 20</li>
+    <li>You can use a weapon built for a Large creature if you are Small or Medium, you can use a weapon built for a creature one size larger than you. You also gain access to your choice of weapon at character creation. When you are wielding such a weapon in combat, double your conditional bonus to damage rolls from raging, but you have the Sluggish 1 Condition because of the weapon's unwieldy size. You can't remove this sluggish condition or ignore its penalties by any means while you're wielding the weapon.</li>
+    <li>You gain Advantage on all STR Saves and STR checks</li>
+    <li>At 5th level, you may cast Enlarge 1/day only on yourself. The spell gains the Rage trait and you must be Raging to cast this spell</li>
+    <li>You deal an additional Weapon Die of damage vs Giants</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
     <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
     <li>
         <p>Your chosen damage type (though you can retrain it later)</p>
         <ul>
@@ -259,6 +296,9 @@ class ClassBarbarianSeeder extends Seeder
     </li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Enlarge' => 'Self only'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Spirit Totem';
@@ -266,7 +306,17 @@ class ClassBarbarianSeeder extends Seeder
 <h4>Anathema</h4>
 <p>Disrespecting corpses or spirits that are in your presence is anathema to your totem, however, defending yourself against undead and outer planar creatures is not.</p>
 <h4>Spirit Rage (Totem Ability)</h4>
-<p>When you are raging, you can make your conditional bonus to damage deal negative or positive damage, rather than your weapon or unarmed attack's usual damage type (you choose which type each time you Rage). If you choose to do this, your weapon or unarmed attack affects material and incorporeal creatures and objects equally. This makes your weapon overcomes incorporeal creature's resistance to physical attacks (as the Ghost Touch property rune). If you choose to deal negative or positive damage, your Rage action gains the divine and necromancy traits, plus the negative or positive trait, as appropriate.</p>
+<ul>
+    <li>When you are Raging, you gain the following
+        <ul>
+            <li>you can make your conditional bonus to damage deal Negative or Positive damage, rather than your weapon or Unarmed Attack's usual damage type (you choose which type each time you Rage). If you choose to do this, your weapon or Unarmed Attack affects material and incorporeal creatures and objects equally.. If you choose to deal Negative or Positive damage, your Rage action gains the Divine and Necromancy traits, plus the Negative or Positive trait, as appropriate</li>
+            <li>Your Melee Attacks gain the effects of a Ghost Touch Spell.</li>
+            <li>You have Advantage against Spells and Spell-like effects from undead and Other Planar creatures</li>
+        </ul>
+    </li>
+    <li>As a Triple Action, you may cast Detect Ghost at will</li>
+    <li>At 5th level, 1/week, you may cast Speak with Dead</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
     <li>Piercing</li>
@@ -275,18 +325,28 @@ class ClassBarbarianSeeder extends Seeder
     <li>Any damage dealt by the attacks and abilities of undead and outer planar creatures, regardless of the damage type</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Detect Ghost'],
+            2 => ['Speak with Dead'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Superstition Totem';
-        $feat->description = '<p>A deep distrust of magic drives you to forgo the metaphysical nonsense of spellcasters. Whether you’re a member of a superstitious tribe that distrusts magic, a survivor of a magical accident that left your mind and body with an intense aversion to magic, or a scion of a bloodline known for its magic resistance, your rage is inimical to magic. This makes you an excellent mage hunter but slow to trust practitioners of magical arts. Your extremely restrictive anathema grants you powers beyond those of other totems.</p>
+        $feat->description = "<p>A deep distrust of magic drives you to forgo the metaphysical nonsense of spellcasters. Whether you're a member of a superstitious tribe that distrusts magic, a survivor of a magical accident that left your mind and body with an intense aversion to magic, or a scion of a bloodline known for its magic resistance, your Rage is inimical to magic. This makes you an excellent mage hunter but slow to trust practitioners of magical arts. You're extremely restrictive anathema grants you powers beyond those of other totems.</p>
 <h4>Anathema</h4>
 <p>Willingly accepting the effects of magic spells (including from scrolls, wands, and the like), even from your allies, is anathema to your totem. You can still drink potions, and you can still invest and activate most magic items you find, though items that cast spells are subject to the same restrictions as all other spells. If an ally insists on using magic on you despite your unwillingness, and you have no reason to believe they will stop, continuing to travel with that ally counts as willingly accepting their spells (as do similar circumstances) and thus is also anathema to your totem.</p>
 <h4>Superstition Resistance (Totem Ability)</h4>
-<p>While raging, you gain a +2 Conditional bonus to all saves against magic.</p>
+<ul>
+    <li>While Raging, you gain Advantage on all Saves vs all Spells.</li>
+    <li>While Raging, you deal an additional +5 to Damage vs any creature that has a magical nature (constructs, dragons, fey, outsiders, and undead) and humanoids that are obviously spell casters (you must be aware that they are spell casters)</li>
+</ul>
 <h4>Resistance</h4>
 <ul>
+    <li>Bludgeoning</li>
+    <li>Piercing</li>
+    <li>Slashing</li>
     <li>All Arcane and Divine spells that deal damage, regardless of the type of damage dealt by the spell</li>
-</ul>';
+</ul>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
 
         $feat              = new Feat;
@@ -364,8 +424,9 @@ class ClassBarbarianSeeder extends Seeder
 <p>Failing to accept a personal challenge to your endurance is anathema to your lodge.</p>
 <h4>Totem Ability</h4>
 <ul>
+    <li>Increase your CON by +1 to a maximum of 20</li>
     <li>You gain the Endurance feat</li>
-    <li>You gain Damage Reduction +1</li>
+    <li>You gain Damage Reduction +1. Apply this Damage Reduction after any Resistance</li>
     <li>You have Advantage on all Saves vs Poison</li>
     <li>You gain a +4 bonus to all Climb checks</li>
 </ul>
@@ -398,27 +459,30 @@ class ClassBarbarianSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Great Stag Berserker';
-        $feat->requirement = 'You must be from the region of Rashemen';
-        $feat->description = '<p>Your lodge is dedicated to the defense of Rasheman.</p>
+        $feat->requirement = 'You must be from the region of Rashemen, and you must have at least 1 level of Paladin';
+        $feat->description = '<p>Your lodge is dedicated to the defense of Rashemen.</p>
+<p>One of the first 2 lodges established, this lodge is gifted with the Fey Princes blessing.</p>
+<p>Warriors from this lodge are usually the ones Hathrans prefer to form a bond with.</p>
 <h4>Anathema</h4>
-<p>Not accepting a quest to defend Rashemen is anathema to your lodge.</p>
+<p>Not accepting a quest in the service of Rashemen is anathema to your lodge.</p>
 <ul>
     <li>You gain the ability to cast one 1st Level Spell 1/day from the list of spells associated to this feat.</li>
     <li>You may use your class feats from Barbarian to take Divine Warrior feats and vice versa.</li>
-    <li>You may cast Aura and Divine Strike spells while Raging. You may Concentrate on Aura spells while Raging.</li>
-    <li>You may add the Telthor template to your Special Mount. Most Great Stag Berserker take a stag for their Special Mount.</li>
+    <li>you may cast Smite spells while Raging (Smite spells gain the Rage trait).</li>
+    <li>You may Concentrate on Aura spells while Raging (Aura spells gain the Rage trait).</li>
+    <li>You gain the Divine Mount Feat</li>
+    <li>You may add the Telthor Companion Template to your Special Mount, and you become its anchor location. Most Great Stag Berserker take a stag for their Special Mount.</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
     <li>Bludgeoning</li>
     <li>Slashing</li>
     <li>Piercing</li>
-    <li>Negative damage</li>
+    <li>Negative Damage</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
         $feat->features()->save(app()->features['divine_warrior']);
         $helper->addSpellsToFeat($feat, [
-            1 => ['Cure Wounds', 'Divine Smite', 'Heroism'],
             2 => ['Barkskin', 'Pass Without Trace'],
             3 => ['Enemies Abound', 'Aura of War'],
             4 => ['Death Ward', 'Freedom of Movement'],
@@ -427,14 +491,17 @@ class ClassBarbarianSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Ice Troll Berserker';
-        $feat->requirement = 'You must be from the region of Rashemen';
+        $feat->requirement = 'You must be from the region of Rashemen. You must take at least 1 level of Frenzied Berserker Prestige class as soon as you qualify';
         $feat->description = "<p>Your lodge believes in absolute abandon in combat and the destruction of all trolls and hags. Many Ice Troll berserkers take the Frenzied Berserker prestige class.</p>
+<p>This lodge was the first lodge that Absalom accepted that was formed by the people of Rashemen (the ones before were formed with the guidance of Absalom himself). Absalom liked the sheer abandon members of this lodge takes in battle, and approves of the destruction of trolls. While he considers hags to be part of his court, in truth, few are and most count themselves members of Aurilandur's court.</p>
 <h4>Anathema</h4>
 <p>Not seeking out a known troll or hag infestation in Rashemen is anathema to your lodge</p>
 <ul>
     <li>You gain the Favored Enemy Feature vs. Trolls and Hags</li>
     <li>While you are in a Rage and Frenzy at the same time, you gain Regeneration: 1</li>
-    <li>Once per day, you may cast the spell Troll's Bane and it gains the Rage trait.</li>
+    <li>You gain the Extra Rage Feat</li>
+    <li>Once per day, you may cast the spell Troll's Bane as a Double Action and it gains the Rage trait.</li>
+    <li>You have Advantage on all Saves vs Spells and Spell-like effects of Hags</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
@@ -458,6 +525,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Increase your STR by 1, up to a maximum of 20.</li>
     <li>You have Advantage to all Grappling checks while Raging</li>
     <li>You gain the Improved Grapple Feat</li>
+    <li>You gain a Talent that requires the Improved Grapple Feat</li>
     <li>If you have the Extra Rage Feat, the DC to continue your Rage starts at 12.</li>
 </ul>
 <h4>Resistance</h4>
@@ -465,6 +533,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Bludgeoning</li>
     <li>Piercing</li>
     <li>Slashing</li>
+    <li>Grapple Damage</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
 
@@ -473,9 +542,11 @@ class ClassBarbarianSeeder extends Seeder
         $feat->requirement = 'You must be from the region of Rashemen';
         $feat->description = "<p>Your lodge trains in combat using the Claw Bracers</p>
 <h4>Anathema</h4>
-<p>You cannot use any Ranged Weapons</p>
+<p>You cannot use any Ranged Weapons and you cannot make Ranged Attacks</p>
 <ul>
     <li>When taking the Charging Action, your gain a +5 bonus to your Speed</li>
+    <li>You gain a Talent</li>
+    <li>You gain Advantage on Stealth checks for Hide and Move Silently</li>
     <li>You gain the Two-Weapon Fighter Feat</li>
     <li>
         <p>Replace your Rage abilities with the following</p>
@@ -505,23 +576,27 @@ class ClassBarbarianSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Wolf Berserker';
-        $feat->requirement = 'You must be from the region of Rashemen';
-        $feat->description = '<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen</p>
+        $feat->requirement = 'You must be from the region of Rashemen. You must have at least 1 level of Ranger';
+        $feat->description = "<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen</p>
+<p>One of the first 2 lodges established, this lodge is gifted with the Fey Princes blessing.</p>
+<p>Warriors from this lodge come from those that do well working alone. They are loved by the animal spirits and quite frequently receive silent aid from the shy fey of Rashemen.</p>
 <h4>Anathema</h4>
 <p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you unless ordered by a Wychlaren of rank Hathran or higher or the Huhrong</p>
 <ul>
     <li>You gain the Improved Trip Feat</li>
     <li>You gain two Talents, one of them is the Improved Flanking Talent and one of your choice</li>
-    <li>You gain the ability to cast Cure Wounds once per day and only on yourself</li>
-    <li>Your Animal Companion may gain the Telthor Template</li>
+    <li>You gain the ability to cast Cure Wounds once per day but only on you Animal Companion</li>
+    <li>Your Animal Companion may gain the Telthor Companion Template, and you become its anchor location</li>
     <li>While Raging, all your bonuses from Favored Enemy is increased by +1</li>
+    <li>While Raging, Hunter's Mark gains the Rage trait.</li>
+    <li>While Raging, your Animal Companion gains a +2 to Damage</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
     <li>Bludgeoning</li>
     <li>Piercing</li>
     <li>Slashing</li>
-</ul>';
+</ul>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
         $feat->features()->save(app()->features['favored_enemy']);
         $helper->addSpellsToFeat($feat, [
@@ -707,7 +782,6 @@ class ClassBarbarianSeeder extends Seeder
             'Great Cleave'         => 4,
             'Supreme Cleave'       => 12,
             'Medium Armor Master'  => 2,
-            'Deny Advantage'       => 5,
             'Brute Force'          => 7,
             'Improved Brute Force' => 12,
             'Mettle'               => 7,

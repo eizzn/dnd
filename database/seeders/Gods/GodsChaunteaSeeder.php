@@ -24,7 +24,7 @@ class GodsChaunteaSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
-            'aliases'        => 'Bhalla (Rashemen), Earthmother (Mooonshae), Jannath (Netheril), Pahluruk (Great Glacier)',
+            'aliases'        => 'Earthmother (Mooonshae), Jannath (Netheril), Pahluruk (Great Glacier)',
             'title'          => 'The Great Mother, the Grain Goddess, Earthmother',
             'level'          => 'Intermediate',
             'portfolio'      => 'Agriculture, Plants cultivated by humans, Farmers, gardeners, Summer, Spirits of Nature',
@@ -51,7 +51,7 @@ class GodsChaunteaSeeder extends Seeder
             'level'     => 'Dead',
             'portfolio' => 'Mother of Giants',
             'alignment' => 'N',
-            'master_id' => God::where('name', 'Annam All-Father')->first()->id,
+            'master_id' => God::where('name', 'Annam')->first()->id,
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [

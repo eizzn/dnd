@@ -96,7 +96,6 @@ class ClassNinjaSeeder extends Seeder
         $helper->addFeatsToClass($class, [
             'Improved Feint'   => 2,
             'Weapon Finesse'   => 2,
-            'Deny Advantage'   => 3,
             'Sharpshooter'     => 7,
             'Evasion'          => 7,
             'Improved Evasion' => 13,

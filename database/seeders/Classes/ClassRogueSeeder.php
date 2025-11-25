@@ -46,6 +46,7 @@ class ClassRogueSeeder extends Seeder
             'hide_in_plain_sight' => [9],
             'heroic_surge'        => [4, 10],
         ]);
+        $class->features()->save(app()->features['talents'], ['level' => 2, 'meta' => 'Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Sneak Attack';
@@ -132,7 +133,6 @@ class ClassRogueSeeder extends Seeder
         $helper->addFeatsToClass($class, [
             'Improved Feint'   => 2,
             'Weapon Finesse'   => 2,
-            'Deny Advantage'   => 3,
             'Sharpshooter'     => 7,
             'Evasion'          => 7,
             'Improved Evasion' => 13,

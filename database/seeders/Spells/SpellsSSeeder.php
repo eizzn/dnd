@@ -585,7 +585,7 @@ class SpellsSSeeder extends Seeder
 <ul>
     <li>If the Target drinks Holy Water within 1 hour of being affected, the mold dies and the Target is no longer affected</li>
     <li>If Holy Water is drunk within 2 days of being affected, then the molds growth is slowed to half rate</li>
-    <li>A Cure Disease Spell or Heal Spell used within 30 days of being affected stops the molds growth and the Target can then heal any damage to their innards normally</li>
+    <li>A Remove Disease Spell or Heal Spell used within 30 days of being affected stops the molds growth and the Target can then heal any damage to their innards normally</li>
     <li>Cold Damage that deals at least 20 Damage kills the mold. The Target can then heal any damage to their innards normally.</li>
 </ul>
 <p>An affected Target retains all of their abilities and skills, but not spells above 3rd level.</p>
@@ -2459,7 +2459,7 @@ class SpellsSSeeder extends Seeder
         </tr>
         <tr>
             <td>7 or more</td>
-            <td>Cure Blindness, Slow Poison, or Cure Disease instead of healing</td>
+            <td>Cure Blindness, Slow Poison, or Remove Disease instead of healing</td>
         </tr>
         <tr>
             <td>9 or more</td>
@@ -2578,7 +2578,7 @@ class SpellsSSeeder extends Seeder
         $spell->targets     = '1 creature in range';
         $spell->duration    = 'Instantaneous';
         $spell->description = "<p>You concentrate ethereal energy and attack a creature's spirit, dealing 16D6 Force damage.</p>
-<p>Because Spirit Blast affects the creature's spirit, it can damage a target projecting its consciousness (such as via Project Image) or possessing another creature even if the target's body is elsewhere. The possessed creature isn't harmed by the blast.</p>
+<p>Because Spirit Blast affects the creature's spirit, it can damage a Target projecting its consciousness (such as via Project Image) or possessing another creature even if the Target's body is elsewhere. The possessed creature isn't harmed by the blast.</p>
 <p>The blast doesn't harm creatures that have no spirit, such as Constructs.</p>";
         $helper->addTypesToSpell($spell, ['Necromancy', 'Spirit', 'Force'], 6);
 
@@ -2597,7 +2597,7 @@ class SpellsSSeeder extends Seeder
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D8</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Conjuration', 'Negative', 'Positive'], 3);
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Negative', 'Positive', 'Spirit'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Spirit Walk';
@@ -3618,6 +3618,14 @@ class SpellsSSeeder extends Seeder
 <p>This spell restores an elf's natural state, neutralizing all ill or unnatural effects upon him. It cancels Curses of any nature other than those divinely placed (ie. personally placed by a god) and spell effects such as Petrification and Polymorph. This spell allows the regrowth of full limbs, muscles, and organs (such as eyes, tongues, etc.). It also negates any magical or involuntary alignment changes. The most advanced form of this spell involves the restoration of undead elves to a living state as they were 100 years before their deaths or transformations.</p>";
         $helper->addTypesToSpell($spell, ['High Magic', 'Enchantment'], 10);
         $spell->skills()->save(app()->skills['Arcana'], ['dc' => 30]);
+
+        $spell              = new Spell;
+        $spell->name        = 'Swift';
+        $spell->casting     = 'Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = 'Concentration, up to 10 minutes';
+        $spell->description = '<p>You gain an additional Action. This additional Action can only be used to make a Move Action.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Swift Quiver';

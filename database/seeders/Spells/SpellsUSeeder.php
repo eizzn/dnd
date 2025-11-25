@@ -78,7 +78,7 @@ class SpellsUSeeder extends Seeder
         $spell->requirements = '<dl>
     <dt>Secondary Casters</dt> <dd>1. Religion: 6, Arcana: 6</dd>
 </dl>';
-        $spell->description = '<p>Choose an intelligent undead that is under your control. It can now command a number of other undead that are already under your control equal to twice it\'s CHA modifier (min 2 total). The target intelligent undead cannot command other intelligent undead or undead with a higher challenge rating.</p>';
+        $spell->description = "<p>Choose an intelligent undead that is under your control. It can now command a number of other undead that are already under your control equal to twice it's CHA modifier (min 2 total). The Target intelligent undead cannot command other intelligent undead or undead with a higher challenge rating.</p>";
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>You can apply this ritual to an additional undead.</dd>
 </dl>';

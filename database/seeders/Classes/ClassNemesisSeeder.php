@@ -110,8 +110,8 @@ class ClassNemesisSeeder extends Seeder
         $class->key_attribute = 'CON';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
-            'feats' => 'Improved Reaction',
-            'armor' => 'Proficiency with Medium Armor',
+            'talent' => 'Improved Reaction',
+            'armor'  => 'Proficiency with Medium Armor',
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 10,
@@ -122,8 +122,8 @@ class ClassNemesisSeeder extends Seeder
         $class->features()->save(app()->features['feat'], ['level' => 2, 'idx' => 1, 'meta' => 'Sentinel']);
         $class->features()->save(app()->features['feat'], ['level' => 2, 'idx' => 2, 'meta' => 'Your choice of either Strong Defense or Tough Defense']);
         $class->features()->save(app()->features['favored_enemy'], ['level' => 3, 'meta' => 'Choose Horde: Bugbears, Gnolls, Goblins, Hobgoblins, Kobolds, Orcs, or other horde gathering creature']);
-        $class->features()->save(app()->features['feat'], ['level' => 4, 'meta' => 'Improved Reaction']);
         $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Improved Favored Enemy']);
+        $class->features()->save(app()->features['talent'], ['level' => 4, 'meta' => 'Improved Reaction']);
 
         /**********************************************************************/
 
@@ -164,7 +164,7 @@ class ClassNemesisSeeder extends Seeder
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Poison Resistance']);
         $class->features()->save(app()->features['favored_enemy'], ['level' => 2, 'meta' => '(Limited) Bonuses only apply vs Yuan-ti and their variants']);
-        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Poison Immunity']);
+        $class->features()->save(app()->features['talent'], ['level' => 3, 'meta' => 'Poison Immunity']);
         $class->features()->save(app()->features['feat'], ['level' => 4, 'meta' => 'Wild Talent']);
 
         /**********************************************************************/

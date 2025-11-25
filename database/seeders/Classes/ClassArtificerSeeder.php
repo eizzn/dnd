@@ -70,14 +70,18 @@ class ClassArtificerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Raumathari Sword Adept';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
-<p>You can create a magical bond between yourself and one melee sword allowing you to transform the weapon into an extension of yourself. During a Long Rest, you can spend 1 hour performing this ritual. The sword must be within your reach throughout the ritual, at the conclusion of which you touch the sword and forge the bond. You gain the following benefits.</p>
+<p>You can create a magical bond between yourself and one melee sword allowing you to transform the weapon into an extension of yourself. During a Long Rest, you can spend 1 hour performing this ritual. The sword must be within your reach throughout the ritual, at the conclusion of which you touch the sword and forge the bond, it becomes your Bonded Sword. You gain the following benefits.</p>
 <ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>You gain proficiency with your bonded sword.</li>
+    <li>You gain 2 Spell Points. You lose these Spell Points if you lose your sword, but regain them again if you form a new bond.</li>
+    <li>You gain proficiency with your Bonded Sword.</li>
     <li>You may enchant the bonded sword with a spell as if you had the Craft Armament feat. Your bonded sword is used instead of a wand or staff.</li>
-    <li>While you are weilding your bonded sword, you gain the benefits of the Intelligent Defense Feat.</li>
+    <li>While you are weilding your Bonded Sword, you gain the benefits of the Intelligent Defense Feat.</li>
     <li>You gain the ability to cast the spell Shashkah as a Cantrip as if you had the Cantrip Caster Class Feature.</li>
-    <li>You may imbue your bonded sword with one spell as if you had the Scribe Scroll feat.</li>
+    <li>
+        <p>You may store up to 3 Spells into your Bonded Sword as if you were scribing a scroll and you Bonded Sword was the material to receive the spell as if you had the Scribe Scroll Feat, except there is no cost for scribing the spell onto your Bonded Sword.</p>
+        <p>Spells stored into your Bonded Sword in this way are automatically Heightened +1</p>
+        <p>You may cast this spell from your Bonded Sword for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Casting Level.</p>
+    </li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
         $helper->addSpellsToFeat($feat, [
@@ -92,6 +96,8 @@ class ClassArtificerSeeder extends Seeder
     <li>You gain the Extra Melee Action Feat. If you already have this feat, you may select a different feat that you qualify for.</li>
     <li>You gain the ability to Craft Constructs, and you gain the formulas for 2 Common Constructs.</li>
     <li>If you strike a creature with your Bonded weapon you may spend 2 Spell Points. If you do, that creature has Disadvantage on the next Save it has to make against any spell that you cast or until 1 minute has passed.</li>
+    <li>Pick 2 Cantrips from your Artificer Spell List. Your bonded sword can cast these Cantrips as if you had the Cantrip Caster Class Feature. Whenever you complete a Long Rest, you may swap out one of your Cantrips with another one that you know.</li>
+    <li>You may imbue your Bonded Sword with an additional 3 spells</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Artificer Discipline']);
         $feat->parent_feats()->save(app()->feats['Raumathari Sword Adept']);
@@ -101,7 +107,7 @@ class ClassArtificerSeeder extends Seeder
         $feat->description = "<p>You may have no more than 3 Artificer Discipline feats.</p>
 <ul>
     <li>You gain 2 Spell Points</li>
-    <li>You always have the spells associated with this feat prepared. These spells count as artificer spells for you, but they don't count against the number of artificer spells you prepare.</li>
+    <li>You always have the spells associated with this Feat prepared. These spells count as artificer spells for you, but they don't count against the number of artificer spells you prepare.</li>
     <li>
         <p>You can craft a new tool known as a Battle Wrap using a ritual known only to the vremyonni. This wrap can be placed around mundane items to grant them magical fortifications or to bind to another spellcaster, allowing you to fight as a pair.</p>
         <p>If the wrap is lost or destroyed, you can craft a new one as part of a Long Rest.</p>
@@ -119,9 +125,9 @@ class ClassArtificerSeeder extends Seeder
         </dl>
     </li>
     <li>
-        <p>You may store up to 3 Spells into your Battle Wrap as if you had the Scribe Scroll Feat.</p>
+        <p>You may store up to 3 Spells into your Battle Wrap as if you were scribing a scroll and you Battle Wrap was the material to receive the spell as if you had the Scribe Scroll Feat, except there is no cost for scribing the spell onto your Battle Wrap.</p>
         <p>Spells stored into your Battle Wrap in this way are automatically Heightened +1</p>
-        <p>You may cast this spell from your Battle Wrap for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Cast Level.</p>
+        <p>You may cast this spell from your Battle Wrap for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Casting Level.</p>
     </li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
@@ -144,7 +150,7 @@ class ClassArtificerSeeder extends Seeder
         <p>You can use your Battle Wrap to attach yourself to another willing creature who can cast spells. this process takes 10 minutes and can only be ended as part of a Short or Long Rest, or if either of you die. If you have an Effigy or a Golem, you may choose to attach your Battle Wrap to your Effigy or Golem.</p>
         <p>While bound in this way, either of you can use an Action to gain the following benefits.</p>
         <ul>
-            <li>If one of you moves (on their own volition or by using magic), the other immediately teleports to an open space within 5 feet of the bound partner. If the creature is unwilling to teleport, the other has their speed reduced to 0 until the end of turn.</li>
+            <li>If one of you moves (on their own volition or by using magic), the other immediately Teleports to an open space within 5 feet of the bound partner. If the creature is unwilling to Teleport, the other has their speed reduced to 0 until the end of turn.</li>
             <li>You both have Resistance to all damage except Ability Score damage. Whenever one bound partner takes damage, the other takes the same amount of damage</li>
             <li>You both have Advantage on Saves</li>
         </ul>
@@ -177,8 +183,8 @@ class ClassArtificerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Wand of Cantrips';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
-<p>You may create a Pseudo Wand with one of the cantrip spells you know. The Pseudo Wand has 20 charges, and requires Attunement to use.  It is always Heightened to the highest Spell Level that you may memorize. Any one may use this Pseudo Wand with the Activate Magic Item Check.</p>
-<p>After each Long Rest, you may fully charge all your Pseudo Wands by touching it.</p>
+<p>You may create a Pseudo Wand with one of the cantrip spells you know. The Pseudo Wand has 20 charges, and requires Attunement to use. It is always Heightened to the highest Spell Level that you may memorize. Any one may use this Pseudo Wand with the Activate Magic Item Check.</p>
+<p>After each Long Rest, you may add charges to one of your Pseudo wands with 3 Charges.</p>
 <p>You may have an additional Pseudo Wand for each Artificer Discipline feat you have.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
 
@@ -600,9 +606,9 @@ class ClassArtificerSeeder extends Seeder
                 'Mage Hand', 'Mending', 'Message', 'Minor Illusion', 'Necrotic Touch', 'Prestidigitation', 'Poison Spray',
                 'Produce Flame', 'Ray of Frost', 'Resistance', 'Shield', 'Shocking Grasp', 'True Strike', ],
             1 => ['Air Bubble', 'Alarm', 'Burning Hands', 'Color Spray', 'Comprehend Languages', 'Cure Wounds', 'Disguise Self',
-                'Enchant Item', 'Expeditious Retreat', 'Faerie Fire', 'Feather Fall', 'Floating Disk', 'Fog Cloud', 'Force Object',
-                'Grease', 'Hardening', 'Hideous Laughter', 'Immunity to Adhesive', 'Jump', 'Knight Unburdened', 'Mage Armor',
-                'Magic Missile', 'Mold Metal', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath',
+                'Enchant Item', 'Faerie Fire', 'Feather Fall', 'Floating Disk', 'Fog Cloud', 'Force Object', 'Grease', 'Hardening',
+                'Hideous Laughter', 'Immunity to Adhesive', 'Jump', 'Knight Unburdened', 'Mage Armor', 'Magic Missile',
+                'Mold Metal', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath', 'Swift',
                 'Swift Ready', 'Thunderwave', 'Ventriloquism', 'Weapon Shift', ],
             2 => ['Acid Arrow', 'Air Sphere', 'Alter Self', 'Arcane Lock', "Bear's Endurance", 'Blindness', 'Blur',
                 "Bull's Strength", "Cat's Grace", 'Comprehend Languages', 'Continual Flame', 'Darkness', 'Darkvision',

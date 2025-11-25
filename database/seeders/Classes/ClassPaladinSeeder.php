@@ -113,19 +113,19 @@ class ClassPaladinSeeder extends Seeder
             5  => ['cantrips' => 4, 'zero' => 4, 'one' => 3, 'two' => 2],
             6  => ['cantrips' => 4, 'zero' => 4, 'one' => 4, 'two' => 2],
             7  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 2],
-            8  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
+            8  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3],
             9  => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
-            10 => ['cantrips' => 4, 'zero' => 5, 'one' => 5, 'two' => 3, 'three' => 2],
-            11 => ['cantrips' => 4, 'zero' => 6, 'one' => 5, 'two' => 3, 'three' => 2, 'four' => 1],
-            12 => ['cantrips' => 4, 'zero' => 6, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 1],
-            13 => ['cantrips' => 4, 'zero' => 6, 'one' => 5, 'two' => 4, 'three' => 3, 'four' => 1],
-            14 => ['cantrips' => 4, 'zero' => 6, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 1, 'five' => 1],
-            15 => ['cantrips' => 4, 'zero' => 6, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 1, 'five' => 1],
-            16 => ['cantrips' => 4, 'zero' => 7, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 2, 'five' => 1],
-            17 => ['cantrips' => 4, 'zero' => 7, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1, 'six' => 1],
-            18 => ['cantrips' => 4, 'zero' => 7, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1, 'six' => 1],
-            19 => ['cantrips' => 4, 'zero' => 7, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1, 'six' => 1],
-            20 => ['cantrips' => 4, 'zero' => 7, 'one' => 6, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 2, 'six' => 1],
+            10 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
+            11 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 2],
+            12 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 3, 'three' => 3],
+            13 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
+            14 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
+            15 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 1],
+            16 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 2],
+            17 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
+            18 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
+            19 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
+            20 => ['cantrips' => 4, 'zero' => 5, 'one' => 4, 'two' => 4, 'three' => 3, 'four' => 3, 'five' => 1],
         ]);
 
         $helper->addSpellsToClass($class, [
@@ -134,8 +134,7 @@ class ClassPaladinSeeder extends Seeder
                 'Divine Smite', 'Energize Shield', 'Heroism', 'Knight Unburdened', 'Shieldbearer', ],
             2 => ['Aid', 'Call Mount', 'Heal Animal Companion', 'Keen Edge', 'Magic Weapon', 'Protection From Poison', 'Winged Mount'],
             3 => [],
-            4 => [],
-            5 => ['Divine Weapon'],
+            4 => ['Divine Weapon'],
         ]);
     }
 }

@@ -136,6 +136,24 @@ class AlchemicalFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
+        $formula->name        = 'Blueshine';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 5;
+        $formula->price       = '1,000 gp';
+        $formula->description = '<p>Blueshine is normally acquired through a complex series of precisely timed heatings, slakings, and prolonged baths in arcane mixtures of rare and enchanted liquids known to included the following.</p>
+<ul>
+    <li>Blood from any dragon</li>
+    <li>Sweet Water Potion</li>
+    <li>Brine solution with a cockatrice feather that has soaked for at least 3 months. Only 1 gallon of the brine is used, the feather can be left in the brine for use at a later time</li>
+</ul>
+<p>Metals that are treated with blueshine becomes immune to Acid, corrosion, and all slimes (even from Rust Monsters)</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Additive'], [
+            'skills'    => ['Crafting' => ['dc' => 9, 'meta' => 'Alchemy']],
+            'formulas'  => ['Sweet Water' => ['meta' => '1 vial']],
+            'monsters'  => ['Cockatrice' => ['meta' => 'single feather in brine solution soaked for at least 3 months']],
+        ]);
+
+        $formula              = new Formula;
         $formula->name        = 'Bottled Lightning';
         $formula->type        = 'Alchemical';
         $formula->level       = 1;
@@ -157,6 +175,18 @@ class AlchemicalFormulasSeeder extends Seeder
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Elixir', 'Mental'], [
             'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Alchemy and Distill Alcohol']],
             'feats'  => ['Brew Potion'],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Everbright';
+        $formula->type        = 'Alchemical';
+        $formula->level       = 5;
+        $formula->price       = '5,000 gp';
+        $formula->description = '<p>This long, difficult, and exacting dwarven process is now known to smiths of other races.</p>
+<p>Metals treated with Everbright gain an enduring bright shine (akin to chromium) and becomes immune to tarnishing and other discoloration, acidic corrosion, and rusting.</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Additive'], [
+            'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Alchemy']],
+            'formulas'  => ['Potion of Acid Resistance'],
         ]);
 
         $formula              = new Formula;
@@ -197,19 +227,20 @@ class AlchemicalFormulasSeeder extends Seeder
             'spells' => ['Fleet Step'],
         ]);
 
-        $formula           = new Formula;
-        $formula->name     = 'Cockatrice Feather Preservation';
-        $formula->rarity   = 'Rare';
-        $formula->type     = 'Alchemical';
-        $formula->price    = '2,000 gp';
-        $formula->crafting = '<ul>
+        $formula                = new Formula;
+        $formula->name          = 'Cockatrice Feather Preservation';
+        $formula->rarity        = 'Rare';
+        $formula->type          = 'Alchemical';
+        $formula->price         = '2,000 gp';
+        $formula->crafting_time = '8 hours';
+        $formula->crafting      = '<ul>
     <li>Take a Cauldron and mix in equal parts of Oil of Etherealness and Aqua Regia and Human Tears (at least half an ounce of each).</li>
     <li>Mix this liquid with a glass or crystal rod</li>
-    <li>Heat till boiling while stirring in at least 6,000 gp worth of powdered Agate and either six whole (live or dead) Cerebral Parasites or the blood of a Slaad, Githyankee or a Nightmare</li>
+    <li>Heat till boiling while stirring in at least 6,000 gp worth of powdered Agate and either six whole (live or dead) Cerebral Parasites or the blood of a Slaad, Githyanki or a Nightmare</li>
     <li>Stir until the sold components are dissolved and then immerse the cockatrice feather into the liquid while it is boiling.</li>
     <li>Take the cauldron away from the heat immediately after putting the feather in and let the cauldron stand until the liquid evaporates.</li>
 </ul>';
-        $formula->description = '<p>The tail feathers of a Cockatrice can be preserved so that it does not lose its Petrification powers.</p>';
+        $formula->description   = '<p>The tail feathers of a Cockatrice can be preserved so that it does not lose its Petrification powers.</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
             'skills' => [
                 'Crafting' => ['dc' => 15, 'meta' => 'Alchemy'],
@@ -224,30 +255,34 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->level       = 1;
         $formula->bulk        = 'L';
         $formula->activation  = 'Action; Operate Activation';
-        $formula->description = '<p>Upon you drinking this elixir, your sight becomes sharper in darkness. This elixir has three types: standard, greater, and true. Upon drinking the standard elixir, you gain Darknvision for 10 minutes. The greater version grants Darkvision for 1 hour, and the true elixir grants Darkvision for 8 hours.</p>
+        $formula->description = '<p>Upon you drinking this elixir, your sight becomes sharper in darkness. This elixir has three types: standard, greater, and true. Upon drinking the standard elixir, you gain Darkvision for 10 minutes. The greater version grants Darkvision for 1 hour, and the true elixir grants Darkvision for 8 hours.</p>
 <table>
     <thead>
         <tr>
             <th>Type</th>
             <th>Level</th>
             <th>Price</th>
+            <th>Duration</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Standard</td>
             <td>1</td>
-            <td>2 gp</td>
+            <td>10 gp</td>
+            <td>10 minutes</td>
         </tr>
         <tr>
             <td>Greater</td>
             <td>3</td>
-            <td>6 gp</td>
+            <td>120 gp</td>
+            <td>1 hour</td>
         </tr>
         <tr>
             <td>True</td>
             <td>6</td>
-            <td>24 gp</td>
+            <td>500 gp</td>
+            <td>8 hours</td>
         </tr>
     </tbody>
 </table>';
@@ -283,22 +318,6 @@ class AlchemicalFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
-        $formula->name        = "Frog's Feet Potion";
-        $formula->type        = 'Elixir';
-        $formula->level       = 5;
-        $formula->price       = '10 gp';
-        $formula->meta        = '<dl>
-    <dt>Onset</dt> <dd>1 minute</dd>
-</dl>';
-        $formula->bulk        = 'L';
-        $formula->activation  = 'Action; Operate Activation';
-        $formula->description = '<p>After the onset of this elixir, the spaces between your fingers and toes become webbed, granting you a swim Speed of 20 feet for the next 10 minutes.</p>';
-        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Potion'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Brew Potion']],
-            'spells' => ['Feet to Fins'],
-        ]);
-
-        $formula              = new Formula;
         $formula->name        = 'Glowpowder';
         $formula->type        = 'Alchemical';
         $formula->level       = 5;
@@ -309,6 +328,17 @@ class AlchemicalFormulasSeeder extends Seeder
 <p>The powder usually comes in a tube that allows the contents to be blown or shaken out. Blowing out the powder is an Action and creates a 10-foot cone. If carefully sprinkled, the powder can cover 125 square feet (5 five-foot squares). It takes a Triple Action to completely cover a 5-foot square with the powder.</p>";
         $helper->saveFormula($formula, ['Alchemical', 'Consumable'], [
             'skills' => ['Crafting' => ['dc' => 9, 'meta' => 'Alchemy']],
+        ]);
+
+        $formula              = new Formula;
+        $formula->name        = "Habalar's Stealth";
+        $formula->type        = 'Alchemical';
+        $formula->level       = 7;
+        $formula->price       = '25 gp / 150 gp';
+        $formula->description = '<p>The only widespread metal treatment devised by a human is this process of immersing and boiling items in a bath of stealthslake. The secret formula for stealthslake is known only to the House of Halabar, merchant clan in Murann, which guards it viciously. The descendants of Halabar are rumored to employ certain intelligent, shapechanging monsters to strike at lore thieves where they cannot easily do so in person.</p>
+<p>This process renders metallic items non-ferromagnetic, non-reflective, and silent, not clanging even when struck against other metals or stone with force. Treated items are abel to take dyes and paints, so that even bare sword blades can readily be changed in color and thus concealed from long-range detection. Treated items still strike sparks at sharp impacts and when broken and conduct Electricity as well.</p>';
+        $helper->saveFormula($formula, ['Alchemical', 'Additive'], [
+            'skills'    => ['Crafting' => ['dc' => 11, 'meta' => 'Alchemy']],
         ]);
 
         $formula              = new Formula;
@@ -436,7 +466,6 @@ class AlchemicalFormulasSeeder extends Seeder
             'skills'   => [
                 'Crafting' => ['dc' => 18, 'meta' => 'Alchemy'],
             ],
-            'monsters' => ['Pixie' => ['meta' => 'At least 3 grains of dust from the Pixie']],
         ]);
 
         $formula              = new Formula;

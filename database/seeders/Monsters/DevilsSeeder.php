@@ -441,16 +441,17 @@ class DevilsSeeder extends Seeder
     <dt>Keen Longbow + 2</dt> <dd>Ranged Weapon Attack, reach 150/600 ft, one target. 1D8 + 2 Piercing.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
-            'stats'    => [18, 16, 18, 14, 14, 18, 12, 6],
-            'features' => [
+            'stats'     => [18, 16, 18, 14, 14, 18, 12, 6],
+            'features'  => [
                 'magic_resistance',
                 'legendary_resistance' => ['meta' => '1/day'],
                 'vulnerability'        => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'           => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Fire, Poison'],
             ],
-            'feats'  => ['Improved Reaction', 'Multi Attacker', 'Improved Multi Attacker'],
-            'spells' => [
+            'feats'     => ['Multi Attacker', 'Improved Multi Attacker'],
+            'talents'   => ['Improved Reaction'],
+            'spells'    => [
                 'True Seeing' => ['meta' => 'At will. 120 ft'],
             ],
             'languages' => ['Infernal', 'Telepathy' => ['meta' => '120 ft']],
@@ -468,22 +469,23 @@ class DevilsSeeder extends Seeder
     <dt>Hellfire Lance</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 11 (1D12 +5) Piercing damage plus 16 (3D10) Fire damage. If this kills a creature, the creature's. soul rises form the River Styx as a Lemure in Avernus in 1D4 days. If the creature isn't revived before then, only a Wish spell or killing the Lemure and casting True Resurrection on the creature's original body can restore it to life. Constructs, Undead and Baatezu are immune to this effect.</dd>
 </dl>";
         $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
-            'stats' => [20, 10, 17, 16, 14, 19, 13, 5],
-            'saves' => [
+            'stats'     => [20, 10, 17, 16, 14, 19, 13, 5],
+            'saves'     => [
                 'DEX' => ['bonus' => 5],
                 'CON' => ['bonus' => 8],
                 'CHA' => ['bonus' => 9],
             ],
-            'skills'   => ['Perception' => ['dc' => 7, 'meta' => 'Advantage to detect Good-aligned creatures']],
-            'features' => [
+            'skills'    => ['Perception' => ['dc' => 7, 'meta' => 'Advantage to detect Good-aligned creatures']],
+            'features'  => [
                 'magic_resistance',
                 'legendary_resistance' => ['meta' => '1/day'],
                 'vulnerability'        => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'           => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Fire, Poison'],
             ],
-            'feats'  => ['Improved Reaction', 'Multi Attacker', 'Improved Multi Attacker'],
-            'spells' => [
+            'feats'     => ['Multi Attacker', 'Improved Multi Attacker'],
+            'talents'   => ['Improved Reaction'],
+            'spells'    => [
                 'Detect Good'     => ['meta' => 'At will'],
                 'Call Nightmare'  => ['meta' => 'At will. Requires spurs as focus'],
                 'Aura of Courage' => ['meta' => 'At will'],

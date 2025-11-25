@@ -3,6 +3,7 @@
 namespace Database\Seeders\Locations;
 
 use App\Models\God;
+use App\Models\Location;
 use App\Models\Plane;
 use App\Models\SubPlane;
 use Illuminate\Database\Seeder;
@@ -32,6 +33,22 @@ class Baator extends Seeder
         $sub->description = '';
         $sub->save();
         $sub->ruler()->save(God::where('name', 'Zariel')->firstOrFail());
+
+        $location              = new Location;
+        $location->name        = 'The Bronze Citadel';
+        $location->type        = 'City';
+        $location->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
+        $location->description = '<p>A huge fortress-city dozens of square miles and ringed by twelve heavily defended walls. It houses hundreds of thousands of lesser devil troops and war machines. It is constantly being added to in the form of new fortifications against attacks.</p>';
+        $sub->locations()->save($location);
+        $location->ruler()->save(God::where('name', 'Zariel')->firstOrFail());
+
+        $location              = new Location;
+        $location->name        = "Tiamat's Lair";
+        $location->type        = 'City';
+        $location->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
+        $location->description = '<p>This is a tall mountain where Tiamat guards the entrance to Dis. Abishai abound here and guard the portal to Dis.</p>';
+        $sub->locations()->save($location);
+        $location->ruler()->save(God::where('name', 'Tiamat')->firstOrFail());
 
         /**********************************************************************/
 

@@ -82,7 +82,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Psionic Talent';
         $feat->description = '<p>You gain additional Power Points. Gain an amount equal to the number of Psionic Feats you have (including this one):</p>
-<p>The total Power Points gain may change if you gain or lose Psionic Feats.</p>
+<p>The total Power Points gained may change if you gain or lose Psionic Feats.</p>
 <p>You may take this Feat multiple times.</p>';
         $helper->addTypesToFeat($feat, ['Psionic']);
 
@@ -132,7 +132,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Divine Fist';
         $feat->action_type = 'Action';
-        $feat->description = '<p>As an Action, you may expend a Divine Spell Slot. For the next 1 minute, your Unarmed Strikes deal an additional +!D6 damage for each level of the Spell Slot expended. Half the damage is Fire and the other half is Divine.</p>';
+        $feat->description = '<p>As an Action, you may expend a Divine Spell Slot. For the next 1 minute, your Unarmed Strikes deal an additional +1D6 damage for each level of the Spell Slot expended. Half the damage is Fire and the other half is Divine.</p>';
         $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Fire', 'Divine']);
         $feat->parent_feats()->save(app()->feats['Psionic Fist']);
 
@@ -248,16 +248,14 @@ class FeatsPsionicSeeder extends Seeder
         $feat->description = '<p>Expend your Psionic Focus. When you make an Attack of Opportunity, you can use any power you know with a range of touch, if you have at least one hand free. The power must be a Double Action activation power or less. You manifest the power as a Reaction.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Attack of Opportunity', 'Psionic Focus']);
-        $feat->parent_feats()->save(app()->feats['Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Quicken Power';
         $feat->action_type = 'Free';
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can quicken a power. A quickened power reduces the number of required Actions by 2.</p>
-<p>Using this feat increases the Power Point cost of the power by 3.</p>';
+<p>Using this feat increases the Power Point cost of the power by 5.</p>';
         $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
-        $feat->parent_feats()->save(app()->feats['Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Split Psionic Ray';

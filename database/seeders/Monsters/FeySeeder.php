@@ -52,37 +52,6 @@ class FeySeeder extends Seeder
             'languages' => ['Sylvan'],
         ]);
 
-        $monster                   = new Monster;
-        $monster->name             = 'Behir';
-        $monster->size             = 'Huge';
-        $monster->type             = 'Fey';
-        $monster->alignment        = 'NE';
-        $monster->armor_class      = '12';
-        $monster->damage_reduction = '4 (Natural Armor)';
-        $monster->hit_dice         = 12;
-        $monster->speed            = '50 ft / Climb 40 ft';
-        $monster->actions          = "<dl>
-    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (3D10 +6) Piercing.</dd>
-    <dt>Constrict</dt> <dd>Melee Weapon Attack, reach 5 ft, one large or smaller creature. (2D10 +6) Bludgeoning + (2D10 +6) Slashing. The target is Grappled (escape DC 16) if the behir isn't already constricting a creature, and the target is Restrained until this Grapple ends.</dd>
-    <dt>Swallow</dt> <dd>
-        <p>The behir makes one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target is also swallowed, and the grapple ends. While swallowed, the target is Blinded and Restrained, it has total cover against attacks and other effects outside the behir, and it takes 21 (6d6) Acid damage at the start of each of the behir's turns. A behir can have only one creature swallowed at a time.</p>
-        <p>If the behir takes 30 damage or more on a single turn from the swallowed creature, the behir must succeed on a DC 14 CON Save at the end of that turn or regurgitate the creature, which falls prone in a space within 10 ft. of the behir. If the behir dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 15 ft. of movement, exiting prone.</p>
-    </dd>
-    <dt>Lightning Breath (Recharge 5-6)</dt> <dd>The behir exhales a line of lightning that is 20 ft long and 5 ft wide. Each creature in that line must make a DC 16 DEX Save, taking 66 (12D10) Electricity damage on failed Save, or half as much damage on a successful one.</dd>
-</dl>";
-        $helper->saveMonster($monster, ['Fey', 'Dragon', 'Electricity'], [
-            'stats'  => [23, 16, 18, 7, 14, 12, 11, 4],
-            'skills' => [
-                'Perception' => ['dc' => 6],
-                'Stealth'    => ['dc' => 7],
-            ],
-            'features' => [
-                'darkvision' => ['meta' => '90 ft'],
-                'immunity'   => ['meta' => 'Electricity'],
-            ],
-            'languages' => ['Auld Wyrmish'],
-        ]);
-
         $monster              = new Monster;
         $monster->name        = 'Blink Dog';
         $monster->size        = 'Medium';
@@ -1355,7 +1324,7 @@ class FeySeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 10(2D6 + 3) Piercing. If the target is a creature, it must Succeed on a DC 13 STR Save or be knocked Prone.</dd>
 </dl>';
         $monster->description      = '<p>A worg is an evil predator that delights in hunting and devouring creatures weaker than itself. Cunning and malevolent, worgs roam across the remote wilderness or are raised by goblins and hobgoblins. Those creatures use worgs as mounts, but a worg will turn on its rider if it feels mistreated or malnourished. Worgs speak Goblin and Sylvan, and a few learn an additional language as well.</p>';
-        $helper->saveMonster($monster, ['Fey', 'Goblin'], [
+        $helper->saveMonster($monster, ['Fey', 'Goblin', 'Beast'], [
             'stats'    => [16, 13, 13, 7, 11, 8, .5, 2],
             'skills'   => ['Perception' => ['dc' => 4]],
             'features' => [

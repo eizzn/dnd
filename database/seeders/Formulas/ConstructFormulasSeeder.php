@@ -73,9 +73,9 @@ class ConstructFormulasSeeder extends Seeder
 </ul>';
         $formula->description = '<p>You create a Flesh Golem. At the time of completion, whoever is to be the owner of the golem must cast the Dominate spell.</p>';
         $helper->saveFormula($formula, ['Construct'], [
-            'skills' => ['Crafting' => ['dc' => 13, 'meta' => 'Leatherworking'], 'Medicine' => ['dc' => 13, 'meta' => 'Administer First Aid']],
+            'skills' => ['Crafting' => ['dc' => 13, 'meta' => 'Leatherworking'], 'Medicine' => ['dc' => 15, 'meta' => 'Administer First Aid']],
             'feats'  => ['Craft Armament', 'Craft Wondrous Item'],
-            'spells' => ['Animate Dead', "Bull's Strength", 'Dominate', 'Lightning Bolt'],
+            'spells' => ['Animate Dead', "Bull's Strength", 'Dominate', 'Lightning Bolt' => ['meta' => 'Heightened +2']],
         ]);
 
         $formula                = new Formula;
@@ -111,7 +111,9 @@ class ConstructFormulasSeeder extends Seeder
         $helper->saveFormula($formula, ['Construct'], [
             'skills' => ['Crafting' => ['dc' => 20, 'meta' => 'Armorsmithing or Weaponsmithing']],
             'feats'  => ['Craft Armament', 'Craft Wondrous Item'],
-            'spells' => ['Animate Objects', 'Investiture of Flame', 'Imbue with Adamantine', 'Summon Elemental'],
+            'spells' => [
+                'Animate Objects' => ['meta' => 'Heightened +3'], 'Investiture of Flame', 'Imbue with Adamantine', 'Summon Elemental',
+            ],
         ]);
 
         $formula                = new Formula;
@@ -130,7 +132,7 @@ class ConstructFormulasSeeder extends Seeder
         $helper->saveFormula($formula, ['Construct'], [
             'skills' => ['Crafting' => ['dc' => 17, 'meta' => 'Sculpting or Stonemasonry']],
             'feats'  => ['Craft Armament', 'Craft Wondrous Item'],
-            'spells' => ['Shape Stone', 'Stone Metamorphosis', 'Animate Objects', 'Summon Elemental'],
+            'spells' => ['Shape Stone', 'Stone Metamorphosis', 'Animate Objects' => ['meta' => 'Heightened +2'], 'Summon Elemental'],
         ]);
 
         $formula                = new Formula;

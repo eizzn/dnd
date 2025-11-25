@@ -20,13 +20,22 @@ class FeatsDivineSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Improved Channel Divinity';
-        $feat->description = '<p>You become better at Channeling your Divine power. Your Channel Divinity now only costs 1 Spell Point.</p>';
+        $feat->description = '<p>You become better at Channeling your Divine power.</p>
+<ul>
+    <li>You gain 1 Spell Point</li>
+    <li>You gain a +2 Bonus on any Channel Divinity rolls, including the roll for Cure Wounds</li>
+    <li>Your Channel Divinity now only costs 1 Spell Point.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
         $feat->features()->save(app()->features['channel_divinity']);
 
         $feat              = new Feat;
         $feat->name        = 'Quick Channel Divinity';
-        $feat->description = '<p>You can now manifest your Channel Divinity abilities with one fewer Action.</p>';
+        $feat->description = '<p>You become faster at using your Channel Divinity power.</p>
+<ul>
+    <li>You gain 2 Spell Points</li>
+    <li>You gain an additional Action. This additional Action can only be used to use your Channel Divinity</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
         $feat->features()->save(app()->features['channel_divinity']);
 
@@ -35,7 +44,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>Your Channel Divinity becomes more powerful.</p>
 <ul>
     <li>You gain 2 Spell Points</li>
-    <li>You gain a +5 Bonus to your Channel Divinity roll.</li>
+    <li>You gain a +5 Bonus on any Channel Divinity rolls, including the roll for Cure Wounds</li>
     <li>If you have the Channel Divinity Caster Class Feature, your spell is automatically Heightened +2</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 3]);
@@ -47,6 +56,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>You swear allegiance to Talisid or one of the other Five Companions, the paragons of the guardinals, and in exchange, gain power to act on their behalf.</p>
 <ul>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
+    <li>You gain a Heroic Surge</li>
     <li>If you have the Find Familiar feat, you may select a Musteval Guardinal by Sacrificing a 2nd level Spell Slot</li>
     <li>If you have the Divine Mount feat, your mount gains the Celestial Creature template.</li>
     <li>
@@ -66,6 +76,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>You swear allegiance to the Court of Stars, the paragons of the eladrin, and in exchange gain power to act on their behalf.</p>
 <ul>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
+    <li>Choose a Cantrip from the Wizards Spell List. You may cast it 3/day</li>
     <li>If you have the Find Familiar feat, you may select a Coure Eladrin by Sacrificing a 2nd level Spell Slot</li>
     <li>
         <p>If you have the Divine Mount feat, you may choose one of the following</p>
@@ -92,6 +103,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>You swear allegiance to one of the Tome Archons of the Celestial Hebdomad, and in exchange you gain power to act on their behalf.</p>
 <ul>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
+    <li>You gain a Talent</li>
     <li>If you have the Find Familiar feat, you may select a Lantern Archon by Sacrificing a 2nd level Spell Slot</li>
     <li>If you have the Divine Mount feat, your mount gains the Celestial Creature template.</li>
     <li>
@@ -113,6 +125,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>You have willingly given yourself to the service of a good deity or cause, denying yourself an ordinary life to better server your highest ideals.</p>
 <ul>
     <li>Increase one of your Ability Scores by +1, to a maximum of 20.</li>
+    <li>You gain a Talent</li>
     <li>You gain a +2 Bonus to all your Saves.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 2]);
@@ -166,7 +179,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description       = '<p>You have taken a vow to serve a superior without question</p>
 <ul>
     <li>Increase your CHA by +1, to a maximum of 20</li>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge or a Talent</li>
     <li>You gain a +5 Perfection Bonus on Saves against Charm and Compulsion spells and effects.</li>
     <li>You gain either a Cohort or the ability to cast the Command spell 3/day</li>
 </ul>
@@ -303,7 +316,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description       = '<p>You perfect your body against Disease</p>
 <ul>
     <li>Increase your CON by +1, to a maximum of 20</li>
-    <li>You gain immunity to Disease</li>
+    <li>You gain Disease Immunity Talent</li>
     <li>You gain a +5 Perfection Bonus on Saves to resist death effects.</li>
     <li>3/day, you may cast Remove Disease as a Triple Action Heightened +2. While this spell has a Range of Touch, you are allowed to place your hand just short of actually Touching the target.</li>
 </ul>
@@ -331,7 +344,7 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = "<p>You formally supplicate yourself to a yugoloth, in return for this obedience, you gian a small measure of power.</p>
 <ul>
     <li>Increase one of your Attributes by +2, to a maximum of 20</li>
-    <li>Choose a Cantrip. You may cast this Cantrip 3/day</li>
+    <li>Choose a Cantrip from the Wizards Spell List. You may cast this Cantrip 3/day</li>
     <li>If you have the Find Familiar, you may select a Battleloth by Sacrificing a Spell Slot equal to the Battleloth's CR.</li>
     <li>If you have the Divine Mount feat, your mount gains the Fiend Creature template.</li>
     <li>If you have the Animal Companion feat, your Animal Companion gains the Fiend Creature template.</li>
@@ -481,10 +494,10 @@ class FeatsDivineSeeder extends Seeder
         $feat->name        = 'Improved Demonologist';
         $feat->description = '<p>Your studies into Demons and the Abyss deepens.</p>
 <ul>
-    <li>You may now cast the Hold Person spell (Heightened +2) and have it affect Demons. If you do not have any Spell Casting Levels, then you may cast this spell 1/day. Targeting a Demon with a Hold Person spell does not count as an attack for a Demon in a Circle of Protection. Demons have Disadvantage on Saves vs your Hold Person spells. Unless you have the Hold Person spell from another class, you may only target Demons with your Hold Person spell.</li>
-    <li>You may now cast the Dominate spell (Heightened +1) and have it affect Demons. if you do not have any Spell Casting Levels, then you may cast this spell 1/day. Targeting a Demon in a with a Dominate spell does not count as an attack for a Demon in a Circle of Protection. Unless you have the Dominate spell from another class, you may only target Demons with your Dominate spell.</li>
-    <li>You may call a Vrock to serve you for 1 year. You must offer a sacrifice of 3 living humanoids (Sacrifice DC 15) to the Vrock for its service. You may only have a single Vrock serve you in this way at a time.</li>
-    <li>You may Concentrate on an additional Summoning Spells at the same time. This additional Summoning spell must have summoned a Demon.</li>
+    <li>You may now cast the Hold Person spell and have it affect Demons. If you do not have any Spell Casting Levels, then you may cast this spell 1/day. Targeting a Demon with a Hold Person spell does not count as an attack for a Demon in a Circle of Protection. Demons have Disadvantage on Saves vs your Hold Person spells. Unless you have the Hold Person spell from another class, you may only target Demons with your Hold Person spell. Casting Hold Person on Demons in this way automatically Heightens the spell by +2.</li>
+    <li>You may now cast the Dominate spell and have it affect Demons. if you do not have any Spell Casting Levels, then you may cast this spell 1/day. Targeting a Demon in a with a Dominate spell does not count as an attack for a Demon in a Circle of Protection. Unless you have the Dominate spell from another class, you may only target Demons with your Dominate spell. Casting Dominate in this way automatically Heightens the spell by +1.</li>
+    <li>You learn the true name of a Vrock and may call it to serve you for 1 year. You must offer a sacrifice of 3 living humanoids (Sacrifice DC 15) to the Vrock for its service. You may only have a single Vrock serve you in this way at a time.</li>
+    <li>You may Concentrate on an additional Summoning Spell at the same time. This additional Summoning spell must have summoned a Demon.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Arcane', 'Demon', 'Generic' => 9]);
         $feat->parent_feats()->save(app()->feats['Demonologist']);

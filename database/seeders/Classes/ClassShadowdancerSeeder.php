@@ -31,7 +31,6 @@ class ClassShadowdancerSeeder extends Seeder
         $feat->skills()->save(app()['skills']['Stealth'], ['dc' => 8]);
         $feat->skills()->save(app()['skills']['Performance'], ['dc' => 5]);
         $feat->parent_feats()->save(app()['feats']['Dodge']);
-        $feat->parent_feats()->save(app()['feats']['Improved Reaction']);
         $feat->parent_feats()->save(app()['feats']['Extend Spell Pool']);
     }
 }

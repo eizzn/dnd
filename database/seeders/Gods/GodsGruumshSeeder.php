@@ -127,8 +127,7 @@ class GodsGruumshSeeder extends Seeder
             2 => ['Aura of the Bull', "Aura of the Bull's Curse", "Bear's Endurance", 'Delay Poison', 'Divine Presence'],
             3 => ["Bear's Hex", 'Brittleskin'],
             4 => ['Divine Power', 'Giant Form'],
-            5 => ['Aura of Power', 'Holy Weapon'],
-            6 => ['Great Shout'],
+            5 => ['Aura of Power', 'Holy Weapon', 'Great Shout'],
         ]);
 
         $helper->addPietyToGod($god, [
@@ -205,8 +204,7 @@ class GodsGruumshSeeder extends Seeder
             2 => ['Branding Smite', 'Enfeebling Smite'],
             3 => ['Blinding Smite', 'Haste', 'Prayer', 'Slowing Smite'],
             4 => ['Blink', 'Weapon Storm'],
-            5 => ['Atonement', 'Banishing Smite'],
-            6 => ['Arcane Sword'],
+            5 => ['Atonement', 'Banishing Smite', 'Arcane Sword'],
         ]);
 
         /**********************************************************************/

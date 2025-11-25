@@ -31,7 +31,7 @@ class ClassHathranSeeder extends Seeder
             'Feats'         => 'Ethran, At least 1 Meta Magic Feat, Cannot have any Item Creation Feats, Cannot have any Bloodline Feats, Cannot have any Wizard School Feats',
             'Spellcasting'  => 'Able to cast 1st level Arcane and Primal spells',
             'Class Feature' => 'Chastise Spirit',
-            'Patron'        => 'The Fey Lords of Rasheman',
+            'Patron'        => 'The Fey Lords of Rashemen',
             'Region'        => 'Rashemen',
         ]);
         $class->description = '<p>This class represents both the Hathrans and the Durthans</p>
@@ -57,11 +57,12 @@ class ClassHathranSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'hathran_cohort';
         $feature->name        = 'Hathran Cohort';
-        $feature->description = '<p>You gain a cohort. This cohort must either be an Ethran (a character with the Ethran feat, this NPC cannot also have a cohort), an Artificer with the Vremyonni Feat, or a Barbarian from one of the Barbarian lodges of Rashemen.</p>
-<p>Instead of an NPC cohort, you may choose to take on a PC as your cohort. This PC must also be either an Ethran (who cannot also have a cohort) or a barbarian from one of the Barbarian lodges of Rashemen. If you choose to take on a fellow PC as your cohort, you gain the following benefits.</p>
+        $feature->description = '<p>You gain a cohort. This cohort must either be an Ethran (a character with the Ethran feat, this NPC cannot also have a cohort), an Artificer with the Vremyonni Feat, or a Barbarian from one of the Barbarian lodges of Rashemen (typically from the Stag or possibly Wolf lodge).</p>
+<p>Instead of an NPC cohort, you may choose to take on a PC as your cohort. This PC must also be either an Ethran (who cannot also have a cohort), an Artificer with the Vremyonni Feat, or a barbarian from one of the Barbarian lodges of Rashemen. If you choose to take on a fellow PC as your cohort, you gain the following benefits.</p>
 <ul>
-    <li>When your PC cohort is within 10 feet of you, both you and your cohort gain a +1 Awareness bonus to your AC and a +1 Awareness bonus to all Saves.</li>
+    <li>When your PC cohort is within 15 feet of you, both you and your cohort gain a +1 Awareness bonus to your AC and a +1 Awareness bonus to all Saves.</li>
     <li>You and your PC cohort gain the ability to cast Cure Wounds as a 1st level spell once per Long Rest. This spell can only be cast on each other.</li>
+    <li>If you cast any spell with the Bless type on yourself, it also affects your PC cohort.</li>
 </ul>
 <p>If your cohort dies and is not revived, you must return to a populated area (such as a city or village) and spend 2D6 days searching for another suitable cohort.</p>
 <ul>
@@ -74,8 +75,8 @@ class ClassHathranSeeder extends Seeder
             'class_group_feat'          => [3, 5, 7, 9],
             'communal_channeling'       => [1],
             'hathran_cohort'            => [2],
-            'spellcasting_class_double' => [1, 3, 6, 8],
-            'spellcasting_class'        => [2, 4, 5, 7, 9, 10],
+            'spellcasting_class_double' => [1, 2, 3, 6, 8],
+            'spellcasting_class'        => [4, 5, 7, 9, 10],
             'place_magic'               => [1],
         ]);
         $helper->addSpellsToClass($class, [
@@ -85,6 +86,7 @@ class ClassHathranSeeder extends Seeder
 
         $feat                    = new Feat;
         $feat->name              = 'Ethran';
+        $feat->requirement       = 'Must be female and from the Region of Rashemen';
         $feat->short_description = 'You have been initiated into the secrets of the Witches of Rashemen. You are now an Ethran';
         $feat->description       = '<p>You are a respected member of the Witches of Rashemen.</p>
 <ul>
@@ -94,7 +96,7 @@ class ClassHathranSeeder extends Seeder
     <li>You gain a +2 bonus on Diplomacy checks when dealing with spirits of Rashemen</li>
     <li>You can create a Communal Binding.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal', 'Spirit']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spirit' => 2]);
         $helper->addSpellsToFeat($feat, [
             2 => ['Flash', 'Rage' => 'Others only'],
         ]);
@@ -105,9 +107,9 @@ class ClassHathranSeeder extends Seeder
 <ul>
     <li>You gain 2 Spell Points</li>
     <li>
-        <p>As a Double Action, you can issue a simple command (such as those detailed in the Command spell) to a number of creatures equal to double your CHA modifier. Each target must make a WIS Save against your spell save DC, or be magically compelled to carry out the command for a number of rounds equal to your CHA modifier.</p>
-        <p>At the end of each of their turns for the duration, targeted creatures can repeat the WIS Save, ending the effect on themselves on a success.</p>
-        <p>On each of your turns for the duration, you can issue a new command that must be able to be performed in one round. For the following round, targeted creatures will instead perform the new command on their turn.</p>
+        <p>As a Triple Action, you can issue a simple command (such as those detailed in the Command spell) to a number of creatures equal to double your CHA modifier. Each Target must make a WIS Save against your spell save DC, or be magically compelled to carry out the command for a number of rounds equal to your CHA modifier.</p>
+        <p>At the end of each of their turns for the Duration, Targeted creatures can repeat the WIS Save, ending the effect on themselves on a Success.</p>
+        <p>On each of your turns for the Duration as an Action, you can issue a new command that must be able to be performed in one round. For the following round, Targeted creatures will instead perform the new command on their turn.</p>
         <p>Once you've used this feature, you must finish a Long Rest before doing so again.</p>
     </li>
     <li>You gain the Cantrip Caster Class Feature for all Arcane spells.</li>
@@ -120,8 +122,8 @@ class ClassHathranSeeder extends Seeder
         $feat->name        = 'Durthan';
         $feat->description = '<p>You desire to awaken the foul spirits of the land and use them for your own purposes.</p>
 <ul>
-    <li>You gain Resistance to Cold (a gift from Auril) along with a list of spells.</li>
-    <li>You gain the Animal Companion Feat. If you already have this feat, then you may select any feat you qualify for.</li>
+    <li>You gain Resistance to Cold (a gift from Aurilandur) along with a list of spells.</li>
+    <li>You gain the Animal Companion Feat. If you already have this Feat, then you may select any Feat you qualify for.</li>
     <li>If you have the Improved Undead Feat, you may take the Master of Shrouds Feat, even though you do not have the Undead Ally Feat.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Spirit']);

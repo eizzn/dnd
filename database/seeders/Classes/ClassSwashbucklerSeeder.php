@@ -69,7 +69,7 @@ class ClassSwashbucklerSeeder extends Seeder
             'improved_panache' => [7],
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Weapon Finesse']);
-        $class->features()->save(app()->features['feat'], ['level' => 11, 'meta' => 'Improved Reaction']);
+        $class->features()->save(app()->features['talent'], ['level' => 2, 'meta' => 'Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Battledancer Panache';

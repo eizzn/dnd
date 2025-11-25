@@ -237,7 +237,6 @@ class GodsCorellonSeeder extends Seeder
         $god->name  = 'Eilistraee';
         $god->level = 'Lesser';
         $god->save();
-
         $god->pantheons()->save(app()->pantheons['Seldarine'], [
             'name'           => $god->name,
             'title'          => 'The Dark Maiden, Lady of the Dance, Lady Silverhair, THe Dark Dancer, The Dancing Goddess',

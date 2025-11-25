@@ -80,12 +80,45 @@ class Hades extends Seeder
         $sub->description = "<p>Pluton is not as cold as Niflheim but still a cool place. However, its vegetation is that of a subtropical place, with willows, olive trees, and poplars. These trees are in the state of dying for an unknown but very long time. It is believed that these trees have petitioners inside them and druids can feel the trees' sadness.</p>
 <p>The Blood War is not waged on Pluton but sometimes fiends came to get the soul of a particularly skilled person.</p>";
         $sub->save();
-        // Locations:
-        // Hagsend: Divine Realm of Baba Yaga of the Yugoloth Lords
-        // Nishrek: Divine Realm of Gruumsh and the Orcish pantheon
-        // Clangor: Divine Realm of Maglubiyet and the Goblinoid pantheon
-        // the orc gods dwell in Pluton,  selling themselves as mercenaries in the Blood War and defending against attacks from the goblins of Maglubiyet
-        // the goblins are not interested in taking part in the Blood War. They are only interested in defeating the orcs
-        // Clangor is near the roots of Yggdrasil, which connects to the Fey realms of Oberon and Titania (goblins are part of the fey)
+
+        $location              = new Location;
+        $location->name        = "Hag's End";
+        $location->type        = 'Divine Realm';
+        $location->pantheon_id = app()->pantheons['Yugoloth Lord']->id;
+        $location->description = "<p>This realm is a dreary domain of endless misery. Ironically, the Wastes are without a moon or any other celestial bodies. It is simply a featureless gray expanse, a land of never-ending twilight offering neither the closure of dusk or the new hope of dawn. This realm drains the emotions and vibrancy from all that enter. The only known protection against the apathy is to hide and internalize all emotions deep within the mind.</p>
+<p>Hag's End is located halfway up a vast mountain of black, dead rock. From inside her filthy, bone-strewn cave crypt, Cegilune stirs her vile brew under a small, glowing, hovering replica of the full moon.</p>";
+        $sub->locations()->save($location);
+        $location->ruler()->save(God::where('name', 'Baba Yaga')->firstOrFail());
+
+        $location              = new Location;
+        $location->name        = 'Nishrek';
+        $location->type        = 'Divine Realm';
+        $location->pantheon_id = app()->pantheons['Orc']->id;
+        $location->description = '<p>Nishrek is the realm of Gruumsh and the Orc pantheon. Here, Gruumsh, Luthic, Bahgtru, Ilneval, Shargaas, and Yurtrus keep their realms here.</p>
+<p>Sometimes, the orcs that follow Ilneval will sell themselves as mercenaries in the Blood War.</p>';
+        $sub->locations()->save($location);
+        $location->ruler()->save(God::where('name', 'Gruumsh')->firstOrFail());
+
+        $location              = new Location;
+        $location->name        = 'Clangor';
+        $location->type        = 'Divine Realm';
+        $location->pantheon_id = app()->pantheons['The Court of Stars']->id;
+        $location->description = '<p>Clangor is the realm of Maglubiyet and the Goblin Pantheons of The Court of Stars. Here, Maglubiyet, Khurgorbaeyag, Nomog-Geaya, Bargrivyek, Hruggek, Grankhul, Skiggaret keep their realms here</p>
+<p>Clangor is located near the roots of Yggdrasil, connecting Clangor to Arvandor and the realms of Oberon and Titania.</p>
+<p>Maglubiyet and Gruumsh war against each other constantly.</p>';
+        $sub->locations()->save($location);
+        $location->ruler()->save(God::where('name', 'Maglubiyet')->firstOrFail());
+
+        $location              = new Location;
+        $location->name        = 'Corpus';
+        $location->type        = 'City';
+        $location->description = '<p>Corpus is a city that is made of people.</p>';
+        $sub->locations()->save($location);
+
+        $location              = new Location;
+        $location->name        = 'The Hill of Bones';
+        $location->type        = 'Site';
+        $location->description = '<p>The Hill of Bones is a place where nightmares go to die. The place is sacred to them and removing a bone earns the wrath of all nightmares who learn of the theft.</p>';
+        $sub->locations()->save($location);
     }
 }

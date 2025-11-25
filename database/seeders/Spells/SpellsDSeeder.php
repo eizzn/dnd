@@ -629,6 +629,16 @@ class SpellsDSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Detection', 'Divination'], 1);
 
         $spell              = new Spell;
+        $spell->name        = 'Detect Disease';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->range       = '30-foot radius';
+        $spell->duration    = 'Concentration, up to 10 minutes';
+        $spell->description = '<p>You can detect the presence and location of Disease within Range. You also determine the type of Disease detected.</p>
+<p>This spell can penetrate most barriers, but is blocked by 1 foot of stone, 1 inch of any common metal, a thin sheet of lead or 3 feet of wood or dirt.</p>';
+        $helper->addTypesToSpell($spell, ['Detection', 'Divination'], 1);
+
+        $spell              = new Spell;
         $spell->name        = 'Detect Demon';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '60 foot cone-shaped emanation';
@@ -712,12 +722,22 @@ class SpellsDSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Detection', 'Divination', 'Earth'], 2);
 
         $spell              = new Spell;
+        $spell->name        = 'Detect Poison';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->targets     = 'Self';
+        $spell->range       = '30-foot radius';
+        $spell->duration    = 'Concentration, up to 10 minutes';
+        $spell->description = '<p>You can detect the presence and location of Poisons within Range. You also determine the type of Poison detected.</p>
+<p>This spell can penetrate most barriers, but is blocked by 1 foot of stone, 1 inch of any common metal, a thin sheet of lead or 3 feet of wood or dirt.</p>';
+        $helper->addTypesToSpell($spell, ['Detection', 'Divination'], 1);
+
+        $spell              = new Spell;
         $spell->name        = 'Detect Poison and Disease';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->range       = '30-foot radius';
         $spell->duration    = 'Concentration, up to 10 minutes';
-        $spell->description = '<p>For the duration, you can sense the presence and location of poisons, poisonouse creatures, and disease within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case.</p>
+        $spell->description = '<p>For the duration, you can sense the presence and location of poisons, poisonous creatures, and disease within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case.</p>
 <p>The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.</p>';
         $helper->addTypesToSpell($spell, ['Detection', 'Divination'], 1);
 

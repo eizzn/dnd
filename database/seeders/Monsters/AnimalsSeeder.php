@@ -246,7 +246,8 @@ class AnimalsSeeder extends Seeder
                 'keen_sense'   => ['meta' => 'Smell'],
                 'multi_attack' => ['meta' => 'If the bear makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The bear can only gain this additional Action once per turn.'],
             ],
-            'feats' => ['Die Hard', 'Improved Bull Rush'],
+            'feats'   => ['Improved Bull Rush'],
+            'talents' => ['Die Hard'],
         ]);
 
         $monster                   = new Monster;
@@ -267,7 +268,8 @@ class AnimalsSeeder extends Seeder
                 'keen_sense'   => ['meta' => 'Smell'],
                 'multi_attack' => ['meta' => 'If the bear makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The bear can only gain this additional Action once per turn.'],
             ],
-            'feats' => ['Die Hard', 'Improved Bull Rush'],
+            'feats'   => ['Improved Bull Rush'],
+            'talents' => ['Die Hard'],
         ]);
 
         $monster                   = new Monster;
@@ -275,16 +277,17 @@ class AnimalsSeeder extends Seeder
         $monster->size             = 'Large';
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
-        $monster->armor_class      = '9';
+        $monster->armor_class      = '11 (Natural Armor)';
         $monster->damage_reduction = '5 (Natural Armor)';
         $monster->hit_dice         = 9;
         $monster->speed            = '40 ft / Burrow 40 ft';
         $monster->actions          = "<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack +8 to hit, reach 5 ft, one target. (4D12 +4) Piercing.</dd>
     <dt>Deadly Leap</dt> <dd> If the bulette jumps at least 15 ft. as part of its movement, it can then use this Action to land on its feet in a space that contains one or more other creatures. Each of those creatures must succeed on a DC 16 STR or DEX Save (target's choice) or be knocked prone and take 14 (3D6 +4) Bludgeoning damage plus 14 (3D6 +4) Slashing damage. On a successful Save, the creature takes only half the damage, isn't knocked prone, and is pushed 5 ft. out of the bulette's space into an unoccupied space of the creature's choice. If no unoccupied space is within range, the creature instead falls prone in the bulette's space.</dd>
+    <dt>Burrowing Slime</dt> <dd>As a Free Action, the bulette secretes a slime from the front of their body that softens earth and soil, allowing the fast Burrow Speed. This slime can be collected from the soil that the bulette has burrowed through and extracted from the soil (DC 15 Alchemy). Farmers have been known to use this slime on their plows.</dd>
 </dl>";
         $helper->saveMonster($monster, ['Animal'], [
-            'stats'  => [19, 11, 21, 2, 10, 5, 5, 4],
+            'stats'  => [19, 11, 21, 2, 10, 5, 6, 4],
             'skills' => [
                 'Athletics'  => ['dc' => 20, 'meta' => 'High Jump and Long Jump only'],
                 'Perception' => ['dc' => 6],
@@ -401,7 +404,7 @@ class AnimalsSeeder extends Seeder
         $monster->size             = 'Huge';
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
-        $monster->armor_class      = '8';
+        $monster->armor_class      = 8;
         $monster->damage_reduction = '5 (Natural Armor)';
         $monster->hit_dice         = 9;
         $monster->speed            = '30 ft / Swim 50 ft';
@@ -424,7 +427,7 @@ class AnimalsSeeder extends Seeder
         $monster->size        = 'Medium';
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
-        $monster->armor_class = '13';
+        $monster->armor_class = 13;
         $monster->hit_dice    = 1;
         $monster->speed       = '50 ft';
         $monster->actions     = '<dl>
@@ -856,7 +859,8 @@ class AnimalsSeeder extends Seeder
                 'keen_sense'   => ['meta' => 'Sight and Smell'],
                 'multi_attack' => ['meta' => 'The owlbear gains an additional Action. This additional Action can only be used to make a Grapple attack. The owlbear only gains this additional Action if it successfully makes 2 Claw attacks on the same target.'],
             ],
-            'feats' => ['Improved Grapple', 'Die Hard'],
+            'feats'   => ['Improved Grapple'],
+            'talents' => ['Die Hard'],
         ]);
 
         $monster                   = new Monster;
@@ -1150,9 +1154,9 @@ class AnimalsSeeder extends Seeder
             'stats' => [13, 14, 14, 1, 10, 2, 1, 2],
             'feats' => [
                 'Improved Grapple',
-                'Poison Immunity',
                 'Blindsight' => ['meta' => '60 ft'],
             ],
+            'talents'  => ['Poison Immunity'],
             'features' => [
                 'darkvision' => ['meta' => '60 ft'],
             ],

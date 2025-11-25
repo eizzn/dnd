@@ -81,16 +81,16 @@ class SnareFormulaSeeder extends Seeder
         $formula->level       = 8;
         $formula->price       = '50 gp';
         $formula->rarity      = 'Rare';
-        $formula->description = "<p>You set a trio of alchemist's liquid ice bombs to explode in unison when a creature enters the freezing snare's square. The target must attempt a DC 20 DEX Save.</p>
+        $formula->description = "<p>You set a trio of alchemist's Liquid Ice bombs to explode in unison when a creature enters the freezing snare's square. The target must attempt a DC 20 DEX Save.</p>
 <dl>
     <dt>Critical Success</dt> <dd>The target is unaffected</dd>
     <dt>Success</dt> <dd>The target takes 1D8 Cold damage</dd>
     <dt>Failure</dt> <dd>The target takes 3D8 Cold damage and is Hampered 10 until the end of its next turn</dd>
     <dt>Critical Failure</dt> <dd>The target takes 6D8 Cold damage is Hampered 10 until the end of its next turn</dd>
-    <dt>Requirements</dt> <dd>Three vials of Liquid Ice</dd>
 </dl>";
         $helper->saveFormula($formula, ['Cold', 'Consumable', 'Mechanical', 'Trap'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Snares']],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Snares']],
+            'formulas' => ['Liquid Ice' => ['meta' => '3 bottles']],
         ]);
 
         $formula              = new Formula;
@@ -121,10 +121,10 @@ class SnareFormulaSeeder extends Seeder
     <dt>Success</dt> <dd>The target takes 1D6 Electricity damage</dd>
     <dt>Failure</dt> <dd>The target takes 3D6 Electricity damage and is Flat-Fooded for 1 round</dd>
     <dt>Critical Failure</dt> <dd>The target takes 6D6 Electricity damage and is Flat-Footed for 1 round</dd>
-    <dt>Requirements</dt> <dd>Three vials of Bottled Lightning</dd>
 </dl>";
         $helper->saveFormula($formula, ['Consumable', 'Electricity', 'Mechanical', 'Trap'], [
-            'skills' => ['Crafting' => ['dc' => 10, 'meta' => 'Snares']],
+            'skills'   => ['Crafting' => ['dc' => 10, 'meta' => 'Snares']],
+            'formulas' => ['Bottled Lightning' => ['meta' => '3 bottles']],
         ]);
 
         $formula              = new Formula;
@@ -203,7 +203,7 @@ class SnareFormulaSeeder extends Seeder
 <dl>
     <dt>Success</dt> <dd>The target is unaffected</dd>
     <dt>Failure</dt> <dd>The target falls prone</dd>
-    <dt>Critical Failure</dt> <dd>The target falls prone and takes 1D6 bludgeoning damage</dd>
+    <dt>Critical Failure</dt> <dd>The target falls prone and takes 1D6 Bludgeoning damage</dd>
 </dl>';
         $helper->saveFormula($formula, ['Consumable', 'Mechanical', 'Trap'], [
             'skills' => ['Crafting' => ['dc' => 6, 'meta' => 'Snares']],

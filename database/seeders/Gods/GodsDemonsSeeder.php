@@ -111,11 +111,11 @@ class GodsDemonsSeeder extends Seeder
             2 => ['Crown of Madness', 'Feet to Fins' => 'Self only', 'Fearsome Grapple'],
             3 => ['Summon Demon, Lesser' => 'Casting this again dispels any previous casting', 'Vampiric Touch'],
             4 => ['Blight', 'Summon Demon' => 'Casting this again dispels any previous casting'],
-            5 => ['Black Tentacles'],
-            6 => ['Demon Form', 'Malevolent Tentacles'],
+            5 => ['Black Tentacles', 'Malevolent Tentacles'],
+            6 => ['Demon Form', 'Slay Living'],
             7 => ['Wall of Tentacles'],
             8 => ['Horrid Wilting'],
-            9 => ['Slay Living'],
+            9 => ['Abyssal Army'],
         ]);
 
         /**********************************************************************/
@@ -134,13 +134,36 @@ class GodsDemonsSeeder extends Seeder
         ]);
 
         $feat              = new Feat;
+        $feat->name        = 'Pact to Orcus';
+        $feat->description = '<p>You have made a Pact to Orcus</p>
+<ul>
+    <li>You may maintain control of a number of undead from the Animate Undead spell equal to your Warlock level</li>
+    <li>You may maintain control of a number of undead from your Create Undead equal to 1/4 your Warlock level rounded down (minimum 1)</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Evil', 'Vile', 'Undead', 'Chaotic']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Detect Ghost', 'Detect Undead', 'Disrupt Ectoplasm', 'Disrupt Undead', 'Necrotic Touch', 'Touch of Death',
+                'Undead Servant' => 'Max of 4 at any time', ],
+            1 => ['Deathwatch', 'Negative Energy Ray', 'Ray of Enfeeblement'],
+            2 => ['Command Undead', 'Speak with Dead', 'Vertigo'],
+            3 => ['Animate Dead' => 'Cannot be used to maintain control of undead', 'Ghoul Touch', 'Hold Undead'],
+            4 => ['Calling' => 'Demons only. Not obligated to obey', 'Drain Life', 'Exhaustion'],
+            5 => ['Aura of Undeath', 'Create Undead'],
+            6 => ['Vile Undead'],
+            7 => ['Finger of Death'],
+            8 => ['Slay Living'],
+            9 => ['Plague of Undead'],
+        ]);
+
+        $feat              = new Feat;
         $feat->name        = 'Skull of Orcus';
         $feat->requirement = 'You must be Evil';
         $feat->description = '<p>You have given yourself to the demon lord Orcus. You gain the following abilities.</p>
-<dl>
-    <dt>Gaunt</dt> <dd>You gain the Vile Feat Gaunt. If you already have the Gaunt Feat, you may gain the Lich Loved Vile Feat.</dd>
-    <dt>Resist Undead</dt> <dd>You gain a +2 bonus on all Saves vs Negative energy effects from Undead.</dd>
-</dl>';
+<ul>
+    <li>You gain the Gaunt Vile Feat. If you already have the Gaunt Feat, you may gain the Lich Loved Vile Feat.</li>
+    <li>You gain a +2 bonus on all Saves vs Negative energy effects from Undead.</li>
+    <li>You gain the ability to Rebuke Undead 1/day, as if you had the Channel Divinity Class Feature (Negative, Undead)</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Resist Negative Energy', 'Resist Positive Energy'],
@@ -150,10 +173,13 @@ class GodsDemonsSeeder extends Seeder
         $feat->name        = 'Skull Lord of Orcus';
         $feat->requirement = 'You must be Evil';
         $feat->description = '<p>You gain the ability to command a small group of undead skeletons.</p>
-<p>You gain the ability to cast the spell Animate Dead as a 1st level spell 1/day. Casting this spell creates a single undead (skeleton or zombie).</p>
-<p>You can maintain control of up to 4 skeletons or zombies that you have created using this ability. If there are already 4 undead creatures in existence using this ability, and you create another, one of your already existing undead crumbles to dust (your choice).</p>
-<p>If you have the ability to cast spells, you may not heighten this spell or modify it with any Feats.</p>
-<p>You may take the Sacrificial Mastery Feat.</p>';
+<ul>
+    <li>You gain the ability to cast the spell Animate Dead as a 1st level spell 1/day. Casting this spell creates a single undead (skeleton or zombie).</li>
+    <li>You can maintain control of up to 4 skeletons or zombies that you have created using this ability. If there are already 4 undead creatures in existence using this ability, and you create another, one of your already existing undead crumbles to dust (your choice).</li>
+    <li>If you have the ability to cast spells, you may not heighten this spell or modify it with any Feats.</li>
+    <li>You may take the Sacrificial Mastery Feat.</li>
+    <li>You gain another use of Rebuke Undead per day</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
         $feat->parent_feats()->save(app()->feats['Skull of Orcus']);
         $helper->addSpellsToFeat($feat, [
@@ -165,7 +191,12 @@ class GodsDemonsSeeder extends Seeder
         $feat->name        = 'Skull King of Orcus';
         $feat->requirement = 'You must be Evil';
         $feat->description = '<p>You are able to control more skeletons and zombies.</p>
-<p>When you cast the spell Animate Dead or sacrifice a spell slot to maintain control over your created skeletons and or zombies, you maintain control of an additional skeleton or zombie.</p>';
+<ul>
+    <li>You gain a Vile Feat of your choice</li>
+    <li>You gain a Talent of your choice</li>
+    <li>When you cast the spell Animate Dead or sacrifice a spell slot to maintain control over your created skeletons and or zombies, you maintain control of an additional skeleton or zombie. If you have the Pact to Orcus feat, you can now control Skeletons and Zombies from Animate Dead equal to 1 1/2 times your Warlock level instead.</li>
+    <li>You gain another use of Rebuke Undead per day</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
         $feat->parent_feats()->save(app()->feats['Skull Lord of Orcus']);
         $helper->addSpellsToFeat($feat, [
@@ -408,31 +439,34 @@ class GodsDemonsSeeder extends Seeder
         $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'      => $god->name,
-            'title'     => 'Lord of the Hidden Layer',
-            'level'     => 'Demon Lord',
-            'alignment' => 'CE',
+            'name'        => $god->name,
+            'title'       => 'Lord of the Hidden Layer',
+            'level'       => 'Demon Lord',
+            'alignment'   => 'CE',
+            'description' => "<p>Eltab appears as a fifteen-foot-tall humanoid with the head of a canine-like creature. His head sported numerous antlers and horns and his body is covered with bony dark red plates. he has slitted yellow glowing eyes.</p>
+<p>Eltab ruled the 248th layer of the Abyss known as the Hidden Layer. It was a vast wasteland of boulders and fissures constantly beset with intense electrical storms, making it inimical to most life except for demons and deadly plant life such as viper trees, ironmaws and bloodthrons. In the fifteen centuries or so of Eltab's absence, the Hidden Layer has fragmented into ever-changing fiefdoms as Eltab's former lieutenants including the balor Ndulu, fights over the vacated realm.</p>
+<p>Thanks to the bindings cast by the Narfelli demon-binders on Eltab when they summoned him, they also somehow linked fragments of the Hidden Layer to Faerun as well. Pieces of the layer, known as a demoncysts, can be found scattered beneath the ground all over northeast Faerun. The larges cyst, known as the Hall of the Hidden Throne, lays in the Citadel of Conjurers (also known as Dun-Orthass), a dark tower located within the foothills of the Earthspur Mountains at the mouth of the Moaning Gorge in Impiltur. This cyst contains Eltab's palace and the calling circle that ties Eltab to the Realms. In fact, until this circle is destroyed, Eltab can not leave Faerun or return to the Abyss.</p>
+<p>In the Citadel of Conjurers, the Adamantine Seal exists. It is this seal that binds Eltab to the Prime Plane. Only the legendary blade Hadryllis is said to be able to destroy the Adamantine Seal.</p>",
         ]);
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Eltab';
         $feat->requirement = 'You must be CE';
-        $feat->description = '<p>You have made a Pact with the Demon lord Eltab. Eltab is interested in taking his revenge against the Red Wizards of Thay (Szass Tam in particular) and the Witches of Rasheman as well as the Fey servants of Absalom.</p>
+        $feat->description = '<p>You have made a Pact with the Demon lord Eltab. Eltab is interested in taking his revenge against the Red Wizards of Thay (Szass Tam in particular) and the Witches of Rashemen as well as the Fey servants of Absalom.</p>
 <ul>
     <li>You do not need to devout yourself to a deity to take the Paladin class. Eltab provides your spells and abilities for your Paladin class.</li>
     <li>You may use Warlock Spell Slots to cast Smite Spells from the Paladin class.</li>
-    <li>You may sacrifice a Paladin Spell Slot to summon a Nightmare as your mount when you summon your Divine Mount.</li>
-    <li>You may cast the Calling spell using a 4th level Spell Slot if you summon a servant of Eltab</li>
-    <li>You gain the name (not true name) of one of the Demon servants of Eltab</li>
+    <li>You gain the true name of one of the Demon servants of Eltab</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Booming Blade', 'Necrotic Touch'],
+            0 => ['Booming Blade', 'Detect Demon', 'Green-Flame Blade', 'Necrotic Touch'],
             1 => ['Demonflesh', 'Fear', 'Fey Hunter'],
-            2 => ['Dispel Magic', 'Invisibility', 'Shadow Blade'],
-            3 => ['Circle of Protection From Good', 'Dread Word', 'Summon Demon, Lesser' => 'Casting this again dispels any previous casting'],
+            2 => ['Invisibility', 'Silence'],
+            3 => ['Dispel Magic', 'Dread Word', 'Summon Demon, Lesser' => 'Casting this again dispels any previous casting'],
             4 => ['Blight'],
-            5 => ['Calling' => 'Servant of Eltab only', 'Word of Recall'],
+            5 => ['Calling' => 'Servant of Eltab only and only those that are already on the Prime Material',
+                'Word of Recall' => 'Only back to the Demoncyst where Eltab is trapped in the Citadel of Conjurers'],
             6 => ['Arcane Gate', 'Spirit Blast'],
             7 => ['Nar Fiendbond'],
             8 => ['Antimagic Field'],
@@ -441,8 +475,13 @@ class GodsDemonsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Unending Pact to Eltab';
-        $feat->description = '<p>You undergo a Ritual and receive the effects of the Death Pact Spell. The destination is always the Hall of the Hidden Throne in the Citadel of Conjurers.</p>
-<p>Double the cost of the Material Components must be paid to Eltab at the time this Feat is taken and after each death. If the cost cannot be paid, then this Feat has no effect. Once the Material Components are paid, you must return to the Hall of the Hidden Throne and receive the ritual again to benefit from the Death Pact spell.</p>';
+        $feat->description = '<ul>
+    <li>You gain a Talent</li>
+    <li>
+        <p>You undergo a Ritual and receive the effects of the Death Pact Spell. The destination is always the Hall of the Hidden Throne in the Citadel of Conjurers.</p>
+        <p>Double the cost of the Material Components must be paid to Eltab at the time this Feat is taken and after each death. If the cost cannot be paid, then this Feat has no effect. Once the Material Components are paid, you must return to the Hall of the Hidden Throne and receive the ritual again to benefit from the Death Pact spell.</p>
+    </li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic', 'Invocation' => 15]);
         $feat->parent_feats()->save(app()->feats['Pact to Eltab']);
 
@@ -450,12 +489,16 @@ class GodsDemonsSeeder extends Seeder
         $feat->name        = 'Death Knight of Eltab';
         $feat->requirement = 'You must be CE';
         $feat->description = '<p>You are a Paladin of the demon prince, Eltab.</p>
+<ul>
+    <li>You may cast Paladin spells as if they were Warlock Spells.</li>
+    <li>You may sacrifice a Paladin Spell Slot of 2nd level or a Warlock Spell Slot to summon a Nightmare as your mount when you summon your Divine Mount.</li>
+</ul>
 <dl>
     <dt>Based</dt> <dd>Citadel of Conjurers in the nation of Impiltur</dd>
 </dl>';
         $helper->addTypesToFeat($feat, ['Divine Warrior', 'Demon', 'Evil', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Hex', 'Infestation'],
+            0 => ['Detect Magic', 'Hex', 'Infestation'],
             1 => ['Bane', 'Darkvision', 'Demonflesh', 'Fear', 'Wrathful Smite'],
             2 => ['Darkness', 'Undetectable Alignment'],
             3 => ['Aura of Silence', 'Aura of Pain', 'Call Dretch Horde', 'Circle of Protection From Good'],
@@ -587,6 +630,21 @@ class GodsDemonsSeeder extends Seeder
             'alignment'   => 'CE',
             'description' => "<p>As one of the first of the succubi birthed from the raw matter of the Abyss, Shami-Amourae's existence predates most mortal races, including humans. Her skill at her 'craft' so impressed the Prince of Demons Demogorgon that he took her as his consort, thus greatly increasing her personal power and influence. At the same time, she declared herself the Queen of Succubi and her cult flourished on the Prime Plane. However, other ambitious succubi also claimed the title and this struggle, known as the War of Ripe Flesh, became a long-drawn-out battle in which only one would survive to claim the title of Queen of Succubi.</p>
 <p>Shami-Amourae discovered that Demogorgon's twin heads had individual personas, and she began to manipulate him by literally playing off one head against the other, hoping to goad him into attacking the realm of Malcanthet, her greatest rival for Queen of Succubi. Her scheme failed when Malcanthet revealed to the Prince of Demons his consort's true motives. Enraged by Shami-Amourae's manipulations, he had Shami-Amourae imprisoned in the Wells of Darkness, where she has been trapped ever since.</p>",
+        ]);
+
+        /**********************************************************************/
+
+        $god              = new God;
+        $god->name        = 'Tharzax';
+        $god->level       = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'The Chattering Prince',
+            'level'       => 'Demon',
+            'portfolio'   => 'Poisonous Vermin',
+            'alignment'   => 'CE',
+            'description' => '<p>Tharzax is the demon lord of poisonous vermin and ruler of the 2nd layer of the Abyss.</p>',
         ]);
 
         /**********************************************************************/
@@ -1219,6 +1277,36 @@ class GodsDemonsSeeder extends Seeder
             'level'       => 'Demon',
             'alignment'   => 'CE',
             'description' => '<p>Morbaat is a vrock sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</p>',
+            'master_id'   => God::where('name', 'Raachaak')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Baskshu';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Vrock',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Baskshu serves Eltab.</p>',
+            'master_id'   => God::where('name', 'Raachaak')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = 'Karrian';
+        $god->level = 'Demon';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Demonic'], [
+            'name'        => $god->name,
+            'title'       => 'Vrock',
+            'level'       => 'Demon',
+            'alignment'   => 'CE',
+            'description' => '<p>Karrian serves Eltab</p>',
             'master_id'   => God::where('name', 'Raachaak')->first()->id,
         ]);
     }

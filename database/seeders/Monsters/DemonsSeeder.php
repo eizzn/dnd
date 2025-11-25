@@ -178,8 +178,8 @@ class DemonsSeeder extends Seeder
         $monster->actions          = "<dl>
     <dt>Beak</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D6 + 3 Piercing.</dd>
     <dt>Talons</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D10 + 3 Slashing.</dd>
-    <dt>Spores (Recharge 6)</dt> <dd>A 15-foot-radius cloud of toxic spores extends out from the vrock. The spores spread around corners. Each creature in that area must succeed on a DC 14 CON Save or become Sickened 1. While Sick in this way, a target takes 5 (1D10) Poison damage at the start of each of its turns. A target can repeat the Save at the end of each of its turns, ending the effect on itself on a success. Emptying a vial of Holy Water on the target also ends the effect on it.</dd>
-    <dt>Stunning Screech (1/day)</dt> <dd>The vrock emits a horrific screech. Each creature within 20 feet of it that can hear it and that isn't a demon must succeed on a DC 14 CON Save or be stunned until the end of the vrock's next turn.</dd>
+    <dt>Spores (Recharge 6)</dt> <dd>A 15-foot-radius cloud of toxic spores extends out from the vrock. The spores spread around corners. Each creature in that area must succeed on a DC 14 CON Save or become Sickened 1. While Sick in this way, a Target takes 5 (1D10) Poison damage at the start of each of its turns. A Target can repeat the Save at the end of each of its turns, ending the effect on itself on a success. Emptying a vial of Holy Water on the target also ends the effect on it.</dd>
+    <dt>Stunning Screech (1/day)</dt> <dd>The vrock emits a horrific screech. Each creature within 20 feet of it that can hear it and that isn't a demon must succeed on a DC 14 CON Save or be Stunned until the end of the vrock's next turn.</dd>
 </dl>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [17, 15, 18, 8, 13, 8, 6, 3],
@@ -397,8 +397,8 @@ class DemonsSeeder extends Seeder
                 'WIS' => ['bonus' => 8],
                 'CHA' => ['bonus' => 10],
             ],
-            'feats'   => ['Improved Reaction', 'Two-Weapon Fighter'],
-            'talents' => ['Two-Weapon Parry'],
+            'feats'   => ['Two-Weapon Fighter'],
+            'talents' => ['Improved Reaction', 'Two-Weapon Parry'],
             'spells'  => [
                 'Teleport'    => ['meta' => 'At will as a Triple Action, with a range of 120 feet'],
                 'True Seeing' => ['meta' => 'At will'],

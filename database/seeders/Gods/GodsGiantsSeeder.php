@@ -17,12 +17,12 @@ class GodsGiantsSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $god        = new God;
-        $god->name  = 'Annam All-Father';
+        $god->name  = 'Annam';
         $god->level = 'Greater';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Ordning'], [
             'name'           => $god->name,
-            'title'          => 'The Prime, The Progenitor of Worlds, The Great Creator',
+            'title'          => 'All-Father, The Prime, The Progenitor of Worlds, The Great Creator',
             'level'          => 'Greater',
             'portfolio'      => 'Giants, Creation, Learning, Philosophy, Fertility',
             'alignment'      => 'N',

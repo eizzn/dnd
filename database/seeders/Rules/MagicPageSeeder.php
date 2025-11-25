@@ -147,7 +147,6 @@ class MagicPageSeeder extends Seeder
 <ul>
     <li>Guidance</li>
     <li>Cure Wounds</li>
-    <li>Healing Word</li>
     <li>Shield of Faith</li>
     <li>Spider Climb</li>
     <li>Freedom of Movement</li>

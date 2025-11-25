@@ -213,7 +213,7 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'spell_pool';
         $feature->name        = 'Spell Pool';
-        $feature->description = '<p>You gain the Spell Pool feat. If you already have the Spell Pool feat, then you gain the Extend Spell Pool feat instead.</p>';
+        $feature->description = '<p>You gain the Spell Pool Feat. If you already have the Spell Pool feat, then you gain the Extend Spell Pool Feat instead.</p>';
         $helper->saveFeature($feature, ['Spell Pool']);
 
         $feature              = new Feature;
@@ -271,8 +271,9 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'place_magic';
         $feature->name        = 'Place Magic';
-        $feature->description = '<p>You possess a special bond to the land that lets you draw upon the power of the spirits to cast spells without preparing them. When you use Place Magic, you can cast any arcane or divine spell known to you.</p>
-<p>A place magic spell uses an unassigned spell slot of the appropriate type (arcane or divine) and level. If you do not have an open spell slot, you may spontaneously lose a prepared spell of the appropriate type and level to cast your Place Magic spell. You must add an additional Somatic Casting to cast a spell in this way.</p>';
+        $feature->description = '<p>You possess a special bond to the land that lets you draw upon the power of the spirits to cast spells without preparing them. When you use Place Magic, you can cast any Arcane or Divine spell known to you.</p>
+<p>A place magic spell uses an unassigned spell slot of the appropriate type (Arcane or Divine) and level. If you do not have an open Spell Slot, you may spontaneously lose a prepared spell of the appropriate type and level to cast your Place Magic spell. You must add an additional Somatic Casting to cast a spell in this way.</p>
+<p>You lose this ability if you travel outside of the lands that you are bonded to.</p>';
         $helper->saveFeature($feature, ['Spirit']);
 
         $feature              = new Feature;
@@ -638,5 +639,17 @@ class FeaturesSeeder extends Seeder
         $feature->name        = 'Blindsight';
         $feature->description = "<p>You can see within a specific range without relying on physical sight. Within that range, you can see anything that isn't behind Total Cover even if you have the Blinded condition or are in Darkness. You can also see things that are invisible within that range.</p>";
         $helper->saveFeature($feature, ['Electricity']);
+
+        $feature              = new Feature;
+        $feature->key         = 'ethereal_jaunt';
+        $feature->name        = 'Ethereal Jaunt';
+        $feature->description = '<p>You have the ability to, as an Action, either enter the Border Ethereal from the Prime Material Plane, or manifest in the Material Plane from the Border Ethereal Plane.</p>';
+        $helper->saveFeature($feature, ['Ethereal']);
+
+        $feature              = new Feature;
+        $feature->key         = 'aberrant_mind';
+        $feature->name        = 'Aberrant Mind';
+        $feature->description = '<p>Due to your aberration origin, your mind is too alien to understand or control. You are immune to any spell or psionic effect that tries to either read your thoughts or control your actions unless the attacker is also an aberration.</p>';
+        $helper->saveFeature($feature, ['Aberration']);
     }
 }

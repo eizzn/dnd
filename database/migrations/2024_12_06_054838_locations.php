@@ -17,19 +17,12 @@ class Locations extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->string('aliases')->nullable();
-            $table->enum('type', ['World', 'Continent', 'Country', 'City', 'Ruin', 'Divine Realm']);
-            $table->string('meta')->nullable();
+            $table->enum('type', ['World', 'Continent', 'Country', 'City', 'Building', 'Ruin', 'Site', 'Divine Realm', 'Planar Conduit']);
+            $table->text('meta')->nullable();
             $table->nullableMorphs('rulerable');
             $table->smallInteger('pantheon_id')->unsigned()->nullable();
             $table->foreign('pantheon_id')->references('id')->on('pantheons');
             $table->text('description')->nullable();
-        });
-
-        Schema::create('locationables', function (Blueprint $table) {
-            $table->integer('location_id')->unsigned();
-            $table->foreign('location_id')->references('id')->on('locations');
-            $table->nullableMorphs('locationable');
-            $table->string('meta')->nullable();
         });
 
         Schema::create('planes', function (Blueprint $table) {
@@ -46,7 +39,7 @@ class Locations extends Migration
             $table->increments('id');
             $table->integer('parent_id')->unsigned();
             $table->foreign('parent_id')->references('id')->on('planes');
-            $table->string('name', 20);
+            $table->string('name', 50);
             $table->string('aliases', 120)->nullable();
             $table->string('natives')->nullable();
             $table->string('gravity', 30);
@@ -55,6 +48,20 @@ class Locations extends Migration
             $table->smallInteger('pantheon_id')->unsigned()->nullable();
             $table->foreign('pantheon_id')->references('id')->on('pantheons');
             $table->text('description');
+        });
+
+        Schema::create('locationables', function (Blueprint $table) {
+            $table->integer('location_id')->unsigned();
+            $table->foreign('location_id')->references('id')->on('locations');
+            $table->nullableMorphs('locationable');
+            $table->string('meta')->nullable();
+        });
+
+        Schema::create('subplaneables', function (Blueprint $table) {
+            $table->integer('sub_plane_id')->unsigned();
+            $table->foreign('sub_plane_id')->references('id')->on('locations');
+            $table->nullableMorphs('subplaneable');
+            $table->string('meta')->nullable();
         });
     }
 

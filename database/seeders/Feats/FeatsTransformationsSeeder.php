@@ -466,5 +466,37 @@ class FeatsTransformationsSeeder extends Seeder
     <li>Un-killable - Only two ways exist to destroy a curst permanently. One is to destroy its body (by total immersion in Acid, or a Disintegrate or Undeath to Death spell). The other is to remove the curse that keeps it from dying. The caster of the Remove Curse spell must succeed on a Caster Level check against DC (10 + the Curst's CR) to successfully remove the curse.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Undead']);
+
+        /**********************************************************************/
+
+        $feat              = new Feat;
+        $feat->name        = 'Returned as Ghost';
+        $feat->description = "<p>Somehow, you have returned to the mortal world as a Ghost. You gain the following</p>
+<ul>
+    <li>You gain the Undead Type, and no longer age, need to eat, drink, sleep, or breathe</li>
+    <li>You are incorporeal, you can pass through up to 1 foot of stone or wood, 3 inches of most metals, or up to 1 inch of lead. You can choose to enter the Ethereal Plane and bypass any barrier, unless it is treated with any amount of Gorgon's blood, which you cannot pass through from the Material or Ethereal Plane.</li>
+    <li>You gain a Fly Speed of 40.</li>
+    <li>You can not cast any Spells that require a Material Casting on the Material Plane</li>
+    <li>You cannot touch anything from the Material Plane. If something from the Material Plane is brought to the Ethereal, you can touch it.</li>
+    <li>You no longer have a STR or CON Attribute.</li>
+    <li>You gain a Touch Attack called Withering Touch. It deals 1D3 Negative Damage and 1 STR Damage</li>
+    <li>As a Double Action, you can enter the Ethereal Plane or manifest from the Ethereal Plane into the Material Plane. While you are on the Ethereal Plane, you cannot be seen (except by abilities that can see into the Ethereal Plane) and you cannot be interacted with from the Material Plane. You can hear those that are on the Material Plane. While on the Ethereal Plane you cannot interact with anything on the Material Plane, you must manifest onto the Material Plane to use your Withering Touch Attack.</li>
+    <li>You gain Darkvision out to 60 feet</li>
+    <li>You gain Resistance to Acid, Cold, Fire, Electricity, Sonic, Bludgeoning, Piercing, and Slashing Damage</li>
+    <li>You are Immune to Poison and Negative Damage. You cannot be Charmed, Grappled, Paralyzed, Petrified, become Prone or Restrained. You cannot gain levels of Exhaustion.</li>
+    <li>You gain Vulnerability (Double Damage) from Positive or Holy Damage. Any weapon that is Silver, Gold, Platinum, Mithral, or Adamantine deals Double Damage, and you cannot touch these metals even if brought to the Ethereal Plane.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Undead', 'Incorporeal']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Improved Returned as Ghost';
+        $feat->description = '<p>You become a Greater Ghost. You gain the following</p>
+<ul>
+    <li>Your Withering Touch attack now deals 1D4 Negative and 2 STR Damage</li>
+    <li>You gain a Gaze Attack called Horrifying Visage. Each non-undead creature within 60 feet of you that can see you must make a DC 13 WIS Save or be Frightened for 1 minute. If the Save Critically Fails, they also age 1D4 X 10 years. A Frightened Target can repeat the Save at the end of each of their turns, ending the Frightened Condition on a Success. A Target cannot be affected by your Horrifying Visage more than once each 24 hours. The aging effect can be reversed with a Restoration Spell.</li>
+    <li>You gain the ability to Possess a humanoid 3/day (See the Possession ability of the Greater Ghost).</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Undead', 'Incorporeal']);
+        $feat->parent_feats()->save(app()->feats['Returned as Ghost']);
     }
 }

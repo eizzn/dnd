@@ -98,6 +98,7 @@ const filters = {
                                             <option value="ray">Ray</option>
                                             <option value="ritual">Ritual</option>
                                             <option value="smite">Smite</option>
+                                            <option value="spirit">Spirit</option>
                                             <option value="summoning">Summoning</option>
                                         </optgroup>
                                     </select>

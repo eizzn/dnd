@@ -173,13 +173,17 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Arcane Shield Master';
         $talent->requirement = 'You must have the ability to cast Wizard spells';
-        $talent->description = "<p>When you cast the Shield Spell, it's duration is increased by an additional turn.</p>";
+        $talent->description = "<ul>
+    <li>If the Shield Spell is a Cantrip for you, it is automatically Heightened +1.</li>
+    <li>If the Shield Spell is not a Cantrip for you, you may cast it 1/day without using a Spell Slot</li>
+    <li>When you cast the Shield Spell, it's Duration is increased by an additional turn.</li>
+</ul>";
         $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Extra Cantrip';
-        $talent->requirement = 'You must have the ability to cast cantrips and have the Cantrip Caster Class Feature';
-        $talent->description = '<p>You may learn an additional Cantrip from your list of Cantrips.</p>';
+        $talent->requirement = 'You must have the ability to cast cantrips';
+        $talent->description = '<p>You may memorize an additional Cantrip from your list of Cantrips.</p>';
         $helper->addTypesToSimpleObject($talent, ['Arcane', 'Divine', 'Primal', 'Talent' => 3]);
 
         $talent              = new Talent;
@@ -790,5 +794,38 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = '<p>If you trigger or set off a trap while disarming it, you gain a +2 circumstance bonus to your AC or Save against the device or trap. This applies only to attacks or effects triggered by your failed attempt, not to any later ones, such as additional attacks from a complex trap.</p>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 2]);
         $talent->skills()->save(app()->skills['Thievery'], ['dc' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Petrification Immunity';
+        $talent->description = '<ul>
+    <li>You are now immune to Petrification effects.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 12]);
+        $talent->feats()->save(app()->feats['Petrification Resistance']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Poison Immunity';
+        $talent->description = '<ul>
+    <li>You are immune to Poison</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Poison', 'Talent' => 12]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Charm Immunity';
+        $talent->description = '<ul>
+    <li>You are now immune to Charm effects.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 12]);
+        $talent->feats()->save(app()->feats['Charm Resistance']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Daylight Adaptation';
+        $talent->requirement = 'Light blindness or light sensitivity';
+        $talent->description = '<p>You have become accustomed to living under the bright light of day.</p>
+<ul>
+    <li>Increase your CON by 1, up to a maximum of 20.</li>
+    <li>You no longer suffer the penalties form Light Blindness and/or Sunlight Sensitivity</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 3]);
     }
 }
