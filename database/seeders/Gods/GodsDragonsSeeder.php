@@ -3,6 +3,7 @@
 namespace Database\Seeders\Gods;
 
 use App\Models\Feat;
+use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -78,6 +79,19 @@ class GodsDragonsSeeder extends Seeder
             'Paladin', 'Fighter',
         ]);
 
+        $feature              = new Feature;
+        $feature->key         = 'channel_divinity_dragon';
+        $feature->name        = 'Channel Divinity: Dragon';
+        $feature->description = '<p>You can use your Channel Divinity to Turn/Rebuke Dragons.</p>
+<ul>
+    <li>Spend 1 Spell Point and a use of your Channel Divinity. As a Double Action, you gain a +4 Bonus vs Spells and effects from Dragons for 10 minutes. During this time, you can communicate telepathically with any creature with the Dragon type.</li>
+    <li>If you gain the Find Familiar Feat, you may choose a Drakeling as your Familiar</li>
+    <li>If you gain an Animal Companion, you may choose an appropriate CR Dragon as your Animal Companion</li>
+    <li>If you cast the Summon Mount Spell, you may summon a Lesser Dragon Mount (when casting the spell Call Mount). Use the Stats for a Pegasus, except that it is a Young Metallic Dragon with an Elemental Breath Weapon of the appropriate type.</li>
+    <li>If you have the Leadership Feat, you may gain an appropriate CR Dragon as your cohort</li>
+</ul>';
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+
         $feat              = new Feat;
         $feat->name        = 'Paladin of Bahamut';
         $feat->requirement = 'Must be LG and Bahamut must be your Patron deity';
@@ -104,8 +118,8 @@ class GodsDragonsSeeder extends Seeder
         $feat->name        = 'Honor Guard of Bahamut';
         $feat->description = '<p>You further your devotion to Bahamut</p>
 <ul>
-    <li>You may use a 2nd level Spell Slot to summon a Lesser Dragon Mount (when casting the spell Call Mount). Use the Stats for a Pegasus, except that it is a Young Metallic Dragon with an Elemental Breath Weapon of the appropriate type.</li>
     <li>When you cast the Spell Dragon Breath, treat it as if it was Heightened +2</li>
+    <li>You gain the Channel Divinity and the Channel Divinity: Dragon Class Features</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior']);
         $feat->parent_feats()->save(app()->feats['Paladin of Bahamut']);
@@ -207,7 +221,8 @@ class GodsDragonsSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'divine_feat' => [1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            'channel_divinity'        => [2],
+            'channel_divinity_dragon' => [3],
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Dragons');
         $helper->addDomainToClass($class, ['Dragons', 'Evil', 'Greed']);

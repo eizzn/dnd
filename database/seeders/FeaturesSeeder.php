@@ -263,8 +263,9 @@ class FeaturesSeeder extends Seeder
         $feature->name        = 'Channel Divinity';
         $feature->description = '<p>You gain Divine energy from your deity which you can use for various effects.</p>
 <ul>
-    <li>You may spend 2 Spell Points and use your Channel Divinity to turn/rebuke certain creatures as a Double Action. The type of creatures depends on your deity.</li>
-    <li>You may spend 1 Spell Points to cast the Cure Wounds spell as a 1st level spell as an Action. You may Heighten the spell by spending +2 Spell Points for +1 Heighten.</li>
+    <li>You gain 2 Spell Points</li>
+    <li>You may spend 1 Spell Point and use your Channel Divinity to turn/rebuke certain creatures as a Double Action. The type of creatures depends on your deity.</li>
+    <li>You may spend 1 Spell Point to cast the Cure Wounds spell as a 1st level spell as an Action. You may Heighten the spell by spending +2 Spell Points for +1 Heighten.</li>
 </ul>';
         $helper->saveFeature($feature, ['Positive', 'Negative']);
 

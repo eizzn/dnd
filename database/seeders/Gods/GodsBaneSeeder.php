@@ -116,6 +116,7 @@ class GodsBaneSeeder extends Seeder
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Religion']);
 
         $helper->addFeaturesToClass($class, [
+            'channel_divinity'      => [2],
             'channel_divinity_fear' => [5],
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
@@ -281,6 +282,7 @@ class GodsBaneSeeder extends Seeder
         $helper->saveFeature($feature, ['Harm']);
 
         $helper->addFeaturesToClass($class, [
+            'channel_divinity'             => [2],
             'channel_divinity_cause_wound' => [3],
             'class_group_feat'             => [4, 7],
             'pain_touch'                   => [6],
@@ -398,7 +400,7 @@ class GodsBaneSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'channel_divinity_call_dagger';
         $feature->name        = 'Channel Divinity: Call Dagger';
-        $feature->description = '<p>You can use your Channel Divinity to cause a Dagger or Knife that you have Attuned to to appear in your hand.</p>
+        $feature->description = '<p>You can use your Channel Divinity to cause a Dagger or Knife that you have Attuned to appear in your hand.</p>
 <p>Spend 1 Spell Point and a use of your Channel Divinity. As a Double Action, you cause your Attuned Dagger or Knife to your hands from any distance so long as the weapon is on the same plane of existence.</p>';
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 

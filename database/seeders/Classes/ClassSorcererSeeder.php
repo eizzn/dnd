@@ -89,10 +89,10 @@ class ClassSorcererSeeder extends Seeder
         $helper->addFeaturesToClass($class, [
             'bloodline_feat'        => [1],
             'cantrip_caster'        => [2],
-            'spell_pool'            => [10, 20],
+            'spell_pool'            => [2, 10, 20],
+            'sorcerer_feat'         => [3, 6, 9, 12, 15],
             'flexible_casting'      => [4],
             'improved_spell_points' => [5],
-            'sorcerer_feat'         => [3, 6, 9, 12, 15],
         ]);
 
         $helper->addSpellsToClass($class, [

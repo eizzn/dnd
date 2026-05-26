@@ -581,5 +581,16 @@ class FeatsPsionicSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Psionic']);
         $feat->parent_feats()->save(app()->feats['Craft Dorje']);
+
+        $feat              = new Feat();
+        $feat->name        = 'Weave Blocker';
+        $feat->description = "<ul>
+    <li>You gain a Heroic Surge</li>
+    <li>You may spend 2 Power Points as part of a Greater Psionic Fist attack. If you do, roll for damage as normal, but you only deal 1 Point of Damage. Half the total Damage rolled (plus any modifiers) equals the lowest level Arcane spell that the target may cast for 1 minute. The lowest level spell castable is cumulative with any future damage with this effect. At the end of each of the Target's turns, they may make a WIS Save to end the effect.</li>
+    <li>You may spend a Heroic Surge as part of this attack. If you do, the damage rolled is not halved.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Psionic', 'Melee', 'Psionic Focus']);
+        $feat->parent_feats()->save(app()->feats['Stunning Fist']);
+        $feat->parent_feats()->save(app()->feats['Greater Psionic Fist']);
     }
 }

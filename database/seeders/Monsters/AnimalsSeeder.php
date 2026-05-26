@@ -481,6 +481,22 @@ class AnimalsSeeder extends Seeder
             'talents'  => ['Improved Flanking'],
         ]);
 
+        $monster                   = new Monster;
+        $monster->name             = 'Drakeling';
+        $monster->size             = 'Tiny';
+        $monster->type             = 'Animal';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '11 (Natural Armor)';
+        $monster->damage_reduction = 1;
+        $monster->hit_dice         = 2;
+        $monster->speed            = '20 ft / Fly 40 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 -1) Piercing.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Animal'], [
+            'stats' => [8, 13, 10, 3, 11, 6, 0, 2],
+        ]);
+
         $monster              = new Monster;
         $monster->name        = 'Eagle';
         $monster->size        = 'Small';
