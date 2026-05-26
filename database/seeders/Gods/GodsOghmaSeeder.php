@@ -317,8 +317,10 @@ class GodsOghmaSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'any_scroll';
         $feature->name        = 'Master of Scrolls';
-        $feature->description = '<p>You have to ability to cast spells from scrolls even if the spell is not on your Spell List.</p>
-<p>You can also create a Scroll using your Scribe Scroll feat of any spell, even if the spell is not on your Spell List. Spells that are not on your Spell List must be kept in written form somewhere (like a SpellBook). The maximum Spell Level that you can scribe for spells that are not on you Spell List is one level less than the maximum Spell Slot you have.</p>';
+        $feature->description = '<ul>
+    <li>You have to ability to cast spells from scrolls even if the spell is not on your Spell List.</li>
+    <li>You can also create a Scroll using your Scribe Scroll feat of any spell, even if the spell is not on your Spell List. Spells that are not on your Spell List must be kept in written form somewhere (like a SpellBook). The maximum Spell Level that you can scribe for spells that are not on you Spell List is one level less than the maximum Spell Slot you have.</li>
+</ul>';
         $helper->saveFeature($feature, ['Scroll']);
 
         $helper->addFeaturesToClass($class, [
@@ -409,7 +411,7 @@ class GodsOghmaSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Sorlyn';
         $feat->requirement = 'You must be Good and Milil must be your Patron Deity';
-        $feat->description = '<p>You dedicate yourself into the worship of Milil, serving as his clergy. The spells you gain are in addition to your known spells limit.</p>';
+        $feat->description = '<p>You dedicate yourself to the worship of Milil, serving as his clergy. The spells you gain from this Feat are in addition to your known spells limit.</p>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Bardic Muse']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Conviction', 'Ghost Sound', 'Stabilize', 'Word of Radiance'],
@@ -467,7 +469,7 @@ class GodsOghmaSeeder extends Seeder
             'Arcana', 'Concentration', 'Diplomacy', 'Lore', 'Performance', 'Religion', 'Stealth', 'Thievery',
         ]);
         $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [3, 5, 9, 12, 15, 18],
+            'skill_feat' => [3, 6, 9, 12, 15, 18],
         ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 2,

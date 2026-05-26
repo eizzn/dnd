@@ -323,7 +323,7 @@ class GodsGruumshSeeder extends Seeder
             'precision_attack' => [2, 6, 10, 14, 18],
         ]);
         $helper->addDomainToClass($class, ['Evil', 'Orcs', 'Thieves', 'Darkness', 'Stealth']);
-        $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
+        $helper->addChannelDivinityToClass($class, 'negative', 'Undead', 3);
         $helper->addSpellsToClass($class, [
             0 => ['Daze', 'Detect Magic', 'Ghost', 'Necrotic Touch', 'Poison Spray', 'Stabilize', 'Touch of Death'],
             1 => ['Bane', 'Cause Wounds', 'Cure Wounds', 'Disguise Self', 'Find Traps', 'Fleet Step', 'Jump', 'Protection From Poison'],

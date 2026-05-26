@@ -86,7 +86,7 @@ class GodsTempusSeeder extends Seeder
             7 => ['Aspect of the Deity, Greater'],
             8 => ['Crusade', 'Divine Aura'],
         ]);
-        $helper->addSpellSlotsToClass($class, 'eight');
+        $helper->addSpellSlotsToClass($class, 'seven');
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
@@ -244,7 +244,7 @@ class GodsTempusSeeder extends Seeder
             7 => ['Whirlwind'],
             8 => ['Tsunami'],
         ]);
-        $helper->addSpellSlotsToClass($class, 'eight');
+        $helper->addSpellSlotsToClass($class, 'seven');
 
         /**********************************************************************/
 
@@ -276,7 +276,7 @@ class GodsTempusSeeder extends Seeder
 
         // Black Lion       => The Black Lions have forsaken their barbarian ways and few become barbarians. Their enemies are the Tundra Barbarians
         // Elk              => Fury Totem (Raiders and Bandits)
-        // Great Worm       => Fury Totem. Used to ruled by a dragon? named Elrem, but Elrem was slain.
+        // Great Worm       => Fury Totem. Used to be ruled by a dragon? named Elrem, but Elrem was slain.
         // Griffon          => Fury Totem. Considers all the cities and their residents their enemies.
         // Red Tiger        => Superstition Totem
         // Sky Pony         => Fury Totem
@@ -291,9 +291,9 @@ class GodsTempusSeeder extends Seeder
 <p>You must adhere closely to the old ways. Hunter/Gatherer (Raiding), no outside religions, keep the Uthgar traditions. You are at war with those Uthgardt barbarian tribes that have forsaken the old ways (Thunderbeast, Griffon, and Black Lion).</p>
 <ul>
     <li>You gain Animal Handling as a Class Skill</li>
-    <li>You have Advantage on all Animal Handling checks in regard to Giant Ravens</li>
+    <li>You have Advantage on all Animal Handling checks vs Giant Ravens</li>
     <li>You gain the Mounted Combatant feat</li>
-    <li>At 5th level, you gain an Animal Companion and it must be a Giant Raven. You do not need to sacrifice any Spell Slots.</li>
+    <li>At 5th level, you gain an Animal Companion and it must be a Giant Raven. You do not need to sacrifice any Spell Slots or spend any Spell Points.</li>
 </ul>
 <h4>Raging Resistance</h4>
 <ul>
@@ -310,13 +310,13 @@ class GodsTempusSeeder extends Seeder
         $feat->description = '<p>Your tribe has given themselves to demonic influences. Your tribe is lead by a Mighty Night Hag that has connections with the demons of Hellgate Keep and other outer planar beings.</p>
 <p>Most members of the tribe have some demonic blood (tieflings).</p>
 <h4>Anathema</h4>
-<p>You are sworn enemies of the Gray Wolf and Tree Ghost tribes. You cannot aid them in any way and will go out of your way to slay them as well as Druids of Silvanus, Mielikki, and Eldath</p>
+<p>You are sworn enemies of the Gray Wolf and Tree Ghost tribes. You cannot aid them in any way and you must go out of your way to slay them as well as Druids of Silvanus, Mielikki, and Eldath</p>
 <ul>
     <li>You gain the Lesser Vampire Spawn Feat</li>
     <li>You gain a +3 bonus on all Survival Skill checks</li>
 </ul>
 <h4>Raging Resistance</h4>
-<p>You do not gain any Raging Resistance. You may take the Vampiric Constitution feat instead.</p>';
+<p>You do not gain any Raging Resistance. You may take the Vampiric Constitution Feat instead.</p>';
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
 
         $feat              = new Feat;

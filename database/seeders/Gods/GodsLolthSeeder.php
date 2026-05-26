@@ -372,7 +372,6 @@ class GodsLolthSeeder extends Seeder
 
         $helper->addFeaturesToClass($class, [
             'spell_pool'       => [2],
-            'class_group_feat' => [3, 5, 7, 10, 12, 15, 18],
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Sneak Attack']);
         $class->features()->save(app()->features['feat'], ['level' => 8, 'meta' => 'Sneak Attack']);

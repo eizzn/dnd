@@ -85,7 +85,7 @@ class GodsYondallaSeeder extends Seeder
             6 => ['Field of Life', 'Heal', "Hero's Feast"],
             7 => ['Bastion of Good', 'Divine Decree', 'Feast of Champions', 'Rebuke of Yondalla', 'Renewal Pact', 'Righteous Glare'],
             8 => ['Crown of Glory', 'Power Word Heal'],
-            9 => [],
+            9 => [],    // TODO: add 9th level spells to spell list
         ]);
         $helper->addSpellSlotsToClass($class);
 

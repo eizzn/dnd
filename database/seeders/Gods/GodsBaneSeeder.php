@@ -43,14 +43,6 @@ class GodsBaneSeeder extends Seeder
             'Wizard'  => 10,
         ]);
 
-        $feature              = new Feature;
-        $feature->key         = 'channel_divinity_fear';
-        $feature->name        = 'Channel Divinity: Fear';
-        $feature->description = '<p>You can use your Channel Divinity to cause Fear.</p>
-<p>Spend 1 Spell Point and a use of your Channel Divinity. As a Double Action, you cast the Fear spell as a 1st level spell.</p>
-<p>You are immune to Fear effects.</p>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
-
         $class                = new Klass;
         $class->name          = 'Dreadmasters';
         $class->type          = 'Priest';
@@ -114,10 +106,12 @@ class GodsBaneSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Intimidation', 'Medicine', 'Religion']);
-
-        $helper->addFeaturesToClass($class, [
-            'channel_divinity'      => [2],
-            'channel_divinity_fear' => [5],
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 5,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Double Action</dd>
+    <dt>Spell</dt> <dd>Fear</dd>
+</dl>',
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addDomainToClass($class, ['Destruction', 'Summoning', 'Tyranny']);
@@ -282,7 +276,6 @@ class GodsBaneSeeder extends Seeder
         $helper->saveFeature($feature, ['Harm']);
 
         $helper->addFeaturesToClass($class, [
-            'channel_divinity'             => [2],
             'channel_divinity_cause_wound' => [3],
             'class_group_feat'             => [4, 7],
             'pain_touch'                   => [6],
@@ -507,9 +500,5 @@ class GodsBaneSeeder extends Seeder
             'level'     => 'Demon',
             'master_id' => $bane->id,
         ]);
-
-        $features = app()->features;
-        unset($features['channel_divinity_fear']);
-        app()->features = $features;
     }
 }

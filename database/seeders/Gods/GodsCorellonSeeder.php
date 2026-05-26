@@ -57,8 +57,8 @@ class GodsCorellonSeeder extends Seeder
         ]);
 
         // Skills
-        $skills = ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'];
-        $helper->addSkillsToClass($class, $skills);
+        $helper->addSkillsToClass($class, ['Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion']);
+        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Weapon Focus (Long Sword)']);
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
         $helper->addChannelDivinityToClass($class, 'positive', 'Demon', 4);
         $helper->addSpellsToClass($class, [
@@ -196,7 +196,10 @@ class GodsCorellonSeeder extends Seeder
         $feature->key         = 'channel_divinity_improve_initiative';
         $feature->name        = 'Channel Divinity: Improve Initiative';
         $feature->description = '<p>You can use your Channel Divinity to speed your reactions in combat.</p>
-<p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you improve your Initiative by +5 beginning on your next turn.</p>';
+<ul>
+    <li>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you improve your Initiative by +5 beginning on your next turn.</li>
+    <li>Spend 2 Spell Points and a use of your Channel Divinity. As a Triple Action, you cast Haste on yourself only. You may use this ability at 4th Level or higher.</li>
+</ul>';
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 
         $helper->addFeaturesToClass($class, [

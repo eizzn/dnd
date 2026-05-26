@@ -138,8 +138,7 @@ class GodsMoradinSeeder extends Seeder
 
         /**********************************************************************/
 
-        $god = God::where('name', 'Hanali Celanil')->first();
-        $god->pantheons()->save(app()->pantheons['Morndinsamman'], [
+        God::where('name', 'Hanali Celanil')->first()->pantheons()->save(app()->pantheons['Morndinsamman'], [
             'name'           => 'Sharindlar',
             'title'          => 'Lady of Life and Mercy, the Shining Dancer',
             'level'          => 'Demi',
@@ -654,10 +653,7 @@ class GodsMoradinSeeder extends Seeder
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Expanded Knowledge']);
         $class->features()->save(app()->features['feat'], ['level' => 4, 'meta' => 'Psionic Talent']);
         $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Any Item Creation feat']);
-
-        $helper->addChannelDivinityToClass($class, 'negative', 'Undead', 4);
         $helper->addDomainToClass($class, ['Dwarf', 'Evil', 'Psionics', 'Slavery']);
-
         $helper->addSpellsToClass($class, [
             0   => ['Clean Self', 'Control Flame', 'Detect Magic', 'Light', 'Mold Earth', 'Resist', 'Stabilize'],
             1   => ['Cure Wounds', 'Curse', 'Detect Good', 'Enchant Item', 'Forge Fire', 'Mold Metal', "Slaver's Gentle Reminder",

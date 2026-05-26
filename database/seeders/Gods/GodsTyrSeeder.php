@@ -85,6 +85,7 @@ class GodsTyrSeeder extends Seeder
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             $class->name, 'Paladin',
         ]);
+        // TODO: add Class Features
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
         $helper->addDomainToClass($class, ['Law', 'Retribution']);
         $helper->addSpellsToClass($class, [
@@ -168,7 +169,7 @@ class GodsTyrSeeder extends Seeder
             7  => ['Aspect of the Deity, Greater', 'Feast of Champions', 'Holy Aura', 'Raise Dead', 'Shield of the Archons'],
             8  => ['Crusade', 'Heavenly Host' => 'The summoned host will appear dwarven'],
         ]);
-        $helper->addSpellSlotsToClass($class, 'eight');
+        $helper->addSpellSlotsToClass($class, 'seven');
         $helper->addClassesToGod($god, 'Morndinsamman', [
             'Fighter'   => 25,
             'Cleric'    => 1,
@@ -283,7 +284,6 @@ class GodsTyrSeeder extends Seeder
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Great Fortitude', 'idx' => 1]);
         $class->features()->save(app()->features['feat'], ['level' => 9, 'meta' => 'Mettle']);
         $class->features()->save(app()->features['feat'], ['level' => 15, 'meta' => 'Improved Mettle']);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
         $helper->addDomainToClass($class, ['Good', 'Healing', 'Strength', 'Suffering']);
         $helper->addSpellsToClass($class, [
             0 => ['Blade ward', 'Daze', 'Detect Magic', 'Disrupt Undead', 'Ease Pain', 'Forbidding Ward', 'Guidance', 'Light',
@@ -658,7 +658,7 @@ class GodsTyrSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Platinum Knights';
-        $feat->requirement = 'You must LG and Bahamut must be your Patron Deity';
+        $feat->requirement = 'You must be LG and Bahamut must be your Patron Deity';
         $feat->description = '<p>You are a Paladin of Bahamut.</p>
 <ul>
     <li>You gain a +3 Diplomacy checks with Metallic Dragons.</li>

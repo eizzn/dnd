@@ -119,7 +119,7 @@ class GodsDragonsSeeder extends Seeder
         $feat->description = '<p>You further your devotion to Bahamut</p>
 <ul>
     <li>When you cast the Spell Dragon Breath, treat it as if it was Heightened +2</li>
-    <li>You gain the Channel Divinity and the Channel Divinity: Dragon Class Features</li>
+    <li>You gain the Channel Divinity (Positive: Dragons) and the Channel Divinity: Dragon Class Features</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior']);
         $feat->parent_feats()->save(app()->feats['Paladin of Bahamut']);
@@ -221,7 +221,6 @@ class GodsDragonsSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'channel_divinity'        => [2],
             'channel_divinity_dragon' => [3],
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Dragons');

@@ -304,7 +304,7 @@ class GodsMulhorandiSeeder extends Seeder
         $feat->description = '<p>You are a Paladin of Osiris. You are concerned with meting out justice, guarding the bodies of the dead, and protecting the land (particularly in regards to harvest). You gain the following.</p>
 <ul>
     <li>You gain the Channel Divinity (Positive) to Turn Undead as a Cleric. If you have Undead minions from a spell such as Animate Dead, you may Rebuke and control them instead.</li>
-    <li>You may use your Paladin Spell Slots to cast Druid or Ranger Spells</li>
+    <li>You may use your Paladin Spell Slots to cast Druid or Ranger spells that you have multi-classed into</li>
     <li>If you use a Smite against one of your Favored Enemies, add +5 to Damage</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
@@ -450,9 +450,7 @@ class GodsMulhorandiSeeder extends Seeder
         $helper->addSkillsToClass($class,
             ['Concentration', 'Diplomacy', 'Medicine', 'Religion']
         );
-        $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [2, 3, 5, 7, 9, 12, 15, 18],
-        ]);
+        // TODO: add Class Features to class
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 2);
         $helper->addDomainToClass($class, ['Protection', 'Trade']);
         $helper->addSpellsToClass($class, [
@@ -696,6 +694,9 @@ class GodsMulhorandiSeeder extends Seeder
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             'Favored Soul', 'Bard',
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Seldarine', [
+            'Favored Soul', 'Ranger',
         ]);
 
         /**********************************************************************/

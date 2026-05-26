@@ -51,8 +51,9 @@ class GodsMonstrousSeeder extends Seeder
             'skill_points'   => 4,
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
+        // TODO: add Features to class
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Monk', 'Fighter', 'Priest of Blibdoolpoolp',
+            'Monk', 'Fighter', $class->name,
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Dancing Lights', 'Detect Magic', 'Electric Arc', 'Hydraulic Blast', 'Light', 'Poison Spray', 'Resist',
@@ -309,6 +310,7 @@ class GodsMonstrousSeeder extends Seeder
         $helper->addWorshipClassesToGod($god, 'Asathalfinare', [
             $class->name, 'Barbarian', 'Scout',
         ]);
+        // TODO: add Features and finish spell list
         $helper->addSpellsToClass($class, [
             2 => ['Bloodwater', 'Pressure Resistance', 'Turbidity'],
         ]);

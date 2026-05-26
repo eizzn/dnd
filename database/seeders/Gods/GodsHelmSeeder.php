@@ -45,7 +45,7 @@ class GodsHelmSeeder extends Seeder
         $feature->key         = 'channel_divinity_saves';
         $feature->name        = 'Channel Divinity: Saves';
         $feature->description = '<p>You can use your Channel Divinity to bolster yourself.</p>
-<p>As a Reaction, you gain Advantage on your next Save.</p>';
+<p>You may use a use of your Channel Divinity as a Reaction, you gain Advantage on your next Save.</p>';
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 
         $feature              = new Feature;
@@ -53,8 +53,8 @@ class GodsHelmSeeder extends Seeder
         $feature->name        = 'Channel Divinity Dispel Invisibility';
         $feature->description = '<p>You can use your Channel Divinity to Dispel invisibility effects in your area.</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
-    <li>As an Action, you can spend 1 Spell Point to Dispel any and all Invisibility effects in a 60-foot radius.</li>
+    <li>You gain 1 Spell Point</li>
+    <li>You may use a use of your Channel Divinity and 1 Spell Point as an Action, you Dispel any and all Invisibility effects in a 120-foot radius.</li>
 </ul>';
         $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
 

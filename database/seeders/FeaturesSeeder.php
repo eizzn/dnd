@@ -358,7 +358,7 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'channel_divinity_caster';
         $feature->name        = 'Channel Divinity Caster';
-        $feature->description = '<p>Once per turn, you can cast the specified spell by spending 2 Spell Points and a use of your Channel Divinity</p>';
+        $feature->description = '<p>Once per turn, you can cast the specified spell by spending 1 Spell Point and a use of your Channel Divinity</p>';
         $helper->saveFeature($feature, ['Spell Pool']);
 
         $feature              = new Feature;

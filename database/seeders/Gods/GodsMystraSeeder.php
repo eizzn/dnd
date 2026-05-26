@@ -74,7 +74,7 @@ class GodsMystraSeeder extends Seeder
         ]);
         $class->features()->save(app()->features['extra_spells'], [
             'level' => 1,
-            'meta'  => 'You may memorize arcane spells as a Wizard but at one spell level higher',
+            'meta'  => 'You may memorize arcane spells as a Wizard but the spell requires a Spell Slot 1 Level higher',
         ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 3,

@@ -89,7 +89,7 @@ class GodsSehanineSeeder extends Seeder
             'meta'  => 'All Wielded Maces',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Lychantropes');
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
+        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4, 1);
         $helper->addDomainToClass($class, ['Good', 'Moon', 'Protection', 'Prophecy']);
         $helper->addSpellsToClass($class, [
             0 => ['Boon', 'Clean Self', 'Conviction', 'Dancing Lights', 'Detect Magic', 'Know Direction', 'Light', 'Radiant Mark',

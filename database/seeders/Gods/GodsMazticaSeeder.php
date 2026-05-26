@@ -35,8 +35,7 @@ class GodsMazticaSeeder extends Seeder
             'alignment' => 'N',
         ]);
 
-        $god = God::where('name', 'Chauntea')->first();
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        God::where('name', 'Chauntea')->first()->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Maztica',
             'title'     => 'Mother of Life, The World',
             'level'     => 'Greater',
@@ -44,8 +43,7 @@ class GodsMazticaSeeder extends Seeder
             'alignment' => 'N',
         ]);
 
-        $god = God::where('name', 'Silvanus')->first();
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        God::where('name', 'Silvanus')->first()->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Nula',
             'title'     => 'Guardian of Animals',
             'level'     => 'Greater',
@@ -53,8 +51,7 @@ class GodsMazticaSeeder extends Seeder
             'alignment' => 'CN',
         ]);
 
-        $god = God::where('name', 'Bahamut')->first();
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        God::where('name', 'Bahamut')->first()->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Qotal',
             'title'     => 'The Plumed One, The Feathered Dragon',
             'level'     => 'Greater',
@@ -62,8 +59,7 @@ class GodsMazticaSeeder extends Seeder
             'alignment' => 'LG',
         ]);
 
-        $god = God::where('name', 'Tiamat')->first();
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        God::where('name', 'Tiamat')->first()->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Zaltec',
             'title'     => 'Bringer of war, Eater of Hearts',
             'level'     => 'Greater',

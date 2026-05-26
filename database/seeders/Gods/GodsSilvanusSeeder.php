@@ -255,8 +255,11 @@ class GodsSilvanusSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = "Nobanion's Pride Mate";
         $feat->requirement = 'Paladin and Ranger of Nobanion';
-        $feat->description = '<p>When you use your Smite ability against a target, you may also add your Favored Enemy damage bonus.</p>
-<p>If you have a Divine Mount, it gains the benefits of your Animal Companion feature. (and vice versa)</p>';
+        $feat->description = '<ul>
+    <li>When you use your Smite ability against a target, you may also add your Favored Enemy bonus to Hit and Damage.</li>
+    <li>If you have a Divine Mount, it gains the benefits of your Animal Companion Feature. (and vice versa)</li>
+    <li>When obtaining a Divine Mount or Animal Companion, you may use spend a Spell Slot from both Paladin and Ranger and combine the levels to determine what you may summon.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Divine', 'Favored Enemy', 'Smite']);
         $feat->features()->save(app()->features['favored_enemy']);
         $feat->features()->save(app()->features['divine_warrior']);

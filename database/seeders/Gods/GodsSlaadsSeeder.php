@@ -99,7 +99,7 @@ class GodsSlaadsSeeder extends Seeder
 <ul>
     <li>You gain 2 Power Points</li>
     <li>You are immune to Chaos Phage and you cannot be inflicted with a Slaad Tadpole</li>
-    <li>You gain the Slaad Language</li>
+    <li>You learn the Slaad Language</li>
     <li>You gain one of the following feats
         <ul>
             <li>Strong Defense</li>
@@ -108,7 +108,7 @@ class GodsSlaadsSeeder extends Seeder
         </ul>
     </li>
     <li>You gain the Wild Talent feat</li>
-    <li>Slaads will not attack you unless you have attacked them, or they realize that you have deceived them somehow.</li>
+    <li>Slaads will not attack you unless you attack them, or they realize that you have deceived them somehow.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Pact', 'Slaad', 'Chaotic', 'Neutral']);
         $helper->addSpellsToFeat($feat, [

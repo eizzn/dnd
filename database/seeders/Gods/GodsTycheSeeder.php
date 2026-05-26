@@ -107,7 +107,6 @@ class GodsTycheSeeder extends Seeder
             'rogue_feat'  => [1, 6, 12, 18],
             'skill_feat'  => [2, 4, 7, 10, 14],
         ]);
-        $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 4);
         $helper->addDomainToClass($class, ['Luck', 'Protection', 'Travel']);
         $helper->addSpellsToClass($class, [
             0 => ['Bit of Luck', 'Blade Ward', 'Boon', 'Clean Self', 'Conviction', 'Detect Magic', 'Guidance', 'Light',
