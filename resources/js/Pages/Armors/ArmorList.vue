@@ -4,12 +4,13 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "armors";
 const filters = {
     name: null,
-    type: null,
-    group: null,
+    type: [],
+    group: [],
 };
 </script>
 
@@ -45,34 +46,30 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="armor-type-filter" class="block text-sm font-medium text-gray-700">Type</label>
-                                    <select
-                                        id="armor-type-filter"
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="light">Light</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="heavy">Heavy</option>
-                                        <option value="shield">Shield</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'light', label: 'Light' },
+                                            { value: 'medium', label: 'Medium' },
+                                            { value: 'heavy', label: 'Heavy' },
+                                            { value: 'shield', label: 'Shield' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="armor-group-filter" class="block text-sm font-medium text-gray-700">Group</label>
-                                    <select
-                                        id="armor-group-filter"
+                                    <MultiSelect
                                         v-model="filters.group"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="cloth">Cloth</option>
-                                        <option value="wood">Wood</option>
-                                        <option value="leather">Leather</option>
-                                        <option value="chain">Chain</option>
-                                        <option value="plate">Plate</option>
-                                        <option value="composite">Composite</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'cloth', label: 'Cloth' },
+                                            { value: 'wood', label: 'Wood' },
+                                            { value: 'leather', label: 'Leather' },
+                                            { value: 'chain', label: 'Chain' },
+                                            { value: 'plate', label: 'Plate' },
+                                            { value: 'composite', label: 'Composite' },
+                                            { value: 'other', label: 'Other' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="armor-effect-filter" class="block text-sm font-medium text-gray-700">Properties</label>
@@ -110,9 +107,9 @@ const filters = {
                                         </table>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <ul>
-                                            <li v-for="(type, index) in armor.types" :key="index">{{ type.name }}</li>
-                                        </ul>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in armor.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                 </tr>
                             </template>

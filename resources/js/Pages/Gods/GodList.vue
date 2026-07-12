@@ -3,19 +3,22 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {Head} from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
-import {onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "gods";
 const pantheons = ref([]);
 const filters = {
     name: null,
     title: null,
-    pantheon_id: null,
-    level: null,
+    pantheon_id: [],
+    level: [],
     alignment: null,
     portfolio: null,
 };
+
+const pantheonOptions = computed(() => pantheons.value.map(p => ({ value: p.id, label: p.name })));
 
 const getOptions = async () => {
     try {
@@ -73,76 +76,50 @@ onMounted(async () => {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="god-pantheon-filter" class="block text-sm font-medium text-gray-700">Pantheon</label>
-                                    <select
-                                        id="god-pantheon-filter"
+                                    <MultiSelect
                                         v-model="filters.pantheon_id"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option v-for="pantheon in pantheons" :key="pantheon.id" :value="pantheon.id">
-                                            {{ pantheon.name }}
-                                        </option>
-                                    </select>
+                                        :options="pantheonOptions"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="god-level-filter" class="block text-sm font-medium text-gray-700">Level</label>
-                                    <select
-                                        id="god-level-filter"
+                                    <MultiSelect
                                         v-model="filters.level"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <optgroup label="Powers">
-                                            <option value="greater">Greater</option>
-                                            <option value="intermediate">Intermediate</option>
-                                            <option value="lesser">Lesser</option>
-                                            <option value="demi">Demi</option>
-                                            <option value="hero">Hero</option>
-                                        </optgroup>
-                                        <optgroup label="Devils">
-                                            <option value="archdevil">Archdevil</option>
-                                            <option value="duke of hell">Duke of Hell</option>
-                                            <option value="devil">Devil</option>
-                                        </optgroup>
-                                        <optgroup label="Demons">
-                                            <option value="demon lord">Demon Lord</option>
-                                            <option value="demon">Demon</option>
-                                        </optgroup>
-                                        <optgroup label="Yugoloths">
-                                            <option value="Altraloth">Altraloth</option>
-                                            <option value="yugoloth">Yugoloth</option>
-                                        </optgroup>
-                                        <optgroup label="Archons">
-                                            <option value="solar">Solar</option>
-                                            <option value="tome archon">Tome Archon</option>
-                                            <option value="archon">Archon</option>
-                                        </optgroup>
-                                        <optgroup label="Guardinals">
-                                            <option value="guardinal paragon">Guardinal Paragon</option>
-                                            <option value="guardinal">Guardinal</option>
-                                        </optgroup>
-                                        <optgroup label="Slaad">
-                                            <option value="slaad lord">Slaad Lord</option>
-                                            <option value="slaad">Slaad</option>
-                                        </optgroup>
-                                        <optgroup label="Modron">
-                                            <option value="prime">Prime</option>
-                                            <option value="modron">Modron</option>
-                                        </optgroup>
-                                        <optgroup label="Elementals">
-                                            <option value="archomental">Archomental</option>
-                                        </optgroup>
-                                        <optgroup label="Fey">
-                                            <option value="archfey">Archfey</option>
-                                            <option value="fey">Fey</option>
-                                        </optgroup>
-                                        <optgroup label="Miscellaneous">
-                                            <option value="dead">Dead</option>
-                                            <option value="departed">Departed</option>
-                                        </optgroup>
-                                    </select>
+                                        :options="[
+                                            { value: 'greater', label: 'Greater' },
+                                            { value: 'intermediate', label: 'Intermediate' },
+                                            { value: 'lesser', label: 'Lesser' },
+                                            { value: 'demi', label: 'Demi' },
+                                            { value: 'hero', label: 'Hero' },
+                                            { value: 'archdevil', label: 'Archdevil' },
+                                            { value: 'devil lord', label: 'Devil Lord' },
+                                            { value: 'duke of hell', label: 'Duke of Hell' },
+                                            { value: 'devil', label: 'Devil' },
+                                            { value: 'demon prince', label: 'Demon Prince' },
+                                            { value: 'demon lord', label: 'Demon Lord' },
+                                            { value: 'demon', label: 'Demon' },
+                                            { value: 'Altraloth', label: 'Altraloth' },
+                                            { value: 'yugoloth', label: 'Yugoloth' },
+                                            { value: 'solar', label: 'Solar' },
+                                            { value: 'tome archon', label: 'Tome Archon' },
+                                            { value: 'archon', label: 'Archon' },
+                                            { value: 'guardinal paragon', label: 'Guardinal Paragon' },
+                                            { value: 'guardinal', label: 'Guardinal' },
+                                            { value: 'slaad lord', label: 'Slaad Lord' },
+                                            { value: 'slaad', label: 'Slaad' },
+                                            { value: 'prime', label: 'Prime' },
+                                            { value: 'modron', label: 'Modron' },
+                                            { value: 'archomental', label: 'Archomental' },
+                                            { value: 'archfey', label: 'Archfey' },
+                                            { value: 'fey', label: 'Fey' },
+                                            { value: 'dead', label: 'Dead' },
+                                            { value: 'departed', label: 'Departed' },
+                                        ]"
+                                    />
                                 </th>
-                                <th class="px-4 py-2 border border-gray-300 text-left">Alignment</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <span class="block text-sm font-medium text-gray-700">Alignment</span>
+                                </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="god-portfolio-filter" class="block text-sm font-medium text-gray-700">Portfolio</label>
                                     <input

@@ -404,7 +404,7 @@ The blessing performs just like Protection from Evil, except it protects against
                 'Water Breathing', 'Water Walk', 'Warding Wind', ],
             3 => ['Call Lightning', 'Commune With Spirit', 'Dispel Magic', 'Dominate Animal', 'Earthbind', 'Eradicate Air',
                 'Eradicate Earth', 'Eradicate Fire', 'Eradicate Water', 'Heal Animal Companion', 'Meld into Stone', 'Neutralize Poison',
-                "Nature's Exile", 'Neutralize Poison', 'Nondetection', 'Tidal Wave', 'Wall of Thorns', 'Wall of Wind', ],
+                "Nature's Exile", 'Nondetection', 'Tidal Wave', 'Wall of Thorns', 'Wall of Wind', ],
             4 => ['Air Walk', 'Control Winds', 'Exhaustion', 'Fly', 'Hallucinatory Terrain', 'Make Manifest',
                 'Raise as Ghost', 'Solid Fog', 'Speak with Plants', 'Summon Woodland Beings', ],
             5 => ['Animate with Spirit', 'Atonement', 'Awaken', 'Cloudkill', 'Commune with Nature', 'Control Water', 'Dream',
@@ -436,7 +436,7 @@ The blessing performs just like Protection from Evil, except it protects against
 
         // Skills
         $helper->addSkillsToClass($class, [
-            'Animal Handling', 'Athletics', 'Concentration', 'Diplomacy', 'Nature', 'Survival'
+            'Animal Handling', 'Athletics', 'Concentration', 'Diplomacy', 'Nature', 'Survival',
         ]);
 
         $feature              = new Feature;
@@ -501,21 +501,21 @@ The blessing performs just like Protection from Evil, except it protects against
 
         // TODO: complete spells list
         $helper->addSpellsToClass($class, [
-            0 => ['Blade Ward', 'Boon', 'Conviction', 'Dancing Lights', 'Daze', 'Detect Ghost', 'Disrupt Ectoplasm', 'Ghost Sound',
-                'Focusing Chant', 'Ghost Sound', 'Hex', 'Know Direction', 'Light', 'Produce Flame', 'Resist Negative Energy', ],
+            0 => ['Blade Ward', 'Boon', 'Conviction', 'Dancing Lights', 'Daze', 'Detect Ghost', 'Disrupt Ectoplasm', 'Focusing Chant',
+                'Ghost Sound', 'Hex', 'Know Direction', 'Light', 'Produce Flame', 'Resist Negative Energy', ],
             1 => ['Bless', 'Calm Animals', 'Command', 'Cure Wounds', 'Detect Evil', 'Doom', 'Exorcism', 'Fear', 'Protection From Possession',
                 'Remove Disease', 'Sanctuary', 'Summon Elemental, Lesser', ],
             2 => ['Augury', "Bear's Endurance", 'Bestow Curse', "Bull's Strength", 'Consecrate', 'Ethereal Sight', 'Forced Incorporeality',
                 'Forced Manifestation', 'Gentle Repose', 'Ghost Touch', 'Healing Spirit', 'Hold Undead', 'Obscuring Mist',
-                "Owl's Wisdom", 'Possess Animal', 'Rain', 'Remove Disease', 'Remove Fear', 'Restoration', 'Restore Senses',
-                'Reveal True Shape', 'Restoration', 'Sticks to Snakes', ],
+                "Owl's Wisdom", 'Possess Animal', 'Rain', 'Remove Fear', 'Restoration', 'Restore Senses', 'Reveal True Shape',
+                'Sticks to Snakes', ],
             3 => ['Abolish Shadows', 'Banishment', 'Ceremony', 'Circle of Protection From Evil', 'Commune With Spirit',
-                'Dimensional Anchor', 'Dominate Animal', 'Ethereal Mount', 'Ethereal Sight', 'Neutralize Poison', 'Prophecy',
-                'Raise as Ghost', 'Revivify', 'Skywrite', 'Speak with Dead', 'Spirit Guardians', ],
-            4 => ['Animate with Spirit', 'Annihilate Spirit', 'Atonement', 'Banishment', 'Calm Air', 'Commune with Nature',
-                'Control Winds', 'Ethereal Cyclone', 'Ethereal Prison', 'Remove Curse', 'Spirit Blast', 'Spirit Walk', ],
+                'Dimensional Anchor', 'Dominate Animal', 'Ethereal Mount', 'Neutralize Poison', 'Prophecy', 'Raise as Ghost',
+                'Revivify', 'Skywrite', 'Speak with Dead', 'Spirit Guardians', ],
+            4 => ['Animate with Spirit', 'Annihilate Spirit', 'Atonement', 'Calm Air', 'Commune with Nature', 'Control Winds',
+                'Ethereal Cyclone', 'Ethereal Prison', 'Remove Curse', 'Spirit Blast', 'Spirit Walk', ],
             5 => ['Dimensional Lock', 'Etherealness', 'Hallow'],
-            6 => ['Baleful Polymorph', 'Control Weather', 'Etherealness'],
+            6 => ['Baleful Polymorph', 'Control Weather'],
         ]);
 
         $features = app()->features;

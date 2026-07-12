@@ -196,7 +196,7 @@ class SpellsESeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>Double the number targets</dd>
     <dt>Heightened (+2)</dt> <dd>The duration becomes 12 hours without Concentration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion'], 1);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Glamor'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Easy Math';

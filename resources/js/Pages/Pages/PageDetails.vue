@@ -52,7 +52,7 @@ onMounted(fetchPageDetails);
                             <section class="m-8">
                                 <div class="description-container" v-html="page.description"></div>
                             </section>
-                            <section v-for="(rule, index) in page.rules" :key="index" class="m-2 border-b-8 py-2">
+                            <section v-for="(rule, index) in page.rules" :key="index" class="m-2 border-b-2 border-stone-600 py-2">
                                 <h3>{{ rule.name }}</h3>
                                 <div class="description-container" v-html="rule.description"></div>
                             </section>

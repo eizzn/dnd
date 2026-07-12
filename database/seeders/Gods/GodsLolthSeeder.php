@@ -101,7 +101,7 @@ class GodsLolthSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, [
-            'Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Performance', 'Religion'
+            'Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             $class->name, 'Favored Soul', 'Monk', 'Wizard',

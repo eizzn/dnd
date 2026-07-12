@@ -42,24 +42,19 @@ class ClassDivinePrestigeSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'diviner_feats';
         $feature->name        = 'Diviner Feats';
-        $feature->description = '<p>You may now take the Expert Diviner and Master Diviner Feats when you qualify for the level requirement with a Generic Feat</p>';
+        $feature->description = '<ul>
+    <li>You gain the Diviner Feat</li>
+    <li>You may now take the Expert Diviner and Master Diviner Feats when you qualify for the level requirement with a Generic Feat</li>
+</ul>';
         $helper->saveFeature($feature, ['Divine', 'Exalted', 'Vile']);
-
-        $feature              = new Feature;
-        $feature->key         = 'divine_prophecy';
-        $feature->name        = 'Divine Prophecy';
-        $feature->description = "<p>You are now a conduit for visions and prophecies. Your Patron sends you visions of the possible future, or instructions that you must follow.</p>
-<p>In game terms, this is a tool that the DM can use to start up a new campaign, or nudge the players in a certain direction. In some cases (DM's discretion), the vision may come with some small boon (such as a Blessing that grants a bonus to Hit against Orcs), or a minor magical device on loan to the player that may help in the quest (such as a +1 Short Sword that is +3 vs Orcs)</p>";
-        $helper->saveFeature($feature, ['Divine']);
 
         $helper->addFeaturesToClass($class, [
             'diviner_feats'             => [1],
-            'divine_prophecy'           => [2],
             'divine_spellcasting_class' => [1, 3],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 1, 'idx' => 1, 'meta' => 'Diviner']);
         $class->features()->save(app()->features['feat'], ['level' => 1, 'idx' => 2, 'meta' => 'Spell Focus Feat for Divination']);
         $class->features()->save(app()->features['feat'], ['level' => 2, 'idx' => 3, 'meta' => 'Any Exalted or Vile Feat']);
+        $class->features()->save(app()->features['feat'], ['level' => 2, 'idx' => 2, 'meta' => 'Oracle Feat']);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'idx' => 4, 'meta' => 'Any Exalted or Vile Feat']);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'idx' => 5, 'meta' => 'You may take the Wise Defense or Beautiful Defense Feat']);
 

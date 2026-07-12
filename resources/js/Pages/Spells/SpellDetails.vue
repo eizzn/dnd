@@ -8,6 +8,7 @@ import NavLink from "@/components/NavLink.vue";
 
 const route = useRoute();
 const spell = ref(null);
+const availableToOpen = ref(false);
 const error = ref(null);
 
 const fetchSpellDetails = async () => {
@@ -38,139 +39,168 @@ onMounted(fetchSpellDetails);
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">Spell</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                {{ spell ? spell.name : 'Spell' }}
+            </h2>
         </template>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
-                        <div v-if="error" class="text-red-500">{{ error }}</div>
-                        <div v-else-if="spell">
-                            <section class="m-2">
-                                <h3 class="text-xl">
-                                    <span>{{ spell.name }}</span>
-                                    <span v-if="spell.rarity" class="text-sm opacity-75">&nbsp;&nbsp;({{ spell.rarity }})</span>
-                                </h3>
-                                <span v-if="spell.spell_creator" class="text-sm opacity-75">({{ spell.spell_creator }})</span>
-                                <table class="w-full border-collapse border border-gray-300">
-                                    <colgroup>
-                                        <col style="width: 25%;" />
-                                        <col style="width: 25%;" />
-                                        <col style="width: 25%;" />
-                                        <col style="width: 25%;" />
-                                    </colgroup>
-                                    <tbody>
-                                        <tr>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Default Level</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Casting</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Range/Area</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Targets</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-2 border border-gray-300">{{ spell.default_level }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ spell.casting }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">
-                                                <span>{{ spell.range }}</span>
-                                                <br v-if="spell.range && spell.area" />
-                                                <span>{{ spell.area }}</span>
-                                            </td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ spell.targets || '-' }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Duration</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Save</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Types</th>
-                                            <th class="px-4 py-2 border border-gray-300 bg-blue-300">Classes</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-4 py-2 border border-gray-300">{{ spell.duration }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">{{ spell.save_attribute || '-' }}</td>
-                                            <td class="px-4 py-2 border border-gray-300">
-                                                <ul class="list-disc ml-4">
-                                                    <li v-for="(type, index) in spell.types" :key="index">
-                                                        <NavLink
-                                                            :href="`/type/${type.id}`"
-                                                            class="text-blue-800 hover:underline p-0"
-                                                            style="border-bottom-width: 0 !important;"
-                                                        >
-                                                            {{ type.name }}
-                                                        </NavLink>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                            <td class="px-4 py-2 border border-gray-300">
-                                                <div class="max-h-80 overflow-y-auto">
-                                                    <table class="w-full">
-                                                        <tbody>
-                                                            <tr v-for="(klass, index) in spell.classes" :key="index">
-                                                                <td><NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink></td>
-                                                                <td>{{ klass.level }}</td>
-                                                            </tr>
-                                                            <tr><td colspan="2" class="h-2"></td></tr>
-                                                            <tr v-for="(feat, index) in spell.feats" :key="index">
-                                                                <td><NavLink :href="`/feat/${feat.id}`">{{ feat.name }}</NavLink></td>
-                                                                <td>{{ feat.level }}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-                            <section class="m-2 pt-2">
-                                <h3 class="text-lg font-bold border-b-2">Description</h3>
-                                <div v-html="spell.description" class="mb-4 description-container"></div>
-                                <div v-if="Array.isArray(spell.materials) && spell.materials.length > 0" class="border-t">
-                                    <dl>
-                                        <dt>Material Components</dt>
-                                        <dd>
-                                            <ul>
-                                                <li v-for="(material, index) in spell.materials" :key="index">
-                                                    <span>{{ material.name }}</span>
-                                                    <span v-if="material.quantity">&nbsp;({{ material.quantity }})</span>
-                                                    <span v-if="material.meta">&nbsp;{{ material.meta }}</span>
-                                                </li>
-                                            </ul>
-                                        </dd>
-                                    </dl>
-                                </div>
-                                <div v-if="spell.requirements != null || (Array.isArray(spell.skills) && spell.skills.length > 0)" class="border-t-4">
-                                    <h4 class="text-md font-bold border-b-2">Requirements</h4>
-                                    <div v-html="spell.requirements" class="mb-4"></div>
-                                    <ul>
-                                        <li v-for="(skill, index) in spell.skills" :key="index">
-                                            <NavLink
-                                                :href="`/skill/${skill.id}`"
-                                                class="text-blue-800 hover:underline p-0"
-                                                style="border-bottom-width: 0 !important;"
-                                            >
-                                                {{ skill.name }}
-                                            </NavLink>
-                                            <span class="text-sm px-3">DC: {{ skill.dc }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                            <section class="m-2">
-                                <div class="flex w-full gap-3">
-                                    <div v-if="spell.saves" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
-                                        <h4 class="text-center font-bold">Saves</h4>
-                                        <div v-html="spell.saves" ></div>
-                                    </div>
-                                    <div v-if="spell.heightened" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
-                                        <h4 class="text-center font-bold">Heightened</h4>
-                                        <div v-html="spell.heightened"></div>
-                                    </div>
-                                </div>
-                            </section>
+                <div v-if="error" class="text-red-400 p-4">{{ error }}</div>
+                <div v-else-if="spell" class="space-y-6">
+
+                    <!-- Stats grid -->
+                    <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600 flex items-baseline gap-3">
+                            <h3 class="text-lg font-bold text-amber-400" style="font-family:'Cinzel',serif;">{{ spell.name }}</h3>
+                            <span v-if="spell.rarity" class="text-xs text-stone-400 italic">{{ spell.rarity }}</span>
+                            <span v-if="spell.spell_creator" class="text-xs text-stone-400 italic">— {{ spell.spell_creator }}</span>
                         </div>
-                        <div v-else>
-                            <p>Loading...</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-stone-700">
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Default Level</p>
+                                <p class="text-amber-300 font-bold text-lg">{{ spell.default_level }}</p>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Casting</p>
+                                <p class="text-stone-100 font-semibold">{{ spell.casting || '-' }}</p>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Range / Area</p>
+                                <p class="text-stone-100 font-semibold">
+                                    <span>{{ spell.range }}</span>
+                                    <span v-if="spell.range && spell.area"> / </span>
+                                    <span>{{ spell.area }}</span>
+                                    <span v-if="!spell.range && !spell.area">-</span>
+                                </p>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Targets</p>
+                                <p class="text-stone-100 font-semibold">{{ spell.targets || '-' }}</p>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Duration</p>
+                                <p class="text-stone-100 font-semibold">{{ spell.duration || '-' }}</p>
+                            </div>
+                            <div class="px-5 py-4">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-1">Save</p>
+                                <p class="text-stone-100 font-semibold">{{ spell.save_attribute || '-' }}</p>
+                            </div>
+                            <div class="px-5 py-4 col-span-2">
+                                <p class="text-xs font-medium text-stone-500 uppercase tracking-wide mb-2">Types</p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <NavLink
+                                        v-for="(type, index) in spell.types" :key="index"
+                                        :href="`/type/${type.id}`"
+                                        class="inline-block px-2.5 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium hover:bg-amber-900/60 transition-colors"
+                                        style="border-bottom-width: 1px !important;"
+                                    >{{ type.name }}</NavLink>
+                                    <span v-if="!spell.types?.length" class="text-stone-500">—</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Classes & Feats -->
+                    <div v-if="spell.classes?.length || spell.feats?.length" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <button
+                            type="button"
+                            class="w-full flex items-center justify-between px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600 hover:bg-amber-900/10 transition-colors"
+                            @click="availableToOpen = !availableToOpen"
+                        >
+                            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Available To</h3>
+                            <svg
+                                class="w-4 h-4 text-amber-400 transition-transform duration-200"
+                                :class="{ 'rotate-180': availableToOpen }"
+                                viewBox="0 0 20 20" fill="currentColor"
+                            >
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div v-show="availableToOpen" class="divide-y divide-stone-800">
+                            <div
+                                v-for="(klass, index) in spell.classes" :key="'class-' + index"
+                                class="flex items-center justify-between px-6 py-2.5 hover:bg-amber-900/10 transition-colors"
+                            >
+                                <NavLink :href="`/class/${klass.id}`" class="text-sm" style="border-bottom-width: 0 !important;">{{ klass.name }}</NavLink>
+                                <span class="flex items-center gap-2 shrink-0">
+                                    <span class="text-xs font-semibold text-amber-300 bg-amber-900/40 border border-amber-700/40 rounded px-2 py-0.5">Lv {{ klass.level }}</span>
+                                    <span class="text-xs text-stone-400 bg-stone-800 border border-stone-600 rounded px-2 py-0.5 italic">class</span>
+                                </span>
+                            </div>
+                            <div
+                                v-for="(feat, index) in spell.feats" :key="'feat-' + index"
+                                class="flex items-center justify-between px-6 py-2.5 hover:bg-amber-900/10 transition-colors"
+                            >
+                                <NavLink :href="`/feat/${feat.id}`" class="text-sm" style="border-bottom-width: 0 !important;">{{ feat.name }}</NavLink>
+                                <span class="flex items-center gap-2 shrink-0">
+                                    <span class="text-xs font-semibold text-amber-300 bg-amber-900/40 border border-amber-700/40 rounded px-2 py-0.5">Lv {{ feat.level }}</span>
+                                    <span class="text-xs text-stone-400 bg-stone-800 border border-stone-600 rounded px-2 py-0.5 italic">feat</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600">
+                            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Description</h3>
+                        </div>
+                        <div class="p-6 description-container" v-html="spell.description"></div>
+                    </div>
+
+                    <!-- Material Components -->
+                    <div v-if="Array.isArray(spell.materials) && spell.materials.length > 0" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600">
+                            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Material Components</h3>
+                        </div>
+                        <ul class="p-6 space-y-2">
+                            <li v-for="(material, index) in spell.materials" :key="index" class="flex items-start gap-2 text-stone-200">
+                                <span class="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                                <span>
+                                    <span class="font-medium">{{ material.name }}</span>
+                                    <span v-if="material.quantity" class="text-stone-400"> ({{ material.quantity }})</span>
+                                    <span v-if="material.meta" class="text-stone-400"> {{ material.meta }}</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div v-if="spell.requirements != null || (Array.isArray(spell.skills) && spell.skills.length > 0)" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                        <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600">
+                            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Requirements</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div v-if="spell.requirements" v-html="spell.requirements"></div>
+                            <ul class="space-y-2">
+                                <li v-for="(skill, index) in spell.skills" :key="index" class="flex items-center gap-3">
+                                    <NavLink :href="`/skill/${skill.id}`" style="border-bottom-width: 0 !important;">{{ skill.name }}</NavLink>
+                                    <span class="text-xs font-semibold text-amber-300 bg-amber-900/40 border border-amber-700/40 rounded px-2 py-0.5">DC {{ skill.dc }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Saves & Heightened -->
+                    <div v-if="spell.saves || spell.heightened" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div v-if="spell.saves" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                            <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600">
+                                <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Saves</h3>
+                            </div>
+                            <div class="p-6" v-html="spell.saves"></div>
+                        </div>
+                        <div v-if="spell.heightened" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                            <div class="px-6 py-4 border-b border-stone-700 border-l-4 border-l-amber-600">
+                                <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest" style="font-family:'Cinzel',serif;">Heightened</h3>
+                            </div>
+                            <div class="p-6" v-html="spell.heightened"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div v-else class="overflow-hidden bg-white shadow-sm sm:rounded-lg p-6">
+                    <p class="text-stone-400">Loading...</p>
                 </div>
             </div>
         </div>

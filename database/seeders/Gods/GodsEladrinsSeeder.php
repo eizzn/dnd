@@ -381,11 +381,25 @@ class GodsEladrinsSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'           => $god->name,
             'title'          => 'Fiery-Eyes, The Mighty One, The Great One, The Great Scourge, The High Chieftain, The Battle Lord, The Lord of Depths and Darkness, The Conquering God',
+            'level'          => 'Archfey',
+            'portfolio'      => 'Goblins, Goblinoids, Leadership, War',
+            'alignment'      => 'NE',
+            'symbol'         => 'Bloody Axe',
+            'favored_weapon' => 'Battleaxe',
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
+            'name'           => $god->name,
+            'title'          => 'Fiery-Eyes, The Mighty One, The Great One, The Great Scourge, The High Chieftain, The Battle Lord, The Lord of Depths and Darkness, The Conquering God',
             'level'          => 'Greater',
             'portfolio'      => 'Goblins, Goblinoids, Leadership, War',
             'alignment'      => 'NE',
             'symbol'         => 'Bloody Axe',
             'favored_weapon' => 'Battleaxe',
+        ]);
+        $helper->addClassesToGod($god, 'The Court of Stars', [
+            'Fighter'   => 20,
+            'Barbarian' => 20,
+            'Cleric'    => 10,
         ]);
         $helper->addClassesToGod($god, 'Goblin', [
             'Fighter'   => 20,
@@ -438,6 +452,15 @@ class GodsEladrinsSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $god->name,
             'title'     => 'The Overseer of All, The Overseer',
+            'level'     => 'Archfey',
+            'portfolio' => 'Slavery, Oppression, Morale, Hobgoblins',
+            'alignment' => 'LE',
+            'symbol'    => 'Red and yellow striped whip',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
+            'name'      => $god->name,
+            'title'     => 'The Overseer of All, The Overseer',
             'level'     => 'Lesser',
             'portfolio' => 'Slavery, Oppression, Morale, Hobgoblins',
             'alignment' => 'LE',
@@ -445,6 +468,11 @@ class GodsEladrinsSeeder extends Seeder
             'master_id' => $maglubiyet->id,
         ]);
         $helper->addClassesToGod($god, 'The Court of Stars', [
+            'Fighter' => 20,
+            'Wizard'  => 10,
+            'Cleric'  => 10,
+        ]);
+        $helper->addClassesToGod($god, 'Goblin', [
             'Fighter' => 20,
             'Wizard'  => 10,
             'Cleric'  => 10,
@@ -457,6 +485,15 @@ class GodsEladrinsSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $god->name,
             'title'     => 'The General, The Warrior, The Torturer',
+            'level'     => 'Archfey',
+            'portfolio' => 'Authority, War, Hobgoblins',
+            'alignment' => 'LE',
+            'symbol'    => 'Crossed broadsword and handaxe',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
+            'name'      => $god->name,
+            'title'     => 'The General, The Warrior, The Torturer',
             'level'     => 'Lesser',
             'portfolio' => 'Authority, War, Hobgoblins',
             'alignment' => 'LE',
@@ -467,12 +504,25 @@ class GodsEladrinsSeeder extends Seeder
             'Fighter' => 30,
             'Cleric'  => 10,
         ]);
+        $helper->addClassesToGod($god, 'Goblin', [
+            'Fighter' => 30,
+            'Cleric'  => 10,
+        ]);
 
         $god        = new God;
         $god->name  = 'Bargrivyek';
         $god->level = 'Lesser';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
+            'name'      => $god->name,
+            'title'     => 'The Peacekeeper',
+            'level'     => 'Archfey',
+            'portfolio' => 'Unity of race, Goblins',
+            'alignment' => 'LE',
+            'symbol'    => 'White-tipped flail',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'      => $god->name,
             'title'     => 'The Peacekeeper',
             'level'     => 'Lesser',
@@ -486,12 +536,26 @@ class GodsEladrinsSeeder extends Seeder
             'Cleric'    => 15,
             'Artificer' => 5,
         ]);
+        $helper->addClassesToGod($god, 'Goblin', [
+            'Fighter'   => 20,
+            'Cleric'    => 15,
+            'Artificer' => 5,
+        ]);
 
         $god        = new God;
         $god->name  = 'Hruggek';
         $god->level = 'Lesser';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Archfey',
+            'portfolio' => 'Ambush, Furious Fighting, Bugbears',
+            'alignment' => 'CE',
+            'symbol'    => 'Morningstar',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'      => $god->name,
             'title'     => '',
             'level'     => 'Lesser',
@@ -505,12 +569,26 @@ class GodsEladrinsSeeder extends Seeder
             'Ranger'  => 10,
             'Scout'   => 20,
         ]);
+        $helper->addClassesToGod($god, 'Goblin', [
+            'Fighter' => 10,
+            'Ranger'  => 10,
+            'Scout'   => 20,
+        ]);
 
         $god        = new God;
         $god->name  = 'Grankhul';
         $god->level = 'Lesser';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Hero',
+            'portfolio' => 'Hunting, Senses, Surprise, Bugbears',
+            'alignment' => 'CE',
+            'symbol'    => 'Ever-open eyes in darkness',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'      => $god->name,
             'title'     => '',
             'level'     => 'Demi',
@@ -523,12 +601,25 @@ class GodsEladrinsSeeder extends Seeder
             'Scout'  => 20,
             'Ranger' => 10,
         ]);
+        $helper->addClassesToGod($god, 'Goblin', [
+            'Scout'  => 20,
+            'Ranger' => 10,
+        ]);
 
         $god        = new God;
         $god->name  = 'Skiggaret';
         $god->level = 'Lesser';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
+            'name'      => $god->name,
+            'title'     => '',
+            'level'     => 'Hero',
+            'portfolio' => 'Fear, Bugbears',
+            'alignment' => 'CE',
+            'symbol'    => 'Black Claw',
+            'master_id' => $maglubiyet->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'      => $god->name,
             'title'     => '',
             'level'     => 'Demi',
@@ -538,6 +629,10 @@ class GodsEladrinsSeeder extends Seeder
             'master_id' => $maglubiyet->id,
         ]);
         $helper->addClassesToGod($god, 'The Court of Stars', [
+            'Fighter' => 20,
+            'Ranger'  => 10,
+        ]);
+        $helper->addClassesToGod($god, 'Goblin', [
             'Fighter' => 20,
             'Ranger'  => 10,
         ]);
@@ -623,10 +718,10 @@ class GodsEladrinsSeeder extends Seeder
             'description' => "<p>Witchthorn has a relationship with the Adarbrent noble family of Waterdeep. They send their firstborn child of each generation to pledge an oath to Witchthorn (a Warlock Fey Pact), and in return, they perform some unknown service before their 11th birthday, and in exchange, the family businesses and their homes are protected by secret fey guardians.</p>
 <p>Witchthorn's wife, the dryad Ishaldra, was killed by the Great Green Dragon Claugiyliamatar. Witchthorn seeks a way to slay the dragon, or at least drive it from Kryptgarden forest.</p>",
         ]);
-        $witchthorn = $god;
-        $god        = new God;
-        $god->name  = 'Ishaldra';
-        $god->level = 'Archfey';
+        $witchthorn      = $god;
+        $god             = new God;
+        $god->name       = 'Ishaldra';
+        $god->level      = 'Archfey';
         $god->deleted_at = \Carbon\Carbon::now();
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [

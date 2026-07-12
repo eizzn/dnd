@@ -4,6 +4,7 @@ namespace Database\Seeders\Classes;
 
 use App\Models\Feature;
 use App\Models\Klass;
+use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class ClassFighterSeeder extends Seeder
@@ -15,6 +16,7 @@ class ClassFighterSeeder extends Seeder
      */
     public function run()
     {
+        /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
         $class                = new Klass;

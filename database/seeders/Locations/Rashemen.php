@@ -13,7 +13,7 @@ class Rashemen extends Seeder
         $rashemen       = new Location;
         $rashemen->name = 'Rashemen';
         $rashemen->type = 'Country';
-        Location::where('name', 'Faerun')->firstOrFail()->save($rashemen);
+        Location::where('name', 'Faerun')->firstOrFail()->sub_locations()->save($rashemen);
 
         $location       = new Location;
         $location->name = 'Immilmar';

@@ -1043,11 +1043,11 @@ class RuneFormulasSeeder extends Seeder
         $formula->name        = 'Improved Summoning Circle';
         $formula->type        = 'Rune';
         $formula->level       = 12;
-        $formula->price       = '2,750 gp';
+        $formula->price       = '2,750 gp / 25,000 Permanency';
         $formula->method      = 'Inscribe';
         $formula->activation  = 'Action Command Activation';
         $formula->description = '<p>This is similar to the Summoning Circle vs Evil, except that it works on all outsiders.</p>';
-        $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Rune', 'Calling', 'Permanency' => ['meta' => 'Price: 25,000 gp']], [
+        $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Rune', 'Calling', 'Permanency' => 12], [
             'skills'   => ['Arcana' => ['dc' => 18]],
             'spells'   => [
                 'Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
@@ -1126,12 +1126,12 @@ class RuneFormulasSeeder extends Seeder
         $formula->method      = 'Etched, weapon without an Holy Rune';
         $formula->activation  = 'Reaction Command Activation';
         $formula->meta        = '<dt>Trigger</dt> <dd>You critically succeed at an attack roll on a good-aligned creature with the weapon</dd>';
-        $formula->description = "<p>A weapon with this rune deals 1D6 additional Evil damage when it hits a good target. If you are good, you become Enfeebled 2 while carrying or wielding this weapon.</p>
+        $formula->description = '<p>A weapon with this rune deals 1D6 additional Evil damage when it hits a good target. If you are good, you become Enfeebled 2 while carrying or wielding this weapon.</p>
 <p>A good creature who holds this weapon takes 1D6 Evil damage and is Enfeebled: 2 each turn they hold it. A neutral creature is Sickened: 1 while you hold it. For a good creature, just having it in their possession causes them to be Distracted while it is in their possession.</p>
 <p>The weapon with this Rune can cast Detect Good at will</p>
 <dl>
     <dt>Requirements</dt> <dd>You must cast the Dispel Good spell while in the presence of an Devil, Yugoloth or Demon of CR 6 or higher. This can be ignored if the Dispel Good Spell is cast by a Priest of an Evil god.</dd>
-</dl>";
+</dl>';
         $helper->saveFormula($formula, ['Evil', 'Enchantment', 'Formula', 'Magical', 'Rune'], [
             'skills'    => ['Crafting' => ['dc' => 13, 'meta' => 'Rune Etching']],
             'spells'    => ['Dispel Good', 'Detect Good'],
@@ -1179,7 +1179,7 @@ class RuneFormulasSeeder extends Seeder
         $formula->price       = '15,000 gp';
         $formula->method      = 'Etched, melee weapon that deals slashing damage';
         $formula->activation  = 'Action Focus Activation';
-        $formula->meta        = "<dt>Trigger</dt> <dd>You roll at least 2 sixes on your Hit roll and critically succeed at a Strike with the weapon targeting a creature with at least one head.</dd>";
+        $formula->meta        = '<dt>Trigger</dt> <dd>You roll at least 2 sixes on your Hit roll and critically succeed at a Strike with the weapon targeting a creature with at least one head.</dd>';
         $formula->description = "<p>When you activate a vorpal weapon, the triggering creature must succeed at a DC 20 CON Save, or it is decapitated. This kills any creature except ones that don't require a head to live (such as constructs, oozes, and some aberrations and undead). For creatures with multiple heads (such as ettins or hydras), this usually kills the creature only if you sever its last head.</p>";
         $helper->saveFormula($formula, ['Enchantment', 'Formula', 'Magical', 'Rune'], [
             'skills'   => ['Crafting' => ['dc' => 19, 'meta' => 'Rune Etching']],

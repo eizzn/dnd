@@ -125,7 +125,7 @@ class PowersISeeder extends Seeder
 
         $power                 = new Power;
         $power->name           = 'Intelligence Blast';
-        $power->action_type    = 'Double Action';
+        $power->action_type    = 'Triple Action';
         $power->display        = 'Mental';
         $power->range          = '30 feet';
         $power->targets        = 'One living creature with an INT score';
@@ -139,21 +139,22 @@ class PowersISeeder extends Seeder
     <dt>Critical Failure</dt> <dd>Double damage</dd>
 </dl>';
         $power->heightened = '<dl>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Heighten +2 without spending any additional Power Points</dd>
     <dt>Heightened (+3)</dt> <dd>Increase the INT damage by +1 and the Save DC by +1</dd>
-    <dt>Heightened (+3)</dt> <dd>If the target fails their Save, they gain the Stupefied 1 condition for 2 round.</dd>
+    <dt>Heightened (+3)</dt> <dd>If the target fails their Save, they gain the Stupefied 1 Condition for 2 round.</dd>
     <dt>Heightened (+4)</dt> <dd>The spell gains an area effect of a 30 foot cone and all in the area are affected.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 1);
 
         $power              = new Power;
         $power->name        = 'Intelligence Defense';
-        $power->action_type = 'Action';
+        $power->action_type = 'Reaction';
         $power->display     = 'Mental';
         $power->targets     = 'Self';
         $power->duration    = '1 round';
         $power->description = '<p>You raise a mental defense that grants a +2 bonus to WIS Saves and reduces the damage from Vitality Blast, Life Blast and INT Blast by 1.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and the Duration becomes 3 rounds</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +1</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus to WIS Saves by +1</dd>
 </dl>';

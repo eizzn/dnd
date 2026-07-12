@@ -14,6 +14,15 @@ class PlantMaterialsSeeder extends Seeder
      */
     public function run()
     {
+
+        $mat              = new Material;
+        $mat->name        = 'Ambrosia';
+        $mat->description = '<p>Good spellcasters can use Ambrosia in magic item creation.</p>
+<p>A living creature that drinks a dose of Ambrosia experiences a soothing sensation that wipes away minor aches and pains, takes the edge off grief and sadness, cures 1 point of damage, and 1 point of ability damage. These positive sensations and emotions persist for 1D4+1 hours.</p>
+<p>The Celestial Hebdomad subsist entirely on Ambrosia.</p>';
+        $mat->type = 'Liquid';
+        $mat->save();
+
         $mat              = new Material;
         $mat->name        = 'Ash Chives';
         $mat->description = 'This plant grow in clumps from underground bulbs and produce round, hollow gray leaves';
@@ -196,6 +205,13 @@ class PlantMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat              = new Material;
+        $mat->name        = 'Henbane';
+        $mat->type        = 'Plant or Herb';
+        $mat->rarity      = 'Uncommon';
+        $mat->description = '<p>Hyoscyamus niger, commonly known as Henbane, is a highly toxic plant in the nightshade family (Solanaceae). Historically used in herbal medicine as a sedative and pain reliever, it contains potent tropane alkaloids that make it extremely dangerous to consume and potentially fatal without professional medical processing.</p>';
+        $mat->save();
+
+        $mat              = new Material;
         $mat->name        = 'Kasuni Juice';
         $mat->description = 'A white dense liquid extracted from the spherical flower of a Kasuni plant';
         $mat->type        = 'Plant or Herb';
@@ -244,7 +260,7 @@ class PlantMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Mandrake Root';
-        $mat->description = 'This root have small air bags inside of it, and when the root is squished the air sounds like screams for a few seconds';
+        $mat->description = '<p>This root has small air bags inside of it, and when the root is squished the air sounds like screams for a few seconds</p>';
         $mat->type        = 'Plant or Herb';
         $mat->price       = '5 gp';
         $mat->alchemy     = '<p>Used to craft Potions of Electricity Resistance</p>';
@@ -268,6 +284,12 @@ class PlantMaterialsSeeder extends Seeder
         $mat->name        = 'Qamh';
         $mat->type        = 'Plant or Herb';
         $mat->description = '<p>A soft spongy grass that grows in the Elemental Plane of Fire</p>';
+        $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Sap';
+        $mat->type        = 'Plant or Herb';
+        $mat->description = '<p>Sap from a tree</p>';
         $mat->save();
 
         $mat              = new Material;

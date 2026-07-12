@@ -342,7 +342,7 @@ class GodsYondallaSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, [
-            'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion'
+            'Concentration', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
         ]);
         $class->features()->save(app()->features['channel_divinity_caster'], [
             'level' => 4,

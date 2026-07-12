@@ -137,7 +137,6 @@ class PotionFormulaSeeder extends Seeder
             'spells'  => ['Endure Elements' => ['meta' => 'Heightened +2']],
         ]);
 
-
         $formula                = new Formula;
         $formula->name          = 'Potion of Electricity Resistance';
         $formula->type          = 'Potion';
@@ -390,7 +389,7 @@ class PotionFormulaSeeder extends Seeder
         $formula->description   = '<p>When you drink this potion, it cures any disease afflicting you, and it removes the Blinded, and Deafened Conditions.</p>
 <p>The clear red liquid has tiny bubbles of light in it. It confers no benefit to undead or constructs.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion', 'Disease'], [
-            'skills'    => ['Crafting' => ['dc' => 12,'meta' => 'Brewing']],
+            'skills'    => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
             'feats'     => ['Improved Brew Potion'],
             'spells'    => ['Remove Disease' => ['meta' => 'Heightened +2']],
             'materials' => ['Livewood'],
@@ -541,7 +540,7 @@ class PotionFormulaSeeder extends Seeder
                 'Arcana'   => ['dc' => 17],
             ],
             'feats'     => ['Improved Brew Potion', 'Craft Wondrous Item'],
-            'spells'    => ['Slow', 'Sands of Time' => ['Heightened +3']],
+            'spells'    => ['Slow', 'Sands of Time' => ['meta' => 'Heightened +3']],
         ]);
 
         $formula                = new Formula;
@@ -576,7 +575,7 @@ class PotionFormulaSeeder extends Seeder
             'skills'    => ['Crafting' => ['dc' => 7, 'meta' => 'Brewing']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Revivify'],
-            'materials' => ['Ucre Bramble' => ['meta' => '1 oz crushed'],],
+            'materials' => ['Ucre Bramble' => ['meta' => '1 oz crushed']],
         ]);
 
         $formula                = new Formula;
@@ -589,8 +588,8 @@ class PotionFormulaSeeder extends Seeder
         $formula->bulk          = 'L';
         $formula->crafting_time = '3 hours';
         $formula->activation    = 'Imbibed; Operate Action';
-        $formula->description   = "<p>For 1 minute after the onset of this potion, your features become thin and angular and you become swifter and nimbler.</p>
-<p>You gain a +4 item bonus to DEX, and you become Accelerated 5.</p>";
+        $formula->description   = '<p>For 1 minute after the onset of this potion, your features become thin and angular and you become swifter and nimbler.</p>
+<p>You gain a +4 item bonus to DEX, and you become Accelerated 5.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
             'skills'  => ['Crafting' => ['dc' => 8, 'meta' => 'Brewing']],
             'feats'   => ['Brew Potion'],
@@ -607,8 +606,8 @@ class PotionFormulaSeeder extends Seeder
         $formula->bulk          = 'L';
         $formula->crafting_time = '5 hours';
         $formula->activation    = 'Imbibed; Operate Action';
-        $formula->description   = "<p>For 10 minutes after the onset of this potion, your features become thin and angular and you become swifter and nimbler</p>
-<p>You gain a +6 item bonus to DEX, and you become Accelerated 10.</p>";
+        $formula->description   = '<p>For 10 minutes after the onset of this potion, your features become thin and angular and you become swifter and nimbler</p>
+<p>You gain a +6 item bonus to DEX, and you become Accelerated 10.</p>';
         $helper->saveFormula($formula, ['Consumable', 'Potion'], [
             'skills'  => ['Crafting' => ['dc' => 12, 'meta' => 'Brewing']],
             'feats'   => ['Brew Potion'],
@@ -888,7 +887,7 @@ class PotionFormulaSeeder extends Seeder
             'spells'    => ['Purify Food and Drink'],
             'materials' => [
                 'Silverbark'  => ['meta' => '4 oz of sap'],
-                'Kreet Paste' => ['meta' => '1 oz finely crushed']
+                'Kreet Paste' => ['meta' => '1 oz finely crushed'],
             ],
         ]);
 
@@ -904,6 +903,51 @@ class PotionFormulaSeeder extends Seeder
             'materials' => ['Silver' => ['meta' => 'powdered']],
             'feats'     => ['Brew Potion'],
             'spells'    => ['Bane'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Potion of Lichdom';
+        $formula->type          = 'Potion';
+        $formula->level         = 12;
+        $formula->price         = '120,000 gp';
+        $formula->crafting_time = '3 days';
+        $formula->crafting      = '<ul>
+    <li>Mix the all the bloods (except the phoenix or yochlol) blood with the Henbane, Phase Spider Venom and Mandrake Root</li>
+    <li>Stir well</li>
+    <li>Then add the phoenix or yochlol blood and the heart</li>
+    <li>Stir well</li>
+    <li>Add the stomach acid from the wild boar</li>
+    <li>Cover and let stand, not sealed as gases will need to escape for at least a 10 day, stirring from time to time until the heart has entirely dissolved</li>
+    <li>Add the Giant Wasp Venom and shake vigorously</li>
+    <li>Add some of your own spittle. This will cause the concoction to cloud, going opaque and gray-white. If it does not cloud up, wait. If after half a day it still does not cloud up, then add a drop of your own blood each hour until it clouds up</li>
+    <li>Stir until it is a uniform color</li>
+    <li>When the potion looks like watery milk, it is ready to drink</li>
+</ul>';
+        $formula->description   = '<p>This potion is designed to kill the drinker in such a way as to allow them to die but be able to transfer their soul to a prepared container instead of being taken to the Outer Planes to your final rest. If there is no prepared soul container, then the drinker dies but their soul cannot pass to their final rest, perhaps becoming a ghost.</p>
+<p>If the potion fails to kill the drinker, then the drinker will suffer the following</p>
+<ul>
+    <li>48 Negative Damage (no Save)</li>
+    <li>Suffer 7 STR and DEX Damage (no Save)</li>
+    <li>Lose all body hair</li>
+    <li>Become wrinkled</li>
+    <li>Become Blinded for 2-5 hours</li>
+    <li>Typically vomit and then pass out for 2D4 minutes</li>
+</ul>';
+        $helper->saveFormula($formula, ['Consumable', 'Evil', 'Potion', 'Poison', 'Undead'], [
+            'skills'    => ['Crafting' => ['dc' => 13, 'meta' => 'Poison Making']],
+            'feats'     => ['Improved Brew Potion'],
+            'spells'    => [
+                'Poison Spray' => ['meta' => 'Heightened +4'],
+                'Gentle Repose',
+            ],
+            // formulas added in afterseeder
+            'materials' => [
+                'Blood'              => ['meta' => '2 drops from the one who will drink the potion, 1 drop dragon blood, 4 drops vampire blood or 8 drops from a vampire spawn, one pint of blood from a kirin, couatl, pegasus, unicorn, or xorn, one pint of blood from a humanoid who died of poisoning, 1 drop of phoenix or 3 drops from a yochlol'],
+                'Henbane'            => ['meta' => '8 drops of distilled'],
+                'Mandrake Root'      => ['meta' => '4 drops of distilled'],
+                'Heart'              => ['meta' => 'A human or demihuman who died from venom'],
+                'Stomach Acid'       => ['meta' => '1 pint from a wild boar'],
+            ],
         ]);
     }
 }

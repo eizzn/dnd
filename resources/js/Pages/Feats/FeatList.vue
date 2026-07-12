@@ -4,11 +4,12 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "feats";
 const filters = {
     name: null,
-    type: null,
+    type: [],
 };
 </script>
 
@@ -49,69 +50,55 @@ const filters = {
                                     <label for="feat-trigger-filter" class="block text-sm font-medium text-gray-700">Trigger</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="feat-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
-                                    <select
-                                        id="feat-types-filter"
+                                    <label class="block text-sm font-medium text-gray-700">Types</label>
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="generic">Generic</option>
-                                        <optgroup label="Schools of Magic">
-                                            <option value="abjuration">Abjuration</option>
-                                            <option value="conjuration">Conjuration</option>
-                                            <option value="divination">Divination</option>
-                                            <option value="enchantment">Enchantment</option>
-                                            <option value="evocation">Evocation</option>
-                                            <option value="illusion">Illusion</option>
-                                            <option value="necromancy">Necromancy</option>
-                                            <option value="transmutation">Transmutation</option>
-                                        </optgroup>
-                                        <optgroup label="Damage Type">
-                                            <option value="acid">Acid</option>
-                                            <option value="cold">Cold</option>
-                                            <option value="electricity">Electricity</option>
-                                            <option value="fire">Fire</option>
-                                            <option value="force">Force</option>
-                                            <option value="negative">Negative</option>
-                                            <option value="positive">Positive</option>
-                                            <option value="sonic">Sonic</option>
-                                        </optgroup>
-                                        <optgroup label="Psionic">
-                                            <option value="Metapsionic">Metapsionic</option>
-                                            <option value="psionic">Psionic</option>
-                                            <option value="psionic combat">Psionic Combat</option>
-                                            <option value="psionic focus">Psionic Focus</option>
-                                            <option value="stance">Stance</option>
-                                        </optgroup>
-                                        <optgroup label="Class Specific">
-                                            <option value="animal companion">Animal Companion</option>
-                                            <option value="arcane">Arcane</option>
-                                            <option value="artificer discipline">Artificer Discipline</option>
-                                            <option value="bardic inspiration">Bardic Inspiration</option>
-                                            <option value="channel divinity">Channel Divinity</option>
-                                            <option value="combat mastery">Combat Mastery</option>
-                                            <option value="divine">Divine</option>
-                                            <option value="fighter feat">Fighter Feat</option>
-                                            <option value="primal">Primal</option>
-                                            <option value="rage">Rage</option>
-                                            <option value="totem">Totem</option>
-                                            <option value="wizard school">Wizard School</option>
-                                        </optgroup>
-                                        <optgroup label="Racial">
-                                            <option value="dwarf">Dwarf</option>
-                                            <option value="elf">Elf</option>
-                                            <option value="gnome">Gnome</option>
-                                            <option value="halfling">Halfling</option>
-                                            <option value="human">Human</option>
-                                        </optgroup>
-                                        <optgroup label="Miscellaneous">
-                                            <option value="extra action">Extra Action</option>
-                                            <option value="item creation">Item Creation</option>
-                                            <option value="metamagic">Metamagic</option>
-                                            <option value="talent">Talent</option>
-                                        </optgroup>
-                                    </select>
+                                        :options="[
+                                            { value: 'generic', label: 'Generic' },
+                                            { value: 'abjuration', label: 'Abjuration' },
+                                            { value: 'conjuration', label: 'Conjuration' },
+                                            { value: 'divination', label: 'Divination' },
+                                            { value: 'enchantment', label: 'Enchantment' },
+                                            { value: 'evocation', label: 'Evocation' },
+                                            { value: 'illusion', label: 'Illusion' },
+                                            { value: 'necromancy', label: 'Necromancy' },
+                                            { value: 'transmutation', label: 'Transmutation' },
+                                            { value: 'acid', label: 'Acid' },
+                                            { value: 'cold', label: 'Cold' },
+                                            { value: 'electricity', label: 'Electricity' },
+                                            { value: 'fire', label: 'Fire' },
+                                            { value: 'force', label: 'Force' },
+                                            { value: 'negative', label: 'Negative' },
+                                            { value: 'positive', label: 'Positive' },
+                                            { value: 'sonic', label: 'Sonic' },
+                                            { value: 'Metapsionic', label: 'Metapsionic' },
+                                            { value: 'psionic', label: 'Psionic' },
+                                            { value: 'psionic combat', label: 'Psionic Combat' },
+                                            { value: 'psionic focus', label: 'Psionic Focus' },
+                                            { value: 'stance', label: 'Stance' },
+                                            { value: 'animal companion', label: 'Animal Companion' },
+                                            { value: 'arcane', label: 'Arcane' },
+                                            { value: 'artificer discipline', label: 'Artificer Discipline' },
+                                            { value: 'bardic inspiration', label: 'Bardic Inspiration' },
+                                            { value: 'channel divinity', label: 'Channel Divinity' },
+                                            { value: 'combat mastery', label: 'Combat Mastery' },
+                                            { value: 'divine', label: 'Divine' },
+                                            { value: 'fighter feat', label: 'Fighter Feat' },
+                                            { value: 'primal', label: 'Primal' },
+                                            { value: 'rage', label: 'Rage' },
+                                            { value: 'totem', label: 'Totem' },
+                                            { value: 'wizard school', label: 'Wizard School' },
+                                            { value: 'dwarf', label: 'Dwarf' },
+                                            { value: 'elf', label: 'Elf' },
+                                            { value: 'gnome', label: 'Gnome' },
+                                            { value: 'halfling', label: 'Halfling' },
+                                            { value: 'human', label: 'Human' },
+                                            { value: 'extra action', label: 'Extra Action' },
+                                            { value: 'item creation', label: 'Item Creation' },
+                                            { value: 'metamagic', label: 'Metamagic' },
+                                            { value: 'talent', label: 'Talent' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="feat-description-filter" class="block text-sm font-medium text-gray-700">Description</label>
@@ -136,9 +123,9 @@ const filters = {
                                         {{ feat.trigger }}
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <ul>
-                                            <li v-for="type in feat.types" :key="index">{{ type.name }}</li>
-                                        </ul>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in feat.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
                                         {{ feat.short_description }}

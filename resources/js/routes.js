@@ -35,6 +35,8 @@ import MonsterList from "@/Pages/Monsters/MonsterList.vue";
 import MonsterDetails from "@/Pages/Monsters/MonsterDetails.vue";
 import MaterialList from "@/Pages/Materials/MaterialList.vue";
 import MaterialDetails from "@/Pages/Materials/MaterialDetails.vue";
+import TemplateList from "@/Pages/Templates/TemplateList.vue";
+import TemplateDetails from "@/Pages/Templates/TemplateDetails.vue";
 
 export default [
     {
@@ -226,5 +228,15 @@ export default [
         path: '/type/:id',
         name: 'TypeDetails',
         component: TypeDetails,
+    },
+    {
+        path: '/templates',
+        name: 'TemplateList',
+        component: TemplateList,
+    },
+    {
+        path: '/template/:id',
+        name: TemplateDetails,
+        component: TemplateDetails,
     }
 ];

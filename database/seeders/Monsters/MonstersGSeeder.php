@@ -526,7 +526,7 @@ class MonstersGSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D3 -2 Piercing.</dd>
 </dl>';
         $monster->description = '<p>Mustevals look like 2‑foot-tall (0.61‑meter) humanoid mice. They are agile and rarely stay still. When dealing with other creatures they often use their change self ability to appear differently.</p>';
-        $helper->saveMonster($monster, ['Guardinal', 'Celestial', 'Outer Planes', 'Good', 'Outsider', 'Neutral'], [
+        $helper->saveMonster($monster, ['Guardinal', 'Celestial', 'Outer Planes', 'Good', 'Outsider', 'Neutral', 'Familiar'], [
             'stats'  => [7, 18, 12, 11, 14, 13, 2, 2],
             'skills' => [
                 'Acrobatics' => ['dc' => 7],

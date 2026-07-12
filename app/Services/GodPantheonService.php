@@ -21,8 +21,9 @@ class GodPantheonService implements Contracts\GodPantheonService
     {
         $search = $this->getData($search);
         $order  = '"Greater", "Intermediate", "Lesser", "Demi",
-        "Archdevil", "Demon Lord", "Altraloth", "Solar", "Guardinal Paragon", "Slaad Lord", "Prime", "Fey Lord", "Archomental",
-        "Duke of Hell", "Tome Archon",
+        "Archdevil", "Demon Prince", "Altraloth", "Tome Archon", "Guardinal Paragon", "Slaad Lord", "Prime", "Fey Lord", "Archomental",
+        "Devil Lord", "Demon Lord",
+        "Duke of Hell", "Solar",
         "Devil", "Demon", "Yugoloth", "Archon", "Guardinal", "Slaad", "Modron", "Archfey",
         "Hero",
         "Dead", "Departed"';

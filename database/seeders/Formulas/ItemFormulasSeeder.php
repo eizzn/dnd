@@ -21,11 +21,11 @@ class ItemFormulasSeeder extends Seeder
         $formula                = new Formula;
         $formula->name          = 'Amulet of Health';
         $formula->type          = 'Item';
-        $formula->level         = 7;
+        $formula->level         = 12;
         $formula->price         = '10,000 gp';
         $formula->bulk          = 'L';
         $formula->crafting_time = '1 week';
-        $formula->description = '<ul>
+        $formula->description   = '<ul>
     <li>You gain a +4 Bonus to CON.</li>
 </ul>';
         $helper->saveFormula($formula, ['Magical', 'Attunement'], [
@@ -177,19 +177,50 @@ class ItemFormulasSeeder extends Seeder
             'spells' => ["Fox's Cunning" => ['meta' => 'Heightened +2']],
         ]);
 
-        $formula              = new Formula;
-        $formula->name        = 'Lich Phylactery';
-        $formula->type        = 'Item';
-        $formula->level       = 12;
-        $formula->price       = '100,000 gp';
-        $formula->bulk        = 'L';
-        $formula->description = '<p>A Lich Phylactery is required for the creation of a Lich and maintain their undead state. Every phylactery is unique in nature, defense, and means of destruction.</p>
-<p>Making a phylactery is a highly expensive and taxing effort, requiring a high degree of spellcasting ability and total materials valued between 100,000 to 120,000 gp. While any object could be chosen to be the lich\'s phylactery, it must be made of a solid material (not wood) and be of high-quality craftmanship. It can be non-magical or already be a magical item. It must cost no less than 2,000 gp or much more.</p>
-<p>First, the prospective lich must cast the spell Enchant an Item on the object. If this works, it is followed up with multiple Soul Cage castings, until 20 CR levels are stored in the phylactery. If it successfully captures enough souls, then the would be lich casts Magic Jar, and enters the phylactery, and must consume the trapped souls. At this point, your soul is bound to the mortal realm (and the phylactery), stopping it from going onto the Outer Planes after death.</p>
-<p>At this point, you must consume a special Potion designed to kill you. This Potion need not be made by you (the Potion creation requires the spells Magic Jar, Poison, and Gentle Repose). On your death, you enter the your Phylactery and you are a full Lich.</p>
+        $formula                = new Formula;
+        $formula->name          = 'Lich Phylactery';
+        $formula->type          = 'Item';
+        $formula->level         = 12;
+        $formula->price         = '100,000 gp';
+        $formula->crafting_time = 'At least 10 days';
+        $formula->bulk          = 'L';
+        $formula->description   = "<p>A Lich Phylactery is required for becoming a Lich and maintain your undead state. Classically, it takes the shape of a metal tube or box containing strips of parchment silver inked with the arcane runes described below and then metal sealed, welded or an equivalent, sometimes after the ends have been pinched and shut by a smith. Other examples are a gold ring with the arcane runes engraved on the inside of the ring. A crystal cube with the runes carved into all six sides. A flawless gem, usually a diamond, ruby, sapphire, or emerald, engraved with one of each of the necessary runes on a facet. The gem and cube forms are sometimes mounted on a crown or tiara, staff, coffer, royal regalia (such as an orb or scepter)</p>
+<p>Making a phylactery is a highly expensive and taxing effort, requiring a high degree of spellcasting ability and total materials valued between 100,000 to 120,000 gp. While any object can be chosen to be the lich's phylactery, it must be made of a solid non-organic material and be of high-quality craftsmanship. It can be non-magical or already be a magical item (however magical items causes the Crafting skill to become harder by +7). It must cost no less than 2,000 gp or much more. The inside of the container must be inscribed with 4 arcane runes.</p>
+<ul>
+    <li>Your own wizard mark or personal heraldry</li>
+    <li>Sigil for immortality, often a triquetra, an ouroboros, or a double-ended ankh, looped cross at both ends of the stem</li>
+    <li>A binding symbol, often an endless knot or arcris (a horizontal figure-eight with two rolled-up scrolls drawn through its loops passing under the upper arcs and passing over lower arcs, the in flaps of both scrolls pointing outwards towards the end arcs of the figure-eight. There can be more than one of these symbols</li>
+    <li>A dark magic power symbol. This can be a tensil, the coil, a lightning bolt coil, a zig-zag vertical line that curls to the right around and in on itself at least 3 arcs deep. The hand of power, an upright human left hand palm to viewer wherein the thumb and smallest finger are lengthened and curved smoothly around to rejoin the base of the hand which is severed at the wrist, its lower edge depicted as about to drip blood in several places. The burst star, a four pointed star with its rays on the diagonals, 45 degree angles, and arcs drawn halfway along the rays between them as if a smaller central circle has burst and its four pieces are exploding outwards in a uniform fashion. There can be more than one of these symbols on a soul container.</li>
+</ul>
+<p>First, the prospective lich must cast the spell Invoke Magic on the object. If this works, it is followed up with multiple Soul Cage castings, until 20 CR levels are stored in the phylactery. If it successfully captures enough souls, then the would-be lich casts Magic Jar, and drinks a Potion of Lichdom (which you must prepare beforehand). This potion should kill you, at which point your soul enters the phylactery and consumes the souls trapped there. You are now a full lich and your soul returns to your body after 3 hours.</p>
 <p>After each death, you must trap another 20 CR level of souls within your Phylactery so that on your next death, your Phylactery can create a new body for you to inhabit.</p>
-<p>If you should die and your Phylactery does not have the needed souls, your soul is trapped in your Phylactery and you must somehow gain access to a freshly dead body, or somehow create a body through your available spells.</p>';
-        $helper->saveFormula($formula, ['Undead']);
+<p>If you should die and your Phylactery does not have the needed souls, your soul is trapped in your Phylactery and you must somehow gain access to a freshly dead body, or somehow create a body through your available spells.</p>";
+        $helper->saveFormula($formula, ['Undead'], [
+            'skills'    => ['Crafting' => ['dc' => 14, 'meta' => 'Various depending on the form of the phylactery (container). Also, calligraphy, for the 4 arcane runes to be inscribed on the inside of the container']],
+            'spells'    => ['Invoke Magic', 'Soul Cage', 'Magic Jar'],
+            'feats'     => ['Craft Wondrous Item', 'Necromancer'],
+            'materials' => ['Silver' => ['meta' => 'Ground into the ink for the arcane sigils or as a surface for the sigils to be inscribed upon.']],
+            // formulas in afterseeder
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = "Vorva Calahond's Lichdom";
+        $formula->type          = 'Infusion';
+        $formula->level         = 11;
+        $formula->price         = '90,000 gp';
+        $formula->crafting_time = 'At least 3 days';
+        $formula->crafting      = '<ul>
+    <li>Requires a vade (a living creature that will be the vessel the lich will inhabit). Willing or unwilling, bound or unbound, magically held or not.</li>
+    <li>Inscribe the 4 sigils (exactly the same as the ones from Lich Phylactery) into the skin of the vade so that blood is drawn</li>
+    <li>The perspective lich and the vade must both be unclad and in close contact (typically you lay on top of the vade)</li>
+    <li>You then drink a Potion of Lichdom. If you succeed, the vade now hosts your soul and you can continue your undead life through your lich body.</li>
+</ul>';
+        $formula->description   = '<p>Vorva Calahond has devised a new path to lichdom. It is simpler but requires a living creature (a vade) to act as what would traditionally be called a phylactery. While the vade lives, you cannot die. If the vade dies, then your soul wanders without a creature to act as your host. You must go through this process again on a new host (perhaps through minions that are aware of what to do in the event of your hosts death). If you do not find another host within 2 weeks, you become a ghost.</p>';
+        $helper->saveFormula($formula, ['Undead'], [
+            'skills'    => ['Crafting' => ['dc' => 12, 'meta' => 'Calligraphy, for the 4 arcane runes']],
+            'spells'    => ['Magic Jar'],
+            'feats'     => ['Necromancer', 'Inscribe Tattoo'],
+        ]);
 
         $formula              = new Formula;
         $formula->name        = 'Graystaff';

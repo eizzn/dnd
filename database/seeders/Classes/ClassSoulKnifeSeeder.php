@@ -306,12 +306,6 @@ class ClassSoulKnifeSeeder extends Seeder
         app()->features = $features;
 
         $helper->addFeatsToClass($class, [
-            'Psionic Talent'     => 2,
-            'Expanded Knowledge' => 6,
-
-            'Focused Mind'          => 6,
-            'Improved Focused Mind' => 12,
-
             'Psychic Strike'          => 3,
             'Improved Psychic Strike' => 9,
             'Quick Psychic Strike'    => 10,
@@ -329,12 +323,15 @@ class ClassSoulKnifeSeeder extends Seeder
 
             'Deflect Ranged Attack'  => 5,
             'Deflect Magical Attack' => 12,
+
+            'Extra Melee Action'    => 7,
+            'Extra Ranged Action'   => 7,
         ]);
 
         $helper->addPowersToClass($class, [
             1 => ['Awareness', 'Burst', 'Charisma Defense', 'Dexterity Defense', 'Inertial Armor', 'Intelligence Defense',
                 'Shift', 'Strength Defense', 'Telekinesis', 'Vigor', 'Wisdom Defense', ],
-            2 => ['Animal Sight', 'Body Equilibrium', 'Danger Sense', 'Flex Form', 'Haste', 'Levitate'],
+            2 => ['Animal Sight', 'Body Equilibrium', 'Danger Sense', 'Darkness', 'Flex Form', 'Haste', 'Levitate'],
             3 => ['Air Walk', 'Combat Sense', 'Dimension Slide', 'Inertial Barrier'],
             4 => ['Adapt Body', 'Dimension Door', 'Schism'],
         ]);

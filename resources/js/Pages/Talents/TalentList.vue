@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "talents";
 const filters = {
@@ -49,6 +50,43 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Types</label>
+                                    <MultiSelect
+                                        v-model="filters.type"
+                                        :options="[
+                                            { value: 'animal companion', label: 'Animal Companion' },
+                                            { value: 'attack', label: 'Attack' },
+                                            { value: 'attack of opportunity', label: 'Attack of Opportunity' },
+                                            { value: 'arcane', label: 'Arcane' },
+                                            { value: 'charge', label: 'Charge' },
+                                            { value: 'concentration', label: 'Concentration' },
+                                            { value: 'diminishing', label: 'Diminishing' },
+                                            { value: 'divine', label: 'Divine' },
+                                            { value: 'finisher', label: 'Finisher' },
+                                            { value: 'flanking', label: 'Flanking' },
+                                            { value: 'graft', label: 'Graft' },
+                                            { value: 'grapple', label: 'Grapple' },
+                                            { value: 'heroic surge', label: 'Heroic Surge' },
+                                            { value: 'initiative', label: 'Initiative' },
+                                            { value: 'item creation', label: 'Item Creation' },
+                                            { value: 'melee', label: 'Melee' },
+                                            { value: 'move', label: 'Move' },
+                                            { value: 'mounted', label: 'Mounted' },
+                                            { value: 'precision', label: 'Precision' },
+                                            { value: 'primal', label: 'Primal' },
+                                            { value: 'psionic', label: 'Psionic' },
+                                            { value: 'psionic combat', label: 'Psionic Combat' },
+                                            { value: 'psionic focus', label: 'Psionic Focus' },
+                                            { value: 'rage', label: 'Rage' },
+                                            { value: 'ranged', label: 'Ranged' },
+                                            { value: 'reaction', label: 'Reaction' },
+                                            { value: 'shield', label: 'Shield' },
+                                            { value: 'skill', label: 'Skill' },
+                                            { value: 'stance', label: 'Stance' },
+                                            { value: 'strike', label: 'Strike' },
+                                            { value: 'unarmed', label: 'Unarmed' },
+                                            { value: 'wild shape', label: 'Wild Shape' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Description</label>
@@ -73,9 +111,9 @@ const filters = {
                                         {{ talent.trigger }}
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <ul>
-                                            <li v-for="type in talent.types" :key="index">{{ type.name }}</li>
-                                        </ul>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in talent.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
                                         {{ talent.description }}

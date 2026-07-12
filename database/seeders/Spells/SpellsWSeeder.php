@@ -55,6 +55,21 @@ class SpellsWSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Good', 'Mental', 'Exalted'], 6);
 
         $spell              = new Spell;
+        $spell->name        = 'Wraithform';
+        $spell->casting     = 'Material Casting, Somatic Casting';
+        $spell->targets     = 'Self';
+        $spell->duration    = '1 minute';
+        $spell->description = '<p>When you cast this spell, you and all of your gear become nearly insubstantial. You gain Damage Resistance to all attacks unless the source has Ghost Touch or has the Force type or can affect Ethereal targets (You do not gain the ability to Fly from this spell). Your attacks (spells and physical attacks) only affect targets on the Ethereal Plane.</p>
+<p>You may pass through small holes or narrow openings, even mere cracks, with all your gear or hold in your hand</p>
+<p>Unintelligent undead will perceive you as an Undead and will not attack unless specifically commanded to do so or you attack the Undead.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+1)</dt> <dd>You gain the ability to use an Action to fully move to the Ethereal Plane until the beginning of your next turn. If you are still on a solid object at the beginning of your turn, you suffer 4D6 Force Damage and you are forced to the closest open space.</dd>
+    <dt>Heightened (+1)</dt> <dd>You gain the ability to make Melee Touch Attacks that deal 4D6 Force Damage.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Illusion', 'Ethereal'], 3);
+
+        $spell              = new Spell;
         $spell->name        = 'Wall of Dispel Magic';
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '60 feet';

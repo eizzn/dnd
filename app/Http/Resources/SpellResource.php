@@ -39,6 +39,7 @@ class SpellResource extends JsonResource
             }),
             'classes'        => $this->classes
                 ->sortBy('name')
+                ->values()
                 ->map(function (Klass $class) {
                     return [
                         'id'    => $class->id,
@@ -48,6 +49,7 @@ class SpellResource extends JsonResource
                 }),
             'feats'          => $this->feats
                 ->sortBy('name')
+                ->values()
                 ->map(function (Feat $feat) {
                     return [
                         'id'    => $feat->id,

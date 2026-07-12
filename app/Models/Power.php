@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string      description
  * @property string|null requirements
  * @property string|null action_type
+ * @property string|null maintenance_cost
  * @property string|null display
  * @property string|null range
  * @property string|null area
@@ -35,7 +36,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  */
 class Power extends Model
 {
-    use FeatableTrait, Propertyable, TypeableTrait, TalentableTrait;
+    use FeatableTrait, Propertyable, TalentableTrait, TypeableTrait;
 
     public $timestamps = false;
 

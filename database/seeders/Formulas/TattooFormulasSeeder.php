@@ -80,7 +80,7 @@ class TattooFormulasSeeder extends Seeder
     <dt>Intricacy</dt> <dd>Ornate</dd>
 </dl>';
         $helper->saveFormula($formula, ['Abjuration', 'Attunement', 'Tattoo'], [
-            'skills'   => ['Crafting' => ['dc' => 16, 'meta' => 'Calligraphy']],
+            'skills'   => ['Crafting' => ['dc' => 25, 'meta' => 'Calligraphy']],
             'feats'    => ['Inscribe Tattoo'],
             'formulas' => ['Ink, Spell Writing (Common)'],
         ]);
@@ -133,11 +133,11 @@ class TattooFormulasSeeder extends Seeder
         $formula->price       = 'Ink + 3,500 gp';
         $formula->method      = '';
         $formula->bulk        = '-';
-        $formula->description = '<p>As an Action, you may wreathe your fist in elemental energy, of a type chosen when the tattoo is first applied. Your Unarmed Strikes are considered magical, and deal an extra 1D6 + 1 damage of the chose elemental type. If inked with Elemental ink of the same type as the damage, attacks with the fist deal 1D8 + 1 damage of that type instead.</p>
+        $formula->description = '<p>As an Action, you may wreathe your fist in elemental energy, of a type chosen when the tattoo is first applied. Your Unarmed Strikes are considered magical, and deal an extra 1D6 + 1 damage of the chosen elemental type. If inked with Elemental ink of the same type as the damage, attacks with the fist deal 1D8 + 1 damage of that type instead.</p>
 <p>If the fist deals Fire damage and targets a flammable object that is not being worn or carried, the target catches fire. Against plant-based creatures, your fist deals 2 more points of damage.</p>
 <p>If the fist deals Electricity damage and targets a creature wearing metal armor, you Hit with Advantage. This also applies against targets made completely out of metal (ex. metal golems)</p>
 <p>If the fist deals Cold damage, fire-based creatures take an additional 2 points of Cold damage from these attacks.</p>
-<p>Up to three types of Elemental Ink may be used in the application of this tattoo, and upi may choose between the types each time they activate the tattoo.</p>
+<p>Up to three types of Elemental Ink may be used in the application of this tattoo, and you may choose between the types each time you activate the tattoo.</p>
 <p>When you activate this tattoo, the effects persist for 1 hour or until dispelled. This tattoo may be activated a max number of times equal to your CON modifier (minimum 1) between each Long Rest.</p>
 <dl>
     <dt>Location</dt> <dd>Arm</dd>

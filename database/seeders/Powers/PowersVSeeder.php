@@ -29,7 +29,7 @@ class PowersVSeeder extends Seeder
         $power->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>You may generate a more Power poison from Formulas</dd>
 </dl>';
-        $helper->addTypesToPower($power, ['Psionic', 'Psychometabolism', 'Poison'], 1);
+        $helper->addTypesToPower($power, ['Psychometabolism', 'Poison'], 1);
 
         $power              = new Power;
         $power->name        = 'Vigor';

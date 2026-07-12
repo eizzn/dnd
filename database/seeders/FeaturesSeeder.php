@@ -67,6 +67,7 @@ class FeaturesSeeder extends Seeder
         $feature->description = '<ul>
     <li>You gain a Divine Warrior feat</li>
     <li>You may cast Smite Cantrips without using a Spell Slot</li>
+    <li>You may gain a Divine Mount</li>
 </ul>';
         $helper->saveFeature($feature);
 
@@ -205,10 +206,22 @@ class FeaturesSeeder extends Seeder
         $helper->saveFeature($feature, ['Psionic']);
 
         $feature              = new Feature;
+        $feature->key         = 'psychic';
+        $feature->name        = 'Psychic';
+        $feature->description = '<p>You can use Character Level Feat or any Class Group Feat to take Psychic Feat</p>';
+        $helper->saveFeature($feature, ['Psionic']);
+
+        $feature              = new Feature;
         $feature->key         = 'item_creation';
         $feature->name        = 'Item Creation Feat';
         $feature->description = '<p>You gain a Feat with the Item Creation type.</p>';
         $helper->saveFeature($feature, ['Item Creation']);
+
+        $feature              = new Feature;
+        $feature->key         = 'spell_point';
+        $feature->name        = 'Spell Point';
+        $feature->description = '<p>You gain 1 Spell Point</p>';
+        $helper->saveFeature($feature, ['Spell Pool']);
 
         $feature              = new Feature;
         $feature->key         = 'spell_pool';
@@ -354,6 +367,12 @@ class FeaturesSeeder extends Seeder
         $feature->name        = 'Wild Talent';
         $feature->description = '<p>You gain the Wild Talent feat. If you already have the Wild Talent feat, they gain either the Expanded Knowledge or Psionic Talent feat.</p>';
         $helper->saveFeature($feature, ['Psionic']);
+
+        $feature              = new Feature;
+        $feature->key         = 'damage_reduction';
+        $feature->name        = 'Damage Reduction';
+        $feature->description = '<p>You gain the specified amount of Damage Reduction as Natural Armor';
+        $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'channel_divinity_caster';
@@ -652,5 +671,18 @@ class FeaturesSeeder extends Seeder
         $feature->name        = 'Aberrant Mind';
         $feature->description = '<p>Due to your aberration origin, your mind is too alien to understand or control. You are immune to any spell or psionic effect that tries to either read your thoughts or control your actions unless the attacker is also an aberration.</p>';
         $helper->saveFeature($feature, ['Aberration']);
+
+        $feature              = new Feature;
+        $feature->key         = 'true_sight';
+        $feature->name        = 'True Sight';
+        $feature->description = '<p>Your vision is enhanced within the specified range. Within the range, your vision pierces through the following</p>
+<dl>
+    <dt>Darkness</dt> <dd>You can see in normal and magical Darkness</dd>
+    <dt>Invisibility</dt> <dd>You can see creatures and objects that have the Invisible Condition</dd>
+    <dt>Visual Illusions</dt> <dd>You can see through all Glamors</dd>
+    <dt>Transformations</dt> <dd>You discern the true form of any creature or object you can see that has been transformed by magic</dd>
+    <dt>Ethereal Plane</dt> <dd>You see into the Ethereal Plane</dd>
+</dl>';
+        $helper->saveFeature($feature);
     }
 }

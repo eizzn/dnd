@@ -2,7 +2,6 @@
 
 namespace Database\Seeders\Gods;
 
-use App\Models\Feature;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -91,15 +90,26 @@ class GodsElementalsSeeder extends Seeder
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
 
-        $feature              = new Feature;
-        $feature->key         = 'channel_divinity_wind';
-        $feature->name        = 'Channel Divinity: Gust of Wind';
-        $feature->description = '<p>You can use your Channel Divinity to cause a wind to blow.</p>
-<p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you cast the spell Gust of Wind.</p>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
-
         $helper->addFeaturesToClass($class, [
-            'channel_divinity_wind' => [2],
+            'spell_point' => [3],
+        ]);
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => '<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Gust of Wind</dd>
+</dl>', ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 4,
+            'meta'  => 'Weapon Focus with any bow',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 6,
+            'meta'  => 'Extra Ranged Attack',
+        ]);
+        $class->features()->save(app()->features['feat'], [
+            'level' => 8,
+            'meta'  => 'Weapon Specialization with any bow',
         ]);
         $helper->addChannelDivinityToClass($class, 'positive', 'Air Elementals');
         $helper->addDomainToClass($class, ['Air']);
@@ -198,7 +208,7 @@ class GodsElementalsSeeder extends Seeder
         $class->name          = 'Earthwalkers';
         $class->type          = 'Priest';
         $class->key_attribute = 'WIS';
-        $class->weapons       = 'Trained Bludgeoning Weapons';
+        $class->weapons       = 'Trained with all Bludgeoning Weapons';
         $class->armors        = 'Trained in all light armor, medium armor, heavy armor, and shields';
         $class->description   = '<p>Priest of Grumbar</p>';
         $class->has_spells    = 1;
@@ -216,6 +226,21 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSkillsToClass($class, [
             'Concentration', 'Diplomacy', 'Lore', 'Medicine', 'Religion', 'Society',
         ]);
+
+        $helper->addFeaturesToClass($class, [
+            'spell_point' => [3],
+        ]);
+        $class->features()->save(app()->features['channel_divinity_caster'], [
+            'level' => 3,
+            'meta'  => "<dl>
+    <dt>Actions</dt> <dd>Action</dd>
+    <dt>Spell</dt> <dd>Bear's Endurance</dd>
+</dl>", ]);
+        $class->features()->save(app()->features['damage_reduction'], [
+            'level' => 4,
+            'meta'  => 'Damage Reduction: 1',
+        ]);
+
         $helper->addChannelDivinityToClass($class, 'positive', 'Earth Elementals');
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead', 5);
         $helper->addDomainToClass($class, ['Protection', 'Earth', 'Knowledge']);

@@ -18,20 +18,37 @@ class PowersDSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Danger Sense';
-        $power->action_type = 'Triple Action';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = '3 hours';
-        $power->description = '<p>The round before you are about to be attacked, you become aware of danger. You know the direction and the general nature of the attack (charging beast, arrow barrage, magic spell attack, psionic attack, etc) and direction, but not who is attacking or details of the spell or power. You gain a free round of Actions before anyone else.</p>
+        $power                   = new Power;
+        $power->name             = 'Danger Sense';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '6 hours';
+        $power->description      = '<p>The round before you are about to be attacked, you become aware of danger. You know the direction and the general nature of the attack (charging beast, arrow barrage, magic spell attack, psionic attack, etc) and direction, but not who is attacking or details of the spell or power. You gain a free round of Actions before anyone else.</p>
 <p>This power has no effect while you are already in combat.</p>
 <p>If you have this power active and you surprise attack creature that has this power active, you become aware of the individual with the power, but not in time to change Actions that are already in motion.</p>';
-        $power->heightened  = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>You gain the benefits of the Uncanny Dodge Class Feature. If you already have the Uncanny Dodge Class Feature, then you gain the benefits of the Improved Uncanny Dodge Class Feature instead.</dd>
     <dt>Heightened (+2)</dt> <dd>You gain the benefits of the Improved Uncanny Dodge Class Feature.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Clairsentience'], 3);
+
+        $power                   = new Power;
+        $power->name             = 'Darkness';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Visual';
+        $power->range            = '60 foot range / 15-foot emanation';
+        $power->duration         = '10 minutes';
+        $power->description      = "<p>A shroud of darkness prevents light from penetrating or emanating within the area. This suppresses magical light of the spell's level or lower. Light can't pass through, so creatures in the area can't see outside. From outside, it appears as a globe of pure darkness.</p>
+<p>This Power can Counter (but not Counterspell) any Spell with the Light type of level 2 or lower.</p>";
+        $power->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>Double the Range</dd>
+    <dt>Heightened (+2)</dt> <dd>Double the Area</dd>
+    <dt>Heightened (+2)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $helper->addTypesToPower($power, ['Psychokinesis', 'Darkness', 'Light'], 2);
 
         $power                 = new Power;
         $power->name           = 'Daze';
@@ -49,21 +66,22 @@ class PowersDSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 1);
 
-        $power                 = new Power;
-        $power->name           = 'Deafness';
-        $power->action_type    = 'Double Action';
-        $power->display        = 'Visual';
-        $power->save_attribute = 'CON';
-        $power->requirements   = 'You must have the Body Adjustment Power';
-        $power->range          = 'Touch';
-        $power->targets        = 'Living creature touched';
-        $power->duration       = '1 minute';
-        $power->description    = '<p>Make a Melee Touch Attack. If you hit, the target is Deaf. At the beginning of the targets turn, they may make a CON Save. If they Succeed, the Deafness Condition ends. After the Duration, the Deafness Condition ends without needed a Save.</p>';
-        $power->saves          = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Deafness';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Visual';
+        $power->save_attribute   = 'CON';
+        $power->requirements     = 'You must have the Body Adjustment Power';
+        $power->range            = 'Touch';
+        $power->targets          = 'Living creature touched';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>Make a Melee Touch Attack. If you hit, the target is Deaf. At the beginning of the targets turn, they may make a CON Save. If they Succeed, the Deafness Condition ends. After the Duration, the Deafness Condition ends without needed a Save.</p>';
+        $power->saves            = '<dl>
     <dt>Success</dt> <dd>The Deafness Condition ends</dd>
     <dt>Failure</dt> <dd>The Deafness Condition continues</dd>
 </dl>';
-        $power->heightened     = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>Double the Duration</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 2);
@@ -90,23 +108,24 @@ class PowersDSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 4);
 
-        $power                 = new Power;
-        $power->name           = 'Deceleration';
-        $power->action_type    = 'Double Action';
-        $power->display        = 'Auditory';
-        $power->range          = '60 feet';
-        $power->targets        = 'One medium or smaller creature';
-        $power->duration       = '10 minutes';
-        $power->requirements   = 'You must have the Telekinesis power';
-        $power->save_attribute = 'STR';
-        $power->description    = '<p>You cause a passive telekinetic field on the target that slows their movement.</p>';
-        $power->saves          = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Deceleration';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Auditory';
+        $power->requirements     = 'You must have the Telekinesis power';
+        $power->range            = '60 feet';
+        $power->targets          = 'One medium or smaller creature';
+        $power->duration         = '30 minutes';
+        $power->save_attribute   = 'STR';
+        $power->description      = '<p>You cause a passive telekinetic field on the target that slows their movement.</p>';
+        $power->saves            = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>The target can only take one Move Action per turn or only one Attack Action per turn. (if the target takes 2 Move Actions, then they can only make 1 Attack Action, and vice versa)</dd>
     <dt>Failure</dt> <dd>The target can only take one Move Action per turn and only one Attack Action per turn.</dd>
     <dt>Critical Failure</dt> <dd>As failure, and the target also loses one Action each turn</dd>
 </dl>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>You can affect a creature one size category larger</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Force'], 1);
@@ -131,19 +150,20 @@ class PowersDSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 1);
 
-        $power                 = new Power;
-        $power->name           = 'Demoralize';
-        $power->action_type    = 'Double Action';
-        $power->display        = 'Material and Mental';
-        $power->area           = '30 feet radius emanation';
-        $power->targets        = 'All living creatures in the area, excluding yourself';
-        $power->save_attribute = 'WIS';
-        $power->duration       = '1 minute';
-        $power->description    = '<p>You fill all near you with self-doubt. All within the area must make a WIS Save or become Shaken for the duration. At the end of each affected creatures turn, they may make another Save to end the effect. Creatures without an INT score are unaffected.</p>';
-        $power->heightened     = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Demoralize';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Material and Mental';
+        $power->area             = '30 feet radius emanation';
+        $power->targets          = 'All living creatures in the area, excluding yourself';
+        $power->save_attribute   = 'WIS';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>You fill all near you with self-doubt. All within the area must make a WIS Save or become Shaken for the duration. At the end of each affected creatures turn, they may make another Save to end the effect. Creatures without an INT score are unaffected.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the range by +5 feet.</dd>
 </dl>';
-        $power->saves          = '<dl>
+        $power->saves            = '<dl>
     <dt>Success</dt> <dd>No longer Shaken</dd>
     <dt>Failure</dt> <dd>Shaken</dd>
 </dl>';
@@ -162,18 +182,19 @@ class PowersDSeeder extends Seeder
         $power->saves          = '<dl>
     <dt>Success</dt> <dd>Unaffected</dd>
     <dt>Failure</dt> <dd>1/3 remaining Hit Points and lose a limb</dd>
-    <dt>Critical Failure</dt> <dd>Dying 3 condition</dd>
+    <dt>Critical Failure</dt> <dd>Dying 1 condition</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation'], 7);
 
-        $power              = new Power;
-        $power->name        = 'Detect Psionics';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Auditory, Visual';
-        $power->targets     = 'Self';
-        $power->area        = '60-ft Cone-shaped';
-        $power->duration    = 'Concentration, 10 minutes';
-        $power->description = '<p>You detect psionic auras. A psionic aura is given off by any active or permanent power, or during the use of any psionic feat. Characters who have levels in a psionic class, creatures with the psionic subtype, and creatures with the Wild Talent feat possess psionic auras. The amount of information revealed by the manifestation of this power depends on how long you study a particular area or subject.</p>
+        $power                   = new Power;
+        $power->name             = 'Detect Psionics';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Auditory, Visual';
+        $power->targets          = 'Self';
+        $power->area             = '60-ft Cone-shaped';
+        $power->duration         = 'Concentration, 30 minutes';
+        $power->description      = '<p>You detect psionic auras. A psionic aura is given off by any active or permanent power, or during the use of any psionic feat. Characters who have levels in a psionic class, creatures with the psionic subtype, and creatures with the Wild Talent feat possess psionic auras. The amount of information revealed by the manifestation of this power depends on how long you study a particular area or subject.</p>
 <dl>
     <dt>1st round</dt> <dd>Presence or absence of psionic auras</dd>
     <dt>2nd round</dt> <dd>Number of different psionic auras and the strength of the most potent aura</dd>
@@ -251,13 +272,13 @@ class PowersDSeeder extends Seeder
 
         $power                 = new Power;
         $power->name           = 'Dexterity Blast';
-        $power->action_type    = 'Double Action';
+        $power->action_type    = 'Triple Action';
         $power->display        = 'Mental';
         $power->range          = '30 feet';
         $power->targets        = 'One living creature with an INT score';
         $power->duration       = 'Instantaneous';
         $power->save_attribute = 'CON';
-        $power->description    = '<p>You psychically induce sluggishness in the target. You deal 1D4 + 1 DEX damage to the target. You need line of sight to the target.</p>';
+        $power->description    = '<p>You psychically induce sluggishness in the target. You deal 1D4 DEX damage to the target. You need line of sight to the target.</p>';
         $power->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No damage</dd>
     <dt>Success</dt> <dd>Half damage</dd>
@@ -265,13 +286,14 @@ class PowersDSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>Double damage</dd>
 </dl>';
         $power->heightened = '<dl>
-    <dt>Heightened (+2)</dt> <dd>If the target fails their Save, they gain the Sluggish 2 condition for 2 rounds.</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Heighten +2 without spending any additional Power Points</dd>
+    <dt>Heightened (+2)</dt> <dd>If the target fails their Save, they gain the Sluggish 2 Condition for 2 rounds.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 2);
 
         $power              = new Power;
         $power->name        = 'Dexterity Defense';
-        $power->action_type = 'Action';
+        $power->action_type = 'Reaction';
         $power->display     = 'Mental';
         $power->targets     = 'Self';
         $power->duration    = '1 round';
@@ -327,7 +349,7 @@ class PowersDSeeder extends Seeder
         $power->area           = '30-ft Cone-shaped emanation';
         $power->save_attribute = 'WIS';
         $power->duration       = '1 minute';
-        $power->description    = '<p>You broadcast a mental compulsion that convinces one or more creatures of up to 4 Hit Dice believes that they are Stunned. Creatures with the fewest Hit Dice are affected first. Among creatures with equal Hit Dice, those who are closest to you are affected first and must make a WIS Save to ignore this effect. Hit Dice that are not sufficient to affect a creature are wasted. Creatures that are rendered Helpless or are destroyed when they reach 0 Hit Points cannot be affected.</p>
+        $power->description    = '<p>You broadcast a mental compulsion that convinces one or more creatures of up to 4 Hit Dice to believe that they are Stunned. Creatures with the fewest Hit Dice are affected first. Among creatures with equal Hit Dice, those who are closest to you are affected first and must make a WIS Save to ignore this effect. Hit Dice that are not sufficient to affect a creature are wasted. Creatures that are rendered Helpless or are destroyed when they reach 0 Hit Points cannot be affected.</p>
 <p>A Stunned creature can make a WIS Save at the end of each of their turns to end this effect. A creature that receives healing is freed from this Compulsion. A creature that takes damage is also instantly freed of this Compulsion.</p>';
         $power->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the maximum Hit Dice by +1 and the range by +5 feet.</dd>
@@ -431,15 +453,16 @@ class PowersDSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychoportation'], 1);
 
-        $power                 = new Power;
-        $power->name           = 'Distract';
-        $power->action_type    = 'Distract';
-        $power->display        = 'Mental';
-        $power->range          = '60 feet';
-        $power->targets        = 'On creature';
-        $power->save_attribute = 'CHA';
-        $power->duration       = 'Concentration, up to 10 minutes';
-        $power->description    = "<p>You cause the target's mind to wander, distracting them. The target makes all Perception checks with Disadvantage.</p>";
+        $power                   = new Power;
+        $power->name             = 'Distract';
+        $power->action_type      = 'Distract';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Mental';
+        $power->range            = '60 feet';
+        $power->targets          = 'On creature';
+        $power->save_attribute   = 'CHA';
+        $power->duration         = 'Concentration, up to 10 minutes';
+        $power->description      = "<p>You cause the target's mind to wander, distracting them. The target makes all Perception checks with Disadvantage.</p>";
         $helper->addTypesToPower($power, ['Telepathy'], 1);
 
         $power              = new Power;
@@ -453,23 +476,24 @@ class PowersDSeeder extends Seeder
 <p>Multiple divinations about the same action by the same manifester use the same dice roll result as the first divination and yield the same answer each time.</p>';
         $helper->addTypesToPower($power, ['Clairsentience'], 4);
 
-        $power                 = new Power;
-        $power->name           = 'Dominate';
-        $power->action_type    = 'Triple Action';
-        $power->display        = 'Mental';
-        $power->requirements   = 'The target must have lost at least 5 points of ability damage';
-        $power->range          = '200 feet';
-        $power->targets        = 'One humanoid creature';
-        $power->save_attribute = 'CHA';
-        $power->duration       = '1 day, or until dismissed';
-        $power->description    = '<p>As the Dominate spell, except as noted here.</p>';
-        $power->saves          = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Dominate';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Mental';
+        $power->requirements     = 'The target must have lost at least 5 points of ability damage';
+        $power->range            = '200 feet';
+        $power->targets          = 'One humanoid creature';
+        $power->save_attribute   = 'CHA';
+        $power->duration         = '3 hours, or until dismissed';
+        $power->description      = '<p>As the Dominate spell, except as noted here.</p>';
+        $power->saves            = '<dl>
     <dt>Critical Success</dt> <dd>Target is unaffected</dd>
     <dt>Success</dt> <dd>Slowed 1 for 1 round as it fights off your commands</dd>
     <dt>Failure</dt> <dd>The target follows your orders but attempts a WIS Save at the end of each of its turns. On success, the spell is dismissed</dd>
     <dt>Critical Failure</dt> <dd>As failure, but the target receives a new save only whenever you give it a new order that is against its nature</dd>
 </dl>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+5)</dt> <dd>You can target a non-humanoid creature</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Ability Damage'], 4);

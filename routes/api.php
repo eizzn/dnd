@@ -20,6 +20,7 @@ use App\Http\Controllers\RaceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SpellController;
 use App\Http\Controllers\TalentController;
+use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
@@ -156,5 +157,11 @@ Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
         ->name('weapons');
     Route::get('weapon/{id}', [WeaponController::class, 'get'])
         ->name('weapon')
+        ->whereNumber('id');
+
+    Route::get('templates', [TemplateController::class, 'index'])
+        ->name('templates');
+    Route::get('template/{id}', [TemplateController::class, 'get'])
+        ->name('template')
         ->whereNumber('id');
 });

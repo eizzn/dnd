@@ -64,5 +64,26 @@ class MonstersPSeeder extends Seeder
             ],
             'languages' => ['Telepathy' => ['meta' => '60 ft']],
         ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Phase Spider';
+        $monster->size             = 'Large';
+        $monster->type             = 'Monstrosity';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '11';
+        $monster->damage_reduction = '2 (Natural Armor)';
+        $monster->hit_dice         = 5;
+        $monster->speed            = '30 ft / Climb 30 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D10 + 2) Piercing damage + DC 11 CON Save or 4D8 Poison (half on Successful Save). If the target is reduced to 0 Hit Points in this way, they are Paralyzed for 1 hour</dd>
+    <dt>Spider Climb</dt> <dd>The Phase Spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check</dd>
+    <dt>Web Walker</dt> <dd>The Phase Spider ignores movement restrictions cause by webbing</dd>
+</dl>';
+        $monster->description = '<p>A phase spider possesses the magical ability to phase in and out of the Ethereal Plane. It seems to appear out of nowhere and quickly vanishes after attacking. Its movement on the Ethereal Plane before coming back to the Material Plane makes it seem like it can teleport.</p>';
+        $helper->saveMonster($monster, ['Aberration', 'Ethereal'], [
+            'stats'     => [15, 15, 12, 6, 10, 6, 3, 2],
+            'skills'    => ['Stealth' => ['dc' => 6]],
+            'features'  => ['ethereal_jaunt', 'darkvision' => ['meta' => '60 ft']],
+        ]);
     }
 }

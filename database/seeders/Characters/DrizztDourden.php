@@ -174,7 +174,7 @@ class DrizztDourden extends Seeder
                         'combat_mastery' => ['Weapon Focus' => ['meta' => 'Scimitar']],
                         'ancestry'       => ['Greater Drow Magic'],
                     ],
-                    'talents'   => ['Slasher', /** +1 more **/],
+                    'talents'   => ['Slasher'/** +1 more **/],
                     'skills'    => [
                         'Athletics'  => 1,
                         'Insight'    => 1,
@@ -242,7 +242,7 @@ class DrizztDourden extends Seeder
                     'feats' => [
                         'generic' => ['Improved Weapon Focus'],
                     ],
-                    'talents'   => ['Daylight Adaptation', /** +1 more**/],
+                    'talents'   => ['Daylight Adaptation'/** +1 more**/],
                     'features'  => ['favored_enemy' => 'Evil Outsiders'],
                     'spells'    => [
                         1 => [

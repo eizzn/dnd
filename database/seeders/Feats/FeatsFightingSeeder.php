@@ -111,8 +111,9 @@ class FeatsFightingSeeder extends Seeder
     <li>If you are wielding a Shield, you gain a +1 Bonus to AC, even if you do not use an Action to raise your shield.</li>
     <li>If you have taken the Raise a Shield Action and you must make a DEX Save that allows half damage a successful Save, you may use a Reaction to add the shields' bonus to AC to your DEX Save</li>
     <li>You gain a +2 bonus to Bull Rush attacks and deal an additional +3 Damage if you hit</li>
+    <li>If you use your shield to make a Melee Attack and your shield has a magical bonus, you can add the magical bonus to your attack roll with the shield (if you have taken the Raise a Shield Action, then attack with the shield, you lose the bonus from your Shield as if you had not taken the Raise a Shield Action)</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Armor', 'Fighter Feat' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Melee', 'Shield', 'Fighter Feat' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Shield Master';
@@ -121,9 +122,10 @@ class FeatsFightingSeeder extends Seeder
 <ul>
     <li>Increase your STR or CON score by +1, to a maximum of 20</li>
     <li>You gain a Talent</li>
-    <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action.</li>
+    <li>Whenever you take the Raise a Shield Action, you gain an additional +1 bonus to your AC</li>
+    <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action or to the Shield Defender Talent.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Armor', 'Talent', 'Fighter Feat' => 7]);
+        $helper->addTypesToFeat($feat, ['Melee', 'Shield', 'Talent', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Shield Master']);
 
         $feat              = new Feat;
@@ -134,7 +136,7 @@ class FeatsFightingSeeder extends Seeder
     <li>If you are using a Large Shield and a Light Weapon or any spear, you gain an additional +1 bonus to AC (you gain this bonus even if you have not taken the Raise a Shield Action). In addition, you gain a +1 to hit with your Light Melee weapon or spear.</li>
     <li>In addition, if you are within 5 feet of an ally who is also using a Large Shield and a Light Weapon or spear and they also have this feat, then you may form a Shield Wall. A Shield Wall grants a +4 bonus to AC (as long as all members of the Shield Wall takes the Raise a Shield Action) and provides one-half cover to all ranged attacks. Allies can also benefit from the Shield Wall even if they are not a part of the Shield Wall by standing close behind the Shield Wall.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Armor', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Shield', 'Talent', 'Fighter Feat']);
         $feat->parent_feats()->save(app()->feats['Shield Master']);
 
         $feat              = new Feat;
@@ -171,11 +173,12 @@ class FeatsFightingSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Weapon Focus';
-        $feat->description = '<p>Choose one type of weapon. You can choose Unarmed Strike, Grapple, or Ray as your weapon for the purposes of this feat. You gain proficiency with the weapon if you do not already have proficiency.</p>
+        $feat->description = '<p>Choose one weapon (such as Long Sword). You can choose Unarmed Strike, Grapple, or Ray as your weapon for the purposes of this feat. You gain proficiency with the weapon if you do not already have proficiency.</p>
 <ul>
     <li>You gain 2 Talents.</li>
     <li>You gain a +1 bonus an all attack rolls you make using the selected weapon.</li>
-    <li>You gain the Fast Draw Talent, but only with the selected weapon</li>
+    <li>You gain a +1 bonus to all checks to resist having your selected weapon Disarmed</li>
+    <li>You may take this Feat multiple times. Each time, you must choose a different weapon.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Combat Mastery', 'Talent', 'Fighter Feat' => 4]);
 
@@ -184,6 +187,7 @@ class FeatsFightingSeeder extends Seeder
         $feat->description = '<ul>
     <li>You gain a Talent.</li>
     <li>Choose a weapon you have Weapon Focus with. You gain a +5 bonus to damage to all attacks made with that weapon.</li>
+    <li>You may take this Feat multiple times. Each time, you must choose a different weapon.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat' => 6]);
         $feat->parent_feats()->save(app()->feats['Weapon Focus']);
@@ -193,9 +197,20 @@ class FeatsFightingSeeder extends Seeder
         $feat->description = '<ul>
     <li>You gain 2 Talents.</li>
     <li>Choose one of the weapons you have chosen for Weapon Focus. Your bonus from your chosen weapon from Weapon Focus is now +2.</li>
+    <li>You may take this Feat multiple times. Each time, you must choose a different weapon.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Combat Mastery', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Combat Mastery', 'Talent', 'Fighter Feat' => 9]);
         $feat->parent_feats()->save(app()->feats['Weapon Focus']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Improved Weapon Specialization';
+        $feat->description = '<ul>
+    <li>You gain a Talent.</li>
+    <li>Choose a weapon you have Improved Weapon Focus with. Your bonus damage from your Weapon Specialization is now +10</li>
+    <li>You may take this Feat multiple times. Each time, you must choose a different weapon.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat' => 12]);
+        $feat->parent_feats()->save(app()->feats['Improved Weapon Focus']);
 
         $feat              = new Feat;
         $feat->name        = 'Extra Melee Action';
@@ -209,7 +224,8 @@ class FeatsFightingSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Talents Master';
-        $feat->description = '<p>You gain 5 Talents.</p>';
+        $feat->description = '<p>You gain 5 Talents.</p>
+<p>You may take this Feat multiple times.</p>';
         $helper->addTypesToFeat($feat, ['Talent', 'Fighter Feat', 'Generic' => 6]);
 
         $feat              = new Feat;
@@ -217,8 +233,8 @@ class FeatsFightingSeeder extends Seeder
         $feat->description = "<p>You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits</p>
 <ul>
     <li>You gain 1 Talent.</li>
-    <li>While in this Stance, you can make an Attack of Opportunity against opponents who make a Bull Rush attack even if they have the Improved Bull Rush feat.</li>
-    <li>While in this Stance, opponents who try to Tumble Through any square you threaten suffers a -10 to their Acrobatics check.</li>
+    <li>While in this Stance, you can make an Attack of Opportunity against opponents who make a Bull Rush attack even if they have the Improved Bull Rush Feat.</li>
+    <li>While in this Stance, opponents who try to Tumble Through any square you threaten suffers a -10 penalty to their Acrobatics check.</li>
     <li>While in this Stance, when you hit a creature with an Attack of Opportunity, the creature's speed becomes 0 for the rest of the turn.</li>
     <li>While in this Stance, creatures within 5 feet of you provoke Attacks of Opportunity from you even if they take the Disengage action before leaving your reach.</li>
     <li>When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can make an Attack of Opportunity against the attacking creature.</li>
@@ -256,8 +272,8 @@ class FeatsFightingSeeder extends Seeder
         $feat->action_type = 'Double Action';
         $feat->description = '<ul>
     <li>You gain a Heroic Surge</li>
-    <li>The DC for your Stun Save is increased by +1</li>
-    <li>Your Stunning Fist now causes Stunned 2.</li>
+    <li>The DC for your Stun Save is increased by +3</li>
+    <li>Your Stunning Fist now causes Stunned 3.</li>
 </ul>>';
         $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Fighter Feat']);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);

@@ -174,8 +174,7 @@ class ClassSorcererSeeder extends Seeder
             1 => ['Bane', 'Burning Hands', 'Fear', 'Mage Armor', 'Protection From Good', 'Protection From Law', 'Wrathful Smite'],
             2 => ['Aura of War', "Bear's Endurance" => 'Self only', "Bull's Strength", 'Continual Flame', 'Darkness', 'Desecrate',
                 'Hold Person', 'Magic Weapon', ],
-            3 => ['Animate Dead', 'Call Dretch Horde', 'Dimensional Anchor', 'Fireball', 'Fly', 'Haste', 'Lightning Bolt',
-                'Summon Demon, Lesser'],
+            3 => ['Animate Dead', 'Dimensional Anchor', 'Fireball', 'Fly', 'Haste', 'Lightning Bolt', 'Summon Demon, Lesser'],
             4 => ['Blight', 'Call Dretch Horde', 'Summon Demon'],
             5 => ['Banishment', 'Fiend Form' => 'Demon only', "Vampire's Kiss"],
             6 => ['Slay Living', 'Teleport'],
@@ -195,7 +194,7 @@ class ClassSorcererSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Bloodline', 'Devil']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Control Flames', 'Fire Bolt', 'Minor Illusion', 'Poison Spray'],
-            1 => ['Bane', 'Burning Hands', 'Charm', 'Comprehend Languages', 'Mage Armor', 'Ray of Clumsiness'],
+            1 => ['Bane', 'Burning Hands', 'Charm', 'Comprehend Language', 'Mage Armor', 'Ray of Clumsiness'],
             2 => ['Alter Self', "Fox's Cunning", 'Desecrate', 'Pyrotechnics', 'Misty Step', 'Resist Fire'],
             3 => ['Animal Form', 'Distort Summons', 'Fireball', 'Fly', 'Power Word Deafen'],
             4 => ['Call Lemure Horde', 'Call Nightmare', 'Calling' => 'Devil only', 'Fire Shield'],

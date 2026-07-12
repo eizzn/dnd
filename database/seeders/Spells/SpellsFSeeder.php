@@ -1698,7 +1698,7 @@ class SpellsFSeeder extends Seeder
 <dl>
     <dt>Material Components</dt> <dd>A small amount of makeup applied to the face as this spell is cast</dd>
 </dl>";
-        $helper->addTypesToSpell($spell, ['Illusion'], 0);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion'], 0);
 
         $spell                 = new Spell;
         $spell->name           = 'Frost Fingers';

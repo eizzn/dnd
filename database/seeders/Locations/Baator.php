@@ -31,24 +31,24 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Zariel')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Zariel')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'The Bronze Citadel';
         $location->type        = 'City';
         $location->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $location->description = '<p>A huge fortress-city dozens of square miles and ringed by twelve heavily defended walls. It houses hundreds of thousands of lesser devil troops and war machines. It is constantly being added to in the form of new fortifications against attacks.</p>';
+        $location->ruler()->associate(God::where('name', 'Zariel')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Zariel')->firstOrFail());
 
         $location              = new Location;
         $location->name        = "Tiamat's Lair";
         $location->type        = 'City';
         $location->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $location->description = '<p>This is a tall mountain where Tiamat guards the entrance to Dis. Abishai abound here and guard the portal to Dis.</p>';
+        $location->ruler()->associate(God::where('name', 'Tiamat')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Tiamat')->firstOrFail());
 
         /**********************************************************************/
 
@@ -60,8 +60,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Dispater')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Dispater')->firstOrFail());
 
         /**********************************************************************/
 
@@ -74,8 +74,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Mammon')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Mammon')->firstOrFail());
 
         /**********************************************************************/
 
@@ -88,8 +88,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Belial')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Belial')->firstOrFail());
 
         /**********************************************************************/
 
@@ -102,8 +102,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Levistus')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Levistus')->firstOrFail());
 
         /**********************************************************************/
 
@@ -115,8 +115,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Glasya')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Glasya')->firstOrFail());
 
         /**********************************************************************/
 
@@ -129,8 +129,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Baalzebul')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Baalzebul')->firstOrFail());
 
         /**********************************************************************/
 
@@ -142,8 +142,8 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Mephistopheles')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Mephistopheles')->firstOrFail());
 
         /**********************************************************************/
 
@@ -155,7 +155,7 @@ class Baator extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Lords of the Nine']->id;
         $sub->description = '';
+        $sub->ruler()->associate(God::where('name', 'Tiamat')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Tiamat')->firstOrFail());
     }
 }

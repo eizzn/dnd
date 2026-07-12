@@ -104,6 +104,8 @@ class ClassPaladinSeeder extends Seeder
             'Quicken Smite'            => 10,
             'Improved Aura'            => 5,
             'Greater Aura'             => 10,
+            'Extra Melee Action'       => 5,
+            'Extra Ranged Action'      => 7,
         ]);
 
         $helper->addSpellSlotsToClass($class, [

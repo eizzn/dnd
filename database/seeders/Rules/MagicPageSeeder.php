@@ -26,26 +26,29 @@ class MagicPageSeeder extends Seeder
         $rule->name        = 'Schools of Magic';
         $rule->description = '<p>All magic falls into one or more of the eight schools of magic.</p>
 <dl>
-    <dt>Abjuration</dt> <dd>This school is focused on protective spells, as well as spells involving wards and countermagic. Wizards who specialize in this school are known as Abjurers.</dd>
+    <dt>Abjuration</dt> <dd>This school is focused on protective spells, as well as spells involving wards and counter magic (which they are the best at).</dd>
     <dt>Conjuration</dt> <dd>
-        <p>This school is focused on instantaneous transport, conjuring manifestations of creatures or objects, object creation, and traversing or accessing the inner and outer planes of existence.</p>
-        <dl>
-            <dt>Calling</dt> <dd></dd>
-            <dt>Summoning</dt> <dd></dd>
-            <dt>Teleportation</dt> <dd></dd>
-        </dl>
+        <p>This school is focused on instantaneous transport, conjuring manifestations of creatures or objects, and traversing or accessing the inner and outer planes of existence.</p>
+        <ul>
+            <li>Calling</li>
+            <li>Summoning</li>
+            <li>Teleportation</li>
+        </ul>
     </dd>
     <dt>Divination</dt> <dd>
         <p>This school is focused on acquiring and revealing information.</p>
-        <dl>
-            <dt>Scrying</dt> <dd></dd>
-        </dl>
+        <ul>
+            <li>Identifying</li>
+            <li>Scrying</li>
+            <li>Discerning truth</li>
+            <li>Answers from the Outer Planes</li>
+        </ul>
     </dd>
     <dt>Enchantment</dt> <dd>
-        <p>This school is focused on magical modifications (short-lived curses, blessings), and long-lasting magical auras.</p>
+        <p>This school is focused on magical modifications (short-lived curses, blessings), long-lasting magical auras (such as mythals), and magic in general. It is the best at manipulating magic (through Metamagic Feats).</p>
     </dd>
     <dt>Evocation</dt> <dd>
-        <p>This school is focused on energy and manipulating those forms of energy.</p>
+        <p>This school is focused on energy and manipulating forms of energy.</p>
         <ul>
             <li>Cold</li>
             <li>Fire</li>
@@ -55,10 +58,17 @@ class MagicPageSeeder extends Seeder
         </ul>
     </dd>
     <dt>Illusion</dt> <dd>
-        <p>This school is focused on spells that fools the senses, manipulates emotions, warps memories, compulsion effects, and controlling shadows.</p>
+        <p>This school is focused on spells that fools the senses, manipulates emotions, warps memories, compulsion effects, and controlling and manipulating shadows.</p>
+        <ul>
+            <li>Compulsion</li>
+            <li>Figment</li>
+            <li>Glamor</li>
+            <li>Phantasm</li>
+        </ul>
+        <p>Illusionists can focus even deeper into Illusions and also gain access to Shadow magic</p>
     </dd>
     <dt>Necromancy</dt> <dd>
-        <p>This school is focused on spells that have to do with life and spirits in general. It also has to do with the undead, disease, and long-lasting curses.</p>
+        <p>This school is focused on spells that have to do with life, death and spirits in general. It also has to do with the undead, disease, and long-lasting curses.</p>
     </dd>
     <dt>Transmutation</dt> <dd>
         <p>This school is focused on spells that involve changing or shaping physical matter. This includes the creation of acids, and poisons.</p>
@@ -77,6 +87,43 @@ class MagicPageSeeder extends Seeder
     <li>You may swap out the Cantrips that you know between Long Rests (unless otherwise stated)</li>
 </ul>";
         $rule->order = 10;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'identify-spell';
+        $rule->name        = 'Identify Spell';
+        $rule->description = "<p>As a Reaction, or as part of a Reaction (such as trying to Counterspell), you can try to identify the spell that is being cast by a creature that you are aware of and can see (the spell must have some indication that it is being case, so a spell that has no Material, Somatic, or Verbal casting cannot be identified. A spell that only has a Material Casting might be identified, but not if the Material is common, DM option).</p>
+<p>Make a Trained Arcana check vs DC (12 + the spell's level + see below). If you succeed, you have correctly identified the spell. If you Critically Fail, then you believe you have correctly identified the spell but you incorrectly identified the spell.</p>
+<p>The DC for identifying the spell is increased according to the following</p>
+<table>
+    <tbody>
+        <tr>
+            <th>Spell has no Verbal Casting</th>
+            <td>+5 to the DC</td>
+        </tr>
+        <tr>
+            <th>Spell has no Somatic Casting</th>
+            <td>+3 to the DC</td>
+        </tr>
+        <tr>
+            <th>Spell has no Material Casting</th>
+            <td>+1 to the DC</td>
+        </tr>
+    </tbody>
+</table>
+<p>A spell that requires an Action be used but it doesn't require a Verbal Casting spell gains the benefit of having no Verbal Casting. Metamagic Feats that remove a Spell Casting Action also benefits.</p>";
+        $rule->order       = 15;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'attunement';
+        $rule->name        = 'Attunement';
+        $rule->description = "<p>Some Magic Items require a creature to form a bond with them before their magical properties can be used. This bond is called attunement, and certain items have a prerequisite for it. If the prerequisite is a class, a creature must be a member of that class to attune to the item. (If the class is a Spellcasting class, a monster qualifies if it has Spell Slots and uses that class's spell list.) If the prerequisite is to be a Spellcaster, a creature qualifies if it can cast at least one spell using its Traits or features, not using a magic item or the like.</p>
+<p>Without becoming attuned to an item that requires attunement, a creature gains only its nonmagical benefits, unless its description states otherwise. For example, a magic Shield that requires attunement provides the benefits of a normal Shield to a creature not attuned to it, but none of its magical properties.</p>
+<p>Attuning to an item requires a creature to spend a Short Rest focused on only that item while being in physical contact with it (this can't be the same short rest used to learn the item's properties). This focus can take the form of weapon practice (for a weapon), meditation (for a wondrous item), or some other appropriate activity. If the Short Rest is interrupted, the attunement attempt fails. Otherwise, at the end of the Short Rest, the creature gains an intuitive understanding of how to activate any magical properties of the item, including any necessary Command words.</p>
+<p>An item can be attuned to only one creature at a time, and a creature can be attuned to no more than three Magic Items at a time. Any attempt to attune to a fourth item fails; the creature must end its attunement to an item first. Additionally, a creature can't attune to more than one copy of an item. For example, a creature can't attune to more than one Ring of Protection at a time.</p>
+<p>A creature's attunement to an item ends if the creature no longer satisfies the Prerequisites for attunement, if the item has been more than 100 feet away for at least 24 hours, if the creature dies, or if another creature attunes to the item. A creature can also voluntarily end attunement by spending another Short Rest focused on the item, unless the item is Cursed.</p>";
+        $rule->order = 50;
         $page->rules()->save($rule);
 
         $rule              = new Rule;

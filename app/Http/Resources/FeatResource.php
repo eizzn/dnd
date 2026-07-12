@@ -23,8 +23,9 @@ class FeatResource extends JsonResource
             'description'       => $this->description,
             'types'             => $this->types->map(function (Type $type) {
                 return [
-                    'id'   => $type->id,
-                    'name' => $type->name,
+                    'id'    => $type->id,
+                    'name'  => $type->name,
+                    'level' => $type->pivot->level,
                 ];
             }),
             'parents'           => $this->parent_feats->map(function (Feat $parent) {

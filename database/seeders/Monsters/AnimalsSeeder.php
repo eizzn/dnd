@@ -45,7 +45,7 @@ class AnimalsSeeder extends Seeder
 <p>They are known to compete with giant ants for territory. If they are killed or driven away from their nests, the broodlings left behind are sometimes made to serve the giant ant colony.</p>
 <p>Ankhegs can prove to be useful for farmers. Provided it stays alive, its tunnels can bring in water and its excrement contains enriching minerals. Ankheg burrows also aerate the nearby land which can improve crop yields by as much as 15%, provided the ankheg population is managed.</p>
 <p>An ankheg shell harvested form a slain ankheg weighs roughly 100 pounds. Armorers can forge armor from the shells. It takes three days to make. The armor is nearly as effective as full plate mail, but weighed considerably less and can be worn by warriors who usually can't wear such heavy armor. A full set of ankheg armor can cost 20,000 gp. However, if one provides the shell, it can cost 4,000 gp.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [17, 11, 13, 1, 13, 6, 2, 2],
             'feats' => [
                 'Tremorsense',
@@ -67,7 +67,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Fist</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 6 (1D6 +3) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [16, 14, 14, 6, 12, 7, .5, 2],
             'feats'  => ['Two-Weapon Fighter'],
             'skills' => [
@@ -88,7 +88,7 @@ class AnimalsSeeder extends Seeder
     <dt>Fist</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (3D10 +6) Bludgeoning.</dd>
     <dt>Rock</dt> <dd>Ranged Weapon Attack, reach 50/100 ft, one target. (3D6) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [23, 14, 18, 7, 12, 7, 5, 4],
             'skills' => [
                 'Athletics'  => ['dc' => 9],
@@ -107,7 +107,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Beak</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 6 (1D8 +2) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [14, 12, 12, 2, 10, 5, .25, 2],
         ]);
 
@@ -122,7 +122,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 (1D4 - 1) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'   => [14, 12, 12, 2, 10, 5, 0, 2],
             'talents' => ['Pack Tactics'],
         ]);
@@ -138,7 +138,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [4, 11, 12, 2, 12, 5, 0, 2],
             'features' => [
                 'keen_sense' => ['meta' => 'Smell'],
@@ -156,7 +156,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [2, 15, 8, 2, 12, 4, 0, 2],
             'features' => [
                 'keen_sense' => ['meta' => 'Hear'],
@@ -175,7 +175,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +2) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [15, 16, 11, 2, 12, 6, .25, 2],
             'features' => [
                 'keen_sense' => ['meta' => 'Hear'],
@@ -196,7 +196,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack +4 to hit, reach 5 ft, one target. 5 (1D6 +2) Piercing.</dd>
     <dt>Claw</dt> <dd>Melee Weapon Attack +4 to hit, reach 5 ft, one target. 7 (2D4 +2) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [15, 10, 14, 2, 12, 7, .5, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
@@ -217,7 +217,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack +5 to hit, reach 5 ft, one target. 8 (1D8 +4) Piercing.</dd>
     <dt>Claw</dt> <dd>Melee Weapon Attack +5 to hit, reach 5 ft, one target. 11 (2D6 +4) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [19, 10, 16, 2, 13, 7, 1, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
@@ -240,7 +240,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Tusk</dt> <dd>Melee Weapon Attack +3 to hit, reach 5 ft, one target. 4 (1D6 +1) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [13, 11, 12, 2, 9, 5, .25, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
@@ -262,7 +262,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Tusk</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 10 (2D6 +3) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [17, 10, 16, 2, 7, 5, 2, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
@@ -286,7 +286,7 @@ class AnimalsSeeder extends Seeder
     <dt>Deadly Leap</dt> <dd> If the bulette jumps at least 15 ft. as part of its movement, it can then use this Action to land on its feet in a space that contains one or more other creatures. Each of those creatures must succeed on a DC 16 STR or DEX Save (target's choice) or be knocked prone and take 14 (3D6 +4) Bludgeoning damage plus 14 (3D6 +4) Slashing damage. On a successful Save, the creature takes only half the damage, isn't knocked prone, and is pushed 5 ft. out of the bulette's space into an unoccupied space of the creature's choice. If no unoccupied space is within range, the creature instead falls prone in the bulette's space.</dd>
     <dt>Burrowing Slime</dt> <dd>As a Free Action, the bulette secretes a slime from the front of their body that softens earth and soil, allowing the fast Burrow Speed. This slime can be collected from the soil that the bulette has burrowed through and extracted from the soil (DC 15 Alchemy). Farmers have been known to use this slime on their plows.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [19, 11, 21, 2, 10, 5, 6, 4],
             'skills' => [
                 'Athletics'  => ['dc' => 20, 'meta' => 'High Jump and Long Jump only'],
@@ -310,7 +310,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4) Bludgeoning</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [16, 8, 14, 2, 8, 5, .125, 2],
         ]);
 
@@ -327,7 +327,7 @@ class AnimalsSeeder extends Seeder
     <dt>Tentacles</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 4 (1D4 +2) Poison damage, and the target must succeed on a DC 13 CON Save or be Paralyzed for 1 minute. The target can repeat the Save at the end of each of its turns, ending the Paralysis on a success.</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, on target. 7 (2D4 +2) Piercing damage</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [14, 13, 16, 1, 12, 5, 2, 3],
             'features' => [
                 'keen_sense' => ['meta' => 'Smell'],
@@ -346,7 +346,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [3, 15, 10, 3, 12, 7, 0, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -369,7 +369,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D4 + 2 Piercing and 3D6 Poison (CON DC 11). If the Save is Failed, the target is Paralyzed for 1 hour. If the poison damage reduces the target to 0 Hit Points, the target is Stable but Paralyzed for 1 hour.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [5, 14, 12, 1, 7, 3, .25, 2],
             'skills' => [
                 'Perception' => ['dc' => 8],
@@ -389,7 +389,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = "<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack +3 to hit, reach 5 ft, one target. (1D10 +2) Piercing. The target is Grappled (Escape DC 12) Until this Grapple ends, the target is Restrained, and the crocodile can't bite another target.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [15, 10, 13, 2, 10, 5, .5, 2],
             'skills' => [
                 'Stealth' => ['dc' => 2],
@@ -412,7 +412,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (3D10 +5) Piercing. The target is Grappled (Escape DC 16) Until this Grapple ends, the target is Restrained, and the crocodile can\'t bite another target.</dd>
     <dt>Tail</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (2D8 +5) Bludgeoning. If the target is a creature, it must make a DC 16 STR Save or be knocked Prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [21, 9, 17, 2, 10, 7, 5, 4],
             'skills' => [
                 'Stealth' => ['dc' => 5],
@@ -433,7 +433,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [11, 16, 11, 2, 14, 5, 0, 2],
         ]);
 
@@ -448,7 +448,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D4 +1 Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [12, 12, 12, 3, 12, 6, 0, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -470,7 +470,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 +2 Piercing. If the target is a creature, it must succeed a DC 11 STR Save or be knocked prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [14, 14, 14, 3, 12, 7, .5, 2],
             'skills'   => [
                 'Perception' => ['dc' => 3],
@@ -493,7 +493,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 -1) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [8, 13, 10, 3, 11, 6, 0, 2],
         ]);
 
@@ -508,7 +508,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Talons</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 -2) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [6, 15, 10, 2, 14, 7, 0, 2],
             'skills' => [
                 'Perception' => ['dc' => 4],
@@ -532,7 +532,7 @@ class AnimalsSeeder extends Seeder
     <dt>Gore</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (3D8 +6) Bludgeoning.</dd>
     <dt>Stomp</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (3D10 +6) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [22, 9, 17, 3, 11, 6, 4, 3],
             'features' => [
                 'multi_attack' => ['meta' => 'If the elephant succeeds a Bull Rush attack and the target becomes Prone, the elephant gains an additional Action. This additional Action can only be used to make Stomp attack.'],
@@ -552,7 +552,7 @@ class AnimalsSeeder extends Seeder
     <dt>Ram</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +3) Bludgeoning.</dd>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one Prone target. (2D4 +3) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [16, 10, 12, 2, 10, 6, .25, 2],
             'features' => [
                 'multi_attack' => ['meta' => 'If the elk succeeds a Bull Rush attack and the target becomes Prone, the elk gains an additional Action. This additional Action can only be used to make Hooves attack.'],
@@ -573,7 +573,7 @@ class AnimalsSeeder extends Seeder
     <dt>Ram</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D6 +4) Bludgeoning.</dd>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one Prone target. (4D8 +3) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Beast'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [19, 16, 14, 7, 14, 10, 2, 2],
             'skills'   => ['Perception' => ['dc' => 4]],
             'features' => [
@@ -595,7 +595,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = "<dl>
     <dt>Standing Leap</dt> <dd>The frog's long jump is up to 10 feet and its high jump is up to 5 feet, with or without a running start.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [1, 13, 8, 1, 8, 3, 0, 2],
             'skills' => [
                 'Perception' => ['dc' => 1],
@@ -621,7 +621,7 @@ class AnimalsSeeder extends Seeder
     <dt>Swallow</dt> <dd>The frog makes one bite attack against a Small or smaller target it is Grappling. If the attack hits, the target is Swallowed, and the grapple ends. The Swallowed target is Blinded and Restrained, it has Total Cover against attacks and other effects outside the frog, and it takes 2D4 Acid Damage at the start of each of the frog's turns. The frog can have only one target Swallowed at a time. If the frog dies, a Swallowed creature is no longer Restrained by it and can escape from the corpse using a 5 feet Movement, exiting Prone.</dd>
     <dt>Standing Leap</dt> <dd>The frog's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [12, 13, 11, 2, 10, 3, .25, 2],
             'skills'   => [
                 'Perception' => ['dc' => 2],
@@ -645,7 +645,7 @@ class AnimalsSeeder extends Seeder
     <dt>Ram</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 +1) Bludgeoning.</dd>
     <dt>Sure-Footed</dt> <dd>The goat has Advantage on STR and DEX Saves made against effects that would knock it Prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [12, 10, 11, 2, 10, 5, .125, 2],
             'feats' => ['Improved Bull Rush'],
         ]);
@@ -663,7 +663,7 @@ class AnimalsSeeder extends Seeder
     <dt>Ram</dt> <dd>Melee Weapon attack, reach 5 ft, one target. (2D4 +3) Bludgeoning.</dd>
     <dt>Sure-Footed</dt> <dd>The goat has Advantage on STR and DEX Saves made against effects that would knock it Prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [17, 11, 12, 3, 12, 6, .5, 2],
             'feats' => ['Improved Bull Rush'],
         ]);
@@ -679,7 +679,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Talons</dt> <dd>Melee Weapon attack, reach 5 ft, one target. (1) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [5, 16, 8, 2, 14, 6, 0, 2],
             'skills'   => ['Perception' => ['dc' => 4]],
             'features' => [
@@ -698,7 +698,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D4 +4) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [18, 10, 12, 2, 11, 7, .25, 2],
         ]);
 
@@ -713,7 +713,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D4 +3) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [16, 10, 12, 2, 11, 7, .25, 2],
             'feats' => ['Improved Bull Rush'],
         ]);
@@ -729,7 +729,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D6 +4) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [18, 12, 13, 2, 12, 7, .5, 2],
         ]);
 
@@ -744,7 +744,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'   => [11, 13, 12, 2, 12, 5, .125, 2],
             'talents' => ['Improved Flanking'],
         ]);
@@ -761,7 +761,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +3) Piercing.</dd>
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +3) Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [17, 15, 13, 3, 12, 8, 1, 2],
             'skills' => [
                 'Athletics'  => ['dc' => 10, 'meta' => 'Long Jump only'],
@@ -785,7 +785,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1) Piercing damage</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [2, 11, 10, 1, 8, 3, 0, 2],
         ]);
 
@@ -801,7 +801,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +2) Piercing damage</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [15, 12, 13, 2, 10, 5, .25, 2],
             'features' => [
                 'darkvision' => ['meta' => '30 ft'],
@@ -819,7 +819,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = 'TODO Anauroch';
         $monster->description = "<p>Orpsu, also known as 'Night Stirges' are flying predators that feed on fresh blood. They are unrelated to the more common stirge, and do not grip victims to feed. An orpsu is a hairless, rat-tailed flying beast equipped with raking fangs and four bony wing like projecting horns. Orpsu are mottled crimson, purple, mauve, or cinnamon-brown in hue, and have veined, leathery skin.</p>
 <p>Orpsu are common in Kara-Tur and the steppes, plains and deserts that lie west of the Eastern Realms.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [4, 12, 13, 2, 7, 5, .125, 2],
         ]);
 
@@ -836,7 +836,7 @@ class AnimalsSeeder extends Seeder
     <dt>Keen Hearing and Sight</dt> <dd>The owl has Advantage on WIS (Perception) checks that rely on hearing or sight</dd>
     <dt>Talons</dt> <dd>Melee Weapon Attack +3 to Hit, reach 5 ft, one target. 1D1 Slashing Damage</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [3, 13, 8, 2, 12, 7, 0, 2],
             'skills'   => [
                 'Perception' => ['dc' => 3],
@@ -897,7 +897,7 @@ class AnimalsSeeder extends Seeder
 <p>Training a giant raven as an aerial mount requires a successful Animal Handling check (DC 18 for a young creature or 25 for an adult) and that the creature be willing. Members of the Black Raven tribe gain a +4 circumstance bonus on these checks due to their close affiliation with the birds.</p>
 <p>Giant raven eggs are worth 1,500 gp apiece on the open market, while hatchlings are worth 3,000 gp each. Professional trainers charge 1,000 gp to rear or train a giant raven, and riding one requires an exotic saddle. A giant raven can fight while carrying a rider, but the rider cannot also attack unless he succeeds at a Ride check against DC 10.</p>
 <p>A light load for a giant raven is up to 150 pounds, a medium load, 151-300 pounds, and a heavy load, 301-450 pounds. A giant raven cannot fly with a heavy load.</p>";
-        $helper->saveMonster($monster, ['Beast'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [16, 19, 13, 12, 12, 1, 2],
             'skills' => [
                 'Deception'  => ['dc' => 5],
@@ -920,7 +920,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Gore</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +5) Bludgeoning.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [21, 8, 15, 2, 12, 6, 2, 3],
         ]);
 
@@ -936,7 +936,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Sting</dt> <dd>Melee Weapon Attack +0, reach 5 ft, one target. 1 Piercing + 1D8 Poison on a Failed Save, or half as much damage on a Successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [2, 11, 8, 1, 8, 2, 0, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -956,7 +956,7 @@ class AnimalsSeeder extends Seeder
     <dt>Claw</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D8 +2) Bludgeoning and the target is Grappled (escape DC 12). The scorpion has two claws, each of which can grapple only one target.</dd>
     <dt>Sting</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D10 +2) Piercing + (4D10) Poison on a Failed Save (CON DC 12), or half as much damage on a Successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [15, 13, 15, 1, 9, 3, 3, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '60 ft'],
@@ -978,7 +978,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D6 +2) Piercing</dd>
     <dt>Constrict</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D8 +2) Bludgeoning and the target is Grappled (Escape DC 14). Until the Grapple ends, the creature is Restrained, and the snake can't Constrict another target.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [15, 14, 12, 1, 10, 3, .25, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -997,7 +997,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (2D6 +4) Piercing</dd>
     <dt>Constrict</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +4) Bludgeoning and the target is Grappled (Escape DC 16). Until the Grapple ends, the creature is Restrained, and the snake can't Constrict another target.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [19, 14, 12, 1, 10, 3, 2, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -1015,7 +1015,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1) Piercing + (3D4) Poison damage</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [4, 18, 11, 2, 12, 5, .125, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -1033,7 +1033,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1) Piercing and the target must make a DC 10 CON Save, taking (2D4) Poison damage on a Failed Save, or half as much damage on a Successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats' => [2, 16, 11, 1, 10, 3, .125, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -1051,7 +1051,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (1D4 +4) Piercing and the target must make a DC 11 CON Save, taking (3D6) Poison damage on a Failed Save, or half as much damage on a Successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [10, 18, 13, 2, 10, 3, .25, 2],
             'feats' => [
                 'Blindsight' => ['meta' => '10 ft'],
@@ -1069,7 +1069,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 0 ft, one target. (1D1) Piercing +1 Poison damage. The target must succeed on a DC 9 CON Save or take the Poison damage.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [2, 14, 8, 1, 10, 2, 0, 2],
             'features' => ['spider_climb', 'web_sense', 'web_walker'],
         ]);
@@ -1087,7 +1087,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 0, one target. (1D8 + 3) Piercing + 2D8 Poison. The target must make a DC 11 CON Save, taking the Poison damage on a failed save, or half Poison damage on a success. If the Poison reduces the target to 0 Hit Points, the target is stable but Sick:2 for 1 hour, even after regaining Hit Points, and is Paralyzed while poisoned in this way.</dd>
     <dt>Web (Recharge 5-6)</dt> <dd>Ranged Weapon Attack, reach 30/60 ft, one creature. The target is restrained by webbing. As an Action, the restrained target can make a DC 12 STR check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Negative/Positive damage).</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [14, 16, 12, 2, 11, 4, 1, 2],
             'feats' => [
                 'Weapon Finesse',
@@ -1111,7 +1111,7 @@ class AnimalsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 + 1) Piercing + 2D6 Poison (CON DC 11). Half Poison damage on a successful save. If the poison reduces the target to 0 Hit Points, the target is Stable but Paralyzed for 1 hour.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [14, 16, 13, 3, 12, 4, .25, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -1141,8 +1141,8 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +2) Piercing</dd>
     <dt>Poison Spray</dt> <dd>Three times per day, a giant whip scorpion can discharge a 20-foot diameter spread of noxious vapor centered on itself. This cloud functions as an inhaled poison (CON Save DC 14, initial and secondary damage 1D4 DEX).</dd>
 </dl>';
-        $monster->description = "<p>About the size of an ogre, this spider has a long, flat body and six spindly legs. Two more legs held close to the creature's month and end in spiny pincers. Two long, whiplike appendages emerge from its body just behind its pincer-legs, and a third stretches up from the rear of its abdomen.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $monster->description = "<p>About the size of an ogre, this spider has a long, flat body and six spindly legs. Two more legs held close to the creature's month and end in spiny pincers. Two long, whip like appendages emerge from its body just behind its pincer-legs, and a third stretches up from the rear of its abdomen.</p>";
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [15, 12, 14, 1, 10, 2, 2, 2],
             'feats' => [
                 'Improved Grapple',
@@ -1166,7 +1166,7 @@ class AnimalsSeeder extends Seeder
         $monster->description = "<p>This human-sized, spider-like creature has a long, flat body and six spindly legs. Two more legs held close to its mouth end in spiny pincers. Two long, whip-like appendages emerge from the creature's body just behind its pincer legs.</p>
 <p>A giant whip spider measures between 6 and 8 feet long and weighs about 200 pounds. Despite the impressive appearance of its whip-like appendages, they are simple feelers that the creature uses to probe into fissures and other areas it can't see.</p>
 <p>Sages sometimes refer to giant whip spiders as monstrous amblypygids, but the term is not commonly used.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [13, 14, 14, 1, 10, 2, 1, 2],
             'feats' => [
                 'Improved Grapple',
@@ -1194,7 +1194,7 @@ class AnimalsSeeder extends Seeder
         $monster->description = '<p>Though it resembles a spider, this creature is the size of a rhinoceros and the color of a camel. In segmented, hairy body sprouts ten legs. The two front legs are thicker than the rest and end in small pincers. The head is dominated by two gigantic mandibles, and two bulging, black eyes gaze malevolently outward.</p>
 <p>Giant Sun Spiders can most easily be distinguished from Large monstrous spiders by their coloration, which ranges from brown to yellow. A giant sun spider is about 10 feet in diameter and weighs approximately 250 pounds.</p>
 <p>Sages call these creatures monstrous solifugids or monstrous solpugids. Less educated people sometimes call them giant camel spiders or giant false spiders.</p>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [17, 15, 14, 1, 10, 2, 2, 3],
             'feats' => [
                 'Improved Grapple',
@@ -1216,7 +1216,7 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 0 ft, one target. (1D4 -3) Piercing. The stirge attaches to the target. While attached, the stirge doesn't attack. Instead, at the start of each of the stirge's turns, the target loses 5 (1d4 +3) hit points due to blood loss.
 The stirge can detach itself by spending 5 feet of its movement. It does so after it drains 10 hit points of blood from the target or the target dies. A creature, including the target, can use an Action to detach the stirge.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [4, 16, 11, 2, 8, 6, .125, 2],
             'features' => [
                 'darkvision' => ['meta' => '60 ft'],
@@ -1237,7 +1237,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 +6) Piercing</dd>
 </dl>';
         $monster->description = "<p>A variety of tigers are common in the North, the red tiger is also known as the snow cat. The animal's coat changes with the seasons: rust-red in autumn, dappled white in winter, and golden brown in spring and summer. The animal is somewhat hardier and hardier than other tigers common in other lands.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [23, 15, 18, 2, 12, 6, 4],
             'saves' => [
                 'CON' => ['bonus' => 4],
@@ -1279,7 +1279,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 <p>Cloaks of snow tiger fur are symbols of status among the Rashemaar. They are never sold and may only be worn by individuals who successfully slew the tiger that became the cloak. Individuals who wear cloaks thay are not entitled to are usually attacked by Rashemaar who learn their secret.</p>
 <p>A cunning and resourceful predator, snow tigers prefer larger prey such as deer, mountain goats, sheep, and horses. During the depths of winter, snow tigers are sometimes reduced to stalking mice, rabbits, foxes and other small game.</p>
 <p>A few are intelligent enough to realize that humans are relatively easy prey, but this is rare. Most snow tigers avoid humans and attack only if cornered or starving.</p>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'     => [22, 16, 18, 2, 10, 6, 3],
             'saves'     => [
                 'CON' => ['bonus' => 2],
@@ -1301,6 +1301,43 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
         ]);
 
+        $monster                   = new Monster;
+        $monster->name             = 'Tiger, Dire';
+        $monster->size             = 'Large';
+        $monster->type             = 'Animal';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '11';
+        $monster->damage_reduction = '6 (Natural Armor)';
+        $monster->hit_dice         = 16;
+        $monster->speed            = '40 feet / 10 Climb';
+        $monster->actions          = '<dl>
+    <dt>Claws</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D4 + 8)</dd>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D4 + 4)</dd>
+    <dt>Grab</dt> <dd>If the dire tiger hits with 2 Claw attacks on the same opponent in the same round, then the dire tiger immediately gets an Additional Action. This Additional Action is used to make start a Grapple.</dd>
+    <dt>Rear Claw Rake</dt> <dd>In any round that a dire tiger starts its turn Grappling an opponent, it gets an Additional Action. This Additional Action can only be used to make Melee Attacks against the Grappled foe with its rear claws. Treat these rear Claws as a Claw attack.</dd>
+</dl>';
+        $monster->description      = '<p>Dire tigers prey on just about anything that moves. They will patiently stalk a potential meal, striking whenever the creature lets down its guard.</p>
+<p>Dire tigers grow to be over 12 feet long and can weigh up to 6,000 pounds.</p>';
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
+            'stats'  => [27, 15, 17, 2, 12, 10, 8, 5],
+            'skills' => [
+                'Stealth'   => ['dc' => 7],
+                'Athletics' => ['dc' => 14],
+                'Insight'   => ['dc' => 6],
+            ],
+            'feats' => [
+                'Alertness',
+                'Improved Grapple',
+                'Pounce',
+                'Weapon Focus'          => ['meta' => 'Claws'],
+                'Weapon Specialization' => ['meta' => 'Claws'],
+            ],
+            'features' => [
+                'keen_sense' => ['meta' => 'Scent'],
+                'darkvision' => ['meta' => '60 ft'],
+            ],
+        ]);
+
         $monster              = new Monster;
         $monster->name        = 'Toad, Giant';
         $monster->size        = 'Large';
@@ -1313,7 +1350,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D10 + 2) Piercing damage + 1D10 Poison. The target is Grappled (Escape DC 13). Until this Grapple ends, the target is Restrained and the toad can't bite another target.</dd>
     <dt>Swallow</dt> <dd>The toad makes one Bite attack against a Medium or smaller target it is Grappling. If the target hits, the target is swallowed, and the Grapple ends. The swallowed target is Blinded and Restrained, it has total cover against attacks and other effects outside the toad, and it takes 3D6 Acid damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time. If the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [15, 13, 13, 2, 10, 3, 1, 2],
             'skills' => [
                 'Athletics'  => ['dc' => 15, 'meta' => 'Jumping'],
@@ -1334,7 +1371,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->hit_dice    = 1;
         $monster->speed       = '10 ft / Swim 10 ft';
         $monster->actions     = '';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'  => [1, 14, 6, 1, 8, 2, 0, 2],
             'skills' => [
                 'Athletics'  => ['dc' => 12, 'meta' => 'Jumping'],
@@ -1357,7 +1394,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->actions     = '<dl>
     <dt>Sting</dt> <dd>Melee Weapon Attack +4 to Hit, reach 5 ft, one creature. 1D6 + 2 Piercing Damage and Target makes a DC 11 CON Save or take 3D6 Poison Damage or half on a Successful Save. If the Target drops to 0 HP or lower from the Poison Damage, they are Stable but Paralyzed for 1 hour.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [10, 14, 10, 1, 10, 3, .5, 2],
         ]);
 
@@ -1374,7 +1411,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Bite</dt> <dd>Melee Weapon attack, 5 ft, one target. (5D6 +4) Piercing</dd>
     <dt>Hold Breath</dt> <dd>The whale can hold its breath for 30 minutes</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [19, 10, 13, 3, 12, 7, 3, 2],
             'skills'   => ['Perception' => ['dc' => 3]],
             'features' => [
@@ -1395,7 +1432,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D4 +2 Piercing. If the target is a creature, it must succeed on a DC 11 STR Save or be knocked Prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [14, 15, 14, 3, 12, 6, .5, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -1419,7 +1456,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D6 +3 Piercing. If the target is a creature, it must succeed on a DC 13 STR Save or be knocked Prone.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Animal'], [
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [17, 15, 15, 3, 12, 7, 1, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -1429,6 +1466,33 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
                 'keen_sense' => ['meta' => 'Hearing and Smell'],
             ],
             'talents' => ['Improved Flanking'],
+        ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Wolverine, Dire';
+        $monster->size             = 'Large';
+        $monster->type             = 'Animal';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '12';
+        $monster->damage_reduction = '4 (Natural Armor)';
+        $monster->hit_dice         = 5;
+        $monster->speed            = '30 feet / 10 feet Climb';
+        $monster->actions          = '<dl>
+    <dt>Claw</dt> <dd>Melee Weapon Attack, 5 ft reach, one target. (1D6 + 6)</dd>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, 5 ft reach, one target. (1D8 + 6)</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
+            'stats'     => [22, 17, 19, 2, 12, 10, 4, 2],
+            'skills'    => [
+                'Athletics'  => ['dc' => 14],
+                'Perception' => ['dc' => 7],
+                'Survival'   => ['dc' => 5],
+            ],
+            'feats'     => [
+                'Alertness', 'Endurance',
+            ],
+            'features'  => ['rage'],
+            'talents'   => ['Die Hard'],
         ]);
     }
 }

@@ -510,17 +510,18 @@ class FeatsDivineSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
-    <li>You are able to gain an Animal Companion. Spend a 1st level spell slot to gain an Animal Companion. You do not get back the Spell Slots so long as you have the Animal Companion.</li>
-    <li>You gain the ability to as an Action, spend 1 Spell Point and cast the spell Heal Animal.</li>
+    <li>You gain 1 Spell Point</li>
+    <li>You are able to gain an Animal Companion. Follow the Rules for Animal Companions.</li>
     <li>If you have the Favored Enemy Class Feature, your Animal Companion gains all the benefits of your Favored Enemy.</li>
+    <li>If you have the Favored Terrain Class Feature, your Animal Companion gains all the benefits of your Favored Terrain.</li>
+    <li>Ranger Class Spell Slots count as Double towards meeting the Challenge Rating requirement.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Points</li>
     <li>You may now have a second Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
@@ -529,7 +530,7 @@ class FeatsDivineSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Greater Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Points</li>
     <li>You may now have a third Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 7]);
@@ -542,9 +543,13 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>You gain 2 Spell Points</li>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
-    <li>You gain an extra Action. The extra Action can only be used to command your Animal Companions, Familiar, or summoned creature.</li>
+    <li>You gain the ability to as an Action, spend 2 Spell Points and cast the spell Heal Animal Companion.</li>
+    <li>You gain an extra Action. The extra Action can only be used to command your Animal Companions, Familiars, or summoned creatures.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
+        $helper->addSpellsToFeat($feat, [
+            3 => ['Heal Animal Companion'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Divine Prophet';

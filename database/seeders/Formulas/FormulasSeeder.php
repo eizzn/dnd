@@ -25,5 +25,6 @@ class FormulasSeeder extends Seeder
         $this->call(DrugFormulasSeeder::class);
         $this->call(PoisonFormulasSeeder::class);
         $this->call(WeaponFormulaSeeder::class);
+        $this->call(RitualFormulaSeeder::class);
     }
 }

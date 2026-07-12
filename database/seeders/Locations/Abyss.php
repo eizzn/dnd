@@ -35,8 +35,8 @@ class Abyss extends Seeder
         $sub->pantheon_id = app()->pantheons['Demonic']->id;
         $sub->description = "<p>This layer is a barren wasteland of scorching winds under a relentless red sun. The surface is marked by massive dark pits; portals that plunge into many, but not all, of the deeper layers. The surface of the layer, cut through by the River Styx, connects to both Pandemonium and Hades in different edges. Its air space is ruled by Pazuzu, Price of the Lower Aerial Kingdoms. The landscape is marked with scattered iron fortresses claimed as fiefs by other demon lords.</p>
 <p>The layer is home to countless Mane petitioners, who are constantly hunted for food or thrust down the pits into the deeper layers, as well as gangs of Molydei that hunt demon stragglers. There are also a large number of mortal and outsider merchants and visitors throughout the layer, attracted by the opportunities offered by the layer's countless portals. The largest of these pits is known as the Grand Abyss, which is considered a layer in its own right. Some pits work as two-way portals, but others are only one-way.</p>";
+        $sub->ruler()->associate(God::where('name', 'Pazuzu')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Pazuzu')->firstOrFail());
 
         /**********************************************************************/
 
@@ -50,8 +50,8 @@ class Abyss extends Seeder
         $sub->description = "<p>The air of this plane contains a disease that transforms visitors into giant poisonous insect creatures. At the end of each day, creatures must make a DC 13 CON Save or contract the disease. If you Fail the Save, you begin transforming into a random giant insect over the course of 3 days. Whatever insect you transform into, it will also have some form of Poison attack.</p>
 <p>This plane is inhabited by countless numbers of insects, continually waging war with each other from gargantuan insect hives. They attack visitors to the plane.</p>
 <p>The plane's demonic inhabitants include ekolids, and primeval demonic insects.</p>";
+        $sub->ruler()->associate(God::where('name', 'Tharzax')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Tharzax')->firstOrFail());
 
         /**********************************************************************/
 

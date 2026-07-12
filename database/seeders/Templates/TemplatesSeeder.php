@@ -94,10 +94,10 @@ class TemplatesSeeder extends Seeder
 
         $temp              = new Template;
         $temp->name        = 'Telthor Companion';
-        $temp->description = '<p>In Rashemen, some spirits sometimes accept to serve a creature that is dedicated to Rashemen. They become their companion, either as an Animal Companion, a Divine Mount, or rarely, as a Familiar. Similar to a Telthor, they are bound to stay within a certain place, except for the Telthor Companion, it becomes the creature they serve.</p>';
+        $temp->description = '<p>In Rashemen, some spirits sometimes accept serving a creature that is dedicated to Rashemen. They become their companion, either as an Animal Companion, a Divine Mount, or rarely, as a Familiar. Similar to a Telthor, they are bound to stay within a certain place, except for the Telthor Companion, it becomes the creature they serve.</p>';
         $temp->details     = "<p>Telthor Companions are bound to a creature, usually a barbarian from one of the berserker lodges, but sometimes to a Hathran or Durthan. They become the Telthor Companions bound location and must remain within a mile of their master. The only exception to this is when the Telthor Companion is in the FeyWild, there, they do not suffer any ill effects from being away from their bound location (their master).</p>
 <dl>
-    <dt>Challenge Rating</dt> <dd>The Challenge Rating of the creature is unchanged</dd>
+    <dt>Challenge Rating</dt> <dd>The Challenge Rating of the creature is increase by +1</dd>
     <dt>Ability Scores</dt> <dd>Telthors have a minimum of 12 DEX and CHA. If the base creature has lower than 12 in these ability scores, increase their DEX and CHA to 12. Creatures with greater than 12 DEX and CHA retain their original ability scores.</dd>
     <dt>Armor Class</dt> <dd>The Telthor's Armor Class becomes 10 + their Charisma modifier + their Dexterity modifier.</dd>
     <dt>Hit Points</dt> <dd>The Telthor's Hit Points become the maximum possible value.</dd>
@@ -192,5 +192,55 @@ class TemplatesSeeder extends Seeder
     <dt>Challenge Rating</dt> <dd>Same as base creature +2</dd>
 </dl>";
         $helper->addTypesToSimpleObject($temp, ['Earth', 'Elemental']);
+
+        $temp              = new Template;
+        $temp->name        = 'Alpha Beast';
+        $temp->description = '<p>An alpha beast is a larger, fiercer, and more dominant specimen of its species. Driven by primal fury and heightened instincts, these creatures lead packs, defend territories with extreme aggression, and possess a supernatural resilience that sets them apart from ordinary wildlife.</p>
+<p>Visually indistinguishable from their kin at a distance except for their imposing size and battle-scarred hides, an alpha beast commands immediate respect in the wild. They strike harder, endure wounds that would fell a lesser animal, and possess a tactical cunning that makes them lethal apex predators.</p>';
+        $temp->details     = '<p>Alpha Beast is a template that can be applied to any creature with the Animal type.</p>
+<dl>
+    <dt>Abilities & Attributes</dt> <dd>+2 STR. +2 CON. Gain proficiency in CON Saves</dd>
+    <dt>Skills</dt> <dd>Perception +4</dd>
+    <dt>Feats</dt> <dd>Gain a Feat</dd>
+    <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) increases by +1.</dd>
+    <dt>Hit Die</dt> <dd>Increase HD +2</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 1/2</dd>
+</dl>';
+        $helper->addTypesToSimpleObject($temp, ['Animal']);
+
+        $temp              = new Template;
+        $temp->name        = 'Dire Animal';
+        $temp->description = '<p>Dire animals are larger, tougher, and far more aggressive versions of ordinary beasts. Coated in bony ridges, thick fur, or calcified spikes, they represent a primeval throwback to an era when nature was untamed and savage. They are the results of Rangers and Druids calling powerful Animal Companions that survived their masters.</p>
+<p>Unlike ordinary alphas, dire animals undergo a physical metamorphosis. Their teeth grow into jagged tusks, their claws elongate into iron-like talons, and their eyes burn with a low, predatory intelligence. They rarely run from a fight, hunting humanoids and monsters alike as apex predators.</p>';
+        $temp->details     = "<p>Dire Animal is a template that can be applied to any creature with the Animal or Beast type.</p>
+<dl>
+    <dt>Size</dt> <dd>The creature's size category increases by one (e.g., Medium becomes Large).</dd>
+    <dt>Abilities</dt> <dd>STR +4, CON +4, WIS +2, CHA +4. Gain proficiency in CON Saves.</dd>
+    <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) +4.</dd>
+    <dt>Hit Die</dt> <dd>Increase HD +6</dd>
+    <dt>Damage</dt> <dd>All melee attack damage dice increase by one step (e.g., 1d6 becomes 1d8, 2d4 becomes 2d6).</dd>
+    <dt>Thick Fur / Bony Plating</dt> <dd>The creature gains Resistance to Bludgeoning, Piercing, and Slashing damage.</dd>
+    <dt>Feats and Talents</dt> <dd>Gain 2 Feats and 1 Talent</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 2</dd>
+</dl>";
+        $helper->addTypesToSimpleObject($temp, ['Animal']);
+
+        $temp              = new Template;
+        $temp->name        = 'Mythic Animal';
+        $temp->description = '<p>A mythic monstrosity is a creature of nightmare and legend. No longer a mere product of natural evolution, these entities are born from powerful rangers and druids calling the most powerful of Animal Companions.</p>';
+        $temp->details     = "<p>Mythic Monstrosity is a template that can be applied to any creature with the Animal or Beast type.</p>
+<dl>
+    <dt>Size</dt> <dd>The creature's size category increases by one (e.g., Large becomes Huge).</dd>
+    <dt>Abilities</dt> <dd>STR +8, CON +8, INT becomes at least 6, WIS +4, CHA +6.</dd>
+    <dt>Legendary Resistance</dt> <dd>3/Day. If the creature fails a Save, it can choose to succeed instead.</dd>
+    <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) +9</dd>
+    <dt>Hit Die</dt> <dd>Increase HD +12</dd>
+    <dt>Damage</dt> <dd>All melee attack damage dice increase by two steps (e.g., 1d6 becomes 1d10, 2d4 becomes 2d8).</dd>
+    <dt>Thick Fur / Bony Plating</dt> <dd>The creature gains Resistance to Bludgeoning, Piercing, Slashing, and Poison damage.</dd>
+    <dt>Mythic Trait: Primal Rebirth</dt> <dd>When the creature is reduced to 0 hit points, it does not die. Instead, it instantly regains all its hit points, clears all negative conditions.</dd>
+    <dt>Feats and Talents</dt> <dd>Gain 4 Feats and 2 Talents</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 4</dd>
+</dl>";
+        $helper->addTypesToSimpleObject($temp, ['Animal', 'Monstrosity']);
     }
 }

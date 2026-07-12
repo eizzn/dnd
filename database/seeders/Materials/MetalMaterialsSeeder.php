@@ -52,9 +52,9 @@ class MetalMaterialsSeeder extends Seeder
     <li>Great Rift (the largest source in Faerun)</li>
     <li>Gauntlgrym</li>
 </ul>';
-        $mat->description = "<p>Adamantine is an alloy composed of many substances, the most prominent being adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened volcanic flows, or the deepest chasms.</p>
+        $mat->description = '<p>Adamantine is an alloy composed of many substances, the most prominent being adamant. Adamant is mined in small quantities from adamantine ores found within asteroids, hardened volcanic flows, or the deepest chasms.</p>
 <p>Combining five-eights adamant to two-eighths silver and one-eighth electrum (an alloy of silver and gold) forms adamantine. This perfected alloy retains the hardness of adamant while increasing its durability tremendously, allowing for the construction of weaponry and armor. Through powerful arcane magic, master dwarf smiths have even been able to combine steel and mithral into adamantine, though the process requires divine intervention and is considered a holy - and secret - endeavor.</p>
-<p>Adamantine is black with a clear, green sheen when seen through candlelight. The smelting of this alloy is almost exclusively a dwarven secret which they care not to share with anyone else.</p>";
+<p>Adamantine is black with a clear, green sheen when seen through candlelight. The smelting of this alloy is almost exclusively a dwarven secret which they care not to share with anyone else.</p>';
         $mat->armor = "<p>Armor (Chain Shirt, Scale Mail, Breastplate, Half Plate, Ring Mail, Chain Mail, Splint, or Plate). This jet-black armor is nigh impenetrable, a bulwark against all harm.</p>
 <ul>
     <li>The base Damage Reduction of the armor is increased by 4</li>

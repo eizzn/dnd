@@ -25,13 +25,15 @@ class PowersPSeeder extends Seeder
         $power->duration    = 'Varies';
         $power->description = "<p>You can generate light, granting you the following powers.</p>
 <ul>
+    <li>You can deepen existing shadows (but you cannot cause complete darkness).</li>
+    <li>You can increase the ambient light causing the visible range to double.</li>
     <li>You can create a source of heat-less light that illuminates a 30-foot radius sphere and moves at your will at a speed of 60 feet and must be within 120 feet of you. This use has a duration of 3 hours</li>
     <li>You can create a blinding flash of light to momentarily distract an opponent. The target must make CON Save or be Dazzled 1. This use has a duration of Instantaneous.</li>
     <li>You can shoot a ray of light that deals 1 point of Light damage, or 3D6 Light damage to Undead and Evil Outsiders. This use has a duration of Instantaneous.</li>
 </ul>
 <p>You can make your light be treated as Sunlight to creatures with the Sunlight Sensitivity feature, or as Moonlight (although Moonlight alone is not what triggers Lycanthropy) or Starlight. With practice, you can fool observers into thinking your light is a Will o' the Wisp.</p>";
         $power->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>Increase the Light damage from the ray of light by +1 or +1D6</dd>
+    <dt>Heightened (+1)</dt> <dd>Increase the Light damage from the ray of light by +1 or +1D6 (to Undead)</dd>
     <dt>Heightened (+5)</dt> <dd>The blinding flash of light now causes Dazzled 2</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Light'], 1);
@@ -66,13 +68,13 @@ class PowersPSeeder extends Seeder
 
         $power              = new Power;
         $power->name        = 'Power Defense';
-        $power->action_type = 'Action';
+        $power->action_type = 'Reaction';
         $power->display     = 'Mental';
         $power->targets     = 'Self';
         $power->duration    = '1 round';
         $power->description = '<p>You raise a mental defense that grants a +3 bonus to CON and WIS Saves and gain Resistance to all Psionic Combat damage.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and the Duration becomes 3 rounds</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus to CON Saves by +1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 2);
@@ -170,8 +172,8 @@ class PowersPSeeder extends Seeder
         $power->saves          = '<dl>
     <dt>Critical Success</dt> <dd>The target takes no damage</dd>
     <dt>Success</dt> <dd>The target takes 3D6 psychic damage</dd>
-    <dt>Failure</dt> <dd>The target gains the Dying 1 condition</dd>
-    <dt>Critical Failure</dt> <dd>The target gains the Dying 2 condition</dd>
+    <dt>Failure</dt> <dd>The target becomes Dazed: 3</dd>
+    <dt>Critical Failure</dt> <dd>The target becomes Dazed: 5</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Ability Damage'], 5);
 

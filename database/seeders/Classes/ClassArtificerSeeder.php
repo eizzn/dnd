@@ -560,12 +560,15 @@ class ClassArtificerSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Craft Infusion']);
 
         $helper->addFeaturesToClass($class, [
-            'wizard_spell_list'  => [1],
             'skilled_crafter'    => [1],
             'class_group_feat'   => [2, 3, 5, 7, 9, 12, 15, 18],
             'spell_storing_item' => [11],
             'magic_item_savant'  => [14],
             'magic_item_master'  => [18],
+        ]);
+        $class->features()->save(app()->features['wizard_spell_list'], [
+            'level' => 1,
+            'meta'  => 'Spells that you can memorize but cannot cast due to not having a number for that level means that you may memorize a spell of that level for use in crafting purposes, but you cannot cast for its effect',
         ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 2,

@@ -67,24 +67,25 @@ onMounted(fetchFeatDetails);
                                             <td class="px-4 py-2 border border-gray-300">{{ feat.requirements }}</td>
                                             <td class="px-4 py-2 border border-gray-300">{{ feat.trigger }}</td>
                                             <td class="px-4 py-2 border border-gray-300">
-                                                <ul class="list-disc ml-4">
-                                                    <li v-for="(skill, index) in feat.skills" :key="index">
-                                                        {{ skill.name }}
+                                                <ul class="space-y-1.5">
+                                                    <li v-for="(skill, index) in feat.skills" :key="index" class="flex items-center gap-2">
+                                                        <NavLink
+                                                            :href="`/skill/${skill.id}`"
+                                                            style="border-bottom-width: 0 !important;"
+                                                        >{{ skill.name }}</NavLink>
                                                     </li>
                                                 </ul>
                                             </td>
                                             <td class="px-4 py-2 border border-gray-300">
-                                                <ul class="list-disc ml-4">
-                                                    <li v-for="(type, index) in feat.types" :key="index">
-                                                        <NavLink
-                                                            :href="`/type/${type.id}`"
-                                                            class="text-blue-800 hover:underline p-0"
-                                                            style="border-bottom-width: 0 !important;"
-                                                        >
-                                                            {{ type.name }}
-                                                        </NavLink>
-                                                    </li>
-                                                </ul>
+                                                <div class="flex flex-wrap gap-1.5">
+                                                    <NavLink
+                                                        v-for="(type, index) in feat.types" :key="index"
+                                                        :href="`/type/${type.id}`"
+                                                        class="inline-block px-2.5 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium hover:bg-amber-900/60 transition-colors"
+                                                        style="border-bottom-width: 1px !important;"
+                                                    >{{ type.name }}<span v-if="type.level" class="ml-1 text-stone-400">({{ type.level }})</span></NavLink>
+                                                    <span v-if="!feat.types?.length" class="text-stone-500">—</span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>

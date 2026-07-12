@@ -40,6 +40,7 @@ class ClassHexBladeSeeder extends Seeder
 
         $helper->addFeaturesToClass($class, [
             'class_group_feat' => [3, 5, 9, 12, 15, 18, 19],
+            'spell_point'      => [3],
             'spell_resistance' => [4],
             'combat_mastery'   => [7, 20],
         ]);
@@ -53,6 +54,16 @@ class ClassHexBladeSeeder extends Seeder
 
             'Find Familiar'    => 4,
             'Enhance Familiar' => 8,
+
+            'Extra Melee Action'    => 7,
+            'Weapon Focus'          => 4,
+            'Weapon Specialization' => 8,
+
+            'Brew Potion'            => 3,
+            'Inscribe Tattoo'        => 3,
+            'Craft Contingent Spell' => 7,
+            'Lingering Spell'        => 5,
+            'Repeat Spell'           => 6,
         ]);
 
         $helper->addSpellsToClass($class, [

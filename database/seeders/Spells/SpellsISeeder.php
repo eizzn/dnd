@@ -80,7 +80,7 @@ class SpellsISeeder extends Seeder
 <dl>
     <dt>Material Components</dt> <dd>An ice statue of the original. Some portion of the original creature to be duplicated (hair, nail, etc) must be placed inside the ice statue. Powdered Diamond worth at least 20,000 gp, which the spell consumes.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Shadow', 'Cold'], 8);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Cold'], 8);
 
         $spell              = new Spell;
         $spell->name        = 'Ice Blade';

@@ -25,9 +25,13 @@ class PowersSSeeder extends Seeder
         $power->targets     = 'Self';
         $power->duration    = '1 minute';
         $power->description = "<p>Your mind splits into two independent parts. Each part functions in complete autonomy, like two characters in one body. Your new second mind does not control your physical body. You gain 2 additional Actions, which can only be used to manifest powers and only your second mind can use.</p>
-<p>Your second mind can manifest powers using your Power Point reserve. Your second mind does not provoke any Attacks of Opportunity when manifesting a power because doing so doesn't distract your primary mind.</p>
-<p>You second mind takes its first Action on your turn in the round after Schism is manifested.</p>
-<p>Both your minds communicate with each other telepathically. If you are subject to a Compulsion or Charm effect while you are of two minds, make a second Save if you fail the first. If you fail both, then only your primary mind is affected. The second mind can take Actions (still under the control of the player). The second mind is only affected if the effect is specifically targeting the second mind.</p>";
+<ul>
+    <li>Your second mind can manifest powers using your Power Point reserve. All Powers your second mind manifest costs 2 more Power Points. You and your second mind combined cannot spend more Power Points in a turn than your Character Level</li>
+    <li>Your second mind does not provoke any Attacks of Opportunity when manifesting a power because doing so doesn't distract your primary mind.</li>
+    <li>You second mind takes its first Action on your turn in the round after Schism is manifested.</li>
+    <li>Both your minds communicate with each other telepathically.</li>
+    <li>If you are subject to a Compulsion or Charm effect while you are of two minds, make a second Save if you fail the first. If you fail both, then only your primary mind is affected. The second mind can take Actions (still under the control of the player). The second mind is only affected if the effect is specifically targeting the second mind.</li>
+</ul>";
         $helper->addTypesToPower($power, ['Telepathy'], 4);
 
         $power              = new Power;
@@ -167,7 +171,7 @@ class PowersSSeeder extends Seeder
         $power->name        = 'Sound Absorption';
         $power->action_type = 'Reaction';
         $power->duration    = '1 round';
-        $power->range       = '0 feet';
+        $power->targets     = 'Self';
         $power->description = '<p>You gain the ability to absorb the energy from sound, and possibly healing your wounds from the absorbed energy.</p>
 <p>When you manifest this power, choose one.</p>
 <ul>
@@ -205,7 +209,7 @@ class PowersSSeeder extends Seeder
 
         $power                 = new Power;
         $power->name           = 'Strength Blast';
-        $power->action_type    = 'Double Action';
+        $power->action_type    = 'Triple Action';
         $power->display        = 'Mental';
         $power->range          = '30 feet';
         $power->targets        = 'One living creature with an INT score';
@@ -219,20 +223,21 @@ class PowersSSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>Double damage</dd>
 </dl>';
         $power->heightened = '<dl>
-    <dt>Heightened (+3)</dt> <dd>If the target fails their Save, they gain the Enfeebled 2 condition.</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Heighten +2 without spending any additional Power Points</dd>
+    <dt>Heightened (+3)</dt> <dd>If the target fails their Save, they gain the Enfeebled 2 Condition.</dd>
     <dt>Heightened (+4)</dt> <dd>The spell gains an area effect of a 30-foot cone and all in the area are affected.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 1);
 
         $power              = new Power;
         $power->name        = 'Strength Defense';
-        $power->action_type = 'Action';
+        $power->action_type = 'Reaction';
         $power->display     = 'Mental';
         $power->range       = 'Self';
         $power->duration    = '1 round';
         $power->description = '<p>You raise a mental defense that grants a +2 bonus to CON Saves and gain resistance to Vitality Blast, Life Blast and STR Blast.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and the Duration becomes 3 rounds</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the bonus to CON Saves by +1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 1);

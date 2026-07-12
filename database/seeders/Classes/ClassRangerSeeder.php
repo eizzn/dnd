@@ -40,20 +40,18 @@ class ClassRangerSeeder extends Seeder
             'Acrobatics', 'Animal Handling', 'Athletics', 'Concentration', 'Language', 'Medicine', 'Nature', 'Stealth', 'Survival',
         ]);
         $helper->addSpellSlotsToClass($class, [
-            2  => ['known' => 4, 'one' => 3],
-            3  => ['known' => 5, 'one' => 4],
-            4  => ['known' => 6, 'one' => 4],
-            5  => ['known' => 7, 'one' => 5],
-            6  => ['known' => 8, 'one' => 5, 'two' => 2],
-            7  => ['known' => 9, 'one' => 5, 'two' => 3],
+            4  => ['known' => 6, 'one' => 3],
+            5  => ['known' => 7, 'one' => 4],
+            6  => ['known' => 8, 'one' => 4],
+            7  => ['known' => 9, 'one' => 4, 'two' => 2],
             8  => ['known' => 10, 'one' => 5, 'two' => 3],
             9  => ['known' => 11, 'one' => 5, 'two' => 3],
-            10 => ['known' => 12, 'one' => 5, 'two' => 3, 'three' => 2],
-            11 => ['known' => 13, 'one' => 5, 'two' => 3, 'three' => 3],
+            10 => ['known' => 12, 'one' => 5, 'two' => 3],
+            11 => ['known' => 13, 'one' => 5, 'two' => 3, 'three' => 2],
             12 => ['known' => 14, 'one' => 5, 'two' => 3, 'three' => 3],
             13 => ['known' => 15, 'one' => 5, 'two' => 3, 'three' => 3],
-            14 => ['known' => 16, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 1],
-            15 => ['known' => 17, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 2],
+            14 => ['known' => 16, 'one' => 5, 'two' => 3, 'three' => 3],
+            15 => ['known' => 17, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 1],
             16 => ['known' => 18, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 2],
             17 => ['known' => 19, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 3],
             18 => ['known' => 20, 'one' => 5, 'two' => 3, 'three' => 3, 'four' => 3, 'five' => 1],
@@ -207,16 +205,15 @@ class ClassRangerSeeder extends Seeder
 
             'Favored Terrain' => 4,
 
-            'Animal Companion'          => 3,
-            'Improved Animal Companion' => 5,
-            'Animal Companion Master'   => 6,
-
             'Peerless Archer'          => 9,
             'Improved Peerless Archer' => 13,
             'Greater Peerless Archer'  => 17,
 
             'Divine Archer of Solonor' => 2,
             'Hunter of Malar'          => 2,
+
+            'Extra Melee Action'    => 6,
+            'Extra Ranged Action'   => 5,
         ]);
     }
 }

@@ -149,8 +149,6 @@ class AlchemicalFormulasSeeder extends Seeder
 <p>Metals that are treated with blueshine becomes immune to Acid, corrosion, and all slimes (even from Rust Monsters)</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Additive'], [
             'skills'    => ['Crafting' => ['dc' => 9, 'meta' => 'Alchemy']],
-            'formulas'  => ['Sweet Water' => ['meta' => '1 vial']],
-            'monsters'  => ['Cockatrice' => ['meta' => 'single feather in brine solution soaked for at least 3 months']],
         ]);
 
         $formula              = new Formula;
@@ -186,7 +184,6 @@ class AlchemicalFormulasSeeder extends Seeder
 <p>Metals treated with Everbright gain an enduring bright shine (akin to chromium) and becomes immune to tarnishing and other discoloration, acidic corrosion, and rusting.</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Additive'], [
             'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Alchemy']],
-            'formulas'  => ['Potion of Acid Resistance'],
         ]);
 
         $formula              = new Formula;

@@ -30,7 +30,7 @@ class MonstersASeeder extends Seeder
     <dt>Gestalt</dt> <dd>Nine lantern archons can fuse together as a Triple Action, becoming a single Large entity that appears as a whirlwind of dancing firefly lights. The gestalt has the abilities of a Large Air Elemental. The lantern archons can remain in this form for 10 rounds. When the gestalt separates back into individual lantern archons, its remaining Hit Points are divided evenly among them. If it had less than 9 Hit Points, some component archons die when the gestalt ends.</dd>
 </dl>';
         $monster->description = '<p>Lantern archons are the lowest-ranking of the archons. They appear as spheres of soft, glowing light, about as bright as a torch, from about one to three feet in diameter.</p>';
-        $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful'], [
+        $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful', 'Familiar'], [
             'stats'  => [1, 16, 12, 6, 11, 10, 2, 2],
             'skills' => [
                 'Arcana'     => ['dc' => 3],
@@ -202,7 +202,7 @@ class MonstersASeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Axiomatic Holy War Hammer +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D8 +3 Bludgeoning.</dd>
 </dl>';
-        $monster->description = '<p>Word archons were the celestial guardians of pure concepts, such as goodness, virtue, and love. These archons excelled in the power of true names.</p>';
+        $monster->description = '<p>Word archons are the celestial guardians of pure concepts, such as goodness, virtue, and love. These archons excel in the power of true names.</p>';
         $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful'], [
             'stats'  => [14, 11, 14, 22, 18, 18, 9, 4],
             'skills' => [

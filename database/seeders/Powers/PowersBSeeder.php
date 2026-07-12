@@ -124,12 +124,13 @@ class PowersBSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Electricity'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Biofeedback';
-        $power->action_type = 'Action';
-        $power->display     = 'Material, Visual';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You gain Damage Resistance to Bludgeoning, Piercing, and Slashing attacks.</p>';
+        $power                   = new Power;
+        $power->name             = 'Biofeedback';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Material, Visual';
+        $power->duration         = '3 hours';
+        $power->description      = '<p>You gain Damage Resistance to Bludgeoning, Piercing, and Slashing attacks.</p>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 2);
 
         $power                 = new Power;
@@ -160,23 +161,24 @@ class PowersBSeeder extends Seeder
         $power->description = "<p>You take control of your body's healing process, curing yourself of 1D6 + 6 points of damage.</p>";
         $power->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the amount healed by +1D6 +1</dd>
-    <dt>Heightened (+2)</dt> <dd>
-        <p>By expending your Psionic Focus, you may as a Reaction, place yourself in a state of suspended animation. While in this suspended state, you do not age, breathe, grow hungry, sleep, or regain Power Points, Spell Points, or spent Spell Slots. You are unaware of your surroundings and cannot use subconscious powers. Outside forces can damage your body, but as long as your head remains attached to your torso and your brain remains intact, the physical damage can be healed.</p>
+    <dt>Heightened (+2. Expend your Psionic Focus)</dt> <dd>
+        <p>You may as a Reaction, place yourself in a state of suspended animation. While in this suspended state, you do not age, breathe, grow hungry, sleep, or regain Power Points, Spell Points, or spent Spell Slots. You are unaware of your surroundings and cannot use subconscious powers. Outside forces can damage your body, but as long as your head remains attached to your torso and your brain remains intact, the physical damage can be healed.</p>
         <p>You may activate this power in response to being fatally injured to defer death.</p>
         <p>While in a suspended state, you may come out of it if you have a positive amount of Hit Points (although you cannot sense the outside world so you cannot choose to end the state of suspended animation based on outside events, and your mind is unconscious so you cannot choose to end this after a certain amount of time, the only trigger that you can notice is that you were healed enough to not die should you end the suspended animation state).</p>
     </dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Healing'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Body Equilibrium';
-        $power->action_type = 'Action';
-        $power->display     = 'Auditory';
-        $power->targets     = 'Self';
-        $power->duration    = '10 minutes';
-        $power->description = "<p>You can adjust your body's equilibrium to correspond with any solid or liquid that you stand on. Thus, you can walk on water, quicksand or even a spider's web without sinking or breaking through. You can not take more than 2 Move Actions in a single turn or the effect will fail.</p>
+        $power                   = new Power;
+        $power->name             = 'Body Equilibrium';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Auditory';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hours';
+        $power->description      = "<p>You can adjust your body's equilibrium to correspond with any solid or liquid that you stand on. Thus, you can walk on water, quicksand or even a spider's web without sinking or breaking through. You can not take more than 2 Move Actions in a single turn or the effect will fail.</p>
 <p>If you fall from any height while this power is active, damage form the impact is halved.</p>";
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
     <dt>Heightened (+2)</dt> <dd>This Power simulates the effects of the spell Floating Step, but Self only.</dd>
@@ -191,7 +193,7 @@ class PowersBSeeder extends Seeder
         $power->duration    = 'Instantaneous';
         $power->description = '<p>You can do the following</p>
 <ul>
-    <li>You restore up to 2 points of Ability Score damage.</li>
+    <li>You restore up to 4 points of Ability Score damage.</li>
     <li>Allow target to make an additional Save vs a Disease afflicting it with a +2 bonus.</li>
     <li>Allow target to make an additional Save vs a Poison afflicting it with a +2 bonus.</li>
 </ul>';
@@ -232,7 +234,7 @@ class PowersBSeeder extends Seeder
         $power->name           = 'Brain Disruption';
         $power->action_type    = 'Double Action';
         $power->display        = 'Material, Visual';
-        $power->requirements   = 'The target must have suffered amount of ability damage (See text)';
+        $power->requirements   = 'The target must have suffered an amount of ability damage (See text)';
         $power->targets        = 'One humanoid';
         $power->range          = '90 feet';
         $power->save_attribute = 'WIS';
@@ -313,14 +315,15 @@ class PowersBSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Compulsion', 'Ability Damage'], 5);
 
-        $power              = new Power;
-        $power->name        = 'Burst';
-        $power->action_type = 'Action';
-        $power->display     = 'Auditory';
-        $power->targets     = 'Self';
-        $power->duration    = '5 rounds';
-        $power->description = '<p>You gain the Quick condition. The extra Action may only be used for Stride Actions.</p>';
-        $power->heightened  = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Burst';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 1 minute';
+        $power->display          = 'Auditory';
+        $power->targets          = 'Self';
+        $power->duration         = '1 hour';
+        $power->description      = '<p>You gain the Quick condition. The extra Action may only be used for Stride Actions.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>The Action type becomes Free Action.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 1);

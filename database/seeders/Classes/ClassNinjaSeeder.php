@@ -108,6 +108,9 @@ class ClassNinjaSeeder extends Seeder
 
             'Stunning Fist'          => 4,
             'Improved Stunning Fist' => 10,
+
+            'Extra Melee Action'    => 7,
+            'Extra Ranged Action'   => 7,
         ]);
 
         $helper->addPowersToClass($class, [

@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Plane extends Model
 {
-    use TypeableTrait, LocationableTrait;
+    use LocationableTrait, TypeableTrait;
 
     public $timestamps = false;
 

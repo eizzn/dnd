@@ -48,7 +48,7 @@ class AdventuringGearsSeeder extends Seeder
         $equip->price       = '50';
         $equip->bulk        = '8';
         $equip->hands       = 2;
-        $equip->description = "<p>you can create items from raw materials using artisan's tools. This involves using the Crafting skill to Craft the items. Expert artisan's tools give you a +1 item bonus to the check, and master tools give you a +2 item bonus. Different sets might be needed for different kinds of work, as determined by the GM.</p>
+        $equip->description = "<p>You can create items from raw materials using artisan's tools. This involves using the Crafting skill to Craft the items. Expert artisan's tools give you a +1 item bonus to the check, and master tools give you a +2 item bonus. Different sets might be needed for different kinds of work, as determined by the GM.</p>
 <p>For example, blacksmith's tools differ from woodworker's tools.</p>";
         $helper->addTypesToSimpleObject($equip);
         $id = $equip->id;

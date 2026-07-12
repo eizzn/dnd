@@ -95,7 +95,7 @@ class PowersTSeeder extends Seeder
         $power->requirements = 'You must have the Time Hop power';
         $power->targets      = 'Self';
         $power->duration     = '2 rounds';
-        $power->description  = '<p>You gain the Quickened 3 state. The additional Actions are available the round you manifest this power.</p>';
+        $power->description  = '<p>You gain the Quickened Condition. The additional Action is available at the start of your next turn.</p>';
         $power->heightened   = '<dl>
     <dt>Heightened (+4)</dt> <dd>Increase the duration by 1 round</dd>
 </dl>';
@@ -142,7 +142,7 @@ class PowersTSeeder extends Seeder
         $power->requirements = 'You must have the Time Hop power';
         $power->duration     = 'Instantaneous';
         $power->description  = "<p>You can regress apparent time 1 round into the past. In effect, you \"replay\" the previous round of activity. The power regresses time to the point along the time stream just prior to your previous turn, undoing the effects of everyone else's Actions in the meantime. Once you have used this power, only you retain knowledge of what happened during the round that is being replayed; however, you can communicate that knowledge verbally to your companions, if desired. During the round that you live through a second time, you can act on knowledge you previously gained by already living through the immediate future. In all likelihood, you'll probably not choose to manifest this power during your second pass through the time stream, instead taking completely new Actions.</p>
-<p>Altering the time stream in such a fashion is mentally taxing and you suffer 2 points of ability damage to CHA, INT, and WIS. This damage cannot be ignored through any special effects or abilities, but can be healed as any other ability damage.</p>";
+<p>Altering the time stream in such a fashion is mentally taxing and you suffer 4 points of ability damage to CHA, INT, and WIS. This damage cannot be ignored through any special effects or abilities, but can be healed as any other ability damage.</p>";
         $helper->addTypesToPower($power, ['Psychoportation'], 9);
 
         $power              = new Power;

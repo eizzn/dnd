@@ -27,18 +27,26 @@ export default {
         const currentPage = ref(1);
         const pagination = ref({});
 
+        const buildQueryString = (obj) => {
+            const parts = [];
+            for (const [key, val] of Object.entries(obj)) {
+                if (val === null || val === '') continue;
+                if (Array.isArray(val)) {
+                    if (val.length === 0) continue;
+                    val.forEach(v => parts.push(`${encodeURIComponent(key + '[]')}=${encodeURIComponent(v)}`));
+                } else {
+                    parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(val)}`);
+                }
+            }
+            return parts.join('&');
+        };
+
         const fetchData = async (page = 1) => {
-            const params = new URLSearchParams(
-                Object.fromEntries(
-                    Object.entries({
-                        ...filters.value,
-                        page,
-                        per_page: props.paginationLimit,
-                    }).filter(([_, value]) =>
-                        value !== null && value !== '' && (!Array.isArray(value) || value.length > 0)
-                    )
-                )
-            ).toString();
+            const params = buildQueryString({
+                ...filters.value,
+                page,
+                per_page: props.paginationLimit,
+            });
 
             try {
                 const response = await fetch(`/api/${props.uri}?${params}`);
@@ -47,16 +55,13 @@ export default {
                 pagination.value = result;
                 currentPage.value = page;
 
-                await router.push({
-                    path: `/${props.uri}`,
-                    query: Object.fromEntries(
-                        Object.entries({
-                            ...filters.value,
-                            page,
-                            per_page: props.paginationLimit,
-                        }).filter(([_, value]) => value !== null)
-                    )
-                });
+                const routeQuery = {};
+                for (const [key, val] of Object.entries({ ...filters.value, page, per_page: props.paginationLimit })) {
+                    if (val === null || val === '') continue;
+                    if (Array.isArray(val) && val.length === 0) continue;
+                    routeQuery[key] = val;
+                }
+                await router.push({ path: `/${props.uri}`, query: routeQuery });
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -66,10 +71,14 @@ export default {
 
         onMounted(() => {
             const queryParams = new URLSearchParams(window.location.search);
-
             queryParams.forEach((value, key) => {
-                if (!filters.value[key]) {
-                    filters.value[key] = value;
+                const cleanKey = key.endsWith('[]') ? key.slice(0, -2) : key;
+                if (Array.isArray(filters.value[cleanKey])) {
+                    if (!filters.value[cleanKey].includes(value)) {
+                        filters.value[cleanKey].push(value);
+                    }
+                } else if (!filters.value[cleanKey]) {
+                    filters.value[cleanKey] = value;
                 }
             });
             fetchData();
@@ -101,6 +110,9 @@ export default {
             </thead>
             <tbody>
                 <slot name="table" :data="data"></slot>
+                <tr v-if="data.length === 0">
+                    <td colspan="100" class="px-4 py-6 text-center text-gray-500 italic">No records found.</td>
+                </tr>
             </tbody>
         </table>
         <div class="mt-4">

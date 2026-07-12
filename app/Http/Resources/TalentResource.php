@@ -21,8 +21,9 @@ class TalentResource extends JsonResource
             'description' => $this->description,
             'types'       => $this->types->map(function (Type $type) {
                 return [
-                    'id'   => $type->id,
-                    'name' => $type->name,
+                    'id'    => $type->id,
+                    'name'  => $type->name,
+                    'level' => $type->pivot->level,
                 ];
             }),
             'parent'      => $this->parent ? [

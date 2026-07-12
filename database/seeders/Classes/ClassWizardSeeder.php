@@ -23,7 +23,7 @@ class ClassWizardSeeder extends Seeder
         $class->name          = 'Wizard';
         $class->type          = 'Base';
         $class->key_attribute = 'INT';
-        $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, and Staff';
+        $class->weapons       = 'Club, Dagger, Light Crossbow, and Staff';
         $class->has_spells    = 1;
         $class->description   = '
 <h3>Spell Casting</h3>
@@ -48,6 +48,7 @@ class ClassWizardSeeder extends Seeder
 
         $helper->addFeaturesToClass($class, [
             'wizard_feat'     => [2, 3, 5, 8, 12, 15, 18],
+            'spell_point'     => [2],
             'arcane_recovery' => [4],
         ]);
         $class->features()->save(app()->features['feat'], [
@@ -164,7 +165,8 @@ class ClassWizardSeeder extends Seeder
                 'Ray of Force', 'Ray of Paralysis', 'Repelling Shield', 'Sending', 'Sepia Snake Sigil', 'Shockwave', 'Sign of Sealing',
                 'Siphon', 'Silver Lance', 'Skywrite', "Slaver's Mild Admonishment", 'Sleet Storm', 'Slow', 'Smoke Breathing',
                 'Stinking Cloud', 'Storm Shield', 'Summon Demon, Lesser', 'Tidal Wave', 'Tiny Hut', 'Tiny Servant', 'Thunder Step',
-                'Tongues', 'Undersea Current', 'Vampiric Touch', 'Vitality Shield', 'Water Breathing', 'Wall of Sand', 'Wall of Wind','Whirling Blade', ],
+                'Tongues', 'Undersea Current', 'Vampiric Touch', 'Vitality Shield', 'Wraithform', 'Water Breathing', 'Wall of Sand',
+                'Wall of Wind', 'Whirling Blade', ],
             4 => ['Aboleth Curse', 'Anti-Summoning Shell', 'Aqueous Column', 'Arcane Eye', 'Astral Hospice', 'Backblast',
                 'Banishing Weapon', 'Blight', 'Call Animal', 'Call Dretch Horde', 'Call Lemure Horde', 'Call Modron Workers',
                 'Call Yugoloth Mercenaries', 'Calling', 'Control Water', 'Coral Growth', 'Corporeal Instability', 'Deliquescence',
@@ -173,9 +175,9 @@ class ClassWizardSeeder extends Seeder
                 'Faithful Hound', 'Finger of Agony', 'Fire Shield', 'Force Chest', 'Force Orb', 'Freedom of Movement', 'Globe of Invulnerability',
                 'Gloom', 'Heart of Earth', 'Ice Storm', 'Image Swap', 'Kiss of the Vampire', 'Lightning Fog', 'Phantasmal Killer',
                 'Polymorph', 'Polymorph Self', 'Portal View', 'Private Sanctum', 'Psychic Poison', 'Resilient Sphere', 'Scramble Portal',
-                'Secret Chest', 'Secure Shelter', 'Seed of Undeath', 'Shadow Conjuration', 'Shape Stone', 'Sickness', 'Spell Immunity',
-                'Spell Matrix', 'Steelsting', 'Stoneskin', 'Stop', 'Summon Demon', 'Suspension', 'True Form', 'Veil', 'Venom Bolt',
-                'Vitriolic Sphere', 'Wall of Fire', 'Water to Poison', 'Watery Sphere', 'Waves of Fatigue', 'Wingbind', ],
+                'Secret Chest', 'Secure Shelter', 'Seed of Undeath', 'Shape Stone', 'Sickness', 'Spell Immunity', 'Spell Matrix',
+                'Steelsting', 'Stoneskin', 'Stop', 'Summon Demon', 'Suspension', 'True Form', 'Veil', 'Venom Bolt', 'Vitriolic Sphere',
+                'Wall of Fire', 'Water to Poison', 'Watery Sphere', 'Waves of Fatigue', 'Wingbind', ],
             5 => ['Animate Objects', 'Anticold Sphere', 'Antielectricity Sphere', 'Antifire Sphere', 'Antilife Shell', 'Arcane Hand',
                 'Ball Lightning', 'Banishment', 'Bone Blade', 'Calm Air', 'Cloudkill', 'Cone of Cold', 'Contact Other Plane', 'Create Chosen One',
                 'Create Darkenbeast', 'Create Slipgate', 'Creation', 'Circlet of Enervation', 'Dimension Jumper', 'Energy Buffer',
@@ -184,10 +186,10 @@ class ClassWizardSeeder extends Seeder
                 'Lightning Leap', 'Locate Gate', 'Mailed Might of the Magelords', 'Misty Step, Greater', 'Moonbow', 'Necrotic Grasp',
                 'Negative Energy Flood', "Night's Caress", 'Passwall', 'Planar Adaption', 'Planar Binding', 'Prismatic Ray',
                 'Psychic Turmoil', 'Rays of Bedevilment', 'Resounding Thunder', 'Revelation', 'Rune of Returning', 'Sapphire Screen of Shielding',
-                'Scattering Trap', 'Scrying', 'Seeming', 'Shadow Form', 'Steal Summoning', 'Steel Wind Strike', 'Sparkles',
-                'Spell Theft', 'Summon Elemental', 'Tactical Teleportation', 'Telekinesis', 'Telepathic Bond', 'Teleportation Circle',
-                'Trace Teleport', 'Unseen Thief', "Vampire's Kiss", 'Versatile Vibrations', 'Viscus Glob', 'Wall of Force',
-                'Wall of Stone', 'Watchware', ],
+                'Scattering Trap', 'Scrying', 'Seeming', 'Steal Summoning', 'Steel Wind Strike', 'Sparkles', 'Spell Theft',
+                'Summon Elemental', 'Tactical Teleportation', 'Telekinesis', 'Telepathic Bond', 'Teleportation Circle', 'Trace Teleport',
+                'Unseen Thief', "Vampire's Kiss", 'Versatile Vibrations', 'Viscus Glob', 'Wall of Force', 'Wall of Stone',
+                'Watchware', ],
             6 => ['Arcane Gate', 'Awaken Undead', 'Baleful Polymorph', 'Baleful Teleport', 'Brilliant Weapon', 'Chain Lightning',
                 'Circle of Death', 'Dream Sight', 'Conceal Temporal Anomaly', 'Create Gargoyle', 'Create Undead', 'Crushing Sphere',
                 'Disintegrate', 'Dream Casting', 'Dream Puppet', 'Energy Transformation Field', 'Enervating Touch', 'Everlasting Fire',

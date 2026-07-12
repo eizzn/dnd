@@ -24,7 +24,7 @@ class PsionicsPageSeeder extends Seeder
         $page->save();
 
         $rule              = new Rule;
-        $rule->key         = 'psionic_focus';
+        $rule->key         = 'psionic-focus';
         $rule->name        = 'Psionic Focus';
         $rule->description = '<p>Merely holding a reservoir of Power Points in mind gives Psionic Characters a special energy. Psionic characters can put that energy to work without actually paying a Power Point cost. You can become Psionically Focused as a special use of the Concentration skill.</p>
 <p>If you have 1 or more Power Points available, you can meditate to attempt to become Psionically Focused. The DC to become Psionically Focused is 20. Meditating is Triple Action that provokes Attacks of Opportunity. When you are Psionically Focused you gain the following.</p>

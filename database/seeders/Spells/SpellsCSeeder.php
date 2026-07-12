@@ -187,7 +187,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = 'Verbal Casting';
         $spell->range       = '5 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>This spell duplicates your Divine Mount class feature. You must still sacrifice another Spell Slot to pay for your Divine Mount.</p>';
+        $spell->description = '<p>This spell duplicates your Divine Mount Class Feature except the mount appears before you immediately at full health regardless of distance or plane (magical effects specifically designed to prevent Conjuration can block this). You must have previous gone through the process of summoning your mount by casting Divine Favor and praying for 10 minutes. You must follow all rules of Divine Mounts.</p>';
         $helper->addTypesToSpell($spell, ['Conjuration', 'Familiar'], 2);
 
         $spell              = new Spell;
@@ -278,7 +278,7 @@ class SpellsCSeeder extends Seeder
     <dt>Failure</dt> <dd>You suppress emotion effects and prevent the creature from acting hostile. If it is subject to hostility from any other creature, it ceases to be affected by Calm Emotions.</dd>
     <dt>Critical Failure</dt> <dd>As failure, but hostility doesn't end the effect</dd>
 </dl>";
-        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion'], 2);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Compulsion'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Camouflage';
@@ -370,9 +370,9 @@ class SpellsCSeeder extends Seeder
     <dt>Somatic Casting, Verbal Casting</dt> <dd>The spell has a Range of 30 feet and requires a Ranged Spell Attack. A living Target must make a CON Save, taking half damage on a Success, no damage on a Critical Success, or double damage on a Critical Failure</dd>
     <dt>Material Casting, Somatic Casting, Verbal Casting</dt> <dd>You disperse Negative energy in a 30-foot aura. This has the same effect as the two-Action version, but it Targets all living and undead creatures in the burst.</dd>
 </dl>';
-        $spell->heightened = "<dl>
+        $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>The amount of damage or healing increases to 1D8</dd>
-</dl>";
+</dl>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>See text</dd>
     <dt>Failure</dt> <dd>See text</dd>
@@ -2915,9 +2915,9 @@ class SpellsCSeeder extends Seeder
 <dl>
     <dt>Material Component</dt> <dd>Your Holy Symbol or a vial of Sweet Water</dd>
 </dl>";
-        $spell->heightened = "<dl>
+        $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>The amount of healing or damage increases by 1D8 + 1 CON damage.</dd>
-</dl>";
+</dl>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>See text</dd>
     <dt>Failure</dt> <dd>See text</dd>

@@ -15,6 +15,7 @@ trait TypeableTrait
 {
     public function types(): MorphToMany
     {
-        return $this->morphToMany(Type::class, 'typeable');
+        return $this->morphToMany(Type::class, 'typeable')
+            ->withPivot('level');
     }
 }

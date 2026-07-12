@@ -4,11 +4,12 @@ import {Head} from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "materials";
 const filters = {
     name: null,
-    type: null,
+    type: [],
 };
 </script>
 
@@ -44,28 +45,23 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="material-type-filter" class="block text-sm font-medium text-gray-700">Type</label>
-                                    <select
-                                        id="material-type-filter"
-                                        v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="animal product">Animal Product</option>
-                                        <option value="clay">Clay</option>
-                                        <option value="crystal">Crystal</option>
-                                        <option value="earth">Earth</option>
-                                        <option value="gem">Gem</option>
-                                        <option value="herb">Herb</option>
-                                        <option value="liquid">Liquid</option>
-                                        <option value="liquid metal">Liquid Metal</option>
-                                        <option value="metal">Metal</option>
-                                        <option value="mineral">Mineral</option>
-                                        <option value="non-mineral">Non-Mineral</option>
-                                        <option value="plant or herb">Plant or Herb</option>
-                                        <option value="stone">Stone</option>
-                                        <option value="various">Various</option>
-                                        <option value="wood">Wood</option>
-                                    </select>
+                                    <MultiSelect v-model="filters.type" :options="[
+                                        { value: 'animal product', label: 'Animal Product' },
+                                        { value: 'clay', label: 'Clay' },
+                                        { value: 'crystal', label: 'Crystal' },
+                                        { value: 'earth', label: 'Earth' },
+                                        { value: 'gem', label: 'Gem' },
+                                        { value: 'herb', label: 'Herb' },
+                                        { value: 'liquid', label: 'Liquid' },
+                                        { value: 'liquid metal', label: 'Liquid Metal' },
+                                        { value: 'metal', label: 'Metal' },
+                                        { value: 'mineral', label: 'Mineral' },
+                                        { value: 'non-mineral', label: 'Non-Mineral' },
+                                        { value: 'plant or herb', label: 'Plant or Herb' },
+                                        { value: 'stone', label: 'Stone' },
+                                        { value: 'various', label: 'Various' },
+                                        { value: 'wood', label: 'Wood' },
+                                    ]" />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="material-rarity-filter" class="block text-sm font-medium text-gray-700">Rarity</label>

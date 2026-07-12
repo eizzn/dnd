@@ -478,26 +478,26 @@ class GodsBaneSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Borem';
-        $god->level = 'Demon';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'      => $god->name,
             'title'     => 'Of the Lake of Boiling Mud',
             'portfolio' => 'Anger',
             'alignment' => 'CE',
-            'level'     => 'Demon',
+            'level'     => 'Archdemon',
             'master_id' => $bane->id,
         ]);
 
         $god        = new God;
         $god->name  = 'Camnod';
-        $god->level = 'Demon';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'      => $god->name,
             'title'     => 'The Unseen',
             'alignment' => 'CE',
-            'level'     => 'Demon',
+            'level'     => 'Archdemon',
             'master_id' => $bane->id,
         ]);
     }

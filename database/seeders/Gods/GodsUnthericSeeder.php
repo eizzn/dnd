@@ -140,7 +140,7 @@ class GodsUnthericSeeder extends Seeder
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
             'title'       => '',
-            'level'       => 'Devil',
+            'level'       => 'Duke of Hell',
             'alignment'   => 'LE',
             'description' => "<p>Nergal was an outcast archdevil exiled by Asmodeus to Avernus.</p>
 <p>In an attempt to learn the secrets of silver fire, he captured Elminster whilst the wizard was in Avernus and exhausted from sealing a planar rift between Avernus and Shadowdale. Nergal subjected Elminster to horrific suffering, all the while stealing his memories using a mental link, until Nergal's body was destroyed by the Simbul (his life-force seemingly escaped).</p>",

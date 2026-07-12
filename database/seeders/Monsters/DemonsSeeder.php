@@ -29,7 +29,7 @@ class DemonsSeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack +3 to hit, reach 5 ft, one target. 1D4 Slashing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Familiar'], [
             'stats'    => [10, 9, 13, 3, 8, 4, .125, 2],
             'features' => [
                 'darkvision'    => ['meta' => '60 ft'],
@@ -80,7 +80,7 @@ class DemonsSeeder extends Seeder
     <dt>Scare (1/day)</dt> <dd>One creature of the quasit's choice within 20 ft of it must succeed on a DC 10 WIS Save or be Frightened for 1 minute. The target can repeat the Save at the end of each of its turns, with Disadvantage if the quasit is within line of sight, ending the effect on itself on a success.</dd>
     <dt>Shapechanger</dt> <dd>The quasit can use its Action to Polymorph into an Animal: Bat (10 ft/Fly 40 ft), Centipede (40ft/Climb 40 ft), or Toad (40 ft/Swim 40 ft). Any equipment it's carrying isn't transformed. It reverts to its true form if it dies.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Demon', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Outsider'], [
+        $helper->saveMonster($monster, ['Demon', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Outsider', 'Animal Companion'], [
             'stats'    => [5, 17, 10, 7, 10, 10, 1, 2],
             'features' => [
                 'magic_resistance',
@@ -181,6 +181,16 @@ class DemonsSeeder extends Seeder
     <dt>Spores (Recharge 6)</dt> <dd>A 15-foot-radius cloud of toxic spores extends out from the vrock. The spores spread around corners. Each creature in that area must succeed on a DC 14 CON Save or become Sickened 1. While Sick in this way, a Target takes 5 (1D10) Poison damage at the start of each of its turns. A Target can repeat the Save at the end of each of its turns, ending the effect on itself on a success. Emptying a vial of Holy Water on the target also ends the effect on it.</dd>
     <dt>Stunning Screech (1/day)</dt> <dd>The vrock emits a horrific screech. Each creature within 20 feet of it that can hear it and that isn't a demon must succeed on a DC 14 CON Save or be Stunned until the end of the vrock's next turn.</dd>
 </dl>";
+        $monster->description      = '
+
+<h4>Known Vrocks</h4>
+<ul>
+    <li>Shaakat: sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</li>
+    <li>Rejik: sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</li>
+    <li>Morbaat: sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</li>
+    <li>Baskshu: Servant of Eltab</li>
+    <li>Karrian: Servant of Eltab</li>
+</ul>';
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [17, 15, 18, 8, 13, 8, 6, 3],
             'features' => [
@@ -245,6 +255,18 @@ class DemonsSeeder extends Seeder
     <dt>Pincer</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 2D10 + 5 Bludgeoning.</dd>
     <dt>Fist</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D4 + 2 Bludgeoning.</dd>
 </dl>';
+        $monster->description      = "
+
+<h4>Known Glabrezus</h4>
+<ul>
+    <li>Belshazu: Father of the draegloth Jeggred Baenre</li>
+    <li>Bizmatec: Acted as the balor Errtu's second-in-command</li>
+    <li>Mizferac: Summoned on a regular basis by Cadderly for a tenday until he brought news of Jarlaxle, Artemis Entreri and Crenshinibon coming to see the priest. Immediately after, he was banished for a hundred years by Cadderly after threatening Cadderly's family. He was later summoned again by Cadderly, rescinding the banishment.</li>
+    <li>
+        Quinix: living in the ruins of the Gate of Iron Fangs on the southwestern tip of the Forest of Amtar.<br/>
+        <span style=\"display:inline-block; margin-left: 3px;\">He traveled through a portal into the Forest of Amtar. The ruins of the gate were also the home of a large tribe of gnolls whom he easily took control over. The gnolls thought that he was a representative of their \"god\" Yeenoghu. He used them for raids in the near area from Dambrath, Channathgate and Rethmar. He planned to recruit humans as spies and soldiers. The Swagdar seemed the best suited for this task. His ultimate goal was to raid Halruaa since the magically rich country promised the best profit.</span>
+    </li>
+</ul>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [20, 15, 21, 19, 17, 16, 9, 4],
             'features' => [
@@ -299,7 +321,16 @@ class DemonsSeeder extends Seeder
 <p>Regardless of their origin, the yochlol have always been loyal to Lolth and her schemes. They serve as her eyes and ears in the Abyss and beyond, spying on her enemies and allies alike. They also act as her messengers and emissaries, delivering her commands and threats to those who would oppose or worship her.</p>
 <p>The yochlol are cunning and deceptive creatures, adept at manipulating others to serve their own ends. They enjoy tormenting and corrupting mortals, especially those who are faithful to other gods or ideals. They often infiltrate drow societies, posing as priestesses or nobles, and sow discord and strife among them. They also tempt drow with promises of power and favor from Lolth, luring them into traps or betrayals.</p>
 <p>The yochlol are not mindless servants, however. They have their own personalities and goals, which sometimes conflict with Lolth's plans or interests. They can also form genuine friendships or even love with charismatic mortals, though such relationships are often doomed by their loyalty to Lolth or by the hatred of other demons.
-<p>The yochlol are feared and hated by most other demons, who see them as favored pets of Lolth and rivals for her attention. The yochlol are immune to attacks from other demons, unless Lolth allows it or orders it. The yochlol often abuse this privilege, taunting and provoking other demons without fear of retaliation.</p>";
+<p>The yochlol are feared and hated by most other demons, who see them as favored pets of Lolth and rivals for her attention. The yochlol are immune to attacks from other demons, unless Lolth allows it or orders it. The yochlol often abuse this privilege, taunting and provoking other demons without fear of retaliation.</p>
+<h4>Known Yochlols</h4>
+<ul>
+    <li>Azarell: potential companion of a group that rescued villagers from Menzoberranzan</li>
+    <li>Bolifaena: seen in Icewind Dale</li>
+    <li>Eskavidne: aided Matron Zhindia Melarn to summon demons and resurrect driders</li>
+    <li>Savera: infiltrated the Sildëyuir</li>
+    <li>Y'lara: sent by Lolth to help Gromph Baenre summon a demon lord</li>
+    <li>Yiccardaria: served as the emissary for the reborn Yvonnel Baenre</li>
+</ul>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Shapechanger', 'Outsider'], [
             'stats'    => [15, 14, 18, 13, 15, 15, 10, 5],
             'features' => [
@@ -380,6 +411,18 @@ class DemonsSeeder extends Seeder
     <dt>Longsword +1</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D8 + 4 Slashing. Each of the 6 longswords can have additional abilities.</dd>
     <dt>Tail</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 2D10 + 4 Bludgeoning. If the target is Medium or smaller, it is Grappled (escape DC 19). Until this Grapple ends, the target is restrained, the marilith can automatically hit the target with its tail, and the marilith can\'t make tail attacks against other targets.</dd>
 </dl>';
+        $monster->description      = "
+
+<h4>Known Mariliths</h4>
+<ul>
+    <li>Marilith: This is the great demon for whom the race of mariliths are named.<br/>
+        <span style=\"display:inline-block; margin-left: 3px;\">In 1485–1486 DR, Marilith was among the demons that wandered the streets of Menzoberranzan and participated in the failed defense of Q'Xorlarrin against the dwarves.</span>
+    </li>
+    <li>Muvassys the Sceptered: mother of Kaanyr Vhok and a member of the three mariliths known as the \"Triumvirate\"</li>
+    <li>Reluhantis: personal attendant to the demon lord Graz'zt.</li>
+    <li>Unhath: personal attendant to the demon lord Graz'zt.</li>
+    <li>Vhissilka: commander serving the balor lord Axithar</li>
+</ul>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [18, 20, 20, 18, 16, 20, 16, 5],
             'features' => [
@@ -420,6 +463,27 @@ class DemonsSeeder extends Seeder
     <dt>Unholy Greater Flaming Whip +2</dt> <dd>Melee Weapon Attack +16, reach 30 ft, one target. 2D6 + 10 Slashing + 3D6 Fire. The target must succeed on a DC 20 STR Save or be pulled up to 25 feet toward the balor.</dd>
     <dt>Fire Aura</dt> <dd>A balor may with an Action, burn with intense fire that lasts until dispelled (with another Action). At the start of each of the balor's turns, each creature within 5 feet of it takes 10 (3D6) Fire damage and flammable objects in the aura that aren\'t being worn or carried ignite. A creature that touches the balor or hits it with a melee attack while within 5 feet takes 10 (3D6) Fire damage.</dd>
 </dl>";
+        $monster->description      = "
+
+<h4>Known Balors</h4>
+<ul>
+    <li>Balor: has served all the demon lords at one point or another in his life. He was favored by Baphomet and Kostchtchie.<br/>
+        <span style=\"display:inline-block; margin-left: 3px;\">In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane. While Balor cannot move directly against Lolth, he takes any opportunity to oppose Errtu.
+    </li>
+    <li>Belaphoss the Mad: a powerful balor who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</li>
+    <li>Wendonai: See entry in gods</li>
+    <li>
+        <p>Errtu: Errtu seeked to gain possession of the artifact Crenshinibon. He ended up being banished by Drizz't Do'Urden and has sworn revenge.</p>
+        <p>Errtu has since formed a loose alliance with Lolth when she approached him to guard Menzoberranzan during the Time of Troubles.</p>
+        <p>The balor Wendonai opposes Errtu for the favor of Lolth.</p>
+    </li>
+    <li>Chare'en: part of the Army of Darkness that attacked Myth Drannor. He raised a huge gnoll army in the Thunder Peaks, before being defeated and imprisoned.</li>
+    <li>Axithar: invaded the House of the Triad after the fall of Mystra.<br/>
+        <span style=\"display:inline-block; margin-left: 3px;\">Not long after the death of Mystra (in 1385 DR), the cambion Kaanyr Vhok and his companions were captured by the marilith Vhissilka, who served Lord Axithar. Vhok abandoned his companions and allied with Axithar, providing information about the weaknesses of the House of the Triad so that Vhok could get his revenge for his treatment by the angel Tauran and so that he could reach the Lifespring, which he believed would give him the power to rule Sundabar as a glorious leader. Axithar's horde of demons invaded the plane and were nearing victory against the angels when Bahamut's legions appeared and defeated the demon armies.</span>
+    </li>
+    <li>Badrazel: In 1372 DR, during the Silence of Lolth, the half-fiend fire giant Kurgoth Hellspawn invaded Maerimydra with the balor Badrazel at his side. While Kurgoth made the Coliseum there his base, Badrazel continued to harry those that still resisted the invaders. He patrolled the heights of the cavern and tested the defenses of Castle Maerimydra on several occasions.</li>
+    <li>Raachaak: a power-hungry balor who sought to capture a legendary bloodforge in the 14th century DR.</li>
+</ul>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [26, 15, 22, 20, 16, 22, 19, 6],
             'features' => [

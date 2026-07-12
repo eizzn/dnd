@@ -112,7 +112,7 @@ class PfInit extends Migration
             $table->string('bulk', 1)->nullable();
             $table->smallInteger('hands')->unsigned()->nullable();
             $table->enum('group', ['Axe', 'Bow', 'Brawling', 'Club', 'Dart', 'Flail', 'Hammer', 'Knife', 'Pick', 'Polearm', 'Shield', 'Sling', 'Spear', 'Sword', 'Exotic']);
-            $table->enum('type', ['Simple Melee', 'Martial Melee', 'Simple Ranged', 'Martial Ranged', 'Uncommon Simple Melee', 'Uncommon Martial Melee', 'Uncommon Exotic Melee', 'Uncommon Martial Ranged']);
+            $table->enum('type', ['Simple Melee', 'Martial Melee', 'Simple Ranged', 'Martial Ranged', 'Uncommon Simple Melee', 'Uncommon Martial Melee', 'Uncommon Exotic Melee', 'Uncommon Martial Ranged', 'Ammunition']);
             $table->text('description')->nullable();
         });
         Schema::create('equipments', function (Blueprint $table) {
@@ -144,7 +144,7 @@ class PfInit extends Migration
             $table->morphs('materialable');
             $table->string('quantity', 40)->nullable();
             $table->string('price', 100)->nullable();
-            $table->string('meta')->nullable();
+            $table->text('meta')->nullable();
 
             $table->primary(['material_id', 'materialable_id', 'materialable_type'], 'materialable_id');
         });
@@ -188,10 +188,10 @@ class PfInit extends Migration
             $table->string('name', 50)->unique();
             $table->enum('level', [
                 'Greater', 'Intermediate', 'Lesser', 'Demi', 'Hero',
-                'Archdevil', 'Devil',
-                'Demon Lord', 'Demon',
+                'Archdevil', 'Devil Lord', 'Duke of Hell',
+                'Demon Prince', 'Demon Lord',
                 'Altraloth', 'Yugoloth',
-                'Solar', 'Tome Archon', 'Archon',
+                'Tome Archon',
                 'Gaurdinal Paragon', 'Guardinal',
                 'Slaad Lord', 'Slaad',
                 'Prime', 'Modron',
@@ -214,10 +214,10 @@ class PfInit extends Migration
             $table->string('title')->nullable();
             $table->enum('level', [
                 'Greater', 'Intermediate', 'Lesser', 'Demi', 'Hero',
-                'Archdevil', 'Duke of Hell', 'Devil',
-                'Demon Lord', 'Demon',
+                'Archdevil', 'Devil Lord', 'Duke of Hell',
+                'Demon Prince', 'Demon Lord', 'Archdemon',
                 'Altraloth', 'Yugoloth',
-                'Solar', 'Tome Archon', 'Archon',
+                'Tome Archon',
                 'Guardinal Paragon', 'Guardinal',
                 'Slaad Lord', 'Slaad',
                 'Prime', 'Modron',

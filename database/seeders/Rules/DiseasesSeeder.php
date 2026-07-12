@@ -150,7 +150,7 @@ class DiseasesSeeder extends Seeder
         </tr>
     </tbody>
 </table>';
-        $rule->order = 10;
+        $rule->order = 1;
         $page->rules()->save($rule);
 
         $rule              = new Rule;

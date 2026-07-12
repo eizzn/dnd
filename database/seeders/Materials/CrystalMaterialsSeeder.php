@@ -83,7 +83,8 @@ class CrystalMaterialsSeeder extends Seeder
     <li>Great Glacier</li>
     <li>The North Country</li>
 </ul>';
-        $mat->description = '<p>Forged from the ice at the deepest parts of glaciers, Blue Ice is notoriously difficult to craft, but the result is often lighter than expected.</p>';
+        $mat->description = '<p>Forged from the ice at the deepest parts of glaciers, Blue Ice is notoriously difficult to craft, but the result is often lighter than expected.</p>
+<p>While Blue Ice is harder and colder than normal ice, taking it to a warm climate will cause the Blue Ice to eventually melt.</p>';
         $mat->armor       = '<p>Replaces the metal for Medium or Heavy Armor, but not Hide.</p>
 <ul>
     <li>If the armor normally imposes a penalty on DEX based skills, the Blue Ice version imposes no penalty</li>

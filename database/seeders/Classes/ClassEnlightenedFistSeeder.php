@@ -57,6 +57,7 @@ class ClassEnlightenedFistSeeder extends Seeder
         $helper->saveFeature($feature, ['Arcane', 'Psionic']);
 
         $helper->addFeaturesToClass($class, [
+            'psychic'                   => [3],
             'psionic_power_class'       => [1, 3, 6, 7, 8, 9, 10],
             'arcane_spellcasting_class' => [1, 4, 6, 7, 8, 9, 10],
             'fist_of_energy'            => [2],
@@ -71,10 +72,6 @@ class ClassEnlightenedFistSeeder extends Seeder
             2 => ['Haste', 'Mental Augmentation', 'Mental Barrier', 'Physical Augmentation', 'Space Hop'],
             3 => ['Air Walk', 'Cloud Mind', 'Energy Adaptation'],
             4 => ['Adapt Body', 'Dimension Door', 'Etherealness'],
-        ]);
-
-        $helper->addFeatsToClass($class, [
-            'Greater Psionic Fist' => 3,
         ]);
     }
 }

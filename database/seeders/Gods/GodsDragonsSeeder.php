@@ -274,7 +274,6 @@ class GodsDragonsSeeder extends Seeder
             'favored_weapon' => 'Claw',
         ]);
 
-
         /**********************************************************************/
 
         $god        = new God;

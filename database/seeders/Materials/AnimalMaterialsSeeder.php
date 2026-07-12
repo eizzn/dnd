@@ -47,16 +47,14 @@ class AnimalMaterialsSeeder extends Seeder
 <p>Obtaining angel essence requires a willing Archon. You must make a DC 13 Arcana check to extract it from the Archon. The Archon suffers 1 point of Damage in the process.</p>";
         $mat->save();
 
-        $mat              = new Material;
-        $mat->name        = 'Ambrosia';
-        $mat->description = '<p>Good spellcasters can use Ambrosia in magic item creation.</p>
-<p>A living creature that drinks a dose of Ambrosia experiences a soothing sensation that wipes away minor aches and pains, takes the edge off grief and sadness, cures 1 point of damage, and 1 point of ability damage. These positive sensations and emotions persist for 1D4+1 hours.</p>
-<p>The Celestial Hebdomad subsist entirely on Ambrosia.</p>';
-        $mat->type = 'Liquid';
+        $mat         = new Material;
+        $mat->name   = 'Blood';
+        $mat->type   = 'Creature';
+        $mat->rarity = 'Ubiquitous';
         $mat->save();
 
         $mat         = new Material;
-        $mat->name   = 'Blood';
+        $mat->name   = 'Heart';
         $mat->type   = 'Creature';
         $mat->rarity = 'Ubiquitous';
         $mat->save();
@@ -85,7 +83,7 @@ class AnimalMaterialsSeeder extends Seeder
 
         $mat              = new Material;
         $mat->name        = 'Ellond Hide';
-        $mat->description = 'This brown-orange hide is harvested from desert and dry areas creatures';
+        $mat->description = 'This brown-orange hide is harvested from desert and dry area creatures';
         $mat->type        = 'Creature';
         $mat->price       = "Determined by the creature's CR";
         $mat->armor       = '<p>While wearing clothing or a hide armor made with ellond hide, fire damage you take is reduced by 3</p>
@@ -126,6 +124,11 @@ class AnimalMaterialsSeeder extends Seeder
         $mat->price       = "Determined by the creature's CR";
         $mat->armor       = '<p>While wearing clothing or any non-metallic armor made with shadowsilk, you gain a +3 bonus to DEX (Stealth) checks you make in lightly obscured areas (such as tree shadows)</p>
 <p>Harvested shadowsilk from a CR 13 or higher creature can be sued to craft a Cloak of Arachnida</p>';
+        $mat->save();
+
+        $mat             = new Material;
+        $mat->name       = 'Stomach Acid';
+        $mat->type       = 'Creature';
         $mat->save();
     }
 }

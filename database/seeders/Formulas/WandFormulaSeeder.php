@@ -3,7 +3,6 @@
 namespace Database\Seeders\Formulas;
 
 use App\Models\Formula;
-use App\Models\Material;
 use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
@@ -33,7 +32,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Acid Splash' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Alchemy']
+                'Crafting' => ['dc' => 5, 'meta' => 'Alchemy'],
             ],
             'materials' => ['Glassteel' => ['meta' => 'The wand is made of this material. 1/2 lb']],
             'formulas'  => ['Aqua Regia' => ['meta' => '1 oz']],
@@ -52,7 +51,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Detect Magic' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -84,7 +83,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Fire Bolt' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Ellond Shrub' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -101,7 +100,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Ray of Frost' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Metal Smithing']
+                'Crafting' => ['dc' => 5, 'meta' => 'Metal Smithing'],
             ],
             'materials' => ['Cold Iron' => ['meta' => 'The wand is forged with this metal']],
             'formulas'  => ['Liquid Ice' => ['meta' => '1 oz']],
@@ -119,7 +118,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Fireball' => ['meta' => 'Heightened +1']],
             'skills'    => [
                 'Arcana'   => ['dc' => 12],
-                'Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Serpent Tree' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -137,7 +136,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Light' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 4],
-                'Crafting' => ['dc' => 4, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 4, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Ucre Bramble' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -154,7 +153,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Lightning Bolt' => ['meta' => 'Heightened +1']],
             'skills'    => [
                 'Arcana'   => ['dc' => 12],
-                'Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Thundertree' => ['meta' => 'Wand is whittled from a branch of this plant']],
             'formulas'  => ['Bottled Lightning'=> ['meta' => '1 oz']],
@@ -173,7 +172,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Magic Missile' => ['meta' => 'Heightened +1']],
             'skills'    => [
                 'Arcana'   => ['dc' => 7],
-                'Crafting' => ['dc' => 7, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 7, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -184,13 +183,13 @@ class WandFormulaSeeder extends Seeder
         $formula->price         = '50 gp';
         $formula->crafting_time = '3 days';
         $formula->activation    = 'Manipulation: Spell Trigger Action';
-        $formula->description = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate</p>';
+        $formula->description   = '<p>This wand can have up to 50 charges and requires a Spell Trigger Action to activate</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
             'spells'    => ['Shield' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Spiritual Wood' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -207,7 +206,7 @@ class WandFormulaSeeder extends Seeder
             'spells'    => ['Shocking Grasp' => ['meta' => 'A second level Spell Slot must be used']],
             'skills'    => [
                 'Arcana'   => ['dc' => 5],
-                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry']
+                'Crafting' => ['dc' => 5, 'meta' => 'Woodworking or Carpentry'],
             ],
             'materials' => ['Thundertree' => ['meta' => 'Wand is whittled from a branch of this plant']],
         ]);
@@ -225,9 +224,8 @@ class WandFormulaSeeder extends Seeder
 <p>The sticky substance can be dissolved with a pint of alcohol, or Oil of Etherealness, or Universal Solvent.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
-            'spells'    => ['Web' => ['meta' =>['meta' => 'Heightened +2']]],
+            'spells'    => ['Web' => ['meta' => 'Heightened +2']],
             'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']],
-            'monsters'  => ['Spider, Giant' => ['meta' => 'Undamaged Silk Gland']],
         ]);
 
         $formula                = new Formula;
@@ -240,9 +238,61 @@ class WandFormulaSeeder extends Seeder
         $formula->description   = '<p>This wand can have up to 20 charges and requires a Double Spell Trigger Action to activate. When activated, you cast the Web Spell.</p>';
         $helper->saveFormula($formula, ['Wand'], [
             'feats'     => ['Craft Implement'],
-            'spells'    => ['Web' => ['meta' =>['meta' => 'Heightened +2']]],
+            'spells'    => ['Web' => ['meta' =>'Heightened +2']],
             'skills'    => ['Crafting' => ['dc' => 10, 'meta' => 'Woodworking or Carpentry']],
-            'monsters'  => ['Spider, Giant' => ['meta' => 'Undamaged Silk Gland']],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Staff of Fire';
+        $formula->type          = 'Staff';
+        $formula->level         = 12;
+        $formula->price         = '1,000 gp';
+        $formula->crafting_time = '2 weeks';
+        $formula->activation    = 'Manipulation: Double Spell Trigger Action';
+        $formula->description   = '<p>This wooden staff is wrapped in iron metal and comes with 30 Charges. Once you Attune to this staff, you gain Resistance to Fire as long as you hold the Staff. It also offers the following Spells.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Spell</th>
+            <th>Charges</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Burning Hands</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Fireball</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Fire Shield</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Wall of Fire</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table>';
+        $helper->saveFormula($formula, ['Staff', 'Fire'], [
+            'feats'     => ['Craft Implement'],
+            'spells'    => [
+                'Resistance'    => ['meta' => 'Must use a 3rd level Spell Slot'],
+                'Burning Hands' => ['meta' => 'Heightened +4'],
+                'Fireball'      => ['meta' => 'Heightened +3'],
+                'Fire Shield'   => ['meta' => 'Heightened +2'],
+                'Wall of Fire'  => ['meta' => 'Heightened +1'],
+            ],
+            'skills'    => [
+                'Arcana'    => ['dc' => 12],
+                'Crafting'  => ['dc' => 12, 'meta' => 'Woodworking and Metalworking'],
+            ],
+            'materials' => [
+                'Ellond Shrub' => ['meta' => 'Staff is whittled from the trunk of the shrub'],
+                'Arandur'      => ['meta' => 'Wrap the wood while the metal is still hot but not enough to burn the wood'],
+            ],
         ]);
     }
 }

@@ -4,13 +4,14 @@ import {Head} from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "classes";
 const filters = {
     name: null,
-    type: null,
-    key_attribute: null,
-    hit_dice: null,
+    type: [],
+    key_attribute: [],
+    hit_dice: [],
     has_spells: null,
     has_powers: null,
 };
@@ -47,56 +48,50 @@ const filters = {
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="class-type-filter" class="block text-sm font-medium text-gray-700">Type</label>
-                                    <select
-                                        id="class-type-filter"
+                                    <label class="block text-sm font-medium text-gray-700">Type</label>
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="base">Base</option>
-                                        <option value="priest">Priest</option>
-                                        <option value="prestige">Prestige</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'base', label: 'Base' },
+                                            { value: 'priest', label: 'Priest' },
+                                            { value: 'prestige', label: 'Prestige' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="class-attr-filter" class="block text-sm font-medium text-gray-700">Key Attribute</label>
-                                    <select
-                                        id="class-attr-filter"
+                                    <label class="block text-sm font-medium text-gray-700">Key Attribute</label>
+                                    <MultiSelect
                                         v-model="filters.key_attribute"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="str">STR</option>
-                                        <option value="dex">DEX</option>
-                                        <option value="con">CON</option>
-                                        <option value="int">INT</option>
-                                        <option value="wis">WIS</option>
-                                        <option value="cha">CHA</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'str', label: 'STR' },
+                                            { value: 'dex', label: 'DEX' },
+                                            { value: 'con', label: 'CON' },
+                                            { value: 'int', label: 'INT' },
+                                            { value: 'wis', label: 'WIS' },
+                                            { value: 'cha', label: 'CHA' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="class-hitdice-filter" class="block text-sm font-medium text-gray-700">Hit Dice</label>
-                                    <select
-                                        id="class-hitdice-filter"
+                                    <label class="block text-sm font-medium text-gray-700">Hit Dice</label>
+                                    <MultiSelect
                                         v-model="filters.hit_dice"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="6">d6</option>
-                                        <option value="8">d8</option>
-                                        <option value="10">d10</option>
-                                        <option value="12">d12</option>
-                                    </select>
+                                        :options="[
+                                            { value: '6', label: 'd6' },
+                                            { value: '8', label: 'd8' },
+                                            { value: '10', label: 'd10' },
+                                            { value: '12', label: 'd12' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="class-hasspells-filter" class="block text-sm font-medium text-gray-700">Spells</label>
                                     <select
                                         id="class-hasspells-filter"
                                         v-model="filters.has_spells"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-1.5 px-3 text-sm text-gray-700 shadow-sm transition hover:border-indigo-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
                                     >
-                                        <option value=""> - </option>
+                                        <option :value="null">Any</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
@@ -106,9 +101,9 @@ const filters = {
                                     <select
                                         id="class-haspowers-filter"
                                         v-model="filters.has_powers"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-1.5 px-3 text-sm text-gray-700 shadow-sm transition hover:border-indigo-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
                                     >
-                                        <option value=""> - </option>
+                                        <option :value="null">Any</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>

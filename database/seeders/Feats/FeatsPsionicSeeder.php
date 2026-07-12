@@ -21,7 +21,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Psychic Speed';
         $feat->description = '<p>While you are Psionically Focused, you gain an additional Action. This additional Action can only be used to take the Stride Action.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Combat Manifestation';
@@ -29,7 +29,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Psionic Talent</li>
     <li>You gain Advantage on Concentration checks made to manifest a power defensively or while you are grappling or pinned.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Talent', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Focused Mind';
@@ -37,28 +37,28 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Psionic Talent</li>
     <li>When you use the Concentration skill to become Psionically Focused, you have Advantage on the check.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Talent', 'Psionic' => 6]);
         $feat->parent_feats()->save(app()->feats['Combat Manifestation']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Focused Mind';
         $feat->description = '<p>You may now hold an additional Psionic Focus at the same time.</p>
 <p>You may take this feat up to three times.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic' => 12]);
         $feat->parent_feats()->save(app()->feats['Focused Mind']);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Focused Mind';
         $feat->requirement = 'You must have at least one Metapsionic feat';
         $feat->description = '<p>While you are Psionically Focused, your Powers now cost 2 Power Points less instead of 1.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic' => 16]);
         $feat->parent_feats()->save(app()->feats['Improved Focused Mind']);
 
         $feat              = new Feat;
         $feat->name        = 'Supreme Focused Mind';
         $feat->requirement = 'You must have at least 2 Metapsionic feats';
         $feat->description = '<p>While you are Psionically Focused, your Powers now cost 3 Power Points less instead of 2.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic' => 20]);
         $feat->parent_feats()->save(app()->feats['Greater Focused Mind']);
 
         $feat              = new Feat;
@@ -77,27 +77,27 @@ class FeatsPsionicSeeder extends Seeder
     <li>You may choose a Psionic Discipline, you may now add powers from that Disciple.</li>
     <li>You learn two additional powers.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Psionic Talent';
         $feat->description = '<p>You gain additional Power Points. Gain an amount equal to the number of Psionic Feats you have (including this one):</p>
 <p>The total Power Points gained may change if you gain or lose Psionic Feats.</p>
 <p>You may take this Feat multiple times.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Overchannel';
         $feat->description = '<p>While manifesting a power, you can increase your effective manifester level by two, but in so doing you take 2D4 points of Subdual damage.</p>
 <p>The effective increase in manifester level increases the number of Power Points you can expend on a single power manifestation, as well as increasing all manifester level-dependent effects, such as range, and duration.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 8]);
 
         $feat              = new Feat;
         $feat->name        = 'Talented';
         $feat->trigger     = 'Expend your Psionic Focus to gain this benefits of this feat';
         $feat->description = '<p>Expend your Psionic Focus. Until the beginning of your next turn, Overchanneling a power of 3rd level or lower does not cause any damage.</p>
 <p>You can now Overchannel by four levels, taking 4D4 Subdual damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic' => 12]);
         $feat->parent_feats()->save(app()->feats['Overchannel']);
 
         $feat              = new Feat;
@@ -105,14 +105,14 @@ class FeatsPsionicSeeder extends Seeder
         $feat->action_type = 'Free';
         $feat->description = '<p>You can, as an Action, take a point of ability damage to STR, DEX, or CON to recover 7 Power Points.</p>
 <p>Only living creatures can take advantage of this feat.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 15]);
         $feat->parent_feats()->save(app()->feats['Overchannel']);
         $feat->parent_feats()->save(app()->feats['Talented']);
 
         $feat              = new Feat;
         $feat->name        = 'Boost Construct';
         $feat->description = '<p>When you create an Astral Construct, you can give it one additional special ability from any menu that the construct currently has an ability from.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Psionic Fist';
@@ -120,20 +120,20 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>While you are Psionicly Focused, your Unarmed Strikes deal an additional 2 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional +2D6.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Psionic Focus', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Fist';
         $feat->action_type = 'Free';
         $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your unarmed Strikes deal an additional +5D6 damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Fist']);
 
         $feat              = new Feat;
         $feat->name        = 'Divine Fist';
         $feat->action_type = 'Action';
         $feat->description = '<p>As an Action, you may expend a Divine Spell Slot. For the next 1 minute, your Unarmed Strikes deal an additional +1D6 damage for each level of the Spell Slot expended. Half the damage is Fire and the other half is Divine.</p>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Fire', 'Divine']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Fire', 'Divine', 'Psionic' => 3]);
         $feat->parent_feats()->save(app()->feats['Psionic Fist']);
 
         $feat              = new Feat;
@@ -142,13 +142,13 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>While you are Psionicly Focused, your melee weapons deal an additional 1 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Psionic Focus', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Weapon';
         $feat->action_type = 'Free';
         $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your melee weapon Strikes deal an additional +3 Weapon Dice of damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Weapon']);
 
         $feat              = new Feat;
@@ -157,14 +157,14 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>While you are Psionicly Focused, your ranged weapons deal an additional 1 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Ranged Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic', 'Psionic Focus', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Shot';
         $feat->action_type = 'Free';
         $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your ranged weapon Strikes deal an additional +3 Weapon Die of damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic Focus', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Weapon']);
 
         $feat              = new Feat;
@@ -175,14 +175,14 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>Expend your Psionic Focus, for the next 1 minute, the Power Point costs of all your Psionic Combat powers cost 1 Power Point less.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus', 'Psionic Combat', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic Combat', 'Talent', 'Psionic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Psionic Combat Buffer';
         $feat->trigger     = 'Expend your Psionic Focus to gain this benefits of this feat';
         $feat->requirement = 'You must have at least 7 Psionic Combat powers';
         $feat->description = '<p>Expend your Psionic Focus, for the next 1 minute, the Power Point costs of all your Psionic Combat powers costs 2 Power Points less.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Focus', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic Focus', 'Psionic Combat', 'Psionic' => 10]);
         $feat->parent_feats()->save(app()->feats['Psionic Combat Buffer']);
 
         $feat              = new Feat;
@@ -199,7 +199,7 @@ class FeatsPsionicSeeder extends Seeder
 <p>Any decisions you would make about the delayed power, including attack rolls, designating targets, or determining or shaping an area, are decided when the power is manifested. Any effecs resolved by those affected by the power, including Saves, are decided when the delay period ends.</p>
 <p>A delayed power can be dispelled normally during the delay (or dismissed by you as an Action), and can be detected normally in the area or on the target by the use of powers that can detect psionic effects.</p>
 <p>Using this feat increases the Power Point cost of the power by 2.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Empower Power';
@@ -211,23 +211,23 @@ class FeatsPsionicSeeder extends Seeder
     <li>Healing</li>
 </ul>
 <p>Using this feat increases the Power Point cost of the power by 2.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 4]);
 
         $feat              = new Feat;
         $feat->name        = 'Enlarge Power';
         $feat->action_type = 'Free';
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
-        $feat->description = '<p>Expend your Psionic Focus. You can manifest an enlarged power. Enlarged powers have their ranges doubled.</p>
+        $feat->description = '<p>Expend your Psionic Focus. You can manifest an enlarged power. Enlarged powers have their ranges tripled.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Extend Power';
         $feat->action_type = 'Free';
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
-        $feat->description = "<p>Expend your Psionic Focus. You can manifest an extended power. An extended power's duration is doubled.</p>
+        $feat->description = "<p>Expend your Psionic Focus. You can manifest an extended power. An extended power's duration is tripled and any maintenance cost is halved or the interval at which it must be paid is doubled.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>";
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Maximum Power';
@@ -239,7 +239,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>Healing</li>
 </ul>
 <p>Using this feat increases the Power Point cost of the power by 2.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Opportunity Power';
@@ -247,7 +247,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. When you make an Attack of Opportunity, you can use any power you know with a range of touch, if you have at least one hand free. The power must be a Double Action activation power or less. You manifest the power as a Reaction.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Attack of Opportunity', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Attack of Opportunity', 'Psionic Focus', 'Psionic' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Quicken Power';
@@ -255,7 +255,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can quicken a power. A quickened power reduces the number of required Actions by 2.</p>
 <p>Using this feat increases the Power Point cost of the power by 5.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 7]);
 
         $feat              = new Feat;
         $feat->name        = 'Split Psionic Ray';
@@ -263,7 +263,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = "<p>Expend your Psionic Focus. You can split psionic rays you manifest. The split ray affects any two targets that are both within the power's range and within 30 feet of each other. If the ray deals damage, each target takes as much damage as a single target would take.</p>
 <p>Using this feat increases the Power Point cost of the power by 1.</p>";
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Twin Power';
@@ -271,7 +271,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can twin a power. Manifesting a twinned power causes it to take effect twice. Resolve each manifestation separately.</p>
 <p>Using this feat increases the Power Point cost of the power by 3.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 7]);
 
         $feat              = new Feat;
         $feat->name        = 'Widen Power';
@@ -279,7 +279,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You start to manifest a power and you are Psionically Focused';
         $feat->description = '<p>Expend your Psionic Focus. You can widen a power. Manifesting a widened power causes its area to be doubled.</p>
 <p>Using this feat increases the Power Point cost of the power by 2.</p>';
-        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Metapsionic', 'Psionic Focus', 'Psionic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Psionic Combatant';
@@ -287,17 +287,17 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain 2 Psionic Talents</li>
     <li>You gain 5 Power Points. These Power Points may only be used to pay for Psionic Combat Powers.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Combat', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic Combat', 'Talent', 'Psionic' => 3]);
         $feat->parent_feats()->save(app()->feats['Combat Manifestation']);
 
         $feat              = new Feat;
         $feat->name        = 'Defensive Psionic Combatant';
         $feat->description = '<ul>
     <li>You gain a Psionic Talent</li>
-    <li>When manifesting a Defensive Psionic Combat power, Heightening it costs 1 Power Point less.</li>
+    <li>When manifesting a Defensive Psionic Combat Power, Heightening it costs 1 Power Point less.</li>
     <li>If you Expended your Psionic Focus as part of manifesting the Defensive Psionic Combat power, you are immune to Ability Damage from Psionic Combat attacks until the beginning of your next turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Combat', 'Psionic Focus', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic Combat', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
         $feat->parent_feats()->save(app()->feats['Combat Manifestation']);
 
         $feat              = new Feat;
@@ -306,7 +306,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Psionic Talent</li>
     <li>When manifesting a Psionic Combat Attack power, you may Expend your Psionic Focus as part of manifesting the power. If you do, you may add your Primary Attribute's modifier to the damage.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psionic Combat', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic Combat', 'Talent', 'Psionic' => 3]);
         $feat->parent_feats()->save(app()->feats['Combat Manifestation']);
 
         $feat              = new Feat;
@@ -426,6 +426,51 @@ class FeatsPsionicSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
 
         $feat              = new Feat;
+        $feat->name        = 'Northern Fist Stance';
+        $feat->action_type = 'Action';
+        $feat->requirement = 'You are Unarmed an not wearing any metal armor';
+        $feat->description = '<p>You can make Unarmed Melee Strikes at a distance. The Range is based on the number of Power Points you spend</p>
+<table>
+    <thead>
+        <tr>
+            <th>Power Points</th>
+            <th>Max Distance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>5 ft</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>10 ft</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>15 ft</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>20 ft</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>25 ft</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>30 ft</td>
+        </tr>
+    </tbody>
+</table>
+<p>You may also use Stunning Fist and any Psionic Power that has a Range of Touch with the Attack</p>
+<blockquote>
+    Ex. A Psychic Warrior uses this Feat to make an Unarmed Strike against a foe 10 ft away. The Psychic Warrior also adds the Blindness Power to the attack. This requires 4 Actions (2 for the Blindness Power, 1 for this Feat, and 1 to make the Melee attack). The Psychic Warrior would have to spend 7 Power Points (5 for Blindness and 2 for this Feat at a Range of 10 ft).
+</blockquote>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Ranged']);
+
+        $feat              = new Feat;
         $feat->name        = 'Koryo Style';
         $feat->requirement = 'You are Unarmed';
         $feat->description = '<p>You enter the Stance taught in Koryo</p>
@@ -447,7 +492,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>When you use the Pyrokinesis power to make a Ranged Touch attack, you deal an additional +3 damage.</li>
     <li>If you have the Dragon Punch Feat, you may spend a Heroic Surge and manifest your Pyrokinesis Power and add the Damage to the target you hit with your Dragon Punch.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Stance', 'Heroic Surge']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Heroic Surge', 'Psionic' => 3]);
         $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
 
         $feat              = new Feat;
@@ -462,7 +507,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>When you use the Electrokinesis power to deliver a Touch attack, it deals an additional +3 damage.</li>
     <li>If you are Grappling or being Grappled, you may spend a Heroic Surge and manifest your Electrokinesis Power against that target that you are Grappling or are being Grappled by.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Heroic Surge']);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Psionic' => 3]);
         $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
         $feat->parent_feats()->save(app()->feats['Wild Talent']);
 
@@ -470,20 +515,20 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Timeless Body';
         $feat->requirement = 'You must have at least 1 Psychometabolism power of 3rd level or higher';
         $feat->description = "<p>Your Psionic powers sustain you so that you suffer none of the frailty of old age, and you can't be aged magically or psionically. You can still die of old age, however. In addition, you no longer need food or water.</p>";
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 16]);
 
         $feat              = new Feat;
         $feat->name        = 'Acid Psi-Resistance';
         $feat->requirement = 'You must have the Acid Psychometabolism power';
         $feat->description = '<p>Due to your ability to generate Acid, you have developed a level of resistance.</p>
 <p>You have Resistance to Acid. If the damage before your resistance is applied is 5 Acid damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychometabolism', 'Acid']);
+        $helper->addTypesToFeat($feat, ['Psychometabolism', 'Acid', 'Psionic' => 4]);
 
         $feat              = new Feat;
         $feat->name        = 'Acid Psi-Immunity';
         $feat->requirement = 'You must have the Acid Psychometabolism power';
         $feat->description = '<p>You are Immune to Acid</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychometabolism', 'Acid']);
+        $helper->addTypesToFeat($feat, ['Psychometabolism', 'Acid', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Acid Psi-Resistance']);
 
         $feat              = new Feat;
@@ -491,13 +536,13 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You must have the Venom Psychometabolism power';
         $feat->description = '<p>Due to your ability to generate Toxins, you have developed a level of resistance.</p>
 <p>You have Resistance to Poison. If the damage before your resistance is applied is 5 Poison damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychometabolism', 'Poison']);
+        $helper->addTypesToFeat($feat, ['Psychometabolism', 'Poison', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Venom Psi-Immunity';
         $feat->requirement = 'You must have the Venom Psychometabolism power';
         $feat->description = '<p>You are Immune to Poison</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychometabolism', 'Poison']);
+        $helper->addTypesToFeat($feat, ['Psychometabolism', 'Poison', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Venom Psi-Resistance']);
 
         $feat              = new feat;
@@ -505,13 +550,13 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You must have the Pyrokinesis power';
         $feat->description = '<p>Due to your ability to generate Fire, you have developed a level of resistance.</p>
 <p>You have Resistance to Fire. If the damage before your resistance is applied is 5 Fire damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Fire']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Fire', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Fire Psi-Immunity';
         $feat->requirement = 'You must have the Pyrokinesis power';
         $feat->description = '<p>You are Immune to Fire</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Fire']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Fire', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Fire Psi-Resistance']);
 
         $feat              = new Feat;
@@ -519,13 +564,13 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You must have the Cryokinesis power';
         $feat->description = '<p>Due to your ability to generate Cold, you have developed a level of resistance.</p>
 <p>You have Resistance to Cold. If the damage before your resistance is applied is 5 Cold damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Cold']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Cold', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Cold Psi-Immunity';
         $feat->requirement = 'You must have the Cryokinesis power';
         $feat->description = '<p>You are Immune to Cold</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Cold']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Cold', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Cold Psi-Resistance']);
 
         $feat              = new Feat;
@@ -533,13 +578,13 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You must have the Electrokinesis power';
         $feat->description = '<p>Due to your ability to generate Electricity, you have developed a level of resistance.</p>
 <p>You have Resistance to Electricity. If the damage before your resistance is applied is 5 Electricity damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Electricity']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Electricity', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Electricity Psi-Immunity';
         $feat->requirement = 'You must have the Electrokinesis power';
         $feat->description = '<p>You are Immune to Electricity</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Electricity']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Electricity', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Electricity Psi-Resistance']);
 
         $feat              = new Feat;
@@ -547,13 +592,13 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You must have the Sonickinesis power';
         $feat->description = '<p>Due to your ability to generate Sonics, you have developed a level of resistance.</p>
 <p>You have Resistance to Sonic. If the damage before your resistance is applied is 5 Sonic damage or less, then you take no damage.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Sonic']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Sonic', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Sonic Psi-Immunity';
         $feat->requirement = 'You must have the Sonickinesis power';
         $feat->description = '<p>You are Immune to Sonic</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Psychokinesis', 'Sonic']);
+        $helper->addTypesToFeat($feat, ['Psychokinesis', 'Sonic', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Sonic Psi-Resistance']);
 
         $feat              = new Feat;
@@ -563,7 +608,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Heroic Surge</li>
     <li>While you are Psionically Focused, your Unarmed Strikes deals damage normally against Incorporeal creatures and creatures that are in the Ethereal Plane. You also deal an additional +5 damage to Incorporeal and Ethereal. If an Incorporeal or Ethereal creature tries to grab you or pass through you, they suffer the additional damage for doing so.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Incorporeal']);
+        $helper->addTypesToFeat($feat, ['Incorporeal', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Ghost Weapon';
@@ -571,7 +616,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a Heroic Surge</li>
     <li>Expend your Psionic Focus, up to 2 weapons (one held in each hand) gains the Ghost Touched ability for 30 minutes. Those weapons also deal an additional +15 damage to Incorporeal and Ethereal creatures. Incorporeal and Ethereal creatures cannot touch these weapons without taking the additional damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Incorporeal']);
+        $helper->addTypesToFeat($feat, ['Incorporeal', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Dorje Mastery';
@@ -579,17 +624,17 @@ class FeatsPsionicSeeder extends Seeder
 <ul>
     <li>As an additional Action, you may trigger a Dorje and treat the manifestation as if it were heightened by +4 Power Points. The amount of total Power Points cannot exceed your Power Points per turn limit.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic']);
+        $helper->addTypesToFeat($feat, ['Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Craft Dorje']);
 
-        $feat              = new Feat();
+        $feat              = new Feat;
         $feat->name        = 'Weave Blocker';
         $feat->description = "<ul>
     <li>You gain a Heroic Surge</li>
     <li>You may spend 2 Power Points as part of a Greater Psionic Fist attack. If you do, roll for damage as normal, but you only deal 1 Point of Damage. Half the total Damage rolled (plus any modifiers) equals the lowest level Arcane spell that the target may cast for 1 minute. The lowest level spell castable is cumulative with any future damage with this effect. At the end of each of the Target's turns, they may make a WIS Save to end the effect.</li>
     <li>You may spend a Heroic Surge as part of this attack. If you do, the damage rolled is not halved.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Melee', 'Psionic Focus']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 12]);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);
         $feat->parent_feats()->save(app()->feats['Greater Psionic Fist']);
     }

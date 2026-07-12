@@ -42,8 +42,8 @@ class ElementalSeeder extends Seeder
 </ul>';
         $location->description = '<p>This realm is a gigantic whirlwind, siad to be so large that it can swallow whole planets in its wake. It is a mobile realm, drifting across the Elemental Plane of Air as Akadi wills, and the winds it generates spiral outward all across the plane.</p>';
         $location->pantheon_id = app()->pantheons['Elemental']->id;
+        $location->ruler()->associate(God::where('name', 'Akadi')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Akadi')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Citadel of Ice and Steel';
@@ -63,8 +63,8 @@ class ElementalSeeder extends Seeder
     <li>Silver Turban Legion: 250 female djinni riding griffons. They serve as shock troops</li>
 </ul>";
         $location->pantheon_id = app()->pantheons['Elemental']->id;
+        $location->ruler()->associate(God::where('name', 'Akadi')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Akadi')->firstOrFail());
 
         $location              = new Location;
         $location->name        = "Bahamut's Palace";
@@ -73,8 +73,8 @@ class ElementalSeeder extends Seeder
         $location->description = "<p>Accounts differ in the descriptions of Bahamut's legendary palace. In the oldest records, it is described as a palace made of crystal. In the more modern accounts, the palace is described as a wondrous, glittering fortress with windows made from gems set in silver and gold, walls with inlaid copper and ivory on the inside and platinum on the outside, and floors of beaten mithral. Regardless of the source, all accounts state that the castle is built entirely from Bahamut's enormous treasure hoard (as well as of bones of thousands of would-be thieves), and that it reflected the eternal light of Celestia like a beacon on the horizon.</p>
 <p>Bahamut's Palace is also connected to the Elemental Plane of Air by four portals named after the four winds, each guarded by a warden archon. The guardian of the gate to the North Wind is Yonel, the guardian of the gate to the South Wind is Kerkhoutha, the guardian of the gate to the West Wind is Moriel, and the guardian of the gate to the East Wind is Ruhiel.</p>
 <p>Bahamut can move his Palace to any of the 7 layers of Mount Celestia, something that no other being has been able to do any Other Plane.</p>";
+        $location->ruler()->associate(God::where('name', 'Bahamut')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Bahamut')->firstOrFail());
 
         // Yan-C-Bin, lord of evil air elements
         // Chan, lord of good air elementals

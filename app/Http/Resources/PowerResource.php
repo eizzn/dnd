@@ -14,40 +14,42 @@ class PowerResource extends JsonResource
     {
         /** @var Power $this */
         return [
-            'id'             => $this->id,
-            'name'           => $this->name,
-            'display'        => $this->display,
-            'action_type'    => $this->action_type,
-            'requirements'   => $this->requirements,
-            'save_attribute' => $this->save_attribute,
-            'range'          => $this->range,
-            'area'           => $this->area,
-            'targets'        => $this->targets,
-            'duration'       => $this->duration,
-            'description'    => $this->description,
-            'saves'          => $this->saves,
-            'heightened'     => $this->heightened,
-            'default_level'  => $this->default_level,
-            'types'          => $this->types->map(function (Type $type) {
+            'id'               => $this->id,
+            'name'             => $this->name,
+            'display'          => $this->display,
+            'action_type'      => $this->action_type,
+            'maintenance_cost' => $this->maintenance_cost,
+            'requirements'     => $this->requirements,
+            'save_attribute'   => $this->save_attribute,
+            'range'            => $this->range,
+            'area'             => $this->area,
+            'targets'          => $this->targets,
+            'duration'         => $this->duration,
+            'description'      => $this->description,
+            'saves'            => $this->saves,
+            'heightened'       => $this->heightened,
+            'default_level'    => $this->default_level,
+            'types'            => $this->types->map(function (Type $type) {
                 return [
                     'id'   => $type->id,
                     'name' => $type->name,
                 ];
             }),
-            'parents'        => $this->parents->map(function (Power $parent) {
+            'parents'          => $this->parents->map(function (Power $parent) {
                 return [
                     'id'   => $parent->id,
                     'name' => $parent->name,
                 ];
             }),
-            'children'       => $this->children->map(function (Power $child) {
+            'children'         => $this->children->map(function (Power $child) {
                 return [
                     'id'   => $child->id,
                     'name' => $child->name,
                 ];
             }),
-            'classes'        => $this->classes
+            'classes'          => $this->classes
                 ->sortBy('name')
+                ->values()
                 ->map(function (Klass $class) {
                     return [
                         'id'    => $class->id,
@@ -55,8 +57,9 @@ class PowerResource extends JsonResource
                         'level' => $class->pivot->level,
                     ];
                 }),
-            'feats'          => $this->feats
+            'feats'            => $this->feats
                 ->sortBy('name')
+                ->values()
                 ->map(function (Feat $feat) {
                     return [
                         'id'    => $feat->id,

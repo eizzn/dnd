@@ -39,7 +39,7 @@ class GodsSehanineSeeder extends Seeder
             'aliases'        => 'Bright Nydra (Farsea Marshes), Elah (Bedine), Lucha (Shining Lands)',
             'title'          => 'Our Lady of Silver, the Moonmaiden, The Night White Lady, She Who Guides',
             'level'          => 'Greater',
-            'portfolio'      => 'Good and Neutral Lychantropes, Moon, Navigation, Questers, Stars, Wanderers',
+            'portfolio'      => 'Good and Neutral Lychantropes, the Moon, Navigation, Questers, Stars, Wanderers, Mysticism',
             'regions'        => 'Aglarond, Amn, Cormyr, Impiltur, the North',
             'alignment'      => 'CG',
             'symbol'         => 'Pair of eyes surrounded by seven stars',

@@ -151,6 +151,13 @@ Route::get('/talent/{id}', function () {
     return Inertia::render('Talents/TalentDetails');
 })->middleware(['auth', 'verified'])->name('talent');
 
+Route::get('/templates', function () {
+    return Inertia::render('Templates/TemplateList');
+})->middleware(['auth', 'verified'])->name('templates');
+Route::get('/template/{id}', function () {
+    return Inertia::render('Templates/TemplateDetails');
+})->middleware(['auth', 'verified'])->name('template');
+
 Route::get('/types', function () {
     return Inertia::render('Types/TypeList');
 })->middleware(['auth', 'verified'])->name('types');

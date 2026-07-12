@@ -51,8 +51,8 @@ class Hades extends Seeder
 <p>There are seemingly an infinite number of rooms inside the tower and, apart from halls where the Ultroloths fought each other, the tower has drill fields and battlefields, laboratories, suites for the Ultroloths, orreries, spawning vats, meditation chambers, interplanar map rooms, and so on.</p>
 <p>In theory, the ruler of the tower, the Oinoloth, organizes the yugoloth race's activities on Hades from the Wasting Tower. In practice, its efforts are concentrated on keeping and securing its own position as the Oinoloth, because the ultroloths who live in the tower vie for control over it and, because they can hardly ever come to an agreement and knew it, fighting physically against each other in the debating halls of the tower.</p>
 <p>The aforementioned strife among the denizens of the tower never reaches levels that cripple the Yugoloths' abilities to unite against and thwart a common foe.</p>";
+        $location->ruler()->associate(God::where('name', 'Anthraxus')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Anthraxus')->firstOrFail());
 
         /**********************************************************************/
 
@@ -87,8 +87,8 @@ class Hades extends Seeder
         $location->pantheon_id = app()->pantheons['Yugoloth Lord']->id;
         $location->description = "<p>This realm is a dreary domain of endless misery. Ironically, the Wastes are without a moon or any other celestial bodies. It is simply a featureless gray expanse, a land of never-ending twilight offering neither the closure of dusk or the new hope of dawn. This realm drains the emotions and vibrancy from all that enter. The only known protection against the apathy is to hide and internalize all emotions deep within the mind.</p>
 <p>Hag's End is located halfway up a vast mountain of black, dead rock. From inside her filthy, bone-strewn cave crypt, Cegilune stirs her vile brew under a small, glowing, hovering replica of the full moon.</p>";
+        $location->ruler()->associate(God::where('name', 'Baba Yaga')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Baba Yaga')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Nishrek';
@@ -96,8 +96,8 @@ class Hades extends Seeder
         $location->pantheon_id = app()->pantheons['Orc']->id;
         $location->description = '<p>Nishrek is the realm of Gruumsh and the Orc pantheon. Here, Gruumsh, Luthic, Bahgtru, Ilneval, Shargaas, and Yurtrus keep their realms here.</p>
 <p>Sometimes, the orcs that follow Ilneval will sell themselves as mercenaries in the Blood War.</p>';
+        $location->ruler()->associate(God::where('name', 'Gruumsh')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Gruumsh')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Clangor';
@@ -106,8 +106,8 @@ class Hades extends Seeder
         $location->description = '<p>Clangor is the realm of Maglubiyet and the Goblin Pantheons of The Court of Stars. Here, Maglubiyet, Khurgorbaeyag, Nomog-Geaya, Bargrivyek, Hruggek, Grankhul, Skiggaret keep their realms here</p>
 <p>Clangor is located near the roots of Yggdrasil, connecting Clangor to Arvandor and the realms of Oberon and Titania.</p>
 <p>Maglubiyet and Gruumsh war against each other constantly.</p>';
+        $location->ruler()->associate(God::where('name', 'Maglubiyet')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Maglubiyet')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Corpus';

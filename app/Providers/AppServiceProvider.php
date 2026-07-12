@@ -23,6 +23,7 @@ use App\Services\RuleService;
 use App\Services\SkillService;
 use App\Services\SpellService;
 use App\Services\TalentService;
+use App\Services\TemplateService;
 use App\Services\TypeService;
 use App\Services\WeaponService;
 use Illuminate\Support\Facades\Vite;
@@ -103,6 +104,9 @@ class AppServiceProvider extends ServiceProvider
         });
         app()->singleton(\App\Services\Contracts\WeaponService::class, function () {
             return new WeaponService;
+        });
+        app()->singleton(\App\Services\Contracts\TemplateService::class, function () {
+            return new TemplateService;
         });
     }
 

@@ -263,7 +263,7 @@ class GodsGruumshSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             0 => ['Dancing Lights', 'Detect Magic', 'Ghost Sound', 'Mold Earth', 'Stabilize'],
             1 => ['Alarm', 'Bless', 'Cure Wounds', 'Curse', 'Detect Good', 'Detect Poison and Disease', 'Divine Favor',
-                'Dragon Claws' => 'This appears as generic claws instead of dragon claws', 'Fear', 'Protection From Good',
+                'Dragon Claws'             => 'This appears as generic claws instead of dragon claws', 'Fear', 'Protection From Good',
                 'Summon Elemental, Lesser' => 'Earth only', ],
             2 => ['Aura of Fear', "Bull's Strength", "Bear's Endurance", 'Comprehend Language', 'Death Knell', 'Endure Elements',
                 "Owl's Wisdom", 'Remove Fear', 'Remove Paralysis', 'Restoration', 'Undead Bane Weapon', ],

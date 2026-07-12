@@ -41,27 +41,22 @@ class ClassPsychicWarriorSeeder extends Seeder
         ]);
 
         $helper->addFeatsToClass($class, [
-            'Psionic Talent'     => 2,
-            'Expanded Knowledge' => 4,
-
             'Psychic Speed' => 6,
-
-            'Focused Mind'          => 6,
-            'Improved Focused Mind' => 9,
-            'Greater Focused Mind'  => 12,
-            'Supreme Focused Mind'  => 15,
 
             'Stunning Fist'          => 6,
             'Improved Stunning Fist' => 12,
+
+            'Extra Melee Action'    => 6,
+            'Extra Ranged Action'   => 6,
         ]);
 
         $helper->addPowersToClass($class, [
-            1 => ['Absorb Weapon', 'Bio-electricity', 'Body Adjustment', 'Burst', 'Call Object', 'Chameleon', 'Detect Psionics',
-                'Dissipating Touch', 'Distract', 'Ectoplasmic Shard', 'Empty Mind', 'Expansion', 'Inertial Armor', 'Photokinesis',
-                'Vigor', ],
+            1 => ['Absorb Weapon', 'Bio-electricity', 'Body Adjustment', 'Burst', 'Call Object', 'Chameleon', 'Crystalline Armor',
+                'Detect Psionics', 'Dissipating Touch', 'Distract', 'Ectoplasmic Shard', 'Empty Mind', 'Expansion', 'Inertial Armor',
+                'Photokinesis', 'Vigor', ],
             2 => ['Acid', 'Animal Sight', 'Biofeedback', 'Body Equilibrium', 'Body Purification', 'Cloud Mind', 'Compression',
-                'Concealing Ectoplasm', 'Danger Sense', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Exhaust', 'Flex Form',
-                'Invisibility', 'Levitate', 'Physical Augmentation', 'Scent', 'Weapon Arm', ],
+                'Concealing Ectoplasm', 'Danger Sense', 'Darkness', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Exhaust',
+                'Flex Form', 'Invisibility', 'Levitate', 'Physical Augmentation', 'Scent', 'Weapon Arm', ],
             3 => ['Battlesense', 'Blindness', 'Drain Vigor', 'Ectoplasmic Form', 'Immovability', 'Wings', 'Ubiquitous Sight'],
             4 => ['Dimension Door', 'Energy Adaptation', 'Inertial Barrier', "Out of Time's Grip", 'Psychic Drain'],
             5 => ['Adapt Body', 'Barrage', 'Brutalize Wounds', 'Catapsi', 'Metaconcert'],

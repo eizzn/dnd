@@ -14,6 +14,19 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                display: ['Cinzel', ...defaultTheme.fontFamily.serif],
+            },
+            colors: {
+                stone: {
+                    850: '#1c1917',
+                    950: '#0c0a09',
+                },
+                amber: defaultTheme.colors?.amber ?? {},
+                parchment: {
+                    50: '#fdf8f0',
+                    100: '#faf0dc',
+                    200: '#f5e0b8',
+                },
             },
         },
     },

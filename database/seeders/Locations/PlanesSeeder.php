@@ -59,8 +59,8 @@ class PlanesSeeder extends Seeder
     <li>Nathair Sgiathach, Patron of Faerie Dragons and Pseudodragons</li>
     <li>Skerrit, Patron of Centaurs</li>
 </ul>';
+        $location->ruler()->associate(God::where('name', 'Corellon Larethian')->firstOrFail());
         $plane->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Corellon Larethian')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Unseelie Court';
@@ -69,8 +69,8 @@ class PlanesSeeder extends Seeder
         $location->pantheon_id = app()->pantheons['The Court of Stars']->id;
         $location->description = "<p>The Unseelie Court is a mirror opposite of the Seelie Court, where the later is a place of laughter and friendship, the Unseelie Court is a place of hatred, enslavement, and death. The Court is located in an immense cavern of black stone full of stalagmites and stalactites, centered around a single mountainous stalagmite upon which the Queen's black onyx throne stands.</p>
 <p>The Unseelie Court appears macabre and twisted to visitors. Trees grow in unnatural shapes, shadows hide blood-soaked alcoves, and nightshade and blood wort plants glow to provide the Court with haphazard red light. The throne itself is shaped like a great dragon.</p>";
+        $location->ruler()->associate(God::where('name', 'Araushnee')->firstOrFail());
         $plane->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Araushnee')->firstOrFail());
 
         /**********************************************************************/
 
@@ -160,11 +160,11 @@ class PlanesSeeder extends Seeder
 <p>The otherworldly beauty and passion of Arvandor can be overwhelming to non-elves. Those that can not resist it are overtaken by an irresistible desire to dance and commune with the elves, and have to be guided away, otherwise risking becoming lost forever. Not even half-elves are immune to this effect.</p>
 <p>Each one of the elven patron deities maintain a realm on this plane. None of these realms have a border and each one seamlessly meld into the other with absolutely no discernible borders apparent. While each deity claims a portion of the realm, the majority is shared by the entire pantheon and with the celestial eladrin.</p>';
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Corellon Larethian')->firstOrFail());
+        $sub->ruler()->associate(God::where('name', 'Corellon Larethian')->firstOrFail());
 
-        $location           = new Location;
-        $location->name     = 'The Gnarl';
-        $location->type     = 'Site';
+        $location              = new Location;
+        $location->name        = 'The Gnarl';
+        $location->type        = 'Site';
         $location->description = "<p>A village of elves and ratatosk near one of the roots of Yggdrasil. The village neighbors Erevan Ilesere's realm.</p>";
         $sub->locations()->save($location);
         $sub->locations()->save(Location::where('name', 'Seelie Court')->firstOrFail());
@@ -200,64 +200,64 @@ class PlanesSeeder extends Seeder
         $location->pantheon_id = app()->pantheons['The Ordning']->id;
         $location->description = '<p>Jotunheim is the realm of the giants, the children of Annam All-Father.</p>
 <p>The plane consists of glaciers, volcanoes, snow-capped mountains, and desolate plains. Much of the landscape is dotted with menhirs and forests of towering pine and oak trees.</p>';
+        $location->ruler()->associate(God::where('name', 'Annam')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Annam')->firstOrFail());
 
         $fimbol              = new Location;
         $fimbol->name        = 'Stormhold';
         $fimbol->type        = 'Divine Realm';
         $fimbol->pantheon_id = app()->pantheons['The Ordning']->id;
         $fimbol->description = '';
+        $fimbol->ruler()->associate(God::where('name', 'Stronmaus')->firstOrFail());
         $location->sub_locations()->save($fimbol);
-        $fimbol->ruler()->save(God::where('name', 'Stronmaus')->firstOrFail());
 
         $fimbol              = new Location;
         $fimbol->name        = 'Woodhaven';
         $fimbol->type        = 'Divine Realm';
         $fimbol->pantheon_id = app()->pantheons['The Ordning']->id;
         $fimbol->description = '';
+        $fimbol->ruler()->associate(God::where('name', 'Hiatea')->firstOrFail());
         $location->sub_locations()->save($fimbol);
-        $fimbol->ruler()->save(God::where('name', 'Hiatea')->firstOrFail());
 
         $fimbol              = new Location;
         $fimbol->name        = 'Thraotor';
         $fimbol->type        = 'Divine Realm';
         $fimbol->pantheon_id = app()->pantheons['The Ordning']->id;
         $fimbol->description = '';
+        $fimbol->ruler()->associate(God::where('name', 'Memnor')->firstOrFail());
         $location->sub_locations()->save($fimbol);
-        $fimbol->ruler()->save(God::where('name', 'Memnor')->firstOrFail());
 
         $fimbol              = new Location;
         $fimbol->name        = 'Fimbolwinter';
         $fimbol->type        = 'Divine Realm';
         $fimbol->pantheon_id = app()->pantheons['The Ordning']->id;
         $fimbol->description = '';
+        $fimbol->ruler()->associate(God::where('name', 'Thrym')->firstOrFail());
         $location->sub_locations()->save($fimbol);
-        $fimbol->ruler()->save(God::where('name', 'Thrym')->firstOrFail());
 
         $meerrauk              = new Location;
         $meerrauk->name        = 'Meerrauk';
         $meerrauk->type        = 'Divine Realm';
         $meerrauk->pantheon_id = app()->pantheons['The Ordning']->id;
         $meerrauk->description = '';
+        $meerrauk->ruler()->associate(God::where('name', 'Surtur')->firstOrFail());
         $location->sub_locations()->save($meerrauk);
-        $meerrauk->ruler()->save(God::where('name', 'Surtur')->firstOrFail());
 
         $steading              = new Location;
         $steading->name        = 'The Steading';
         $steading->type        = 'Divine Realm';
         $steading->pantheon_id = app()->pantheons['The Ordning']->id;
         $steading->description = '';
+        $steading->ruler()->associate(God::where('name', 'Grolantor')->firstOrFail());
         $location->sub_locations()->save($steading);
-        $steading->ruler()->save(God::where('name', 'Grolantor')->firstOrFail());
 
         $steading              = new Location;
         $steading->name        = 'Florallium';
         $steading->type        = 'Divine Realm';
         $steading->pantheon_id = app()->pantheons['The Ordning']->id;
         $steading->description = '';
+        $steading->ruler()->associate(God::where('name', 'Iallanis')->firstOrFail());
         $location->sub_locations()->save($steading);
-        $steading->ruler()->save(God::where('name', 'Iallanis')->firstOrFail());
 
         /**********************************************************************/
 

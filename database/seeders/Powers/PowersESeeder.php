@@ -18,12 +18,13 @@ class PowersESeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Ectoplasmic Creation';
-        $power->action_type = '1 minute or Action';
-        $power->range       = 'Touch or 60 feet';
-        $power->duration    = '3 hours';
-        $power->description = '<p>You can use this power in two ways.</p>
+        $power                   = new Power;
+        $power->name             = 'Ectoplasmic Creation';
+        $power->action_type      = '1 minute or Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->range            = 'Touch or 60 feet';
+        $power->duration         = '6 hours';
+        $power->description      = '<p>You can use this power in two ways.</p>
 <ul>
     <li>
         <p>You shape raw ectoplasm into a nonmagical, unattended object of nonliving, organic matter.</p>
@@ -96,13 +97,14 @@ class PowersESeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 6);
 
-        $power              = new Power;
-        $power->name        = 'Ectoplasmic Form';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Olfactory';
-        $power->targets     = 'Self';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You and all your gear become a partially translucent mass of rippling ectoplasm that generally conforms to your normal shape. You gain the following:</p>
+        $power                   = new Power;
+        $power->name             = 'Ectoplasmic Form';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Olfactory';
+        $power->targets          = 'Self';
+        $power->duration         = '30 minutes';
+        $power->description      = '<p>You and all your gear become a partially translucent mass of rippling ectoplasm that generally conforms to your normal shape. You gain the following:</p>
 <ul>
     <li>Resistance to all damage</li>
     <li>Immunity to Poison</li>
@@ -117,7 +119,7 @@ class PowersESeeder extends Seeder
     <li>You cannot enter water or other liquids</li>
     <li>You cannot manipulate physical objects</li>
 </ul>';
-        $power->heightened  = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Ectoplasm'], 3);
@@ -130,7 +132,7 @@ class PowersESeeder extends Seeder
         $power->requirements = 'You must have the Ectoplasmic Creation power';
         $power->targets      = 'One creature in range';
         $power->duration     = 'Instantaneous';
-        $power->description  = '<p>You manifest ectoplasm from the Astral Plane to form an arrow like shard at propel it at the target. Make a ranged attack. If you hit, the target takes 1D6 Piercing damage.</p>';
+        $power->description  = '<p>You manifest ectoplasm from the Astral Plane to form an arrow like shard at propel it at the target. Make a ranged attack. If you hit, the target takes 2D6 Piercing damage and suffers a -1 penalty to their Initiative.</p>';
         $power->heightened   = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
@@ -155,15 +157,16 @@ class PowersESeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 1);
 
-        $power               = new Power;
-        $power->name         = 'Ectoplasmic Weapon';
-        $power->action_type  = 'Action';
-        $power->display      = 'Auditory, Material';
-        $power->requirements = 'You must have the Ectoplasmic Creation power';
-        $power->targets      = 'Self';
-        $power->duration     = '1 hour';
-        $power->description  = '<p>You draw ectoplasm from the Astral Plane and form a melee weapon in your hand. You may form any melee weapon that you have seen before (sized for a Medium creature or smaller).</p>';
-        $power->heightened   = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Ectoplasmic Weapon';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Auditory, Material';
+        $power->requirements     = 'You must have the Ectoplasmic Creation power';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hour';
+        $power->description      = '<p>You draw ectoplasm from the Astral Plane and form a melee weapon in your hand. You may form any melee weapon that you have seen before (sized for a Medium creature or smaller).</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>You form 2 melee weapons, one in each hand.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 2);
@@ -185,12 +188,13 @@ class PowersESeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Electricity'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Electricity Absorption';
-        $power->action_type = 'Reaction';
-        $power->duration    = '1 round';
-        $power->range       = '0 feet';
-        $power->description = '<p>You gain the ability to absorb the energy from electricity, and possibly healing your wounds from the absorbed energy.</p>
+        $power                   = new Power;
+        $power->name             = 'Electricity Absorption';
+        $power->action_type      = 'Reaction';
+        $power->maintenance_cost = '1 Power Point per round';
+        $power->duration         = '5 rounds';
+        $power->targets          = 'Self';
+        $power->description      = '<p>You gain the ability to absorb the energy from electricity, and possibly healing your wounds from the absorbed energy.</p>
 <p>When you manifest this power, choose one.</p>
 <ul>
     <li>Gain Damage Reduction 10 to Electricity. You gain 1 Hit Point for every 5 points of Electricity damage you absorb.</li>
@@ -203,15 +207,16 @@ class PowersESeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Electricity'], 2);
 
-        $power               = new Power;
-        $power->name         = 'Empathy';
-        $power->action_type  = 'Double Action';
-        $power->display      = 'Mental';
-        $power->targets      = 'Self';
-        $power->requirements = 'You must have at least one Psionic Combat attack power';
-        $power->area         = '30-foot radius emanation';
-        $power->duration     = 'Concentration, up to 10 minutes';
-        $power->description  = "<p>You detect the surface emotions of any creature you can see that is in the power's area. You can sense basic needs, drives, and emotions. Thirst, hunger, fear, fatigue, pain, rage, hatred, uncertainty, curiosity, friendliness, and many other kinds of sensations and moods can all be perceived.</p>
+        $power                   = new Power;
+        $power->name             = 'Empathy';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Mental';
+        $power->targets          = 'Self';
+        $power->requirements     = 'You must have at least one Psionic Combat attack power';
+        $power->area             = '30-foot radius emanation';
+        $power->duration         = 'Concentration, up to 30 minutes';
+        $power->description      = "<p>You detect the surface emotions of any creature you can see that is in the power's area. You can sense basic needs, drives, and emotions. Thirst, hunger, fear, fatigue, pain, rage, hatred, uncertainty, curiosity, friendliness, and many other kinds of sensations and moods can all be perceived.</p>
 <p>You gain a +2 insight bonus on any Deception, Diplomacy, and Society checks.</p>";
         $power->heightened = "<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the range and radius by 10 feet</dd>
@@ -230,7 +235,7 @@ class PowersESeeder extends Seeder
         $power->display     = 'Auditory';
         $power->targets     = 'Self';
         $power->duration    = '1 round';
-        $power->description = '<p>You empty your mind of all transitory and distracting thoughts, improving your self-control. You gain a +2 bonus on WIS Saves until your next turn.</p>';
+        $power->description = '<p>You empty your mind of all transitory and distracting thoughts, improving your self-control. You gain a +2 bonus on WIS Saves until the start of your next turn.</p>';
         $power->heightened  = '<dl>
     <dt>Heightened (Expend your Psychic Focus)</dt> <dd>You can manifest as a Reaction, even if you do not have a Reaction (Attack of Opportunity)</dd>
     <dt>Heightened (+2)</dt> <dd>Increase your bonus by +1</dd>
@@ -243,7 +248,7 @@ class PowersESeeder extends Seeder
         $power->display     = 'Visual';
         $power->targets     = 'Self';
         $power->duration    = '1 hour';
-        $power->description = '<p>You body assimilates some of the energy attack and converts it to harmless light. You gain Damage Reduction 10 against any attack that deals Cold, Electricity, Fire, Force, or Sonic damage.</p>
+        $power->description = '<p>Your body assimilates some of the energy attack and converts it to harmless light. You gain Damage Reduction 10 against any attack that deals Cold, Electricity, Fire, Force, or Sonic damage.</p>
 <p>When you absorb damage, you can choose to radiate visible light that illuminates a 60-foot radius for a number of rounds equal to the points of damage you successfully resisted, or merely dissipate the energy without giving off a visual display.</p>
 <p>This power gains the trait of the energy type it can absorb.</p>';
         $power->heightened = '<dl>
@@ -252,14 +257,15 @@ class PowersESeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 4);
 
-        $power               = new Power;
-        $power->name         = 'Energy Conversion';
-        $power->action_type  = 'Double Action';
-        $power->display      = 'Mental';
-        $power->range        = '30 feet';
-        $power->requirements = 'You must have the Energy Adaptation power';
-        $power->duration     = '1 hour';
-        $power->description  = "<p>As Energy Adaptation, except that instead of radiating away energy as light, you store up the energy and can later discharge it as a ray. To discharge a ray requires a Double Action. You can choose to fire any number of rays during the power's duration. The ray you fire must be of one of the energy types you have stored (if you have stored more than one type, you can choose what kind of energy to use for each ray). If a ray successfully strikes its target (requiring a Ranged Spell Attack), the target takes damage equal to the amount of energy damage of that type you have stored, up to a maximum of three times your Manifester Level. As long as this power remains in effect, you can continue to absorb energy damage and fire additional rays using the stored damage</p>
+        $power                   = new Power;
+        $power->name             = 'Energy Conversion';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Mental';
+        $power->range            = '30 feet';
+        $power->requirements     = 'You must have the Energy Adaptation power';
+        $power->duration         = '3 hour';
+        $power->description      = "<p>As Energy Adaptation, except that instead of radiating away energy as light, you store up the energy and can later discharge it as a ray. To discharge a ray requires a Double Action. You can choose to fire any number of rays during the power's duration. The ray you fire must be of one of the energy types you have stored (if you have stored more than one type, you can choose what kind of energy to use for each ray). If a ray successfully strikes its target (requiring a Ranged Spell Attack), the target takes damage equal to the amount of energy damage of that type you have stored, up to a maximum of three times your Manifester Level. As long as this power remains in effect, you can continue to absorb energy damage and fire additional rays using the stored damage</p>
 <p>This power's subtype is the same as the type of energy you discharge in a ray, thus, its subtype can change during the course of the power's duration.</p>";
         $helper->addTypesToPower($power, ['Psychometabolism', 'Cold', 'Electricity', 'Fire', 'Sonic'], 7);
 
@@ -333,7 +339,7 @@ class PowersESeeder extends Seeder
         $power->duration    = 'Instantaneous (see text)';
         $power->description = '<p>You are able to extend your limbs by 5 feet, allowing you to make melee attacks against targets up to 5 feet away.</p>
 <p>You may also use this power to extend your body to reach high ledges, or see over things. Using this power in this way allows you to reach up 10 feet, or extend your body 5 feet to see over obstacles.</p>';
-        $power->heightened = '<dl>
+        $power->heightened  = '<dl>
     <dt>Heightened (+4)</dt> <dd>You may extend an additional 5 feet.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 2);

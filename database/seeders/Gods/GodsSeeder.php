@@ -2,8 +2,6 @@
 
 namespace Database\Seeders\Gods;
 
-use App\Models\Klass;
-use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class GodsSeeder extends Seeder

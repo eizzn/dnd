@@ -26,7 +26,7 @@ class TalentService implements Contracts\TalentService
             ->through([
                 \App\Filters\Id::class,
                 \App\Filters\Name::class,
-                \App\Filters\Type::class,
+                \App\Filters\TypesByName::class,
                 \App\Filters\Order::class,
             ])
             ->thenReturn();

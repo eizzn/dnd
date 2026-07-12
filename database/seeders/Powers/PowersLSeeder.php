@@ -28,13 +28,13 @@ class PowersLSeeder extends Seeder
 
         $power                 = new Power;
         $power->name           = 'Life Blast';
-        $power->action_type    = 'Double Action';
+        $power->action_type    = 'Triple Action';
         $power->display        = 'Mental';
         $power->range          = '30 feet';
         $power->targets        = 'One living creature with an INT score';
         $power->duration       = 'Instantaneous';
         $power->save_attribute = 'CON';
-        $power->description    = '<p>You cause psychosomatic damage to the target, causing 1D4 CON damage.</p>';
+        $power->description    = '<p>You cause psychosomatic damage to the target, causing 1D6 CON damage.</p>';
         $power->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No damage</dd>
     <dt>Success</dt> <dd>Half damage</dd>
@@ -42,7 +42,8 @@ class PowersLSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>Double damage</dd>
 </dl>';
         $power->heightened = '<dl>
-    <dt>Heightened (+4)</dt> <dd>If the target fails their Save, they gained the Drained 2 condition.</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Heighten +2 without spending any additional Power Points</dd>
+    <dt>Heightened (+4)</dt> <dd>If the target fails their Save, they gain the Drained 2 Condition.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 4);
 
@@ -50,12 +51,12 @@ class PowersLSeeder extends Seeder
         $power->name        = 'Light Absorption';
         $power->action_type = 'Reaction';
         $power->duration    = '1 round';
-        $power->range       = '0 feet';
+        $power->targets     = 'Self';
         $power->description = '<p>You gain the ability to absorb the energy from light, and possibly healing your wounds from the absorbed energy.</p>
 <p>When you manifest this power, choose one.</p>
 <ul>
-    <li>Gain Damage Reduction 10 to Light. You gain 1 Hit Point for every 5 points of Light damage you absorb. This causes the area around you to be engulfed in darkness. A campfire is insufficient to gain any life. A light spell is sufficient to absorb 1 Hit Point</li>
-    <li>You gain Damage resistance to Light (half damage)</li>
+    <li>Gain Damage Reduction 12 to Light. You gain 1 Hit Point for every 3 points of Light damage you absorb (minimum of 1 Hit Point healed. excess Light damage still causes damage as normal). This causes the surrounding area to be engulfed in darkness. A campfire is insufficient to gain any life. A light spell is sufficient to absorb 1 Hit Point. Full daylight (near noon) is sufficient to absorb 2 Hit Point.</li>
+    <li>You gain Immunity to Light</li>
 </ul>';
         $power->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +5</dd>
@@ -70,10 +71,10 @@ class PowersLSeeder extends Seeder
         $power->requirements = 'You must have the Sonickinesis Power';
         $power->area         = '90-ft Cone emanation';
         $power->duration     = 'Instantaneous and 1 minute';
-        $power->description  = '<p>You emit a Sonic pulse of energy. All in the area suffer 10D8 Sonic damage, unless they make a CON Save for half damage. All who Fail their Save are Stunned for 1 minute.</p>';
+        $power->description  = '<p>You emit a Sonic pulse of energy. All in the area suffer 10D8 Sonic damage, unless they make a CON Save for half damage. All who Fail their Save are Stunned for 2 rounds.</p>';
         $power->saves        = '<dl>
     <dt>Success</dt> <dd>Half Sonic damage and not Stunned</dd>
-    <dt>Failure</dt> <dd>Full Sonic damage and Stunned for 1 minute</dd>
+    <dt>Failure</dt> <dd>Full Sonic damage and Stunned for 2 rounds</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Sonic'], 7);
     }

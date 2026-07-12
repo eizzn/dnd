@@ -29,13 +29,13 @@ class BackgroundsSeeder extends Seeder
         $background->name          = 'Acrobat';
         $background->description   = 'In a circus or on the streets, you earned your pay by performing as an acrobat. You might have turned to adventuring when the money dried up, or when you learned to put skills to better use.';
         $background->ability_boost = 'Choose two ability boosts. One must be to STR or DEX, and one is a free ability boost';
-        $background->skills        = '<p>You gain the following benefits:</p>
+        $background->skills        = "<p>You gain the following benefits:</p>
 <ul>
     <li>Masterful Skill feat for Acrobatics (Balance only)</li>
     <li>You are not flat-footed while attempting to Balance on narrow surfaces and uneven ground</li>
-    <li>If your\'re attacked while Balancing, you fall only if you critically fail</li>
-    <li>You\'re gain a +2 bonus to the Lore (Circus) skill</li>
-</ul>';
+    <li>If your're attacked while Balancing, you fall only if you Critically Fail</li>
+    <li>You gain a +2 bonus to the Lore (Circus) skill</li>
+</ul>";
         $background->save();
 
         $background                = new Background;
@@ -55,7 +55,7 @@ class BackgroundsSeeder extends Seeder
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
     <li>You can attempt to Gather Information twice as many times as usual during a day of downtime</li>
-    <li>You gain a +2 bonus to the Lore (Bear) skill</li>
+    <li>You gain a +2 bonus to the Lore (Beer) skill</li>
 </ul>';
         $background->save();
 
@@ -98,7 +98,7 @@ class BackgroundsSeeder extends Seeder
         $background->ability_boost = 'Choose two ability boosts. One must be to CON or WIS, and one is a free ability boost';
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
-    <li>You gain the Assurance skill feat (Athletics)<li>
+    <li>You gain the Assurance skill Feat (Athletics)<li>
     <li>You gain a +2 bonus to the Lore (Farming) skill</li>
 </ul>';
         $background->save();

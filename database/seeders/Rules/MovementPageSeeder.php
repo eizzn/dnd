@@ -104,42 +104,42 @@ class MovementPageSeeder extends Seeder
         </tr>
     </thead>
     <tbody>
-        <th>
+        <tr>
             <td>Tiny</td>
             <td>Less than 5 feet</td>
             <td>0 feet</td>
             <td>0 feet</td>
-        </th>
-        <th>
+        </tr>
+        <tr>
             <td>Small</td>
             <td>5 feet</td>
             <td>5 feet</td>
             <td>5 feet</td>
-        </th>
-        <th>
+        </tr>
+        <tr>
             <td>Medium</td>
             <td>5 feet</td>
             <td>5 feet</td>
             <td>5 feet</td>
-        </th>
-        <th>
+        </tr>
+        <tr>
             <td>Large</td>
             <td>10 feet</td>
             <td>10 feet</td>
             <td>10 feet</td>
-        </th>
-        <th>
+        </tr>
+        <tr>
             <td>Huge</td>
             <td>15 feet</td>
             <td>15 feet</td>
             <td>10 feet</td>
-        </th>
-        <th>
+        </tr>
+        <tr>
             <td>Gargantuan</td>
             <td>20 feet or more</td>
             <td>20 feet</td>
             <td>15 feet</td>
-        </th>
+        </tr>
     </tbody>
 </table>
 <p>Multiple Tiny creatures can occupy the same square. At least four can fit in a single square, through the GM might determine that even more can fit. Tiny creatures can occpy a space occupied by a larger creature as well, and, if their reach is 0 feet, they must do so in order to attack.</p>';

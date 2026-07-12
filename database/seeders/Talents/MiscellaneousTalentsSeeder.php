@@ -176,7 +176,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->description = "<ul>
     <li>If the Shield Spell is a Cantrip for you, it is automatically Heightened +1.</li>
     <li>If the Shield Spell is not a Cantrip for you, you may cast it 1/day without using a Spell Slot</li>
-    <li>When you cast the Shield Spell, it's Duration is increased by an additional turn.</li>
+    <li>When you cast the Shield Spell, it's Duration is increased by +1 rounds.</li>
 </ul>";
         $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 3]);
 
@@ -188,11 +188,23 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Mage Armor Master';
-        $talent->action_type = 'Action';
+        $talent->action_type = 'Triple Action';
         $talent->requirement = 'You must have the ability to cast Wizard spells';
-        $talent->description = '<p>You may cast Mage Armor on yourself as a 1st level spell at will with an Action.</p>
-<p>You may take this Talent a second time. If you do, the Mage Armor is Heightened to your highest level Wizard Spell Slot you can cast.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 3]);
+        $talent->description = '<p>You may cast Mage Armor on yourself only as a 1st level spell at will with a Triple Action.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Abjuration', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Fighting Summoner';
+        $talent->requirement = 'You must have Summoned or Called a creature that is able to fight';
+        $talent->description = "<p>You are skilled at fighting alongside your summoned creatures (this includes, Familiars that can fight, Animal Companions, Divine Mounts, homunculus, golems, effigies, and animated objects)</p>
+<p>As long as you and a creature you summoned threaten the same opponent, you are considered to be Flanking that opponent even if you don't have an ally on the opponent's opposite side. Your summoned ally gains a +1 bonus to Hit while it is attacking a creature that is Flanked.</p>";
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Divine', 'Primal', 'Summoning', 'Conjuration', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Skilled Diviner';
+        $talent->description = '<p>When you roll for your Foretellings from the Diviner Feat, you may add or subtract 1 from each result.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Divination', 'Talent' => 6]);
+        $talent->feats()->save(app()->feats['Diviner']);
 
         $talent              = new Talent;
         $talent->name        = 'Sorcerous Combat';
@@ -329,7 +341,11 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Feather Step';
-        $talent->description = '<p>You step carefully and quickly. You can Step into difficult terrain.</p>';
+        $talent->description = '<p>You step carefully and quickly.</p>
+<ul>
+    <li>You can Step into difficult terrain.</li>
+    <li>You gain a +1 bonus to your Sneak Check</li>
+</ul>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->attributes()->save(app()->attributes['DEX'], ['dc' => 14]);
 
@@ -579,25 +595,26 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Quick Unlock';
-        $talent->description = '<p>You can Pick a Lock using 1 Action instead of 2.</p>';
+        $talent->description = '<p>You can Pick a Lock using 1 less Action.</p>';
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
         $talent->skills()->save(app()->skills['Thievery'], ['dc' => 10]);
 
         $talent              = new Talent;
         $talent->name        = 'Read Lips';
-        $talent->description = "<p>You can read the lips of others nearby who you can clearly see. When you're at your leisure, you can do this automatically. In encounter mode or when attempting a more difficult feat of lipreading, you're Fascinated and Flat-Footed during each round in which you focus on lip movement, and you must succeed at a Society check (DC determined by GM) to successfully read someone's lips. In either case, the language must be one that you know.</p>";
+        $talent->description = "<p>You can read the lips of others nearby who you can clearly see. When you're at your leisure, you can do this automatically. In encounter mode or when attempting a more difficult feat of lipreading, you're Fascinated and Flat-Footed during each round in which you focus on lip movement, and you must succeed at a Society check (DC determined by GM) to successfully read someone's lips. In either case, the language must be one that you know.</p>
+<p>If you attempt to Identify a Spell with a Verbal Casting Component, you gain a +3 bonus to your Identify Spell Check</p>";
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 1]);
         $talent->skills()->save(app()->skills['Language'], ['dc' => 5]);
 
         $talent              = new Talent;
-        $talent->name        = 'Recognize Spell';
+        $talent->name        = 'Improved Identify Spell';
         $talent->action_type = 'Reaction';
         $talent->trigger     = 'A creature within line of sight casts a spell. You must be aware of the casting';
         $talent->description = "<p>If you have at least 2 ranks in Arcana and the spell is Common, then you automatically identify the spell (you still roll to attempt to get a Critical Success, but can't get a worse result than Success).</p>
 <p>The highest level of spell you automatically identify increases to 4 if you at least 5 or more ranks in Arcana, 6th level if you have at least 10 ranks, and 10th level if you have at least 15 ranks.</p>
 <p>The GM rolls a secret Arcana, check.</p>
 <dl>
-    <dt>Critical success</dt> <dd>You correctly recognize the spell and gain a +1 circumstance bonus to your Save or your AC against it</dd>
+    <dt>Critical Success</dt> <dd>You correctly recognize the spell and gain a +3 circumstance bonus to your Save or your AC against it</dd>
     <dt>Success</dt> <dd>You correctly recognize the spell</dd>
     <dt>Failure</dt> <dd>You fail to recognize the spell</dd>
     <dt>Critical Failure</dt> <dd>You misidentify the spell as another spell entirely, of the GM's choice</dd>
@@ -607,17 +624,10 @@ class MiscellaneousTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Quick Recognize';
-        $talent->description = '<p>You Recognize Spells quickly. Once per round, you can Recognize a Spell using Arcana as a Free Action.</p>';
-        $talent->parent_id   = Talent::where('name', 'Recognize Spell')->first()->id;
+        $talent->description = '<p>You Identify Spells quickly. You can Identify a Spell using Arcana as a Free Action.</p>';
+        $talent->parent_id   = Talent::where('name', 'Improved Identify Spell')->first()->id;
         $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 7]);
         $talent->skills()->save(app()->skills['Arcana'], ['dc' => 10]);
-
-        $talent              = new Talent;
-        $talent->name        = 'Shield Block';
-        $talent->action_type = 'Reaction';
-        $talent->trigger     = 'While you have your Shield Raised, you would take damage from a Physical attack';
-        $talent->description = "<p>You snap your shield in place to ward off a blow. Your shield prevents you from taking an amount of damage up to the shield's Hardness. You and the shield each take any remaining damage, possibly breaking or destroying the shield.</p>";
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 1]);
 
         $talent              = new Talent;
         $talent->name        = 'Sign Language';

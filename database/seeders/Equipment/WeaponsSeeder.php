@@ -188,7 +188,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price       = 0;
         $weapon->bulk        = '1';
         $weapon->hands       = 1;
-        $weapon->group       = 'Club';
+        $weapon->group       = 'Spear';
         $weapon->type        = 'Simple Melee';
         $weapon->description = '<p>This long piece of wood can aid in walking and deliver a mighty blow.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Two-Hand']);
@@ -232,7 +232,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 2;
         $weapon->bulk   = '1';
         $weapon->hands  = 2;
-        $weapon->group  = 'Club';
+        $weapon->group  = 'Spear';
         $weapon->type   = 'Martial Melee';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Unarmed', 'Parry', 'Reach', 'Trip']);
         $helper->addPropertiesToSimpleObject($weapon, [
@@ -710,7 +710,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price       = 1;
         $weapon->bulk        = 'L';
         $weapon->group       = 'Dart';
-        $weapon->type        = 'Simple Ranged';
+        $weapon->type        = 'Ammunition';
         $weapon->description = '<p>These thin, light darts are typically made of hardwood and stabilized with fletching of down or fur. They are often hollow so they can be used to deliver poison</p>';
         $helper->addTypesToSimpleObject($weapon, ['Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
@@ -727,7 +727,6 @@ class WeaponsSeeder extends Seeder
         $weapon->description = '<p>This ranged weapon has a bow-like assembly mounted on a handled frame called a tiller. The tiller has a mechanism to lock the bowstring in place, attached to a trigger mechanism that releases the tension and launches a bolt.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Propulsive']);
         $helper->addPropertiesToSimpleObject($weapon, [
-            'Ranged Damage' => ['value' => '1D8'],
             'Range'         => ['value' => '100/300'],
             'Reload'        => ['value' => '2 Action'],
             'Threat Range'  => ['value' => 2],
@@ -738,7 +737,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 1;
         $weapon->bulk   = 'L';
         $weapon->group  = 'Bow';
-        $weapon->type   = 'Simple Ranged';
+        $weapon->type   = 'Ammunition';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Ranged Damage' => ['value' => '1D8 P'],
@@ -777,7 +776,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 1;
         $weapon->bulk   = 'L';
         $weapon->group  = 'Bow';
-        $weapon->type   = 'Simple Ranged';
+        $weapon->type   = 'Ammunition';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Ranged Damage' => ['value' => '1D6 P'],
@@ -802,7 +801,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 1;
         $weapon->bulk   = 'L';
         $weapon->group  = 'Bow';
-        $weapon->type   = 'Simple Ranged';
+        $weapon->type   = 'Ammunition';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Ranged Damage' => ['value' => '1D10'],
@@ -842,7 +841,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 1;
         $weapon->bulk   = 'L';
         $weapon->group  = 'Sling';
-        $weapon->type   = 'Simple Ranged';
+        $weapon->type   = 'Ammunition';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Ranged Damage' => ['value' => '1D6'],
@@ -859,7 +858,6 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Propulsive', 'Volley']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '150/700'],
-            'Ranged Damage' => ['value' => '1D8'],
             'Volley'        => ['value' => '50 ft'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
@@ -876,7 +874,6 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Propulsive']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '90/350'],
-            'Ranged Damage' => ['value' => '1D6'],
             'Deadly'        => ['value' => '1D10'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
@@ -892,7 +889,6 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing', 'Volley']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '150/600'],
-            'Ranged Damage' => ['value' => '1D8'],
             'Deadly'        => ['value' => '1D10'],
             'Volley'        => ['value' => '50 ft'],
             'Reload'        => ['value' => '1 Action'],
@@ -909,18 +905,29 @@ class WeaponsSeeder extends Seeder
         $helper->addTypesToSimpleObject($weapon, ['Deadly', 'Piercing']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Range'         => ['value' => '80/120'],
-            'Ranged Damage' => ['value' => '1D6'],
             'Deadly'        => ['value' => '1D10'],
             'Reload'        => ['value' => '1 Action'],
             'Threat Range'  => ['value' => 2],
         ]);
 
         $weapon              = new Weapon;
-        $weapon->name        = '10 Arrows';
+        $weapon->name        = '10 Long Bow Arrows';
         $weapon->price       = 1;
         $weapon->bulk        = 'L';
         $weapon->group       = 'Bow';
-        $weapon->type        = 'Martial Ranged';
+        $weapon->type        = 'Ammunition';
+        $weapon->description = '<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. it is stabilized in flight by fletching at one end and bears a metal head on the other.</p>';
+        $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
+        $helper->addPropertiesToSimpleObject($weapon, [
+            'Ranged Damage' => ['value' => '1D8'],
+        ]);
+
+        $weapon              = new Weapon;
+        $weapon->name        = '10 Short Bow Arrows';
+        $weapon->price       = 1;
+        $weapon->bulk        = 'L';
+        $weapon->group       = 'Bow';
+        $weapon->type        = 'Ammunition';
         $weapon->description = '<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. it is stabilized in flight by fletching at one end and bears a metal head on the other.</p>';
         $helper->addTypesToSimpleObject($weapon, ['Piercing', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
@@ -1200,7 +1207,7 @@ class WeaponsSeeder extends Seeder
         $weapon->price  = 1;
         $weapon->bulk   = 'L';
         $weapon->group  = 'Sling';
-        $weapon->type   = 'Uncommon Martial Ranged';
+        $weapon->type   = 'Ammunition';
         $helper->addTypesToSimpleObject($weapon, ['Bludgeoning', 'Ammunition']);
         $helper->addPropertiesToSimpleObject($weapon, [
             'Ranged Damage' => ['value' => '1D6'],

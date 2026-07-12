@@ -454,12 +454,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Gargauth';
-        $god->level = 'Devil';
+        $god->level = 'Devil Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
             'title'     => 'The Tenth Lord of the Nine',
-            'level'     => 'Devil',
+            'level'     => 'Duke of Hell',
             'alignment' => 'LE',
         ]);
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
@@ -477,12 +477,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Geryon';
-        $god->level = 'Devil';
+        $god->level = 'Devil Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
             'title'     => 'The Serpentine Lord, The Deposed Lord, The Forgotten Lord, The Trifold Duke, The Great Beast, The Broken Beast, Former Lord of the Fifth',
-            'level'     => 'Devil',
+            'level'     => 'Devil Lord',
             'alignment' => 'LE',
             'master_id' => $asmodeus->id,
         ]);
@@ -491,12 +491,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Moloch';
-        $god->level = 'Devil';
+        $god->level = 'Devil Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
             'title'       => 'Former Lord of the Sixth',
-            'level'       => 'Devil',
+            'level'       => 'Devil Lord',
             'alignment'   => 'LE',
             'master_id'   => $asmodeus->id,
             'description' => "<p>Moloch was once an archdevil in the service of Baalzebul, serving as his viceroy in Malbolge before being exiled after the Reckoning. Though formerly the greatest duke of Hell, he is untrusted by his masters and betrayed by his subjects in a devious coup, after which Moloch plots his resurgence.</p>
@@ -508,7 +508,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Abigor';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -523,7 +523,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Adramalech';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
@@ -537,7 +537,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Agares';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -553,7 +553,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Amon';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -568,7 +568,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Arioch';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'           => $god->name,
@@ -586,7 +586,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Alocer';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -614,7 +614,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Amduscias';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -637,7 +637,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Baftis';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -653,7 +653,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Barbatos';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -669,7 +669,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Bel';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
@@ -700,7 +700,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Biffant';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -715,7 +715,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Bitru';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'           => $god->name,
@@ -732,7 +732,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Buer';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -747,7 +747,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Bune';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -762,7 +762,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Caarcrinolaas';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -777,7 +777,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Focalor';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -793,7 +793,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Herodias';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -808,7 +808,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Jaqon';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -828,12 +828,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Lilis';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
             'title'       => 'The Iron Maiden, Consort to Dispater',
-            'level'       => 'Devil',
+            'level'       => 'Duke of Hell',
             'alignment'   => 'LE',
             'master_id'   => $dis->id,
             'description' => '<p>Lilis resembles a 5‑foot-tall (1.5‑meter) plump human female of middle age. She has copper-colored hair, orange-red skin, and bright green eyes. She also has small, orange-red horns, a forked tail, wings, long red nails, and delicate, cloven black horns in place of feet.</p>
@@ -845,12 +845,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Lilith';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
             'title'       => 'Princess of Hell, Consort to Baalzebul',
-            'level'       => 'Devil',
+            'level'       => 'Duke of Hell',
             'alignment'   => 'LE',
             'master_id'   => $baalzebul->id,
             'description' => "<p>Lilith is a princess of the Nine Hells who serves as the second consort to the Lord of the Seventh, Baalzebul. She is an infamous fiend, so known for the sting of her whip that the welt from a deep lash is commonly known in Hell as \"Lilith's Mark\". Somtimes she is portrayed as a romantic or wronged female figure (such as a rejected lover), and indeed the Slug Archduke's consort is a woman who fells scored.</p>
@@ -885,7 +885,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Machalas';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -901,12 +901,12 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Melchon';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
             'title'       => 'Constable of Nessus',
-            'level'       => 'Devil',
+            'level'       => 'Duke of Hell',
             'alignment'   => 'LE',
             'master_id'   => $mammon->id,
             'description' => '<p>Melchon leads 18 companies of erinyes. He is a fiery red-skinned humanoid devil with upturned bull-like horns, black curling eyebrows and beard, black hoobes and large crimson winges.</p>',
@@ -916,7 +916,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Malphas';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -938,7 +938,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Merodach';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -953,7 +953,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Neabaz';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -968,7 +968,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Phongor';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
@@ -982,7 +982,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Rimmon';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'           => $god->name,
@@ -1001,7 +1001,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Tartach';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -1016,7 +1016,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Titivilus';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'           => $god->name,
@@ -1034,7 +1034,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Zepar';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'        => $god->name,
@@ -1049,7 +1049,7 @@ class GodsDevilsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Zagum';
-        $god->level = 'Devil';
+        $god->level = 'Duke of Hell';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
             'name'      => $god->name,
@@ -1057,245 +1057,6 @@ class GodsDevilsSeeder extends Seeder
             'level'     => 'Duke of Hell',
             'alignment' => 'LE',
             'master_id' => $asmodeus->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Alastor';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'The Grim, Executioner of Nessus',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => $asmodeus->id,
-            'description' => '<p>Alastor is a pit fiend.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Martinet';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Constable of Nessus',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => $asmodeus->id,
-            'description' => '<p>Martinet is a pit fiend.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Vreesar';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Gelugon',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Vreesar was a gelugon that led an attempt to conquer Toril from a Portal in the Great Glacier in 1366 DR. He was stopped by a Harper Ranger named Martine and a former Paladin named Vilheim.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Zaguror';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Gelugon',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Zaguror is an adamant gelugon supervisor for a museum of frozen baatezu rivals within Stygia.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Yoggaa';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Gelugon',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => God::where('name', 'Mephistopheles')->first()->id,
-            'description' => "<p>Yoggaa is an ice devil wizard responsible for the upkeep of Mephistopheles's Frost Garden. The sarcastic, gelugon gardener continually blasted the sculpted plants with cone of cold spells to prevent Mephistar's strange heat from melting them.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Tuncheth';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Gelugon',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => "<p>Tuncheth is an irritable ice devil, devoted to restoring the gelugons to their former position as Mephistopheles's favored servitors. On one front he attempted to discredit the pit fiend known as Quagrem, a key researcher of hellfire magic, by sending his agents to discover or plant evidence of foul play against him. He also was in charge of developing a theoretical form of frost magic known as the Plume, in order to end the Cold Lord's fixation on the un-Canian hellfire.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Abarax';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Abarax was a pit fiend that managed to depose and assume the identity of Lord Orgauth until he was slain by Scyllua Darkhope.</p>',
-            'master_id'   => $asmodeus->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Abbatorru';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Abbatorru is a Pit Fiend that enslaved the planeswalker wizard named Edalseye.</p>',
-            'master_id'   => $asmodeus->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Asgeroth';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Pit Fiend servant of Imix tasked with defeating Zaaman Rul.</p>',
-            'master_id'   => God::where('name', 'Imix')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Baalberith';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => "Major domo of Asmodeus' palace",
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => $asmodeus->id,
-            'description' => '<p>Baalberith is a pit fiend.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Beltorius';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Pit Fiend warrior of Mephistopheles.</p>',
-            'master_id'   => God::where('name', 'Mephistopheles')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Goap';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Goap is a Pit Fiend that serves Tiamat.</p>
-<p>Goap leads 3 companies of Erinyes.</p>',
-            'master_id'   => God::where('name', 'Tiamat')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Koraboros';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => "<p>Koraboros was a pit fiend who was trapped within Ammon Jerro's haven in the Sword Mountains, for the purpose of empowering the warlock, around 1374 DR.</p>",
-            'master_id'   => $asmodeus->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Morax';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => $asmodeus->id,
-            'description' => '<p>Morax is a pit fiend and commands 9 companies of pit fiends.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Tanetal';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'description' => '<p>Tanetal was a pit fiend and servant of Bane.</p>
-<p>Tanetal was ordered by Bane into the service of the Red Wizard Marcus in order to aid him in his task of bringing more power to Bane by sacrificing souls to the Pool of Darkness.</p>',
-            'master_id'   => $asmodeus->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Zimimar';
-        $god->level = 'Devil';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Lords of the Nine'], [
-            'name'        => $god->name,
-            'title'       => 'Pit Fiend',
-            'level'       => 'Devil',
-            'alignment'   => 'LE',
-            'master_id'   => $asmodeus->id,
-            'description' => '<p>Zimimar is a Pit Fiend that commanded the palace guards of Minauros, which composed of 6 companies of bone devils. He is now one of the Dark Eight.</p>',
         ]);
     }
 }

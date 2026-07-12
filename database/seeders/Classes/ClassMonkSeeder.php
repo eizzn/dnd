@@ -39,8 +39,8 @@ class ClassMonkSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'combat_mastery'   => [7, 18],
             'class_group_feat' => [1, 3, 4, 7, 10, 13, 16, 19],
+            'combat_mastery'   => [7, 18],
             'skill_feat'       => [3, 9, 15, 20],
             'flurry_of_blows'  => [2],
             'discipline_feat'  => [2],
@@ -302,6 +302,9 @@ class ClassMonkSeeder extends Seeder
 
             'Deflect Ranged Attack'  => 3,
             'Deflect Magical Attack' => 12,
+
+            'Extra Melee Action'    => 6,
+            'Extra Ranged Action'   => 7,
         ]);
 
         $helper->addPowersToClass($class, [

@@ -1431,6 +1431,25 @@ class PoisonFormulasSeeder extends Seeder
         ]);
 
         $formula              = new Formula;
+        $formula->name        = 'Phase Spider Venom';
+        $formula->type        = 'Poison';
+        $formula->method      = 'Injury';
+        $formula->description = '<p>A gummy paste made by drying and mixing with some tree sap.</p>
+<dt>
+    <dt>Onset</dt> <dd>1 round</dd>
+    <dt>Maximum Duration</dt> <dd>1 hour</dd>
+    <dt>Stage 1</dt> <dd>2D6 Poison damage and Paralyzed: 1 (CON DC 11)</dd>
+    <dt>Stage 2</dt> <dd>2D6 Poison damage and Paralyzed: 1 (CON DC 11)</dd>
+</dt>';
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Injury', 'Poison'], [
+            'skills' => [
+                'Crafting' => ['dc' => 12, 'meta' => 'Poison Making'],
+                'Arcana'   => ['dc' => 12],
+            ],
+            // monster in afterseeder
+        ]);
+
+        $formula              = new Formula;
         $formula->name        = 'Poison Tree';
         $formula->type        = 'Poison';
         $formula->price       = '200 gp';
@@ -1685,7 +1704,7 @@ class PoisonFormulasSeeder extends Seeder
     <dt>Stage 2</dt> <dd>2D6 Poison damage and Sluggish 2 (1 minute) (CON DC 11)</dd>
     <dt>Stage 3</dt> <dd>3D6 Poison damage and Sluggish 3 (1 minute) (CON DC 11)</dd>
 </dl>';
-        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Injury', 'Poison', 'Plant'], [
+        $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Injury', 'Poison'], [
             'skills' => [
                 'Crafting' => ['dc' => 11, 'meta' => 'Poison Making'],
                 'Nature'   => ['dc' => 13],

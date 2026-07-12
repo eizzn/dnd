@@ -4,11 +4,12 @@ import {Head} from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "monsters";
 const filters = {
     name: null,
-    type: null,
+    type: [],
     cr: null,
 };
 </script>
@@ -43,15 +44,17 @@ const filters = {
                                         placeholder="Enter name to filter"
                                     />
                                 </th>
-                                <th class="px-4 py-2 border border-gray-300 text-left">Hit Die</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <span class="block text-sm font-medium text-gray-700">Hit Die</span>
+                                </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="monster-cr-filter" class="block text-sm font-medium text-gray-700">CR</label>
                                     <select
                                         id="monster-cr-filter"
                                         v-model="filters.cr"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-1.5 px-3 text-sm text-gray-700 shadow-sm transition hover:border-indigo-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
                                     >
-                                        <option value=""> - </option>
+                                        <option value="">Any</option>
                                         <option value="0">0</option>
                                         <option value=".125">1/8</option>
                                         <option value=".25">1/4</option>
@@ -78,60 +81,55 @@ const filters = {
                                         <option value="20">20</option>
                                     </select>
                                 </th>
-                                <th class="px-4 py-2 border border-gray-300 text-left">Alignment</th>
-                                <th class="px-4 py-2 border border-gray-300 text-left">Description</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <span class="block text-sm font-medium text-gray-700">Alignment</span>
+                                </th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">
+                                    <span class="block text-sm font-medium text-gray-700">Description</span>
+                                </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="monster-type-filter" class="block text-sm font-medium text-gray-700">Types</label>
-                                    <select
-                                        id="monster-type-filter"
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <optgroup label="Elemental">
-                                            <option value="elemental">Elemental</option>
-                                            <option value="acid">Acid</option>
-                                            <option value="air">Air</option>
-                                            <option value="cold">Cold</option>
-                                            <option value="earth">Earth</option>
-                                            <option value="electricity">Electricity</option>
-                                            <option value="fire">Fire</option>
-                                            <option value="water">Water</option>
-                                        </optgroup>
-                                        <optgroup label="Outsiders">
-                                            <option value="outsider">Outsider</option>
-                                            <option value="chaotic">Chaotic</option>
-                                            <option value="evil">Evil</option>
-                                            <option value="good">Good</option>
-                                            <option value="lawful">Lawful</option>
-                                            <option value="neutral">Neutral</option>
-                                            <option value="celestial">Celestial</option>
-                                            <option value="fiend">Fiend</option>
-                                            <option value="archon">Archon</option>
-                                            <option value="demon">Demon</option>
-                                            <option value="devil">Devil</option>
-                                            <option value="eladrin">Eladrin</option>
-                                            <option value="guardinal">Guardinal</option>
-                                            <option value="modron">Modron</option>
-                                            <option value="slaad">Slaad</option>
-                                            <option value="yugoloth">Yugoloth</option>
-                                        </optgroup>
-                                        <optgroup label="Miscellaneous">
-                                            <option value="aberration">Aberration</option>
-                                            <option value="animal">Animal</option>
-                                            <option value="construct">Construct</option>
-                                            <option value="dragon">Dragon</option>
-                                            <option value="fey">Fey</option>
-                                            <option value="giant">Giant</option>
-                                            <option value="humanoid">Humanoid</option>
-                                            <option value="beast">Beast</option>
-                                            <option value="humanoid">Humanoid</option>
-                                            <option value="monstrosity">Monstrosity</option>
-                                            <option value="ooze">Ooze</option>
-                                            <option value="plant">Plant</option>
-                                            <option value="undead">Undead</option>
-                                        </optgroup>
-                                    </select>
+                                        :options="[
+                                            { value: 'elemental', label: 'Elemental' },
+                                            { value: 'acid', label: 'Acid' },
+                                            { value: 'air', label: 'Air' },
+                                            { value: 'cold', label: 'Cold' },
+                                            { value: 'earth', label: 'Earth' },
+                                            { value: 'electricity', label: 'Electricity' },
+                                            { value: 'fire', label: 'Fire' },
+                                            { value: 'water', label: 'Water' },
+                                            { value: 'outsider', label: 'Outsider' },
+                                            { value: 'chaotic', label: 'Chaotic' },
+                                            { value: 'evil', label: 'Evil' },
+                                            { value: 'good', label: 'Good' },
+                                            { value: 'lawful', label: 'Lawful' },
+                                            { value: 'neutral', label: 'Neutral' },
+                                            { value: 'celestial', label: 'Celestial' },
+                                            { value: 'fiend', label: 'Fiend' },
+                                            { value: 'archon', label: 'Archon' },
+                                            { value: 'demon', label: 'Demon' },
+                                            { value: 'devil', label: 'Devil' },
+                                            { value: 'eladrin', label: 'Eladrin' },
+                                            { value: 'guardinal', label: 'Guardinal' },
+                                            { value: 'modron', label: 'Modron' },
+                                            { value: 'slaad', label: 'Slaad' },
+                                            { value: 'yugoloth', label: 'Yugoloth' },
+                                            { value: 'aberration', label: 'Aberration' },
+                                            { value: 'animal', label: 'Animal' },
+                                            { value: 'construct', label: 'Construct' },
+                                            { value: 'dragon', label: 'Dragon' },
+                                            { value: 'fey', label: 'Fey' },
+                                            { value: 'giant', label: 'Giant' },
+                                            { value: 'humanoid', label: 'Humanoid' },
+                                            { value: 'beast', label: 'Beast' },
+                                            { value: 'monstrosity', label: 'Monstrosity' },
+                                            { value: 'ooze', label: 'Ooze' },
+                                            { value: 'plant', label: 'Plant' },
+                                            { value: 'undead', label: 'Undead' },
+                                        ]"
+                                    />
                                 </th>
                             </template>
 
@@ -151,9 +149,9 @@ const filters = {
                                     <td class="px-4 py-2 border border-gray-300 text-center">{{ monster.alignment }}</td>
                                     <td class="px-4 py-2 border border-gray-300">{{ monster.description }}</td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <ul>
-                                            <li v-for="(type, index) in monster.types" :key="index">{{ type.name }}</li>
-                                        </ul>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in monster.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                 </tr>
                             </template>

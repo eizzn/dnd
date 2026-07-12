@@ -640,7 +640,7 @@ class GodsMulhorandiSeeder extends Seeder
             2 => ['Analyze Portal', 'Anticipate Teleportation', 'Dimension Hop', 'Discolor Astral Pool', 'Distort Summons',
                 'Ectoplasmic Web', 'Ethereal Mount', 'Invoke the Cerulean Sign', 'Misty Step', 'Spectral Hand', ],
             3 => ['Anti-Summoning Shell', 'Banishment', 'Blink', 'Dimensional Anchor', 'Dispel Magic', 'Ectoplasmic Decay',
-                'Ethereal Prison', 'Interplanar Message', 'Portal View', ],
+                'Ethereal Prison', 'Interplanar Message', 'Portal View', 'Wraithform', ],
             4 => ['Call Modron Workers', 'Ceremony', 'Contact Other Plane', 'Creation', 'Dimension Door', 'Ether Cyclone',
                 'Locate Gate', 'Make Manifest', 'Misty Step, Greater', 'Planar Adaption', 'Planar Binding', 'Trace Teleport', ],
             5 => ['Baleful Teleport', 'Dimension Jumper', 'Teleportation Circle', 'Wall of Force'],

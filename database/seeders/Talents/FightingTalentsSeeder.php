@@ -21,7 +21,7 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'High Sword Low Axe';
         $talent->requirement = 'You must be weilding both a sword and an axe';
-        $talent->description = '<p>If you hit the same creature with both your sword and your axe in the same round, you gain an additional Action. This additional Action can only be used to make a Trip Attack.</p>';
+        $talent->description = '<p>If you hit the same creature with both your sword and your axe in the same round, you immediately gain an additional Action. This additional Action can only be used to make a Trip Attack.</p>';
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Improved Trip']);
@@ -31,7 +31,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = 'Anvil of Thunder';
         $talent->requirement = 'You must be weilding both a hammer and an axe';
         $talent->description = '<p>You have mastered the style of fighting with hammer and axe at the same time</p>
-<p>If you hit the same creature with both your axe and your hammer in the same round, it must make a CON Save (DC 10 + 1/2 your character level + your Str modifier) or be Dazed for 1 round.</p>';
+<p>If you hit the same opponent with both your axe and your hammer in the same round, the opponent must make a CON Save (DC 10 + Proficiently Bonus + your STR modifier) or be Dazed for 1 round.</p>';
         $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Power Attack']);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
@@ -41,8 +41,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = 'Bear Fang';
         $talent->requirement = 'You must be wielding both an axe and a dagger';
         $talent->description = '<p>If you hit an opponent with both your axe and your dagger in the same round, you can choose to immediately attempt to start a Grapple as a Free Action without provoking an Attack an Opportunity. No initial touch attack is required.</p>
-<p>If you succeed on your grapple attempt, you drop your axe, but you immediately gain an additional Action this turn. This additional Action can only be used to attack your grappled foe with your dagger at your highest base attack bonus (with the normal -4 penalty for attacking in a grapple).</p>
-<p>In subsequent rounds, you can use the dagger to attack while grappling at the normal penalty.</p>';
+<p>If you succeed on your grapple attempt, you immediately gain an additional Action this turn. This additional Action can only be used to attack your Grappled foe with your dagger at your highest base attack bonus.</p>';
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Power Attack']);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
@@ -52,7 +51,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = 'Crescent Moon';
         $talent->requirement = 'You must be weilding both a sword and a dagger';
         $talent->description = "<p>You have mastered the style of fighting with sword and dagger. You know how to twist an opponent's weapons from its grasp with a single graceful motion while using your two weapons together.</p>
-<p>If you hit the same creature with both your sword and your dagger in the same round, you gain an additional Action. This additional Action can only be used to make a Disarm Action.</p>";
+<p>If you hit the same creature with both your sword and your dagger in the same round, you immediately gain an additional Action. This additional Action can only be used to make a Disarm Action.</p>";
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Improved Disarm']);
@@ -61,7 +60,7 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = "Hammer's Edge";
         $talent->requirement = 'You must be weilding both a sword and hammer';
-        $talent->description = '<p>If you hit the same creature with both your sword and hammer, it must make CON Save (DC equal to the total damage dealt with your sword and hammer), or fall prone.</p>
+        $talent->description = '<p>If you hit the same creature with both your sword and hammer, it must make CON Save (DC equal to the total damage rolled with your sword and hammer), or fall prone.</p>
 <p>For each size category larger than you, the target gains a +3 bonus to the Save. For each size category smaller than you, the target suffers a -3 penalty to the Save.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Improved Bull Rush']);
@@ -71,17 +70,53 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Net and Trident';
         $talent->requirement = 'You must weilding a net and trident';
-        $talent->description = '<p>If you successfully hit an opponent with your net and win the opposed STR check, you may make a free Move Action (up to half your Speed) towards the opponent and use an Action to attack any creature in your net with additional +2 to Hit and +2 to Damage.</p>';
+        $talent->description = '<p>If you successfully hit an opponent with your net and win the opposed STR check, you may make a free Move Action (up to half your Speed) towards the opponent and use an Action to attack any creature in your net with an additional +3 to Hit and +3 to Damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'trident']);
 
         $talent              = new Talent;
-        $talent->name        = 'Fighting Summoner';
-        $talent->requirement = 'You must have Summoned or Called a creature that is able to fight';
-        $talent->description = "<p>You are skilled at fighting alongside your summoned creatures</p>
-<p>As long as you and a creature you summoned threaten the same foe, you are considered to be Flanking that foe even if you don't have an ally on the foe's opposite side. Your summoned ally gains a +1 bonus to Hit while it is attacking a creature that is Flanked.</p>";
-        $helper->addTypesToSimpleObject($talent, ['Summoning', 'Talent' => 5]);
+        $talent->name        = 'Agile Shield Fighter';
+        $talent->requirement = 'You are wielding a light weapon and a medium or small shield.';
+        $talent->description = '<p>You are skilled at fighting with a weapon and a shield and using the shield as a weapon</p>
+<ul>
+    <li>You may use your shield to attack as an off-hand weapon (and not lose any bonuses from taking the Raise a Shield Action), even if you have taken the Raise a Shield Action</li>
+    <li>If you use a Feat or Talent that causes you to take a penalty for wielding a shield, that penalty is halved rounded down.</li>
+    <li>Your shield deals an additional +1 to damage.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Shield', 'Melee', 'Talent' => 6]);
+        $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
+        $talent->feats()->save(app()->feats['Shield Master']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Shield Defender';
+        $talent->requirement = 'You are wielding a Shield and have taken the Raise a Shield Action and you are adjacent to an ally';
+        $talent->action_type = 'Reaction';
+        $talent->description = '<p>As a Reaction, you may use your shield to grant your ally that must be adjacent to you your shield bonus to AC and DEX Saves until the beginning of your next turn (shield bonus + magical bonus. No additional bonuses from Feats). You cannot use this ability more than once per turn. If your ally you granted the AC bonus moves away from you such that they are no longer adjacent to you, then they lose all bonuses from this Talent.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Shield', 'Talent' => 4]);
+        $talent->feats()->save(app()->feats['Shield Master']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Shield Cover';
+        $talent->requirement = 'You are wielding a Shield and have taken the Raise a Shield Action';
+        $talent->action_type = 'Free';
+        $talent->description = '<p>You are skilled at using your shield while you retreat</p>
+<ul>
+    <li>You gain a +1 bonus to AC against all Attacks of Opportunity that you are aware of.</li>
+    <li>In addition, once per turn, as a Free Action, you can choose an opponent that you can see. Until the beginning of your next turn, that opponent suffers an additional -5 Penalty to all Attacks of Opportunity against you that are triggered by Movement.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Shield', 'Talent' => 5]);
+        $talent->feats()->save(app()->feats['Shield Master']);
+
+        $talent              = new Talent;
+        $talent->name        = 'Shield Mastery';
+        $talent->requirement = 'You are wielding a Shield and have taken the Raise a Shield Action';
+        $talent->description = '<p>You are skilled at focusing your shield against one opponent</p>
+<ul>
+    <li>At the beginning of your turn, you may select an opponent that you are aware of within 120 feet of you. Your shield provides an additional +2 bonus to AC (and to your DEX Save if you have some other Feat or Talent that allows it)</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Shield', 'Talent' => 7]);
+        $talent->feats()->save(app()->feats['Shield Master']);
 
         $talent              = new Talent;
         $talent->name        = 'Fists of Steel';

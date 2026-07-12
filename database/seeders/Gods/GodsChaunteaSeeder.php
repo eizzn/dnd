@@ -71,8 +71,8 @@ class GodsChaunteaSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Chauntea's favor is oft given to those who take care of their communites and provide for those around them. Chauntea prizes not only bravery, but selflessness and collective responsibility.</p>
-<p>Chauntea’s scions tend to have large hearts and empty pockets as they look out for the needs of their team members.</p>
+            'favor'       => "<p>Chauntea's favor is oft given to those who take care of their communities and provide for those around them. Chauntea prizes not only bravery, but selflessness and collective responsibility.</p>
+<p>Chauntea's scions tend to have large hearts and empty pockets as they look out for the needs of their team members.</p>
 <ol>
     <li>You saved a village from famine</li>
     <li>You have a green thumb</li>

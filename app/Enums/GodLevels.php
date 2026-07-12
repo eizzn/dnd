@@ -12,7 +12,7 @@ enum GodLevels: int
     case Intermediate     = 2;
     case Lesser           = 3;
     case Demi             = 4;
-    case Solar            = 5;
+    case DukeOfHell       = 5;
     case TomeArchon       = 6;
     case GaurdinalParagon = 7;
     case FeyLord          = 8;
@@ -23,13 +23,16 @@ enum GodLevels: int
     case Prime            = 13;
     case Archomental      = 14;
     case Hero             = 15;
-    case Archon           = 16;
-    case Gaurdinal        = 17;
-    case Archfey          = 18;
-    case Demon            = 19;
-    case Yugoloth         = 20;
-    case Devil            = 21;
-    case Modron           = 22;
+    case Gaurdinal        = 16;
+    case Archfey          = 17;
+    case Demon            = 18;
+    case Yugoloth         = 29;
+    case Devil            = 20;
+    case Modron           = 21;
+    case DemonPrince      = 22;
+    case Archdemon        = 23;
+    case Slaad            = 24;
+    case Departed         = 25;
     case Dead             = 100;
 
     public function toString(): string
@@ -39,24 +42,27 @@ enum GodLevels: int
             self::Intermediate     => 'Intermediate',
             self::Lesser           => 'Lesser',
             self::Demi             => 'Demi',
-            self::Solar            => 'Solar',
+            self::DukeOfHell       => 'Duke of Hell',
             self::TomeArchon       => 'Tome Archon',
             self::GaurdinalParagon => 'Gaurdinal Paragon',
             self::FeyLord          => 'Fey Lord',
             self::SlaadLord        => 'Slaad Lord',
             self::DemonLord        => 'Demon Lord',
             self::Altraloth        => 'Altraloth',
-            self::ArchDevil        => 'Arch Devil',
+            self::ArchDevil        => 'Archdevil',
             self::Prime            => 'Prime',
             self::Archomental      => 'Archomental',
             self::Hero             => 'Hero',
-            self::Archon           => 'Archon',
             self::Gaurdinal        => 'Gaurdinal',
             self::Archfey          => 'Archfey',
             self::Demon            => 'Demon',
             self::Yugoloth         => 'Yugoloth',
             self::Devil            => 'Devil',
             self::Modron           => 'Modron',
+            self::DemonPrince      => 'Demon Prince',
+            self::Archdemon        => 'Archdemon',
+            self::Slaad            => 'Slaad',
+            self::Departed         => 'Departed',
             self::Dead             => 'Dead',
         };
     }

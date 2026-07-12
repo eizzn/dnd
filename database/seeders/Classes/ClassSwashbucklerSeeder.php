@@ -149,6 +149,9 @@ class ClassSwashbucklerSeeder extends Seeder
 
             'Weapon Focus'                => 4,
             'Weapon Specialization'       => 6,
+
+            'Extra Melee Action'        => 5,
+            'Extra Ranged Action'       => 7,
         ]);
     }
 }

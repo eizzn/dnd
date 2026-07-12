@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Attribute;
 use App\Models\ClassPowerMeta;
 use App\Models\ClassSpellSlot;
 use App\Models\Feat;
@@ -33,6 +34,13 @@ class ClassResource extends JsonResource
             'description'    => $this->description,
             'requirements'   => $this->requirements,
             'max_level'      => $this->max_level,
+            'saves'          => $this->saves->map(function (Attribute $attr) {
+                return [
+                    'id'    => $attr->id,
+                    'attr'  => $attr->attr,
+                    'name'  => $attr->name,
+                ];
+            }),
             'types'          => $this->types->map(function (Type $type) {
                 return [
                     'id'   => $type->id,
@@ -110,6 +118,7 @@ class ClassResource extends JsonResource
                                 'id'    => $spell->id,
                                 'name'  => $spell->name,
                                 'level' => $spell->pivot->level,
+                                'meta'  => $spell->pivot->meta,
                             ];
                         })->values(),
                     ];
@@ -125,6 +134,7 @@ class ClassResource extends JsonResource
                                 'id'    => $power->id,
                                 'name'  => $power->name,
                                 'level' => $power->pivot->level,
+                                'meta'  => $power->pivot->meta,
                             ];
                         })->values(),
                     ];

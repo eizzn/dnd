@@ -1345,7 +1345,7 @@ class SpellsSSeeder extends Seeder
     <li>Prune Growth: This version causes normal vegetation (grasses, briars, bushes, creepers, hedges, thistles, trees, vines, and so forth) within long range to shrink to about one-third of their normal size, becoming untangled and less bushy. The affected vegetation appears to have been carefully pruned and trimmed. You may also designate portions of the area that are not affected.</li>
     <li>Stunt Growth: This version targets normal plants within a range of 1/2 mile, reducing their potential productivity over the course of the following year to one-third below normal.</li>
 </ul>
-<p>Shrink Plant counters Plant Growth</p>';
+<p>This spell Counters and is Countered by Plant Growth</p>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Plant'], 3);
 
         $spell              = new Spell;
@@ -1537,7 +1537,7 @@ class SpellsSSeeder extends Seeder
 <dl>
     <dt>Material Components</dt> <dd>Snow or ice in quantities sufficient to make a life-size copy of the duplicated creature; some hair; fingernail clippings, or any piece of that creatures body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Phantasm', 'Shadow', 'Ritual'], 7);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Phantasm', 'Ritual'], 7);
 
         $spell              = new Spell;
         $spell->name        = 'Siphon';

@@ -57,12 +57,12 @@ class CombatPageSeeder extends Seeder
     <li>All attacks made against you is made at Disadvantage</li>
     <li>If you can see the attacker, you make all DEX Saves with Advantage.</li>
 </ul>
-<p>You lose these benefits if become incapacitated or if your Speed drops to 0.</p>';
+<p>You lose these benefits if you become incapacitated or if your Speed drops to 0.</p>';
         $rule->order       = 22;
         $page->rules()->save($rule);
 
         $rule              = new Rule;
-        $rule->key         = 'critical_hits';
+        $rule->key         = 'critical-hits';
         $rule->name        = 'Critical Hits';
         $rule->description = "<p>When you score a Critical Hit, you get to roll extra dice for the attack's  damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.</p>
 <blockquote>
@@ -139,7 +139,7 @@ class CombatPageSeeder extends Seeder
         $rule              = new Rule;
         $rule->key         = 'heroic-surge';
         $rule->name        = 'Heroic Surge';
-        $rule->description = '<p>Some character classes or feats grant Heroic Surges. A Heroic Surge may be used to during your turn as a Free Action to gain an additional Action or gain Advantage on your next Strike Action. Certain Feats allow Heroic Surges to be used in other ways.</p>
+        $rule->description = '<p>Some character classes or feats grant Heroic Surges. A Heroic Surge may be used during your turn as a Free Action to gain an additional Action or gain Advantage on your next Strike Action. Certain Feats allow Heroic Surges to be used in other ways.</p>
 <blockquote>
     Ex. Rendar, on his turn, uses a Heroic Action to gain an additional Action. He has 4 Actions this turn which may be used for Stride, Strike, or Spell Casting Actions. Heroic Surge does not apply the Quickened condition, it simply grants an additional Action.
 </blockquote>
@@ -196,12 +196,34 @@ class CombatPageSeeder extends Seeder
         $rule->key         = 'parry';
         $rule->name        = 'Parry';
         $rule->description = '<p>You can focus on defending yourself. You cannot be weilding a shield and you must be considered armed (either armed with a Melee Weapon or have the Improved Unarmed Strike Feat).</p>
-<p>While armed, you may spend an Action and gain a +1 bonus to your AC until the beginning of your next turn. You may spend up to 3 Actions a turn to Parry.</p>';
+<p>While armed, you may spend up to 3 Actions to Parry and gain an AC bonus based on the table below.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Actions used to Parry</th>
+            <th>AC Bonus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1 Action</td>
+            <td>+1 AC</td>
+        </tr>
+        <tr>
+            <td>2 Actions</td>
+            <td>+3 AC</td>
+        </tr>
+        <tr>
+            <td>3 Action</td>
+            <td>+5 AC</td>
+        </tr>
+    </tbody>
+</table>';
         $rule->order = 500;
         $page->rules()->save($rule);
 
         $rule              = new Rule;
-        $rule->key         = 'heavy_armor_use';
+        $rule->key         = 'heavy-armor-use';
         $rule->name        = 'Heavy Armor Use';
         $rule->description = '<p>Fighting in heavy armor is tiring.</p>
 <p>If you are not proficient in Heavy Armor, after 3 rounds of combat (making melee, ranged attacks, moving or casting spells), you must make a DC 12 CON Save or become Fatigued. You must make this Save each round after the 3rd until you Fail or combat ends</p>

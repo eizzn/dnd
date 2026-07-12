@@ -327,40 +327,5 @@ class GodsCorellonSeeder extends Seeder
         ]);
 
         // Sarula Iliene
-
-        $god        = new God;
-        $god->name  = 'Felarathael';
-        $god->level = 'Solar';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
-            'name'        => $god->name,
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $corellon->id,
-            'description' => '<p>Felarathael is a solar in the service of Corellon and the twin spirit of Lashrael. Their might is so great that some elves, especially gold elves, considered them to be demi-powers in their own right, but this was mistaken</p>
-<p>Felarathael, along with Lashrael are the primary servitors of Corellon, most commonly acting as his messengers on Toril but also defending mortal elves under threat.</p>
-<p>Felarathael and Lashrael are identical twins, with both appearing as tall, beautiful and androgynous elves of no particular race, with shining bodies and wearing gleaming white robes.</p>
-<p>Despite being twins, the two have very different personalities. Felarathael is a being of pure rationality. Regardless of the situation, Felarathael considered things with calm detachment and logical reasoning. His speech, though slow and measured, is always with great reassurance. In battle, too, Felarathael is patient but skilled.</p>
-<p>In battle, rather than deal injury to an opponent, Felarathael and Lashrael can cause the victim to sleep without fail, suffer from amnesia, be polymorphed into the form of a forest animal, or be randomly teleported 1 to 10miles away.</p>
-<p>In the Year of the Lost Keep, 1379 DR, Felarathael and Lashrael went together to the Fugue Plane under the orders of Corellon Larethian to retrieve the soul of the slain drow Cavatina Xarann, a Darksong Knight of Eilistraee. They explained to her that a few hundred of the followers of Eilistraee had been turned back to their original dark elven form, and that Cavatina was among them, thanks to the sacrifice of Qilue Veladorn. Felarathael and Lashrael led her to Arvandor, as they claimed that the transformed drow would be allowed into the elven afterlife.</p>',
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Lashrael';
-        $god->level = 'Solar';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
-            'name'        => $god->name,
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $corellon->id,
-            'description' => "<p>Felarathael is a solar in the service of Corellon and the twin spirit of Lashrael. Their might is so great that some elves, especially gold elves, considered them to be demi-powers in their own right, but this was mistaken</p>
-<p>Lashrael, along with Felarathael are the primary servitors of Corellon, most commonly acting as his messengers on Toril but also defending mortal elves under threat.</p>
-<p>Felarathael and Lashrael are identical twins, with both appearing as tall, beautiful and androgynous elves of no particular race, with shining bodies and wearing gleaming white robes.</p>
-<p>Despite being twins, the two have very different personalities. Lashrael is a being of extreme emotion. Lashrael speaks and delivers Corellon's messages with powerful conviction, deep sorrow, or tremendous joy, depending on the subject. He makes dramatic gestures and his mood can change as quickly as the subject does. He is a fierce fighter who never asks for or gives quarter to an opponent.</p>
-<p>In battle, rather than deal injury to an opponent, Felarathael and Lashrael can cause the victim to sleep without fail, suffer from amnesia, be polymorphed into the form of a forest animal, or be randomly teleported 1 to 10miles away.</p>
-<p>In the Year of the Lost Keep, 1379 DR, Felarathael and Lashrael went together to the Fugue Plane under the orders of Corellon Larethian to retrieve the soul of the slain drow Cavatina Xarann, a Darksong Knight of Eilistraee. They explained to her that a few hundred of the followers of Eilistraee had been turned back to their original dark elven form, and that Cavatina was among them, thanks to the sacrifice of Qilue Veladorn. Felarathael and Lashrael led her to Arvandor, as they claimed that the transformed drow would be allowed into the elven afterlife.</p>
-<p>As of 1479 DR, some elven crusaders who revered Lashrael opposed the influence of the leShay of Sarifal</p>",
-        ]);
     }
 }

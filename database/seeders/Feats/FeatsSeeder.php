@@ -508,7 +508,7 @@ class FeatsSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Spell Pool';
-        $feat->description = '<p>You gain a pool of Spell Points based on your Primary ability (1 + your Primary ability bonus, minimum of 1 point total).</p>
+        $feat->description = '<p>You gain a pool of Spell Points based on your Primary ability (1 + your Primary ability bonus, minimum of 2 points total).</p>
 <p>You cannot spend more Spell Points in a turn then your Character Level.</p>';
         $helper->addTypesToFeat($feat, ['Spell Pool', 'Generic' => 1]);
 

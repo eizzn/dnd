@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Feat;
 use App\Models\Formula;
 use App\Models\Monster;
-use App\Models\Power;
 use App\Models\Spell;
 use App\Models\Talent;
 use Illuminate\Database\Seeder;
@@ -52,7 +51,10 @@ class AfterSeeder extends Seeder
         Formula::where('name', 'Giant Spider Venom')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Spider, Giant')->firstOrFail(), ['meta' => 'Must be harvested from a dead or incapacitated specimen']
         );
-        Formula::where('name', 'Lichbane')->firstOrFail()->save(
+        Formula::where('name', 'Phase Spider Venom')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Phase Spider')->firstOrFail(), ['meta' => 'Must be harvested from a living specimen']
+        );
+        Formula::where('name', 'Lichbane')->firstOrFail()->formulas()->save(
             Formula::where('name', 'Holy Water')->firstOrFail()
         );
         Formula::where('name', 'Gravedust')->firstOrFail()->formulas()->save(
@@ -187,6 +189,16 @@ class AfterSeeder extends Seeder
         $formula->monsters()->save(
             Monster::where('name', 'Ogre')->firstOrFail(), ['meta' => 'At least 3 drops of blood']
         );
+        $formula = Formula::where('name', 'Blueshine')->firstOrFail();
+        $formula->monsters()->save(
+            Monster::where('name', 'Cockatrice')->firstOrFail(), ['meta' => 'single feather in brine solution soaked for at least 3 months']
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Sweet Water')->firstOrFail(), ['meta' => '1 vial']
+        );
+        Formula::where('name', 'Everbright')->firstOrFail()->formulas()->save(
+            Formula::where('name', 'Potion of Acid Resistance')->firstOrFail()
+        );
         Formula::where('name', 'Vampiric')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Vampire')->firstOrFail(), ['meta' => '10 drops of fresh vampire blood']
         );
@@ -195,6 +207,41 @@ class AfterSeeder extends Seeder
         );
         Formula::where('name', 'Giant Wasp Venom')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Wasp, Giant')->firstOrFail(), ['meta' => 'The venom from the stinger is enough to make 2 doses']
+        );
+        Formula::where('name', 'Wand of Viscus Globs')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Spider, Giant')->firstOrFail(), ['meta' => 'Undamaged Silk Gland']
+        );
+        Formula::where('name', 'Wand of Web')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Spider, Giant')->firstOrFail(), ['meta' => 'Undamaged Silk Gland']
+        );
+        $formula = Formula::where('name', 'Potion of Lichdom')->firstOrFail();
+        $formula->formulas()->save(
+            Formula::where('name', 'Arsenic')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Black Lotus Extract')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Agony')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Panaeolo')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Phase Spider Venom')->firstOrFail(), ['meta' => '8 drops']
+        );
+        $formula = Formula::where('name', 'Lich Phylactery')->firstOrFail();
+        $formula->formulas()->save(
+            Formula::where('name', 'Blueshine')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Everbright')->firstOrFail()
+        );
+        $formula->formulas()->save(
+            Formula::where('name', 'Giant Wasp Venom')->firstOrFail(), ['meta' => '8 drops']
+        );
+        $formula->monsters()->save(
+            Monster::where('name', 'Doppelganger')->firstOrFail(), ['meta' => '2 drops of cranial fluid']
         );
 
         // feats

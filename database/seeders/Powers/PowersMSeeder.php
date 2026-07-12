@@ -286,8 +286,12 @@ class PowersMSeeder extends Seeder
         $power->display     = 'Mental';
         $power->range       = '60 feet';
         $power->targets     = 'One creature';
-        $power->duration    = 'Instantaneous';
-        $power->description = '<p>You send a telepathic message of up to ten words to any living creature within range. Missive is strictly a one-way exchange from you to the subject. If you do not share a common language, the subject “hears” meaningless mental syllables.</p>';
+        $power->duration    = '1 hour';
+        $power->description = '<p>You form a telepathic bond with one creature within range. For the Duration, you and the Target can communicate Telepathically. You may form this bond with only 1 creature at a time.</p>';
+        $power->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>You may form a bond with an additional Target</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 1);
     }
 }

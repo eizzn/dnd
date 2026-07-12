@@ -34,25 +34,27 @@ class PowersASeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Acid'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Absorb Weapon';
-        $power->action_type = 'Triple Action';
-        $power->targets     = 'Self';
-        $power->duration    = 'Until discharged or 24 hours';
-        $power->description = '<p>You can absorb one weapon of up to 5 lbs into your body and a small tattoo that resembles the item absorbed appears on the skin of your arm. The absorbed item is undetectable by normal means, although the effect is detectable via Detect Psionics. The item can be discharged as an Action and the weapon is automatically equipped. You must be capable of holding the weapon or it falls to your feet (such as if you had no hands free). If the effect ends without being discharged, the item falls to your feet.</p>';
-        $power->heightened  = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Absorb Weapon';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per 3 hour';
+        $power->targets          = 'Self';
+        $power->duration         = 'Until discharged';
+        $power->description      = '<p>You can absorb one weapon of up to 5 lbs into your body and a small tattoo that resembles the item absorbed appears on the skin of your arm. The absorbed item is undetectable by normal means, although the effect is detectable via Detect Psionics. The item can be discharged as an Action and the weapon is automatically equipped. You must be capable of holding the weapon or it falls to your feet (such as if you had no hands free). If the effect ends without being discharged, the item falls to your feet.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the weight of the item by 5 lbs</dd>
     <dt>Heightened (+1)</dt> <dd>You can absorb a suit of armor or a shield instead of a weapon (you must still spend enough Power Points for the weight requirement). When discharged, the shield or armor is automatically equipped, so long as you are capable of equipping the item.</dd>
     <dt>Heightened (+1)</dt> <dd>You can store an additional item. All stored items are discharged at the same time (you must still spend enough Power Points for the weight requirement).</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Adapt Body';
-        $power->action_type = 'Triple Action';
-        $power->targets     = 'Self';
-        $power->duration    = '12 hours';
-        $power->description = '<p>Your body automatically adapts to hostile environments. You can adapt to underwater, extreme heat, extreme cold, or airless environments, allowing you to survive as if you were a creature native to that environment. You can breathe and move (though penalties to movement and attacks if any for a particular environment remain), and you take no damage simply from being in that environment. You need not specify what environment you are adapting to when you manifest this power; simply activate it, and your body will instantly adapt to any hostile environment as needed throughout the duration.</p>
+        $power                   = new Power;
+        $power->name             = 'Adapt Body';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per 3 hour';
+        $power->targets          = 'Self';
+        $power->duration         = '12 hours';
+        $power->description      = '<p>Your body automatically adapts to hostile environments. You can adapt to underwater, extreme heat, extreme cold, or airless environments, allowing you to survive as if you were a creature native to that environment. You can breathe and move (though penalties to movement and attacks if any for a particular environment remain), and you take no damage simply from being in that environment. You need not specify what environment you are adapting to when you manifest this power; simply activate it, and your body will instantly adapt to any hostile environment as needed throughout the duration.</p>
 <p>You can somewhat adapt to extreme environmental features such as Acid, Lava, Fire, and Electricity. Any environmental feature that normally deals 1 or more dice of damage per round deals you only half the usual amount of damage.</p>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 5);
 
@@ -100,7 +102,7 @@ class PowersASeeder extends Seeder
         $power->targets        = 'One living psionic creature';
         $power->duration       = 'Instantaneous';
         $power->save_attribute = 'CHA';
-        $power->description    = "<p>By using this power, you delete 1d4 powers permanently from the target's mind. You specify the level of each power, and the game master randomly determines which of the target’s powers is actually deleted. Psychic chirurgery or reality revision can be used to restore the lost powers, but it must be performed within 1 week of losing the powers.</p>
+        $power->description    = "<p>By using this Power, you delete 1d4 Powers permanently from the target's mind. You specify the level of each power, and the game master randomly determines which of the target’s powers is actually deleted. Psychic chirurgery or reality revision can be used to restore the lost powers, but it must be performed within 1 week of losing the powers.</p>
 <p>Manifesting this power causes the manifester to take 7 points of CON damage.</p>";
         $power->saves = '<dl>
     <dt>Success</dt> <dd>The target resists and does not lose any powers</dd>

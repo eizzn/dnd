@@ -5,14 +5,15 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import { ref } from "vue";
 import {TailwindPagination} from "laravel-vue-pagination";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = 'powers';
 const filters = {
     name: null,
-    type: null,
-    action_type: null,
+    type: [],
+    action_type: [],
     duration: null,
-    default_level: null,
+    default_level: [],
 };
 </script>
 
@@ -48,73 +49,69 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="power-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
-                                    <select
-                                        id="spell-types-filter"
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <optgroup label="Schools of Magic">
-                                            <option value="clairsentience">Clairsentience</option>
-                                            <option value="metacreativity">Metacreativity</option>
-                                            <option value="psychokinesis">Psychokinesis</option>
-                                            <option value="psychometabolism">Psychometabolism</option>
-                                            <option value="telepathy">Telepathy</option>
-                                        </optgroup>
-                                        <optgroup label="Damage Type">
-                                            <option value="astral">Astral</option>
-                                            <option value="cold">Cold</option>
-                                            <option value="creation">Creation</option>
-                                            <option value="construct">Construct</option>
-                                            <option value="ectoplasm">Ectoplasm</option>
-                                            <option value="electricity">Electricity</option>
-                                            <option value="fire">Fire</option>
-                                            <option value="force">Force</option>
-                                            <option value="light">Light</option>
-                                            <option value="psionic combat">Psionic Combat</option>
-                                            <option value="sonic">Sonic</option>
-                                            <option value="time">Time</option>
-                                        </optgroup>
-                                    </select>
+                                        :options="[
+                                            { value: 'clairsentience', label: 'Clairsentience' },
+                                            { value: 'metacreativity', label: 'Metacreativity' },
+                                            { value: 'psychokinesis', label: 'Psychokinesis' },
+                                            { value: 'psychometabolism', label: 'Psychometabolism' },
+                                            { value: 'telepathy', label: 'Telepathy' },
+                                            { value: 'astral', label: 'Astral' },
+                                            { value: 'cold', label: 'Cold' },
+                                            { value: 'creation', label: 'Creation' },
+                                            { value: 'construct', label: 'Construct' },
+                                            { value: 'ectoplasm', label: 'Ectoplasm' },
+                                            { value: 'electricity', label: 'Electricity' },
+                                            { value: 'fire', label: 'Fire' },
+                                            { value: 'force', label: 'Force' },
+                                            { value: 'light', label: 'Light' },
+                                            { value: 'psionic combat', label: 'Psionic Combat' },
+                                            { value: 'sonic', label: 'Sonic' },
+                                            { value: 'time', label: 'Time' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="power-action-type" class="block text-sm font-medium text-gray-700">Actions</label>
-                                    <select
-                                        id="power-action-type"
+                                    <MultiSelect
                                         v-model="filters.action_type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="action">Action</option>
-                                        <option value="double action">Double Action</option>
-                                        <option value="triple action">Triple Action</option>
-                                        <option value="minute">Minutes</option>
-                                        <option value="hour">Hours</option>
-                                        <option value="day">Days</option>
-                                        <option value="week">Weeks</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'action', label: 'Action' },
+                                            { value: 'double action', label: 'Double Action' },
+                                            { value: 'triple action', label: 'Triple Action' },
+                                            { value: 'minute', label: 'Minutes' },
+                                            { value: 'hour', label: 'Hours' },
+                                            { value: 'day', label: 'Days' },
+                                            { value: 'week', label: 'Weeks' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <span class="block text-sm font-medium text-gray-700">Range/Area</span>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
-                                    Targets
+                                    <span class="block text-sm font-medium text-gray-700">Targets</span>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
-                                    Duration
+                                    <span class="block text-sm font-medium text-gray-700">Duration</span>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="power-level-filter" class="block text-sm font-medium text-gray-700">Level</label>
-                                    <select
-                                        id="power-level-filter"
+                                    <MultiSelect
                                         v-model="filters.default_level"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option v-for="level in 9" :key="level" :value="level">
-                                            {{ level }}
-                                        </option>
-                                    </select>
+                                        :options="[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: '2' },
+                                            { value: 3, label: '3' },
+                                            { value: 4, label: '4' },
+                                            { value: 5, label: '5' },
+                                            { value: 6, label: '6' },
+                                            { value: 7, label: '7' },
+                                            { value: 8, label: '8' },
+                                            { value: 9, label: '9' },
+                                        ]"
+                                    />
                                 </th>
                             </template>
 
@@ -130,10 +127,9 @@ const filters = {
                                         </NavLink>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <span v-for="(type, index) in power.types" :key="index" class="inline-block mr-2">
-                                            {{ type.name }}
-                                            <span v-if="index < power.types.length - 1">, </span>
-                                        </span>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in power.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
                                         {{ power.action_type }}

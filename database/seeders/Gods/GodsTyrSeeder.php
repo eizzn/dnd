@@ -674,18 +674,5 @@ class GodsTyrSeeder extends Seeder
             4 => ['Aggravate Dracorage', 'Draconic Might', 'Dragon Ally', 'Dragon Wings'],
             5 => ['Chromatic Ray', 'Dispel Evil', 'Dragon Form'],
         ]);
-
-        $god        = new God;
-        $god->name  = 'Viryn';
-        $god->level = 'Solar';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
-            'name'        => $god->name,
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $tyr->id,
-            'description' => '<p>Viryn is a solar in the service of Tyr.</p>
-<p>He was in charge of the escort that brought the diviner deva Eirwyn to prison. After the SpellPlague, Viryn was ordered to free Eirwyn and take her to a council. Later, Viryn fought against the fiend armies that tried to invade Celestia, profiting off the chaos.</p>',
-        ]);
     }
 }

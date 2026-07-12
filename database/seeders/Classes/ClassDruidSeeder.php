@@ -85,10 +85,11 @@ class ClassDruidSeeder extends Seeder
         $helper->saveFeature($feature, ['Wild Shape']);
 
         $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [3, 5, 9, 15, 18],
             'favored_terrain'  => [1],
             'wild_empathy'     => [1],
             'wild_shape'       => [2],
+            'spell_point'      => [2],
+            'class_group_feat' => [3, 5, 9, 15, 18],
             'woodland_stride'  => [4],
         ]);
 

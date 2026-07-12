@@ -39,55 +39,17 @@ class ClassPsionSeeder extends Seeder
             'psychic_feat' => [2, 3, 6, 9, 12, 15, 18, 20],
         ]);
 
-        $helper->addFeatsToClass($class, [
-            'Boost Construct'      => 2,
-            'Combat Manifestation' => 2,
-            'Psionic Talent'       => 2,
-            'Expanded Knowledge'   => 3,
-            'Overchannel'          => 8,
-            'Talented'             => 12,
-            'Body Fuel'            => 15,
-
-            'Psionic Combat Buffer'          => 5,
-            'Improved Psionic Combat Buffer' => 10,
-
-            'Psionic Fist'         => 2,
-            'Greater Psionic Fist' => 7,
-
-            'Psionic Weapon'         => 2,
-            'Greater Psionic Weapon' => 7,
-
-            'Psionic Shot'         => 2,
-            'Greater Psionic Shot' => 7,
-
-            'Focused Mind'          => 6,
-            'Improved Focused Mind' => 12,
-            'Greater Focused Mind'  => 16,
-            'Supreme Focused Mind'  => 20,
-
-            'Delay Power'       => 3,
-            'Empower Power'     => 4,
-            'Enlarge Power'     => 2,
-            'Extend Power'      => 3,
-            'Maximum Power'     => 5,
-            'Opportunity Power' => 6,
-            'Quicken Power'     => 7,
-            'Split Psionic Ray' => 3,
-            'Twin Power'        => 7,
-            'Widen Power'       => 5,
-        ]);
-
         $helper->addPowersToClass($class, [
             1 => ['Astral Construct', 'Astral Traveler', 'Attraction', 'Awareness', 'Bio-electricity', 'Body Adjustment',
                 'Burst', 'Call to Mind', 'Chameleon', 'Charisma Defense', 'Charm', 'Creation', 'Compression', 'Control Object',
-                'Daze', 'Detect Psionics', 'Deja Vu', 'Demoralize', 'Dexterity Defense', 'Disable', 'Dissipating Touch',
-                'Distract', 'Ectoplasmic Shard', 'Ectoplasmic Sheen', 'Ectoplasmic', 'Empathy', 'Empty Mind', 'Expansion',
-                'Fear', 'Inertial Armor', 'Intelligence Blast', 'Intelligence Defense', 'Matter Agitation', 'Missive', 'Psionic Repair',
-                'Photokinesis', 'Pyrokinesis', 'Sense Link', 'Sense Minds', 'Shift', 'Strength Blast', 'Strength Defense',
-                'Telekinesis', 'Venom', 'Vigor', 'Vitality Blast', 'Wisdom Defense', ],
+                'Crystalline Armor', 'Daze', 'Detect Psionics', 'Deja Vu', 'Demoralize', 'Dexterity Defense', 'Disable',
+                'Dissipating Touch', 'Distract', 'Ectoplasmic Shard', 'Ectoplasmic Sheen', 'Ectoplasmic', 'Empathy', 'Empty Mind',
+                'Expansion', 'Fear', 'Inertial Armor', 'Intelligence Blast', 'Intelligence Defense', 'Matter Agitation',
+                'Missive', 'Psionic Repair', 'Photokinesis', 'Pyrokinesis', 'Sense Link', 'Sense Minds', 'Shift', 'Strength Blast',
+                'Strength Defense', 'Telekinesis', 'Venom', 'Vigor', 'Vitality Blast', 'Wisdom Defense', ],
             2 => ['Animal Sight', 'Aversion', 'Biofeedback', 'Body Equilibrium', 'Brain Disruption', 'Charisma Blast',
                 'Clairvoyant Sense', 'Cloud Mind', 'Concealing Ectoplasm', 'Control Air', 'Control Sound', 'Danger Sense',
-                'Dexterity Blast', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Entangling Ectoplasm', 'Exhaust',
+                'Darkness', 'Dexterity Blast', 'Deafness', 'Dimension Swap', 'Ectoplasmic Weapon', 'Entangling Ectoplasm', 'Exhaust',
                 'Flex Form', 'Heal', 'Invisibility', 'Levitate', 'Mental Augmentation', 'Mind Trap', 'Mindlink', 'Object Reading',
                 'Physical Augmentation', 'Power Defense', 'Read Thoughts', 'Repair Ectoplasmic Damage', 'Sensitivity to Psychic Impressions',
                 'Space Hop', 'Weapon Arm', 'Ubiquitous Sight', ],

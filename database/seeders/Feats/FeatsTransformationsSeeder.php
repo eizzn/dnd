@@ -345,7 +345,7 @@ class FeatsTransformationsSeeder extends Seeder
         $feat->short_description = 'You are blessed by your divine power with the secrets of becoming a Mummy Lord';
         $feat->description       = '<p>You are blessed with the secrets of becoming a Mummy Lord.</p>
 <ul>
-    <li>Details of ritual to become a Mummy Lord</li>
+    <li>You must learn the Ritual of Mummification Formula and teach it to someone else so that they may perform the embalming process.</li>
 </ul>
 <p>Once you complete the ritual, you gain the following abilities.</p>
 <ul>
@@ -379,9 +379,8 @@ class FeatsTransformationsSeeder extends Seeder
         $feat->name        = 'Lichdom';
         $feat->description = "<p>You perform a ritual to become a Lich. You must follow these steps.</p>
 <ul>
-    <li>You must use your Craft Wondrous Item feat to create your Phylactery (100,000 gp).</li>
-    <li>You must prepare a special Potion that requires the spells Magic Jar, Poison, and Gentle Repose. You do not have to create this Potion yourself.</li>
-    <li>You must trap at least 20 CR levels of humanoid souls (preferably the same type of humanoid you are) using the Soul Cage spell. This will require many cages used as the Material Components for Soul Cage.</li>
+    <li>You must learn the Formula for a Lich's Phylactery and create your Phylactery.</li>
+    <li>You must learn the Formula for a Potion of Lichdom, or have someone make it for you. You then drink the potion and hope that it kills you, at which point you become a lich.</li>
 </ul>
 <p>You gain the following benefits</p>
 <ul>
@@ -391,7 +390,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>You gain Vulnerability to Positive damage</li>
     <li>You gain Resistance to Cold, Electricity, Fire, Piercing and Slashing damage</li>
     <li>You gain immunity to Negative and Poison damage and are immune to all Diseases (unless it is a Disease or Poison that specifically affects Undead or Liches)</li>
-    <li>You gain the ability to drain the soul from a recently dead creature (less than 1 hour) and charge your Phylactery with the soul. This requires a Triple Action and you must be touching the body. You gain 1/2 the CR of souls absorbed in this way. If you sacrifice a living creature in a special ritual, you gain Double the CR of the sacrificed creature. You may also use soul larvas to recharge your Phylactery. You gain the full CR of the larvas CR to recharge your Phylactery. Larvas cannot be sacrificed as they are the remains after death. If the CR of the creature is 1/4 or less (after adjusting for the method of absorption), then it does not increase the CR pool of your Phylactery.</li>
+    <li>You gain the ability to drain the soul from a recently dead creature (less than 1 hour) and charge your Phylactery with the soul. This requires a Triple Action and you must be touching the body. You gain 1/2 the CR of souls absorbed in this way. If you sacrifice a living creature in a special ritual (Ritual of Soul Harvesting), you gain Double the CR of the sacrificed creature. You may also use soul larvas to recharge your Phylactery. You gain the full CR of the larvas CR to recharge your Phylactery. Larvas cannot be sacrificed as they are the remains after death. If the CR of the creature is 1/4 or less (after adjusting for the method of absorption), then it does not increase the CR pool of your Phylactery.</li>
     <li>You have torn your soul from your body and trapped it in your Phylactery. If your physical form is destroyed, your soul retreats to your Phylactery, even if it is on a different Plane of existence (although this will require 3 months for your soul to travel through the Planes to where your Phylactery is). Once your soul is in your Phylactery, you must use up 10 CR of souls to form a new physical body. This will require 1 week to complete. If you do not have sufficient souls to form a new physical body, then you become a Demilich (under the DM's control).</li>
     <li>You no longer have a CON. Whenever you are required to make a CON Save or CON check, assume you rolled a Success.</li>
 </ul>
@@ -411,6 +410,7 @@ class FeatsTransformationsSeeder extends Seeder
 </ul>";
         $helper->addTypesToFeat($feat, ['Undead']);
         $feat->parent_feats()->save(app()->feats['Craft Wondrous Item']);
+        $feat->parent_feats()->save(app()->feats['Necromancer']);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 12]);
 
         $feat              = new Feat;

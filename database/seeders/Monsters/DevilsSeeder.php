@@ -30,7 +30,7 @@ class DevilsSeeder extends Seeder
 </dl>';
         $monster->description = '
 <p>When a lemure dies in the Nine Hells, it comes back to life with all its Hit Points in 1D10 days unless it is killed by a Good-aligned creature with a Bless spell cast on that creature or its remains are sprinkled with Holy Water.</p>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Familiar'], [
             'stats'    => [10, 5, 11, 1, 11, 3, 0, 2],
             'features' => [
                 'darkvision'    => ['meta' => '120 ft'],
@@ -55,7 +55,7 @@ class DevilsSeeder extends Seeder
     <dt>Cloud of Vermin</dt> <dd>Any creature, other than a Baatezu, that starts its turn within 20 feet of the Nupperibo must make a DC 11 CON Save. A creature that is within the area of two or more Nupperibos makes the Save with Disadvantage. On a failure, the creature takes 2 (1D4) Piercing damage.</dd>
     <dt>Hunger-Driven</dt> <dd>In the Nine Hells, the Nupperibos can flawlessly track any creature that has taken damage from any Nupperibo's Cloud of Vermin within the previous 24 hours.</dd>
 </dl>";
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Animal Companion'], [
             'stats'    => [16, 11, 13, 3, 8, 1, .5, 2],
             'features' => [
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
@@ -77,7 +77,7 @@ class DevilsSeeder extends Seeder
     <dt>Sting</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2 (1D4) Bludgeoning.</dd>
     <dt>Shapechanger</dt> <dd>The imp can use its action to polymorph into a beast form that resembles a rat (speed 20 ft), a raven (20 ft, fly 60 ft), or a spider (20 ft, climb 20 ft), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn\'t transformed. It reverts to its true form if it dies.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Familiar'], [
             'stats'  => [6, 17, 13, 11, 2, 1, 1, 2],
             'skills' => [
                 'Deception' => ['dc' => 4],
@@ -508,8 +508,15 @@ class DevilsSeeder extends Seeder
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2D4 + 5 Slashing + 3D6 Cold.</dd>
     <dt>Tail</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 2D6 + 5 Bludgeoning + 3D6 Cold</dd>
 </dl>';
-        $monster->description = '
-<p>In the ancient past, the gelugons were mezzoloths. The archdevil Mephistopheles managed to trap many of their kind in a state of perpetual servitude millennia ago and turned them into denizens of the Nine Hells.</p>';
+        $monster->description = "
+<p>In the ancient past, the gelugons were mezzoloths. The archdevil Mephistopheles managed to trap many of their kind in a state of perpetual servitude millennia ago and turned them into denizens of the Nine Hells.</p>
+<h4>Known Gelugons</h4>
+<ul>
+    <li>Tuncheth: an irritable ice devil, devoted to restoring the gelugons to their former position as Mephistopheles's favored servitors. On one front he attempted to discredit the pit fiend known as Quagrem, a key researcher of hellfire magic, by sending his agents to discover or plant evidence of foul play against him. He also was in charge of developing a theoretical form of frost magic known as the Plume, in order to end the Cold Lord's fixation on the un-Canian hellfire.</li>
+    <li>Vreesar: led an attempt to conquer Toril from a Portal in the Great Glacier in 1366 DR. He was stopped by a Harper Ranger named Martine and a former Paladin named Vilheim.</li>
+    <li>Yoggaa: an ice devil wizard responsible for the upkeep of Mephistopheles's Frost Garden. The sarcastic, gelugon gardener continually blasted the sculpted plants with cone of cold spells to prevent Mephistar's strange heat from melting them.</li>
+    <li>Zaguror: an adamant gelugon supervisor for a museum of frozen baatezu rivals within Stygia.</li>
+</ul>";
         $helper->saveMonster($monster, ['Devil', 'Fiend', 'Cold', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [21, 14, 18, 18, 15, 18, 14, 6],
             'features' => [
@@ -587,6 +594,22 @@ class DevilsSeeder extends Seeder
     <dt>Tail</dt> <dd>Melee Weapon Attack +14, reach 10 ft, one target. 3D10+ 8 Bludgeoning.</dd>
     <dt>Fear Aura</dt> <dd>A pit fiend may with an Action, emit an aura of fear that lasts until dispelled (with another Action). At the start of each of the pit fiend's turns, each creature within 20 feet of it must make a DC 21 WIS Save. On a failed Save, the creature is Frightened until the start of its next turn. If a creature's Save is successful, the creature is immune to the pit fiends Fear Aura for the next 24 hours. This aura turns off if the pit fiend is incapacitated.</dd>
 </dl>";
+        $monster->description      = "
+<h4>Known Pit Fiends</h4>
+<ul>
+    <li>Abarax: managed to depose and assume the identity of Lord Orgauth until he was slain by Scyllua Darkhope.</li>
+    <li>Abbatorru: enslaved the planeswalker wizard named Edalseye</li>
+    <li>Alastor: executioner of Nessus</li>
+    <li>Asgeroth: servant of Imix tasked with defeating Zaaman Rul.</li>
+    <li>Baalberith: major domo of Asmodeus' palace</li>
+    <li>Beltorius: warrior servant of Mephistopheles</li>
+    <li>Goap: servant of Tiamat. Leads 3 companies of Erinyes.</li>
+    <li>Koraboros: trapped within Ammon Jerro's haven in the Sword Mountains, for the purpose of empowering the warlock, around 1374 DR.</li>
+    <li>Martinet: constable of Nessus</li>
+    <li>Morax: commands 9 companies of pit fiends.</li>
+    <li>Tanetal: servant of Bane. Ordered by Bane into the service of the Red Wizard Marcus in order to aid him in his task of bringing more power to Bane by sacrificing souls to the Pool of Darkness.</li>
+    <li>Zimimar: commanded the palace guards of Minauros, which composed of 6 companies of bone devils. He is now one of the Dark Eight.</li>
+</ul>";
         $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'    => [26, 14, 24, 22, 18, 24, 20, 6],
             'features' => [

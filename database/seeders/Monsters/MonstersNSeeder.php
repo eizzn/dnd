@@ -48,7 +48,7 @@ class MonstersNSeeder extends Seeder
             'features'  => [
                 'darkvision'     => ['meta' => '60 ft'],
                 'ethereal_jaunt' => ['meta' => 'At will'],
-                'aberrant_mind'
+                'aberrant_mind',
             ],
             'classes'   => ['Sorcerer' => ['level' => 8]],
             'spells'    => [

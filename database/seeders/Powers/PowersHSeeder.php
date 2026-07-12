@@ -63,7 +63,7 @@ class PowersHSeeder extends Seeder
         $power->range       = 'Touch';
         $power->targets     = 'Creature touched';
         $power->duration    = 'Instantaneous';
-        $power->description = '<p>You heal yourself for 2D8 Hit Points.</p>';
+        $power->description = '<p>You heal the Target for 3D8 Hit Points.</p>';
         $power->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>You can heal others with a range of touch.</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the amount healed by +1D8</dd>

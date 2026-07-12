@@ -4,14 +4,15 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import { TailwindPagination } from "laravel-vue-pagination";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "spells";
 const filters = {
     name: null,
-    type: null,
-    casting: null,
+    type: [],
+    casting: [],
     duration: null,
-    default_level: null,
+    default_level: [],
 };
 </script>
 
@@ -47,79 +48,67 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="spell-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
-                                    <select
-                                        id="spell-types-filter"
+                                    <MultiSelect
                                         v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <optgroup label="Schools of Magic">
-                                            <option value="abjuration">Abjuration</option>
-                                            <option value="conjuration">Conjuration</option>
-                                            <option value="divination">Divination</option>
-                                            <option value="enchantment">Enchantment</option>
-                                            <option value="evocation">Evocation</option>
-                                            <option value="illusion">Illusion</option>
-                                            <option value="necromancy">Necromancy</option>
-                                            <option value="transmutation">Transmutation</option>
-                                        </optgroup>
-                                        <optgroup label="Damage Type">
-                                            <option value="acid">Acid</option>
-                                            <option value="air">Air</option>
-                                            <option value="cold">Cold</option>
-                                            <option value="darkness">Darkness</option>
-                                            <option value="earth">Earth</option>
-                                            <option value="electricity">Electricity</option>
-                                            <option value="fire">Fire</option>
-                                            <option value="force">Force</option>
-                                            <option value="light">Light</option>
-                                            <option value="negative">Negative</option>
-                                            <option value="poison">Poison</option>
-                                            <option value="positive">Positive</option>
-                                            <option value="shadow">Shadow</option>
-                                            <option value="sonic">Sonic</option>
-                                            <option value="water">Water</option>
-                                        </optgroup>
-                                        <optgroup label="Alignment">
-                                            <option value="chaotic">Chaotic</option>
-                                            <option value="evil">Evil</option>
-                                            <option value="neutral">Neutral</option>
-                                            <option value="good">Good</option>
-                                            <option value="lawful">Lawful</option>
-                                            <option value="demon">Demon</option>
-                                        </optgroup>
-                                        <optgroup label="Miscellaneous">
-                                            <option value="aura">Aura</option>
-                                            <option value="calling">Calling</option>
-                                            <option value="curse">Curse</option>
-                                            <option value="healing">Healing</option>
-                                            <option value="mind-affecting">Mind-Affecting</option>
-                                            <option value="polymorph">Polymorph</option>
-                                            <option value="ray">Ray</option>
-                                            <option value="ritual">Ritual</option>
-                                            <option value="smite">Smite</option>
-                                            <option value="spirit">Spirit</option>
-                                            <option value="summoning">Summoning</option>
-                                        </optgroup>
-                                    </select>
+                                        :options="[
+                                            { value: 'abjuration', label: 'Abjuration' },
+                                            { value: 'conjuration', label: 'Conjuration' },
+                                            { value: 'divination', label: 'Divination' },
+                                            { value: 'enchantment', label: 'Enchantment' },
+                                            { value: 'evocation', label: 'Evocation' },
+                                            { value: 'illusion', label: 'Illusion' },
+                                            { value: 'necromancy', label: 'Necromancy' },
+                                            { value: 'transmutation', label: 'Transmutation' },
+                                            { value: 'acid', label: 'Acid' },
+                                            { value: 'air', label: 'Air' },
+                                            { value: 'cold', label: 'Cold' },
+                                            { value: 'darkness', label: 'Darkness' },
+                                            { value: 'earth', label: 'Earth' },
+                                            { value: 'electricity', label: 'Electricity' },
+                                            { value: 'fire', label: 'Fire' },
+                                            { value: 'force', label: 'Force' },
+                                            { value: 'light', label: 'Light' },
+                                            { value: 'negative', label: 'Negative' },
+                                            { value: 'poison', label: 'Poison' },
+                                            { value: 'positive', label: 'Positive' },
+                                            { value: 'shadow', label: 'Shadow' },
+                                            { value: 'sonic', label: 'Sonic' },
+                                            { value: 'water', label: 'Water' },
+                                            { value: 'chaotic', label: 'Chaotic' },
+                                            { value: 'evil', label: 'Evil' },
+                                            { value: 'neutral', label: 'Neutral' },
+                                            { value: 'good', label: 'Good' },
+                                            { value: 'lawful', label: 'Lawful' },
+                                            { value: 'demon', label: 'Demon' },
+                                            { value: 'aura', label: 'Aura' },
+                                            { value: 'calling', label: 'Calling' },
+                                            { value: 'curse', label: 'Curse' },
+                                            { value: 'healing', label: 'Healing' },
+                                            { value: 'polymorph', label: 'Polymorph' },
+                                            { value: 'ray', label: 'Ray' },
+                                            { value: 'ritual', label: 'Ritual' },
+                                            { value: 'smite', label: 'Smite' },
+                                            { value: 'spirit', label: 'Spirit' },
+                                            { value: 'summoning', label: 'Summoning' },
+                                            { value: 'compulsion', label: 'Compulsion' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="spell-casting-filter" class="block text-sm font-medium text-gray-700">Casting</label>
-                                    <select
-                                        id="spell-casting-filter"
+                                    <MultiSelect
                                         v-model="filters.casting"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="material">Material</option>
-                                        <option value="somatic">Somatic</option>
-                                        <option value="verbal">Verbal</option>
-                                        <option value="reaction">Reaction</option>
-                                        <option value="free">Free</option>
-                                        <option value="caster">Secondary Casters</option>
-                                        <option value="ability">Ability Damage</option>
-                                        <option value="skill">Skill Check</option>
-                                    </select>
+                                        :options="[
+                                            { value: 'material', label: 'Material' },
+                                            { value: 'somatic', label: 'Somatic' },
+                                            { value: 'verbal', label: 'Verbal' },
+                                            { value: 'reaction', label: 'Reaction' },
+                                            { value: 'free', label: 'Free' },
+                                            { value: 'caster', label: 'Secondary Casters' },
+                                            { value: 'ability', label: 'Ability Damage' },
+                                            { value: 'skill', label: 'Skill Check' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <span class="block text-sm font-medium text-gray-700">Range/Area</span>
@@ -132,9 +121,9 @@ const filters = {
                                     <select
                                         id="spell-duration-filter"
                                         v-model="filters.duration"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                        class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-1.5 px-3 text-sm text-gray-700 shadow-sm transition hover:border-indigo-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
                                     >
-                                        <option value=""> - </option>
+                                        <option value="">Any</option>
                                         <option value="instantaneous">Instantaneous</option>
                                         <option value="round">Rounds</option>
                                         <option value="minute">Minutes</option>
@@ -148,16 +137,22 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
                                     <label for="spell-level-filter" class="block text-sm font-medium text-gray-700">Level</label>
-                                    <select
-                                        id="spell-level-filter"
+                                    <MultiSelect
                                         v-model="filters.default_level"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option v-for="level in 11" :key="level" :value="level - 1">
-                                            {{ level - 1 }}
-                                        </option>
-                                    </select>
+                                        :options="[
+                                            { value: 0, label: '0' },
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: '2' },
+                                            { value: 3, label: '3' },
+                                            { value: 4, label: '4' },
+                                            { value: 5, label: '5' },
+                                            { value: 6, label: '6' },
+                                            { value: 7, label: '7' },
+                                            { value: 8, label: '8' },
+                                            { value: 9, label: '9' },
+                                            { value: 10, label: '10' },
+                                        ]"
+                                    />
                                 </th>
                             </template>
 
@@ -173,10 +168,9 @@ const filters = {
                                         </NavLink>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <span v-for="(type, index) in spell.types" :key="index" class="inline-block mr-2">
-                                            {{ type.name }}
-                                            <span v-if="index < spell.types.length - 1">, </span>
-                                        </span>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span v-for="(type, index) in spell.types" :key="index" class="inline-block px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium">{{ type.name }}</span>
+                                        </div>
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
                                         {{ spell.casting }}

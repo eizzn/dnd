@@ -818,7 +818,7 @@ Nothing—not physical objects, energy, or other spell effects—can pass throug
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = 'Touch';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You touch a creature and can end either one disease or one condition afflicting it. The condition can be Blinded, Deafened, Paralyzed, or Sickened.</p>';
+        $spell->description = '<p>You touch a creature and can end either one cure disease or one condition afflicting it. The condition can be Blinded, Deafened, Paralyzed, or Sickened.</p>';
         $spell->heightened  = "<dl>
     <dt>Heightened (+3)</dt> <dd>
         You can effect the following conditions

@@ -813,6 +813,9 @@ class ClassBarbarianSeeder extends Seeder
             'Runescarring'          => 4,
             'Improved Runescarring' => 8,
             'Greater Runescarring'  => 12,
+
+            'Extra Melee Action'    => 5,
+            'Extra Ranged Action'   => 7,
         ]);
     }
 }

@@ -198,7 +198,7 @@ class DrugFormulasSeeder extends Seeder
     <li>Alchemy DC 30</li>
 </ul>';
         $formula->bulk        = '-';
-        $formula->description = '<p>Powdered stalks of plants that grow only in the Abyss, luhix is normally sprinkled onto a bleeding, self- inflicted wound. Then the wound is sealed either with magical healing or tightly wound bandages.</p>
+        $formula->description = '<p>Powdered stalks of plants that grow only in the Abyss, luhix is normally sprinkled onto a bleeding, self-inflicted wound. Then the wound is sealed either with magical healing or tightly wound bandages.</p>
 <dl>
     <dt>Initial Effect</dt> <dd>1 Ability Damage to each Ability</dd>
     <dt>Secondary Effect</dt> <dd>+2 Alchemical Bonus to all ability scores for 1 hour</dd>

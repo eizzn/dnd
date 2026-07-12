@@ -57,7 +57,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Sealtiel';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -77,7 +77,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Raziel';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -92,7 +92,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Pistis Sophia';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -107,7 +107,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Erathaol';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -122,7 +122,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Domiel';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -136,7 +136,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Barachiel';
-        $god->level = 'Archon';
+        $god->level = 'Tome Archon';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => $god->name,
@@ -151,7 +151,7 @@ class GodsArchonsSeeder extends Seeder
 
         $god             = new God;
         $god->name       = 'Terxyx';
-        $god->level      = 'Archon';
+        $god->level      = 'Tome Archon';
         $god->deleted_at = Carbon::now();
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
@@ -162,84 +162,6 @@ class GodsArchonsSeeder extends Seeder
             'master_id'   => $zaphkiel->id,
             'description' => "<p>Terxyx appears as a winged humanoid with a hawk's head.</p>
 <p>In 1357 DR, Terxyx led a company of sword archons in the Astral Plane to save Gareth Dragonsbane and his party from pursuing demons and to accompany them to meet his master Saint Sollars. Sometime after this, Terxyx ceased being the Lord of Mercuria. Weather he was destroyed or promoted is not known, but Domiel has since this time became the new Lord of Mercuria.</p>",
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Gabriel';
-        $god->level = 'Solar';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
-            'name'        => $god->name,
-            'level'       => 'Solar',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Gabriel is a solar in the service of Bahamut.</p>
-<p>In 1357 DR, Gabriel was captured by a group of balors in the Layers of the Abyss ruled by Orcus. He was tortured by them until eventually he was freed by Gareth Dragonsbane's party.</p>",
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Xerona';
-        $god->level = 'Solar';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
-            'name'        => $god->name,
-            'title'       => 'Guardian of Gate to Chronias',
-            'level'       => 'Solar',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => '<p>Xerona guards the gate, al-Sihal at the top of the gem-stone ziggurat in Jovar in Mount Celestia that leads to the final layer, Chronias. He judges those that wish to climb to the final layer of Mount Celestia.</p>',
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Yonel';
-        $god->level = 'Archon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'        => $god->name,
-            'title'       => "Guardian of the North Gate in Bahamut's Palace",
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Yonel guards the North Gate in Bahamut's Palace that leads to the Elemental Plane of Air.</p>",
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Kerkhoutha';
-        $god->level = 'Archon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'        => $god->name,
-            'title'       => "Guardian of the South Gate in Bahamut's Palace",
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Kerkhoutha guards the South Gate in Bahamut's Palace that leads to the Elemental Plane of Air.</p>",
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Moriel';
-        $god->level = 'Archon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'        => $god->name,
-            'title'       => "Guardian of the West Gate in Bahamut's Palace",
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Moriel guards the West Gate in Bahamut's Palace that leads to the Elemental Plane of Air.</p>",
-        ]);
-
-        $god        = new God;
-        $god->name  = 'Ruhiel';
-        $god->level = 'Archon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'        => $god->name,
-            'title'       => "Guardian of the East Gate in Bahamut's Palace",
-            'level'       => 'Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Ruhiel guards the East Gate in Bahamut's Palace that leads to the Elemental Plane of Air.</p>",
         ]);
 
         /**********************************************************************/
@@ -446,12 +368,12 @@ class GodsArchonsSeeder extends Seeder
         $feat->name        = 'Blessing of the Hebdomad';
         $feat->requirement = 'You must be LG';
         $feat->action_type = 'Free';
-        $feat->description = "<p>You gain the following:</p>
+        $feat->description = '<p>You gain the following:</p>
 <ul>
     <li>You gain 2 Spell Points.</li>
     <li>As an Action, you can spend 1 Spell Point to manifest angelic wings which grants Flying 60 for up to 1 hour.</li>
     <li>Your Eldritch Blast now deals Double damage vs. all Undead and Evil Outsiders.</li>
-</ul>";
+</ul>';
         $helper->addTypesToFeat($feat, ['Good', 'Pact', 'Lawful', 'Archon', 'Invocation' => 6]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Divine Favor', 'Detect Evil'],

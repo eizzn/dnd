@@ -194,14 +194,20 @@ class SeedHelper
     public function addSpellsToClass($class, $spells): void
     {
         foreach ($spells as $level => $spellNames) {
-            foreach ($spellNames as $spellName) {
+            foreach ($spellNames as $key => $spellName) {
+                $meta = null;
+                if (is_string($key)) {
+                    $meta      = $spellName;
+                    $spellName = $key;
+                }
                 if (array_key_exists($spellName, app()->spells)) {
                     try {
-                        DB::insert('INSERT INTO spellables (spell_id, spellable_id, spellable_type, level) VALUES (?,?,?,?)', [
+                        DB::insert('INSERT INTO spellables (spell_id, spellable_id, spellable_type, level, meta) VALUES (?,?,?,?,?)', [
                             app()->spells[$spellName],
                             $class->id,
                             get_class($class),
                             $level,
+                            $meta,
                         ]);
                     } catch (\Exception $e) {
                         // do nothing
@@ -277,6 +283,8 @@ class SeedHelper
         if (! is_null($level)) {
             $power->default_level = $level;
         }
+        // add Psionic to types
+        $types[] = 'Psionic';
         $power->save();
         $powers               = app()->powers;
         $powers[$power->name] = $power->id;

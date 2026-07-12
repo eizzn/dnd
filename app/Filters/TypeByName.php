@@ -6,10 +6,9 @@ class TypeByName extends Filter
 {
     protected function filter(FilterPipelinePayload $data, string $filterName): FilterPipelinePayload
     {
-        $types = explode(',', $data->params[$filterName]);
-        if (! is_array($types)) {
-            $types = [$types];
-        }
+        $raw   = $data->params[$filterName];
+        $types = is_array($raw) ? $raw : explode(',', $raw);
+        $types = array_filter($types);
         $data->queryBuilder->whereIn($this->columnName(), $types);
 
         return $data;

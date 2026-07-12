@@ -39,7 +39,7 @@ class ModronsSeeder extends Seeder
 <p>Monodrones can only communicate with other monodrones or with duodrones. They are incapable of comprehending more advanced modrons.</p>
 <p>As the base of modron hierarchy, monodrones are created directly by Primus in the Great Modron Cathedral in the plane of Mechanus. They are the source for all other modrons, filling the upper ranks by successive promotions when their superiors are destroyed or otherwise promoted.</p>
 <p>There are approximately three hundred million monodrones in modron society.</p>';
-        $helper->saveMonster($monster, ['Modron', 'Outer Planes', 'Lawful', 'Outsider', 'Construct', 'Neutral'], [
+        $helper->saveMonster($monster, ['Modron', 'Outer Planes', 'Lawful', 'Outsider', 'Construct', 'Neutral', 'Familiar'], [
             'stats'    => [10, 13, 12, 4, 10, 5, .125, 2],
             'features' => [
                 'axiomatic_mind',

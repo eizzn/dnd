@@ -22,13 +22,13 @@ class GodsDemonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Demogorgon';
-        $god->level = 'Demon Lord';
+        $god->level = 'Demon Prince';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => 'Prince of Demons, The Deep Father, The Sibilant Beast, Master of the Spiraling Depths, Lord of All that Swims in Darkness',
             'aliases'     => 'Ahmon-Ibor, Siosivash, Leemooggoogoon, The Imprisoned One',
-            'level'       => 'Demon Lord',
+            'level'       => 'Demon Prince',
             'alignment'   => 'CE',
             'symbol'      => 'Forked tail',
             'description' => "<p>Demogorgon towers a full 18 feet in height, his body at once sinuous like that of a snake and powerful like that of a great ape. Two baleful baboon heads, with blue and red faces similar to those of mandrills, leer from atop his lumbering shoulders, from which two long tentacles writhe. His lower torso is saurian, like some great reptile with blue-green, scaly skin. He has an immense forked tail.</p>
@@ -122,12 +122,12 @@ class GodsDemonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Orcus';
-        $god->level = 'Demon Lord';
+        $god->level = 'Demon Prince';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'      => $god->name,
             'title'     => 'Lord of the Undead, Price of the Undead, Price of Undeath, Blood Lord',
-            'level'     => 'Demon Lord',
+            'level'     => 'Demon Prince',
             'aliases'   => 'Tenebrous',
             'portfolio' => 'Mindless Undead',
             'alignment' => 'CE',
@@ -208,12 +208,12 @@ class GodsDemonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = "Graz'zt";
-        $god->level = 'Demon Lord';
+        $god->level = 'Demon Prince';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'      => $god->name,
             'title'     => 'The Dark Prince',
-            'level'     => 'Demon Lord',
+            'level'     => 'Demon Prince',
             'alignment' => 'CE',
         ]);
 
@@ -398,12 +398,12 @@ class GodsDemonsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = "Fraz-Urb'luu";
-        $god->level = 'Demon Lord';
+        $god->level = 'Demon Prince';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'      => $god->name,
             'title'     => 'Prince of Deception',
-            'level'     => 'Demon Lord',
+            'level'     => 'Demon Prince',
             'alignment' => 'CE',
         ]);
 
@@ -465,7 +465,7 @@ class GodsDemonsSeeder extends Seeder
             2 => ['Invisibility', 'Silence'],
             3 => ['Dispel Magic', 'Dread Word', 'Summon Demon, Lesser' => 'Casting this again dispels any previous casting'],
             4 => ['Blight'],
-            5 => ['Calling' => 'Servant of Eltab only and only those that are already on the Prime Material',
+            5 => ['Calling'      => 'Servant of Eltab only and only those that are already on the Prime Material',
                 'Word of Recall' => 'Only back to the Demoncyst where Eltab is trapped in the Citadel of Conjurers'],
             6 => ['Arcane Gate', 'Spirit Blast'],
             7 => ['Nar Fiendbond'],
@@ -604,14 +604,14 @@ class GodsDemonsSeeder extends Seeder
 
         $god              = new God;
         $god->name        = 'Lady Lynkhab';
-        $god->level       = 'Demon';
+        $god->level       = 'Demon Lord';
         $god->description = "Contender of the title 'Queen of the Succubi'";
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => 'The Lady of Regret',
             'portfolio'   => 'Depression, Desire',
-            'level'       => 'Demon',
+            'level'       => 'Archdemon',
             'alignment'   => 'CE',
             'description' => "<p>Contender of the title 'Queen of the Succubi'</p>",
         ]);
@@ -620,13 +620,13 @@ class GodsDemonsSeeder extends Seeder
 
         $god              = new God;
         $god->name        = 'Shami-Amourae';
-        $god->level       = 'Demon';
+        $god->level       = 'Demon Lord';
         $god->description = "Imprisoned contender of the title 'Queen of the Succubi'";
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => 'Demigoddess of Debased Eros, The Lady of Delight',
-            'level'       => 'Demon',
+            'level'       => 'Archdemon',
             'alignment'   => 'CE',
             'description' => "<p>As one of the first of the succubi birthed from the raw matter of the Abyss, Shami-Amourae's existence predates most mortal races, including humans. Her skill at her 'craft' so impressed the Prince of Demons Demogorgon that he took her as his consort, thus greatly increasing her personal power and influence. At the same time, she declared herself the Queen of Succubi and her cult flourished on the Prime Plane. However, other ambitious succubi also claimed the title and this struggle, known as the War of Ripe Flesh, became a long-drawn-out battle in which only one would survive to claim the title of Queen of Succubi.</p>
 <p>Shami-Amourae discovered that Demogorgon's twin heads had individual personas, and she began to manipulate him by literally playing off one head against the other, hoping to goad him into attacking the realm of Malcanthet, her greatest rival for Queen of Succubi. Her scheme failed when Malcanthet revealed to the Prince of Demons his consort's true motives. Enraged by Shami-Amourae's manipulations, he had Shami-Amourae imprisoned in the Wells of Darkness, where she has been trapped ever since.</p>",
@@ -636,12 +636,12 @@ class GodsDemonsSeeder extends Seeder
 
         $god              = new God;
         $god->name        = 'Tharzax';
-        $god->level       = 'Demon';
+        $god->level       = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => 'The Chattering Prince',
-            'level'       => 'Demon',
+            'level'       => 'Archdemon',
             'portfolio'   => 'Poisonous Vermin',
             'alignment'   => 'CE',
             'description' => '<p>Tharzax is the demon lord of poisonous vermin and ruler of the 2nd layer of the Abyss.</p>',
@@ -651,13 +651,13 @@ class GodsDemonsSeeder extends Seeder
 
         $god              = new God;
         $god->name        = 'Xinivrae';
-        $god->level       = 'Demon';
+        $god->level       = 'Demon Lord';
         $god->description = "Exiled contender of the title 'Queen of the Succubi'";
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => '',
-            'level'       => 'Demon',
+            'level'       => 'Archdemon',
             'alignment'   => 'CE',
             'description' => "<p>Exiled contender of the title 'Queen of the Succubi'</p>",
         ]);
@@ -960,46 +960,16 @@ class GodsDemonsSeeder extends Seeder
         /**********************************************************************/
 
         $god        = new God;
-        $god->name  = 'Balor';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Balor served all the demon lords at one point or another in his life. He was favored by Baphomet and Kostchtchie.</p>
-<p>In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane. While Balor cannot move directly against Lolth, he takes any opportunity to oppose Errtu.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Belaphoss';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor, The Mad Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Belaphoss the Mad is a powerful balor who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</p>',
-            'master_id'   => God::where('name', 'Demogorgon')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
         $god->name  = 'Wendonai';
-        $god->level = 'Demon';
+        $god->level = 'Demon Lord';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Demonic'], [
             'name'        => $god->name,
             'title'       => 'Balor, Champion of Lolth',
-            'level'       => 'Demon',
+            'level'       => 'Archdemon',
             'alignment'   => 'CE',
             'description' => "<p>Wendonai was the balor lord who was tasked by Lolth to seduce the Sethomiir clan, rulers of the Ilythiiri, into her worship and granting them evil magics (who would eventually become the drow).</p>
-<p>After the Descent, Wendonai continued his work, acting as an adviser, tutor, and sometimes consort to the most powerful drow Matron Mothers. He tried to claim a little power for himself by leading a successful drow and duergar attack against the Elven Court in −4400 DR, called the Dark Court Slaughter. Wendonai\'s efforts at personal growth over the next two millennia earned Lolth\'s ire. Lolth withdrew her favor from the demon in −2549 DR and the Matrons followed suit.</p>
+<p>After the Descent, Wendonai continued his work, acting as an adviser, tutor, and sometimes consort to the most powerful drow Matron Mothers. He tried to claim a little power for himself by leading a successful drow and duergar attack against the Elven Court in −4400 DR, called the Dark Court Slaughter. Wendonai's efforts at personal growth over the next two millennia earned Lolth's ire. Lolth withdrew her favor from the demon in −2549 DR and the Matrons followed suit.</p>
 <p>Wendonai then allied himself with Eltab, serving as his emissary. He was summoned by a Nar Demonbinder but was soon banished by an incredibly powerful priest of Horus-Re and was banished till 1377. Wendonai seeks revenge for this.</p>
 <p>Wendonai then returned to Lolth's service when the goddess needed his services again. He opposes Errtu for Lolth's favor.</p>",
             'master_id' => God::where('name', 'Araushnee')->first()->id,
@@ -1027,287 +997,6 @@ class GodsDemonsSeeder extends Seeder
             7 => ['Blasphemy'],
             8 => ['Power Word Stun'],
             9 => ['Abyssal Army'],
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Errtu';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Errtu seeked to gain possession of the artifact Crenshinibon. He ended up being banished by Drizz't Do'Urden and has sworn revenge.</p>
-<p>Errtu has since formed a loose alliance with Lolth when she approached him to guard Menzoberranzan during the Time of Troubles.</p>
-<p>The balor Wendonai opposes Errtu for the favor of Lolth.</p>",
-            'master_id' => God::where('name', 'Araushnee')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = "Chare'en";
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>The balor Chare'en was part of the Army of Darkness that attacked Myth Drannor. He raised a huge gnoll army in the Thunder Peaks, before being defeated and imprisoned.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Axithar';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Axithar was a balor lord whose armies invaded the House of the Triad after the fall of Mystra.</p>
-<p>Not long after the death of Mystra (in 1385 DR), the cambion Kaanyr Vhok and his companions were captured by the marilith Vhissilka, who served Lord Axithar. Vhok abandoned his companions and allied with Axithar, providing information about the weaknesses of the House of the Triad so that Vhok could get his revenge for his treatment by the angel Tauran and so that he could reach the Lifespring, which he believed would give him the power to rule Sundabar as a glorious leader. Axithar's horde of demons invaded the plane and were nearing victory against the angels when Bahamut's legions appeared and defeated the demon armies.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Badrazel';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>In 1372 DR, during the Silence of Lolth, the half-fiend fire giant Kurgoth Hellspawn invaded Maerimydra with the balor Badrazel at his side. While Kurgoth made the Coliseum there his base, Badrazel continued to harry those that still resisted the invaders. He patrolled the heights of the cavern and tested the defenses of Castle Maerimydra on several occasions.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Raachaak';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Balor',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>General Raachaak was a power-hungry balor who sought to capture a legendary bloodforge in the 14th century DR.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Marilith';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Marilith',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>This is the great demon for whom the race of mariliths are named.</p>
-<p>In 1485–1486 DR, Marilith was among the demons that wandered the streets of Menzoberranzan and participated in the failed defense of Q'Xorlarrin against the dwarves.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Muvassys the Sceptered';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Marilith',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Muvassys is the mother of Kaanyr Vhok and a member of the three mariliths known as the "Triumvirate".</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Reluhantis';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Marilith',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Reluhantis is a personal attendant to the demon lord Graz'zt.</p>",
-            'master_id'   => God::where('name', "Graz'zt")->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Unhath';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Marilith',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Unhath is a personal attendant to the demon lord Graz'zt.</p>",
-            'master_id'   => God::where('name', "Graz'zt")->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Vhissilka';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Marilith',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Vhissilka is a marilith commander serving the balor lord Axithar.</p>',
-            'master_id'   => God::where('name', 'Axithar')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Belshazu';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Glabrezu',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Belshazu is a glabrezu and the father of the draegloth Jeggred Baenre.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Bizmatec';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Glabrezu',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => "<p>Bizmatec was the glabrezu that acted as the balor Errtu's second-in-command</p>",
-            'master_id'   => God::where('name', 'Errtu')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Mizferac';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Glabrezu',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Mizferac was summoned on a regular basis by Cadderly for a tenday until he brought news of Jarlaxle, Artemis Entreri and Crenshinibon coming to see the priest. Immediately after, he was banished for a hundred years by Cadderly after threatening Cadderly\'s family. He was later summoned again by Cadderly, rescinding the banishment.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Quinix';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Glabrezu',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Quinix was a glabrezu living in the ruins of the Gate of Iron Fangs on the southwestern tip of the Forest of Amtar.</p>
-<p>He traveled through a portal into the Forest of Amtar. The ruins of the gate were also the home of a large tribe of gnolls whom he easily took control over. The gnolls thought that he was a representative of their "god" Yeenoghu. He used them for raids in the near area from Dambrath, Channathgate and Rethmar. He planned to recruit humans as spies and soldiers. The Swagdar seemed the best suited for this task. His ultimate goal was to raid Halruaa since the magically rich country promised the best profit.</p>',
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Shaakat';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Vrock',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Shaakat is a vrock sent to uncover the legendary bloodforge for General Raachaak but attempted to claim it for himself circa 1377 DR.</p>',
-            'master_id'   => God::where('name', 'Raachaak')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Rejik';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Vrock',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Rejik is a vrock sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</p>',
-            'master_id'   => God::where('name', 'Raachaak')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Morbaat';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Vrock',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Morbaat is a vrock sent to uncover the legendary bloodforge for General Raachaak circa 1377 DR.</p>',
-            'master_id'   => God::where('name', 'Raachaak')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Baskshu';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Vrock',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Baskshu serves Eltab.</p>',
-            'master_id'   => God::where('name', 'Raachaak')->first()->id,
-        ]);
-
-        /**********************************************************************/
-
-        $god        = new God;
-        $god->name  = 'Karrian';
-        $god->level = 'Demon';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
-            'name'        => $god->name,
-            'title'       => 'Vrock',
-            'level'       => 'Demon',
-            'alignment'   => 'CE',
-            'description' => '<p>Karrian serves Eltab</p>',
-            'master_id'   => God::where('name', 'Raachaak')->first()->id,
         ]);
     }
 }

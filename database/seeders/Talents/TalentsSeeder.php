@@ -19,13 +19,13 @@ class TalentsSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $talent                    = new Talent;
-        $talent->name              = 'Die Hard';
-        $talent->description       = '<ul>
+        $talent              = new Talent;
+        $talent->name        = 'Die Hard';
+        $talent->description = '<ul>
     <li>If you are attacked with an effect that causes CON Damage, you may make a CON Save with a DC 15. If you succeed, you take half Damage rounded down.</li>
     <li>You gain a +5 bonus to your recovery Save. You die from the Dying condition at Dying 5, rather than Dying 4.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Ability Boost', 'Talent' => 2]);
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 2]);
         $talent->feats()->save(app()->feats['Endurance']);
 
         $talent              = new Talent;
@@ -654,7 +654,7 @@ class TalentsSeeder extends Seeder
         $talent->name        = 'Counter Grapple';
         $talent->trigger     = 'You must be in a Grappling with an opponent and be wearing Light Armor or no Armor';
         $talent->description = '<p>When Grappling or Pinned, if you are wearing Light Armor or no Armor, you can attempt either a Grapple check or a Break Grapple check. If you fail the check, you can immediately attempt the other check as an Action.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 8]);
+        $helper->addTypesToSimpleObject($talent, ['Grapple', 'Talent' => 8]);
         $talent->feats()->save(app()->feats['Improved Grapple']);
 
         $talent              = new Talent;

@@ -43,8 +43,8 @@ class MountCelestia extends Seeder
 <p>To reach Lunia with the plane shift spell requires a gold planar fork tuned to the note of D.</p>
 <p>The ruler of Lunia is Barachiel, one of the celestial paragons of the archons. He commands all of Celestia's forces against attacks on the sacred mountain, though these rarely occur. He reigns from the Citadel of Stars.</p>
 <p>Lunia was divided into 196 provinces, each with a throne archon serving as governor. These 196 thrones report through the hierarchy up to Barachiel. The defense of Lunia is ensured by the host of hound archons.</p>";
+        $sub->ruler()->associate(God::where('name', 'Barachiel')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Barachiel')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Fortress Eternal and Everlasting';
@@ -55,8 +55,8 @@ class MountCelestia extends Seeder
 </ul>';
         $location->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $location->description = '<p>The Citadel of Stars is the capital of the Plane of Lunia, and where Barachiel rules from. It is located on the shores of the Silver Sea.</p>';
+        $location->ruler()->associate(God::where('name', 'Barachiel')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Barachiel')->firstOrFail());
 
         $location              = new Location;
         $location->name        = "Heart's Faith";
@@ -70,8 +70,8 @@ class MountCelestia extends Seeder
         $location->pantheon_id = app()->pantheons['Faeruneon']->id;
         $location->description = "<p>The Court is one of the Divine Realms of the god Tyr. It includes a massive marble hall from which Tyr ruled his realm much like a court of law. It is impossible to lie in Tyr's realm.</p>
 <p>The Court is on the summit of one of three great mountains surrounding the base of Mount Celestia, making it a part of Lunia. The realm is adjacent to that of Siamorphe, whose Alabaster Palace is located in a lush vale between the Court and Celestia.</p>";
+        $location->ruler()->associate(God::where('name', 'Tyr')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Tyr')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Martyrdom';
@@ -81,18 +81,18 @@ class MountCelestia extends Seeder
 <p>It is a tranquil place, full of comfort and rest, and known by planes-walkers as one of the most relaxing in the cosmos. No creature within Martyrdom can feel any pain or weariness, nor any kind of suffering.</p>
 <p>The realm is inhabited by the petitioners of Ilmater, the spirits of his deceased faithful, many of whom had died as martyrs. Here they are rewarded and granted peace for their suffering and perseverance in life.</p>
 <p>One important part of Ilmater's realm is the Weeping Garden, his private garden and a place of relief and aid for his most dedicated followers. According to unsubstantiated legend, on very rare occasions, the gates out of the garden did not return guests to their original location but cleared of mists and led out into other parts of the House of the Triad.</p>";
+        $location->ruler()->associate(God::where('name', 'Ilmater')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Ilmater')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Trueheart';
         $location->type        = 'Divine Realm';
         $location->pantheon_id = app()->pantheons['Faeruneon']->id;
         $location->description = "<p>Realm of Torm, the True Deity, and also one of the mountains surrounding Celestia. Torm's palace, located in the heart of the realm, resembles a huge military fortress, with walls of mithral, battlements of diamond, and gates of adamantine. It is guarded by legions of angels and archons serving the cause of good and law, in particular holding vigil against Bane.</p>";
+        $location->ruler()->associate(God::where('name', 'Torm')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Torm')->firstOrFail());
 
-        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace")->firstOrFail());
 
         /**********************************************************************/
 
@@ -106,18 +106,18 @@ class MountCelestia extends Seeder
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = '<p>The air in Mercuria is very thin, which can make unaccustomed creatures dizzy until their bodies adapt to it. The mountainous landscape includes high mountains and deep valleys, carved by rivers that ran fast down the gentle slopes. Although flat-lands and prairies are uncommon, Mercuria has several high plateaus on which most settlements are located. The entire layer is constantly bathed in golden light.</p>
 <p>The layer also serves as the armory of Mount Celestia, as well as the gathering place for its troops. It is also the site of numerous mausoleums dedicated to fallen noble warriors. Their memory is honored annually during the Day of Memory by all inhabitants of Mercuria.</p>';
+        $sub->ruler()->associate(God::where('name', 'Domiel')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Domiel')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Aurilon, the Golden Spire';
         $location->type        = 'City';
         $location->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $location->description = '<p>The tower where Domiel rules Mercuria from.</p>';
+        $location->ruler()->associate(God::where('name', 'Domiel')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Domiel')->firstOrFail());
 
-        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace")->firstOrFail());
 
         /**********************************************************************/
 
@@ -130,18 +130,18 @@ class MountCelestia extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = "<p>The layer is softly illuminated by an iridescent white sky whose appearance resembles mother-of-pearl. Unlike Mercuria, whose mountains are jagged and tall, Venya's mountains are smooth and round, all covered in meadows, arable land, woodlands, or mountain vegetation such as alpine grasses and shrubs. Some have snowy peaks. The rivers that run through the layer are warming, only partially freezing during winter. The layer's petitioners have dammed some of the smaller creeks to form lakes to irrigate their fields and to power mills in the carefully tended fields</p>";
+        $sub->ruler()->associate(God::where('name', 'Erathaol')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Erathaol')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Green Fields';
         $location->type        = 'Divine Realm';
         $location->pantheon_id = app()->pantheons["Yondalla's Children"]->id;
         $location->description = '<p>The Green Fields is the celestial home of the Halfling Pantheon. As its name aptly implies, Green Fields consists of a green field expanding ever outward in every direction. One can even find winged-halflings in Green Fields.</p>';
+        $location->ruler()->associate(God::where('name', 'Yondalla')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Yondalla')->firstOrFail());
 
-        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace")->firstOrFail());
 
         /**********************************************************************/
 
@@ -154,8 +154,8 @@ class MountCelestia extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = '<p>The layer has a sky that glows like burnished silver. Its valleys are enveloped in mist, fog, and strange scents. The peaks are home to numerous holy shrines, including monasteries and magnificent cathedrals controlled by demigods. Many of the slopes are rich in precious ores and minerals and are mined by populations of dwarves that reside there.</p>';
+        $sub->ruler()->associate(God::where('name', 'Pistis Sophia')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Pistis Sophia')->firstOrFail());
 
         $location              = new Location;
         $location->name        = 'Erackinor';
@@ -164,10 +164,10 @@ class MountCelestia extends Seeder
         $location->description = "<p>The realm is an immense network of tunnels and halls carved with an impossibly high level of stonework skill. The tunnels extend under most of Solania, with multiple towns located within rifts and chambers. The heat and sound of forges fills the subterranean air. It is a place of great joy for all dwarves and even for non-dwarf miners.</p>
 <p>The gate into the realm is guarded by the warden archon Zagzagel, who also works as a teacher. The realm's inhabitants frequently discarded the tailing and slag from their mining operations out the entrance. The wasted materials flows down the slopes, serving as an indication to visitors of the realm's location.</p>
 <p>The ability to magically create new things is considerably amplified in Erackinor. Spells such as heroes' feast lasts twice as long, for example, while spells that produce new materials result in twice the normal amount. Enchantment magic does not enjoy these benefits, however, since it is not considered an act of creation.</p>";
+        $location->ruler()->associate(God::where('name', 'Odin Borrson')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Odin Borrson')->firstOrFail());
 
-        $sub->locations()->save(Location::where('name', "Bahamut's Palace"));
+        $sub->locations()->save(Location::where('name', "Bahamut's Palace")->firstOrFail());
 
         /**********************************************************************/
 
@@ -180,8 +180,8 @@ class MountCelestia extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = "<p>With a sky not too different from Solania's, Mertion is home to vast plains and savannas that serve as the mustering grounds for paladins and other lawful good servants. Instead of mountains, Mertion has majestic citadels and huge black spherical domes dotting the plains. Access to the next layer up was found at the tops of the domes.</p>";
+        $sub->ruler()->associate(God::where('name', 'Raziel')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Raziel')->firstOrFail());
 
         /**********************************************************************/
 
@@ -194,8 +194,8 @@ class MountCelestia extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = '<p>Jovar is covered in hills that are studded with precious gemstones that glittered in the light. Jovar is actually a vault lined floor to ceiling with huge rubies and garnets that gave off a glow like a hearth fire.</p>';
+        $sub->ruler()->associate(God::where('name', 'Sealtiel')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Sealtiel')->firstOrFail());
 
         /**********************************************************************/
 
@@ -208,7 +208,7 @@ class MountCelestia extends Seeder
         $sub->time        = 'Normal';
         $sub->pantheon_id = app()->pantheons['The Celestial Hebdomad']->id;
         $sub->description = '<p>Little is known of its structure because nothing has ever recorded this layer and returned. The legends say that Chronias is so good and lawful that it glowed of its own accord and any who entered had all evil and neutrality burned out of them, leaving them inherently good—if they survived.</p>';
+        $sub->ruler()->associate(God::where('name', 'Bahamut')->firstOrFail());
         $sub->save();
-        $sub->ruler()->save(God::where('name', 'Bahamut')->firstOrFail());
     }
 }

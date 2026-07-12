@@ -249,7 +249,7 @@ class ClassFavoredSoulSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Favored of the Whip';
         $feat->requirement = 'Loviatar must be your Patron Deity';
-        $feat->description = "<p>Loviatar has chosen you to cause pain and suffering.</p>
+        $feat->description = '<p>Loviatar has chosen you to cause pain and suffering.</p>
 <ul>
     <li>You gain proficiency with all whips and daggers</li>
     <li>You gain the Acrobatics, Athletics, and Intimidation Skills as a Class Skill</li>
@@ -257,7 +257,7 @@ class ClassFavoredSoulSeeder extends Seeder
     <li>At 2nd level, you may use an Action to cast Cause Wounds and deliver the touch through your Whip. You must still use an Action to make the Melee Weapon Attack with the whip.</li>
     <li>At 3rd level, you gain the Weapon Focus Feat. You must choose Whips</li>
     <li>At 7th level, you gain the Weapon Specialization Feat. you must choose Whips</li>
-</ul>";
+</ul>';
         $helper->addTypesToFeat($feat, ['Favored']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Cause Wounds', 'Daze', 'Shield', 'Stabilize', 'Whip'],

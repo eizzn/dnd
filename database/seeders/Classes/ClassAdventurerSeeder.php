@@ -58,6 +58,8 @@ class ClassAdventurerSeeder extends Seeder
             'Improved Evasion'         => 13,
             'Resolve'                  => 17,
             'Arcane Multiclasser'      => 5,
+            'Extra Melee Action'       => 7,
+            'Extra Ranged Action'      => 7,
         ]);
 
         $helper->addSpellsToClass($class, [

@@ -40,8 +40,8 @@ class Bytopia extends Seeder
         $location->pantheon_id = app()->pantheons['Gnome']->id;
         $location->description = '<p>The Golden Hills, home to the Gnomish pantheon, is found on Dothion, and takes up the majority of this side of Bytopia.</p>
 <p>Towns throughout the layer lack any protective fences or walls.</p>';
+        $location->ruler()->associate(God::where('name', 'Garl Glittergold')->firstOrFail());
         $sub->locations()->save($location);
-        $location->ruler()->save(God::where('name', 'Garl Glittergold')->firstOrFail());
 
         /**********************************************************************/
 

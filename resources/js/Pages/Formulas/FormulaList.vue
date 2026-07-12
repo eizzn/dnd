@@ -4,11 +4,12 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
+import MultiSelect from "@/Components/MultiSelect.vue";
 
 const Uri = "formulas";
 const filters = {
     name: null,
-    type: null,
+    type: [],
 };
 </script>
 
@@ -44,29 +45,24 @@ const filters = {
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="formula-type-filter" class="block text-sm font-medium text-gray-700">Type</label>
-                                    <select
-                                        id="formula-type-filter"
-                                        v-model="filters.type"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                        <option value=""> - </option>
-                                        <option value="acid">Acid</option>
-                                        <option value="alchemical">Alchemical</option>
-                                        <option value="armor">Armor</option>
-                                        <option value="construct">Construct</option>
-                                        <option value="drug">Drug</option>
-                                        <option value="elemental infusion">Elemental Infusion</option>
-                                        <option value="elixir">Elixir</option>
-                                        <option value="infusion">Infusion</option>
-                                        <option value="item">Item</option>
-                                        <option value="graft">Graft</option>
-                                        <option value="poison">Poison</option>
-                                        <option value="potion">Potion</option>
-                                        <option value="rune">Rune</option>
-                                        <option value="snare">Snare</option>
-                                        <option value="tattoo">Tattoo</option>
-                                        <option value="weapon">Weapon</option>
-                                    </select>
+                                    <MultiSelect v-model="filters.type" :options="[
+                                        { value: 'acid', label: 'Acid' },
+                                        { value: 'alchemical', label: 'Alchemical' },
+                                        { value: 'armor', label: 'Armor' },
+                                        { value: 'construct', label: 'Construct' },
+                                        { value: 'drug', label: 'Drug' },
+                                        { value: 'elemental infusion', label: 'Elemental Infusion' },
+                                        { value: 'elixir', label: 'Elixir' },
+                                        { value: 'infusion', label: 'Infusion' },
+                                        { value: 'item', label: 'Item' },
+                                        { value: 'graft', label: 'Graft' },
+                                        { value: 'poison', label: 'Poison' },
+                                        { value: 'potion', label: 'Potion' },
+                                        { value: 'rune', label: 'Rune' },
+                                        { value: 'snare', label: 'Snare' },
+                                        { value: 'tattoo', label: 'Tattoo' },
+                                        { value: 'weapon', label: 'Weapon' },
+                                    ]" />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="formula-level-filter" class="block text-sm font-medium text-gray-700">Level</label>
@@ -112,9 +108,13 @@ const filters = {
                                         {{ formula.description }}
                                     </td>
                                     <td class="px-4 py-2 border border-gray-300">
-                                        <ul>
-                                            <li v-for="(type, index) in formula.types" :key="index">{{ type.name }}</li>
-                                        </ul>
+                                        <div class="flex flex-wrap gap-1.5">
+                                            <span
+                                                v-for="(type, index) in formula.types"
+                                                :key="index"
+                                                class="inline-block px-2 py-0.5 rounded bg-amber-900/40 text-amber-300 text-sm"
+                                            >{{ type.name }}</span>
+                                        </div>
                                     </td>
                                 </tr>
                             </template>

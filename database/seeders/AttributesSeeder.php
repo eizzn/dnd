@@ -19,7 +19,7 @@ class AttributesSeeder extends Seeder
         $attr              = new Attribute;
         $attr->attr        = 'STR';
         $attr->name        = 'Strength';
-        $attr->description = "<p>Strength measures your character's physical power. Strength is important if your character plans to engage in the hand-to-hand fighting of melee combat. Strength also determines how much Bulk your character can carry.</p>";
+        $attr->description = "<p>Strength measures your character's physical power. Strength is important if your character plans to engage in hand-to-hand melee combat. Strength also determines how much Bulk your character can carry.</p>";
         $attr->save();
         $attributes[$attr->attr] = $attr;
 

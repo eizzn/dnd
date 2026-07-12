@@ -28,7 +28,7 @@ class PfBase extends Migration
                 ->onDelete('cascade');
             $table->morphs('skillable');
             $table->smallInteger('dc')->unsigned()->nullable();
-            $table->string('meta', 100)->nullable();
+            $table->text('meta')->nullable();
 
             $table->primary(['skill_id', 'skillable_type', 'skillable_id']);
         });
@@ -155,6 +155,7 @@ class PfBase extends Migration
             $table->string('requirements')->nullable();
             $table->text('action_type', 40)->nullable();
             $table->string('display')->nullable();
+            $table->string('maintenance_cost', 50)->nullable();
             $table->string('range', 80)->nullable();
             $table->string('area', 80)->nullable();
             $table->string('targets', 70)->nullable();
@@ -246,7 +247,12 @@ class PfBase extends Migration
         Schema::create('formulas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50)->unique();
-            $table->enum('type', ['Alchemical', 'Armor', 'Item', 'Ring', 'Rune', 'Construct', 'Infusion', 'Snare', 'Tattoo', 'Acid', 'Poison', 'Drug', 'Potion', 'Oil', 'Elixir', 'Elemental Infusion', 'Graft', 'Weapon']);
+            $table->enum('type', [
+                'Rune', 'Armor', 'Weapon', 'Item', 'Rod', 'Scepter', 'Staff', 'Wand', 'Ring', 'Construct', 'Potion', 'Tattoo',
+                'Infusion', 'Elemental Infusion', 'Snare',
+                'Alchemical', 'Acid', 'Poison', 'Drug', 'Oil', 'Elixir', 'Graft',
+                'Ritual',
+            ]);
             $table->smallInteger('level')->unsigned()->nullable();
             $table->enum('rarity', ['Common', 'Uncommon', 'Rare', 'Legendary'])->default('Common');
             $table->string('price', 45)->nullable();

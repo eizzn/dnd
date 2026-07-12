@@ -24,12 +24,32 @@ class ClassFeaturePageSeeder extends Seeder
         $page->save();
 
         $rule              = new Rule;
+        $rule->key         = 'familiar';
+        $rule->name        = 'Familiar';
+        $rule->description = "<p>You gain the service of a Familiar, a spirit that takes an animal form you choose. Your Familiar is actually a Celestial, Fey, or Fiend (your choice) instead of a Beast. To summon your Familiar, you must perform a ritual that lasts 1 hour and requires material components: 10 gp worth of charcoal, incense, and herbs that are consumed by fire in a brass brazier.</p>
+<p>You may choose any creature that has the Animal type and has a Challenge Rating of 1/8 or less.</p>
+<p>Your Familiar acts independently, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A Familiar can't Attack, but it can take other Actions as normal.</p>
+<p>When a Familiar drops to 0 Hit points, it disappears, leaving behind no physical form. You can perform this ritual again.</p>
+<p>While your Familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an Action, you can see through your Familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any Special Senses that the Familiar has. During this time, you are deaf and blind with regard to your own Senses.</p>
+<p>As an Action, you can temporarily dismiss your Familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an Action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you.</p>
+<p>You can't have more than one Familiar at a time. If you perform this ritual while you already have a Familiar, you instead cause it to adopt a new Form. Choose one of the forms from the previous list. Your Familiar transforms into the chosen creature.</p>
+<p>Finally, when you cast a Spell with a range of Touch, your Familiar can deliver the spell as if it had cast the spell. Your Familiar must be within 100 feet of you, and it must use its Action to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll.</p>
+<p>If you have summoned a creature through a Conjuration Spell, your Familiar can use all of its Actions to command and control the summoned creature. You may use your Free Action to communicate with your Familiar to inform it what Actions he should give the summoned creatures under its control.</p>
+<p>If you take the Enhanced Familar feat, your Familiar is an Animal Companion except you may choose a Celestial, Fey or Fiend of the appropriate Challenge Rating instead of an Animal.</p>";
+        $rule->order = 20;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
         $rule->key         = 'animal-companion';
         $rule->name        = 'Animal Companion';
-        $rule->description = "<p>To gain an Animal Companion, you must first use Wild Empathy on your prospective target Beast. With 8 hours of work and the expenditure of 1 gp worth of rare herbs and fine food, the Beast you have called with Wild Empathy serves as your faithful companion. This also requires the spending of 1 spell point and one 1st level spell slot. So long as you have your Animal Companion, you do not get back your spell point or spell slot.</p>
-<p>You may choose any creature that has the Animal type and has a Challenge Rating of 1/2 or lower. If you choose an Animal with less than 1/2, then increase all of their Physical Stats (STR, DEX, CON) by +2.</p>
+        $rule->description = "<p>You may gain an Animal Companion by obtaining the Animal Companion Feat.</p>
+<ul>
+    <li>You may choose any creature that has the Animal type and has a Challenge Rating of 1 or lower.</li>
+    <li>If you choose an Animal with less than 1, then increase all of their Physical Stats (STR, DEX, CON) by +2.</li>
+    <li>If you choose an Animal with a Challenge Rating greater than 1, you must sacrifice a Spell Slot equal to the Animal Companions Challenge Rating -1.</li>
+</ul>
 <p>If your Animal Companion is ever slain, the magical bond you share allows you to return it to life. With 8 hours of work and the expenditure of 25gp worth of rare herbs and fine food, you call forth your companion's spirit and use your magic to create a new body for it. You can return an Animal Companion to life in this manner even if you do not possess any part of its body.</p>
-<p>If you use this ability to return a former Animal Companion to life while you already have your maximum number of Animal Companions, then one of your current leaves you and is replaced by the restored companion.</p>
+<p>If you use this ability to return a former Animal Companion to life while you already have your maximum number of Animal Companions, then one of your current Animal Companions leaves you and is replaced by the restored companion.</p>
 <h3>Companion's Bond</h3>
 <p>Your companion obeys your commands as best it can. It rolls for initiative like any other creature. You can use an Action to direct your Animal Companions (one Action for all your companions if it is the same Action). If you don't direct your Animal Companions, they act on their own.</p>
 <p>Your Animal Companion has abilities and game statistics determined in part by your class level. Your companion uses your proficiency bonus rather than its own. In addition to the areas where it normally uses its proficiency bonus, an Animal Companion also adds its proficiency bonus to its AC and to its damage rolls.</p>
@@ -126,25 +146,9 @@ class ClassFeaturePageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
-        $rule->key         = 'familiar';
-        $rule->name        = 'Familiar';
-        $rule->description = "<p>You gain the service of a Familiar, a spirit that takes an animal form you choose. Your Familiar is actually a Celestial, Fey, or Fiend (your choice) instead of a Beast. To summon your Familiar, you must perform a ritual that lasts 1 hour and requires material components: 10 gp worth of charcoal, incense, and herbs that are consumed by fire in a brass brazier.</p>
-<p>You may choose any creature that has the Animal type and has a Challenge Rating of 1/8 or less.</p>
-<p>Your Familiar acts independently, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A Familiar can't Attack, but it can take other Actions as normal.</p>
-<p>When a Familiar drops to 0 Hit points, it disappears, leaving behind no physical form. You can perform this ritual again.</p>
-<p>While your Familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an Action, you can see through your Familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any Special Senses that the Familiar has. During this time, you are deaf and blind with regard to your own Senses.</p>
-<p>As an Action, you can temporarily dismiss your Familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an Action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you.</p>
-<p>You can't have more than one Familiar at a time. If you perform this ritual while you already have a Familiar, you instead cause it to adopt a new Form. Choose one of the forms from the previous list. Your Familiar transforms into the chosen creature.</p>
-<p>Finally, when you cast a Spell with a range of Touch, your Familiar can deliver the spell as if it had cast the spell. Your Familiar must be within 100 feet of you, and it must use its Action to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll.</p>
-<p>If you have summoned a creature through a Conjuration Spell, your Familiar can use all of its Actions to command and control the summoned creature. You may use your Free Action to communicate with your Familiar to inform it what Actions he should give the summoned creatures under its control.</p>
-<p>If you take the Enhanced Familar feat, your Familiar is an Animal Companion.</p>";
-        $rule->order = 20;
-        $page->rules()->save($rule);
-
-        $rule              = new Rule;
-        $rule->key         = 'faithful-steed';
-        $rule->name        = 'Faithful Steed';
-        $rule->description = "<p>To gain a Faithful Steed, you must first cast Divine Favor. Instead of the normal spell effect, you begin your request to your divine patron to send to you your Faithful Steed. With 10 minutes of prayer, and 50 gp worth of incense, a spirit is sent to you that forms into your faithful steed, creating a long-lasting bond with it. This also requires the spending of one 1st level spell slot. So long as you have your Faithful Steed, you do not get back your spell slot. The steed takes on a form that you choose:</p>
+        $rule->key         = 'divine-mount';
+        $rule->name        = 'Divine Mount';
+        $rule->description = "<p>To gain a Divine Mount, you must have the Divine Warrior Class Feature. You may cast Divine Favor and instead of the normal spell effect, you begin your request to your divine patron to send to you your Divine Mount. With 10 minutes of prayer, and 50 gp worth of incense, a spirit is sent to you that forms into your divine mount, creating a long-lasting bond with it. This also requires the spending of one 1st level Spell Slot. So long as you have your Faithful Mount, you do not get back your Spell Slot. The mount takes on a form that you choose:</p>
 <ul>
     <li>Warhorse</li>
     <li>Pony</li>
@@ -153,16 +157,16 @@ class ClassFeaturePageSeeder extends Seeder
     <li>Mastiff</li>
     <li>Wolf</li>
 </ul>
-<p>The steed has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your steed has an INT of 5 or less, its INT becomes 6, and it gains the ability to understand one language of your choice that you speak.</p>
-<p>You steed serves you as a mount, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your steed, you can make any spell you cast that targets only you also target your steed.</p>
-<p>When the steed drops to 0 Hit Points, it disappears, leaving behind no physical form. You can also dismiss your steed at any time as an Action, causing it to disappear. In either case, you may summon the same stead, restored to full health.</p>
-<p>While your steed is within 1 mile of you, you can communicate with it telepathically.</p>
-<p>You can't have more than one steed at a time.</p>
-<p>At higher levels, you may sacrifice a higher level Spell Slot to improve your steed or to transform your steed different beast forms.</p>
+<p>The mount has the statistics of the chosen form, though it is a Celestial, Fey, or Fiend (your choice) instead of its normal type. Additionally, if your mount has an INT of 5 or less, its INT becomes 6, and it gains the ability to understand one language of your choice that you speak.</p>
+<p>Your mount serves you as best it can, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your mount, you can make any spell you cast that targets only you also target your mount.</p>
+<p>When the mount drops to 0 Hit Points, it disappears, leaving behind no physical form. You can also dismiss your mount at any time as an Action, causing it to disappear. In either case, you may summon the same stead, restored to full health. This takes 5 minutes of prayer to your divine patron.</p>
+<p>While your mount is within 1 mile of you, you can communicate with it telepathically.</p>
+<p>You can't have more than one mount at a time.</p>
+<p>At higher levels, you may sacrifice a higher level Spell Slot to improve your mount or to transform your mount different beast forms.</p>
 <table>
     <thead>
         <tr>
-            <th>Steed</th>
+            <th>Mount</th>
             <th>Requirement</th>
             <th>Feat</th>
         </tr>

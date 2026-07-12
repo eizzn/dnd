@@ -54,7 +54,7 @@ class PowersWSeeder extends Seeder
 
         $power                 = new Power;
         $power->name           = 'Wisdom Blast';
-        $power->action_type    = 'Double Action';
+        $power->action_type    = 'Triple Action';
         $power->display        = 'Mental';
         $power->range          = '90 feet';
         $power->targets        = 'One living creature with an INT score';
@@ -68,19 +68,20 @@ class PowersWSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>Double damage</dd>
 </dl>';
         $power->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>If the target fails their Save, they gained the Confused condition for 1 round.</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Heighten +2 without spending any additional Power Points</dd>
+    <dt>Heightened (+1)</dt> <dd>If the target fails their Save, they gain the Confused Condition for 1 round.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 3);
 
         $power              = new Power;
         $power->name        = 'Wisdom Defense';
-        $power->action_type = 'Action';
+        $power->action_type = 'Reaction';
         $power->display     = 'Mental';
         $power->range       = 'Self';
-        $power->duration    = '1 round';
+        $power->duration    = '1 rounds';
         $power->description = '<p>You raise a mental defense that grants a +2 bonus to WIS Saves and reduces the damage from Vitality Blast, Life Blast and WIS Blast by 1.</p>';
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and Power Point cost by 3</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 and the Duration becomes 3 rounds</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +1</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus to WIS Saves by +1</dd>
 </dl>';
