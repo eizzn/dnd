@@ -219,6 +219,13 @@ class MetalMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat              = new Material;
+        $mat->name        = 'Chromium';
+        $mat->type        = 'Meta';
+        $mat->rarity      = 'Ubiquitous';
+        $mat->description = '<p>A hard steel-gray and lustrous metal that is best known for its incredible ability to resist corrosion.</p>';
+        $mat->save();
+
+        $mat              = new Material;
         $mat->name        = 'Cold Iron';
         $mat->description = '<p>This iron is worked entirely while cold, known for its effectiveness against Fey and Demonic creatures</p>
 <p>Cold Iron is a rare form of iron left over from the creation of the Parallel Planes (Material Plane, Feywild, and Shadowfell) from the Elemental Chaos.</p>
@@ -398,6 +405,12 @@ class MetalMaterialsSeeder extends Seeder
         $mat->weapon = "<p>Weapon (any). This silvery-blue weapon is far lighter than it ought to be, and catches the light in an almost supernatural fashion.</p>
 <p>A mithral weapon weighs half as much as it normally would, loses the heavy trait if it had it, and gains the Finesse trait if it didn't already have it.</p>
 <p>The weapon costs an additional 500 gp.</p>";
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Nickel';
+        $mat->type   = 'Metal';
+        $mat->rarity = 'Ubiquitous';
         $mat->save();
 
         $mat         = new Material;

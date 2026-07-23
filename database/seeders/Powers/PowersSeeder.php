@@ -55,7 +55,7 @@ class PowersSeeder extends Seeder
         $this->processTelepathy($helper);
     }
 
-    protected function processMetaCreativity(SeedHelper $helper)
+    protected function processMetaCreativity(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Ectoplasmic Creation', [
             'Astral Construct', 'Ectoplasmic Shard', 'Entangling Ectoplasm', 'Ectoplasmic Sheen',
@@ -75,7 +75,7 @@ class PowersSeeder extends Seeder
         ]);
     }
 
-    protected function processClairsentience(SeedHelper $helper)
+    protected function processClairsentience(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Detect Psionics', [
             'Dispel Psionics',
@@ -103,7 +103,7 @@ class PowersSeeder extends Seeder
         ]);
     }
 
-    protected function processPsychokinesis(SeedHelper $helper)
+    protected function processPsychokinesis(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Telekinesis', [
             'Matter Agitation', 'Inertial Armor', 'Deceleration',
@@ -138,7 +138,7 @@ class PowersSeeder extends Seeder
         ]);
     }
 
-    protected function processPsychoMetabolism(SeedHelper $helper)
+    protected function processPsychoMetabolism(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Body Adjustment', [
             'Expansion', 'Thicken Skin', 'Venom', 'Vigor',
@@ -160,7 +160,7 @@ class PowersSeeder extends Seeder
         ]);
     }
 
-    protected function processPsychoportation(SeedHelper $helper)
+    protected function processPsychoportation(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Shift', [
             'Call Object', 'Dissipating Touch',
@@ -194,7 +194,7 @@ class PowersSeeder extends Seeder
         ]);
     }
 
-    public function processTelepathy(SeedHelper $helper)
+    public function processTelepathy(SeedHelper $helper): void
     {
         $helper->addChildrenToPower('Empathy', [
             'Sense Minds',

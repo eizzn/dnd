@@ -18,14 +18,15 @@ class PowersWSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power               = new Power;
-        $power->name         = 'Wall of Ectoplasm';
-        $power->action_type  = 'Visual';
-        $power->range        = '60 foot range';
-        $power->area         = '100-ft square/10-ft';
-        $power->duration     = '10 minutes';
-        $power->requirements = 'You must have the Ectoplasmic Creation power';
-        $power->description  = '<p>You fashion a roiling wall of ectoplasm, imbuing it with solidity. The wall cannot move once it is formed. It is 1 inch thick per four manifester levels and occupies up to one 10-foot square per level. Each 10-foot square of the wall has 10 hit points per inch of thickness and hardness 5. A section of the wall whose hit points drop to 0 is breached. If a creature tries to break through the wall, the DC for the Strength check is 15 + 2 per inch of thickness.</p>
+        $power                   = new Power;
+        $power->name             = 'Wall of Ectoplasm';
+        $power->action_type      = 'Visual';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->range            = '60 foot range';
+        $power->area             = '100-ft square/10-ft';
+        $power->duration         = '1 hour';
+        $power->requirements     = 'You must have the Ectoplasmic Creation power';
+        $power->description      = '<p>You fashion a roiling wall of ectoplasm, imbuing it with solidity. The wall cannot move once it is formed. It is 1 inch thick per four manifester levels and occupies up to one 10-foot square per level. Each 10-foot square of the wall has 10 hit points per inch of thickness and hardness 5. A section of the wall whose hit points drop to 0 is breached. If a creature tries to break through the wall, the DC for the Strength check is 15 + 2 per inch of thickness.</p>
 <p>The wall of ectoplasm is susceptible to dispel psionics, but it gains a +4 bonus on any check to determine whether the wall is negated. Spells, powers, and breath weapons cannot pass through the wall in either direction (though they could damage it). It blocks ethereal creatures as well as material creatures (though ethereal creatures can usually get around the wall by floating under or over it through material floors and ceilings). The wall is opaque, so neither vision nor gaze attacks operate through it. The wall does not block psychoportive travel, such as that provided by the psionic teleport power.</p>
 <p>You can form the wall into a flat, vertical plane whose area is up to one 10-foot square per level or into a sphere or hemisphere with a radius of up to 1 foot per level.</p>
 <p>The wall of ectoplasm must be continuous and unbroken when manifested. If its surface is interrupted by any object or creature, the power fails.</p>';
@@ -41,13 +42,14 @@ class PowersWSeeder extends Seeder
 <p>If your weapon arm is broken, you suffer double damage (after hardness), this power ends but you do not suffer any limb loss.</p>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Wings';
-        $power->action_type = 'Free';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = '3 hours';
-        $power->description = '<p>You adjust your body to form wings, allowing you to fly at a speed of 60 feet.</p>
+        $power                   = new Power;
+        $power->name             = 'Wings';
+        $power->action_type      = 'Free';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '6 hours';
+        $power->description      = '<p>You adjust your body to form wings, allowing you to fly at a speed of 60 feet.</p>
 <p>This power also causes your bones to become more brittle. Your CON is reduced by 2 points while this power is in effect.</p>
 <p>If you are wearing medium or heavy armor, your Speed becomes 30 instead.</p>';
         $helper->addTypesToPower($power, ['Psychometabolism'], 3);

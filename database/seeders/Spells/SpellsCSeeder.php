@@ -894,6 +894,23 @@ class SpellsCSeeder extends Seeder
         ]);
         $spell->skills()->save(app()->skills['Arcana'], ['dc' => '20']);
 
+        $spell              = new Spell;
+        $spell->name        = 'Circle of Protection From Demons';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->area        = '10-foot-aura centered on a touched creature';
+        $spell->duration    = '10 minute';
+        $spell->description = '<p>This spell functions as Circle of Protection From Evil, except that it effects Demons and their effects.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
+    <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Evil', 'Chaos', 'Demon'], 3);
+        $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
+            'price' => '50 gp',
+            'meta'  => 'Powdered, drawn into a 3-ft diameter circle on the floor',
+        ]);
+        $spell->skills()->save(app()->skills['Arcana'], ['dc' => '20']);
+
         $spell                 = new Spell;
         $spell->name           = 'Circle of Protection From Evil';
         $spell->casting        = 'Material Casting, Somatic Casting, Verbal Casting';

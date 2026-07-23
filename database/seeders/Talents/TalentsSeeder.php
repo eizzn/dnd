@@ -360,6 +360,21 @@ class TalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Talent' => 5]);
 
         $talent              = new Talent;
+        $talent->name        = 'Combat Casting';
+        $talent->description = '<ul>
+    <li>You get Advantage on Concentration checks made that involve spellcasting (casting a spell defensively, Concentrating on a spell, etc.).</li>
+    <li>You can perform the Somatic Casting Components of spells even when you have weapons or a shield in one or both hands.</li>
+    <li>When a creature provokes an Attack of Opportunity, you may cast a spell that targets the creature instead of making a physical attack. You must have enough Reactions to cast the spell.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Skill', 'Arcane', 'Divine', 'Primal', 'Generic' => 1]);
+
+        //        $talent              = new Talent;
+        //        $talent->name        = 'Improved Combat Casting';
+        //        $talent->parent_id   = Talent::where('name', 'Combat Casting')->first()->id;
+        //        $talent->description = 'TBD';
+        //        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Divine', 'Primal', 'Generic' => 7]);
+
+        $talent              = new Talent;
         $talent->name        = 'Improved Crane Stance';
         $talent->trigger     = 'You are targeted with a Melee Attack by an attacker you can see';
         $talent->requirement = 'You are in Crane Stance';
@@ -429,9 +444,9 @@ class TalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Spellrazor';
+        $talent->parent_id   = Talent::where('name', 'Combat Casting')->first()->id;
         $talent->description = '<p>You can cast a spell that requires a Touch Attack or Touch Spell Attack and make a Melee Attack with a Light Agile weapon as part of the Actions used to cast the spell. This Melee Attack can be used to deliver the Touch Attack from the spell.</p>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 5]);
-        $talent->feats()->save(app()->feats['Combat Casting']);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
 
         $talent              = new Talent;

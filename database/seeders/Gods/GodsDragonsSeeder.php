@@ -274,6 +274,10 @@ class GodsDragonsSeeder extends Seeder
             'favored_weapon' => 'Claw',
         ]);
 
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Psion', 'Psychic Warrior', 'Soul Knife',
+        ]);
+
         /**********************************************************************/
 
         $god        = new God;

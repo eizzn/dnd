@@ -20,7 +20,8 @@ class FeatsTransformationsSeeder extends Seeder
 <ul>
     <li>Increase your DEX score by +1 to a maximum of 20</li>
     <li>You gain a pool of energy called Blood Points. You may have at most 2 Blood Point at one time. Certain Actions gain you Blood Points and you may spend Blood Points to take some Actions. At the rise of each new day, you automatically lose all your Blood Points.</li>
-    <li>You gain a Bite Attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D4 Piercing damage + your STR modifier and 1D6 Negative damage. You heal damage equal to the Negative damage you dealt. You also gain 1 Blood Point. If the creature dies from this damage, you gain 2 Blood Points instead. Creatures of CR 1/4 or less provides no Blood Points.</li>
+    <li>You gain a Bite Attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D4 Piercing damage + your STR modifier and 1D6 Negative damage. You heal damage equal to the Negative damage you dealt. You also gain 1 Blood Point. If the creature dies from this damage, you gain 2 Blood Points instead. Creatures of Size Tiny or smaller provides no Blood Points.</li>
+    <li>Your nails are as strong as Metal. You gain a Claw attack. It deals 1D4 +1 + STR modifier Slashing</li>
     <li>
         <p>You gain a list of powers that you can use by spending Blood Points</p>
         <dl>
@@ -48,6 +49,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>Increase your DEX score by +2 and your CHA score by +1, up to a maximum of 22.</li>
     <li>You gain a pool of energy called Blood Points. You may have at most 4 Blood Points at one time. Certain Actions gain you Blood Points and you may spend Blood Points to take some Actions. At the rise of each new day, you automatically lose 2 Blood Point unless you rest at least 10 hours in a coffin, in which case you only lose 1 Blood Point. If at any time, you have negative Blood Points, you lose control of yourself and must Feed on living blood to regain Blood Points until you no longer have a negative Blood Point pool.</li>
     <li>You gain a Bite attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D6 Piercing damage + your STR modifier and 2D6 Negative damage. You heal damage equal to the Negative damage you dealt. You also gain 1 Blood Point. If the creature dies from this damage, you gain 3 Blood Points instead. Creatures of CR 1/4 or less provides 1 Blood Point only when they die from your Bite attack.</li>
+    <li>Your nails are as strong as Metal. You gain a Claw attack. It deals 1D4 +1 + STR modifier Slashing</li>
     <li>
         <p>You gain a list of powers that you can use by spending Blood Points</p>
         <dl>
@@ -56,7 +58,7 @@ class FeatsTransformationsSeeder extends Seeder
             <dt>Defy Gravity</dt> <dd>You may spend 1 Blood Point as an Action and gain the effects of the Spell Spider Climb for 1 minute.</dd>
             <dt>Unearthly Jump</dt> <dd>You may spend 1 Blood Point as an Action and gain a +20 bonus to Athletics (Jump) checks</dd>
             <dt>Unearthly Reflexes</dt> <dd>You may spend 1 Blood Point as a Free Action to gain the effects of the Improved Evasion feat until the beginning of your next turn.</dd>
-            <dt>Deathly Horror</dt> <dd>You my spend 3 Blood Points as an Action and emit a ghastly distortion of your true form. A creature of your choice within 30 feet of you must succeed on a WIS Save or become Frightened: 10. A creature can repeat the Save at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its Save is immune to this ability for 24 hours.</dd>
+            <dt>Deathly Horror</dt> <dd>You my spend 2 Blood Points as an Action and emit a ghastly distortion of your true form. A creature of your choice within 30 feet of you must succeed on a WIS Save or become Frightened: 10. A creature can repeat the Save at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its Save is immune to this ability for 24 hours.</dd>
         </dl>
     </li>
     <li>You gain Darkvision out to 60 feet if you do not already have it.</li>
@@ -79,7 +81,7 @@ class FeatsTransformationsSeeder extends Seeder
 <ul>
     <li>You heal from Negative Damage.</li>
     <li>You gain Resistance to Bludgeoning, Piercing, and Slashing damage.</li>
-    <li>While you have at least 1 Blood Point, you Regenerate 3 Hit Points every round. You do not Regenerate while in sunlight or under running water. Being hit by Holy Water causes the Regeneration to stop for 10 minutes.</li>
+    <li>While you have at least 1 Blood Point, you Regenerate 2 Hit Points every round. You do not Regenerate while in sunlight or under running water. Being hit by Holy Water causes the Regeneration to stop for 10 minutes.</li>
     <li>You may spend 1 Blood Point to increase your Regeneration to 10. This lasts for 1 minute but not if you are suffering from any of the conditions that would prevent your normal Regeneration.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Undead']);
@@ -118,32 +120,37 @@ class FeatsTransformationsSeeder extends Seeder
         <tr>
             <td>Charm as a Gaze attack</td>
             <td>1</td>
-            <td>1 Action</td>
+            <td>Action</td>
         </tr>
         <tr>
             <td>Aerial Form but only as a Small Bat (Self only, for 1 hour)</td>
             <td>2</td>
-            <td>3 Actions</td>
+            <td>Triple Actions</td>
         </tr>
         <tr>
             <td>Bull's Strength (Self only, for 5 rounds)</td>
-            <td>2</td>
-            <td>1 Action</td>
+            <td>1</td>
+            <td>Action</td>
         </tr>
         <tr>
             <td>Haste (Self only, for 5 rounds)</td>
-            <td>3</td>
+            <td>2</td>
             <td>Free Action</td>
+        </tr>
+        <tr>
+            <td>Swarm of Bats. You Polymorph into a Swarm of Bats. Assume you have cast the spell Summon Swarm (bats) but you are the swarm and have full control of where to move and who to attack. Damage to the swarm does not harm you unless an area of effect causes damage to all the bats (such as a fireball). In the case where the entire swarm is killed, you immediately revert back to your normal form and lose 30 Hit Points. (3 rounds)</td>
+            <td>1</td>
+            <td>Triple Action</td>
         </tr>
         <tr>
             <td>Gaseous Form (Self only, for 1 hour)</td>
             <td>3</td>
-            <td>3 Actions</td>
+            <td>Triple Actions</td>
         </tr>
     </tbody>
 </table>
 <p>If you fall to 0 Hit Points, you automatically cast Gaseous Form as a Free Action (even if you did not choose the Gaseous Form spell), spending the Blood Points even if you do not have enough. This can cause you to have negative Blood Points. The effect lasts for 2 hours and when it ends, you are forever destroyed unless you find a crypt or coffin to rest in. After 2 hours, your Hit Points becomes 1.</p>
-<p>You may take this feat multiple times, each time you choose two spells.</p>";
+<p>You may take this feat multiple times, each time you choose two new spells.</p>";
         $helper->addTypesToFeat($feat, ['Undead']);
         $feat->parent_feats()->save(app()->feats["Vampire's Curse"]);
 
@@ -151,13 +158,62 @@ class FeatsTransformationsSeeder extends Seeder
         $feat->name              = 'Vampire Lord';
         $feat->short_description = 'Your cursed blood can now create other vampires, which fall under your control';
         $feat->description       = "<ul>
-    <li>Increase your Blood Pool maximum by +1.</li>
+    <li>Increase your Blood Pool maximum by +2.</li>
     <li>Increase your CHA by +2, to a maximum of 22.</li>
     <li>You can now create vampires. If a mortal drinks your blood, they gain the Lesser Vampire Spawn feat and becomes a vampire spawn. If you have both the Improved Blood Pool and Sanguine Magic Feat, then you may choose to make the mortal a full vampire instead of a Vampire Spawn. The mortal gains the Vampire's Curse Feat instead and becomes a vampire and you suffer 2 points of CON damage and lose 1 Blood Point. You do not recover the lost Blood Point so long as the Vampire you created exists.</li>
     <li>You can exert control over vampire spawns and vampires you created. You can, as an Action, cast Suggestion on them at will. The target suffers a -10 penalty on their Save.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Undead']);
         $feat->parent_feats()->save(app()->feats['Vampiric Constitution']);
+
+        $feat                    = new Feat;
+        $feat->name              = 'Ancient Vampire';
+        $feat->short_description = 'You have gained access to the greatest powers of a vampire';
+        $feat->description       = '<p>Increase your Blood Pool maximum by +2. When you gain this feat, pick 1 of the following spell. You may cast the chosen spell by spending Blood Points.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Spell</th>
+            <th>Cost</th>
+            <th>Special</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Demon Form / Dragon Form (any Chromatic)</td>
+            <td>Triple Action, 3/week Duration: 3 hours</td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <td>Lightning Bolt</td>
+            <td>Triple Action, At will</td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <td>Call Dretch Horde</td>
+            <td>As spell, At will</td>
+            <td>Double the max number of dretch that you may control</td>
+        </tr>
+        <tr>
+            <td>Daywalker (always active, cannot be dispelled).</td>
+            <td>Always active.</td>
+            <td>
+                <ul>
+                    <li>No longer Vulnerable to Positive damage</li>
+                    <li>You now have the ability to sire children. They are dhampirs.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Cloud Kill (while in Gaseous Form)</td>
+            <td>Double Action, 1 Blood Point</td>
+            <td>You may now cast Gaseous Form as a Free Action</td>
+        </tr>
+    </tbody>
+</table>';
+        $helper->addTypesToFeat($feat, ['Undead']);
+        $feat->parent_feats()->save(app()->feats['Vampire Lord']);
+        $feat->parent_feats()->save(app()->feats['Sanguine Magic']);
 
         /**********************************************************************/
 
@@ -169,9 +225,10 @@ class FeatsTransformationsSeeder extends Seeder
     <li>
         <p>As a Triple Action, you can transform into a monstrous hybrid: half-beast, half-sentient. While in your hybrid form, the following applies.</p>
         <ul>
-            <li>You gain a +1 bonus to Str. If your STR is still less than 13, it becomes 13.</li>
+            <li>You gain a +2 bonus to Str. If your STR is still less than 13, it becomes 13.</li>
+            <li>You gain a +2 bonus to DEX. If your DEX is still less than 13, it becomes 13.</li>
             <li>You gain a +2 bonus to CON. If your CON is still less than 14, it becomes 14.</li>
-            <li>Any armor you are wearing merges into your Hybrid Form or immediately drops to the ground.</li>
+            <li>Any armor you are wearing must be removed or it becomes destroyed and deals double the armors Damage Reduction to.</li>
             <li>While transformed and not wearing any armor or using a shield, you gain the benefits of the Tough Defense feat.</li>
             <li>While transformed you can use weapons and equipment as normal, unless specified elsewhere.</li>
             <li>You gain a Claw attack that deals 1D8 + STR modifier Slashing damage that is considered Cold Iron and Silvered.</li>
@@ -216,6 +273,7 @@ class FeatsTransformationsSeeder extends Seeder
 <ul>
     <li>You gain a +2 bonus to your CON. If your CON is still less than 16, it becomes 16.</li>
     <li>You gain Resistance to all Bludgeoning, Piercing, and Slashing attacks.</li>
+    <li>You gain Regeneration: 4</li>
     <li>The Save DC to resist becoming a Lycanthrope from your Bite attack becomes DC 20.</li>
 </ul>
 <p>Based on your lycanthrope type, you also gain the following.</p>

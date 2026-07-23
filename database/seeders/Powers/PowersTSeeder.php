@@ -76,14 +76,15 @@ class PowersTSeeder extends Seeder
         $power->description  = '<p>As the Teleport spell, except as noted here.</p>';
         $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation'], 5);
 
-        $power               = new Power;
-        $power->name         = 'Teleport Trigger';
-        $power->action_type  = '1 minute';
-        $power->requirements = 'You must have the Teleport power';
-        $power->targets      = 'Self';
-        $power->duration     = '24 Hours';
-        $power->description  = '<p>You specify a situation that triggers you to automatically teleport you the location where you manifest this power. If the trigger is activated, it takes no time and instantly teleports you.</p>';
-        $power->heightened   = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Teleport Trigger';
+        $power->action_type      = '1 minute';
+        $power->maintenance_cost = '1 Power Point per 12 hours';
+        $power->requirements     = 'You must have the Teleport power';
+        $power->targets          = 'Self';
+        $power->duration         = '48 Hours';
+        $power->description      = '<p>You specify a situation that triggers you to automatically teleport you the location where you manifest this power. If the trigger is activated, it takes no time and instantly teleports you.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+4)</dt> <dd>As a Double Reaction, if someone is teleporting into a location within 120 feet of you or from a location 120 feet from you, you may use this power and change the destination of the teleport. You cannot send them further than their spell or ability allows but you control where they end up. You cannot teleport them into a sold object. The teleporting creature gets a CHA Save to resist your attempt to alter their teleportation.</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation'], 4);
@@ -99,16 +100,17 @@ class PowersTSeeder extends Seeder
         $power->heightened   = '<dl>
     <dt>Heightened (+4)</dt> <dd>Increase the duration by 1 round</dd>
 </dl>';
-        $helper->addTypesToPower($power, ['Psychoportation'], 7);
+        $helper->addTypesToPower($power, ['Psychoportation'], 6);
 
-        $power              = new Power;
-        $power->name        = 'Thicken Skin';
-        $power->action_type = 'Action';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You skin or natural armor thickens and spreads across your body, providing a +2 enhancement bonus to your AC.</p>';
-        $power->heightened  = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Thicken Skin';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '30 minutes';
+        $power->description      = '<p>You skin or natural armor thickens and spreads across your body, providing a +2 enhancement bonus to your AC.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
     <dt>Heightened (+2)</dt> <dd>You gain Damage Reduction 2/-</dd>
     <dt>Heightened (+3)</dt> <dd>Increase the AC bonus by +1</dd>

@@ -18,33 +18,35 @@ class PowersISeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Ice Armor';
-        $power->action_type = 'Double Action';
-        $power->targets     = 'Self';
-        $power->duration    = '3 hours';
-        $power->description = '<p>You freeze water out of the air around you, creating a layer of solid ice that protects you like armor. It grants the following effects.</p>
+        $power                   = new Power;
+        $power->name             = 'Ice Armor';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->targets          = 'Self';
+        $power->duration         = '6 hours';
+        $power->description      = '<p>You freeze water out of the air around you, creating a layer of solid ice that protects you like armor. It grants the following effects.</p>
 <ul>
     <li>Treat the ice as breastplate armor with Hardness 1 and 60 Hit Points.</li>
     <li>You gain Damage Resistance to Bludgeoning, Piercing, Slashing, and Fire attacks. The Ice Armor takes the other half of the damage (reduced by its Hardness). If the damage is Fire, then the Ice Armor takes full damage.</li>
 </ul>
 <p>This power does not work in environments where there is no water in the air.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+3)</dt> <dd>Increase the Hardness by +1 and the Hit Points by +30</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Cold'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Immovability';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = 'Concentration, up to 1 day';
-        $power->description = '<p>You are almost impossible to move. Your weight does not vary, instead, you mentally attach yourself to the underlying fabric of the plane. Thus, you could conceivably anchor yourself in midair. Any creature attempting to physically move you must succeed on a opposed STR check, and you gain a +20 bonus on the check. You can\'t voluntarily move to a new location unless you stop Concentrating, which ends this power.</p>
+        $power                   = new Power;
+        $power->name             = 'Immovability';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 3 hours';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = 'Concentration, up to 2 days';
+        $power->description      = "<p>You are almost impossible to move. Your weight does not vary, instead, you mentally attach yourself to the underlying fabric of the plane. Thus, you could conceivably anchor yourself in midair. Any creature attempting to physically move you must succeed on a opposed STR check, and you gain a +20 bonus on the check. You can't voluntarily move to a new location unless you stop Concentrating, which ends this power.</p>
 <p>You cannot apply your DEX bonus to AC; however, your anchored body gains Damage Reduction: 15.</p>
-<p>You may make simple physical melee attacks, but you may not take any movement Actions. Powers with the Teleportation descriptor, or any telekinetic effect, automatically fail against you.</p>';
+<p>You may make simple physical melee attacks, but you may not take any movement Actions. Powers with the Teleportation descriptor, or any telekinetic effect, automatically fail against you.</p>";
         $power->heightened = '<dl>
-    <dt>Heightened (+3)</dt> <dd>Reduce the number of Actions needed to manifest this power</dd>
+    <dt>Heightened (+3)</dt> <dd>Reduce the number of Actions needed to manifest this power by 1 Action</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Force'], 3);
 
@@ -59,29 +61,31 @@ class PowersISeeder extends Seeder
 <p>Each Incarnate spell counts as a Attuned magic item. You may remove an Incarnated Power by manifesting Incarnate again on the power to be removed.</p>';
         $helper->addTypesToPower($power, ['Clairsentience', 'Attunement'], 5);
 
-        $power               = new Power;
-        $power->name         = 'Inertial Armor';
-        $power->action_type  = 'Double Action';
-        $power->display      = 'Visual';
-        $power->targets      = 'Self';
-        $power->duration     = '8 hours';
-        $power->requirements = 'You must have the Telekinesis power';
-        $power->description  = '<p>You ward yourself with a tangible field of force, gaining a +4 armor bonus to AC (does not stack with physical armor, but does work with shields) and a +1 bonus to STR and DEX Saves. You use your unarmored proficiency to calculate your AC.</p>
+        $power                   = new Power;
+        $power->name             = 'Inertial Armor';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 3 hours';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '12 hours';
+        $power->requirements     = 'You must have the Telekinesis power';
+        $power->description      = '<p>You ward yourself with a tangible field of force, gaining a +4 armor bonus to AC (does not stack with physical armor, but does work with shields) and a +1 bonus to STR and DEX Saves. You use your unarmored proficiency to calculate your AC.</p>
 <p>Your Inertial Armor can be invisible or can appear as a colored glow, at your option.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Force'], 1);
 
-        $power               = new Power;
-        $power->name         = 'Inertial Barrier';
-        $power->action_type  = 'Double Action';
-        $power->display      = 'Auditory, Mental';
-        $power->targets      = 'Self';
-        $power->duration     = '1 hour';
-        $power->requirements = 'You must have the Telekinesis power';
-        $power->description  = '<p>You create a skin-tight psychokinetic barrier around yourself that grants Damage Reduction 7 to Bludgeoning, Piercing, and Slashing damage.</p>';
-        $power->heightened   = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Inertial Barrier';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Auditory, Mental';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hours';
+        $power->requirements     = 'You must have the Telekinesis power';
+        $power->description      = '<p>You create a skin-tight psychokinetic barrier around yourself that grants Damage Reduction 7 to Bludgeoning, Piercing, and Slashing damage.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the Damage Reduction by +1</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Force'], 4);

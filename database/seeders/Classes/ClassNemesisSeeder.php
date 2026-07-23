@@ -133,9 +133,9 @@ class ClassNemesisSeeder extends Seeder
         $class->key_attribute = 'CON, INT, or WIS';
         $class->max_level     = 5;
         $class->requirements  = $helper->getClassRequirementsString([
-            'Skills' => '5 or more ranks in Concentration, 2 or more ranks in Nature, 4 or more ranks in Perception',
-            'Feats'  => 'Combat Casting',
-            'Spells' => 'Ability to cast 3rd level Arcane or Divine Spells',
+            'Skills'  => '5 or more ranks in Concentration, 2 or more ranks in Nature, 4 or more ranks in Perception',
+            'Talents' => 'Combat Casting',
+            'Spells'  => 'Ability to cast 3rd level Arcane or Divine Spells',
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 8,

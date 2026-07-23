@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Monsters;
 
+use App\Enums\MonsterSize;
 use App\Models\Monster;
 use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
@@ -20,7 +21,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Ankheg';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -58,7 +59,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Ape';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -78,7 +79,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Ape, Dire';
-        $monster->size        = 'Huge';
+        $monster->size        = MonsterSize::Huge->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -98,7 +99,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Axe Beak';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -113,7 +114,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Baboon';
-        $monster->size        = 'Small';
+        $monster->size        = MonsterSize::Small->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -129,7 +130,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Badger';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -147,7 +148,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Bat';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -166,7 +167,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Bat, Dire';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
@@ -185,7 +186,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Bear, Black';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -206,7 +207,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Bear, Brown';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
@@ -230,7 +231,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Boar';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -252,7 +253,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Boar, Dire';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
@@ -274,7 +275,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Bulette';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11 (Natural Armor)';
@@ -301,7 +302,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Camel';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '8';
@@ -316,7 +317,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Carrion Crawler';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -337,7 +338,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Cat';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -359,7 +360,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Centipede, Giant';
-        $monster->size             = 'Small';
+        $monster->size             = MonsterSize::Small->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '13';
@@ -379,7 +380,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Crocodile';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
@@ -401,7 +402,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Crocodile, Dire';
-        $monster->size             = 'Huge';
+        $monster->size             = MonsterSize::Huge->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = 8;
@@ -424,7 +425,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Deer';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = 13;
@@ -439,7 +440,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Dog';
-        $monster->size        = 'Small';
+        $monster->size        = MonsterSize::Small->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -460,7 +461,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Dog, War';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -483,7 +484,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Drakeling';
-        $monster->size             = 'Tiny';
+        $monster->size             = MonsterSize::Tiny->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11 (Natural Armor)';
@@ -499,7 +500,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Eagle';
-        $monster->size        = 'Small';
+        $monster->size        = MonsterSize::Small->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
@@ -521,7 +522,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Elephant';
-        $monster->size             = 'Huge';
+        $monster->size             = MonsterSize::Huge->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
@@ -542,7 +543,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Elk';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
@@ -562,7 +563,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Elk, Dire';
-        $monster->size             = 'Huge';
+        $monster->size             = MonsterSize::Huge->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -585,7 +586,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Frog';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
@@ -609,7 +610,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Frog, Giant';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -635,7 +636,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Goat';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -652,7 +653,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Goat, Dire';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '9';
@@ -670,7 +671,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Hawk';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
@@ -689,7 +690,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Horse, Draft';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
@@ -704,7 +705,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Horse, Riding';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '9';
@@ -720,7 +721,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Horse, War';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -735,7 +736,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Hyena';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -751,7 +752,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Lion';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -776,7 +777,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Lizard';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -791,7 +792,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Lizard, Giant';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -810,7 +811,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Orpsu';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
@@ -825,7 +826,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Owl';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -849,7 +850,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Owlbear';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Fey';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -881,7 +882,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Raven, Giant';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '13';
@@ -910,7 +911,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Rhinoceros';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
@@ -926,7 +927,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Scorpion';
-        $monster->size             = 'Tiny';
+        $monster->size             = MonsterSize::Tiny->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -945,7 +946,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Scorpion, Giant';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -968,7 +969,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Constrictor Snake';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -987,7 +988,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Constrictor Snake, Giant';
-        $monster->size        = 'Huge';
+        $monster->size        = MonsterSize::Huge->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -1006,7 +1007,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Flying Snake';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '16';
@@ -1024,7 +1025,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Poisonous Snake';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
@@ -1042,7 +1043,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Poisonous Snake, Giant';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
@@ -1060,7 +1061,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Spider';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
@@ -1076,7 +1077,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Spider, Giant';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -1101,7 +1102,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Wolf Spider, Giant';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '13';
@@ -1129,7 +1130,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Giant Whip Scorpion';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '10';
@@ -1152,7 +1153,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Giant Whip Spider';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -1180,7 +1181,7 @@ class AnimalsSeeder extends Seeder
 
         $monster                   = new Monster;
         $monster->name             = 'Giant Sun Spider';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -1206,7 +1207,7 @@ class AnimalsSeeder extends Seeder
 
         $monster              = new Monster;
         $monster->name        = 'Stirge';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '15';
@@ -1226,7 +1227,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster              = new Monster;
         $monster->name        = 'Red Tiger';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '11';
@@ -1261,7 +1262,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Great Snow Tiger';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -1303,7 +1304,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Tiger, Dire';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -1340,7 +1341,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster              = new Monster;
         $monster->name        = 'Toad, Giant';
-        $monster->size        = 'Large';
+        $monster->size        = MonsterSize::Large->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '10';
@@ -1364,7 +1365,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster              = new Monster;
         $monster->name        = 'Poisonous Toad';
-        $monster->size        = 'Tiny';
+        $monster->size        = MonsterSize::Tiny->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '14';
@@ -1385,7 +1386,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster              = new Monster;
         $monster->name        = 'Wasp, Giant';
-        $monster->size        = 'Medium';
+        $monster->size        = MonsterSize::Medium->toString();
         $monster->type        = 'Animal';
         $monster->alignment   = '-';
         $monster->armor_class = '12';
@@ -1400,7 +1401,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Killer Whale';
-        $monster->size             = 'Huge';
+        $monster->size             = MonsterSize::Huge->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '8';
@@ -1422,7 +1423,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Wolf';
-        $monster->size             = 'Medium';
+        $monster->size             = MonsterSize::Medium->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -1446,7 +1447,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Wolf, Dire';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '11';
@@ -1470,7 +1471,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 
         $monster                   = new Monster;
         $monster->name             = 'Wolverine, Dire';
-        $monster->size             = 'Large';
+        $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
         $monster->armor_class      = '12';
@@ -1493,6 +1494,19 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
             'features'  => ['rage'],
             'talents'   => ['Die Hard'],
+        ]);
+
+        $monster            = new Monster;
+        $monster->name      = 'Cave Glow Worm';
+        $monster->size      = MonsterSize::Tiny->toString();
+        $monster->type      = 'Animal';
+        $monster->alignment = '-';
+        $monster->armor_class = '11';
+        $monster->hit_dice    = 1;
+        $monster->speed       = '0 / 0 Burrow';
+        $monster->description = '<p>These simple worms (also known as Naaglar by the denizens of the Underdark) glow with a slight purplish light out to 5 feet. They can be used to cast a soft low light by carrying them.</p>';
+        $helper->saveMonster($monster, ['Animal'], [
+            'stats' => [1, 1, 5, 0, 0, 0, 0, 0],
         ]);
     }
 }

@@ -45,7 +45,7 @@ class ClassPaladinSeeder extends Seeder
             'glorious_resistance' => [3],
             'combat_mastery'      => [7],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Combat Casting']);
+        $class->features()->save(app()->features['talent'], ['level' => 3, 'meta' => 'Combat Casting']);
 
         $feat              = new Feat;
         $feat->name        = 'Divine Mount';

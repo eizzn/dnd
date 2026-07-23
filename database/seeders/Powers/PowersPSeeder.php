@@ -38,15 +38,16 @@ class PowersPSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Light'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Physical Augmentation';
-        $power->action_type = 'Action';
-        $power->targets     = 'Self';
-        $power->display     = 'Visual';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You boost one of your physical ability scores (STR, DEX, or CON). The power grants a +4 enhancement bonus to hte ability score you choose.</p>
+        $power                   = new Power;
+        $power->name             = 'Physical Augmentation';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->targets          = 'Self';
+        $power->display          = 'Visual';
+        $power->duration         = '1 hour';
+        $power->description      = '<p>You boost one of your physical ability scores (STR, DEX, or CON). The power grants a +4 enhancement bonus to hte ability score you choose.</p>
 <p>You can manifest this power and have multiple instances active. Each instance must enhance a different ability score.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
     <dt>Heightened (+3)</dt> <dd>Increase the bonus by an additional +2.</dd>
 </dl>';
@@ -108,7 +109,7 @@ class PowersPSeeder extends Seeder
         $power->range          = '30 feet';
         $power->duration       = 'Instantaneous';
         $power->save_attribute = 'WIS';
-        $power->description    = '<p>You disrupt mental ability in a cone shaped blast. All in the area must make a WIS Save or be stunned.</p>';
+        $power->description    = '<p>You disrupt mental ability in a cone-shaped blast. All in the area must make a WIS Save or be stunned.</p>';
         $power->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
     <dt>Success</dt> <dd>Dazed: 1</dd>

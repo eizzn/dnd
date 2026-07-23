@@ -581,6 +581,7 @@ class FeatsArcaneSeeder extends Seeder
         $feat->description = '<p>Choose a school of wizardry that you have an Expert level Wizard School feat for.</p>
 <ul>
     <li>You gian 1 Spell Point</li>
+    <li>You gain a Talent</li>
     <li>You may memorize an additional Cantrip of the chosen School</li>
     <li>The DC for spells of the chosen School get a bonus of +2 in addition to the bonus from Spell Focus.</li>
 </ul>
@@ -592,7 +593,8 @@ class FeatsArcaneSeeder extends Seeder
         $feat->name        = 'Greater Spell Focus';
         $feat->description = '<p>Choose a school of wizardry that you have a Master level Wizard School feat for.</p>
 <ul>
-    <li>You gain 3 Spell Points</li>
+    <li>You gain 1 Spell Points</li>
+    <li>You gain a Talent</li>
     <li>You may memorize an additional Cantrip of the chosen School</li>
     <li>The DC for spells of the chosen School get a bonus of +3 in addition to the bonus from Spell Focus and Improved Spell Focus.</li>
 </ul>
@@ -667,6 +669,7 @@ class FeatsArcaneSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Improved Summoner';
         $feat->trigger     = 'You cast a spell with the Summoning type';
+        $feat->requirement = 'Arcane spell casters must have the Conjurer feat to take this feat';
         $feat->description = '<ul>
     <li>Creatures you summon with a Conjuration Spell gain a +4 Enhancement bonus to STR and CON.</li>
     <li>The Duration of all your Conjuration Spells with a Duration of 1 minute or longer is increased by 3 rounds</li>
@@ -685,30 +688,10 @@ class FeatsArcaneSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Improved Summoner']);
 
         $feat              = new Feat;
-        $feat->name        = 'Combat Casting';
-        $feat->description = '<ul>
-    <li>You get Advantage on Concentration checks made that involve spellcasting (casting a spell defensively, Concentrating on a spell, etc.).</li>
-    <li>You can perform the Somatic Casting Components of spells even when you have weapons or a shield in one or both hands.</li>
-    <li>When a creature provokes an Attack of Opportunity, you may cast a spell that targets the creature instead of making a physical attack. You must have enough Reactions to cast the spell.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Skill', 'Arcane', 'Divine', 'Primal', 'Generic' => 1]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Improved Combat Casting';
-        $feat->description = '<ul>
-    <li>You gian 1 Spell Point.</li>
-    <li>You may spend 1 Spell Point to heighten the Haste spell by +1 without using a Higher Level Spell Slot.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Primal', 'Generic' => 7]);
-        $feat->parent_feats()->save(app()->feats['Combat Casting']);
-        $helper->addSpellsToFeat($feat, [
-            3 => ['Haste'],
-        ]);
-
-        $feat              = new Feat;
         $feat->name        = 'Metamagic Master';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
+    <li>You gain 1 Spell Point</li>
     <li>You now spend 1 Spell Point less whenever you activate a Metamagic feat. You cannot reduce the Spell Point cost to less than 1.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Arcane' => 8, 'Divine' => 8, 'Primal' => 8]);
@@ -733,6 +716,13 @@ class FeatsArcaneSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Enchanter']);
 
         $feat              = new Feat;
+        $feat->name        = 'Graft Flesh';
+        $feat->description = '<p>You learn the formula for 3 common Grafts.</p>
+<p>You can create Grafts and apply them to other living creatures or to yourself. Creating a graft takes 24 hours for each 1,000 gp in its price. To create a graft, you must use up raw materials costing 1/2 of the price.</p>';
+        $helper->addTypesToFeat($feat, ['Arcane', 'Graft', 'Necromancy', 'Generic' => 8]);
+        $feat->skills()->save(app()->skills['Medicine'], ['dc' => 10]);
+
+        $feat              = new Feat;
         $feat->name        = 'Improved Undead';
         $feat->trigger     = 'You cast a spell with the Undead trait that creates an Undead';
         $feat->description = '<p>The Undead that you create with spells that have the Undead trait gains a +4 enhancement bonus to STR and has +2 additional Hit Points per Hit Die.</p>';
@@ -750,13 +740,6 @@ class FeatsArcaneSeeder extends Seeder
 </ul>';
         $helper->addTypesTofeat($feat, ['Evil', 'Undead', 'Arcane' => 3, 'Divine' => 3, 'Necromancy']);
         $feat->skills()->save(app()->skills['Religion'], ['dc' => 1]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Graft Flesh';
-        $feat->description = '<p>You learn the formula for 3 common Grafts.</p>
-<p>You can create Grafts and apply them to other living creatures or to yourself. Creating a graft takes 24 hours for each 1,000 gp in its price. To create a graft, you must use up raw materials costing 1/2 of the price.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Graft', 'Necromancy', 'Generic' => 8]);
-        $feat->skills()->save(app()->skills['Medicine'], ['dc' => 10]);
 
         $feat              = new Feat;
         $feat->name        = 'Master of Shrouds';
@@ -845,31 +828,44 @@ class FeatsArcaneSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Shadow Sight';
-        $feat->description = '<p>You gain the following.</p>
+        $feat->description = '<p>You have learned deeper secrets of the ShadowFell. You gain the following.</p>
 <ul>
+    <li>You gain a Spell Point</li>
     <li>You gain the Improved Darkvision feat</li>
     <li>You gain the Hide in Plain Sight feature</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness']);
+        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Arcane' => 6]);
+        $feat->parent_feats()->save(app()->feats['Illusionist']);
 
         $feat              = new Feat;
         $feat->name        = 'Shadow Jump';
-        $feat->description = '<p>You may spend 2 Spell Points to cast Misty Step. The limitation is that the magical transport must begin and end in an area with at least some shadow or darkness.</p>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness']);
+        $feat->description = '<p>You continue your path down the secrets of the ShadowFell</p>
+<ul>
+    <li>You gain a Talent</li>
+    <li>You gain a Spell Point</li>
+    <li>You may spend 2 Spell Points to cast Misty Step. The limitation is that the magical transport must begin and end in an area with at least some shadow or darkness.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Arcane' => 8]);
         $feat->parent_feats()->save(app()->feats['Shadow Sight']);
 
         $feat              = new Feat;
         $feat->name        = 'Shadow Cloak';
-        $feat->description = '<p>So long as you are not in daylight or the illuminated radius of a light source, you have the benefits of a Blur spell upon yourself.</p>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness']);
+        $feat->description = '<p>You have learned the deepest secrets of the ShadowFell</p>
+<ul>
+    <li>You gain a Talent</li>
+    <li>You gain a Spell Point</li>
+    <li>So long as you are not in daylight or the illuminated radius of a light source, you have the benefits of a Blur spell upon yourself.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Arcane' => 10]);
         $feat->parent_feats()->save(app()->feats['Shadow Jump']);
 
         $feat              = new Feat;
         $feat->name        = 'Nar Demonbinder';
         $feat->description = '<p>You have learned the secrets of the Nar Demonbinders. You gain the following.</p>
 <ul>
-    <li>You gain a +4 bonus to opposed CHA checks to trap or compel creatures Called through a spell or effect.</li>
+    <li>You gain a +4 bonus to opposed CHA checks to trap or compel creatures Called through a spell or effect that are demons.</li>
     <li>You learn the Abyssal language</li>
+    <li>Demons begin corrupting your mind. If you are not CE, then your alignment must take one step closer to CE</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Arcane' => 7, 'Demon']);
         $feat->parent_feats()->save(app()->feats['Iron Will']);
@@ -878,11 +874,11 @@ class FeatsArcaneSeeder extends Seeder
         $feat->skills()->save(app()->skills['Religion'], ['dc' => 6]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Detect Demon' => 'The duration is Concentration, up to 1 hour'],
-            1 => ['Detect Evil', 'Detect Good', 'Nether Trail'],
-            3 => ['Circle of Protection From Evil', 'Circle of Protection From Chaos'],
-            4 => ['Dimensional Anchor'],
-            5 => ['Dispel Outsider'],
-            6 => ['Banishment', 'Demon Form', 'Plane Shift'],
+            1 => ['Nether Trail'],
+            3 => ['Circle of Protection From Demons'],
+            4 => ['Dimensional Anchor' => 'Only can effect demons'],
+            5 => ['Dispel Outsider' => 'Only can effect demons'],
+            6 => ['Banishment' => 'Only can effect demons', 'Demon Form', 'Plane Shift' => 'Only to the Abyss'],
             7 => ['Nar Fiendbond'],
         ]);
 
@@ -898,7 +894,8 @@ class FeatsArcaneSeeder extends Seeder
         <p>You can set the token on a suitable surface and try to compel a free outsider within 30 feet of the token into its effective calling diagram (WIS Save negates). If the creature fails its Save, it is transported to a square of its choice within 5 feet of the iron sign, and trapped just as if you had conjured it into a calling diagram.</p>
     </dd>
 </dl>
-<p>When a trapped creature leaves the Iron Sign (because it was freed, escaped on its own, or the Duration of the calling diagram lapsed), the token crumbles into powder and is destroyed.</p>';
+<p>When a trapped creature leaves the Iron Sign (because it was freed, escaped on its own, or the Duration of the calling diagram lapsed), the token crumbles into powder and is destroyed.</p>
+<p>If your alignment is not CE, then your alignment must take one step closer to CE</p>';
         $helper->addTypesToFeat($feat, ['Arcane' => 9, 'Fiend']);
         $feat->parent_feats()->save(app()->feats['Nar Demonbinder']);
         $helper->addSpellsToFeat($feat, [
@@ -907,7 +904,8 @@ class FeatsArcaneSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Brazen Sign';
-        $feat->description = '<p>You learn how to fashion a Brazen Sign. This works exactly like the Iron Sign, except that the called creature suffers a -5 penalty to its WIS Save. Crafting a Brazen Sign requires 5 days and 2,000 gp in materials.</p>';
+        $feat->description = '<p>You learn how to fashion a Brazen Sign. This works exactly like the Iron Sign, except that the called creature suffers a -5 penalty to its WIS Save. Crafting a Brazen Sign requires 5 days and 2,000 gp in materials.</p>
+<p>If your alignment is not CE, then it must take one step closer to CE</p>';
         $helper->addTypesToFeat($feat, ['Arcane' => 11, 'Fiend']);
         $feat->parent_feats()->save(app()->feats['Iron Sign']);
         $helper->addSpellsToFeat($feat, [
@@ -921,7 +919,8 @@ class FeatsArcaneSeeder extends Seeder
 <dl>
     <dt>Silver Sign</dt> <dd>You learn how to fashion a Silver Sign. This works exactly like the Brazen Sign, except that the called creature suffers a -10 penalty to its WIS Save and none of its attacks or abilities can exit the area within 5 feet of the token. Crafting a Silver Sign requires 7 days and 5,000 gp in materials.</dd>
     <dt>Fiendish Servant</dt> <dd>You can have a fiendish cohort.</dd>
-</dl>';
+</dl>
+<p>If your alignment is not CE, then it must take one step closer to CE</p>';
         $helper->addTypesToFeat($feat, ['Arcane' => 13, 'Fiend']);
         $feat->parent_feats()->save(app()->feats['Brazen Sign']);
 
@@ -934,7 +933,16 @@ class FeatsArcaneSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Elf', 'High Magic', 'Arcane' => 5]);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Detect Magic', 'Light', 'Resist'],
+            0  => ['Detect Magic', 'Light', 'Resist'],
+            3  => ['Quomaniith'],
+            4  => ['Ol`Iirtal`Eithun', 'Vuorl`Kyshuf'],
+            5  => ['U`Aestar`Kess'],
+            6  => ['Ialyshae`Seldar`Wihylos'],
+            7  => ['N`Maernthor'],
+            8  => ['N`Tel`Orar', 'Oacil`Quevan'],
+            9  => ['Fhaor`Akh`Tel`Quess'],
+            10 => ['N`Quor`Khaor'],
+            11 => ['Uaul`Selu`Keryth'],
         ]);
 
         $feat              = new Feat;
@@ -984,7 +992,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain the listed Spells</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Arcane' => 6, 'Divine']);
+        $helper->addTypesToFeat($feat, ['Shadow', 'Arcane' => 6, 'Divine' => 6]);
         $helper->addSpellsToFeat($feat, [
             2 => ['Shadow Blade', 'Claws of Darkness', 'Shadow Double'],
             4 => ['Creature of Darkness', 'Shadow Conjuration'],

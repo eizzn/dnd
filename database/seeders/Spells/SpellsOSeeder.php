@@ -27,7 +27,7 @@ class SpellsOSeeder extends Seeder
     <dt>Secondary Casters</dt> <dd>2 other peer casters, each of whom must also cast this spell. One caster affects the growth and size of the plants, one determines the extent of the spell site and the area of change, and a third caster reshapes and reforms the plant life to the shape desired.</dd>
 </dl>';
         $spell->description = '<p>The Forms of Unity and Age Among the Forests. Ritual of Complement.</p>
-<p>This spell creates the many wondrous, massive forms of plant life seemingly indigenous to elven realms. It allows far more control and manipulation than standar plant control spells. The magics are permanent and grant casters the ability to make their work permanent beyond the lifespan of the plants through petrification.</p>
+<p>This spell creates the many wondrous, massive forms of plant life seemingly indigenous to elven realms. It allows far more control and manipulation than standard plant control spells. The magics are permanent and grant casters the ability to make their work permanent beyond the lifespan of the plants through petrification.</p>
 <p>This spell alters existing plant material and either petrifies it or shapes it into forms envisioned by the casters.</p>
 <p>the maximum effect this spell can generate is the fusion into a single tree of a grove of trees with a cumulative branch span of no more than 1,000 feet; in general, this spell creates monstrous hollowed or solid trees with trunks of up to 400 feet in diameter. This ritual also allows partial fusion of trees, allowing thie lower trunks to remain separate but fusing the higher branches and trunks into large enclosures, such as the homes of Myth Drannor.</p>
 <p>Effects and forms created by this ritual include the following.</p>
@@ -40,7 +40,7 @@ class SpellsOSeeder extends Seeder
 <dl>
     <dt>Material Components</dt> <dd></dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['High Magic'], 8);
+        $helper->addTypesToSpell($spell, ['High Magic', 'Plant', 'Transmutation'], 8);
         $spell->skills()->save(app()->skills['Nature'], ['dc' => 25]);
 
         $spell              = new Spell;

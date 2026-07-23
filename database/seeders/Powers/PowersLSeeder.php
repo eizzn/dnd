@@ -16,14 +16,15 @@ class PowersLSeeder extends Seeder
     {
         $helper = app()->seedHelper;
 
-        $power               = new Power;
-        $power->name         = 'Levitate';
-        $power->action_type  = 'Action';
-        $power->display      = 'Olfactory';
-        $power->requirements = 'You must have the Telekinesis power';
-        $power->targets      = 'Self';
-        $power->duration     = '30 minutes';
-        $power->description  = '<p>As the Levitate spell, except as noted here.</p>';
+        $power                   = new Power;
+        $power->name             = 'Levitate';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 1 hour';
+        $power->display          = 'Olfactory';
+        $power->requirements     = 'You must have the Telekinesis power';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hours';
+        $power->description      = '<p>As the Levitate spell, except as noted here.</p>';
         $helper->addTypesToPower($power, ['Psychokinesis'], 2);
 
         $power                 = new Power;
@@ -47,18 +48,19 @@ class PowersLSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 4);
 
-        $power              = new Power;
-        $power->name        = 'Light Absorption';
-        $power->action_type = 'Reaction';
-        $power->duration    = '1 round';
-        $power->targets     = 'Self';
-        $power->description = '<p>You gain the ability to absorb the energy from light, and possibly healing your wounds from the absorbed energy.</p>
+        $power                   = new Power;
+        $power->name             = 'Light Absorption';
+        $power->action_type      = 'Reaction';
+        $power->maintenance_cost = '1 Power Point per round';
+        $power->duration         = '5 round';
+        $power->targets          = 'Self';
+        $power->description      = '<p>You gain the ability to absorb the energy from light, and possibly healing your wounds from the absorbed energy.</p>
 <p>When you manifest this power, choose one.</p>
 <ul>
     <li>Gain Damage Reduction 12 to Light. You gain 1 Hit Point for every 3 points of Light damage you absorb (minimum of 1 Hit Point healed. excess Light damage still causes damage as normal). This causes the surrounding area to be engulfed in darkness. A campfire is insufficient to gain any life. A light spell is sufficient to absorb 1 Hit Point. Full daylight (near noon) is sufficient to absorb 2 Hit Point.</li>
     <li>You gain Immunity to Light</li>
 </ul>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +5</dd>
     <dt>Heightened (+2)</dt> <dd>The Duration becomes 5 rounds</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the Duration by 2 rounds</dd>

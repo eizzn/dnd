@@ -116,7 +116,6 @@ class GodsMystraSeeder extends Seeder
 <ul>
     <li>Add Arcana to your list of Class Skills</li>
     <li>You gain the Combat Casting Feat</li>
-    <li>You may take the Improved Combat Casting Feat when you qualify for it.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
         $helper->addSpellsToFeat($feat, [

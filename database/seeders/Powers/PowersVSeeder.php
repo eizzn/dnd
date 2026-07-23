@@ -18,28 +18,30 @@ class PowersVSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Venom';
-        $power->action_type = 'Free';
-        $power->display     = 'Olfactory';
-        $power->targets     = 'Self';
-        $power->duration    = '1 minute';
-        $power->description = '<p>You can generate Poison from some part of your body. You are not immune to your own Poison, unless you have the Venom Psi-resistancence feat, then you are completely immune to your own Poison.</p>
+        $power                   = new Power;
+        $power->name             = 'Venom';
+        $power->action_type      = 'Free';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->display          = 'Olfactory';
+        $power->targets          = 'Self';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>You can generate Poison from some part of your body. You are not immune to your own Poison, unless you have the Venom Psi-resistance feat, then you are completely immune to your own Poison.</p>
 <p>You can generate any Poison listed in Formulas that has the Animal type. You must spend Power Points equal to the level to generate that Poison.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>You may generate a more Power poison from Formulas</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Poison'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Vigor';
-        $power->action_type = 'Action';
-        $power->targets     = 'Self';
-        $power->display     = 'Olfactory';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You suffuse yourself with power, gaining 10 temporary Hit Points.</p>
+        $power                   = new Power;
+        $power->name             = 'Vigor';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->targets          = 'Self';
+        $power->display          = 'Olfactory';
+        $power->duration         = '1 hour';
+        $power->description      = '<p>You suffuse yourself with power, gaining 10 temporary Hit Points.</p>
 <p>Using this power again when an earlier manifestation has not expired merely replaces the older temporary Hit Points with the newer ones.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 2 and Power Point cost by 1</dd>
     <dt>Heightened (+1)</dt> <dd>For every additional power point you spend, the number of Hit Points you gain increases by 10.</dd>
 </dl>';

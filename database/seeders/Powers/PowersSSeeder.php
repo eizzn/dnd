@@ -34,53 +34,56 @@ class PowersSSeeder extends Seeder
 </ul>";
         $helper->addTypesToPower($power, ['Telepathy'], 4);
 
-        $power              = new Power;
-        $power->name        = "Seer's Sight";
-        $power->action_type = 'Free';
-        $power->targets     = 'Self';
-        $power->duration    = '1 minute';
-        $power->description = '<p>You gain the following</p>
+        $power                   = new Power;
+        $power->name             = "Seer's Sight";
+        $power->action_type      = 'Free';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->targets          = 'Self';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>You gain the following</p>
 <ul>
     <li>Darkvision (120 feet)</li>
     <li>Advantage on WIS (Perception) checks that rely on sight.</li>
 </ul>';
         $helper->addTypesToPower($power, ['Clairsentience'], 1);
 
-        $power                 = new Power;
-        $power->name           = 'Sense Link';
-        $power->action_type    = 'Double Action';
-        $power->display        = 'Mental';
-        $power->save_attribute = 'CHA';
-        $power->requirements   = 'You must have at least one Psionic Combat attack power';
-        $power->range          = '200 feet';
-        $power->targets        = 'One creature';
-        $power->duration       = 'Concentration, up to 10 minutes';
-        $power->description    = "<p>You perceive what the target creature perceives using its sight, hearing, taste, or smell. Only one sense is linked, and it requires a Triple Action to switch senses.</p>
+        $power                   = new Power;
+        $power->name             = 'Sense Link';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Mental';
+        $power->save_attribute   = 'CHA';
+        $power->requirements     = 'You must have at least one Psionic Combat attack power';
+        $power->range            = '200 feet';
+        $power->targets          = 'One creature';
+        $power->duration         = 'Concentration, up to 1 hou';
+        $power->description      = "<p>You perceive what the target creature perceives using its sight, hearing, taste, or smell. Only one sense is linked, and it requires a Triple Action to switch senses.</p>
 <p>You make any skill checks involving senses, such as Perception, as the subject, and only within the subject\'s field of view. You lose your DEX bonus to AC while directly sensing what the subject sense.</p>
 <p>Once sense link is manifested, the link persists even if the subject moves out of range.</p>
 <p>The strength of the subject's linked sense could be enhanced by other powers or items, allowing you the same enhanced sense. You are subject to any gaze attacks affecting the subject creature (if you linked vision). If you are blineded or deafened, or suffer some other sensory deprivation, the linked creature functions as an independent sensory organ, and provides you the benefit of the linked sense from its perspective while this power\'s duration lasts</p>
 <p>If the target is willing, the ability damage requirement is not required.</p>";
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>The target can perceive one of your senses instead of the other way around</dd>
     <dt>Heightened (+2)</dt> <dd>You can link to an additional sense at the same time</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 1);
 
-        $power                 = new Power;
-        $power->name           = 'Sense Minds';
-        $power->action_type    = 'Triple Action';
-        $power->display        = 'Visual';
-        $power->save_attribute = 'WIS';
-        $power->range          = '60 feet';
-        $power->requirements   = 'You must have the Empathy power';
-        $power->duration       = 'Concentration, up to 10 minutes';
-        $power->description    = '<p>You can locate creatures. For the duration of the effect, you can detect any non-mindless creature in range, although the amount of information you learn depends on how long you concentrate on an area.</p>
+        $power                   = new Power;
+        $power->name             = 'Sense Minds';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Visual';
+        $power->save_attribute   = 'WIS';
+        $power->range            = '60 feet';
+        $power->requirements     = 'You must have the Empathy power';
+        $power->duration         = 'Concentration, up to 1 hour';
+        $power->description      = '<p>You can locate creatures. For the duration of the effect, you can detect any non-mindless creature in range, although the amount of information you learn depends on how long you concentrate on an area.</p>
 <dl>
     <dt>1st Round</dt> <dd>Presence of absence of thoughts (from conscious creatures with INT scores of 1 or higher)</dd>
     <dt>2nd Round</dt> <dd>Number of thinking minds and the approximate INT score of each. If the highest INT is 26 or higher (and at least 10 points higher than your own INT score), you are stunned for 1 round and the effect ends.</dd>
 </dl>
 <p>If you concentrate on a specific creature in the area of effect</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 1);
@@ -130,24 +133,26 @@ class PowersSSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Electricity'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Simulate Feat';
-        $power->action_type = '10 minutes';
-        $power->targets     = 'Self';
-        $power->duration    = '8 hours';
-        $power->description = '<p>You can temporarily gain the benefits of any feat that you have seen used. You must meet all the requirements of the feat.</p>
+        $power                   = new Power;
+        $power->name             = 'Simulate Feat';
+        $power->action_type      = '10 minutes';
+        $power->maintenance_cost = '1 Power Point per 3 hours';
+        $power->targets          = 'Self';
+        $power->duration         = '12 hours';
+        $power->description      = '<p>You can temporarily gain the benefits of any feat that you have seen used. You must meet all the requirements of the feat.</p>
 <p>You may have up to 3 instances of this feat active at one time.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+4)</dt> <dd>You do not need to meet the requirements to temporarily gain the benefits of a feat</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Clairsentience'], 6);
 
-        $power              = new Power;
-        $power->name        = 'Simulate Skill';
-        $power->action_type = '1 minute';
-        $power->targets     = 'Self';
-        $power->duration    = '3 hours';
-        $power->description = '<p>You become skilled in a skill.</p>
+        $power                   = new Power;
+        $power->name             = 'Simulate Skill';
+        $power->action_type      = '1 minute';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->targets          = 'Self';
+        $power->duration         = '6 hours';
+        $power->description      = '<p>You become skilled in a skill.</p>
 <p>Pick a skill. You gain a +5 bonus to the skill, and you have Advantage on all skill checks with the choosen skill.</p>';
         $helper->addTypesToPower($power, ['Clairsentience'], 2);
 
@@ -162,23 +167,24 @@ class PowersSSeeder extends Seeder
     <li>You can generate any sound up to your maximum range. Any listener may make a INT Save to disbelieve that the sound is genuine.</li>
     <li>You generate a 30-foot cone that deals 1D6 Sonic damage.</li>
 </ul>';
-        $power->heightened = '<dl>
+        $power->heightened     = '<dl>
     <dt>Heightened (+3)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychokinesis', 'Sonic'], 1);
 
-        $power              = new Power;
-        $power->name        = 'Sound Absorption';
-        $power->action_type = 'Reaction';
-        $power->duration    = '1 round';
-        $power->targets     = 'Self';
-        $power->description = '<p>You gain the ability to absorb the energy from sound, and possibly healing your wounds from the absorbed energy.</p>
+        $power                   = new Power;
+        $power->name             = 'Sound Absorption';
+        $power->action_type      = 'Reaction';
+        $power->maintenance_cost = '1 Power Point per round';
+        $power->duration         = '5 rounds';
+        $power->targets          = 'Self';
+        $power->description      = '<p>You gain the ability to absorb the energy from sound, and possibly healing your wounds from the absorbed energy.</p>
 <p>When you manifest this power, choose one.</p>
 <ul>
     <li>Gain Damage Reduction 10 to Sonic. You gain 1 Hit Point for every 5 points of Sonic damage you absorb. This causes the area around you to be engulfed in silence. Nomral speach is insufficient to gain any Hit Points. 3 Medium sized creatures shouting is sufficient to gain 1 Hit Point.</li>
     <li>You gain Damage resistance to Sonic (half damage)</li>
 </ul>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the Damage Reduction by +5</dd>
     <dt>Heightened (+2)</dt> <dd>The Duration becomes 5 rounds</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the Duration by 2 rounds</dd>
@@ -198,13 +204,14 @@ class PowersSSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Psychoportation', 'Teleportation'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Steadfast Perception';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = '1 hour';
-        $power->description = '<p>Your vision cannot be distracted or misled, granting you immunity to all figments and glamors. Moreover, your Search checks receive a +6 enhancement bonus for the duration. This power also grants you another Save against someone using False Sensory input on you.</p>';
+        $power                   = new Power;
+        $power->name             = 'Steadfast Perception';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hours';
+        $power->description      = '<p>Your vision cannot be distracted or misled, granting you immunity to all figments and glamors. Moreover, your Search checks receive a +6 enhancement bonus for the duration. This power also grants you another Save against someone using False Sensory input on you.</p>';
         $helper->addTypesToPower($power, ['Clairsentience'], 4);
 
         $power                 = new Power;

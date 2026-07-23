@@ -239,7 +239,7 @@ class PfBase extends Migration
             $table->increments('id');
             $table->string('key', 70)->unique();
             $table->string('name', 120)->unique();
-            $table->string('type', 20);
+            $table->string('type', 50);
             $table->text('metas')->nullable();
             $table->text('description')->nullable();
         });

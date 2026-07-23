@@ -214,6 +214,9 @@ class AfterSeeder extends Seeder
         Formula::where('name', 'Wand of Web')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Spider, Giant')->firstOrFail(), ['meta' => 'Undamaged Silk Gland']
         );
+        Formula::where('name', 'Drow Mechanical')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Cave Glow Worm')->firstOrFail(), ['meta' => 'Crushed and oily innards boiled until it is wine/vinegar smelling greasy lubricant']
+        );
         $formula = Formula::where('name', 'Potion of Lichdom')->firstOrFail();
         $formula->formulas()->save(
             Formula::where('name', 'Arsenic')->firstOrFail()

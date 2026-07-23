@@ -18,40 +18,43 @@ class PowersRSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power                 = new Power;
-        $power->name           = 'Read Thoughts';
-        $power->action_type    = 'Double Action';
-        $power->requirements   = 'You must have the Sense Minds Psionic power';
-        $power->display        = 'Mental';
-        $power->targets        = 'Intelligent creature in range';
-        $power->range          = '60 ft';
-        $power->save_attribute = 'INT';
-        $power->duration       = 'Concentration, up to 1 minute';
-        $power->description    = "<p>For the duration, you can read the thoughts of certain creatures. When you manifest ths power and as a Double Action on each turn, you can focus your mind on any one creature that you can see within 60 feet of you. If the creature you choose has an INT of 3 or lower or doesn't speak any language, the creature is unaffected.</p>
+        $power                   = new Power;
+        $power->name             = 'Read Thoughts';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->requirements     = 'You must have the Sense Minds Psionic power';
+        $power->display          = 'Mental';
+        $power->targets          = 'Intelligent creature in range';
+        $power->range            = '60 ft';
+        $power->save_attribute   = 'INT';
+        $power->duration         = 'Concentration, up to 10 minutes';
+        $power->description      = "<p>For the duration, you can read the thoughts of certain creatures. When you manifest ths power and as a Double Action on each turn, you can focus your mind on any one creature that you can see within 60 feet of you. If the creature you choose has an INT of 3 or lower or doesn't speak any language, the creature is unaffected.</p>
 <p>You initially learn the surface thoughts of the creature—what is most on its mind at that moment. As a Double Action, you can either shift your attention to another creature's thoughts or attempt to probe deeper into the same creature's mind. If you probe deeper, the target may make a WIS Save. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, you cannot probe this individuals mind any deeper. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature's thoughts, the creature can use its Action on its turn to make an INT check contested by your INT check; if it succeeds, the power ends. If you try to read the thoughts of a creature with an INT of 26 or higher (and at least 10 points higher than your own INT), then you are Stunned: 2 and the Power ends.</p>
 <p>Questions verbally directed at the target creature naturally shape the course of its thoughts, so this power is particularly effective as part of an interrogation.</p>";
         $helper->addTypesToPower($power, ['Telepathy'], 2);
 
-        $power               = new Power;
-        $power->name         = 'Reddopsi';
-        $power->action_type  = 'Triple Action';
-        $power->requirements = 'You must have the Dispel Psionics power';
-        $power->targets      = 'Self';
-        $power->display      = 'Auditory, Mental, Olfactory';
-        $power->duration     = '30 minutes';
-        $power->description  = '<p>When you manifest reddopsi, powers targeted against you rebound to affect the original manifester. This effect reverses powers that have only you as a target (except dispel psionics and similar powers or effects). Powers that affect an area and those that produce effects can’t be reversed. Reddopsi also can’t reverse any power with a range of touch.</p>
+        $power                   = new Power;
+        $power->name             = 'Reddopsi';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->requirements     = 'You must have the Dispel Psionics power';
+        $power->targets          = 'Self';
+        $power->display          = 'Auditory, Mental, Olfactory';
+        $power->duration         = '1 hour';
+        $power->description      = '<p>When you manifest reddopsi, powers targeted against you rebound to affect the original manifester. This effect reverses powers that have only you as a target (except dispel psionics and similar powers or effects). Powers that affect an area and those that produce effects can’t be reversed. Reddopsi also can’t reverse any power with a range of touch.</p>
 <p>Should you rebound a power back against a manifester who also is protected by reddopsi, the power rebounds once more upon you.</p>';
         $helper->addTypesToPower($power, ['Clairsentience'], 7);
 
-        $power               = new Power;
-        $power->name         = 'Regeneration';
-        $power->action_type  = 'Triple Action';
-        $power->requirements = 'You must have the Body Adjustment power';
-        $power->targets      = 'Self';
-        $power->display      = 'Olfactory';
-        $power->duration     = '1 minute';
-        $power->description  = '<p>As the spell Regeneration, except as noted here.</p>';
-        $power->heightened   = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Regeneration';
+        $power->action_type      = 'Triple Action';
+        $power->maintenance_cost = '1 Power Point per minute';
+        $power->requirements     = 'You must have the Body Adjustment power';
+        $power->targets          = 'Self';
+        $power->display          = 'Olfactory';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>As the spell Regeneration, except as noted here.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration is doubled</dd>
     <dt>Heightened (+2)</dt> <dd>You also become immune to all Poisons, and Diseases</dd>
     <dt>Heightened (+2)</dt> <dd>The Blinded, Deafened, Dizzy, Drained, Drugged, Enervated, Enfeebled, Fatigued, Sickened, and Stunned conditions ends after 1 round.</dd>

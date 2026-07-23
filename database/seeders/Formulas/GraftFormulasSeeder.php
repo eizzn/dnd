@@ -242,5 +242,45 @@ class GraftFormulasSeeder extends Seeder
             'spells'    => ['Gentle Repose', 'Polymorph'],
             'feats'     => ['Expert Transmuter', 'Necromancer', 'Graft Flesh'],
         ]);
+
+        $formula              = new Formula;
+        $formula->name        = 'Drow Mechanical';
+        $formula->type        = 'Graft';
+        $formula->price       = '100,000 gp';
+        $formula->crafting    = '<ul>
+    <li>Form the mold using sand, and cave grit. Coat with the boiled cave worm oil for easy removal. Line with the slime and Ahaabra to form the other rubbery "skin".</li>
+    <li>Melt the metal alloy and pour into the mold</li>
+</ul>';
+        $formula->description = '<p>You are skilled at crafting mechanical limbs (arms, legs) to either enhance a creature (known to drow and elves as Ressxun), or replace a lost limb. If the limb is an additional arm, then follow the rules for the Extra Arm (except the initial penalty is -10). If the graft is replacing a lost limb, then there is no penalty.</p>
+<p>Drow Mechanicals are not forged, but formed by melting metal and pouring the metal into prepared casts or molds (these tend to be copper or nickel rich electrum and alloys of gold and silver).</p>
+<p>The rubbery skin does not rot or diminish except in the persistent presence of heat that slowly causes the skin to evaporate</p>
+<p>Famous drow artificers that crafted mechanicals</p>
+<ul>
+    <li>Everele Vrousouz: first to craft individual digits (fingers)</li>
+    <li>Klathlone Amarrodra: first and only drow artificer to inscribe more than 1 spell rune into a mechanical</li>
+</ul>
+<p>Some various alloys used in this process</p>
+<ul>
+    <li>Araelzebol</li>
+    <li>Calamaerzrebol</li>
+    <li>Nurlzrebol</li>
+</ul>';
+        $helper->saveFormula($formula, ['Graft'], [
+            'skills'    => [
+                'Crafting' => ['dc' => 12, 'meta' => 'Metalworking'],
+                'Medicine' => ['dc' => 9],
+            ],
+            'feats'     => ['Artifice Armorer', 'Graft Flesh'],
+            'materials' => [
+                'Nickel'   => ['meta' => '12% of the alloy'],
+                'Copper'   => ['meta' => '10% of the alloy'],
+                'Silver'   => ['meta' => '40% of the alloy'],
+                'Gold'     => ['meta' => '35% of the alloy'],
+                'Platinum' => ['meta' => 'Trace amounts of the alloy'],
+                'Chromium' => ['meta' => 'Trace amounts of the alloy'],
+                'Slime'    => ['meta' => 'Carrion Crawler, Giant Snails, or Giant Slugs'],
+                'Ahaabra'  => ['meta' => 'At least 2'],
+            ],
+        ]);
     }
 }

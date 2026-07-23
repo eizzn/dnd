@@ -16,13 +16,14 @@ class PowersNSeeder extends Seeder
     {
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Null Psionics Field';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Auditory, Visual';
-        $power->area        = '10-ft radius emanation';
-        $power->duration    = 'Concentration, up to 30 minute';
-        $power->description = '<p>An invisible barrier surrounds you and moves with you. The space within this barrier is impervious to most psionics. Likewise, it prevents the functioning of any psionic items or powers within its confines. A null psionics field suppresses any power or psionic effect used within, brought into, or manifested into its area, but does not negate it. Time spent within a null psionics field counts against a suppressed effect’s duration.</p>
+        $power                   = new Power;
+        $power->name             = 'Null Psionics Field';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '3 Power Points per 30 minutes';
+        $power->display          = 'Auditory, Visual';
+        $power->area             = '10-ft radius emanation';
+        $power->duration         = 'Concentration, up to 3 hours';
+        $power->description      = '<p>An invisible barrier surrounds you and moves with you. The space within this barrier is impervious to most psionics. Likewise, it prevents the functioning of any psionic items or powers within its confines. A null psionics field suppresses any power or psionic effect used within, brought into, or manifested into its area, but does not negate it. Time spent within a null psionics field counts against a suppressed effect’s duration.</p>
 <p>Astral constructs wink out if they enter a null psionics field. They reappear in the same spot once the field goes away. Time spent winked out counts normally against the duration of the power that is maintaining the construct or summoned creature.</p>
 <p>Creation powers with instantaneous durations and calling powers are not affected by a null psionics field because the power itself is no longer in effect, only its result.</p>
 <p>Magical constructs are not affected by this power. Furthermore, while a psionic sword does not function psionically within the area, it is still a sword (and a masterwork sword at that). </p>

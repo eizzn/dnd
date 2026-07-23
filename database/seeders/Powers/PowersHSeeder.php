@@ -40,16 +40,17 @@ class PowersHSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 5);
 
-        $power               = new Power;
-        $power->name         = 'Haste';
-        $power->action_type  = 'Action';
-        $power->display      = 'Auditory';
-        $power->requirements = 'You must have the Burst power';
-        $power->targets      = 'One creature';
-        $power->range        = 'Touch';
-        $power->duration     = '1 minute';
-        $power->description  = '<p>The target acts faster. It gains the Quick condition and can be used for Strike and Stride Actions.</p>';
-        $power->heightened   = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Haste';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '2 Power Point per minute';
+        $power->display          = 'Auditory';
+        $power->requirements     = 'You must have the Burst power';
+        $power->targets          = 'One creature';
+        $power->range            = 'Touch';
+        $power->duration         = '10 minutes';
+        $power->description      = '<p>The target acts faster. It gains the Quick condition and can be used for Strike and Stride Actions.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
     <dt>Heightened (+1)</dt> <dd>The range becomes 30 feet</dd>
     <dt>Heightened (+3)</dt> <dd>You can target up to 5 creatures (either touch each one or heighten the range)</dd>

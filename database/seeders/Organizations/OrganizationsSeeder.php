@@ -12,7 +12,7 @@ class OrganizationsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $org        = new Organization;
         $org->key   = 'cult-of-the-dragon';
@@ -70,6 +70,20 @@ class OrganizationsSeeder extends Seeder
         $org              = new Organization;
         $org->key         = 'harpers';
         $org->name        = 'The Harpers';
+        $org->type        = '';
+        $org->description = '';
+        $org->save();
+
+        $org              = new Organization;
+        $org->key         = 'emerald-enclave';
+        $org->name        = 'The Emerald Enclave';
+        $org->type        = '';
+        $org->description = '';
+        $org->save();
+
+        $org              = new Organization;
+        $org->key         = 'lords-alliance';
+        $org->name        = "The Lord's Alliance";
         $org->type        = '';
         $org->description = '';
         $org->save();

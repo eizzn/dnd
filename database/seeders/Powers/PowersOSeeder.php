@@ -43,13 +43,14 @@ class PowersOSeeder extends Seeder
 </dl>';
         $helper->addTypesToPower($power, ['Clairsentience'], 2);
 
-        $power              = new Power;
-        $power->name        = "Out of Time's Grip";
-        $power->action_type = 'Double Action';
-        $power->range       = 'Touch';
-        $power->targets     = 'Creature touched';
-        $power->duration    = '8 hours';
-        $power->description = "<p>Time does not actually pass on the Astral Plane, but it catches up with an individual once they leave the Astral Plane. This power was created by the githyanki to enable them to leave the Astral for short periods without feeling the effects of the time that they've cheated.</p>
+        $power                   = new Power;
+        $power->name             = "Out of Time's Grip";
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '4 Power Point per 4 hours';
+        $power->range            = 'Touch';
+        $power->targets          = 'Creature touched';
+        $power->duration         = '24 hours';
+        $power->description      = "<p>Time does not actually pass on the Astral Plane, but it catches up with an individual once they leave the Astral Plane. This power was created by the githyanki to enable them to leave the Astral for short periods without feeling the effects of the time that they've cheated.</p>
 <p>For the duration of the power, the recipient can operate freely on any plane without worrying about retroactive aging for the time that was spent on the Astral. If they stay off the Astral longer than the duration, time immediately catches up with them and they instantly age all the time that they spent on the Astral, as normal. A successful manifestation of Dispel Psionics will cause the power's effect to end.</p>";
         $power->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>

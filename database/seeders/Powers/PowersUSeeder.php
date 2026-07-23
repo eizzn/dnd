@@ -16,13 +16,14 @@ class PowersUSeeder extends Seeder
     {
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Ubiquitous Sight';
-        $power->action_type = 'Action';
-        $power->display     = 'Visual';
-        $power->targets     = 'Self';
-        $power->duration    = '1 hour';
-        $power->description = '<p>You have metaphoric “eyes in the back of your head,” and on the sides and top as well, granting you benefits in specific situations. In effect, you have a 360-degree sphere of sight, allowing you a perfect view of creatures that might otherwise flank you. Thus, flanking opponents gain no bonus on their attack rolls, and rogues are denied their sneak attack ability while flanking (but they may still sneak attack you if you are denied your DEX bonus). Your Perception checks gain a +4 enhancement bonus. Concurrently, you take a -4 penalty on Saves against all gaze attacks during the power’s duration.</p>';
+        $power                   = new Power;
+        $power->name             = 'Ubiquitous Sight';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Visual';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hours';
+        $power->description      = '<p>You have metaphoric “eyes in the back of your head,” and on the sides and top as well, granting you benefits in specific situations. In effect, you have a 360-degree sphere of sight, allowing you a perfect view of creatures that might otherwise flank you. Thus, flanking opponents gain no bonus on their attack rolls, and rogues are denied their sneak attack ability while flanking (but they may still sneak attack you if you are denied your DEX bonus). Your Perception checks gain a +4 enhancement bonus. Concurrently, you take a -4 penalty on Saves against all gaze attacks during the power’s duration.</p>';
         $helper->addTypesToPower($power, ['Clairsentience'], 2);
 
         $power                 = new Power;

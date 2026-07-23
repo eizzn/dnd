@@ -433,6 +433,46 @@ class ClassArtificerSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Effigy Companion']);
 
         $feat              = new Feat;
+        $feat->name        = 'Flesh Forger';
+        $feat->description = '<p>You may have no more than 3 Artificer Disciple feats. Taking this feat forces your Alignment to turn Evil</p>
+<ul>
+    <li>
+        <p>You gain the ability to corrupt and shape the flesh of dead creatures to a small extend. You can grant one of the following to your Familiar, Animal Companion and Undead you animate</p>
+        <ul>
+            <li>Increase the STR by +2</li>
+            <li>Increase the DEX by +2</li>
+            <li>Increase the CON by +2</li>
+            <li>Increase the INT by +2</li>
+        </ul>
+    </li>
+    <li>You gain a Familiar and an Animal Companion. They are both dead creatures that you have animated.</li>
+    <li>If you take the Divine Mount Feat, you gain another Animal Companion mount. You do not need to sacrifice any Spell Slots</li>
+</ul>
+<p>Both Velsharoon and Orcus hates the existence of Flesh Forgers and their followers are tasked with hunting them down and eliminating them.</p>';
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Flesh Forge Master';
+        $feat->description = '<p>You may have no more than 3 Artificer Disciple feats</p>
+<ul>
+    <li>You gain the Animate Dead spell. You may craft dead bodies into undead Skeletons or Zombies, except the Duration becomes Permanent. For every 4 animated undead, you must Attune to them. You may allow others to Attune to the undead you animate.</li>
+    <li>
+        <p>You may now apply one of the following abilities to each group of undead</p>
+        <ul>
+            <li>Wings, granting a Fly Speed of 40</li>
+            <li>Increase Size to Large</li>
+            <li>1/day, the undead may use the spell Dragon Breath. The elemental type must be chosen when the ability is granted to the undead and cannot be changed after</li>
+            <li>If you have the Wand of Cantrips feat, a single undead can gain the ability to trigger any of your Wand of Cantrips (but not to any other wand or other magical item). Undead with this ability cannot be Attuned to any but the forger.</li>
+        </ul>
+    </li>
+</ul>
+<p>Creatures that Attune undead to themselves must make a CHA Save (DC 12) each day or become corrupted by demonic voices. Once a creature fails 3 of these Saves, they become possessed. The crafter of these undead do not need to make these Saves.</p>';
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead']);
+        $helper->addSpellsToFeat($feat, [
+            3 => ['Animate Dead'],
+        ]);
+
+        $feat              = new Feat;
         $feat->name        = 'Wand of Spells';
         $feat->description = '<p>You may now use your Wand of Cantrips ability to create Pseudo Wands with a 1st, 2nd, and 3rd level Spell you know. Use the following table to determine the number of charges the wand is created with.</p>
 <table>

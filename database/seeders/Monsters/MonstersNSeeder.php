@@ -45,6 +45,7 @@ class MonstersNSeeder extends Seeder
                 'Perception'    => ['dc' => 13],
             ],
             'feats'     => ['Improved Initiative', 'Combat Casting', 'Great Fortitude'],
+            'talents'   => ['Combat Casting'],
             'features'  => [
                 'darkvision'     => ['meta' => '60 ft'],
                 'ethereal_jaunt' => ['meta' => 'At will'],

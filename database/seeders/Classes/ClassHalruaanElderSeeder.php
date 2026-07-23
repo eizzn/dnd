@@ -97,7 +97,7 @@ class ClassHalruaanElderSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'reflect_ray';
         $feature->name        = 'Reflect Ray';
-        $feature->description = '<p>You may now reflect Magic Missiles, or arcane magic spells that have the Ray trait or the area is a Line by spending 2 Reactions (as the Deflect Ranged Attack describes) or by expending your Psionic Focus.</p>';
+        $feature->description = '<p>You may now reflect Magic Missiles, or arcane magic spells that have the Ray trait or the area is a Line by spending 2 Reactions (as the Deflect Ranged Attack describes) or by expending your Psionic Focus. You must have your Mind Blade readied and you may only reflect spells with your Mind Blade.</p>';
         $helper->saveFeature($feature, ['Psionic', 'Mind Blade']);
 
         $helper->addFeaturesToClass($class, [
@@ -110,9 +110,9 @@ class ClassHalruaanElderSeeder extends Seeder
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 1, 'meta' => 'Deflect Ranged Attack']);
         $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Psychic Strike']);
+        $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Improved Psychic Strike']);
         $class->features()->save(app()->features['feat'], ['level' => 6, 'meta' => 'Psychic Strike']);
         $class->features()->save(app()->features['feat'], ['level' => 10, 'meta' => 'Psychic Strike']);
-        $class->features()->save(app()->features['feat'], ['level' => 5, 'meta' => 'Improved Psychic Strike']);
 
         $helper->addPowersToClass($class, [
             1 => ['Telekinetic Strike'],

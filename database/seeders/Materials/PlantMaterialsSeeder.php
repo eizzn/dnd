@@ -421,5 +421,17 @@ class PlantMaterialsSeeder extends Seeder
 <p>The leaves can also be alchemically treated and combined into many layers to make Light or Medium (but not Hide) armor. The armor provides a +1 AC bonus and the maximum DEX bonus is increased by one point. If the armor does not usually add your DEX bonus to AC, it now does with a maximum of 1. Making armor with the leaves is a painstaking and long process. It is usually reserved for elven nobility and elven magelords.</p>';
         $mat->other = '<p>Darkwood is extensively used in the south in buildings, wagons, wheels, and almost exclusively for Rods, Staffs, and Wands. Items made from Zalantar weigh half as much as normal wooden items of the same type.</p>';
         $mat->save();
+
+        $mat              = new Material;
+        $mat->name        = 'Ahaabra';
+        $mat->type        = 'Plant or Herb';
+        $mat->source      = 'Underdark';
+        $mat->description = '<p>Not harmful if eaten but neither nourishing or tasty cave fungi. Rather rubbery to texture with an orange hue.</p>
+<p>Other known similar cave fungi include the following</p>
+<ul>
+    <li>Evmralgra</li>
+    <li>Rellra</li>
+</ul>';
+        $mat->save();
     }
 }

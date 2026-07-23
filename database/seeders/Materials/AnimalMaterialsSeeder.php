@@ -54,13 +54,13 @@ class AnimalMaterialsSeeder extends Seeder
         $mat->save();
 
         $mat         = new Material;
-        $mat->name   = 'Heart';
+        $mat->name   = 'Bone';
         $mat->type   = 'Creature';
         $mat->rarity = 'Ubiquitous';
         $mat->save();
 
         $mat         = new Material;
-        $mat->name   = 'Bone';
+        $mat->name   = 'Heart';
         $mat->type   = 'Creature';
         $mat->rarity = 'Ubiquitous';
         $mat->save();
@@ -129,6 +129,11 @@ class AnimalMaterialsSeeder extends Seeder
         $mat             = new Material;
         $mat->name       = 'Stomach Acid';
         $mat->type       = 'Creature';
+        $mat->save();
+
+        $mat        = new Material;
+        $mat->name  = 'Slime';
+        $mat->type  = 'Creature';
         $mat->save();
     }
 }

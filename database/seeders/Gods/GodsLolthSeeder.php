@@ -106,17 +106,25 @@ class GodsLolthSeeder extends Seeder
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
             $class->name, 'Favored Soul', 'Monk', 'Wizard',
         ]);
+        $feature              = new Feature;
+        $feature->key         = 'shadow_access';
+        $feature->name        = 'Shadow Access';
+        $feature->description = "<p>You may take the Shadow Sight feat even if you don't have the Illusionist feat</p>";
+        $helper->saveFeature($feature, ['Shadow']);
+
         $class->features()->save(app()->features['channel_divinity_caster'], [
             'level' => 3,
             'meta'  => '<dl>
     <dt>Actions</dt> <dd>Action</dd>
     <dt>Spell</dt> <dd>Darkness</dd>
 </dl>', ]);
+        $helper->addFeaturesToClass($class, [
+            'shadow_access' => [2],
+        ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addDomainToClass($class, ['Darkness', 'Knowledge', 'Magic']);
         $helper->addFeatsToClass($class, [
             'Divine Prophet'    => 6,
-            'Shadow Sight'      => 7,
             'Master of Shrouds' => 8,
         ]);
         $helper->addSpellsToClass($class, [
@@ -166,6 +174,9 @@ class GodsLolthSeeder extends Seeder
 
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Religion']);
+        $helper->addWorshipClassesToGod($god, 'Dark Seldarine', [
+            $class->name, 'Wizard', 'Artificer',
+        ]);
 
         $feature              = new Feature;
         $feature->key         = 'channel_summon_spiders';
@@ -371,7 +382,8 @@ class GodsLolthSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'spell_pool'       => [2],
+            'spell_pool'    => [2],
+            'shadow_access' => [2],
         ]);
         $class->features()->save(app()->features['feat'], ['level' => 3, 'meta' => 'Sneak Attack']);
         $class->features()->save(app()->features['feat'], ['level' => 8, 'meta' => 'Sneak Attack']);

@@ -18,15 +18,16 @@ class PowersMSeeder extends Seeder
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
-        $power              = new Power;
-        $power->name        = 'Matter Agitation';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Auditory, Material';
-        $power->range       = '60 foot range';
-        $power->area        = '2 square foot';
-        $power->targets     = 'object or creature';
-        $power->duration    = 'Concentration, up to 5 minute';
-        $power->description = '<p>You can excite the structure of a nonpsionic, nonmagical object, heating it to the point of combustion over time. The agitation grows more intense the longer you concentrate on the power.</p>
+        $power                   = new Power;
+        $power->name             = 'Matter Agitation';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->display          = 'Auditory, Material';
+        $power->range            = '60 foot range';
+        $power->area             = '2 square foot';
+        $power->targets          = 'object or creature';
+        $power->duration         = 'Concentration, up to 1 hour';
+        $power->description      = '<p>You can excite the structure of a nonpsionic, nonmagical object, heating it to the point of combustion over time. The agitation grows more intense the longer you concentrate on the power.</p>
 <dl>
     <dt>1st round</dt> <dd>Readily flammable material (paper, dry grass, tinder, torches) ignites. Skin reddens (1 point of damage)</dd>
     <dt>2nd round</dt> <dd>Wood smolders and smokes, metal becomes hot to the touch, skin blisters (1D4 points of damage), hair smolders, water boils</dd>
@@ -67,15 +68,16 @@ class PowersMSeeder extends Seeder
 </ul>';
         $helper->addTypesToPower($power, ['Telepathy', 'Ability Damage'], 3);
 
-        $power              = new Power;
-        $power->name        = 'Mental Augmentation';
-        $power->action_type = 'Action';
-        $power->targets     = 'Self';
-        $power->display     = 'Visual';
-        $power->duration    = '10 minutes';
-        $power->description = '<p>You boost one of your mental ability scores (INT, WIS, CHA). The power grants a +4 enhancement bonus to the abilty score you choose.</p>
+        $power                   = new Power;
+        $power->name             = 'Mental Augmentation';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per 10 minutes';
+        $power->targets          = 'Self';
+        $power->display          = 'Visual';
+        $power->duration         = '30 minutes';
+        $power->description      = '<p>You boost one of your mental ability scores (INT, WIS, CHA). The power grants a +4 enhancement bonus to the abilty score you choose.</p>
 <p>You can manifest this power and have multiple instances active. Each instance must enhance a different ability score.</p>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
     <dt>Heightened (+5)</dt> <dd>Increase the bonus by an additional +4.</dd>
 </dl>';
@@ -123,20 +125,21 @@ class PowersMSeeder extends Seeder
 <p>Manifesting this power causes the manifester to take 5 points of CON damage.</p>";
         $helper->addTypesToPower($power, ['Clairsentience'], 9);
 
-        $power              = new Power;
-        $power->name        = 'Metamorphosis';
-        $power->action_type = 'Double Action';
-        $power->display     = 'Material, Olfactory';
-        $power->targets     = 'Self';
-        $power->duration    = '1 hour';
-        $power->description = '<p>You can simulate the effects of the following spells</p>
+        $power                   = new Power;
+        $power->name             = 'Metamorphosis';
+        $power->action_type      = 'Double Action';
+        $power->maintenance_cost = '3 Power Point per hour';
+        $power->display          = 'Material, Olfactory';
+        $power->targets          = 'Self';
+        $power->duration         = '3 hour';
+        $power->description      = '<p>You can simulate the effects of the following spells</p>
 <ul>
     <li>Humanoid Form</li>
     <li>Pest Form</li>
     <li>Animal Form</li>
     <li>Aerial Form</li>
 </ul>';
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+2)</dt> <dd>
         <p>You can simulate the effects of the following spells</p>
         <ul>
@@ -218,17 +221,18 @@ class PowersMSeeder extends Seeder
 <p>Manifesting this power cause the manifester to take 2 points of CON damage.</p>';
         $helper->addTypesToPower($power, ['Telepathy', 'Ability Damage'], 8);
 
-        $power                 = new Power;
-        $power->name           = 'Mind Switch';
-        $power->action_type    = '1 minute';
-        $power->requirements   = 'The target must have suffered at least 10 points of ability damage from Psionic Combat';
-        $power->display        = 'Visual';
-        $power->range          = '60 feet';
-        $power->targets        = 'You and one other creature';
-        $power->save_attribute = 'CHA';
-        $power->duration       = '1 hour';
-        $power->description    = "<p>You can attempt to take control of a nearby living creature, forcing your mind (and soul) into its body, and its mind into your body. You can target any creature whose Hit Dice are equal to or less than your manifester level.</p>
-<p>You possess the target’s body and force the creature's mind into your body unless it succeeds on a WIS Save. You can move your mind back into your own body whenever you desire, which returns the subject’s mind to its own body and ends the power. If the manifestation succeeds, your life force occupies the host body, and the host’s life force takes over yours.</p>
+        $power                   = new Power;
+        $power->name             = 'Mind Switch';
+        $power->action_type      = '1 minute';
+        $power->maintenance_cost = '5 Power Point per hour';
+        $power->requirements     = 'The target must have suffered at least 10 points of ability damage from Psionic Combat';
+        $power->display          = 'Visual';
+        $power->range            = '60 feet';
+        $power->targets          = 'You and one other creature';
+        $power->save_attribute   = 'CHA';
+        $power->duration         = '3 hours';
+        $power->description      = "<p>You can attempt to take control of a nearby living creature, forcing your mind (and soul) into its body, and its mind into your body. You can target any creature whose Hit Dice are equal to or less than your manifester level.</p>
+<p>You possess the target's body and force the creature's mind into your body unless it succeeds on a WIS Save. You can move your mind back into your own body whenever you desire, which returns the subject’s mind to its own body and ends the power. If the manifestation succeeds, your life force occupies the host body, and the host’s life force takes over yours.</p>
 <p>You can call on rudimentary or instinctive knowledge of the subject creature, but not upon its acquired or learned knowledge (such as skills and feats it possesses). The same is true for the subject in your body. The mind switch brings about the following changes.</p>
 <ul>
     <li>You gain the type of your assumed body</li>
@@ -242,7 +246,7 @@ class PowersMSeeder extends Seeder
 <p>If either body is killed while the power is in effect, the other participant also dies when the power ends. If one participant's body becomes petrified, imprisoned by Temporal Stasis or Imprisonment, or incapacitated in some other way, the other participant will be incapacitated in that way when the power ends.</p>
 <p>A targeted Dispel Psionics successfully manifested on either participant cause both minds to return to their original bodies.</p>
 <p>Manifesting this power causes the manifester to take 1 point of INT, WIS, and CHA damage.</p>";
-        $power->heightened = '<dl>
+        $power->heightened       = '<dl>
     <dt>Heightened (+6)</dt> <dd>
         <ul>
             <li>The duration becomes Permanent and cannot be dispelled.</li>
@@ -258,37 +262,39 @@ class PowersMSeeder extends Seeder
         $power->action_type = 'Action';
         $power->display     = 'Auditory';
         $power->targets     = 'Self';
-        $power->duration    = '1 round';
-        $power->description = '<p>You set up a trap in your mind against psionic intruders. Anyone who attacks you with a Telepathy power immediately loses 1D6 Power Points and 1 point of ability damage to either INT, WIS, CHA (your choice). This power\'s effect does not negate the power that is currently being used against you.</p>';
+        $power->duration    = '3 rounds';
+        $power->description = "<p>You set up a trap in your mind against psionic intruders. Anyone who attacks you with a Telepathy power immediately loses 1D6 Power Points and 1 point of ability damage to either INT, WIS, CHA (your choice). This power's effect does not negate the power that is currently being used against you.</p>";
         $power->heightened  = '<dl>
-    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>Reduce the number of Actions to Activate this power by 1 Action and the Power Point cost by 1</dd>
+    <dt>Heightened (Expend your Psionic Focus)</dt> <dd>The Action Type becomes Reaction and the Power Point cost is reduced by 1</dd>
     <dt>Heightened (+1)</dt> <dd>Increase the duration by 1 round</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy', 'Psionic Combat'], 2);
 
-        $power              = new Power;
-        $power->name        = 'Mindlink';
-        $power->action_type = 'Action';
-        $power->range       = '60 feet';
-        $power->display     = 'Mental';
-        $power->targets     = 'You and one other willing creature within range';
-        $power->duration    = '1 hour';
-        $power->description = '<p>You forge a telepathic bond with your target that has an INT score of 3 or higher. You can communicate telepathically through the bond even if you do not share a common language. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance (although not from one plane to another).</p>';
-        $power->heightened  = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Mindlink';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->range            = '60 feet';
+        $power->display          = 'Mental';
+        $power->targets          = 'You and one other willing creature within range';
+        $power->duration         = '3 hour';
+        $power->description      = '<p>You forge a telepathic bond with your target that has an INT score of 3 or higher. You can communicate telepathically through the bond even if you do not share a common language. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance (although not from one plane to another).</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the number of creatures you can link by +1</dd>
     <dt>Heightened (+4)</dt> <dd>You can attempt a telepathic bond with an unwilling target (CHA Save negates. Requires 1 point of ability damage)</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Telepathy'], 3);
 
-        $power              = new Power;
-        $power->name        = 'Missive';
-        $power->action_type = 'Action';
-        $power->display     = 'Mental';
-        $power->range       = '60 feet';
-        $power->targets     = 'One creature';
-        $power->duration    = '1 hour';
-        $power->description = '<p>You form a telepathic bond with one creature within range. For the Duration, you and the Target can communicate Telepathically. You may form this bond with only 1 creature at a time.</p>';
-        $power->heightened  = '<dl>
+        $power                   = new Power;
+        $power->name             = 'Missive';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per hour';
+        $power->display          = 'Mental';
+        $power->range            = '60 feet';
+        $power->targets          = 'One creature';
+        $power->duration         = '3 hours';
+        $power->description      = '<p>You form a telepathic bond with one creature within range. For the Duration, you and the Target can communicate Telepathically. You may form this bond with only 1 creature at a time.</p>';
+        $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>You may form a bond with an additional Target</dd>
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
 </dl>';

@@ -242,5 +242,58 @@ class TemplatesSeeder extends Seeder
     <dt>Challenge Rating</dt> <dd>Base creature CR + 4</dd>
 </dl>";
         $helper->addTypesToSimpleObject($temp, ['Animal', 'Monstrosity']);
+
+        $temp              = new Template;
+        $temp->name        = 'Dhampir';
+        $temp->description = '<p>The natural-born child of an Ancient Vampire and a mortal, you are alive but you also have some of the Powers of a Vampire</p>';
+        $temp->details     = "<p>Dhampir is a template that can be applied to any creature that can become a vampire (since that vampire must then procreate with a mortal to produce a dhampir child).</p>
+<p>A dhampir is not undead. They must eat, drink and sleep as a normal creature, but they can also gain sustenance from blood. Dhampirs live 10 times longer than normal creatures of their type. Dhampirs can contract Lycanthropy</p>
+<dl>
+    <dt>Abilities</dt> <dd>STR +2, DEX +2, CON +2, CHA +2</dd>
+    <dt>Blood Points</dt> <dd>You gain a pool of energy called Blood Points. You may have at most 2 Blood Points. You may use these Blood Points for certain effects. See the Vampire Spawn Feat for more details.</dd>
+    <dt>Resistance</dt> <dd>Bludgeoning, Poison (unless specially designed to affect dhampirs and vampires)</dd>
+    <dt>Bite Attack</dt> <dd>You gain a Bite Attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D4 Piercing damage + your STR modifier and 1D6 Negative damage. You heal damage equal to the Negative damage you dealt. You also gain 1 Blood Point. If the creature dies from this damage, you gain 2 Blood Points instead. Creatures of Size Tiny or smaller provides no Blood Points.</dd>
+    <dt>Blood Powers</dt> <dd>
+        <p>You may take Feats as if you have the Vampire's Curse Feat. You gain the following abilities</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Power</th>
+                    <th>Blood Points</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vampiric Surge: You gain a Heroic Surge which you must use immediately</td>
+                    <td>1</td>
+                    <td>Free Action</td>
+                </tr>
+                <tr>
+                    <td>Vampiric Mist: You move as if you cast Misty Step</td>
+                    <td>2</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>Defy Gravity: You gain the effects of Spider Climb for 1 minute</td>
+                    <td>1</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>Unearthly Jump: You gain a +20 bonus to Athletics (Jump) checks</td>
+                    <td>1</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>Unearthly Reflexes: You gain the effects of the Improved Evasion Feat until the beginning of your next turn</td>
+                    <td>1</td>
+                    <td>Free Action</td>
+                </tr>
+            </tbody>
+        </table>
+    </dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 4</dd>
+</dl>";
+        $helper->addTypesToSimpleObject($temp, ['Undead']);
     }
 }

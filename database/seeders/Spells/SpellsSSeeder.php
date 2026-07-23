@@ -3353,6 +3353,22 @@ class SpellsSSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Conjuration', 'Summoning'], 5);
 
         $spell              = new Spell;
+        $spell->name        = 'Summon Swarm';
+        $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
+        $spell->range       = '30 feet';
+        $spell->area        = '5 foot radius sphere';
+        $spell->duration    = 'Concentration + 2 rounds, up to 10 minutes';
+        $spell->description = '<p>You summon a swarm of bats, rats, or spiders that attacks all creatures within its area. You may summon the swarm in the same area as other creatures.</p>
+<p>The swarm automatically hits each turn and deals 1D4 -1 Piercing damage to all in the area. If creatures have Damage Reduction due to armor or Natural Armor, then the target gains Damage Resistance instead. If the target already has Damage Resistance to the swarms attack, then the target only takes 1/4 Damage rounded down.</p>
+<p>You have no control over the swarm. If all the targets in its area are all dead, then the next turn, they move towards the closest target at a Speed of 30 (Assume the swarm has 3 Actions per turn, but they can only make one attack against each creature in its area).</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Double the Range</dd>
+    <dt>Heightened (+2)</dt> <dd>Double the Area</dd>
+    <dt>Heightened</dt> <dd>Increase the Damage by +1D4</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Summoning', 'Animal'], 2);
+
+        $spell              = new Spell;
         $spell->name        = 'Summon Woodland Beings';
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '60 feet';

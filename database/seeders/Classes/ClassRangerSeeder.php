@@ -185,7 +185,6 @@ class ClassRangerSeeder extends Seeder
 
         $helper->addFeatsToClass($class, [
             'Spell Pool'           => 1,
-            'Combat Casting'       => 4,
             'Improved Study Enemy' => 5,
             'Quick Study Enemy'    => 10,
 
