@@ -2,6 +2,9 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Attribute;
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -23,23 +26,23 @@ class GodsCyricSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Cyric';
-        $god->level = 'Greater';
+        $god->level = GodPantheonLevel::Greater->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'Prince of Lies, The Dark Sun, The Black Sun, The Mad God, The Mad One, Dark Prince, Price of Madness',
             'aliases'        => "Cyruk, Sirhivatizangpo, N'asr, Leira",
-            'level'          => 'Greater',
+            'level'          => GodPantheonLevel::Greater->toString(),
             'portfolio'      => 'Deception, Illusion, Intrigue, Lies, Strife, Dusk',
             'alignment'      => 'CE',
             'regions'        => 'Amn, Moonsea, Nelanther Isles, Zhentil Keep, Voonlar, Llorkh, Hordelands, Lake of Steam',
             'symbol'         => 'White jawless skull on black or purple sunburst',
             'favored_weapon' => "Razor's Edge (longsword)",
         ]);
-        $god->pantheons()->save(app()->pantheons['Dark Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::DarkSeldarine->value], [
             'name'           => 'Zinzerena',
             'title'          => 'The Hunted, The Princess of the Outcasts',
-            'level'          => 'Hero',
+            'level'          => GodPantheonLevel::Hero->toString(),
             'portfolio'      => 'Lies, Assassination, Illusion',
             'alignment'      => 'CE',
             'symbol'         => 'The draped sword',
@@ -47,7 +50,7 @@ class GodsCyricSeeder extends Seeder
         ]);
         $cyric = $god;
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Fighter'  => 3,
             'Wizard'   => ['level' => 20, 'meta' => 'Illusion'],
             'Rogue'    => 17,
@@ -66,12 +69,16 @@ class GodsCyricSeeder extends Seeder
             'hit_dice'       => 6,
             'skill_points'   => 6,
             'skill_progress' => 5,
-        ], ['INT', 'DEX'], [
+        ], [Attribute::INT->value, Attribute::DEX->value], [
             'Evil', 'Divine', 'Illusion',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Wizard' => ['meta' => 'Illusion'], 'Warlock', 'Rogue', 'Bard', 'Spellthief', 'Assassin',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Warlock'    => ['is_clergy' => true],
+            'Wizard'     => ['meta' => 'Illusion'],
+            'Rogue', 'Bard', 'Spellthief', 'Assassin',
         ]);
 
         // Skills
@@ -159,6 +166,7 @@ class GodsCyricSeeder extends Seeder
             5 => ['Aura of Undeath'],
             6 => ['Cloak of Chaos', 'Unholy Aura'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Cyric';
@@ -182,6 +190,7 @@ class GodsCyricSeeder extends Seeder
             8 => ['Disappearance', 'Feeblemind'],
             9 => ['Chain Chaos', 'Weird'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Ritual of Black Charm';
@@ -194,6 +203,7 @@ class GodsCyricSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             1 => ['Charm', 'Suggestion'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Ritual of Dark Flame';
@@ -209,10 +219,11 @@ class GodsCyricSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             1 => ['Eldritch Blast'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Cyric's favour is oft given to those who indiscriminately and without a shadow of doubt or remorse put their interests before those of others, by any means necessary.</p>
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
+            'favor'       => "<p>Cyric's favor is oft given to those who indiscriminately and without a shadow of doubt or remorse put their interests before those of others, by any means necessary.</p>
 <p>Cyric's scions are thus drawn from the ranks of liars and deserters, but more commonly from the ranks of those with institutional privilege, such as those with hereditary wealth or those who run businesses that exploit their workers.</p>
 <ol>
     <li>You were born under a dark sun</li>
@@ -254,13 +265,13 @@ class GodsCyricSeeder extends Seeder
 
         $god              = new God;
         $god->name        = 'Garagos';
-        $god->level       = 'Demi';
+        $god->level       = GodPantheonLevel::Demi->toString();
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
             'name'           => $god->name,
             'title'          => 'Master of all Weapons, The Reaver',
             'aliases'        => 'Targus',
-            'level'          => 'Demi',
+            'level'          => GodPantheonLevel::Demi->toString(),
             'portfolio'      => 'Destruction, Plunder, Skill-at-arms',
             'alignment'      => 'CE',
             'regions'        => 'Moonsea, the Vast, Sea of Fallen Stars, Dragon Coast',
@@ -268,14 +279,14 @@ class GodsCyricSeeder extends Seeder
             'favored_weapon' => 'The Tentacus (a pinwheel of five black snaky arms, each ending in a longsword)',
             'master_id'      => $cyric->id,
         ]);
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Demonic->value], [
             'name'      => 'Kostchtchie',
             'title'     => 'Prince of Wrath',
             'level'     => 'Demon Lord',
             'alignment' => 'CE',
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Fighter'   => 15,
             'Paladin'   => 10,
         ]);
@@ -296,8 +307,9 @@ class GodsCyricSeeder extends Seeder
             'Divine', 'Combat Mastery', 'Fighter Feat',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Barbarian', 'Scout', 'Fighter',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name => ['is_clergy' => true],
+            'Barbarian', 'Scout', 'Fighter',
         ]);
 
         $feature              = new Feature;

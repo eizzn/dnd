@@ -19,6 +19,33 @@ class MonstersBSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $monster                   = new Monster;
+        $monster->name             = 'Basilisk';
+        $monster->size             = 'Medium';
+        $monster->type             = 'Magical Beast';
+        $monster->alignment        = 'N';
+        $monster->armor_class      = '16';
+        $monster->damage_reduction = '6 (Natural Armor)';
+        $monster->hit_dice         = 6;
+        $monster->speed            = '20 ft';
+        $monster->actions          = "<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +3) Piercing.</dd>
+    <dt>Petrifying Gaze (Passive / Active)</dt> <dd>
+        <p>Any living creature within 30 ft that looks into the basilisk’s eyes must succeed on a DC 13 CON Save or be permanently turned to stone (Petrified condition).</p>
+        <p>Each creature starting its turn within the gaze's area must either avert its eyes (giving the basilisk concealment and granting a 50% chance to avoid the save) or completely close its eyes (effectively blinding themselves against the basilisk).</p>
+        <p>On its turn, the basilisk can actively choose a specific target within 30 ft and force them to roll a fresh DC 13 CON Save against its gaze immediately, bypassing the passive round structure.</p>
+    </dd>
+</dl>";
+        $helper->saveMonster($monster, ['Monstrosity'], [
+            'stats'  => [16, 8, 15, 2, 8, 7, 3, 2],
+            'skills' => [
+                'Perception' => ['dc' => 4],
+            ],
+            'features' => [
+                'darkvision' => ['meta' => '60 ft'],
+            ],
+        ]);
+
+        $monster                   = new Monster;
         $monster->name             = 'Behir';
         $monster->size             = 'Huge';
         $monster->type             = 'Dragon';

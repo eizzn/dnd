@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Attribute;
 use App\Models\Feat;
+use App\Models\Feature;
 use App\Models\Power;
 use App\Models\Skill;
 use App\Models\Spell;
@@ -21,6 +23,7 @@ class FeatResource extends JsonResource
             'trigger'           => $this->trigger,
             'short_description' => $this->short_description,
             'description'       => $this->description,
+            'action_type'       => $this->action_type,
             'types'             => $this->types->map(function (Type $type) {
                 return [
                     'id'    => $type->id,
@@ -44,10 +47,25 @@ class FeatResource extends JsonResource
                         mb_substr(str_replace(["\r", "\n"], '', strip_tags($child->description)), 0, 100)) . '...',
                 ];
             }),
+            'attributes'        => $this->attributes->map(function (Attribute $attribute) {
+                return [
+                    'id'   => $attribute->id,
+                    'name' => $attribute->name,
+                    'attr' => $attribute->attr,
+                    'dc'   => $attribute->pivot->dc,
+                ];
+            }),
+            'features'          => $this->features->map(function (Feature $feature) {
+                return [
+                    'id'    => $feature->id,
+                    'name'  => $feature->name,
+                ];
+            }),
             'skills'            => $this->skills->map(function (Skill $skill) {
                 return [
                     'id'   => $skill->id,
                     'name' => $skill->name,
+                    'dc'   => $skill->pivot->dc,
                 ];
             }),
             'spells'            => $this->spells

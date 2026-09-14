@@ -59,7 +59,8 @@ class GodsTempusSeeder extends Seeder
             'Divine', 'Combat Mastery', 'Fighter Feat',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Fighter', 'Barbarian', 'Swashbuckler', 'Scout',
+            $class->name => ['is_clergy' => true],
+            'Fighter', 'Barbarian', 'Swashbuckler', 'Scout',
         ]);
 
         // Skills
@@ -151,7 +152,8 @@ class GodsTempusSeeder extends Seeder
             'Paladin' => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Paladin', 'Scout', 'Fighter',
+            'Paladin' => ['is_clergy' => true],
+            'Scout', 'Fighter',
         ]);
 
         $feat              = new Feat;
@@ -219,7 +221,8 @@ class GodsTempusSeeder extends Seeder
             'Divine', 'Rogue', 'Fighter Feat',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Swashbuckler', 'Rogue', 'Fighter',
+            $class->name => ['is_clergy' => true],
+            'Swashbuckler', 'Rogue', 'Fighter',
         ]);
 
         // Skills
@@ -262,6 +265,73 @@ class GodsTempusSeeder extends Seeder
             'symbol'         => 'That of the individual beast totem spirit',
             'favored_weapon' => 'Appropriate Beast Totem Spirit (battleaxe)',
             'master_id'      => $tempus->id,
+            'description'    => '<p>The tribes of Uthgar barbarians are as follows</p>
+<table>
+    <thead>
+        <tr>
+            <th>Tribe</th>
+            <th>Totem Feat</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Black Lion</td>
+            <td> - </td>
+            <td>The Black Lions have forsaken their barbarian ways and few become barbarians. Their enemies are the Tundra Barbarians</td>
+        </tr>
+        <tr>
+            <td>Elk Lion</td>
+            <td>Fury Totem</td>
+            <td>The Elk tribe members are traditional raiders and bandits</td>
+        </tr>
+        <tr>
+            <td>Great Worm</td>
+            <td>Fury Totem</td>
+            <td>They were once ruled by a dragon (Elrem) but was recently slain</td>
+        </tr>
+        <tr>
+            <td>Griffon</td>
+            <td>Fury Totem</td>
+            <td>Considers all the cities and their residents their enemies</td>
+        </tr>
+        <tr>
+            <td>Red Tiger</td>
+            <td>Superstition Totem</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sky Pony</td>
+            <td>Fury Totem</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Thunderbeast</td>
+            <td>Fury Totem</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tree Ghost</td>
+            <td>Spirit Totem</td>
+            <td>Barbarian / Rangers</td>
+        </tr>
+        <tr>
+            <td>Black Raven</td>
+            <td>Black Raven Uthgar Tribe Feat</td>
+            <td>Trains and rides giant ravens</td>
+        </tr>
+        <tr>
+            <td>Blue Bear</td>
+            <td>Blue Bear Uthgar Tribe Feat</td>
+            <td>Mostly tiefling vampire spawns in the service of a Night Hag and demons</td>
+        </tr>
+        <tr>
+            <td>Gray Wolf</td>
+            <td>Gray Wolf Uthgar Tribe Feat</td>
+            <td>Were-wolf barbarians slowly turning to Malar and opposing the Blue Bear vampires</td>
+        </tr>
+    </tbody>
+</table>',
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
@@ -269,19 +339,10 @@ class GodsTempusSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Spirit Shaman', 'Barbarian', 'Ranger', 'Scout',
+            'Spirit Shaman' => ['is_clergy' => true],
+            'Ranger'        => ['is_clergy' => true],
+            'Barbarian', 'Scout',
         ]);
-
-        // Priests of Uthgar are all Spirit Shamans, although some tribes have welcomed priests of other gods
-
-        // Black Lion       => The Black Lions have forsaken their barbarian ways and few become barbarians. Their enemies are the Tundra Barbarians
-        // Elk              => Fury Totem (Raiders and Bandits)
-        // Great Worm       => Fury Totem. Used to be ruled by a dragon? named Elrem, but Elrem was slain.
-        // Griffon          => Fury Totem. Considers all the cities and their residents their enemies.
-        // Red Tiger        => Superstition Totem
-        // Sky Pony         => Fury Totem
-        // Thunderbeast     => Fury Totem
-        // Tree Ghost       => Barbarian (Spirit Totem) / Ranger
 
         $feat              = new Feat;
         $feat->name        = 'Black Raven Uthgar Tribe';
@@ -333,7 +394,7 @@ class GodsTempusSeeder extends Seeder
 <p>You do not gain any Raging Resistance. You may take the Lycanthrope's Vigor Feat instead.</p>
 <h4>Ancestor Mound</h4>
 <p>Ravenrock</p>
-<p>The tribe is slowing turning from Uthgardt to the worship of Malar. This puts them at odds with the Black Raven tribe, with whom they share Ravenrock as their Ancestor Mound.</p>";
+<p>The tribe is slowly turning away from Uthgardt to the worship of Malar. This puts them at odds with the Black Raven tribe, with whom they share Ravenrock as their Ancestor Mound.</p>";
         $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
     }
 }

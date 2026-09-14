@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Attribute;
-use App\Models\Skill;
-use App\Models\Type;
 use App\Services\SeedHelper;
+use Database\Seeders\Artifacts\ArtifactsSeeder;
 use Database\Seeders\Characters\CharactersSeeder;
 use Database\Seeders\Classes\ClassSeeder;
 use Database\Seeders\Equipment\EquipmentsSeeder;
@@ -29,28 +27,22 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        $runBase         = true;
         $app             = app();
         $app->seedHelper = new SeedHelper;
 
-        if ($runBase) {
-            $this->call(AttributesSeeder::class);
-            $this->call(BackgroundsSeeder::class);
-            $this->call(TypesSeeder::class);
-            $this->call(PropertiesSeeder::class);
-            $this->call(RacesSeeder::class);
-            $this->call(SkillsSeeder::class);
-            $this->call(ActionsSeeder::class);
-            $this->call(ConditionsSeeder::class);
-            $this->call(PantheonsSeeder::class);
-        } else {
-            $this->buildCache();
-        }
+        $this->call(AttributesSeeder::class);
+        $this->call(BackgroundsSeeder::class);
+        $this->call(TypesSeeder::class);
+        $this->call(PropertiesSeeder::class);
+        $this->call(RacesSeeder::class);
+        $this->call(SkillsSeeder::class);
+        $this->call(ActionsSeeder::class);
+        $this->call(ConditionsSeeder::class);
+        $this->call(PantheonsSeeder::class);
+
         $this->call(MaterialsSeeder::class);
 
         $this->call(FeaturesSeeder::class);
@@ -66,57 +58,17 @@ class DatabaseSeeder extends Seeder
         $this->call(FormulasSeeder::class);
         $this->call(RulesSeeder::class);
         $this->call(TemplatesSeeder::class);
-        if ($runBase) {
-            $this->call(GodsSeeder::class);
-            $this->call(MonstersSeeder::class);
-            $this->call(OrganizationsSeeder::class);
-        }
+
+        $this->call(GodsSeeder::class);
+        $this->call(MonstersSeeder::class);
+        $this->call(OrganizationsSeeder::class);
+
         $this->call(CharactersSeeder::class);
         $this->call(LocationsSeeder::class);
 
-        // run any after post seeding code
+        $this->call(ArtifactsSeeder::class);
+
+        // run any after post-seeding code
         $this->call(AfterSeeder::class);
-    }
-
-    protected function buildCache()
-    {
-        $this->buildAttributesCache();
-        $this->buildTypesCache();
-        $this->buildSkillsCache();
-    }
-
-    protected function buildAttributesCache()
-    {
-        $app             = app();
-        $app->attributes = [];
-        $attrs           = [];
-
-        foreach (Attribute::all() as $attr) {
-            $attrs[$attr->attr] = $attr;
-        }
-        $app->attributes = $attrs;
-    }
-
-    protected function buildTypesCache()
-    {
-        $app        = app();
-        $app->types = [];
-        $types      = [];
-
-        foreach (Type::all() as $type) {
-            $types[$type->name] = $type;
-        }
-        $app->types = $types;
-    }
-
-    protected function buildSkillsCache()
-    {
-        $app    = app();
-        $skills = [];
-
-        foreach (Skill::all() as $skill) {
-            $skills[$skill->name] = $skill;
-        }
-        $app->skills = $skills;
     }
 }

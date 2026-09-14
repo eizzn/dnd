@@ -2,6 +2,10 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Attribute;
+use App\Enums\ClassType;
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\God;
 use App\Models\Klass;
@@ -15,36 +19,36 @@ class GodsMystraSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
         $god        = new God;
         $god->name  = 'Mystra';
-        $god->level = 'Greater';
+        $god->level = GodPantheonLevel::Greater->toString();
         $god->save();
         $mystra = $god;
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'      => $god->name,
             'title'     => 'The Lady of Mysteries, The Mother of All Magic, Mistress of Magic, Our Lady of Spells, The Mother of Mystery, Lady Magic, Lady of Magic, Lady of Might, One True Spell, Goddess of Magic, Derogatory: The Whore, The Harlot',
-            'level'     => 'Greater',
+            'level'     => GodPantheonLevel::Greater->toString(),
             'portfolio' => 'Magic, spells, the weave',
             'regions'   => 'Halruaa, the North, Rashemen, Sembia, Silverymoon, the Vast',
             'alignment' => 'LN',
             'symbol'    => 'Blue-white star',
         ]);
-        $god->pantheons()->save(app()->pantheons['Draconic'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Draconic->value], [
             'name'      => 'Kereska',
             'aliases'   => 'Kalzareinad',
             'title'     => 'Light of Magic, Wonderbringer',
-            'level'     => 'Intermediate',
+            'level'     => GodPantheonLevel::Intermediate->toString(),
             'portfolio' => 'Magic, Dragon Magic',
             'alignment' => 'CN',
             'symbol'    => 'A five-pointed star with the lower two points extended',
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Wizard' => 30,
             'Cleric' => 20,
         ]);
@@ -60,11 +64,14 @@ class GodsMystraSeeder extends Seeder
             'hit_dice'       => 6,
             'skill_points'   => 2,
             'skill_progress' => 3,
-        ], ['INT', 'WIS'], [
+        ], [Attribute::INT->value, Attribute::WIS->value], [
             'Divine',
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Wizard', 'Sorcerer', 'Spellthief', 'Mystic Theurge',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name     => ['is_clergy' => true],
+            'Paladin'        => ['is_clergy' => true],
+            'Mystic Theurge' => ['is_clergy' => true],
+            'Wizard', 'Sorcerer', 'Spellthief',
         ]);
 
         // Skills
@@ -122,17 +129,17 @@ class GodsMystraSeeder extends Seeder
             0 => ['Detect Magic', 'Light', 'Prestidigitation', 'Shield', 'Stabilize', 'Thaumaturgy'],
             1 => ['Detect Alignment', 'Divine Smite', 'Identify', 'Mage Armor', 'Magic Missile', 'Heroism'],
             2 => ['Aura of Hope', 'Aura of the Fox', 'Branding Smite', 'Create Food and Water', 'Daylight', 'Diamond Spray',
-                'Insignia of Alarm', 'Invisibility Purge', 'Magic Missile', 'Remove Curse', 'Restoration', 'Resist Elements',
-                'Undead Bane Weapon', ],
+                'Insignia of Alarm', 'Invisibility Purge', 'Remove Curse', 'Restoration', 'Resist Elements', 'Undead Bane Weapon', ],
             3 => ['Circle of Protection From Evil', 'Circle of Protection From Good', 'Forceward', 'Insignia of Blessing',
                 'Lightning Bolt', 'Redirect Spell', 'Rend Shadow Weave', 'Spell Shield', ],
             4 => ['Globe of Invulnerability', 'Mystic Aegis', 'Spell Matrix', 'Stars of Mystra'],
             5 => ['Antimagic Ray', 'Aura of Power', 'Wall of Dispel Magic'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Mystra's favour is given to those with innate power such as sorcerers, or those learned arcanists who show incredible potential and growth. Mystra works to shepherd these dangerous people into situations that will provoke them to use and develop their powers.</p>
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
+            'favor'       => "<p>Mystra's favor is given to those with innate power such as sorcerers, or those learned arcanists who show incredible potential and growth. Mystra works to shepherd these dangerous people into situations that will provoke them to use and develop their powers.</p>
 <p>Mystra's scions are varied in origin and temperament, united mainly by a gift for the Art magic.</p>
 <ol>
     <li>Your magical gift destroyed your home before you got it under control</li>
@@ -140,7 +147,7 @@ class GodsMystraSeeder extends Seeder
     <li>You are descended from a being of magical might</li>
     <li>You bumped into Elminster once. Literally. Maybe some that magic rubbed off on you</li>
     <li>Someone cast a spell on you in your earliest youth, and it never quite washed out</li>
-    <li>You have no idea why Mystra favours you - you are singularly incompetent in the Art</li>
+    <li>You have no idea why Mystra favors you. You are singularly incompetent in the Art</li>
 </ol>",
             'devotion' => "<p>Following Mystra means dedicating yourself to magic. As a follower of Mystra, consider the ideals below as alternatives to those suggested for your background.</p>
 <dl>
@@ -181,12 +188,12 @@ class GodsMystraSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Azuth';
-        $god->level = 'Lesser';
+        $god->level = GodPantheonLevel::Lesser->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'High One, Patron of Wizards, Patron of Mages, Lord of Spells, Hand of Sorcery, Lord of Spellcraft, The First Magister',
-            'level'          => 'Lesser',
+            'level'          => GodPantheonLevel::Lesser->toString(),
             'portfolio'      => 'Wizards, Mages, Spellcasters, Evocation',
             'regions'        => 'Calimshan, Chessenta, Halruaa, Lantan, Sembia',
             'alignment'      => 'LN',
@@ -197,7 +204,7 @@ class GodsMystraSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Magistrati';
-        $class->type          = 'Priest';
+        $class->type          = ClassType::Priest->value;
         $class->key_attribute = 'INT or WIS';
         $class->weapons       = 'Club, Dagger, Heavy Crossbow, Light Crossbow, Staff';
         $class->has_spells    = 1;
@@ -206,17 +213,21 @@ class GodsMystraSeeder extends Seeder
             'hit_dice'       => 6,
             'skill_points'   => 2,
             'skill_progress' => 2,
-        ], ['INT', 'WIS'], [
+        ], [Attribute::INT->value, Attribute::WIS->value], [
             'Divine', 'Arcane', 'Evocation',
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Wizard'   => ['level' => 25, 'meta' => 'Evocation'],
             'Archmage' => 5,
             'Sorcerer' => 5,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Evocation'], 'Monk', 'Enlightened Fist', 'Mystic Theurge',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name       => ['is_clergy' => true],
+            'Enlightened Fist' => ['is_clergy' => true],
+            'Mystic Theurge'   => ['is_clergy' => true],
+            'Monk'             => ['is_clergy' => true],
+            'Wizard'           => ['is_clergy' => true, 'meta' => 'Evocation'],
         ]);
 
         // Skills
@@ -274,7 +285,7 @@ class GodsMystraSeeder extends Seeder
         ]);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
             'favor'       => "<p>Azuth is concerned with components, spells and rituals. He eschews the chaotic nature of sorcery and the dubious Pact Magic of warlocks for the reliable results of the Art.</p>
 <p>Azuth's scions are almost always wizards, though he has a small and devoted clergy who seek to blend divine magic with arcane theurgy in his name.</p>
 <ol>
@@ -313,16 +324,18 @@ class GodsMystraSeeder extends Seeder
 <p>You may use an Action to spend an Inspiration and swap one of your prepared spells with an unprepared one from your class list if you are a cleric, or your spellbook if you are a wizard</p>',
         ]);
 
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', 'Shining Hand')->first());
+
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Savras';
-        $god->level = 'Demi';
+        $god->level = GodPantheonLevel::Demi->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'The All-Seeing, He of the Third Eye, Lord of Divination',
-            'level'          => 'Demi',
+            'level'          => GodPantheonLevel::Demi->toString(),
             'portfolio'      => 'Divination, fate, truth',
             'regions'        => 'Tashalar, Halruaa',
             'alignment'      => 'LN',
@@ -345,8 +358,14 @@ class GodsMystraSeeder extends Seeder
         ], ['INT', 'WIS'], [
             'Divine', 'Arcane', 'Divination',
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Divination'], 'Monk', 'Enlightened Fist', 'Divine Oracle', 'Mystic Theurge',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name       => ['is_clergy' => true],
+            'Enlightened Fist' => ['is_clergy' => true],
+            'Divine Oracle'    => ['is_clergy' => true],
+            'Mystic Theurge'   => ['is_clergy' => true],
+            'Monk'             => ['is_clergy' => true],
+            'Wizard'           => ['is_clergy' => true, 'meta' => 'Divination'],
+            'Psion',
         ]);
 
         // Skills
@@ -374,9 +393,9 @@ class GodsMystraSeeder extends Seeder
             1 => ['Bless', 'Cure Wounds', 'Detect Alignment', 'Detect Chaos', 'Detect Evil', 'Detect Good', 'Detect Law',
                 'Detect Poison and Disease', 'Detect Secret Doors', 'Identify', 'Know Wizard School', 'Locate Water', 'Lock',
                 'Mage Armor', 'Remove Disease', 'Unseen Servant', ],
-            2 => ['Augury', 'Clairvoyance', 'Comprehend Language', 'Darkvision', 'Discern Lies', 'Divine Insight', 'Interplanar Message',
-                'Invisibility Purge', 'Locate Object', 'Pierce Disguise', 'Remove Fear', 'Resist Energy', 'Restoration',
-                'Reveal Illusion', 'Reveal True Shape', 'See Invisibility', 'Silence', 'Status', 'Zone of Truth', ],
+            2 => ['Augury', 'Clairvoyance', 'Comprehend Language', 'Darkvision', 'Discern Lies', 'Divine Insight', 'Identify Creature',
+                'Interplanar Message', 'Invisibility Purge', 'Locate Object', 'Pierce Disguise', 'Remove Fear', 'Resist Energy',
+                'Restoration', 'Reveal Illusion', 'Reveal True Shape', 'See Invisibility', 'Silence', 'Status', 'Zone of Truth', ],
             3 => ['Circle of Protection From Chaos', 'Circle of Protection From Evil', 'Circle of Protection From Good',
                 'Circle of Protection From Law', 'Dispel Magic', 'Neutralize Poison', 'Nondetection', 'Prophecy', 'Secret Page',
                 'Sending', 'Tongues', 'Warp and Weave', ],
@@ -393,7 +412,7 @@ class GodsMystraSeeder extends Seeder
         $helper->addSpellSlotsToClass($class);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
             'favor'       => "<p>Savras's favour is bestowed on those who value foresight and planning, but amongst these he particularly treasures seers and mystics.</p>
 <p>Savras's scions are drawn equally from temple oracles and hedge witches, comprising anyone with the gift of Sight.</p>
 <ol>
@@ -432,17 +451,19 @@ class GodsMystraSeeder extends Seeder
 <p>You may spend an Inspiration to gain Truesight for 1 minute</p>',
         ]);
 
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', 'Shining Hand')->first());
+
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Velsharoon';
-        $god->level = 'Demi';
+        $god->level = GodPantheonLevel::Demi->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'aliases'        => 'Mellifleur',
             'title'          => 'Archmage of Necromancy, The Necromancer, The Vaunted, Lord of the Forsaken Crypt, Lord of the Forgotten Crypt, The Lich-Lord, Patron of Evil Liches',
-            'level'          => 'Demi',
+            'level'          => GodPantheonLevel::Demi->toString(),
             'portfolio'      => 'Liches, Necromancy, Undeath',
             'regions'        => 'Thay',
             'alignment'      => 'LE',
@@ -465,8 +486,10 @@ class GodsMystraSeeder extends Seeder
         ], ['INT', 'WIS'], [
             'Divine', 'Arcane', 'Necromancy', 'Undead',
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard' => ['meta' => 'Necromancy'], 'Mystic Theurge',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name     => ['is_clergy' => true],
+            'Mystic Theurge' => ['is_clergy' => true],
+            'Wizard'         => ['meta' => 'Necromancy'],
         ]);
 
         // Skills
@@ -488,7 +511,7 @@ class GodsMystraSeeder extends Seeder
             'meta'  => 'Master Necromancer',
         ]);
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
-        $helper->addDomainToClass($class, ['Magic', 'Undead']);
+        $helper->addDomainToClass($class, ['Magic', 'Undead', 'Necromancy']);
         $helper->addFeatsToClass($class, [
             'Improved Undead'   => 3,
             'Undead Ally'       => 5,
@@ -522,18 +545,29 @@ class GodsMystraSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Auppenser';
-        $god->level = 'Hero';
+        $god->level = GodPantheonLevel::Demi->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'The Master of the Invisible Art, Lord of Reason, Serene One, Master of Thought',
-            'level'          => 'Hero',
+            'level'          => 'Demi',
             'portfolio'      => 'Psionics, Serenity, Personal Autonomy, Enlightenment',
             'regions'        => 'Jhaamdath, Halruaa',
             'alignment'      => 'N',
             'symbol'         => 'An eye centered within a hexagonal shaped gem',
             'favored_weapon' => 'Kukri',
             'master_id'      => $mystra->id,
+        ]);
+
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
+            'Psion'  => 20,
+            'Wizard' => 10,
+        ]);
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            'Psion'           => ['is_clergy' => true],
+            'Psychic Warrior' => ['is_clergy' => true],
+            'Soul Knife', 'Cerebremancer',
+            'Wizard' => ['meta' => 'Diviner'],
         ]);
     }
 }

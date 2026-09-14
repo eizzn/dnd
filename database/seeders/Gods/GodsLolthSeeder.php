@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -104,7 +105,9 @@ class GodsLolthSeeder extends Seeder
             'Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Favored Soul', 'Monk', 'Wizard',
+            $class->name   => ['is_clergy' => true],
+            'Favored Soul' => ['is_clergy' => true],
+            'Monk', 'Wizard',
         ]);
         $feature              = new Feature;
         $feature->key         = 'shadow_access';
@@ -175,7 +178,8 @@ class GodsLolthSeeder extends Seeder
         // Skills
         $helper->addSkillsToClass($class, ['Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Religion']);
         $helper->addWorshipClassesToGod($god, 'Dark Seldarine', [
-            $class->name, 'Wizard', 'Artificer',
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Artificer',
         ]);
 
         $feature              = new Feature;
@@ -373,7 +377,9 @@ class GodsLolthSeeder extends Seeder
             'Stealth', 'Thievery',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Rogue', 'Telflammar Shadowlord', 'Arcane Trickster', 'Spellthief',
+            $class->name            => ['is_clergy' => true],
+            'Telflammar Shadowlord' => ['is_clergy' => true],
+            'Rogue', 'Arcane Trickster', 'Spellthief',
             'Wizard' => ['meta' => 'ShadowDancer and/or Shadow Weave Caster Feats'],
         ]);
         $helper->addWorshipClassesToGod($god, 'Dark Seldarine', [
@@ -452,7 +458,9 @@ class GodsLolthSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Dark Seldarine', [
-            $class->name, 'Wizard' => ['meta' => 'Necromancy'], 'Mystic Theurge',
+            $class->name     => ['is_clergy' => true],
+            'Mystic Theurge' => ['is_clergy' => true],
+            'Wizard'         => ['meta' => 'Necromancy'],
         ]);
 
         $helper->addClassesToGod($god, 'Dark Seldarine', [
@@ -501,10 +509,10 @@ class GodsLolthSeeder extends Seeder
         $god->save();
         $god->pantheons()->save(app()->pantheons['Dark Seldarine'], [
             'name'           => $god->name,
-            'aliases'        => 'Zanassu',
-            'title'          => "The Spider That Waits, Lolth's Champion, Thane of Lolth, The Spider Demon, Prince of the Aranea, Lord of Venomire",
+            'aliases'        => 'Zanassu, Keptolo',
+            'title'          => "The Spider That Waits, Lolth's Champion, Thane of Lolth, The Spider Demon, Prince of the Aranea, Lord of Venomire, The Eager Consort",
             'level'          => 'Hero',
-            'portfolio'      => 'Warriors, slaughter',
+            'portfolio'      => 'Warriors, Slaughter, as Keptolo (Beauty, Hedonism, Fertility)',
             'regions'        => 'Underdark',
             'alignment'      => 'CE',
             'symbol'         => 'Spider over crossed sword and mace',
@@ -518,22 +526,13 @@ class GodsLolthSeeder extends Seeder
             'alignment' => 'CE',
             'master_id' => $lolth->id,
         ]);
-        $god->pantheons()->save(app()->pantheons['Dark Seldarine'], [
-            'name'      => 'Keptolo',
-            'title'     => 'The Eager Consort',
-            'level'     => 'Hero',
-            'portfolio' => 'Beauty, Hedonism, Fertility',
-            'alignment' => 'CE',
-            'symbol'    => 'Mushroom',
-            'master_id' => $lolth->id,
-        ]);
 
         $helper->addClassesToGod($god, 'Dark Seldarine', [
             'Paladin' => 20,
         ]);
         // Priests of Selvetarm are Paladins
         $helper->addWorshipClassesToGod($god, 'Dark Seldarine', [
-            'Paladin',
+            'Paladin' => ['is_clergy' => true],
         ]);
 
         $feat              = new Feat;
@@ -551,6 +550,10 @@ class GodsLolthSeeder extends Seeder
             2 => ['Darkness', 'Divine Presence', 'Spider Climb', 'Undead Bane Weapon'],
             3 => ['Armor of Darkness', 'Aura of Silence', 'Aura of Pain', 'Circle of Protection From Good', 'Haste', 'Web'],
             4 => ['Aura of Death'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::DarkSeldarine->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Death Knights of Selvetarm' => 2,
         ]);
     }
 }

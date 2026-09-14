@@ -150,7 +150,7 @@ class ClassFavoredSoulSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Favored of Bast';
         $feat->requirement = 'Must be CG and Bast must be your Patron Deity';
-        $feat->description = '<p>You are called by Bast to server her purposes.</p>
+        $feat->description = '<p>You are called by Bast to serve her purposes.</p>
 <ul>
     <li>Increase your DEX by +1 to a maximum of 20</li>
     <li>You gain the following skills as class skills
@@ -280,12 +280,10 @@ class ClassFavoredSoulSeeder extends Seeder
             'Dark Moon Blade'              => 3,
             'Favored of Bast'              => 1,
 
-            'Reach Spell'              => 1,
             'Widen Spell'              => 1,
             'Heighten Spell'           => 3,
             'Conceal Spell'            => 4,
             'Expanded Spell Knowledge' => 5,
-            'Metamagic Master'         => 8,
             'Quicken Spell'            => 8,
 
             'Extend Spell Pool' => 5,

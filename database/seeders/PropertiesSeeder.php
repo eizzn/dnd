@@ -13,7 +13,7 @@ class PropertiesSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $props = [
             'Armor Class'         => 'Armor Class that represents the difficulty to be hit',
@@ -32,6 +32,8 @@ class PropertiesSeeder extends Seeder
             'Fatal'               => "On a Critical Hit, use the Fatal's die instead of the weapon's die",
             'Reload'              => 'The number Actions required to load an ammunition to the weapon',
             'Volley'              => 'The ranged weapon is less effective at close range, Your attacks against targets that are at a distance within the range listed take a -2 less Damage',
+            'Hardness'            => 'The Damage Reduction of an object when it is attacked directly (i.e. Sunder)',
+            'Hit Points'          => 'The amount of damage that an object can take before it is considered destroyed',
         ];
 
         ksort($props);

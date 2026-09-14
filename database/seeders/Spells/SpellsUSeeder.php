@@ -69,6 +69,27 @@ class SpellsUSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Enchantment'], 2);
 
+        $spell                = new Spell;
+        $spell->name          = 'Undead Head';
+        $spell->casting       = '1 minute (Somatic, Verbal, Material)';
+        $spell->spell_creator = 'Hruggek';
+        $spell->requirements  = '<dl>
+    <dt>Secondary Casters</dt> <dd>3 (the secondary caster need not be spell casters, but must be skilled hunters)</dd>
+</dl>';
+        $spell->range         = 'Touch';
+        $spell->targets       = 'Severed head touched';
+        $spell->duration      = 'Instantaneous';
+        $spell->description   = "<p>You animate a severed head as an undead thing. The head does not have any Movement Speed, so it is not able to move. It has the following abilities.</p>
+<ul>
+    <li>It can hear and speak. It learns the Ghukliak language (Goblin)</li>
+    <li>It can remember all that it hears, and can act as a tribal memory, recounting the tribe's history.</li>
+    <li>1/day, it can cast Bestow Curse, Heightened +2. It usually picks Disadvantage on attack rolls or the additional Necrotic damage</li>
+    <li>The head can be asked questions regarding its past life. You may ask it questions as if you had cast Speak with Dead, but the head will only answer one question ever.</li>
+    <li>Bugbears usually spike these heads on spikes. There, the heads can act as alarms for the tribe.</li>
+    <li>While these heads are Undead, and can be turned or rebuked, they cannot move.</li>
+</ul>";
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Goblin'], 1);
+
         $spell               = new Spell;
         $spell->name         = 'Undead Lieutenant';
         $spell->casting      = '30 minutes (Somatic, Verbal)';

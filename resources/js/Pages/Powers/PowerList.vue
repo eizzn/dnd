@@ -5,7 +5,7 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import { ref } from "vue";
 import {TailwindPagination} from "laravel-vue-pagination";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = 'powers';
 const filters = {
@@ -58,6 +58,7 @@ const filters = {
                                             { value: 'psychometabolism', label: 'Psychometabolism' },
                                             { value: 'telepathy', label: 'Telepathy' },
                                             { value: 'astral', label: 'Astral' },
+                                            { value: 'acid', label: 'Acid' },
                                             { value: 'cold', label: 'Cold' },
                                             { value: 'creation', label: 'Creation' },
                                             { value: 'construct', label: 'Construct' },

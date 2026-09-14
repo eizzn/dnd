@@ -4,6 +4,10 @@ namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypeByName;
 use App\Models\Material;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,10 +32,10 @@ class MaterialService implements Contracts\MaterialService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\TypeByName::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                TypeByName::class,
+                Order::class,
             ])
             ->thenReturn();
 

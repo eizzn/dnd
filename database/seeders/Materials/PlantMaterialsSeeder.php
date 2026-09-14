@@ -433,5 +433,108 @@ class PlantMaterialsSeeder extends Seeder
     <li>Rellra</li>
 </ul>';
         $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Blueridge';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Rimwood (Cormanthor)</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Blue Snowwood';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Great Glacier</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Lost Needle';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Pirate Isles</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Needleleaf';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Rimwood (Cormanthor)</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Niflheim Pine';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Plane of Niflheim in the Outer Planes</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Pinyon';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>Pasocada Basin (Maztica)</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees, eaten by the Azuposi.</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Ponderosa';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Savage Frontier</li>
+</ul>';
+        $mat->description = '<p>One o fthe largest pine species.</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Roseneedle';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>River Ashaba</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees that rarely grows more than 30 ft tall. The roots of the tree can extend to over 10 ft in depth with their ends forming tubers that are shaped roughly like potatoes and make for excellent fishing bait.</p>
+<p>Each needle on the tree has a pink or white rose-like blossom.</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'White Pine';
+        $mat->type   = 'Wood';
+        $mat->source = '<ul>
+    <li>The Savage Frontier</li>
+</ul>';
+        $mat->description = '<p>Species of Pine Trees</p>';
+        $mat->save();
+
+        $mat         = new Material;
+        $mat->name   = 'Pine Wood Tree';
+        $mat->type   = 'Wood';
+        $mat->source = "<ul>
+    <li>Forest of Cormyr.</li>
+    <li>Southern slopes of the Spine of the World.</li>
+    <li>Cold Wood, Vordrorn Forest, and Mooshie's Groove.</li>
+    <li>Gauros, Rawlinswood, and the Guthmere Forest.</li>
+    <li>High Thay and Rashemen (Ashenwood, Lake Ashane)</li>
+    <li>Forest of Wyrms.</li>
+    <li>Moonshae Isles, Ruathym.</li>
+    <li>High Moor</li>
+    <li>Lake of Mists</li>
+    <li>Kozakura</li>
+    <li>Crowded Sea, Steaming Isles</li>
+    <li>Snowflake Mountains, Carradoon, Spirit Soaring.</li>
+    <li>In the Abyss, Deathroot Woods of Hollow's Heart.</li>
+</ul>";
+        $mat->description = '<p>Generic speciies of Pine Trees</p>';
+        $mat->save();
     }
 }

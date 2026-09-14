@@ -21,7 +21,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Psychic Speed';
         $feat->description = '<p>While you are Psionically Focused, you gain an additional Action. This additional Action can only be used to take the Stride Action.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic' => 3]);
+        $helper->addTypesToFeat($feat, ['Extra Action', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Combat Manifestation';
@@ -118,15 +118,20 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Psionic Fist';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>While you are Psionicly Focused, your Unarmed Strikes deal an additional 2 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional +2D6.</li>
+    <li>While you are Psionicly Focused, your Unarmed Strikes deal an additional +3 points of damage per weapon die.</li>
+    <li>You expend your Psionic Focus as part of your Melee Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Fist';
         $feat->action_type = 'Free';
-        $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your unarmed Strikes deal an additional +5D6 damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 7]);
+        $feat->description = '<ul>
+    <li>You gain a Talent</li>
+    <li>While you are Psionically Focused, your Unarmed Strikes deal an additional +5 points of damage per weapon die.</li>
+    <li>As a Free Action, expend your Psionic Focus. Your Unarmed Strikes deal an additional +8 points of damage per weapon die of until the beginning of your next turn.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Talent', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Fist']);
 
         $feat              = new Feat;
@@ -140,22 +145,28 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Psionic Weapon';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>While you are Psionicly Focused, your melee weapons deal an additional 1 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
+    <li>While you are Psionicly Focused, your Melee Weapons deal an additional +3 points of damage per weapon die.</li>
+    <li>You expend your Psionic Focus as part of your Melee Strike, your Strike is resolved as a Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Weapon';
         $feat->action_type = 'Free';
-        $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your melee weapon Strikes deal an additional +3 Weapon Dice of damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 7]);
+        $feat->description = '<ul>
+    <li>You gain a Talent</li>
+    <li>While you are Psionically Focused, your Melee weapons deal an additional +5 points of damage per weapon die.</li>
+    <li>As a Free Action, expend your Psionic Focus. Your Melee weapon Strikes deal an additional +8 points of damage per weapon die of until the beginning of your next turn.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Melee', 'Talent', 'Psionic Focus', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Weapon']);
 
         $feat              = new Feat;
         $feat->name        = 'Psionic Shot';
         $feat->description = '<ul>
     <li>You gain a Talent</li>
-    <li>While you are Psionicly Focused, your ranged weapons deal an additional 1 point of damage. Additionally, if you expend your Psionic Focus as part of your Strike, your Strike is resolved as a Ranged Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
+    <li>While you are Psionicly Focused, your Ranged Weapons deal an additional +3 points of damage per weapon die.</li>
+    <li>Additionally, if you expend your Psionic Focus as part of your Ranged Strike, your Strike is resolved as a Ranged Touch Attack (TAC) and deals an additional Weapon Die of damage.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Ranged', 'Psionic Focus', 'Talent', 'Psionic' => 2]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
@@ -163,8 +174,12 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Greater Psionic Shot';
         $feat->action_type = 'Free';
-        $feat->description = '<p>At the beginning of your turn, expend your Psionic Focus. Your ranged weapon Strikes deal an additional +3 Weapon Die of damage until the beginning of your next turn.</p>';
-        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic Focus', 'Psionic' => 7]);
+        $feat->description = '<ul>
+    <li>You gain a Talent</li>
+    <li>While you are Psionically Focused, your Ranged Weapons deal an additional +5 points of damage per weapon die.</li>
+    <li>As a Free Action, expend your Psionic Focus. Your Ranged Weapon Strikes deal an additional +8 points of damage per weapon die of until the beginning of your next turn.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Ranged', 'Psionic Focus', 'Talent', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Psionic Weapon']);
 
         $feat              = new Feat;
@@ -322,7 +337,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>When you Leap, you can move an additional 5 feet horizontally or 2 feet vertically</li>
     <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point to gain a +2 Psychic Bonus to your AC until the beginning of your next turn.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Extra Action', 'Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
 
         $feat              = new Feat;
         $feat->name        = 'Dragon Stance';
@@ -346,17 +361,20 @@ class FeatsPsionicSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Horse Stance';
-        $feat->requirement = 'You are Unarmed and touching the ground';
+        $feat->requirement = 'You are touching the ground with both feet';
         $feat->description = "<p>You enter the Stance of the Horse, making yourself difficult to shove/push, grapple and trip.</p>
 <ul>
     <li>+10 circumstance bonus against being Shoved, Tripped, or Grappled</li>
     <li>You gain a +2 Deflection bonus to AC</li>
-    <li>You gain Damage Resistance to Bludgeoning. If the Bludgeoning damage is 5 or less, then you take no damage.</li>
-    <li>You have a DEX modifier cap to your AC of +0, meaning you don't add your DEX to your AC</li>
+    <li>You gain a Reaction. This Reaction can only be used to make Attacks of Opportunity.</li>
+    <li>If you make an Attack of Opportunity and hit, the target loses all remaining Movement until the start of their next turn (i.e. they do not get past you). This only works against targets that are 1 size category larger than you or smaller.</li>
+    <li>You gain Damage Resistance to Bludgeoning, Piercing, and Slashing. If the Damage is 5 or less, then you take no damage</li>
+    <li>You have a DEX modifier cap to your AC of +0, meaning you don't add your DEX modifier to your AC</li>
     <li>Your land Speed becomes 5 ft and you may not Burrow, Climb, Fly, or Swim</li>
     <li>You are immune to being Stunned by Stunning Fist attacks</li>
     <li>You must be touching the ground with both feet to gain the benefits of this stance.</li>
-    <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point to gain Damage Reduction 3 until the beginning of your next turn.</li>
+    <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point to gain Damage Reduction 5 until the beginning of your next turn.</li>
+    <li>As a Double Action, you may make a Melee Attack. If you hit, you Shove the target up to 10 feet away.</li>
     <li>
         <p>You may not make the following attacks</p>
         <ul>
@@ -367,7 +385,7 @@ class FeatsPsionicSeeder extends Seeder
         </ul>
     </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Forceful', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Forceful', 'Nonlethal', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = 'Mantis Stance';
@@ -378,7 +396,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain an additional use of Stunning Fist</li>
     <li>At the beginning of combat, if you do not have any uses of Stunning Fist, you gain one use of Stunning Fist</li>
     <li>The DC to resist your Stunning Fist increases by +2</li>
-    <li>As an Action, you may spend 3 Power Points and 2 uses of Stunning Fist to make all of your Unarmed Strikes be Stunning Fist attacks until the beginning of your next turn.</li>
+    <li>As an Action, you may spend 5 Power Points and 2 uses of Stunning Fist to make all of your Unarmed Strikes be Stunning Fist attacks until the beginning of your next turn.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Nonlethal']);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);
@@ -388,6 +406,7 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You are Unarmed, except for staves';
         $feat->description = '<p>You can enter the Stance of the Monkey, improving your Acrobatics and Feints.</p>
 <ul>
+    <li>You gain a Heroic Surge</li>
     <li>You gain a +5 bonus on all Acrobatics checks</li>
     <li>You gain a +3 bonus on Feint checks</li>
     <li>You gain a +2 bonus to AC while in this Stance</li>
@@ -405,9 +424,11 @@ class FeatsPsionicSeeder extends Seeder
         $feat->description = '<p>You can enter the Stance of the Snake.</p>
 <ul>
     <li>You gain the Improved Initiative feat</li>
+    <li>As long as you have use of both your legs, you have a Climb Speed equal to half your Running Speed.</li>
+    <li>You gain a +2 bonus to your Move Silently and Hide checks</li>
     <li>You gain a +2 bonus on all Grapple checks</li>
     <li>You deal an additional +2 damage on Grapple based attacks</li>
-    <li>You may spend 1 Power Point as an Immediate Action and gain a +5 bonus to your Initiative</li>
+    <li>Once per turn, you may spend 1 Power Point as an Immediate Action and gain a +5 bonus to your Initiative</li>
     <li>You gain an Additional use of Stunning Fist</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Stance', 'Unarmed']);
@@ -417,10 +438,10 @@ class FeatsPsionicSeeder extends Seeder
         $feat->requirement = 'You are Unarmed';
         $feat->description = '<p>You enter the Stance of the Tiger.</p>
 <ul>
-    <li>You gain the Tiger Claw attack. It deals your Unarmed Strike damage but the damage type becomes Slashing.</li>
+    <li>You gain the Tiger Claw attack. It deals your Unarmed Strike damage but the damage type becomes Slashing. It ignores up to 2 Points of Damage Reduction and ignores Damage Resistance.</li>
     <li>While in this Stance, you gain a +2 bonus to STR.</li>
     <li>On a Critical Hit with your Tiger Claw, if you deal damage, the target takes 1D4 Persistent Bleed damage</li>
-    <li>You gain a +5 bonus to all your Jump results while in this Stance</li>
+    <li>You gain a +5 bonus to all your Jump checks while in this Stance</li>
     <li>As an Action, you may spend 1 Power Point to have your Tiger Claw attacks ignore Damage Resistance until the beginning of your next turn.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
@@ -429,46 +450,68 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Northern Fist Stance';
         $feat->action_type = 'Action';
         $feat->requirement = 'You are Unarmed an not wearing any metal armor';
-        $feat->description = '<p>You can make Unarmed Melee Strikes at a distance. The Range is based on the number of Power Points you spend</p>
-<table>
-    <thead>
-        <tr>
-            <th>Power Points</th>
-            <th>Max Distance</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>5 ft</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>10 ft</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>15 ft</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>20 ft</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>25 ft</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>30 ft</td>
-        </tr>
-    </tbody>
-</table>
-<p>You may also use Stunning Fist and any Psionic Power that has a Range of Touch with the Attack</p>
+        $feat->description = '<p>You can make Unarmed Melee Strikes at a distance. The Range is based on the number of Power Points you spend. As an Action, spend the Power Points then until the beginning of your next turn, all your Melee attacks can be made up to the Range Specified. This can be used to make Grapple Attacks (-4 penalty), Disarm Attacks (-4 penalty), and Trip Attacks (-4 penalty). This can also be used to grab things at a distance. If you target an object that is held or worn, then you suffer a -4 penalty to the attack.</p>
+<p>This ability cannot be used in a subtle way and must always be used as part of an attack.</p>
+<ul>
+    <li>
+        <table>
+            <thead>
+                <tr>
+                    <th>Power Points</th>
+                    <th>Max Distance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>5 ft</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>10 ft</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>15 ft</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>20 ft</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>25 ft</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>30 ft</td>
+                </tr>
+            </tbody>
+        </table>
+    </li>
+    <li>You may also use Stunning Fist and any Psionic Power that has a Range of Touch with the Attack</li>
+    <li>You gain Damage Reduction 5 vs Bludgeoning attacks</li>
+    <li>As a Free Action, you may spend 1 Power Point. You gain a +4 bonus to Jump checks until the beginning of your next turn.</li>
+</ul>
 <blockquote>
     Ex. A Psychic Warrior uses this Feat to make an Unarmed Strike against a foe 10 ft away. The Psychic Warrior also adds the Blindness Power to the attack. This requires 4 Actions (2 for the Blindness Power, 1 for this Feat, and 1 to make the Melee attack). The Psychic Warrior would have to spend 7 Power Points (5 for Blindness and 2 for this Feat at a Range of 10 ft).
 </blockquote>';
         $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Ranged']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Drunken Master Stance';
+        $feat->requirement = 'You are Drunk and not wearing any armor';
+        $feat->description = '<p>You enter the Stance of the Drunken Master (usually requiring 1 sp worth of alcohol and lasting about 30 minutes), mimicking the stumbling, erratic movements of a severe drunkard to confound your foes. If you expend your Psionic Focus while drunk, you become sober at the beginning of your next turn. If you spend 4 Actions drinking (they do not need to be consecutive), you automatically become Psionicly Focused again and are considered drunk.</p>
+<ul>
+    <li>While in this stance, you cannot make Physical Ranged Attacks</li>
+    <li>+4 circumstance bonus to AC against Attacks of Opportunity provoked by movement as long as the movement is 10 feet or less.</li>
+    <li>You are completely immune to the Flanked condition; opponents gain no flanking bonuses against you.</li>
+    <li>When an enemy misses you with a melee attack, you may immediately move 5 feet as a Free Action without provoking Attacks of Opportunity.</li>
+    <li>You gain an Additional Action. This additional Action may only be used to make Tumble or Feint Actions.</li>
+    <li>You gain the Quick Stand talent</li>
+    <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point. If you do, then the next Bull Rush attack you make does not provoke an Attack of Opportunity from the defender, but you do provoke from anyone else. You also gain a +4 bonus on the opposed STR check you make to push back the defender.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Nonlethal']);
 
         $feat              = new Feat;
         $feat->name        = 'Koryo Style';
@@ -521,13 +564,15 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Acid Psi-Resistance';
         $feat->requirement = 'You must have the Acid Psychometabolism power';
         $feat->description = '<p>Due to your ability to generate Acid, you have developed a level of resistance.</p>
-<p>You have Resistance to Acid. If the damage before your resistance is applied is 5 Acid damage or less, then you take no damage.</p>';
+<p>You have Resistance to Acid. If the damage before your resistance is applied is 5 Acid damage or less, then you take no damage.</p>
+<p>This does not grant your equipment Resistance to Acid.</p>';
         $helper->addTypesToFeat($feat, ['Psychometabolism', 'Acid', 'Psionic' => 4]);
 
         $feat              = new Feat;
         $feat->name        = 'Acid Psi-Immunity';
         $feat->requirement = 'You must have the Acid Psychometabolism power';
-        $feat->description = '<p>You are Immune to Acid</p>';
+        $feat->description = '<p>You are Immune to Acid.</p>
+<p>This does not grant your equipment Immunity to Acid.</p>';
         $helper->addTypesToFeat($feat, ['Psychometabolism', 'Acid', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Acid Psi-Resistance']);
 
@@ -545,7 +590,7 @@ class FeatsPsionicSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Psychometabolism', 'Poison', 'Psionic' => 7]);
         $feat->parent_feats()->save(app()->feats['Venom Psi-Resistance']);
 
-        $feat              = new feat;
+        $feat              = new Feat;
         $feat->name        = 'Fire Psi-Resistance';
         $feat->requirement = 'You must have the Pyrokinesis power';
         $feat->description = '<p>Due to your ability to generate Fire, you have developed a level of resistance.</p>

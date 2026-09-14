@@ -336,9 +336,9 @@ class SpellsFSeeder extends Seeder
         $spell->description    = '<p>You plant Fear in the target, with effects based on its Save.</p>';
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>The Target is unaffected</dd>
-    <dt>Success</dt> <dd>The Target is frightened 1</dd>
-    <dt>Failure</dt> <dd>The Target is frightened 2</dd>
-    <dt>Critical Failure</dt> <dd>The Target is frightened 3 and fleeing for 1 round</dd>
+    <dt>Success</dt> <dd>The Target is Frightened 1</dd>
+    <dt>Failure</dt> <dd>The Target is Frightened 2</dd>
+    <dt>Critical Failure</dt> <dd>The Target is Frightened 3 and fleeing for 1 round</dd>
 </dl>';
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>The spell gains Area of 30-foot Cone, and affects all in the area.</dd>
@@ -740,7 +740,7 @@ class SpellsFSeeder extends Seeder
         $spell->duration    = 'Instantaneous';
         $spell->description = "<p>You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the Target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried.</p>";
         $spell->heightened  = '<dl>
-    <dt>Heightened (+5)</dt> <dd>Increase the damage by +1D10</dd>
+    <dt>Heightened (+3)</dt> <dd>Increase the damage by +1D10</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Fire'], 0);
 

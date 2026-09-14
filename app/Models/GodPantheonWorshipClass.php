@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * @property int class_id
  * @property int multiclass_group
  * @property string|null meta
+ * @property bool is_clergy
+ * @property Klass klass
  */
 class GodPantheonWorshipClass extends Pivot
 {
@@ -25,6 +27,6 @@ class GodPantheonWorshipClass extends Pivot
 
     public function klass(): HasOne
     {
-        return $this->hasOne(\App\Models\Klass::class, 'id', 'class_id');
+        return $this->hasOne(Klass::class, 'id', 'class_id');
     }
 }

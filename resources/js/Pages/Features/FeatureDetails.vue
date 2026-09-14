@@ -53,30 +53,22 @@ onMounted(fetchFeatureDetails);
                             <section class="m-2">
                                 <div class="description-container" v-html="feature.description"></div>
                             </section>
-                            <section class="m-2">
-                                <div class="flex w-full gap-3">
-                                    <div class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
-                                        <h4 class="mb-2 text-lg font-semibold">Types</h4>
-                                        <ul>
-                                            <li v-for="(type, index) in feature.types" :key="index">
-                                                <NavLink
-                                                    :href="`/type/${type.id}`"
-                                                    class="text-blue-800 hover:underline p-0"
-                                                    style="border-bottom-width: 0 !important;"
-                                                >
-                                                    {{ type.name }}
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
-                                        <h4 class="mb-2 text-lg font-semibold">Classes</h4>
-                                        <ul>
-                                            <li v-for="(klass, index) in feature.classes" :key="index">
-                                                <NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <section class="m-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg p-4">
+                                    <h4 class="mb-2 text-lg font-semibold">Types</h4>
+                                    <ul>
+                                        <li v-for="(type, index) in feature.types" :key="index">
+                                            <NavLink :href="`/type/${type.id}`" style="border-bottom-width: 0 !important;">{{ type.name }}</NavLink>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg p-4">
+                                    <h4 class="mb-2 text-lg font-semibold">Classes</h4>
+                                    <ul>
+                                        <li v-for="(klass, index) in feature.classes" :key="index">
+                                            <NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink>
+                                        </li>
+                                    </ul>
                                 </div>
                             </section>
                         </div>

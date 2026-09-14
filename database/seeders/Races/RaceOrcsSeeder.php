@@ -35,7 +35,7 @@ class RaceOrcsSeeder extends Seeder
     <dt>Aggressive</dt> <dd>You gain an additional Action. This additional Action can only be taken to move towards an enemy of your choice that you can see or hear. You cannot take use this Action if the move does not bring you within melee range of the target.</dd>
     <dt>Darkvision</dt> <dd>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</dd>
 </dl>";
-        $helper->addTypesToSimpleObject($race, ['Orc']);
+        $helper->addTypesToSimpleObject($race, ['Orc', 'Extra Action']);
 
         $subrace           = new SubRace;
         $subrace->name     = 'Mountain Orc';

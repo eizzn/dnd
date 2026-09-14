@@ -61,8 +61,8 @@ class ClassPaladinSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Quicken Smite';
-        $feat->description = '<p>You gain an additional Action each turn. This Action can only be used to cast Smite Spells.</p>';
-        $helper->addTypesToFeat($feat, ['Divine', 'Smite']);
+        $feat->description = '<p>You gain an additional Action. This additional Action can only be used to cast Smite Spells.</p>';
+        $helper->addTypesToFeat($feat, ['Divine', 'Smite', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = 'Ranged Smite';

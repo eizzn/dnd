@@ -220,7 +220,7 @@ class FeatsMetaMagicSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Craft Armament';
-        $feat->description = '<p>You can use the Craft activity to create magical or psionic Armors and Weapons. Many magic items have special crafting requirements, such as access to certain Spells or Powers.</p>
+        $feat->description = '<p>You can use the Craft activity to create magical or psionic Armors, Shields, and Weapons. Many magic items have special crafting requirements, such as access to certain Spells or Powers.</p>
 <p>When you select this feat, you gain the formulas for four common armor or weapons Runes of level 5 or lower.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Psionic', 'Armor', 'Generic' => 4]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 2]);
@@ -243,7 +243,7 @@ class FeatsMetaMagicSeeder extends Seeder
 <p>If you do not have the ability to trigger magic items (typically with the Activate Magic Item feat), then you can now activate Rings</p>
 <p>In general, the base price to forge a ring is (Caster Level X Spell Level X 1,000 gp) per continuous effect. Use the cost formula multiplied by 500 X number of uses for effects that can be used a number of times per day.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Attunement', 'Generic' => 2]);
-        $feat->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Blacksmithing']);
+        $feat->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Blacksmith']);
 
         $feat              = new Feat;
         $feat->name        = 'Inscribe Rune';
@@ -261,12 +261,12 @@ class FeatsMetaMagicSeeder extends Seeder
 <p>Creating a gem with a permanent magical effect (like a ring), requires a gem X10 in value.</p>
 <p>If you do not have the ability to trigger magic items (typically with the Activate Magic Item feat), then you can now activate Gems.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Attunement', 'Generic' => 2]);
-        $feat->skills()->save(app()->skills['Crafting'], ['dc' => 10, 'meta' => 'Gemcutting']);
+        $feat->skills()->save(app()->skills['Crafting'], ['dc' => 6, 'meta' => 'Gem cutting']);
 
         $feat              = new Feat;
         $feat->name        = 'Inscribe Tattoo';
         $feat->description = '<p>You can use the Craft activity to create magical or psionic Tattoos. Many magic items have special crafting requirements, such as access to certain Spells or Powers.</p>
-<p>When you select this feat, you gain the formulas for four common Tattoo of level 2 or lower.</p>
+<p>When you select this feat, you gain the formulas for four common Tattoos of level 2 or lower.</p>
 <p>Each Tattoo counts as one of your Attuned magic items.</p>
 <p>If you do not have the ability to trigger magic items (typically with the Activate Magic Item feat), then you can now activate Tattoos.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Psionic', 'Attunement', 'Generic' => 2]);
@@ -318,15 +318,18 @@ class FeatsMetaMagicSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Improved Crafting';
-        $feat->description = '<p>When you Craft a magic item, you pay 1/3 less of all the requirements (rounded up), including any CON damage as part of the act of Crafting the magic item (minimum 1 if the act of crafting the magic includes any CON damage).</p>';
-        $helper->addTypesToFeat($feat, ['Item Creation', 'Generic' => 12]);
+        $feat->description = '<ul>
+    <li>Increase one of your Ability Scores by +1, to a maximum of 20.</li>
+    <li>When you Craft a magic item, you pay 1/3 less of all the requirements (rounded up), including any CON damage as part of the act of Crafting the magic item (minimum 1 if the act of crafting the magic includes any CON damage).</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Item Creation', 'Ability Boost', 'Generic' => 12]);
         $feat->skills()->save(app()->skills['Crafting'], ['dc' => 12]);
 
         $feat              = new Feat;
         $feat->name        = 'Aim Spell';
         $feat->trigger     = 'You are casting a spell that requires a Ranged Spell attack roll';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 2 Spell Point and you gain Advantage on your Ranged Spell Attack roll.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Generic' => 3]);
@@ -335,7 +338,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->name        = 'Improved Aim Spell';
         $feat->trigger     = 'You are casting a spell that requires a Ranged Spell attack roll';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 5 Spell Points and your Ranged Spell attack automatically hits.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Generic' => 7]);
@@ -346,7 +349,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has a maximum of two spellcasting actions.';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 1 Spell Point and roll a Deception Check and add your Primary Spell Caster Ability Score Bonus to the roll. Observers must beat it with their Passive Perception check to notice that you have cast a spell.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 7]);
@@ -356,6 +359,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell';
         $feat->action_type = 'Action';
         $feat->description = "<ul>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 2 Spell Points. You cast a spell and set a delay of 1 to 5 rounds before it takes effect. The delay time cannot be changed once set; the spell activates at the beginning of your turn you designate. Only area, personal, and touch spells can be affected by this feat.</li>
     <li>Any decisions you would make about the spell (including attack rolls, designating targets, or determining or shaping an area) are decided when the spell is cast, with any of its effects (including damage and Saves) decided when the spell is triggered. If conditions change during the delay period in ways that would make the spell impossible to cast (the target you designate moves beyond the spell's range, for example), the spell fails.</li>
     <li>During the delay period, a delayed spell can be dispelled normally, and it can be detected in the area or on the target (as applicable).</li>
@@ -368,16 +372,16 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger           = 'You start to cast a spell while using the Performance skill';
         $feat->short_description = 'You have mastered the art of casting spells unobtrusively, mingling verbal and somatic components into its music and performances so that others rarely catch you in the act of casting a spell.';
         $feat->description       = "<ul>
-    <li>You gain 2 Spell Points</li>
-    <li>Spend 2 Spell Points. Like a Silent, Stilled Spell, a Disguised Spell can't be identified through Arcana. Your performance is obvious to everyone in the vicinity, but the fact that you are casting a spell isn't, unless the spell visibly emanates from you or observers have some other means of determining its source, they don't know where the effect came from.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 1 Spell Point and an Action. Like a Silent, Stilled Spell, a Disguised Spell can't be identified through Arcana. Your performance is obvious to everyone in the vicinity. However, the fact that you are casting a spell isn't, unless the spell visibly emanates from you or observers have some other means of determining its source, they don't know where the effect came from.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Extra Action', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 7]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 7]);
         $feat->skills()->save(app()->skills['Performance'], ['dc' => 12]);
 
         $feat              = new Feat;
         $feat->name        = 'Elemental Focus';
         $feat->trigger     = 'You are about to cast a spell that has your chosen type of element';
-        $feat->description = '<p>When you take this feat chose one of the following</p>
+        $feat->description = '<p>When you take this feat, chose one of the following</p>
 <ul>
     <li>Acid</li>
     <li>Cold</li>
@@ -397,7 +401,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->action_type = 'Free';
         $feat->trigger     = 'You start to cast a spell that deals damage';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>When you roll damage for a spell, you can spend 2 Spell Points to reroll a number of damage dice up to your Primary Attribute modifier (minimum of one). You must use the new rolls.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 5, 'Primal' => 5]);
@@ -408,7 +412,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast an Evocation spell that has one of the following traits: Cold, Electricity, Fire, Sonic.';
         $feat->description = '<p>When you take this feat, choose one of the following energy types: Cold, Electricity, Fire, or Sonic.</p>
 <ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 2 Spell Points. When casting a spell with the Cold, Electricity, Fire, or Sonic trait, you can modify the spell to use your chosen type of energy instead. The altered spell works normally in all respects except the type of damage dealt.</li>
 </ul>
 <p>You may take this feat multiple times. Each time choose a different type of energy.</p>';
@@ -416,13 +420,37 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Evoker']);
 
         $feat              = new Feat;
+        $feat->name        = 'Enervate Spell';
+        $feat->action_type = 'Free';
+        $feat->requirement = 'You must have the Necromancy Feat, or be a Divine Spellcaster and your Patron Deity has the Necromancy Domain';
+        $feat->trigger     = 'You start to cast a Necromancy spell.';
+        $feat->description = '<p>You can add Necrotic life sapping energy to your Necromancy spells.</p>
+<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>For each 5 Spell Points you spend, the Necromancy spell causes Drained: 1 so long as the Target is affected by the Necromancy spell.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Evil', 'Metamagic', 'Necromancy', 'Spell Pool', 'Arcane' => 7, 'Divine' => 7]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Fell Spell';
+        $feat->action_type = 'Action';
+        $feat->requirement = 'You must have the Necromancy Feat, or be a Divine Spellcaster and your Patron Deity has the Undead Domain';
+        $feat->trigger     = 'You start to cast a Necromancy spell that deals damage.';
+        $feat->description = '<p>You can infuse your Necromancy spells that causes any that dies due to the spell to then rise as a zombie.</p>
+<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>As an Action and 5 Spell Points, the modified Necromancy spell will animate any living creature that dies due to the effects of the Necromancy spell. All creatures that died rises at the end of your next turn. As with Animate Dead, you retain control for 24 hours and must reassert your control.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Evil', 'Metamagic', 'Necromancy', 'Spell Pool', 'Arcane' => 7, 'Divine' => 7]);
+
+        $feat              = new Feat;
         $feat->name        = 'Eschew Materials';
         $feat->action_type = 'Free';
         $feat->trigger     = 'You start to cast a spell that has a Material Component';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 1 Spell Point while casting the spell. You do not need to provide the Material Component for a spell as long as the Materials total cost is less than 50 gp. The spell still requires the Action for the Material Component.</li>
-    <li>If you spend 7 Spell Points instead, the casting of the spell no longer requires an Action for the Material Casting (as long as the Materials total cost is less than 50 gp).</li>
+    <li>If you spend 12 Spell Points instead, the casting of the spell no longer requires an Action for the Material Casting (as long as the Materials total cost is less than 50 gp).</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 2, 'Divine' => 5, 'Primal' => 6]);
 
@@ -431,8 +459,8 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has a duration and it is not Instantaneous.';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 5 Spell Points. Triple the duration of the casting spell, up to a maximum of 30 hours.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 3 Spell Points. Triple the Duration of the casting spell, up to a maximum of 30 hours.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 3, 'Divine' => 5, 'Primal' => 6]);
 
@@ -440,27 +468,29 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->name        = 'Persistent Spell';
         $feat->trigger     = 'You start to cast a spell that has a Duration and it is not Instantaneous.';
         $feat->action_type = 'Triple Action';
-        $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 20 Spell Points. The spell now has a duration of 72 hours. The spell must have a target of Self or have a Duration that does not require Concentration.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 6, 'Divine' => 7, 'Primal' => 7]);
+        $feat->description = "<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 12 Spell Points. The spell now has a duration of 72 hours (if the spell's Duration is greater than 72 hours then this metamagic does nothing). The spell must have a target of Self and have a Duration that does not require Concentration.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 12, 'Divine' => 14, 'Primal' => 14]);
         $feat->parent_feats()->save(app()->feats['Extend Spell']);
 
         $feat              = new Feat;
         $feat->name        = 'Focused Spell';
         $feat->trigger     = 'You are casting a spell that requires Concentration';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You gain a Talent.</li>
+    <li>You gain a +2 bonus on all Concentration checks to maintain Concentration.</li>
     <li>Spend 1 Spell Point and you gain Advantage on your Concentration checks to maintain a spell that requires Concentration.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 2, 'Divine' => 2, 'Primal' => 2]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Talent', 'Arcane' => 2, 'Divine' => 2, 'Primal' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Focused Spell';
         $feat->trigger     = 'You are casting a spell that requires Concentration';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 5 Spell Points and a spell that requires Concentration. The spell then does not require Concentration. This allows you to cast another spell that Requires Concentration.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 7, 'Divine' => 7, 'Primal' => 7]);
@@ -470,18 +500,19 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->name        = 'Ghost Spell';
         $feat->trigger     = 'You are casting a spell that has a target or an area of effect';
         $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 1 Spell Point and the spell you modify can target/affect creatures that are in the Ethereal Plane. Creatures that are affected by the modified Spell take Double Damage if the Spell deals damage.</li>
+    <li>You gain a Talent.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 1 Spell Point, and the spell you modify can target/affect creatures that are in the Ethereal Plane. Creatures that are affected by the modified Spell take Double Damage if the Spell deals damage.</li>
+    <li>If you cast a Light Spell modified by this Meta Magic Feat, then the light acts as a Circle of Protection vs. creatures from the Ethereal Plane.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 5]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Talent', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Heighten Spell';
         $feat->trigger     = 'You start to cast a spell that can be Heightened.';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>
         You can Heighten a Spell without using a higher level Spell Slot. Spend 2 Spell Points for each level of Heightening. You cannot Heighten a Spell higher than the highest level Spell Slot you can cast. You may also combine using a higher level Spell Slot and spending Spell Points.
         <blockquote>
@@ -496,25 +527,24 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You gain 1 Spell Point</li>
+    <li>You gain a Talent.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>
-        Spend 5 Spell Point and an additional Casting Action to cast a spell that you then hold for casting later. A held spell can be cast as an Action. You can hold a spell for up to 3 rounds. At the end of 3 rounds, you may cast the spell by spending an Action, or spend 2 Spell Points to hold the spell for another round. You may hold no more than 1 spell at a time.
+        Spend 5 Spell Point and an additional Casting Action to cast a spell that you then hold for casting later. A held spell can be cast as an Action. You can hold a spell for up to 5 rounds. At the end of 5 rounds, you may cast the spell by spending an Action, or spend 2 Spell Points to hold the spell for another round. You may hold no more than 1 spell at a time.
         <blockquote>
             A 5th level Wizard casts Fireball and spends 5 Spell Points and an additional Casting Action to hold it. On the next turn, he uses an Action to cast the Fireball and uses their 2 remaining Actions to cast another spell.
         </blockquote>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 3, 'Divine' => 5, 'Primal' => 5]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Talent', 'Arcane' => 3, 'Divine' => 5, 'Primal' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Hold Spell';
         $feat->trigger     = 'You start to cast a spell';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You gain 1 Spell Point</li>
-    <li>You may now hold a spell for an additional 3 rounds</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now hold spells for an additional 5 rounds</li>
     <li>You may now hold an additional spell</li>
     <li>You may take this feat up to 2 times.</li>
 </ul>';
@@ -525,19 +555,19 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has an Instantaneous duration and deals Acid, Cold, Electricity, Fire, or Sonic damage';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Point</li>
+    <li>You gain 1 Spell Point.</li>
     <li>This metamagic can be applied to any spell with an Instantaneous Duration and deals Acid, Cold, Electricity, Fire, or Sonic damage. After the spell is cast, lingering tendrils of energy persist, dealing 1D6 points of damage of the appropriate type at the beginning of your next turn to all creatures initially damaged by the spell. The spell is considered to be in effect during this time and can be dispelled normally.</li>
     <li>A Lingering Spell requires 1 Spell Point to be applied to a spell. You may spend additional Spell Points. For each 2 additional Spell Points spent, the duration lasts an additional 1 round.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 7]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 6, 'Primal' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Maximize Spell';
         $feat->trigger     = 'You start to cast a spell';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Point</li>
-    <li>Spend 5 Spell Points. All variables, numeric effects of a spell are maximized.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 4 Spell Points. All variables, numeric effects of a spell are maximized.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 7, 'Divine' => 8, 'Primal' => 8]);
 
@@ -546,18 +576,19 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has a range greater than Touch';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Point</li>
-    <li>Spend 2 Spell Points. Triple the range of the casting spell.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You gain a Talent</li>
+    <li>Spend 1 Spell Point. Triple the range of the casting spell.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 3, 'Divine' => 3, 'Primal' => 3]);
+        $helper->addTypesToFeat($feat, ['Talent', 'Metamagic', 'Spell Pool', 'Arcane' => 3, 'Divine' => 3, 'Primal' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Reach Spell';
         $feat->action_type = 'Free';
         $feat->trigger     = 'You start to cast a spell that has a range of Touch. The spell must have a maximum of 2 spellcasting Actions.';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Point</li>
-    <li>Spend 2 Spell Points to modify its range to 30 feet. If the touch spell normally requires an attack roll or a touch attack roll, it now requires a Ranged Attack roll or a Ranged Touch attack roll, as appropriate.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 1 Spell Point to modify its range to 30 feet. If the touch spell normally requires an attack roll or a touch attack roll, it now requires a Ranged Attack roll or a Ranged Touch attack roll, as appropriate.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 2, 'Divine' => 3, 'Primal' => 3]);
 
@@ -566,29 +597,29 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has a duration of Instantaneous and a range greater than Touch.';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</>
-    <li>Spend 8 Spell Points. Cast a spell that has a duration of Instantaneous. That spell is automatically cast again at the beginning of your next round. No matter where you are, the secondary spell originates from the same location and affects the same area as the primary spell. If the repeated spell designates a target, the secondary spell retargets the same target if the target is within 30 feet of its original position, otherwise the secondary spell fails.</>
+    <li>You gain 1 Spell Point.</>
+    <li>Spend 6 Spell Points. Cast a spell that has a duration of Instantaneous. That spell is automatically cast again at the beginning of your next round. No matter where you are, the secondary spell originates from the same location and affects the same area as the primary spell. If the repeated spell designates a target, the secondary spell retargets the same target if the target is within 30 feet of its original position, otherwise the secondary spell fails.</>
 </ul>
 <p>You cannot repeat a spell with a range of Touch.</p>';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 6, 'Divine' => 7, 'Primal' => 8]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 8, 'Divine' => 9, 'Primal' => 10]);
 
         $feat              = new Feat;
         $feat->name        = 'Silent Spell';
         $feat->trigger     = 'You start to cast a spell that has a Verbal Component';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 2 Spell Points while casting the spell. Observers cannot detect that you are casting a spell based on Hearing. The spell still requires the Action for the Verbal Component.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 1 Spell Points while casting the spell. Observers cannot detect that you are casting a spell based on Hearing. The spell still requires the Action for the Verbal Component.</li>
     <li>If you spend 12 Spell Points instead, the casting of the spell no longer requires a Verbal Casting Action to cast the spell.</li>
 </ul>';
         $feat->action_type = 'Free';
-        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 2, 'Divine' => 5, 'Primal' => 6]);
+        $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 2, 'Divine' => 4, 'Primal' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Spell Fusion';
         $feat->trigger     = 'You start to cast a spell';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
-    <li>Spend 15 Spell Points and an Action. You may cast 2 spells while only using the Casting Actions of the spell that requires the most Actions. Both spells take effect in the order that you choose, as if you had cast them one after the other. If both spells require Concentration, then you may only Concentrate on 1 of them unless you have the ability to Concentrate on multiple spells at the same time. You must provide all Material Components, Secondary Casters, and Ability Damage as normal.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 10 Spell Points and an Action. You may cast 2 spells while only using the Casting Actions of the spell that requires the most Actions. Both spells take effect in the order that you choose, as if you had cast them one after the other. If both spells require Concentration, then you may only Concentrate on 1 of them unless you have the ability to Concentrate on multiple spells at the same time. You must provide all Material Components, Secondary Casters, and Ability Damage as normal.</li>
 </ul>';
         $feat->action_type = 'Action';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 12]);
@@ -598,7 +629,7 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You cast a spell with the Ray trait.';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 2 Spell Points. You can split a spell that has the Ray trait that targets a single Target and instead target 2 Targets. Each target takes half of the damage (round down). If desired, you can have both rays attack the same target.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 3]);
@@ -608,9 +639,9 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You start to cast a spell that has a Somatic Component';
         $feat->action_type = 'Free';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
+    <li>You gain 1 Spell Points.</li>
     <li>Spend 1 Spell Point while casting the spell. Observers cannot detect that you are casting a spell based on Sight. The spell still requires the Action for the Somatic Component.</li>
-    <li>If you spend 15 Spell Points instead, the casting of the spell no longer requires a Somatic Casting Action to cast the spell.</li>
+    <li>If you spend 12 Spell Points instead, the casting of the spell no longer requires a Somatic Casting Action to cast the spell.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 3, 'Divine' => 5, 'Primal' => 5]);
 
@@ -620,11 +651,11 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->trigger     = 'You have enough Reactions to cast a spell as a Reaction';
         $feat->description = '<ul>
     <li>You gain 1 Spell Point</li>
-    <li>Spend 10 Spell Points and you may cast a spell as a Reaction. You must use the same number of Reactions to cast the spell as the number of Casting Actions if you were to cast it normally.</li>
+    <li>Spend 7 Spell Points and you gain a Reaction. You may cast a spell as a Reaction. You must use the same number of Reactions to cast the spell as the number of Casting Actions if you were to cast it normally.</li>
 </ul>
 <p>You do not need this feat to Counterspell a spell.</p>
 <blockquote>
-    Ex. A red dragon breaths its Fire breath weapon at you. You cast the spell Control Flames (Heighten it to control magical flames) and spend 10 Spell Points to reduce the effects of the Fire damage.
+    Ex. A red dragon breathes its Fire breath weapon at you. You cast the spell Control Flames (Heighten it to control magical flames) and spend 7 Spell Points and 2 Reactions to reduce the effects of the Fire damage.
 </blockquote>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5]);
         $feat->parent_feats()->save(app()->feats['Silent Spell']);
@@ -635,8 +666,8 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->action_type = 'Free';
         $feat->trigger     = 'You are casting a spell that has Somatic and Verbal Casting.';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 10 Spell Points and you may remove the Somatic Casting Action or the Verbal Casting Action of a Spell. If this causes the spell to not require any Casting Actions, then it is considered an Immediate Action.</li>
+    <li>You gain 1 Spell Points.</li>
+    <li>Spend 7 Spell Points and you may remove the Somatic Casting Action or the Verbal Casting Action of a Spell. If this causes the spell to not require any Casting Actions, then it is considered an Immediate Action.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 9, 'Divine' => 12, 'Primal' => 12]);
         $feat->parent_feats()->save(app()->feats['Silent Spell']);
@@ -647,8 +678,8 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->action_type = 'Action';
         $feat->trigger     = 'You start to cast a spell.';
         $feat->description = "<ul>
-    <li>You gain 2 Spell Points.</li>
-    <li>Spend 10 Spell Points. The spell takes effect twice in the same area or on the same target simultaneously. Any variable or decisions you would make about the spell are applied to both spells, with affected creatures receiving all the effects of each spell individually. A spell whose effects wouldn't stack if it was cast twice under normal circumstances will create redundant effects if successfully twinned.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Spend 7 Spell Points. The spell takes effect twice in the same area or on the same target simultaneously. Any variable or decisions you would make about the spell are applied to both spells, with affected creatures receiving all the effects of each spell individually. A spell whose effects wouldn't stack if it was cast twice under normal circumstances will create redundant effects if successfully twinned.</li>
 </ul>
 <p>Counterspelling a twinned spell counters only one instance of the spell.</p>";
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 9, 'Divine' => 12, 'Primal' => 12]);
@@ -658,8 +689,8 @@ class FeatsMetaMagicSeeder extends Seeder
         $feat->action_type = 'Free';
         $feat->trigger     = 'You start to cast a spell that has an area of a burst, cone, or line, and that does not have a duration. The spell must have a maximum of 2 spellcasting actions.';
         $feat->description = '<ul>
-    <li>You gain 2 Spell Points</li>
-    <lis>Spend 4 Spell Points to increase the area of that spell. You add 15 feet to the radius of a burst that normally has a radius of at least 10 feet. You add 15 feet to the length of a cone or line that is normally 15 feet long or smaller, and add 10 feet to the length of a larger cone or line.</lis>
+    <li>You gain 1 Spell Point.</li>
+    <lis>Spend 4 Spell Points to Double the Area of a spell</lis>
 </ul>';
         $helper->addTypesToFeat($feat, ['Metamagic', 'Spell Pool', 'Arcane' => 5, 'Divine' => 7, 'Primal' => 7]);
 
@@ -725,7 +756,7 @@ class FeatsMetaMagicSeeder extends Seeder
     <li>If you have a divine patron, then you become a conduit for visions and prophecies. Your Patron sends you visions of the possible future, or instructions that you must follow. In game terms, this is a tool that the DM can use to start up a new campaign, or nudge the players in a certain direction. In some cases (DM's discretion), the vision may come with some small boon (such as a Blessing that grants a bonus to Hit against Orcs), or a minor magical device on loan to the player that may help in the quest (such as a +1 Short Sword that is +3 vs Orcs)</li>
     <li>If you do not have a divine patron, then you may still receive visions of the future, but they tend to be more neutral in their delivery. It would be very rare for any kind of boon to come along with this form of vision.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Arcane', 'Divine']);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Divine', 'Divination']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Augury'],
         ]);

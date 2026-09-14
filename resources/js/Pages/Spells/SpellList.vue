@@ -4,7 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import { TailwindPagination } from "laravel-vue-pagination";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "spells";
 const filters = {
@@ -91,6 +91,7 @@ const filters = {
                                             { value: 'spirit', label: 'Spirit' },
                                             { value: 'summoning', label: 'Summoning' },
                                             { value: 'compulsion', label: 'Compulsion' },
+                                            { value: 'animate', label: 'Animate' },
                                         ]"
                                     />
                                 </th>

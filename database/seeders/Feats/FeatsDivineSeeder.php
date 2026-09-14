@@ -36,7 +36,7 @@ class FeatsDivineSeeder extends Seeder
     <li>You gain 2 Spell Points</li>
     <li>You gain an additional Action. This additional Action can only be used to use your Channel Divinity</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Extra Action', 'Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
         $feat->features()->save(app()->features['channel_divinity']);
 
         $feat              = new Feat;
@@ -63,7 +63,7 @@ class FeatsDivineSeeder extends Seeder
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Celestial Creature template.</li>
-            <li>You may gain a Asperi as your Animal Companion by Sacrificing 2 Spell Points and a 4th level Spell Slot</li>
+            <li>You may gain an Asperi as your Animal Companion by Sacrificing 2 Spell Points and a 4th level Spell Slot</li>
         </ul>
     </li>
     <li>You may not take the Knight of Stars or the Servant of the Heavens feat. Your allegiance is only yours to give once.</li>
@@ -82,15 +82,15 @@ class FeatsDivineSeeder extends Seeder
         <p>If you have the Divine Mount feat, you may choose one of the following</p>
         <ul>
             <li>Your mount gains the Celestial Creature template.</li>
-            <li>You may gain a Unicorn as your Mount by Sacrificing a 3rd level Spell Slot</li>
+            <li>You may gain a Unicorn as your Mount (use the rules for Animal Companion and for a Ranger).</li>
         </ul>
     </li>
     <li>
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Celestial Creature template.</li>
-            <li>You may gain a Pegasus as your Animal Companion by Sacrificing 2 Spell Points and a 4th level Spell Slot</li>
-            <li>You may gain a Unicorn as your Animal Companion by Sacrificing 3 Spell Points and a 5th level Spell Slot</li>
+            <li>You may gain a Unicorn as your Animal Companion by Sacrificing.</li>
+            <li>You may gain a Pegasus as your Animal Companion by Sacrificing.</li>
         </ul>
     </li>
     <li>You may not take the Favored of the Companions or the Servant of the Heavens feat. Your allegiance is only yours to give once.</li>
@@ -206,7 +206,13 @@ class FeatsDivineSeeder extends Seeder
         $feat                    = new Feat;
         $feat->name              = 'Vow of Poverty';
         $feat->short_description = 'You have taken a sacred vow to forswear material possessions';
-        $feat->description       = '<p>You gain Bonuses to your AC, ability scores and Saves, as well as Bonus exalted feats, all depending on your character level.</p>
+        $feat->description       = "<p>You gain Bonuses to your AC, ability scores and Saves, as well as Bonus exalted feats, all depending on your character level.</p>
+<ul>
+    <li>You are allowed to possess up to 2 set of clothes. A single weapon (such as a quarterstaff), a day's worth of food, and a pouch for spell components if needed. None of the items in your spell components pouch may be worth more than 10 gp.</li>
+    <li>You cannot wear any armor</li>
+    <li>You cannot have more than 2 magical items.</li>
+    <li>You cannot Attune to anything.</li>
+</ul>
 <table>
     <thead>
         <tr>
@@ -306,7 +312,7 @@ class FeatsDivineSeeder extends Seeder
     <dt>Freedom of Movement</dt> <dd>As the Spell, Freedom of Movement (always active)</dd>
     <dt>Regeneration</dt> <dd>Regenerate 1 Hit Point per hour.</dd>
     <dt>True Seeing</dt> <dd>As the Spell True Seeing (always active)</dd>
-</dl>';
+</dl>";
         $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Sacred Vow']);
 
@@ -476,9 +482,9 @@ class FeatsDivineSeeder extends Seeder
         $feat->name        = 'Demonologist';
         $feat->description = '<p>You study Demons and the Abyss where they reside.</p>
 <ul>
-    <li>You may now cast the Charm spell three times per day, and have it affect Demons. If you do not have any Spell Casting Levels, then you may cast this spell 1/day. Targeting a Demon with a Charm spell does not count as an attack for a Demon in a Circle of Protection. Demons have Disadvantage on Saves vs your Charm spells. Unless you have the Charm spell from another class, you may only target Demons with your Charm spell.</li>
-    <li>You gain Advantage on Saves against all Spells and Spell-like effects from Demons and Demonic sources.</li>
-    <li>You gain Advantage on all Lore checks and Religion checks in regards to Demons or the Abyss</li>
+    <li>You gain the Charm spell. If you do not have any Spell Casting Levels, then you may cast this spell 1/day. Your Charm spells now can affect Demons. Targeting a Demon with a Charm spell does not count as an attack for a Demon in a Circle of Protection. Demons have Disadvantage on Saves vs. your Charm spells. If you do not have Spell Casting abilities, then you may only cast this spell against Demons.</li>
+    <li>You gain Spell Resistance vs. all Spells and Spell-like abilities from Demons</li>
+    <li>You gain Advantage on all Lore and Religion checks in regard to Demons or the Abyss</li>
     <li>You learn the True Name of one minor Demon</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Arcane', 'Demon', 'Generic' => 5]);
@@ -510,40 +516,50 @@ class FeatsDivineSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Point</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You are able to gain an Animal Companion. Follow the Rules for Animal Companions.</li>
     <li>If you have the Favored Enemy Class Feature, your Animal Companion gains all the benefits of your Favored Enemy.</li>
     <li>If you have the Favored Terrain Class Feature, your Animal Companion gains all the benefits of your Favored Terrain.</li>
-    <li>Ranger Class Spell Slots count as Double towards meeting the Challenge Rating requirement.</li>
+    <li>You may spend 1 Spell Point as a Triple Action and know the distance and direction your Animal Companion is so long as it is on the same Plane as you.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 3]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You may now have a second Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
+    <li>All your Animal Companions gain a +1 bonus to all Saves.</li>
+    <li>You may spend 1 Spell Point and an Action to cast Silvered Claws on your Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Animal Companion']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Silvered Claws'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Animal Companion';
         $feat->description = '<ul>
-    <li>You gain 1 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You may now have a third Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
+    <li>All your Animal Companions gain a +2 bonus to all Saves. This replaces the bonus from Improved Animal Companion.</li>
+    <li>You may spend 1 Spell Point and an Action to cast Animal Sense on your Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Improved Animal Companion']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Animal Sense'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Animal Companion Master';
         $feat->trigger     = 'You are able to command your Animal Companion';
         $feat->description = '<p>You gain the following</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
-    <li>You gain the ability to as an Action, spend 2 Spell Points and cast the spell Heal Animal Companion.</li>
+    <li>You may spend 2 Spell Points and an Action to cast Heal Animal Companion.</li>
     <li>You gain an extra Action. The extra Action can only be used to command your Animal Companions, Familiars, or summoned creatures.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
@@ -553,6 +569,7 @@ class FeatsDivineSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Divine Prophet';
+        $feat->requirement = 'You must have a divine Patron with the Prophecy Domain';
         $feat->description = '<p>You have been gifted by your Divine Patron with the gift of prophecy. This gift also comes with the responsibility to use your gift further the aims and needs of your god.</p>
 <ul>
     <li>You gain the Foretelling feature of the Diviner Arcane feat.</li>
@@ -562,5 +579,10 @@ class FeatsDivineSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             3 => ['Prophecy'],
         ]);
+
+        /**
+         * TODO: add the ascetic feats.
+         * The Ascetic Knight should probably only be for Ilmater monk/paladins
+         */
     }
 }

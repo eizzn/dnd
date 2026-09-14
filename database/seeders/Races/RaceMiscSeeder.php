@@ -206,7 +206,7 @@ class RaceMiscSeeder extends Seeder
     <dt>Languages</dt> <dd>Centaur typically learn the Sylvan language</dd>
     <dt>Level Adjustment</dt> <dd>+2</dd>
 </dl>';
-        $helper->addTypesToSimpleObject($race, ['Fey']);
+        $helper->addTypesToSimpleObject($race, ['Fey', 'Extra Action']);
 
         $race              = new Race;
         $race->name        = 'Satyr';

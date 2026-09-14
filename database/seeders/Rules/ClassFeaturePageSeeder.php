@@ -26,16 +26,16 @@ class ClassFeaturePageSeeder extends Seeder
         $rule              = new Rule;
         $rule->key         = 'familiar';
         $rule->name        = 'Familiar';
-        $rule->description = "<p>You gain the service of a Familiar, a spirit that takes an animal form you choose. Your Familiar is actually a Celestial, Fey, or Fiend (your choice) instead of a Beast. To summon your Familiar, you must perform a ritual that lasts 1 hour and requires material components: 10 gp worth of charcoal, incense, and herbs that are consumed by fire in a brass brazier.</p>
-<p>You may choose any creature that has the Animal type and has a Challenge Rating of 1/8 or less.</p>
-<p>Your Familiar acts independently, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A Familiar can't Attack, but it can take other Actions as normal.</p>
-<p>When a Familiar drops to 0 Hit points, it disappears, leaving behind no physical form. You can perform this ritual again.</p>
+        $rule->description = "<p>You gain the service of a Familiar. You must find and capture an appropriate creature (one with the Familiar type) and perform a ritual that lasts 1 hour and requires material components: 10 gp worth of charcoal, incense, and herbs that are consumed by fire in a brass brazier with the Familiar candidate present. You cannot choose what kind of creature you get, you must find or summon a candidate yourself.</p>
+<p>Any creature with the Familiar type and has a Challenge Rating of 1/8 or less is a candidate to be your Familiar.</p>
+<p>Your Familiar acts independently, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A Familiar can't attack (or is unwilling to), but it can take other Actions as normal.</p>
+<p>When a Familiar drops to 0 Hit points, it dies as normal, but you may perform the Ritual again to Ressurect them back into your service.</p>
 <p>While your Familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an Action, you can see through your Familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any Special Senses that the Familiar has. During this time, you are deaf and blind with regard to your own Senses.</p>
 <p>As an Action, you can temporarily dismiss your Familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an Action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you.</p>
-<p>You can't have more than one Familiar at a time. If you perform this ritual while you already have a Familiar, you instead cause it to adopt a new Form. Choose one of the forms from the previous list. Your Familiar transforms into the chosen creature.</p>
+<p>You can't have more than one Familiar at a time unless you have the Additional Familiar Talent. If you perform this ritual while you already have a Familiar, you instead dismiss your current Familiar and bond with a new one that you have already captured or summoned.</p>
 <p>Finally, when you cast a Spell with a range of Touch, your Familiar can deliver the spell as if it had cast the spell. Your Familiar must be within 100 feet of you, and it must use its Action to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll.</p>
-<p>If you have summoned a creature through a Conjuration Spell, your Familiar can use all of its Actions to command and control the summoned creature. You may use your Free Action to communicate with your Familiar to inform it what Actions he should give the summoned creatures under its control.</p>
-<p>If you take the Enhanced Familar feat, your Familiar is an Animal Companion except you may choose a Celestial, Fey or Fiend of the appropriate Challenge Rating instead of an Animal.</p>";
+<p>If you have summoned a creature through a Conjuration Spell, your Familiar can use all of its Actions to command and control the summoned creature, so long as your Familiar has an INT of at least 4. You may use your Free Action to communicate with your Familiar to inform it what Actions he should give the summoned creatures under its control.</p>
+<p>If you take the Enhanced Familiar feat, your Familiar is an Animal Companion, and you must capture or summon an Animal Companion candidate and perform this Ritual again.</p>";
         $rule->order = 20;
         $page->rules()->save($rule);
 
@@ -44,21 +44,21 @@ class ClassFeaturePageSeeder extends Seeder
         $rule->name        = 'Animal Companion';
         $rule->description = "<p>You may gain an Animal Companion by obtaining the Animal Companion Feat.</p>
 <ul>
-    <li>You may choose any creature that has the Animal type and has a Challenge Rating of 1 or lower.</li>
-    <li>If you choose an Animal with less than 1, then increase all of their Physical Stats (STR, DEX, CON) by +2.</li>
-    <li>If you choose an Animal with a Challenge Rating greater than 1, you must sacrifice a Spell Slot equal to the Animal Companions Challenge Rating -1.</li>
+    <li>You may bond with any creature that has the Animal Companion type and has a Challenge Rating of 1 or lower that you have captured or summoned.</li>
+    <li>If you choose a creature with less than 1, then increase all of their Physical Stats (STR, DEX, CON) by +2.</li>
+    <li>If you choose a creature with a Challenge Rating greater than 1, you must sacrifice a Spell Slot equal to the listed amount on the creature.</li>
 </ul>
 <p>If your Animal Companion is ever slain, the magical bond you share allows you to return it to life. With 8 hours of work and the expenditure of 25gp worth of rare herbs and fine food, you call forth your companion's spirit and use your magic to create a new body for it. You can return an Animal Companion to life in this manner even if you do not possess any part of its body.</p>
 <p>If you use this ability to return a former Animal Companion to life while you already have your maximum number of Animal Companions, then one of your current Animal Companions leaves you and is replaced by the restored companion.</p>
 <h3>Companion's Bond</h3>
 <p>Your companion obeys your commands as best it can. It rolls for initiative like any other creature. You can use an Action to direct your Animal Companions (one Action for all your companions if it is the same Action). If you don't direct your Animal Companions, they act on their own.</p>
 <p>Your Animal Companion has abilities and game statistics determined in part by your class level. Your companion uses your proficiency bonus rather than its own. In addition to the areas where it normally uses its proficiency bonus, an Animal Companion also adds its proficiency bonus to its AC and to its damage rolls.</p>
-<p>Your Animal Companion gains proficiency in two skills of your choice. It also becomes proficient with all Saves.</p>
-<p>Your Animal Companion has Hit Dice equal to your class level and gains Hit Dice whenever you gain a level in the class that grants this feature.</p>
-<p>You can apply the Ability Boost class feature to your Animal Companion each time you gain it.</p>
-<p>Your companion shares your alignment, and has a personality trait and a flaw that you can roll for or select from the tables below. You companion shares your ideal and is willing to give its life for you.</p>
+<p>Your Animal Companion gains a +2 bonus to 2 Skills.</p>
+<p>Your Animal Companion has Hit Dice equal to your class level and gains Hit Dice whenever you gain a level in the class that grants this feature. Subtract 2X the Level of the Spell Slot that you sacrificed to gain the Animal Companion to a minimum of its normal Hit Dice.</p>
+<p>You can apply the Ability Boost class feature to your Animal Companion each time you gain it (Retroactively as well).</p>
+<p>Your companion's' alignment moves one step closer to your own, and has a personality trait and a flaw that you can roll for or select from the tables below. Most companions share your ideal and is willing to give its life for you. Some exceptions are the Imp and Quasit.</p>
 <p>If you have the Favored Enemy class feature, your Animal Companion also gains the benefits of all your Favored Enemy class feature.</p>
-<p>Your Animal Companion gains a +5 bonus to all Saves if you have any of the following feats.</p>
+<p>Your Animal Companion gains a +3 bonus to all Saves if you have any of the following feats.</p>
 <ul>
     <li>Great Fortitude</li>
     <li>Mettle</li>

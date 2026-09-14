@@ -66,22 +66,27 @@ class DemonsSeeder extends Seeder
             'languages' => ['Abyssal', 'Telepathy' => ['meta' => '60 ft. works only with creatures that understand Abyssal']],
         ]);
 
-        $monster              = new Monster;
-        $monster->name        = 'Quasit';
-        $monster->size        = 'Tiny';
-        $monster->type        = 'Demon';
-        $monster->alignment   = 'CE';
-        $monster->armor_class = '15';
-        $monster->hit_dice    = 3;
-        $monster->speed       = '40 ft';
-        $monster->actions     = "<dl>
+        $monster                   = new Monster;
+        $monster->name             = 'Quasit';
+        $monster->size             = 'Tiny';
+        $monster->type             = 'Demon';
+        $monster->alignment        = 'CE';
+        $monster->armor_class      = 14;
+        $monster->damage_reduction = '1 (Natural Armor)';
+        $monster->hit_dice         = 3;
+        $monster->speed            = '40 ft';
+        $monster->actions          = "<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D1 Piercing + 2D4 Poison. The target must succeed on a DC 10 CON Save or take the Poison damage and become Sickened 3 for 1 minute. The target can repeat the Save at the end of its turns, ending the Sickened condition.</dd>
     <dt>Bite (Beast Forms) +3</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D4 + 2D4 Poison. Save vs Poison as Claw.</dd>
     <dt>Scare (1/day)</dt> <dd>One creature of the quasit's choice within 20 ft of it must succeed on a DC 10 WIS Save or be Frightened for 1 minute. The target can repeat the Save at the end of each of its turns, with Disadvantage if the quasit is within line of sight, ending the effect on itself on a success.</dd>
     <dt>Shapechanger</dt> <dd>The quasit can use its Action to Polymorph into an Animal: Bat (10 ft/Fly 40 ft), Centipede (40ft/Climb 40 ft), or Toad (40 ft/Swim 40 ft). Any equipment it's carrying isn't transformed. It reverts to its true form if it dies.</dd>
 </dl>";
+        $monster->description      = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Outsider', 'Animal Companion'], [
-            'stats'    => [5, 17, 10, 7, 10, 10, 1, 2],
+            'stats'    => [5, 17, 10, 7, 10, 10, 2, 2],
             'features' => [
                 'magic_resistance',
                 'darkvision'    => ['meta' => '120 ft'],
@@ -470,7 +475,7 @@ class DemonsSeeder extends Seeder
     <li>Balor: has served all the demon lords at one point or another in his life. He was favored by Baphomet and Kostchtchie.<br/>
         <span style=\"display:inline-block; margin-left: 3px;\">In 1485 DR, Balor was accosted by the goddess Lolth, who was then allied with Balor's greatest rival, the balor Errtu. Lolth destroyed his minions, poisoned him, and entrapped him in a web cocoon. She did this as part of her agreement with Errtu to get rid of demon lords in the Abyss in return for his aid in her plan to weaken the barriers between the Abyss and the Prime Material Plane. While Balor cannot move directly against Lolth, he takes any opportunity to oppose Errtu.
     </li>
-    <li>Belaphoss the Mad: a powerful balor who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</li>
+    <li>Belaphoss the Mad: a powerful balor, who serves as a lieutenant to Demogorgon. His chief ambition is to become the demon lord himself, and supplant Demogorgon as ruler of the Gaping Maw.</li>
     <li>Wendonai: See entry in gods</li>
     <li>
         <p>Errtu: Errtu seeked to gain possession of the artifact Crenshinibon. He ended up being banished by Drizz't Do'Urden and has sworn revenge.</p>
@@ -482,7 +487,7 @@ class DemonsSeeder extends Seeder
         <span style=\"display:inline-block; margin-left: 3px;\">Not long after the death of Mystra (in 1385 DR), the cambion Kaanyr Vhok and his companions were captured by the marilith Vhissilka, who served Lord Axithar. Vhok abandoned his companions and allied with Axithar, providing information about the weaknesses of the House of the Triad so that Vhok could get his revenge for his treatment by the angel Tauran and so that he could reach the Lifespring, which he believed would give him the power to rule Sundabar as a glorious leader. Axithar's horde of demons invaded the plane and were nearing victory against the angels when Bahamut's legions appeared and defeated the demon armies.</span>
     </li>
     <li>Badrazel: In 1372 DR, during the Silence of Lolth, the half-fiend fire giant Kurgoth Hellspawn invaded Maerimydra with the balor Badrazel at his side. While Kurgoth made the Coliseum there his base, Badrazel continued to harry those that still resisted the invaders. He patrolled the heights of the cavern and tested the defenses of Castle Maerimydra on several occasions.</li>
-    <li>Raachaak: a power-hungry balor who sought to capture a legendary bloodforge in the 14th century DR.</li>
+    <li>Raachaak: a power-hungry balor, who sought to capture a legendary bloodforge in the 14th century DR.</li>
 </ul>";
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [26, 15, 22, 20, 16, 22, 19, 6],

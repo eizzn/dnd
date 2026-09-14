@@ -109,7 +109,7 @@ class ItemFormulasSeeder extends Seeder
         $formula->bulk        = 'L';
         $formula->activation  = 'Manipulate Action';
         $formula->description = '<p>While you wear these boots, you can use a Manipulate Action to activate the boots. While they are active, you gain an additional Action. This additional Action can only be used to make a Move Action. You must use another Manipulate Action to end this effect. Once the boots have been active for a total of 10 minutes, they lose this ability until 24 hours later. After any consecutive 24 hours of non-use, the boots reset.</p>';
-        $helper->saveFormula($formula, ['Magical'], [
+        $helper->saveFormula($formula, ['Magical', 'Extra Action'], [
             'skills' => ['Crafting' => ['dc' => 7, 'meta' => 'Shoe making']],
             'feats'  => ['Craft Wondrous Item'],
             'spells' => ['Swift' => ['meta' => 'Heightened +2']],
@@ -257,8 +257,27 @@ class ItemFormulasSeeder extends Seeder
         $formula->description = '<p>Also called "Charms of Blackness", Heartstones are lustrous and magically potent black jewels worn as amulets. When in possession, they allow the wearer become Ethereal and to Remove Disease simple by touching it.</p>
 <p>When used by a good-aligned user, they shatter after 10 uses and the ability to enter the Ethereal can only be used by Fiends or Fey (specifically Night Hags).</p>
 <p>The crafting of a Heartstone requires the following</p>';
-        $helper->saveFormula($formula, ['Fey', 'Magical'], [
+        $helper->saveFormula($formula, ['Fey', 'Magical', 'Item Creation'], [
             'feats' => ['Craft Wondrous Item'],
+        ]);
+
+        $formula                = new Formula;
+        $formula->name          = 'Hag Eye';
+        $formula->type          = 'Item';
+        $formula->level         = 9;
+        $formula->price         = '30 gp';
+        $formula->crafting_time = '1 day';
+        $formula->bulk          = 'L';
+        $formula->crafting      = '<ul>
+    <li>Cooperation of all three hags in the coven</li>
+    <li>A disembodied eye (often a human eye or beast eye)</li>
+    <li>A gemstone or gem-encrusted amulet worth at least 20 gp to set the eye into</li>
+</ul>';
+        $formula->description = '<p>A Hag Eye is a magical, disembodied eye or gemstone created by a hag coven. It allows the hags to spy on intruders from a distance. Any member of the coven can see through the Hag Eye at will as if using a Scrying spell.</p>
+<p>Only one Hag Eye can exist for a coven at any given time. It has an AC of 13, 10 hit points, and a Hardness of 5.</p>
+<p>If the Hag Eye is destroyed, the coven member who was holding or wearing it at the time takes 1D10 points of damage, and the entire coven is immediately blinded for 24 hours.</p>';
+        $helper->saveFormula($formula, ['Fey', 'Magical', 'Item Creation'], [
+            'feats' => ['Hag Spellcaster'],
         ]);
 
         $formula                = new Formula;

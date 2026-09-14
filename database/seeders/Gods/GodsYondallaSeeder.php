@@ -2,6 +2,8 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\ClassType;
+use App\Enums\Pantheon;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -49,12 +51,15 @@ class GodsYondallaSeeder extends Seeder
             'Divine', 'Halfling', 'Good',
         ]);
 
-        $helper->addClassesToGod($yondalla, 'Faeruneon', [
+        $helper->addClassesToGod($yondalla, "Yondalla's Children", [
             'Fighter' => 20,
             'Wizard'  => 20,
         ]);
-        $helper->addWorshipClassesToGod($yondalla, 'Faeruneon', [
-            $class->name, 'Paladin', 'Monk', 'Sacred Fist',
+        $helper->addWorshipClassesToGod($yondalla, "Yondalla's Children", [
+            $class->name  => ['is_clergy' => true],
+            'Paladin'     => ['is_clergy' => true],
+            'Sacred Fist' => ['is_clergy' => true],
+            'Monk',
         ]);
 
         // Skills
@@ -166,7 +171,8 @@ class GodsYondallaSeeder extends Seeder
             'Wizard' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
-            $class->name, 'Spellthief', 'Rogue', 'Bard',
+            $class->name => ['is_clergy' => true],
+            'Spellthief', 'Rogue', 'Bard',
         ]);
 
         // Skills
@@ -193,7 +199,7 @@ class GodsYondallaSeeder extends Seeder
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons["Yondalla's Children"]->id,
             'favor'       => "<p>Brandobaris is not a malicious god, though those on the receiving end of his endless curiosity might be inclined to think the worst of him. He rarely chooses serious criminals or those with dark ambition for his champions, preferring those who share his wonder and inquisitive glee.</p>
-<p>Brandobaris's scions are often travellers, pickpockets and casual ne'er do wells still infused with the relentless drive of youth to Become Something.</p>
+<p>Brandobaris's scions are often travelers, pickpockets and casual ne'er-do-wells still infused with the relentless drive of youth to Become Something.</p>
 <ol>
     <li>When you were born, you were invisible for a full minute before appearing with a gurgle</li>
     <li>You left home very young, and your parents have been praying for you every night since</li>
@@ -266,7 +272,7 @@ class GodsYondallaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Joydancers';
-        $class->type          = 'Priest';
+        $class->type          = ClassType::Priest->value;
         $class->key_attribute = 'WIS or DEX';
         $class->weapons       = 'Lasso and Net (Bludgeoning weapons in extreme circumstances)';
         $class->armors        = 'Light Armor';
@@ -322,7 +328,7 @@ class GodsYondallaSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Priest of Cyrrollalee';
-        $class->type          = 'Priest';
+        $class->type          = ClassType::Priest->value;
         $class->key_attribute = 'WIS or DEX';
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor';
@@ -335,8 +341,10 @@ class GodsYondallaSeeder extends Seeder
             'Divine', 'Halfling', 'Good',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Favored Soul', 'Divine Oracle',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name    => ['is_clergy' => true],
+            'Favored Soul'  => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
         ]);
         // TODO: create Cyrrollalee Favored Soul feat
 

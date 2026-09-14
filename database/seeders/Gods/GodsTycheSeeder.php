@@ -89,13 +89,17 @@ class GodsTycheSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Rogue', 'Swashbuckler', 'Adventurer',
+            $class->name => ['is_clergy' => true],
+            'Rogue', 'Swashbuckler', 'Adventurer',
         ]);
         $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
-            $class->name, 'Rogue', 'Swashbuckler', 'Adventurer',
+            $class->name => ['is_clergy' => true],
+            'Rogue', 'Swashbuckler', 'Adventurer',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Rogue', 'Adventurer', 'Wizard' => ['meta' => 'Illusionist'],
+            $class->name => ['is_clergy' => true],
+            'Rogue', 'Adventurer',
+            'Wizard' => ['meta' => 'Illusionist'],
         ]);
 
         // Skills
@@ -206,7 +210,10 @@ class GodsTycheSeeder extends Seeder
             'Hex Blade' => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Favored Soul', 'Rogue', 'Hex Blade', 'Divine Oracle',
+            $class->name,
+            'Favored Soul'  => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Rogue', 'Hex Blade',
         ]);
 
         // Skills
@@ -316,10 +323,12 @@ class GodsTycheSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Ranger', 'Scout', 'Bard', 'Adventurer',
+            'Ranger' => ['is_clergy' => true],
+            'Scout', 'Bard', 'Adventurer',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Ranger', 'Scout', 'Bard', 'Adventurer', 'Artificer',
+            'Ranger' => ['is_clergy' => true],
+            'Scout', 'Bard', 'Adventurer', 'Artificer',
         ]);
 
         $feat              = new Feat;

@@ -199,12 +199,12 @@ class TemplatesSeeder extends Seeder
 <p>Visually indistinguishable from their kin at a distance except for their imposing size and battle-scarred hides, an alpha beast commands immediate respect in the wild. They strike harder, endure wounds that would fell a lesser animal, and possess a tactical cunning that makes them lethal apex predators.</p>';
         $temp->details     = '<p>Alpha Beast is a template that can be applied to any creature with the Animal type.</p>
 <dl>
-    <dt>Abilities & Attributes</dt> <dd>+2 STR. +2 CON. Gain proficiency in CON Saves</dd>
+    <dt>Abilities & Attributes</dt> <dd>+4 STR. +4 CON. Gain proficiency in CON Saves</dd>
     <dt>Skills</dt> <dd>Perception +4</dd>
     <dt>Feats</dt> <dd>Gain a Feat</dd>
     <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) increases by +1.</dd>
-    <dt>Hit Die</dt> <dd>Increase HD +2</dd>
-    <dt>Challenge Rating</dt> <dd>Base creature CR + 1/2</dd>
+    <dt>Hit Die</dt> <dd>Increase HD +3</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 1 (Animal Companion Spell Slot +1. Rangers do not need to sacrifice a higher level Spell Slot, but they must sacrifice at least a 1st level Spell Slot).</dd>
 </dl>';
         $helper->addTypesToSimpleObject($temp, ['Animal']);
 
@@ -215,13 +215,13 @@ class TemplatesSeeder extends Seeder
         $temp->details     = "<p>Dire Animal is a template that can be applied to any creature with the Animal or Beast type.</p>
 <dl>
     <dt>Size</dt> <dd>The creature's size category increases by one (e.g., Medium becomes Large).</dd>
-    <dt>Abilities</dt> <dd>STR +4, CON +4, WIS +2, CHA +4. Gain proficiency in CON Saves.</dd>
+    <dt>Abilities</dt> <dd>STR +6, CON +6, WIS +2, CHA +4. Gain proficiency in CON Saves.</dd>
     <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) +4.</dd>
     <dt>Hit Die</dt> <dd>Increase HD +6</dd>
     <dt>Damage</dt> <dd>All melee attack damage dice increase by one step (e.g., 1d6 becomes 1d8, 2d4 becomes 2d6).</dd>
     <dt>Thick Fur / Bony Plating</dt> <dd>The creature gains Resistance to Bludgeoning, Piercing, and Slashing damage.</dd>
     <dt>Feats and Talents</dt> <dd>Gain 2 Feats and 1 Talent</dd>
-    <dt>Challenge Rating</dt> <dd>Base creature CR + 2</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 2 (Animal Companion Spell Slot +2. +1 for Rangers)</dd>
 </dl>";
         $helper->addTypesToSimpleObject($temp, ['Animal']);
 
@@ -231,15 +231,15 @@ class TemplatesSeeder extends Seeder
         $temp->details     = "<p>Mythic Monstrosity is a template that can be applied to any creature with the Animal or Beast type.</p>
 <dl>
     <dt>Size</dt> <dd>The creature's size category increases by one (e.g., Large becomes Huge).</dd>
-    <dt>Abilities</dt> <dd>STR +8, CON +8, INT becomes at least 6, WIS +4, CHA +6.</dd>
+    <dt>Abilities</dt> <dd>STR +10, CON +10, INT becomes at least 6, WIS +4, CHA +6.</dd>
     <dt>Legendary Resistance</dt> <dd>3/Day. If the creature fails a Save, it can choose to succeed instead.</dd>
-    <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) +9</dd>
+    <dt>Armor Class</dt> <dd>Damage Reduction (Natural Armor) +5</dd>
     <dt>Hit Die</dt> <dd>Increase HD +12</dd>
     <dt>Damage</dt> <dd>All melee attack damage dice increase by two steps (e.g., 1d6 becomes 1d10, 2d4 becomes 2d8).</dd>
     <dt>Thick Fur / Bony Plating</dt> <dd>The creature gains Resistance to Bludgeoning, Piercing, Slashing, and Poison damage.</dd>
-    <dt>Mythic Trait: Primal Rebirth</dt> <dd>When the creature is reduced to 0 hit points, it does not die. Instead, it instantly regains all its hit points, clears all negative conditions.</dd>
+    <dt>Mythic Trait: Primal Rebirth</dt> <dd>When the creature is reduced to 0 hit points, it does not die. Instead, it instantly regains all its hit points, clears all negative conditions. This ability triggers only once per day.</dd>
     <dt>Feats and Talents</dt> <dd>Gain 4 Feats and 2 Talents</dd>
-    <dt>Challenge Rating</dt> <dd>Base creature CR + 4</dd>
+    <dt>Challenge Rating</dt> <dd>Base creature CR + 4 (Animal Companion Spell Slot +4. +2 for Rangers).</dd>
 </dl>";
         $helper->addTypesToSimpleObject($temp, ['Animal', 'Monstrosity']);
 

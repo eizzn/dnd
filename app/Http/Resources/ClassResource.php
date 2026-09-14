@@ -7,6 +7,7 @@ use App\Models\ClassPowerMeta;
 use App\Models\ClassSpellSlot;
 use App\Models\Feat;
 use App\Models\Feature;
+use App\Models\GodPantheon;
 use App\Models\Klass;
 use App\Models\Power;
 use App\Models\Skill;
@@ -137,6 +138,17 @@ class ClassResource extends JsonResource
                                 'meta'  => $power->pivot->meta,
                             ];
                         })->values(),
+                    ];
+                }),
+            'gods'  => $this->worship_gods()
+                ->where('is_clergy', true)
+                ->get()
+                ->map(function (GodPantheon $god) {
+                    return [
+                        'god_id'      => $god->god_id,
+                        'pantheon_id' => $god->pantheon_id,
+                        'name'        => $god->name,
+                        'meta'        => $god->pivot->meta,
                     ];
                 }),
         ];

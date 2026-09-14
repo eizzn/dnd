@@ -5,7 +5,7 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import {computed, onMounted, ref} from "vue";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "gods";
 const pantheons = ref([]);
@@ -14,7 +14,7 @@ const filters = {
     title: null,
     pantheon_id: [],
     level: [],
-    alignment: null,
+    alignment: [],
     portfolio: null,
 };
 
@@ -118,7 +118,26 @@ onMounted(async () => {
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <span class="block text-sm font-medium text-gray-700">Alignment</span>
+                                    <label for="god-alignment-filter" class="block text-sm font-medium text-gray-700">Alignment</label>
+                                    <MultiSelect
+                                        v-model="filters.alignment"
+                                        :options="[
+                                            { value: 'LG', label: 'LG' },
+                                            { value: 'NG', label: 'NG' },
+                                            { value: 'CG', label: 'CG' },
+                                            { value: 'LN', label: 'LN' },
+                                            { value: 'N', label: 'N' },
+                                            { value: 'CN', label: 'CN' },
+                                            { value: 'LE', label: 'LE' },
+                                            { value: 'NE', label: 'NE' },
+                                            { value: 'CE', label: 'CE' },
+                                            { value: 'L', label: 'L' },
+                                            { value: 'C', label: 'C' },
+                                            { value: 'G', label: 'G' },
+                                            { value: 'E', label: 'E' },
+                                            { value: 'NULL', label: 'None' },
+                                        ]"
+                                    />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
                                     <label for="god-portfolio-filter" class="block text-sm font-medium text-gray-700">Portfolio</label>
@@ -133,7 +152,7 @@ onMounted(async () => {
                             </template>
 
                             <template #table="{ data }">
-                                <tr v-for="god in data" :key="god.id" class="hover:bg-gray-50">
+                                <tr v-for="god in data" :key="`${god.id}-${god.pantheon.id}`" class="hover:bg-gray-50">
                                     <td class="px-4 py-2 border border-gray-300">
                                         <NavLink
                                             :href="`/god/${god.id}/pantheon/${god.pantheon.id}`"

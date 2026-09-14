@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
@@ -44,15 +45,6 @@ class GodsElementalsSeeder extends Seeder
             'favored_weapon' => 'Thounderbolt (Longbow)',
             'master_id'      => God::where('name', 'Corellon Larethian')->first()->id,
         ]);
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
-            'title'          => 'The Lady of Air, Lady of the Winds, Queen of Air',
-            'level'          => 'Greater',
-            'portfolio'      => 'Elemental Air, Flying Creatures, Movement, Speed',
-            'alignment'      => 'N',
-            'symbol'         => 'Cloud',
-            'favored_weapon' => 'A whirlwind (Spear and Longbow)',
-        ]);
         $god->pantheons()->save(app()->pantheons['Maztican'], [
             'name'      => 'Eha',
             'title'     => 'Wind Sprite',
@@ -82,7 +74,9 @@ class GodsElementalsSeeder extends Seeder
         ], ['WIS', 'CHA']);
 
         $helper->addWorshipClassesToGod($god, 'Elemental', [
-            $class->name, 'Ranger', 'Scout', 'Rogue',
+            $class->name => ['is_clergy' => true],
+            'Ranger'     => ['is_clergy' => true],
+            'Scout', 'Rogue',
         ]);
 
         // Skills
@@ -116,12 +110,12 @@ class GodsElementalsSeeder extends Seeder
         $helper->addSpellsToClass($class, [
             0 => ['Air Shield', 'Ease of Breath', 'Gust', 'Feather Fall', 'Stabilize'],
             1 => ['Air Bubble', 'Animal Friendship' => 'Avian creatures only', 'Cure Wounds', 'Floating Step', 'Gust of Wind',
-                'Summon Animals' => 'Avian creatures only', 'Summon Elemental, Lesser' => 'Air Elementals only', 'Updraft',
+                'Summon Animals'                    => 'Avian creatures only', 'Summon Elemental, Lesser' => 'Air Elementals only', 'Updraft',
                 'Warding Wind', 'Weather Sense', ],
             2 => ['Air Sphere', 'Animal Messenger' => 'Avian creatures only', 'Blur', "Cat's Grace", 'Dust Devil', 'Heart of Air',
                 'Levitate', 'Obscuring Mist', 'Sonic Burst', 'Wings of Air', ],
             3 => ['Capricious Zephyr', 'Cloak of Winds', 'Elemental Ward' => 'Air only', 'Eradicate Air', 'Fly', 'Haste',
-                'Protection From Elements' => 'Cold only', 'Shockwave', ],
+                'Protection From Elements'                                => 'Cold only', 'Shockwave', ],
             4 => ['Air Walk', 'Calm Air', 'Clean Air', 'Divine Agility', 'Storm Sphere'],
             5 => ['Binding Wind', 'Cloudkill', 'Control Winds', 'Energy Buffer' => 'Cold only', 'Summon Elemental' => 'Air Elementals only'],
             6 => ['Investiture of Wind', 'Wall of Wind'],
@@ -219,7 +213,8 @@ class GodsElementalsSeeder extends Seeder
         ], ['WIS', 'CHA']);
 
         $helper->addWorshipClassesToGod($god, 'Elemental', [
-            $class->name, 'Monk',
+            $class->name => ['is_clergy' => true],
+            'Monk',
         ]);
 
         // Skills
@@ -281,7 +276,7 @@ class GodsElementalsSeeder extends Seeder
         ], ['WIS', 'CHA']);
 
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -332,7 +327,7 @@ class GodsElementalsSeeder extends Seeder
             'Cleric'  => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -380,7 +375,7 @@ class GodsElementalsSeeder extends Seeder
             'Druid'    => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -493,7 +488,7 @@ class GodsElementalsSeeder extends Seeder
         $god->name  = 'Istishia';
         $god->level = 'Greater';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Elemental'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Elemental->value], [
             'name'           => $god->name,
             'title'          => 'The Water Lord, King of the Water Elementals',
             'level'          => 'Greater',
@@ -503,16 +498,7 @@ class GodsElementalsSeeder extends Seeder
             'symbol'         => 'Cresting wave',
             'favored_weapon' => 'A wave (warhammer)',
         ]);
-        $god->pantheons()->save(app()->pantheons['Al-Qadim'], [
-            'name'           => $god->name,
-            'title'          => 'The Water Lord, King of the Water Elementals',
-            'level'          => 'Greater',
-            'portfolio'      => 'Water',
-            'alignment'      => 'N',
-            'symbol'         => 'Cresting wave',
-            'favored_weapon' => 'A wave (warhammer)',
-        ]);
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => 'Deep Sashelas',
             'title'          => 'Lord of the Undersea, The Dolphin Prince',
             'level'          => 'Intermediate',
@@ -523,7 +509,7 @@ class GodsElementalsSeeder extends Seeder
             'master_id'      => God::where('name', 'Corellon Larethian')->firstOrFail()->id,
             'favored_weapon' => 'Trifork of the Deeps (Trident)',
         ]);
-        $god->pantheons()->save(app()->pantheons['Asathalfinare'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Asathalfinare->value], [
             'name'           => 'Deep Sashelas',
             'title'          => 'Lord of the Undersea, The Dolphin Prince',
             'level'          => 'Intermediate',
@@ -533,7 +519,7 @@ class GodsElementalsSeeder extends Seeder
             'alignment'      => 'CG',
             'favored_weapon' => 'Trifork of the Deeps (Trident)',
         ]);
-        $god->pantheons()->save(app()->pantheons['Maztican'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Maztican->value], [
             'name'      => 'Azul',
             'title'     => 'Giver of Rain, Taker of Breath',
             'level'     => 'Greater',
@@ -561,7 +547,7 @@ class GodsElementalsSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'Elemental', [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -617,7 +603,9 @@ class GodsElementalsSeeder extends Seeder
             'Druid'   => 15,
         ]);
         $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            $class->name, 'Paladin', 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Wizard',
         ]);
 
         // Skills
@@ -700,7 +688,8 @@ class GodsElementalsSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'Elemental', [
-            $class->name, 'Monk',
+            $class->name => ['is_clergy' => true],
+            'Monk',
         ]);
 
         // Skills
@@ -720,7 +709,7 @@ class GodsElementalsSeeder extends Seeder
                 'Pyrotechnics', 'Scorching Ray', ],
             3 => ['Eradicate Fire', 'Fire Step', 'Fire Whip', 'Fireball', 'Flame Arrows', 'Minute Meteors', 'Protection From Elements' => 'Fire only'],
             4 => ['Everlasting Fire', 'Fire Eyes', 'Fire Shield', 'Fire Stride', 'Wall of Fire'],
-            5 => ['Antifire Sphere', 'Dispel Cold', 'Energy Buffer' => 'Fire only', 'Firebrand', 'Fiery Protector', 'Flameproof',
+            5 => ['Antifire Sphere', 'Dispel Cold', 'Energy Buffer'               => 'Fire only', 'Firebrand', 'Fiery Protector', 'Flameproof',
                 'Flame Strike', 'Heart of Fire', 'Immolation', 'Summon Elemental' => 'Fire Elementals only', ],
             6 => ['Fire Seeds', 'Investiture of Flame'],
             7 => ['Fiery Body', 'Fire Storm'],

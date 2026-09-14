@@ -46,8 +46,10 @@ class AmphibiousFeatsSeeder extends Seeder
         $talent->action_type = 'Action';
         $talent->requirement = 'Serpent or serpentfolk';
         $talent->description = '<p>You can extend the skin of your neck into a cobra head.</p>
-<p>As an Action, you can dilate the skin on both sides of your neck to form a flat disk, in the manner of a cobra. While you display this "hood", you gain a +3 bonus on Intimidation checks, and the Save DC for each of your spells, spell-like abilities, and supernatural abilities that cause Fear increases by +2. Furthermore, any creature with an INT score of 2 or below perceives you to be one size category larger tha you actually are.</p>
-<p>You can retract your skin and resume your normal appearance as a Free Action.</p>';
+<ul>
+    <li>As an Action, you can dilate the skin on both sides of your neck to form a flat disk, in the manner of a cobra. While you display this "hood", you gain a +3 bonus on Intimidation checks, and the Save DC for each of your spells, spell-like abilities, and supernatural abilities that cause Fear increases by +2. Furthermore, any creature with an INT score of 2 or below perceives you to be one size category larger tha you actually are.</li>
+    <li>You can retract your skin and resume your normal appearance as a Free Action.</li>
+</ul>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 1]);
 
         $talent              = new Talent;

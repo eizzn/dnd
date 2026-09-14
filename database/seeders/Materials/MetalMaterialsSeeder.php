@@ -231,7 +231,7 @@ class MetalMaterialsSeeder extends Seeder
 <p>Cold Iron is a rare form of iron left over from the creation of the Parallel Planes (Material Plane, Feywild, and Shadowfell) from the Elemental Chaos.</p>
 <p>It has never been molten and will lose its properties and become normal iron if melted or tempered. This makes it very hard to work for the following reasons.</p>
 <ul>
-    <li>Care must be taken not to heat the metal too much, lest it loses its special properties</li>
+    <li>Care must be taken not to heat the metal too much, lest it lose its special properties</li>
     <li>The finished product must be worked from a single piece of ore, as it cannot be smelted</li>
     <li>Being a touch metal, it is hard to work. Usually, a smith will ruin one or more set of tools working a single piece of Cold Iron.</li>
 </ul>';
@@ -278,7 +278,7 @@ class MetalMaterialsSeeder extends Seeder
     <li>Luiren</li>
     <li>Calimshan</li>
 </ul>';
-        $mat->description = '<p>This bone-white metal can take a high polish and is often mistaken for ivory when seen in finished items, but it has a distinctive greenish sheen in candlelight and when in the presence of magical radiances. Dlarun is a little-known metal of the halflings, who take care to keep word of it as paltry and as inaccurate as possible. Dlarun is usually encountered after having been formed by halflings into small figurines, inlay plates, or knobs and pommels.</p>
+        $mat->description = '<p>This bone-white metal can take a high polish and is often mistaken for ivory when seen in finished items, but it has a distinctive greenish sheen in candlelight and when in the presence of magical radiance. Dlarun is a little-known metal of the halflings, who take care to keep word of it as paltry and as inaccurate as possible. Dlarun is usually encountered after having been formed by halflings into small figurines, inlay plates, or knobs and pommels.</p>
 <p>Derived from roasting clay dug from the banks of certain rivers, dlarun is first gathered as white chips among fire ash that are then melted in a hot crucible that is filled with a secret mixture of liquids. A lump of soft, soap-like metal results that can be readily carved by anyone with a sharp knife. When the desired end result has been achieved, a second heating, in the open flames of a fire fueled and supplemented by secret ingredients, this time, transforms the metal into a lightweight rigidity. It is thus ideal for item adornment.</p>';
         $mat->save();
 
@@ -300,7 +300,7 @@ class MetalMaterialsSeeder extends Seeder
     <li>Wherever the Plane of Fire releases into the Prime Material Plane</li>
 </ul>';
         $mat->description = '<p>Fever Iron comes from places where the Elemental Plane of Fire meets the Prime Material. It appears as black as obsidian, even when forged except for a dull orange sheen.</p>';
-        $mat->weapon      = '<p>Metal weapons forged with Fever Iron grain a +1 bonus to Hit and Damage. It also grants the wielder a +3 bonus vs Cold effects.</p>';
+        $mat->weapon      = '<p>Metal weapons forged with Fever Iron grants a +1 bonus to Hit and Damage. It also grants the wielder a +3 bonus vs. Cold effects.</p>';
         $mat->save();
 
         $mat         = new Material;
@@ -442,14 +442,14 @@ class MetalMaterialsSeeder extends Seeder
     <li>Solaria, the Forth layer of the Outer Plane of Mount Celestia</li>
 </ul>';
         $mat->description = '<p>Mined in the Forth layer of Mount Celestia, this fine silver ore is as strong as steel and shines brightly. It is easily worked into weapons.</p>';
-        $mat->weapon      = "<p>Metal edged weapons made of Solarian Truesteel gain a +1 to Hit and Damage. When it deals a Critical Hit, re-roll all 1's.</p>";
+        $mat->weapon      = "<p>Metal-edged weapons made of Solarian Truesteel gain a +1 to Hit and Damage. When it deals a Critical Hit, re-roll all 1's.</p>";
         $mat->save();
 
         $mat              = new Material;
         $mat->name        = 'Telstang';
         $mat->type        = 'Metal';
         $mat->description = "<p>Originally a gnomish secret, this alloy of copper, mithral, platinum, and silver has been adopted by the halflings and by certain elven and orc peoples in the Sword Coast North. Its making remains known to few, and in many writings it is hidden behind the term 'truesilver', which has been applied to mithral, or the phrase 'the trusty metal', often misunderstood by human sages to mean steel or perhaps bronze - the very mistake the writers hoped they would make.</p>
-<p>Telstang is a dull silver hue, rather like pewter, and is known as the singing metal because it gives off a clear bell-like tone whe struck. It is non-ferromagnetic but readily forgeable, through it tends to be brittle and easily snapped off or shattered in large pieces. It never oxidizes and so lasts forever if not struck or dropped.</p>
+<p>Telstang is a dull silver hue, rather like pewter, and is known as the singing metal because it gives off a clear bell-like tone when struck. It is non-ferromagnetic but readily forgeable, through it tends to be brittle and easily snapped off or shattered in large pieces. It never oxidizes and so lasts forever if not struck or dropped.</p>
 <p>Telstang's shortcomings make it unsuitable for use in weapons or armor, but it is often worn (by folk who know of and can get it) as bracers, bucklers, brooches, pendants, and the like because of its most valuable property. Telstang and all organic material in contact with or encased in it cannot be altered in state, that is a warrior wearing telstang and the telstang itself cannot be affected by Polymorph, Petrification, Shape Change and similar effects. However, such a being also cannot be aided by beneficial magical state-altering effects.</p>";
         $mat->save();
 

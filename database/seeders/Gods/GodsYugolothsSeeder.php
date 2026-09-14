@@ -18,7 +18,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Anthraxus';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'Phraxas the Decayed, Lord of Despair, Lord of Misery, Oinoloth, Oinodaemon',
             'level'     => 'Altraloth',
@@ -29,19 +29,19 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Apomps';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'        => $god->name,
             'title'       => 'The Three-Sided, Lord of the Demodands',
             'level'       => 'Altraloth',
             'alignment'   => 'NE',
-            'description' => '<p>Apomps, is one of the first Altraloths created by the Night Hags. They had lost his True Name and was forced to imprison him in Carceri. There, he created his demodands and seeks revenge against the other Altraloths and the Night Hags that have imprisoned him.</p>',
+            'description' => '<p>Apomps is one of the first Altraloths created by the Night Hags. They had lost his True Name and was forced to imprison him in Carceri. There, he created his demodands and seeks revenge against the other Altraloths and the Night Hags that have imprisoned him.</p>',
         ]);
 
         $god        = new God;
         $god->name  = 'Charon';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'The Ferryman, The Boatman of the Lower Planes',
             'level'     => 'Altraloth',
@@ -52,7 +52,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Inthracis';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'The Clone',
             'level'     => 'Altraloth',
@@ -63,7 +63,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Mydianchlarus';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => '',
             'level'     => 'Altraloth',
@@ -74,7 +74,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Xengahra';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'        => $god->name,
             'title'       => 'Death Bringer, Fallen One',
             'level'       => 'Altraloth',
@@ -87,7 +87,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Malkizid';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'        => $god->name,
             'title'       => 'The Branded King (Former Solar)',
             'level'       => 'Yugoloth',
@@ -101,7 +101,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Kexxon';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'Archgeneral of the Blood Rift',
             'level'     => 'Altraloth',
@@ -112,7 +112,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Taba';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'Thief and Spymaster of the Yugoloths',
             'level'     => 'Altraloth',
@@ -123,7 +123,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Typhus';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => $god->name,
             'title'     => 'General of the Infernal Front army',
             'level'     => 'Altraloth',
@@ -134,7 +134,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Bubonix';
         $god->level = 'Yugoloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'        => $god->name,
             'title'       => 'Master of the Tower of Incarnate Pain',
             'level'       => 'Yugoloth',
@@ -146,7 +146,7 @@ class GodsYugolothsSeeder extends Seeder
         $god->name  = 'Shemeshka';
         $god->level = 'Yugoloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'        => $god->name,
             'title'       => 'The Marauder',
             'level'       => 'Yugoloth',

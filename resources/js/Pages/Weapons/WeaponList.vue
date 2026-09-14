@@ -4,7 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "weapons";
 const filters = {

@@ -15,7 +15,7 @@ trait Propertyable
 {
     public function properties(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Property::class, 'propertyable')
+        return $this->morphToMany(Property::class, 'propertyable')
             ->withPivot(['conditions', 'value']);
     }
 }

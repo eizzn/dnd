@@ -32,7 +32,7 @@ class ElementalsSeeder extends Seeder
 </dl>';
         $monster->description = '<p>An air mephit are about four feet tall and weighed only a pound. They have pale white skin. Like all mephits, air mephits are impish in appearance and have wispy wings, which sprouted from their humanoid upper torsos. They have whirlwinds where one would expect their legs to be.</p>
 <p>Air mephits tend to me more skittish than other mephits.</p>';
-        $helper->saveMonster($monster, ['Elemental', 'Earth', 'Outer Planes', 'Outsider'], [
+        $helper->saveMonster($monster, ['Elemental', 'Air', 'Outer Planes', 'Outsider'], [
             'stats'  => [5, 16, 10, 8, 11, 10, .5, 3],
             'skills' => [
                 'Perception' => ['dc' => 3],

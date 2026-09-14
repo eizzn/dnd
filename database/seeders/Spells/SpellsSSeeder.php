@@ -1485,7 +1485,7 @@ class SpellsSSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'One Creature with Natural Weapons Touched';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>All of the targets Natural Weapons gains the Silvered attribute.</p>';
+        $spell->description = '<p>All the Targets Natural Weapons gains the Silvered attribute.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number of targets</dd>
     <dt>Permanency Heightened (+3)</dt> <dd>200 gp. 1 CON Damage</dd>
@@ -3526,7 +3526,7 @@ class SpellsSSeeder extends Seeder
 <ul>
     <li>Illuminates and Dispels Darkness as the Daylight Spell.</li>
     <li>Damage Reduction 5</li>
-    <li>In the Target is struck by a Melee Attack, the Sunmantle lashes out with a tendril of light at the attacker (always hitting) and dealing 5 Light Damage.</li>
+    <li>If the Target is struck by a Melee Attack, the Sunmantle lashes out with a tendril of light at the attacker (always hitting) and dealing 5 Light Damage.</li>
 </ul>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Light', 'Good'], 4);
 
@@ -3641,7 +3641,7 @@ class SpellsSSeeder extends Seeder
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 10 minutes';
         $spell->description = '<p>You gain an additional Action. This additional Action can only be used to make a Move Action.</p>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless'], 1);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless', 'Extra Action'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Swift Quiver';

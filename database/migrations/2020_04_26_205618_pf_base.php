@@ -110,10 +110,25 @@ class PfBase extends Migration
             $table->primary(['parent_id', 'child_id']);
         });
 
+        Schema::create('god_pantheon_feat', function (Blueprint $table) {
+            $table->integer('god_id')->unsigned();
+            $table->foreign('god_id')->references('id')->on('gods')
+                ->onDelete('cascade');
+            $table->smallInteger('pantheon_id')->unsigned();
+            $table->foreign('pantheon_id')->references('id')->on('pantheons')
+                ->onDelete('cascade');
+            $table->integer('feat_id')->unsigned();
+            $table->foreign('feat_id')->references('id')->on('feats');
+
+            $table->primary(['god_id', 'pantheon_id', 'feat_id'], 'god_pantheon_feat_id');
+        });
+
         Schema::create('talents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->enum('action_type', ['Triple Action', 'Double Action', 'Action', 'Reaction', 'Free'])->nullable();
+            $table->enum('action_type', [
+                'Triple Action', 'Double Action', 'Action', 'Triple Reaction', 'Double Reaction', 'Reaction', 'Free',
+            ])->nullable();
             $table->string('requirement', 200)->nullable();
             $table->string('trigger', 200)->nullable();
             $table->text('description');
@@ -188,8 +203,6 @@ class PfBase extends Migration
 
         Schema::create('god_class', function (Blueprint $table) {
             $table->integer('god_id')->unsigned();
-            $table->foreign('god_id')->references('god_id')->on('god_pantheon')
-                ->onDelete('cascade');
             $table->smallInteger('pantheon_id')->unsigned()->default(1);
             $table->foreign('pantheon_id')->references('id')->on('pantheons')
                 ->onDelete('cascade');
@@ -200,11 +213,11 @@ class PfBase extends Migration
             $table->string('meta')->nullable();
 
             $table->primary(['god_id', 'class_id', 'pantheon_id'], 'god_class_primary_key');
+            $table->foreign(['god_id', 'pantheon_id'])->references(['god_id', 'pantheon_id'])->on('god_pantheon')
+                ->onDelete('cascade');
         });
         Schema::create('god_worship_class', function (Blueprint $table) {
             $table->integer('god_id')->unsigned();
-            $table->foreign('god_id')->references('god_id')->on('god_pantheon')
-                ->onDelete('cascade');
             $table->smallInteger('pantheon_id')->unsigned()->default(1);
             $table->foreign('pantheon_id')->references('id')->on('pantheons')
                 ->onDelete('cascade');
@@ -213,8 +226,11 @@ class PfBase extends Migration
                 ->onDelete('cascade');
             $table->tinyInteger('multiclass_group')->unsigned()->default(0);
             $table->string('meta', 50)->nullable();
+            $table->boolean('is_clergy')->default(0);
 
             $table->primary(['god_id', 'class_id', 'pantheon_id', 'multiclass_group'], 'god_worship_class_primary_key');
+            $table->foreign(['god_id', 'pantheon_id'])->references(['god_id', 'pantheon_id'])->on('god_pantheon')
+                ->onDelete('cascade');
         });
         Schema::create('god_pieties', function (Blueprint $table) {
             $table->integer('god_id')->unsigned();
@@ -259,7 +275,7 @@ class PfBase extends Migration
             $table->string('crafting_time', 25)->nullable();
             $table->string('method', 100)->nullable();
             $table->string('activation', 150)->nullable();
-            $table->string('bulk', 1)->nullable();
+            $table->string('bulk', 10)->nullable();
             $table->string('meta')->nullable();
             $table->text('crafting')->nullable();
             $table->text('description');
@@ -300,6 +316,14 @@ class PfBase extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('details');
+        });
+
+        Schema::create('artifacts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->string('creator', 100)->nullable();
+            $table->text('description');
+            $table->text('powers')->nullable();
         });
     }
 
@@ -345,6 +369,8 @@ class PfBase extends Migration
         Schema::dropIfExists('formulas');
 
         Schema::dropIfExists('organizations');
+
+        Schema::dropIfExists('artifacts');
 
         Schema::enableForeignKeyConstraints();
     }

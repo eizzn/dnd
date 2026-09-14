@@ -222,6 +222,7 @@ class ClassSoulKnifeSeeder extends Seeder
 <ul>
     <li>If you have the Enhance Mind Blade feature, you may also imbue your arrows in the same way</li>
     <li>If you have the Psychic Strike, Improved Psychic Strike, and/or the Quick Psychic Strike feat, you may imbue your Mind Arrows in the same way</li>
+    <li>If you have the Rapid Shot Feat, you may use the additional Action to create your psychic arrow.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
@@ -234,7 +235,7 @@ class ClassSoulKnifeSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Phase Arrow';
-        $feat->description = '<p>You may spend a Double Action and expend your Psionic Focus to manifest a special Mind Arrow. This Mind Arrow can travel in a straight line to pass through nonmagical and nonpsionic barrier or wall (A Wall of Force, Wall of Ectoplasm, or the like will stop a Mind Arrow). This arrow negates Cover, and Concealment. Make the attack as a Ranged Touch attack.</p>';
+        $feat->description = '<p>You may spend a Double Action and expend your Psionic Focus to manifest a special Mind Arrow. This Mind Arrow can travel in a straight line to pass through non-magical and non-psionic barriers or walls (A Wall of Force, Wall of Ectoplasm, or the like will stop a Mind Arrow). This arrow negates Cover and Concealment. Make the attack as a Ranged Touch attack.</p>';
         $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
         $feat->parent_feats()->save(app()->feats['Improved Mind Bow']);
 

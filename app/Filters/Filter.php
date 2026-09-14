@@ -7,32 +7,44 @@ use Illuminate\Support\Str;
 
 abstract class Filter
 {
-    public function handle(FilterPipelinePayload $data, \Closure $next): mixed
+    public function handle(FilterPipelinePayload $data, \Closure $next): FilterPipelinePayload
     {
         try {
             $filterName = $this->getMatchingFilterName($data->params);
-            $data       = $next($data);
-
-            return $this->filter($data, $filterName);
-        } catch (NoFilterMatchException $e) {
-            return $next($data);
+            $data       = $this->filter($data, $filterName);
+        } catch (NoFilterMatchException) {
+            // No param in the search array matches this filter — leave $data untouched.
         }
+
+        return $next($data);
     }
 
     /**
-     * Get the filter string
+     * Get the filter string. Defaults to the class name (minus a trailing
+     * "Filter") snake-cased, e.g. StateFilter -> "state", CountryCodeFilter
+     * -> "country_code", so it lines up with the request's validated keys.
      */
     protected function filterName(): array|string
     {
-        return Str::snake(class_basename($this));
+        return Str::of(class_basename($this))
+            ->beforeLast('Filter')
+            ->snake()
+            ->toString();
     }
 
     /**
-     * Get the column string
+     * Get the column string. Filters that accept multiple filter names must
+     * override this — there's no single sensible default to derive it from.
      */
     protected function columnName(): string
     {
-        return $this->filterName();
+        $filterName = $this->filterName();
+
+        if (is_array($filterName)) {
+            throw new \LogicException(static::class . ' accepts multiple filter names; override columnName() to specify the column explicitly.');
+        }
+
+        return $filterName;
     }
 
     /**

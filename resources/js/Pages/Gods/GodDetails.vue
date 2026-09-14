@@ -97,7 +97,7 @@ onMounted(fetchSpellDetails);
                             </section>
                             <section class="m-2">
                                 <div class="flex w-full gap-3">
-                                    <div v-if="Array.isArray(god.servants) && god.servants.length > 0" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
+                                    <div v-if="Array.isArray(god.servants) && god.servants.length > 0" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white overflow-hidden">
                                         <h4>Servants</h4>
                                         <ul>
                                             <li v-for="(servant, index) in god.servants" :key="index">
@@ -105,7 +105,7 @@ onMounted(fetchSpellDetails);
                                             </li>
                                         </ul>
                                     </div>
-                                    <div v-if="Array.isArray(god.classes) && god.classes.length > 0" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
+                                    <div v-if="Array.isArray(god.classes) && god.classes.length > 0" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white overflow-hidden">
                                         <h4>God Classes</h4>
                                         <ul>
                                             <li v-for="(klass, index) in god.classes" :key="index">
@@ -115,12 +115,28 @@ onMounted(fetchSpellDetails);
                                             </li>
                                         </ul>
                                     </div>
-                                    <div v-if="Array.isArray(god.worship_classes) && god.worship_classes.length > 0" class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white">
-                                        <h4>Worship Classes</h4>
-                                        <ul>
-                                            <li v-for="(klass, index) in god.worship_classes" :key="index">
+                                    <div class="flex-1 border border-gray-300 shadow-md rounded-lg p-4 bg-white overflow-hidden">
+                                        <ul v-if="Array.isArray(god.worship_classes) && god.worship_classes.length > 0">
+                                            <li class="flex items-center gap-1.5"><h5>Worship Classes</h5></li>
+                                            <li v-for="(klass, index) in god.worship_classes" :key="index" class="flex items-center gap-1.5">
                                                 <NavLink :href="`/class/${klass.id}`">{{ klass.name }}</NavLink>
                                                 <span class="text-sm" v-if="klass.meta != null">({{ klass.meta }})</span>
+                                                <span
+                                                    v-if="klass.is_clergy"
+                                                    title="Clergy class"
+                                                    class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium"
+                                                >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    Clergy
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <ul v-if="Array.isArray(god.feats) && god.feats.length > 0">
+                                            <li class="flex items-center gap-1.5"><h5>Feats</h5></li>
+                                            <li v-for="(feat, index) in god.feats" :key="index" class="flex items-center gap-1.5">
+                                                <NavLink :href="`/feat/${feat.id}`">{{ feat.name }}</NavLink>
                                             </li>
                                         </ul>
                                     </div>

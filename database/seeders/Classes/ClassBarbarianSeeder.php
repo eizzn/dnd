@@ -424,11 +424,11 @@ class ClassBarbarianSeeder extends Seeder
 <p>Failing to accept a personal challenge to your endurance is anathema to your lodge.</p>
 <h4>Totem Ability</h4>
 <ul>
-    <li>Increase your CON by +1 to a maximum of 20</li>
-    <li>You gain the Endurance feat</li>
-    <li>You gain Damage Reduction +1. Apply this Damage Reduction after any Resistance</li>
-    <li>You have Advantage on all Saves vs Poison</li>
-    <li>You gain a +4 bonus to all Climb checks</li>
+    <li>Increase your CON by +1, to a maximum of 20.</li>
+    <li>You gain the Endurance Feat.</li>
+    <li>You gain Damage Reduction +1.</li>
+    <li>You have Advantage on all Saves vs Poison.</li>
+    <li>You gain a +4 bonus to all Climb checks.</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
@@ -444,7 +444,7 @@ class ClassBarbarianSeeder extends Seeder
         $feat->requirement = 'You must be from the region of Rashemen';
         $feat->description = '<p>Popular among the more populated regions of Rashemen, this lodge is known for their guerrilla fighting tactics. When going into battle, Fox Lodge berserkers frequently wear cowls made of leather or fur.</p>
 <h4>Anathema</h4>
-<p>You do not have an Anathema</p>
+<p>You do not have an Anathema.</p>
 <h4>Totem Ability</h4>
 <ul>
     <li>You gain the Mobile Feat</li>
@@ -466,11 +466,10 @@ class ClassBarbarianSeeder extends Seeder
 <h4>Anathema</h4>
 <p>Not accepting a quest in the service of Rashemen is anathema to your lodge.</p>
 <ul>
-    <li>You gain the ability to cast one 1st Level Spell 1/day from the list of spells associated to this feat.</li>
-    <li>You may use your class feats from Barbarian to take Divine Warrior feats and vice versa.</li>
-    <li>you may cast Smite spells while Raging (Smite spells gain the Rage trait).</li>
-    <li>You may Concentrate on Aura spells while Raging (Aura spells gain the Rage trait).</li>
-    <li>You gain the Divine Mount Feat</li>
+    <li>You may use your class Feats from Barbarian to take Divine Warrior feats and vice versa.</li>
+    <li>you may cast Smite spells while Raging (Smite spells gain the Rage Type).</li>
+    <li>You may Concentrate on Aura spells while Raging (Aura spells gain the Rage Type).</li>
+    <li>You gain the Divine Mount Feat.</li>
     <li>You may add the Telthor Companion Template to your Special Mount, and you become its anchor location. Most Great Stag Berserker take a stag for their Special Mount.</li>
 </ul>
 <h4>Resistance</h4>
@@ -493,15 +492,15 @@ class ClassBarbarianSeeder extends Seeder
         $feat->name        = 'Ice Troll Berserker';
         $feat->requirement = 'You must be from the region of Rashemen. You must take at least 1 level of Frenzied Berserker Prestige class as soon as you qualify';
         $feat->description = "<p>Your lodge believes in absolute abandon in combat and the destruction of all trolls and hags. Many Ice Troll berserkers take the Frenzied Berserker prestige class.</p>
-<p>This lodge was the first lodge that Absalom accepted that was formed by the people of Rashemen (the ones before were formed with the guidance of Absalom himself). Absalom liked the sheer abandon members of this lodge takes in battle, and approves of the destruction of trolls. While he considers hags to be part of his court, in truth, few are and most count themselves members of Aurilandur's court.</p>
+<p>This lodge was the first lodge that the Fey Prince accepted that was formed by the people of Rashemen (the ones before were formed with the guidance of the Fey Prince himself). The Fey Prince liked the sheer abandon members of this lodge takes in battle, and approves of the destruction of trolls. While he considers hags to be part of his court, in truth, few are and most count themselves members of Aurilandur's court.</p>
 <h4>Anathema</h4>
 <p>Not seeking out a known troll or hag infestation in Rashemen is anathema to your lodge</p>
 <ul>
     <li>You gain the Favored Enemy Feature vs. Trolls and Hags</li>
     <li>While you are in a Rage and Frenzy at the same time, you gain Regeneration: 1</li>
     <li>You gain the Extra Rage Feat</li>
-    <li>Once per day, you may cast the spell Troll's Bane as a Double Action and it gains the Rage trait.</li>
-    <li>You have Advantage on all Saves vs Spells and Spell-like effects of Hags</li>
+    <li>Once per day, you may cast the spell Troll's Bane as a Double Action, and it gains the Rage Type.</li>
+    <li>You have Advantage on all Saves vss Spells and Spell-like effects of Hags.</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
@@ -520,12 +519,12 @@ class ClassBarbarianSeeder extends Seeder
         $feat->requirement = 'You must be from the region of Rashemen';
         $feat->description = '<p>Your lodge practices wrestling and grappling.</p>
 <h4>Anathema</h4>
-<p>You cannot refuse a challenge to a wrestling match</p>
+<p>You cannot refuse a challenge to a wrestling match.</p>
 <ul>
     <li>Increase your STR by 1, up to a maximum of 20.</li>
-    <li>You have Advantage to all Grappling checks while Raging</li>
     <li>You gain the Improved Grapple Feat</li>
-    <li>You gain a Talent that requires the Improved Grapple Feat</li>
+    <li>You have Advantage to all Grappling checks while Raging.</li>
+    <li>You gain a Talent that requires the Improved Grapple Feat.</li>
     <li>If you have the Extra Rage Feat, the DC to continue your Rage starts at 12.</li>
 </ul>
 <h4>Resistance</h4>
@@ -542,12 +541,12 @@ class ClassBarbarianSeeder extends Seeder
         $feat->requirement = 'You must be from the region of Rashemen';
         $feat->description = "<p>Your lodge trains in combat using the Claw Bracers</p>
 <h4>Anathema</h4>
-<p>You cannot use any Ranged Weapons and you cannot make Ranged Attacks</p>
+<p>You cannot use any Ranged Weapons and you cannot make Ranged Attacks.</p>
 <ul>
-    <li>When taking the Charging Action, your gain a +5 bonus to your Speed</li>
-    <li>You gain a Talent</li>
-    <li>You gain Advantage on Stealth checks for Hide and Move Silently</li>
-    <li>You gain the Two-Weapon Fighter Feat</li>
+    <li>When taking the Charging Action, your gain a +5 bonus to your Speed.</li>
+    <li>You gain a Talent.</li>
+    <li>You gain Advantage on Stealth checks for Hide and Move Silently.</li>
+    <li>You gain the Two-Weapon Fighter Feat.</li>
     <li>
         <p>Replace your Rage abilities with the following</p>
         <ul>
@@ -572,16 +571,16 @@ class ClassBarbarianSeeder extends Seeder
     <li>Piercing</li>
     <li>Slashing</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = 'Wolf Berserker';
         $feat->requirement = 'You must be from the region of Rashemen. You must have at least 1 level of Ranger';
-        $feat->description = "<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen</p>
+        $feat->description = "<p>Your lodge is dedicated to the warding of the wilder parts of Rashemen.</p>
 <p>One of the first 2 lodges established, this lodge is gifted with the Fey Princes blessing.</p>
 <p>Warriors from this lodge come from those that do well working alone. They are loved by the animal spirits and quite frequently receive silent aid from the shy fey of Rashemen.</p>
 <h4>Anathema</h4>
-<p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you unless ordered by a Wychlaren of rank Hathran or higher or the Huhrong</p>
+<p>Abandoning your post to ward the wilder parts of Rashemen is anathema to you unless ordered by a Wychlaren of rank Hathran or higher or the Huhrong.</p>
 <ul>
     <li>You gain the Improved Trip Feat</li>
     <li>You gain two Talents, one of them is the Improved Flanking Talent and one of your choice</li>
@@ -640,7 +639,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Piercing</li>
     <li>Slashing</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = 'Eagle Tribe';
@@ -691,7 +690,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Piercing</li>
     <li>Slashing</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = 'Rhinoceros Tribe';
@@ -718,6 +717,7 @@ class ClassBarbarianSeeder extends Seeder
 <p>You must serve a dwarven kingdom or crown</p>
 <ul>
     <li>Increase your CON by +1, to a maximum of 20</li>
+    <li>You gain the Die Hard Talent</li>
     <li>You gain proficiency in Heavy Armor</li>
     <li>You gain the Improved Grapple Feat</li>
 </ul>
@@ -781,7 +781,6 @@ class ClassBarbarianSeeder extends Seeder
             'Swipe'                => 3,
             'Great Cleave'         => 4,
             'Supreme Cleave'       => 12,
-            'Medium Armor Master'  => 2,
             'Brute Force'          => 7,
             'Improved Brute Force' => 12,
             'Mettle'               => 7,

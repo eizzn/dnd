@@ -12,7 +12,7 @@ class MonstersASeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $helper = app()->seedHelper;
 
@@ -29,8 +29,11 @@ class MonstersASeeder extends Seeder
     <dt>Light Ray</dt> <dd>Ranged Spell Attack, reach 30/60 ft, one target. 1D6 Positive Holy Light.</dd>
     <dt>Gestalt</dt> <dd>Nine lantern archons can fuse together as a Triple Action, becoming a single Large entity that appears as a whirlwind of dancing firefly lights. The gestalt has the abilities of a Large Air Elemental. The lantern archons can remain in this form for 10 rounds. When the gestalt separates back into individual lantern archons, its remaining Hit Points are divided evenly among them. If it had less than 9 Hit Points, some component archons die when the gestalt ends.</dd>
 </dl>';
-        $monster->description = '<p>Lantern archons are the lowest-ranking of the archons. They appear as spheres of soft, glowing light, about as bright as a torch, from about one to three feet in diameter.</p>';
-        $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful', 'Familiar'], [
+        $monster->description = '<p>Lantern archons are the lowest-ranking of the archons. They appear as spheres of soft, glowing light, about as bright as a torch, from about one to three feet in diameter.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Celestial', 'Archon', 'Outer Planes', 'Good', 'Outsider', 'Lawful', 'Animal Companion'], [
             'stats'  => [1, 16, 12, 6, 11, 10, 2, 2],
             'skills' => [
                 'Arcana'     => ['dc' => 3],

@@ -134,11 +134,24 @@ onMounted(async () => {
                 </div>
 
                 <!-- Description -->
-                <div v-if="klass.description" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="px-6 py-4 border-b border-stone-700">
                         <h3 class="text-base font-semibold text-amber-400 uppercase tracking-wide">Description</h3>
                     </div>
                     <div class="p-6 prose max-w-none" v-html="klass.description"></div>
+                    <div v-if="Array.isArray(klass.gods) && klass.gods.length > 0" class="px-6 pb-6 pt-2 border-t border-stone-700">
+                        <p class="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">Serves as clergy for</p>
+                        <div class="flex flex-wrap gap-x-4 gap-y-3">
+                            <div v-for="god in klass.gods" :key="`${god.god_id}-${god.pantheon_id}`" class="flex flex-col">
+                                <NavLink
+                                    :href="`/god/${god.god_id}/pantheon/${god.pantheon_id}`"
+                                    class="inline-block px-2.5 py-0.5 rounded-full border border-amber-700/50 bg-amber-900/30 text-amber-300 text-xs font-medium hover:bg-amber-900/60 transition-colors"
+                                    style="border-bottom-width: 1px !important;"
+                                >{{ god.name }}</NavLink>
+                                <span v-if="god.meta" class="text-xs text-stone-400 px-2.5 mt-0.5">{{ god.meta }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Progression table -->
@@ -283,4 +296,5 @@ onMounted(async () => {
         font-size: 0.875em;
         width: auto !important;
     }
+
 </style>

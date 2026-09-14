@@ -47,7 +47,7 @@ class SpellsESeeder extends Seeder
         $spell->description = "<p>The Target gets a +4 enchantment bonus to CHA.</p>
 <p>This spell Counters and is Countered by Eagle's Hex.</p>";
         $spell->heightened  = '<dl>
-    <dt>Heightened (+4)</dt> <dd>The range becomes 30 feet and you can Target up to 10 creatures.</dd>
+    <dt>Heightened (+4)</dt> <dd>The range becomes 30 feet, and you can Target up to 10 creatures.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Bless', 'Enchantment'], 2);
 

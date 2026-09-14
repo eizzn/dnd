@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null armor
  * @property string|null weapon
  * @property string|null other
+ * @property string|null hardness
+ * @property string|null hit_points
  */
 class Material extends Model
 {

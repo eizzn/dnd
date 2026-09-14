@@ -5,7 +5,7 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import { ref } from "vue";
 import {TailwindPagination} from "laravel-vue-pagination";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = 'templates';
 const filters = {

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Talents;
 
+use App\Models\Feat;
 use App\Models\Talent;
 use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
@@ -13,10 +14,68 @@ class MiscellaneousTalentsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
+
+        $talent              = new Talent;
+        $talent->name        = 'Light Armor Caster';
+        $talent->requirement = 'You must have proficiency with Light Armor';
+        $talent->description = '<p>You do not suffer Spell Casting penalties when casting a spell while wearing Light Armor.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Armor', 'Talent' => 2]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Medium Armor Caster';
+        $talent->requirement = 'You must have proficiency with Medium Armor';
+        $talent->description = '<p>You do not suffer Spell Casting penalties when casting a spell while wearing Medium Armor.</p>';
+        $talent->parent_id   = Talent::where('name', 'Light Armor Caster')->first()->id;
+        $helper->addTypesToSimpleObject($talent, ['Armor', 'Talent' => 4]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Heavy Armor Caster';
+        $talent->requirement = 'You must have proficiency with Heavy Armor';
+        $talent->description = '<p>You do not suffer Spell Casting penalties when casting a spell while wearing Heavy Armor.</p>';
+        $talent->parent_id   = Talent::where('name', 'Medium Armor Caster')->first()->id;
+        $helper->addTypesToSimpleObject($talent, ['Armor', 'Talent' => 6]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Medium Armor Master';
+        $talent->requirement = 'You must have proficiency with Medium Armor';
+        $talent->description = '<p>You gain the following.</p>
+<ul>
+    <li>Reduce the Armor Check Penalty from wearing Medium Armor by 1.</li>
+    <li>Increase the Maximum DEX modifier bonus limit from Medium Armor to your AC by +1.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Armor', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Heavy Armor Master';
+        $talent->requirement = 'You must have proficiency with Heavy Armor';
+        $talent->description = '<p>You gain the following.</p>
+<ul>
+    <li>It takes you 1 round less to Don and Doff Heavy Armor.</li>
+    <li>You do not have to make CON Saves to prevent becoming Fatigued due to fighting in Heavy Armor (you still suffer Exhaustion for sleeping in Heavy Armor).</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Armor', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Phalanx Fighting';
+        $talent->requirement = 'You are wielding a Large or Medium Shield';
+        $talent->description = '<p>You gain the following.</p>
+<ul>
+    <li>While you are wielding a Large or Medium Shield, you gain a +1 bonus to your AC, even if you have not taken the Raise a Shield Action.</li>
+    <li>
+        <p>If you are within 5 feet of an ally who is also wielding a Large or Medium Shield and has this Talent, then you gain the following.</p>
+        <ul>
+            <li>If you take the Raise a Shield Action, you gain a +5 bonus to AC and to any DEX Save that allows for half damage on Success.</li>
+            <li>You gain 1/2 cover</li>
+            <li>Any ally that stands directly behind you also gains a +5 bonus to AC and to any DEX Saves that allows for half damage on Success, and gains half-cover.</li>
+        </ul>
+    </li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Melee', 'Shield', 'Talent' => 6]);
+        $talent->feats()->save(Feat::where('name', 'Shield Master')->first());
 
         $talent              = new Talent;
         $talent->name        = 'Aspect of Nature: Agility';
@@ -148,7 +207,7 @@ class MiscellaneousTalentsSeeder extends Seeder
 <ul>
     <li>You gain an additional Action. This additional Action can only be used to take the Stride Action</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Talent' => 2]);
+        $helper->addTypesToSimpleObject($talent, ['Wild Shape', 'Extra Action', 'Talent' => 2]);
 
         $talent              = new Talent;
         $talent->name        = 'Aspect of Nature: Strength';
@@ -178,19 +237,19 @@ class MiscellaneousTalentsSeeder extends Seeder
     <li>If the Shield Spell is not a Cantrip for you, you may cast it 1/day without using a Spell Slot</li>
     <li>When you cast the Shield Spell, it's Duration is increased by +1 rounds.</li>
 </ul>";
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Abjuration', 'Arcane', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Extra Cantrip';
         $talent->requirement = 'You must have the ability to cast cantrips';
         $talent->description = '<p>You may memorize an additional Cantrip from your list of Cantrips.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Divine', 'Primal', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Cantrip', 'Arcane', 'Divine', 'Primal', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Mage Armor Master';
         $talent->action_type = 'Triple Action';
         $talent->requirement = 'You must have the ability to cast Wizard spells';
-        $talent->description = '<p>You may cast Mage Armor on yourself only as a 1st level spell at will with a Triple Action.</p>';
+        $talent->description = '<p>You may cast Mage Armor on yourself only, as a 1st level spell at will with a Triple Action.</p>';
         $helper->addTypesToSimpleObject($talent, ['Arcane', 'Abjuration', 'Talent' => 3]);
 
         $talent              = new Talent;
@@ -239,8 +298,8 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->name        = 'Sorcerous Speed';
         $talent->action_type = 'Free';
         $talent->requirement = 'You must have the ability to cast at last 4th level Arcane spells';
-        $talent->description = '<p>You may spend 20 Spell Points to gain the Quickened Condition for 1 minute.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 12]);
+        $talent->description = '<p>You may spend 15 Spell Points to gain the Quickened Condition for 1 minute.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 15]);
 
         /**********************************************************************/
 
@@ -806,19 +865,20 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->skills()->save(app()->skills['Thievery'], ['dc' => 5]);
 
         $talent              = new Talent;
+        $talent->name        = 'Acid Immunity';
+        $talent->description = '<ul>
+    <li>You have Immunity to Acid Damage (but not your equipment).</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Acid', 'Talent' => 12]);
+        $talent->feats()->save(app()->feats['Acid Resistance']);
+
+        $talent              = new Talent;
         $talent->name        = 'Petrification Immunity';
         $talent->description = '<ul>
     <li>You are now immune to Petrification effects.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 12]);
         $talent->feats()->save(app()->feats['Petrification Resistance']);
-
-        $talent              = new Talent;
-        $talent->name        = 'Poison Immunity';
-        $talent->description = '<ul>
-    <li>You are immune to Poison</li>
-</ul>';
-        $helper->addTypesToSimpleObject($talent, ['Poison', 'Talent' => 12]);
 
         $talent              = new Talent;
         $talent->name        = 'Charm Immunity';
@@ -837,5 +897,126 @@ class MiscellaneousTalentsSeeder extends Seeder
     <li>You no longer suffer the penalties form Light Blindness and/or Sunlight Sensitivity</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Bolster Undead Resistance';
+        $talent->requirement = 'You must have the Necromancy Feat, the Flesh Forger Feat, or be a Divine Spellcaster and your Patron Deity has the Necromancy Domain.';
+        $talent->description = '<p>All undead that you create gains a +2 bonus to their check vs. being Turned or Rebuked.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Necromancy', 'Undead', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Undead Retribution';
+        $talent->requirement = 'You must have the Necromancy Feat, the Flesh Forger Feat, or be a Divine Spellcaster and your Patron Deity has the Necromancy Domain.';
+        $talent->description = '<p>All undead that you create now explodes with Necrotic energy when they die.</p>
+<p>When an undead that you created dies, the undead explodes and deals 1D6 Negative damage in a 5 ft radius. Other undead in this area are Healed by this energy.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Necromancy', 'Undead', 'Talent' => 9]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Thick Undead Skin';
+        $talent->requirement = 'You must have the Necromancy Feat, the Flesh Forger Feat, or be a Divine Spellcaster and your Patron Deity has the Necromancy Domain.';
+        $talent->description = '<ul>
+    <li>All un-intelligent undead that you create gains Damage Reduction 1.</li>
+    <li>You may take this Talent up to 3 times.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Necromancy', 'Undead', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Exalted Spell';
+        $talent->requirement = 'You must have an Exalted Feat or be a Divine Spellcaster and your Patron Deity is Good aligned or seeks the destruction of undead.';
+        $talent->trigger     = 'You start to cast a spell that deals damage';
+        $talent->description = '<p>You can infuse a spell that deals damage to cause additional damage to undead.</p>
+<p>Spend 1 Spell Point. The modified spell now deals an additional 3D6 Positive damage to undead (no Save).</p>';
+        $helper->addTypesToSimpleObject($talent, ['Metamagic', 'Positive', 'Necromancy', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Acid Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Acid type';
+        $talent->description = '<p>Spells with the Acid type deals an additional +1 per die of Acid damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Acid', 'Transmutation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Transmuter')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Air Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Air type';
+        $talent->description = '<p>Spells you cast with the Air type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Air', 'Transmutation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Transmuter')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Cold Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell that deals Cold damage';
+        $talent->description = '<p>Spells with the Cold type deals an additional +1 per die of Cold damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Cold', 'Evocation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Evoker')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Earth Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Earth type';
+        $talent->description = '<p>Spells you cast with the Earth type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Earth', 'Transmutation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Transmuter')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Fire Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell that deals Fire damage';
+        $talent->description = '<p>Spells with the Fire type deals an additional +1 per die of Fire damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Fire', 'Evocation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Evoker')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Electricity Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell that deals Electricity damage';
+        $talent->description = '<p>Spells with the Electricity type deals an additional +1 per die of Electricity damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Electricity', 'Evocation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Evoker')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Force Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Force type';
+        $talent->description = '<p>Spells you cast with the Force type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Force', 'Evocation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Evoker')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Poison Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Poison type';
+        $talent->description = '<p>Spells you cast with the Poison type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Poison', 'Transmutation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Transmuter')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Sonic Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell that deals Sonic damage';
+        $talent->description = '<p>Spells with the Sonic type deals an additional +1 per die of Sonic damage.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Sonic', 'Evocation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Evoker')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Water Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Water type';
+        $talent->description = '<p>Spells you cast with the Water type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Water', 'Transmutation', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Transmuter')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Negative Spell Specialization';
+        $talent->trigger     = 'You start to cast a spell with the Negative type';
+        $talent->description = '<p>Spells you cast with the Negative type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Negative', 'Necromancy', 'Talent' => 3]);
+        $talent->feats()->save(Feat::where('name', 'Necromancer')->first());
+
+        $talent              = new Talent;
+        $talent->name        = 'Positive Spell Specialization';
+        $talent->requirement = 'You must have a patron Deity that has healing as in their portfolio';
+        $talent->trigger     = 'You start to cast a spell with the Positive type';
+        $talent->description = '<p>Spells you cast with the Positive type are automatically Heightened +1.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Positive', 'Necromancy', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Additional Familiar';
+        $talent->description = '<p>You may have a normal Familiar alongside your Animal Companion Familiar. You must follow the rules for a Familiar (CR limit).</p>
+<p>You may take this Talent up to 3 times.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Conjuration', 'Familiar', 'Talent' => 7]);
+        $talent->feats()->save(Feat::where('name', 'Enhance Familiar')->first());
     }
 }

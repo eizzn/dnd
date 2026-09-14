@@ -55,10 +55,4 @@ class Power extends Model
         return $this->morphedByMany(Klass::class, 'powerable')
             ->withPivot('level', 'meta');
     }
-
-    public function feats(): MorphToMany
-    {
-        return $this->morphedByMany(Feat::class, 'powerable')
-            ->withPivot('level', 'meta');
-    }
 }

@@ -68,13 +68,13 @@ class ClassAdventurerSeeder extends Seeder
             1 => ['Alarm', 'Comprehend Languages', 'Delay Poison', 'Detect Magic', 'Detect Secret Doors', 'Feather Fall',
                 'Grease', 'Guided Path', 'Guiding Light', 'Hawkeye', 'Healthful Rest', 'Jump', 'Locate City', 'Note', 'Swift',
                 'Weapon Shift', ],
-            2 => ["Bear's Endurance", "Bull's Strength", "Cat's Grace", 'Conjure Weapon', 'Cure Wounds', 'Darkvision',
-                "Eagle's Splendor", "Fox's Cunning", 'Gust of Wind', 'Heroism', 'Insight of Good Fortune', 'Invisibility',
-                'Keen Edge', 'Knock', 'Map', "Owl's Wisdom", 'Resist Fire', 'Skyhook', ],
+            2 => ['Animate Objects, Lesser', "Bear's Endurance", "Bull's Strength", "Cat's Grace", 'Conjure Weapon', 'Cure Wounds',
+                'Darkvision', "Eagle's Splendor", "Fox's Cunning", 'Gust of Wind', 'Heroism', 'Insight of Good Fortune',
+                'Invisibility', 'Keen Edge', 'Knock', 'Map', "Owl's Wisdom", 'Resist Fire', 'Skyhook', ],
             3 => ['Create Food and Water', 'Dancing Sword', 'Dispel Magic', 'Fly', 'Haste', 'Journal', 'Listening Coin',
                 'Message Link', 'Misty Step', 'Sending', 'Status', 'Transmuted Weapon', 'Tongues', ],
             4 => ['Control Water', 'Freedom of Movement', 'Know Vulnerabilities', 'Secret Chest', 'Shape Stone', 'Teleport'],
-            5 => ['Animate Objects', 'Arcane Hand', 'Chronicle', 'Creation', 'Passwall'],
+            5 => ['Arcane Hand', 'Chronicle', 'Creation', 'Passwall'],
         ]);
 
         $helper->addSpellSlotsToClass($class, [

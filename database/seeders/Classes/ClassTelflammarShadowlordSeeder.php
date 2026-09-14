@@ -49,7 +49,7 @@ class ClassTelflammarShadowlordSeeder extends Seeder
         $feature->key         = 'shadow_pounce';
         $feature->name        = 'Shadow Pounce';
         $feature->description = '<p>Whenever you use an ability or cast a spell with the Teleportation descriptor, you gain an Additional Action. This Additional Action can only be used after you arrive at your destination, and only as a Move or Attack Action.</p>';
-        $helper->saveFeature($feature, ['Shadow']);
+        $helper->saveFeature($feature, ['Shadow', 'Extra Action']);
 
         $feature              = new Feature;
         $feature->key         = 'shadow_discorporation';

@@ -19,26 +19,17 @@ class FeatsFightingSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $feat              = new Feat;
-        $feat->name        = 'Light Armor';
+        $feat->name        = 'Light Armor Proficiency';
         $feat->description = '<p>You have trained to master the use of light armor, gaining the following benefits.</p>
 <ul>
     <li>Increase your STR or DEX score by 1, to a maximum of 20</li>
     <li>You gain a Talent</li>
     <li>You gain proficiency with Light Armor</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Talent', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
-        $feat->name        = 'Light Armor Caster';
-        $feat->requirement = 'You must be able to cast Arcane spells';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>If you are proficient with Light Armor, you do not suffer Spell Casting penalties for casting a spell while wearing Light Armor.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Generic' => 2]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Medium Armor';
+        $feat->name        = 'Medium Armor Proficiency';
         $feat->requirement = 'You must be proficient with Light Armor';
         $feat->description = '<p>You have trained to master the use of Medium Armor and Shields. You gain the following benefits.</p>
 <ul>
@@ -46,10 +37,10 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain proficiency with Medium Armor and Shields</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Talent', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
-        $feat->name        = 'Heavy Armor';
+        $feat->name        = 'Heavy Armor Proficiency';
         $feat->requirement = 'You must be proficient with Light and Medium Armor';
         $feat->description = '<p>You have trained to master the use of Heavy Armor. You gain the following benefits.</p>
 <ul>
@@ -57,50 +48,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>You gain proficiency with Heavy Armor</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Generic' => 1]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Medium Armor Master';
-        $feat->requirement = 'You must have proficiency with Medium Armor';
-        $feat->description = '<p>You have practiced in Medium Armor to gain the following benefits</p>
-<ul>
-    <li>You gain a Talent</li>
-    <li>Reduce the armor check penalty from wearing Medium Armor by 1</li>
-    <li>Increase the Maximum DEX modifier bonus to your AC by +1</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 3, 'Fighter Feat' => 2]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Heavy Armor Master';
-        $feat->requirement = 'You must have proficiency with Heavy Armor';
-        $feat->description = '<p>You can use your armor to deflect strikes that would kill others. You gain the following benefits.</p>
-<ul>
-    <li>You gain a Talent</li>
-    <li>Increase your STR score by 1, to a maximum of 20</li>
-    <li>While you are wearing Heavy Armor, you gain an additional Damage Reduction / 1 vs Bludgeoning, Piercing, and Slashing damage.</li>
-    <li>You do not have to make CON Saves to prevent becoming Fatigued.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Ability Boost', 'Armor', 'Talent', 'Generic' => 6, 'Fighter Feat' => 2]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Medium Armor Caster';
-        $feat->requirement = 'You must have proficiency with Medium Armor';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Medium Armor.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 4]);
-        $feat->parent_feats()->save(app()->feats['Light Armor Caster']);
-
-        $feat              = new Feat;
-        $feat->name        = 'Heavy Armor Caster';
-        $feat->requirement = 'You must have proficiency with Heavy Armor';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>You do not suffer Arcane Spell Casting penalties for casting a spell while wearing Heavy Armor.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Armor', 'Talent', 'Generic' => 7]);
-        $feat->parent_feats()->save(app()->feats['Medium Armor Caster']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Talent', 'Armor', 'Generic' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Shield Master';
@@ -123,20 +71,9 @@ class FeatsFightingSeeder extends Seeder
     <li>Increase your STR or CON score by +1, to a maximum of 20</li>
     <li>You gain a Talent</li>
     <li>Whenever you take the Raise a Shield Action, you gain an additional +1 bonus to your AC</li>
-    <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action or to the Shield Defender Talent.</li>
+    <li>You gain an additional Action. This additional Action can only be used for the Raise a Shield Action or to use the Shield Defender Talent.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Shield', 'Talent', 'Fighter Feat' => 7]);
-        $feat->parent_feats()->save(app()->feats['Shield Master']);
-
-        $feat              = new Feat;
-        $feat->name        = 'Phalanx Fighting';
-        $feat->requirement = 'You are wielding a large shield';
-        $feat->description = '<ul>
-    <li>You gain a Talent</li>
-    <li>If you are using a Large Shield and a Light Weapon or any spear, you gain an additional +1 bonus to AC (you gain this bonus even if you have not taken the Raise a Shield Action). In addition, you gain a +1 to hit with your Light Melee weapon or spear.</li>
-    <li>In addition, if you are within 5 feet of an ally who is also using a Large Shield and a Light Weapon or spear and they also have this feat, then you may form a Shield Wall. A Shield Wall grants a +4 bonus to AC (as long as all members of the Shield Wall takes the Raise a Shield Action) and provides one-half cover to all ranged attacks. Allies can also benefit from the Shield Wall even if they are not a part of the Shield Wall by standing close behind the Shield Wall.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Shield', 'Talent', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Shield', 'Talent', 'Extra Action', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Shield Master']);
 
         $feat              = new Feat;
@@ -232,26 +169,116 @@ class FeatsFightingSeeder extends Seeder
         $feat->name        = 'Sentinel';
         $feat->description = "<p>You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits</p>
 <ul>
-    <li>You gain 1 Talent.</li>
+    <li>You gain a Reaction. This Reaction can only be used to make Attacks of Opportunity.</li>
     <li>While in this Stance, you can make an Attack of Opportunity against opponents who make a Bull Rush attack even if they have the Improved Bull Rush Feat.</li>
     <li>While in this Stance, opponents who try to Tumble Through any square you threaten suffers a -10 penalty to their Acrobatics check.</li>
     <li>While in this Stance, when you hit a creature with an Attack of Opportunity, the creature's speed becomes 0 for the rest of the turn.</li>
     <li>While in this Stance, creatures within 5 feet of you provoke Attacks of Opportunity from you even if they take the Disengage action before leaving your reach.</li>
     <li>When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can make an Attack of Opportunity against the attacking creature.</li>
+    <li>
+        <p>You may not take the following Actions while in this Stance</p>
+        <ul>
+            <li>Charge</li>
+            <li>Stride Actions that move you more than 5 feet</li>
+        </ul>
+    </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Attack of Opportunity', 'Fighter Feat' => 2]);
+        $helper->addTypesToFeat($feat, ['Stance', 'Attack of Opportunity', 'Talent', 'Fighter Feat' => 2]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Juggernaut Stance';
+        $feat->requirement = 'You are wielding a Two-Handed Melee weapon';
+        $feat->description = "<p>You enter the Juggernaut Stance, planting your feet and refusing to yield ground.</p>
+<ul>
+    <li>While in this Stance, the first Action you take must be a Stride Action, and you must move at least 15 feet. If you don't, you end the Stance and suffer a -2 penalty to your AC until the beginning of your next turn (ending the Stance at the end of your turn Voluntarily does not cause this AC penalty).</li>
+    <li>While in this Stance, you gain a +5 bonus to your Speed.</li>
+    <li>While in this Stance, all your Charge attacks deal an additional +5 Damage.</li>
+    <li>While in this Stance, you gain a +2 bonus to AC vs. Attacks of Opportunity.</li>
+    <li>You may use a Heroic Surge while in this Stance. If you do, you may make a Trip Attack against any Target that you successfully Hit and Deal Damage to with a Charge Attack.</li>";
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 5, 'Melee', 'Talent', 'Attack of Opportunity']);
+        $feat->parent_feats()->save(app()->feats['Power Attack']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Reckless Stance';
+        $feat->requirement = 'You are wielding a Melee weapon';
+        $feat->description = '<p>You enter the Reckless Stance, abandoning caution in favor of raw aggression.</p>
+<ul>
+    <li>Increase your STR by +1, to a maximum of 20.</li>
+    <li>You take a -2 penalty to AC while you are in this Stance.</li>
+    <li>While in this Stance you gain an Additional Action. This additional Action can only be used to make a Melee Weapon Attack.</li>
+    <li>While in this Stance, all your Melee Weapon Attacks deal an additional +5 Damage.</li>
+    <li>While in this Stance you may not make Ranged Weapon Attacks or cast any Spells.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 6, 'Melee', 'Attack', 'Ability Boost', 'Extra Action']);
+        $feat->parent_feats()->save(app()->feats['Power Attack']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Whirling Stance';
+        $feat->requirement = 'You are wielding two Melee weapons, one in each hand';
+        $feat->description = '<p>You enter the Whirling Stance, weaving both weapons together into one continuous assault.</p>
+<ul>
+    <li>You gain a Heroic Surge.</li>
+    <li>You gain a +1 bonus to AC while you are in this Stance.</li>
+    <li>If you score a Critical Hit with one of your weapons, you gain a Free Action. This Free Action can only be used to make a single Melee attack with your other weapon against a different target within reach.</li>
+    <li>While in this Stance, you may use a Heroic Surge. If you do, the next Melee Attack that hits is automatically a Critical Hit.</li>
+    <li>
+        <p>While in this Stance, you may not benefit from the Following Feats.</p>
+        <ul>
+            <li>Power Attack.</li>
+            <li>Swipe Feat.</li>
+            <li>Any of the Cleave Feats.</li>
+            <li>Bull Rush.</li>
+        </ul>
+    </li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 5, 'Melee', 'Extra Action', 'Heroic Surge']);
+        $feat->parent_feats()->save(app()->feats['Two-Weapon Fighter']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Duelist Stance';
+        $feat->requirement = 'You are wielding a single one-handed Melee weapon and have nothing in your other hand';
+        $feat->description = '<p>You enter the Duelist Stance, focusing your full skill against a single foe.</p>
+<ul>
+    <li>Increase your DEX by +1, to a maximum of 20.</li>
+    <li>While in this Stance, you gain a +2 bonus to Athletics and Acrobatics checks.</li>
+    <li>While in this Stance, you gain a +2 bonus to AC against Attacks of Opportunity.</li>
+    <li>Choose one opponent within your reach when you enter this Stance, or as a Free Action on your turn thereafter. You gain a +1 circumstance bonus to AC and to Hit against that opponent.</li>
+    <li>While in this Stance, you gain a Reaction. This Reaction can only be used to make a Melee attack against your chosen opponent immediately after they miss you with a Melee attack.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 5, 'Melee', 'Finesse', 'Extra Action', 'Ability Boost']);
+        $feat->parent_feats()->save(app()->feats['Weapon Finesse']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Skirmisher Stance';
+        $feat->requirement = 'You are wearing Light or no Armor';
+        $feat->description = '<p>You enter the Skirmisher Stance, relying on footwork to stay just out of reach.</p>
+<ul>
+    <li>Increase your DEX by +1, to a maximum of 20.</li>
+    <li>While in this Stance you gain a +10 bonus to your Speed.</li>
+    <li>While in this Stance you gain a +4 bonus to AC vs. Attacks of Opportunity.</li>
+    <li>If you have moved at least 10 feet since the start of your last turn, you gain a +1 circumstance bonus to Hit and a +2 bonus to Damage with any Weapon Attack until the start of your next turn.</li>
+    <li>
+        <p>You may not take the following Actions while in this Stance</p>
+        <ul>
+            <li>Fight Defensively</li>
+            <li>Total Defense</li>
+        </ul>
+    </li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 6, 'Finesse', 'Move']);
+        $feat->parent_feats()->save(app()->feats['Weapon Finesse']);
 
         $feat              = new Feat;
         $feat->name        = 'Sharpshooter';
         $feat->requirement = 'You cannot take Move Actions while in this Stance';
-        $feat->description = "<p>You have mastered range weapons and can make shots that others find impossible. You gain the following benefits.</p>
+        $feat->description = '<p>You have mastered range weapons and can make shots that others find impossible. You gain the following benefits.</p>
 <ul>
-    <li>You do not suffer the long range penalty for making a ranged attack at long range</li>
-    <li>Your ranged attacks ignore half cover and three-quarters cover</li>
-    <li>Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -3 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.</li>
-    <li>If you have the Improved Disarm feat, you may make Disarm attempts at range with a ranged attack without any penalties</li>
-    <li>If you have the Improved Trip feat, you may make Trip attempts at range with a ranged attack without any penalties</li>
-</ul>";
+    <li>While in this Stance, you do not suffer the long range penalty for making a ranged attack at long range</li>
+    <li>Your ranged attacks ignore one-quarter cover</li>
+    <li>While in this Stance, you may choose to take a -3 penalty to the attack roll. If the attack hits, it deals an additional +10 Damage.</li>
+    <li>If you have the Improved Disarm feat, while in this Stance, you may make Disarm attempts at range with a ranged attack without any penalties</li>
+    <li>If you have the Improved Trip feat, while in this Stance, you may make Trip attempts at range with a ranged attack without any penalties</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Stance', 'Ranged', 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
         $feat->parent_feats()->save(app()->feats['Ranged Mastery']);
@@ -265,7 +292,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You may use a Heroic Surge as part of making a Stunning Fist attack. If you do, you gain a +2 Bonus to Hit and if the Target Fails their Save, they are Stunned for an additional round.</li>
     <li>Each additional time this Action is used against the same opponent in the same Encounter, they gain a +2 bonus to their Save.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8]);
+        $helper->addTypesToFeat($feat, ['Melee', 'Heroic Surge', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Stunning Fist';
@@ -275,7 +302,7 @@ class FeatsFightingSeeder extends Seeder
     <li>The DC for your Stun Save is increased by +3</li>
     <li>Your Stunning Fist now causes Stunned 3.</li>
 </ul>>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Fighter Feat']);
+        $helper->addTypesToFeat($feat, ['Melee', 'Unarmed', 'Heroic Surge', 'Fighter Feat' => 12]);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);
     }
 }

@@ -69,6 +69,24 @@ class PowersFSeeder extends Seeder
         $helper->addTypesToPower($power, ['Psychokinesis', 'Fire'], 2);
 
         $power                   = new Power;
+        $power->name             = 'Flame Breath';
+        $power->action_type      = 'Double Action';
+        $power->area             = '30-ft Cone emanation';
+        $power->display          = 'Visual';
+        $power->save_attribute   = 'DEX';
+        $power->duration         = 'Concentration, up to 1 minute';
+        $power->description      = '<p>Once per round, you can breathe Fire as an Action. Everything in the Area takes 3D6 Fire damage.</p>';
+        $power->heightened       = '<dl>
+    <dt>Heightened (+1)</dt> <dd>Increase the Damage by +1D6 Fire</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+</dl>';
+        $power->saves            = '<dl>
+    <dt>Success</dt> <dd>Half Damage</dd>
+    <dt>Failure</dt> <dd>Full Damage</dd>
+</dl>';
+        $helper->addTypesToPower($power, ['Psychometabolism', 'Fire'], 3);
+
+        $power                   = new Power;
         $power->name             = 'Flex Form';
         $power->action_type      = 'Action';
         $power->maintenance_cost = '1 Power Point per 10 minutes';

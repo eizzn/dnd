@@ -50,7 +50,7 @@ class ActionsSeeder extends Seeder
         $action                   = new Action;
         $action->key              = 'activate-implement';
         $action->name             = 'Activate implement';
-        $action->requirements     = 'You are weilding a wand';
+        $action->requirements     = 'You are wielding a wand';
         $action->action_type      = 'Double Action';
         $action->description      = '<p>You activate a wand, rod, or staff to cast its spell or activate one of its abilities. If you do not have the ability to activate the implement, then this becomes a Triple Action and you must make an Arcana check as follows.</p>
 <dl>
@@ -123,11 +123,11 @@ class ActionsSeeder extends Seeder
         $action->name        = 'Counterspell';
         $action->description = "<p>It is possible to cast any Spell as a Counterspell. By doing so, you are using the spell's energy to disrupt the casting of the same spell by another character. Counterspelling works even if one spell is Divine and the other Arcane.</p>
 <p>To use a Counterspell, you must select an opponent as the target of the Counterspell. You do this by using Actions to cast the spell, either by holding your Actions (turning them into Reactions), or having Reactions from Attacks of Opportunity or other means, so that you may use them when your opponent starts to cast a Spell that you wish to counter.</p>
-<p>To counter a spell, you must identify the spell being cast (with an Immediate Action) using an Arcane check (DC 15 + the spell's level). If you succeed in identify the spell, you may then choose to cast a Spell that will counter the target Spell. If you fail to identify the spell, you may only counter the spell using Dispel Magic.</p>
-<p>After identifying the target Spell, you may then use a number of Reactions to cast the Spell. At this point, the Spell is countered. Spells that are heightened or augmented with metamagic does not impact if a spell can be countered.</p>
-<p>Some spells specifically counter each other, especially when they have diametrically opposed effects.</p>
-<p>You use Dispel Magic to Counterspell another spellcaster, and you don't need to identify the spell (or have failed to identify it). However, Dispel magic doesn't always work as a Counterspell (DC 12 + the target spell's level).</p>";
-        $helper->addTypesToSimpleObject($action, ['Counterspell', 'Concentrate']);
+<p>To counter a spell, you must identify the spell being cast (with an Immediate Action) using an Arcane check (DC 15 + the spell's level). If you succeed in identify the spell, you may then choose to cast a Spell that will counter the target Spell. If you fail to identify the spell, you may only counter the spell using Dispel Magic (this normally requires the Improved Counter Spell Feat).</p>
+<p>After identifying the target Spell, you may then use a number of Reactions to cast the Spell. At this point, the Spell is countered. Spells that are Heightened must be matched with an equally Heightened Spell or higher. Spells augmented with Metamagic does not impact if a spell can be countered.</p>
+<p>Some spells specifically counter each other, especially when they have diametrically opposed effects. The specific Spell entry will describe what spells they Specifically Counter and what Spells Specifically Counter them.</p>
+<p>Using Dispel Magic to Counter a spell does not require you to successfully identify the spell first, but this leaves you with no information on what Spell Level the Spell is cast at, or what School the Spell belongs to. The chance to Counter a Spell using Dispel Magic requires a Spell Caster check (DC 12 + the Target spell's level including any Heightening).</p>";
+        $helper->addTypesToSimpleObject($action, ['Counterspell', 'Abjuration']);
 
         $action               = new Action;
         $action->key          = 'crawl';
@@ -187,6 +187,7 @@ class ActionsSeeder extends Seeder
 <ul>
     <li>You suffer a -2 penalty to all your Attack rolls</li>
     <li>You gain a +2 Dodge bonus to your AC.</li>
+    <li>You may take this Action up to 3 times per Turn. The effects are cumulative.</li>
 </ul>';
         $helper->addTypesToSimpleObject($action, ['Attack']);
 
@@ -257,7 +258,7 @@ class ActionsSeeder extends Seeder
         $action->key         = 'stand';
         $action->name        = 'Stand';
         $action->action_type = 'Action';
-        $action->description = '<p>You stand up from prone.</p>';
+        $action->description = '<p>You stand up from prone. This Action triggers Attacks of Opportunity.</p>';
         $helper->addTypesToSimpleObject($action, ['Move']);
 
         $action              = new Action;
@@ -345,7 +346,7 @@ class ActionsSeeder extends Seeder
         $action->name         = 'Raise a Shield';
         $action->action_type  = 'Action';
         $action->requirements = 'You are wielding a shield';
-        $action->description  = '<p>You position your shield to protect yourself. When you have Raised a Shield, you gain its listed bonuses to AC and TAC as circumstance bonuses and you can use the Shield Block reaction. Your shield remains raised until the start of your next turn.</p>';
+        $action->description  = "<p>You position your shield to protect yourself. When you take this Action and you are wielding a Shield, you gain the Shield's listed bonuses to AC and TAC as circumstance bonuses, and you can use the Shield Block Reaction. Your shield remains raised until the start of your next turn.</p>";
         $helper->addTypesToSimpleObject($action, ['Manipulate']);
 
         $action              = new Action;

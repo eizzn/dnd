@@ -188,6 +188,29 @@ class SpellsISeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Divination', 'Ritual'], 1);
 
         $spell              = new Spell;
+        $spell->name        = 'Identify Creature';
+        $spell->casting     = 'Somatic Casting';
+        $spell->range       = '10';
+        $spell->targets     = 'One creature in range';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>You look at a creature within Range and you learn basic information about the creature.</p>
+<ul>
+    <li>Name</li>
+    <li>Race</li>
+    <li>Sex</li>
+    <li>Approximate Age</li>
+    <li>Approximate Alignment (most times this spell will simply reveal N)</li>
+    <li>Classes and approximate overall Character Level</li>
+    <li>Any additional minor information the GM wants to share</li>
+</ul>
+<p>This spell fails against any Target that has any Spell with the Illusion type Cast on them, although it will reveal this to be the case.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened +2</dt> <dd>You get at least the name of the Target if they are hidden by an Illusion spell (Note: a commonly used alias is considered a real name).</dd>
+    <dt>Heightened +4</dt> <dd>This spell gains the information from the Target even if they are hidden by an Illusion spell.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Divination'], 2);
+
+        $spell              = new Spell;
         $spell->name        = 'Illusion Purge';
         $spell->casting     = 'Verbal Casting';
         $spell->area        = '5-foot radius emanation, centered on you';

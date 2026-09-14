@@ -37,7 +37,7 @@ class MonstersYSeeder extends Seeder
 <p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>
 <p>At one point in history, the battleloths struck a bargain with a mortal wizard as part of a larger plan to bring down a particularly successful pit fiend general known as Balruhk the Invincible. However, this ended in disastrous consequences when the spell meant to bind Balruhk, despite working, devastated both the pit fiend's forces and the tanar'ri hordes sent by demon lords that Balruhk's rivals were conspiring with.</p>
 <p>For their part in the plan, the battleloths who served that pit fiend betrayed him on the fields of battle. The exact nature of betrayal was unknown, although the battleloths asked a very high price for doing so. In the aftermath, there was a sharp drop in the number of offers of employment offered to the yugoloths as a whole. Furious with the battleloths, it was decreed by the other yugoloths that they were forbidden from gathering in groups larger than thirty, and from accepting employment from mortals, for the next three centuries. This caused the battleloths to fall into obscurity among mortal spellcasters as they were suddenly unable to make deals with them.</p>";
-        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral'], [
+        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral', 'Animal Companion'], [
             'stats'     => [10, 17, 11, 10, 14, 11, 1, 2],
             'skills'    => [
                 'Crafting' => ['dc' => 4, 'meta' => 'Fletching'],
@@ -72,8 +72,11 @@ class MonstersYSeeder extends Seeder
         $monster->description      = '<p>Axeloths look like bronze greataxes with spikes on the head, a leering visage engraved on the blade, and sharp fangs on the edges. Their humanoid form is that of a gray, diminutive beings with a bony ridge along their foreheads sharp enough to act as a blade.</p>
 <p>Axeloths are notoriously dense, their ability to communicate limited to only a few short words. When negotiating employment contracts, their method is to simply state their terms over and over again until the potential employer either agreed or quit the negotiations altogether. They enjoy fighting, however, and are always eager to do so in either form.</p>
 <p>When wielded in combat, axeloths are capable of making an extra bite attack on their own while in weapon form. When on their own, they spend their spare time sharpening their ridges before using them to destroy random objects such as trees of rocks, although if bothered, they will turn their blades against any annoyance with stalwart courage.</p>
-<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>';
-        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral'], [
+<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral', 'Animal Companion'], [
             'stats'     => [13, 11, 12, 8, 9, 10, 2, 2],
             'skills'    => [
                 'Athletics' => ['dc' => 7],
@@ -110,8 +113,11 @@ class MonstersYSeeder extends Seeder
 <p>Crossbowloths are pragmatists who feel no loyalty or attachment to their employers, seeing what they do as nothing more than providing a service. They do not particularly enjoy nor dislike combat. If a crossbowloth feels like breaking its bond to its current employer, it will blatantly inform foes how much it would take buy their services. Ff the current employer grows angry and attacks, the battleloth will simply take the "betrayal" as an excuse to leave with its payment.</p>
 <p>Crossbowloths allow their wielder to lay down a steady stream of fire while in weapon form. In humanoid form, they will bite or shoot bone shards from their mouths at opponents. However, they prefer to remain ranged rather than engaging in melee.</p>
 <p>Despite their complete lack of loyalty, crossbowloths are the most often sought after of the race due to their versatile combat utility.</p>
-<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>';
-        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral'], [
+<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral', 'Animal Companion'], [
             'stats'     => [11, 13, 10, 10, 11, 10, 2, 2],
             'skills'    => [
                 'Thievery' => ['dc' => 7, 'meta' => 'Disable Device and Pick a Lock only'],
@@ -149,8 +155,11 @@ class MonstersYSeeder extends Seeder
 <p>Pickloths in both forms have a hollow head (in weapon form) or \"beak\" (in humanoid form) through which they drink blood. They can attach themselves to an opponent while in either form, although doing so forces them into humanoid form, and will then proceed to try and drain their victim of blood.</p>
 <p>Driven not by hunger for battle but hunger for blood, battleloths are usually driven into an opponent and allowed to drink their fill so that they can be relied upon later. Even when in the form of picks they immediately latch onto their first target and refused to let go under any circumstances, draining the victim's blood until they are dead. Their small stature and physical weakness is contrasted by their constant activity regardless of employment status, always seeking out conflict so as to ambush the injured and dying on the edges of a battlefield.</p>
 <p>Despite their complete lack of loyalty, crossbowloths are the most often sought after of the race due to their versatile combat utility.</p>
-<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>";
-        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral'], [
+<p>Battleloths can easily and frequently switch between their forms as they wish, in their weapon form they remain aware of their surroundings and are even capable of casting spells that do not require material or somatic components, although few care to learn spellcasting at all.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral', 'Animal Companion'], [
             'stats'     => [11, 14, 10, 7, 11, 10, 2, 2],
             'skills'    => [
                 'Stealth'      => ['dc' => 11],
@@ -375,7 +384,7 @@ Their martial prowess are genuinely fearsome and the creatures delighted in dest
 <p>Mezzoloths act as the foot soldiers in the mercenary armies of the yugoloths and the most plentiful members of their kind. Despite being the lowest in rank among the yugoloths, mezzoloths are not the weakest of their race. Yugoloths from greater stations normally ruled over them with ease because of their low intelligence.</br>
 Mezzoloths are easily drawn into service on the Material Plane by offering opportunities to destroy or great rewards for their assistance. Their compliance with evil mortals normally depend on the price those beings are willing to pay and whether or not the mortals acknowledged the mezzoloth's 'superior' position in the relationship. They commonly associate with Night Hags, Demons, and Devils, although they quickly grow weary of the constraining rules and regulations of the devils, but are more likely to establish lairs than rampage across reality like the demons.</p>
 <p>Yugoloths often have to learn some kind of lesson that is built into their current rank as part of their advancement process. Mezzoloths have been taught that they are the weakest of the daemons and that everyone above them is more powerful, making them fairly easy to bluff, (while this was true of Dhergoloths in terms of sheer strength, they are in many ways weaker). By learning and calling out this bluff, often through the direct experience of defeating their Dhergoloth 'superiors', that being in command didn't always mean having raw strength, Mezzoloths can advance to the next stage of power.</p>
-<p>In the eons since they first spawned, Mezzloths have grown to populate the lower planes, as well as the Astral and Ethereal Planes. They are particularly common within Gehenna, and are theorized to have had a large portion of their population moved there.</p>
+<p>In the eons since they first spawned, Mezzoloths have grown to populate the lower planes, as well as the Astral and Ethereal Planes. They are particularly common within Gehenna, and are theorized to have had a large portion of their population moved there.</p>
 <p>The true place where Mezzoloths first formed is a point of contention among scholars. They are thought to be the yugoloth adaptations of another monster from the lower planes. Some claimed that the Mezzodemons originated within the depths of the Abyss, although later reports did not agree on this.</p>";
         $helper->saveMonster($monster, ['Yugoloth', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Neutral'], [
             'stats'  => [18, 11, 16, 7, 10, 11, 5, 4],

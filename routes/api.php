@@ -25,7 +25,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
+Route::group(['namespace' => 'Api', 'middleware' => ['api'], 'as' => 'api.'], function () {
     Route::get('alphabets', [AlphabetController::class, 'index'])
         ->name('alphabets');
     Route::get('alphabet/{id}', [AlphabetController::class, 'get'])

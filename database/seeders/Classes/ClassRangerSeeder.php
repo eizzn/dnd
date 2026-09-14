@@ -152,7 +152,7 @@ class ClassRangerSeeder extends Seeder
         $feat->requirement = 'You must have Elven blood, have the Favored Enemy Class Feature, and Solonor Thelandira must be your Patron Deity';
         $feat->description = '<p>You are a member of the clergy of the Elven god Solonor Thelandira.</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You may cast the spell Guiding Light by spending 1 Spell Point and an Action</li>
     <li>You may cast the True Strike spell by spending 1 Spell Point and an Action</li>
     <li>You gain the Weapon Focus Feat. You must choose Longbow or Shortbow (or Composite versions).</li>
@@ -183,6 +183,48 @@ class ClassRangerSeeder extends Seeder
             4 => ['Monstrous Regeneration'],
         ]);
 
+        $feat              = new Feat;
+        $feat->name        = 'Ranger of Apollo';
+        $feat->requirement = 'Apollo must be your patron and you must have the Favored Enemy Class Feature and you must have chosen Undead';
+        $feat->description = '<p>You are a worshiper of Apollo. You gain the following.</p>
+<ul>
+    <li>You gain the Weapon Focus Feat with the Long Bow.</li>
+    <li>You may cast the Light spell at will as a Double Action. If you cast Light on an arrow, you may cast it as part of the Action to nock the arrow. The light fades if you do not fire the arrow by the end of your next turn.</li>
+    <li>You gain Resistance to Negative Damage.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Light']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Flare', 'Guiding Light', 'Lantern Light'],
+            2 => ['Flash', 'Sun Bolt'],
+            3 => ['Daylight', 'Moon Blade'],
+            4 => ['Aura of the Sun'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ascetic Hunter';
+        $feat->requirement = 'Silvanus must be your Patron deity and you must have the Favored Enemy Feat';
+        $feat->description = '<p>You have trained your Ranger skills with the awakening mental abilities of a monk in the service of Silvanus.</p>
+<ul>
+    <li>You gain 1 Power Point.</li>
+    <li>Due to your psionic abilities, your Animal Companion gains a +2 to INT and WIS.</li>
+    <li>Due to your psionic abilities, you may communicate telepathically with your Animal Companion to a Range of 120 feet. This allows you to direct your Animal Companion as a Free Action.</li>
+    <li>Your Animal Companion gains 1 Power Point, and it may use one of your 1st level Powers as a Double Action.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal', 'Discipline']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Animate Wood'],
+            2 => ['Forest Eyes', 'Forest Voice'],
+            3 => ['Healing Tree'],
+        ]);
+        $helper->addPowersToFeat($feat, [
+            1 => ['Awareness', 'Distract', 'Thicken Skin', 'Strength Blast', 'Vitality Blast', 'Wisdom Defense'],
+            2 => ['Animal Sight', 'Body Equilibrium', 'Chameleon', 'Cloud Mind', 'Heal', 'Mental Augmentation', 'Physical Augmentation',
+                'Simulate Skill', ],
+            3 => ['Battlesense', 'Body Purification', 'Body Restoration', 'Combat Sense', 'Danger Sense', 'Haste'],
+            4 => ['Fate of One', 'Energy Adaptation', 'Steadfast Perception'],
+            5 => ['Adapt Body', 'Quivering Palm', 'Regeneration'],
+        ]);
+
         $helper->addFeatsToClass($class, [
             'Spell Pool'           => 1,
             'Improved Study Enemy' => 5,
@@ -210,6 +252,8 @@ class ClassRangerSeeder extends Seeder
 
             'Divine Archer of Solonor' => 2,
             'Hunter of Malar'          => 2,
+            'Ranger of Apollo'         => 2,
+            'Ascetic Hunter'           => 2,
 
             'Extra Melee Action'    => 6,
             'Extra Ranged Action'   => 5,

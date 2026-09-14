@@ -2,7 +2,9 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Models\Feat;
 use App\Models\God;
+use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class GodsTalosSeeder extends Seeder
@@ -14,6 +16,7 @@ class GodsTalosSeeder extends Seeder
      */
     public function run()
     {
+        /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
         $god        = new God;
@@ -38,7 +41,9 @@ class GodsTalosSeeder extends Seeder
             'Wizard'    => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Barbarian', 'Wizard' => ['meta' => 'Evocation'],
+            'Druid' => ['is_clergy' => true],
+            'Barbarian',
+            'Wizard' => ['meta' => 'Evocation'],
         ]);
 
         $helper->addPietyToGod($god, [
@@ -80,6 +85,10 @@ class GodsTalosSeeder extends Seeder
             'piety50' => "<h4>Chosen of Talos</h4>
 <p>You can spend an Inspiration to cast Destructive Wave with this trait. Once you cast the spell in this way, you can't do so again until you finish a Long Rest. CHA is your spellcasting ability for this spell. This version of the spell deals Lightning damage instead of Positive and deals triple damage to objects or structures</p>",
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Ire of Talos')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Anger of Talos')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Rage of Talos')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Fury of Talos')->first());
         $talos = $god;
 
         /**********************************************************************/
@@ -107,7 +116,10 @@ class GodsTalosSeeder extends Seeder
             'Ranger'        => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Spirit Shaman', 'Barbarian',
+            'Druid'         => ['is_clergy' => true],
+            'Spirit Shaman' => ['is_clergy' => true],
+            'Ranger'        => ['is_clergy' => true],
+            'Barbarian',
         ]);
 
         $helper->addPietyToGod($god, [
@@ -150,6 +162,10 @@ class GodsTalosSeeder extends Seeder
             'piety50' => '<h4>Chosen of Auril</h4>
 <p>You may use an Action to spend an Inspiration and freeze yourself into an ice statue. In this state, you are petrified. This state lasts for 1 minute</p>',
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Auril's Touch")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Auril's Kiss")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Auril's Hold")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Auril's Embrace")->first());
 
         /**********************************************************************/
 
@@ -176,7 +192,10 @@ class GodsTalosSeeder extends Seeder
             'Assassin' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Ranger', 'Scout', 'Assassin', 'Divine Oracle',
+            'Druid'         => ['is_clergy' => true],
+            'Ranger'        => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Scout', 'Assassin',
         ]);
 
         $helper->addPietyToGod($god, [
@@ -218,6 +237,11 @@ class GodsTalosSeeder extends Seeder
             'piety50' => "<h4>Chosen of Talona</h4>
 <p>You can spend an Inspiration to cast Contagion with this trait. Once you cast the spell in this way, you can't do so again until you finish a Long Rest. WIS is your spellcasting ability for this spell. When you cast the spell with this feature, the selected disease begins to spread from an afflicted creature to any other creature they touch as if it were a normal disease, using your spellcasting DC where relevant</p>",
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Talona's Taint")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Talona's Contagion")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Talona's Affliction")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Talona's Plague")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Talonatar Blightlord')->first());
 
         /**********************************************************************/
 
@@ -243,8 +267,11 @@ class GodsTalosSeeder extends Seeder
             'Druid'     => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Barbarian', 'Ranger', 'Fighter',
+            'Druid'  => ['is_clergy' => true],
+            'Ranger' => ['is_clergy' => true],
+            'Barbarian', 'Fighter',
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Blood of Malar')->first());
 
         /**********************************************************************/
 
@@ -287,7 +314,10 @@ class GodsTalosSeeder extends Seeder
             'Wizard'       => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Ranger', 'Swashbuckler', 'Divine Oracle',
+            'Druid'         => ['is_clergy' => true],
+            'Ranger'        => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Swashbuckler',
         ]);
 
         $helper->addPietyToGod($god, [
@@ -329,5 +359,7 @@ class GodsTalosSeeder extends Seeder
             'piety50' => "<h4>Chosen of Umberlee</h4>
 <p>You can spend an Inspiration to cast Maelstrom Wave with this trait. Once you cast the spell in this way, you can't do so again until you finish a Long Rest. CHA is your spellcasting ability for this spell. This version of the spell deals Lightning damage instead of Positive and deals triple damage to objects or structures</p>",
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Umberlee's Mist")->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Umberlee's Shower")->first());
     }
 }

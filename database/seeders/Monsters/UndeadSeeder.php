@@ -121,7 +121,7 @@ class UndeadSeeder extends Seeder
         $monster->speed       = '30 ft';
         $monster->actions     = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 7 (2D6 + 1) Piercing.</dd>
-    <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 6 (2D4 + 1) Slashing. If the target is a creature other than an elf or Undead, it must succeed on a DC 10 CON Save or be Paralyzed for 1 minute. The target can repeat the Save at the end of each of its turns, ending the effect on itself on a success.</dd>
+    <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 6 (2D4 + 1) Slashing. If the target is a creature other than an elf or Undead, it must succeed on a DC 11 CON Save or be Paralyzed for 1 minute. The target can repeat the Save at the end of each of its turns, ending the effect on itself on a success.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Undead'], [
             'stats'    => [13, 15, null, 7, 10, 6, 1, 2],

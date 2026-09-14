@@ -34,6 +34,7 @@ class GodsHelmSeeder extends Seeder
             'alignment'      => 'LN',
             'symbol'         => 'Staring eye on upright left gauntlet',
             'favored_weapon' => 'Ever Watchful (Bastard Sword)',
+            'master_id'      => God::where('name', 'Horus-Re')->first()->id,    // Amaunator
         ]);
 
         $helper->addClassesToGod($god, 'Faeruneon', [
@@ -75,7 +76,10 @@ class GodsHelmSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Fighter', 'Wizard' => ['meta' => 'Abjuration'],
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Wizard'     => ['meta' => 'Abjuration'],
+            'Fighter',
         ]);
 
         // Skills
@@ -139,5 +143,6 @@ class GodsHelmSeeder extends Seeder
             5 => ['Banishing Smite', 'Death Ward', 'Hallow', 'Holy Weapon'],
             6 => ['Gate Seal', 'Guards and Wards', 'Illusion Purge', 'Shield of Law'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
     }
 }

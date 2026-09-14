@@ -3,7 +3,14 @@
 namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
+use App\Filters\Casting;
+use App\Filters\DefaultLevel;
+use App\Filters\Duration;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypesByName;
 use App\Models\Spell;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,13 +36,13 @@ class SpellService implements Contracts\SpellService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\Casting::class,
-                \App\Filters\TypesByName::class,
-                \App\Filters\Duration::class,
-                \App\Filters\DefaultLevel::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                Casting::class,
+                TypesByName::class,
+                Duration::class,
+                DefaultLevel::class,
+                Order::class,
             ])
             ->thenReturn();
 

@@ -90,7 +90,9 @@ class GodsKelemvorSeeder extends Seeder
         $helper->addSpellSlotsToClass($class);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Wizard', 'Monk',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Wizard', 'Monk',
         ]);
 
         $feat              = new Feat;
@@ -98,7 +100,8 @@ class GodsKelemvorSeeder extends Seeder
         $feat->requirement = 'You must be LN and Kelemvor must be your Patron Deity';
         $feat->description = '<p>You are a Paladin of Kelemvor</p>
 <ul>
-    <li>You are proficient with Heavy Armor</li>
+    <li>You are proficient with Heavy Armor.</li>
+    <li>You gain Resistance to Negative Damage.</li>
     <li>While you may create undead, you are not allowed to let them persist. You must eventually destroy them.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
@@ -112,6 +115,7 @@ class GodsKelemvorSeeder extends Seeder
             5 => ['Atonement', 'Aura of Life', 'Holy Weapon'],
             6 => ['Raise Dead', 'Slay Living', 'Undead to Death'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
 
         /**********************************************************************/
 
@@ -166,7 +170,7 @@ class GodsKelemvorSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'INT']);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -223,7 +227,7 @@ class GodsKelemvorSeeder extends Seeder
             'Wizard' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
-            $class->name,
+            $class->name => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -303,7 +307,7 @@ class GodsKelemvorSeeder extends Seeder
             'favored_weapon' => 'Scythe',
             'master_id'      => $kelemvor->id,
             'description'    => "<p>Myrkul now serves Kelemvor as the Reaper of souls.</p>
-<p>Myrkulites have adapted a role that is useful to the living, serving as caretakers of cemeteries, providing funeral services and caretakers of the dying. Myrkulite priests are also known to provide a 'dying wish' service. For the right price, a Myrkulite priest will try to fulfil a dying man's last wish.</p>
+<p>Myrkulites have adapted a role that is useful to the living, serving as caretakers of cemeteries, providing funeral services and caretakers of the dying. Myrkulite priests are also known to provide a 'dying wish' service. For the right price, a Myrkulite priest will try to fulfil a dying man's last wish. This can include the hunting and slaying of any who killed the subject.</p>
 <h3>Ranks</h3>
 <dl>
     <dt>Elder Doom</dt> <dd>High Priest of a temple</dd>
@@ -322,5 +326,8 @@ class GodsKelemvorSeeder extends Seeder
         $helper->addClassesToGod($god, 'Faeruneon', [
             'Wizard' => ['level' => 30, 'meta' => 'Necromancer'],
         ]);
+
+        // TODO: make priest of Myrkul. NE but useful to society by providing services regarding death and preparing freshly dead
+        // TODO: priest of Myrkul gain immunity to dieases, ability to create undead
     }
 }

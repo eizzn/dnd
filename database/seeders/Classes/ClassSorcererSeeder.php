@@ -12,8 +12,6 @@ class ClassSorcererSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -127,8 +125,10 @@ class ClassSorcererSeeder extends Seeder
         $feat->name        = 'Angelic Bloodline';
         $feat->description = '<p>One of your forebears was an angel from one of the celestial realms, or your ancestors showed such devotion that their lineage was blessed through divine intervention.</p>
 <p>You gain the ability to cast the following spell using Spell points. You must pay additional Spell Points equal to the additional Spell Slots to heighten the spell.</p>
+<dl>
+    <dt>Angelic Halo</dt> <dd>1 Spell Point</dd>
+</dl>
 <ul>
-    <li>Angelic Halo: 1 Spell Point</li>
     <li>You may take Exalted Feats</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Celestial']);
@@ -153,10 +153,10 @@ class ClassSorcererSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Angelic Form';
         $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
-<ul>
-    <li>Angelic Wings: 3 Spell Points</li>
-    <li>Celestial Brand: 5 Spell Points</li>
-</ul>';
+<dl>
+    <dt>Angelic Wings</dt> <dd>3 Spell Points</dd>
+    <dt>Celestial Brand</dt> <dd>5 Spell Points</dd>
+</dl>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Celestial']);
         $feat->parent_feats()->save(app()->feats['Angelic Bloodline']);
 
@@ -266,25 +266,57 @@ class ClassSorcererSeeder extends Seeder
 </ul>";
         $helper->addTypesToFeat($feat, ['Bloodline', 'Dragon']);
         $helper->addSpellsToFeat($feat, [
-            0 => ['Acid Splash' => 'Black, Copper, Green', 'Blade Ward', "Bronze Dragon's Wrath" => 'Bronze', "Copper Dragon's Trickery" => 'Copper',
-                'Dancing Lights', 'Detect Magic', 'Fire Bolt' => 'Brass, Gold, Red', 'Frostbite' => 'Silver, White', 'Ghost Sound',
-                'Light', 'Mage Hand', 'Mending', 'Message', 'Poison Spray' => 'Black, Green', 'Prestidigitation', 'Produce Flame' => 'Brass, Gold, Red',
-                'Ray of Frost' => 'Silver, White', 'Resistance' => 'Chosen Dragon Types Element only', 'Shocking Grasp' => 'Blue, Bronze', ],
-            1 => ['Acid Stream'  => 'Black, Copper', 'Alarm', 'Charm', 'Create or Destroy Water' => 'Black, Green',
-                'Dragon Claws', 'Fear', 'Gust of Wind' => 'Bronze', 'Mage Armor', 'Magic Missile', 'Obscuring Mist' => 'Black',
-                'Shield', 'Summon Animals' => 'Green', 'Unseen Servant', ],
-            2 => ['Absorb Elements', 'Alter Self' => 'Green', 'Blur', 'Darkness' => 'Black, Blue, Green, Red', 'Entangle' => 'Green', 'Locate Object',
-                'Restoration'  => 'Gold, Silver', 'Resist Acid' => 'Black, Copper', 'Resist Cold' => 'Silver, White', 'Resist Electricity' => 'Blue, Bronze',
-                'Resist Fire'  => 'Gold, Red', 'Resist Poison' => 'Green', ],
-            3 => ['Cure Wounds' => 'Bronze, Gold, Silver', 'Dispel Magic', 'Dragon Breath', 'Fireball' => 'Gold, Red', 'Haste',
-                'Plant Growth'  => 'Black, Green', 'Lightning Bolt' => 'Blue, Bronze', 'Slow', ],
-            4 => ['Arcane Eye', 'Black Tentacles' => 'Black', 'Detect Scrying' => 'Bronze, Gold, Silver', 'Dimension Door',
-                'Fire Shield'  => 'Red', 'Fly', 'Ice Storm' => 'Silver, White', 'Stoneskin' => 'Blue', 'Vitriolic Sphere' => 'Black, Copper',
-                'Wall of Fire' => 'Gold, Red', ],
-            5 => ['Cloudkill' => 'Black', 'Control Plants' => 'Green', 'Control Winds' => 'Blue, Bronze', 'Cone of Cold' => 'Silver, White',
-                'Dragon Wings', 'Wall of Force', 'Immolation' => 'Gold, Red', 'Insect Plague' => 'Black', 'Polymorph', ],
-            6 => ['Arcane Gate', 'Chain Lightning' => 'Blue, Bronze', 'Dominate' => 'Black, Blue, Green, Red, White', 'Dragon Form',
-                'Guards and Wards', 'Scrying' => 'Gold, Silver', 'Teleport', ],
+            0 => ['Acid Splash'            => 'Black, Copper, Green', 'Blade Ward',
+                "Bronze Dragon's Wrath"    => 'Bronze',
+                "Copper Dragon's Trickery" => 'Copper',
+                'Fire Bolt'                => 'Brass, Gold, Red',
+                'Frostbite'                => 'Silver, White',
+                'Poison Spray'             => 'Black, Green',
+                'Produce Flame'            => 'Brass, Gold, Red',
+                'Ray of Frost'             => 'Silver, White',
+                'Shocking Grasp'           => 'Blue, Bronze',
+                'Resistance'               => 'Chosen Dragon Types Element only',
+                'Dancing Lights', 'Detect Magic', 'Ghost Sound', 'Light', 'Mage Hand', 'Mending', 'Message', 'Prestidigitation', ],
+            1 => ['Acid Stream'           => 'Black, Copper',
+                'Create or Destroy Water' => 'Black, Green',
+                'Gust of Wind'            => 'Bronze',
+                'Obscuring Mist'          => 'Black',
+                'Summon Animals'          => 'Green',
+                'Alarm', 'Charm', 'Dragon Claws', 'Fear', 'Mage Armor', 'Magic Missile', 'Shield', 'Unseen Servant', ],
+            2 => ['Alter Self'       => 'Green',
+                'Darkness'           => 'Black, Blue, Green, Red',
+                'Entangle'           => 'Green',
+                'Restoration'        => 'Gold, Silver',
+                'Resist Acid'        => 'Black, Copper',
+                'Resist Cold'        => 'Silver, White',
+                'Resist Electricity' => 'Blue, Bronze',
+                'Resist Fire'        => 'Gold, Red',
+                'Resist Poison'      => 'Green',
+                'Locate Object', 'Blur', ],
+            3 => ['Cure Wounds'  => 'Bronze, Gold, Silver',
+                'Fireball'       => 'Gold, Red',
+                'Plant Growth'   => 'Black, Green',
+                'Lightning Bolt' => 'Blue, Bronze',
+                'Dispel Magic', 'Dragon Breath', 'Haste', 'Slow', ],
+            4 => ['Black Tentacles' => 'Black',
+                'Detect Scrying'    => 'Bronze, Gold, Silver',
+                'Fire Shield'       => 'Red',
+                'Ice Storm'         => 'Silver, White',
+                'Stoneskin'         => 'Blue',
+                'Vitriolic Sphere'  => 'Black, Copper',
+                'Wall of Fire'      => 'Gold, Red',
+                'Arcane Eye', 'Dimension Door', 'Fly', ],
+            5 => ['Cloudkill'    => 'Black',
+                'Control Plants' => 'Green',
+                'Control Winds'  => 'Blue, Bronze',
+                'Cone of Cold'   => 'Silver, White',
+                'Immolation'     => 'Gold, Red',
+                'Insect Plague'  => 'Black',
+                'Dragon Wings', 'Wall of Force', 'Polymorph', ],
+            6 => ['Chain Lightning' => 'Blue, Bronze',
+                'Dominate'          => 'Black, Blue, Green, Red, White',
+                'Scrying'           => 'Gold, Silver',
+                'Dragon Form', 'Guards and Wards', 'Arcane Gate', 'Teleport', ],
             7 => ['Contingency', 'Plane Shift'],
             8 => ['Feeblemind'],
             9 => ['True Polymorph'],
@@ -293,11 +325,11 @@ class ClassSorcererSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Draconic Form';
         $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
-<ul>
-    <li>Dragon Claws: 1 Spell Point</li>
-    <li>Dragon Breath: 3 Spell Points</li>
-    <li>Dragon Wings: 5 Spell Points</li>
-</ul>';
+<dl>
+    <dt>Dragon Claws</dt> <dd> 1 Spell Point</dd>
+    <dt>Dragon Breath</dt> <dd>3 Spell Points</dd>
+    <dt>Dragon Wings</dt> <dd>5 Spell Points</dd>
+</dl>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Dragon']);
         $feat->parent_feats()->save(app()->feats['Draconic Bloodline']);
 
@@ -326,11 +358,11 @@ class ClassSorcererSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Fey Infusion';
         $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
-<ul>
-    <li>Faerie Dust: 1 Spell Point</li>
-    <li>Fey Disappearance: 3 Spell Points</li>
-    <li>Ridiculous Notion: 5 Spell Points</li>
-</ul>';
+<dl>
+    <dt>Faerie Dust</dt> <dd>1 Spell Point</dd>
+    <dt>Fey Disappearance</dt> <dd>3 Spell Points</dd>
+    <dt>Ridiculous Notion</dt> <dd>5 Spell Points</dd>
+</dl>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Fey']);
         $feat->parent_feats()->save(app()->feats['Fey Bloodline']);
 
@@ -339,6 +371,7 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = '<p>You have an ancestry from the Earth genies. You gain the following spells.</p>
 <ul>
     <li>Increase your STR by +1 to a maximum of 20</li>
+    <li>You gain the Earth Spell Specialization Talent</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Earth']);
         $helper->addSpellsToFeat($feat, [
@@ -361,6 +394,7 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = '<p>You have an ancestry from the Air genies. You gain the following spells.</p>
 <ul>
     <li>Increase your DEX by +1 to a maximum of 20</li>
+    <li>You gain the Air Spell Specialization Talent</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Air', 'Electricity']);
         $helper->addSpellsToFeat($feat, [
@@ -383,6 +417,7 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = '<p>You have an ancestry from the Fire genies. You gain the following spells.</p>
 <ul>
     <li>You gain Damage Reduction 3 vs Fire</li>
+    <li>You gain the Fire Spell Specialization Talent</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Fire']);
         $helper->addSpellsToFeat($feat, [
@@ -405,6 +440,7 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = '<p>You have an ancestry from the Water genies. You gain the following spells.</p>
 <ul>
     <li>Increase your CON by +1 to a maximum of 20</li>
+    <li>You gain the Water Spell Specialization Talent</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Bloodline', 'Water', 'Cold']);
         $helper->addSpellsToFeat($feat, [
@@ -436,25 +472,9 @@ class ClassSorcererSeeder extends Seeder
             'Draconic Form'       => 5,
 
             'Abjurer'                  => 1,
-            'Reach Spell'              => 1,
-            'Widen Spell'              => 1,
-            'Extend Spell'             => 2,
             'Improved Counterspell'    => 2,
-            'Silent Spell'             => 2,
-            'Disguise Spell'           => 3,
-            'Heighten Spell'           => 3,
-            'Hold Spell'               => 3,
-            'Split Ray'                => 3,
-            'Conceal Spell'            => 4,
-            'Delay Spell'              => 4,
             'Expanded Spell Knowledge' => 5,
-            'Improved Hold Spell'      => 6,
-            'Persistent Spell'         => 6,
-            'Repeat Spell'             => 6,
             'Arcane Strike'            => 7,
-            'Twin Spell'               => 7,
-            'Metamagic Master'         => 8,
-            'Quicken Spell'            => 8,
             'Greater Counterspell'     => 10,
 
             'Find Familiar'    => 2,

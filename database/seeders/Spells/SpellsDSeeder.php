@@ -901,16 +901,16 @@ class SpellsDSeeder extends Seeder
 
         $spell                 = new Spell;
         $spell->name           = 'Dimensional Anchor';
-        $spell->casting        = 'Somatic Casting, Verbal Casting';
+        $spell->casting        = 'Verbal Casting';
         $spell->range          = '30 feet';
         $spell->targets        = 'One creature';
         $spell->duration       = 'Varies';
         $spell->save_attribute = 'CHA';
-        $spell->description    = "<p>You interfere with the target's ability to travel dimensions. The Target is immune to teleportation and any effect that would move it to a different plane. The duration is determined by its Save.</p>";
+        $spell->description    = "<p>You interfere with the Target's ability to travel dimensions. The Target is immune to teleportation and any effect that would move it to a different plane. The duration is determined by its Save.</p>";
         $spell->saves          = '<dl>
     <dt>Critical Success</dt> <dd>No effect</dd>
-    <dt>Success</dt> <dd>The effect lasts for 1 round</dd>
-    <dt>Failure</dt> <dd>The effect lasts for 1 minute</dd>
+    <dt>Success</dt> <dd>The effect lasts until the start of your next turn</dd>
+    <dt>Failure</dt> <dd>The effect lasts for 10 minutes</dd>
     <dt>Critical Failure</dt> <dd>The effect lasts for 1 hour</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Abjuration', 'Conjuration'], 4);

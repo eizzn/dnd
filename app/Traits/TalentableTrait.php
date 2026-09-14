@@ -14,7 +14,7 @@ trait TalentableTrait
 {
     public function talents()
     {
-        return $this->morphToMany(\App\Models\Talent::class, 'talentable')
+        return $this->morphToMany(Talent::class, 'talentable')
             ->withPivot('level', 'meta');
     }
 }

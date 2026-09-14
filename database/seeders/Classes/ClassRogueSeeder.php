@@ -46,7 +46,7 @@ class ClassRogueSeeder extends Seeder
             'hide_in_plain_sight' => [9],
             'heroic_surge'        => [4, 10],
         ]);
-        $class->features()->save(app()->features['feat'], ['level' => 2, 'meta' => 'Improved Reaction']);
+        $class->features()->save(app()->features['talent'], ['level' => 2, 'meta' => 'Improved Reaction']);
 
         $feat              = new Feat;
         $feat->name        = 'Sneak Attack';

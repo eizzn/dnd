@@ -20,7 +20,7 @@ class GodsSlaadsSeeder extends Seeder
         $helper = app()->seedHelper;
 
         $god = God::where('name', 'Kossuth')->first();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => 'Bazim-Gorag',
             'title'     => 'The Firebringer, Lord of the Pandemonium Stone',
             'level'     => 'Slaad Lord',
@@ -31,7 +31,7 @@ class GodsSlaadsSeeder extends Seeder
         $god->name  = 'Chourst';
         $god->level = 'Slaad Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => $god->name,
             'aliases'   => 'Wartle',
             'title'     => 'Lord of Randomness',
@@ -40,7 +40,7 @@ class GodsSlaadsSeeder extends Seeder
         ]);
 
         $god = God::where('name', 'Hyrsam')->first();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => 'Rennbuu',
             'title'     => 'Lord of Colors',
             'level'     => 'Slaad Lord',
@@ -51,7 +51,7 @@ class GodsSlaadsSeeder extends Seeder
         $god->name  = 'Ssendam';
         $god->level = 'Slaad Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => $god->name,
             'title'     => 'Lord of Madness',
             'level'     => 'Slaad Lord',
@@ -62,7 +62,7 @@ class GodsSlaadsSeeder extends Seeder
         $god->name  = 'Urae-Naas';
         $god->level = 'Slaad Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => $god->name,
             'title'     => '',
             'level'     => 'Slaad Lord',
@@ -73,7 +73,7 @@ class GodsSlaadsSeeder extends Seeder
         $god->name  = 'Ygorl';
         $god->level = 'Slaad Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => $god->name,
             'title'     => 'Lord of Entropy',
             'level'     => 'Slaad Lord',
@@ -84,7 +84,7 @@ class GodsSlaadsSeeder extends Seeder
         $god->name  = 'Norsar the Many';
         $god->level = 'Slaad';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Slaad Lord'], [
+        $god->pantheons()->save(app()->pantheons['Slaad Lords'], [
             'name'      => $god->name,
             'title'     => 'White Slaad',
             'level'     => 'Slaad',

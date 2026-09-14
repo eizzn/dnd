@@ -44,7 +44,7 @@ class MonstersNSeeder extends Seeder
                 'Arcana'        => ['dc' => 8],
                 'Perception'    => ['dc' => 13],
             ],
-            'feats'     => ['Improved Initiative', 'Combat Casting', 'Great Fortitude'],
+            'feats'     => ['Improved Initiative', 'Great Fortitude'],
             'talents'   => ['Combat Casting'],
             'features'  => [
                 'darkvision'     => ['meta' => '60 ft'],

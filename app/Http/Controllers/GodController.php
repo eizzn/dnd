@@ -24,7 +24,7 @@ class GodController extends Controller
         );
     }
 
-    public function get(GodPantheonservice $service, int $godId, int $pantheonId): GodPantheonResource
+    public function get(GodPantheonService $service, int $godId, int $pantheonId): GodPantheonResource
     {
         return new GodPantheonResource(
             $service->index([

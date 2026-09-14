@@ -4,7 +4,7 @@ import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "feats";
 const filters = {
@@ -68,18 +68,21 @@ const filters = {
                                             { value: 'electricity', label: 'Electricity' },
                                             { value: 'fire', label: 'Fire' },
                                             { value: 'force', label: 'Force' },
+                                            { value: 'poison', label: 'Poison' },
                                             { value: 'negative', label: 'Negative' },
                                             { value: 'positive', label: 'Positive' },
                                             { value: 'sonic', label: 'Sonic' },
-                                            { value: 'Metapsionic', label: 'Metapsionic' },
+                                            { value: 'metapsionic', label: 'Metapsionic' },
                                             { value: 'psionic', label: 'Psionic' },
                                             { value: 'psionic combat', label: 'Psionic Combat' },
                                             { value: 'psionic focus', label: 'Psionic Focus' },
                                             { value: 'stance', label: 'Stance' },
                                             { value: 'animal companion', label: 'Animal Companion' },
+                                            { value: 'pact', label: 'Pact' },
                                             { value: 'arcane', label: 'Arcane' },
                                             { value: 'artificer discipline', label: 'Artificer Discipline' },
                                             { value: 'bardic inspiration', label: 'Bardic Inspiration' },
+                                            { value: 'discipline', label: 'Discipline'},
                                             { value: 'channel divinity', label: 'Channel Divinity' },
                                             { value: 'combat mastery', label: 'Combat Mastery' },
                                             { value: 'divine', label: 'Divine' },

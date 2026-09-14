@@ -193,16 +193,16 @@ class ClassArtificerSeeder extends Seeder
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
 <p>You gain the following</p>
 <ul>
-    <li>When you gain this feat, you gain the Formula for 4 Magic Items and/or Infusions</li>
-    <li>You can construct magic items as if you had the Craft Implement feat, except that the item has 3 charges, and requires Attunement to use. The item can be of any size, but it must be at least as large as a Short Sword or a Small Shield.</li>
+    <li>When you gain this Feat, you gain the Formula for 4 Magic Items and/or Infusions</li>
+    <li>You can construct magic items as if you had the Craft Implement Feat, except that the item has 3 charges (if it uses charges), and requires Attunement to use. The item can be of any size, but it must be at least as large as a Short Sword or a Small Shield.</li>
     <li>
         <p>You can create a Bulky Magical Item.</p>
         <p>Creating a Bulky Magical Item takes twice as long, costs 5 times more gp, and has 3 times more charges but does not require Attunement. The end resulting construct is too large to move under normal circumstances. Breaking down a Bulky Magical Item takes a quarter of the construction time to break down for transport and again a quarter of the construction time to put back together.</p>
-        <p>Bulky Magical Items can be crafted with spells as normal, except that you can Heighten and/or Augment up to 3 levels without having to use a higher level Spell Slot or devoting the required Spell Points.</p>
+        <p>Bulky Magical Items can be crafted with spells as normal, except that you can Heighten and/or Augment up to 4 levels without having to use a higher level Spell Slot or devoting the required Spell Points.</p>
         <p>You may have only 1 Bulky Magical item at a time.</p>
     </li>
     <li>You may add your Artillery items (including your Wand of Cantrips) to your Artifice Armor. You may not add Bulky Artillery items to your armor.</li>
-    <li>You may attach your Artillery item to your Effigy if you have one. The Effigy must be one that you created and it must be at least Medium size. You may only add Bulky Artillery items to your Effigy if it is Large or larger. If the Effigy is Large, it is considered Encumbered.</li>
+    <li>You may attach your Artillery item to your Effigy if you have one. The Effigy must be one that you created, and it must be at least Medium size. You may only add Bulky Artillery items to your Effigy if it is Large or larger. If the Effigy is Large, it is considered Encumbered.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
         $feat->parent_feats()->save(app()->feats['Wand of Cantrips']);
@@ -260,16 +260,15 @@ class ClassArtificerSeeder extends Seeder
         $feat->name        = 'Effigy Companion';
         $feat->description = "<p>You may have no more than 3 Artificer Discipline feats.</p>
 <ul>
-    <li>You may have an Effigy Companion, as if you had the Animal Companion feat, except it doesn't cost any Spell Points or Spell Slots but it does require Attunement. Treat the Effigy as if you had spent 2 Spell Point and a 1st level Spell Slot.</li>
+    <li>You may have an Effigy Companion, as if you had the Animal Companion feat, except it doesn't cost any Spell Points or Spell Slots, but it does require Attunement. Treat the Effigy as if you had spent a 1st level Spell Slot.</li>
     <li>You may repair damage that the Effigy has suffered by spending 1 hour of Downtime. Each hour spent of Downtime repairing the Effigy repairs 2D8 + 4 Hit Points.</li>
     <li>If you have the Find Familiar feat, you may have your Effigy act as your Familiar. It then gains all the benefits of a Familiar.</li>
-    <li>You may use multiple Attunement slots to improve your Effigy Companion, as if you had spent addition Spell Points and higher level Spell Slots. Each addition Attunement increases the Effigy as if you had sacrificed a Spell Slot 1 level higher.</li>
+    <li>You may use multiple Attunement slots to improve your Effigy Companion, as if you had spent higher level Spell Slots. Each addition Attunement increases the Effigy as if you had sacrificed a Spell Slot 1 level higher.</li>
+    <li>You may infuse your Effigy Companion with a spell that you know, and have it be castable as a Triple Action 1/day.</li>
     <li>If you have the ability to Craft Golems, any Golem you create has 4 additional Hit Dice and you get 5 Ability Points that you can add to the Golems Ability scores as you wish (STR, DEX)</li>
+    <li>You gain the formula to create Homunculus</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Construct']);
-        $helper->addSpellsToFeat($feat, [
-            2 => ['Create Homunculus'],
-        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Craft Effigy';
@@ -422,8 +421,9 @@ class ClassArtificerSeeder extends Seeder
     <dt>Saves</dt> <dd>Base Save bonus 1/3 Hit Die</dd>
     <dt>Abilities</dt> <dd>An Effigy's STR increases by 4, and it takes a -2 penalty to DEX. It has no CON or INT and has a WIS and CHR 11</dd>
     <dt>Skills and Feats</dt> <dd>An Effigy loses all Skills and Feats</dd>
-    <dt>Familiar</dt> <dd>If you have the Find Familiar Feat, you can make it into an Effigy.</dd>
-</dl>";
+</dl>
+<p>You can modify these Effigies with all the abilities from Effigy Companion.</p>
+<p>You gain the Formula for one Construct of your choice.</p>";
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Construct']);
         $helper->addSpellsToFeat($feat, [
             3 => ['Sabotage Construct'],
@@ -441,22 +441,27 @@ class ClassArtificerSeeder extends Seeder
         <ul>
             <li>Increase the STR by +2</li>
             <li>Increase the DEX by +2</li>
-            <li>Increase the CON by +2</li>
-            <li>Increase the INT by +2</li>
+            <li>Increase the INT by +2 (Your Familiar, Animal Companion, and Divine Mounts all retain their INT)</li>
+            <li>Increase the WIS by +2</li>
+            <li>Damage Resistance to Bludgeoning, Piercing, and Slashing Damage</li>
         </ul>
     </li>
     <li>You gain a Familiar and an Animal Companion. They are both dead creatures that you have animated.</li>
     <li>If you take the Divine Mount Feat, you gain another Animal Companion mount. You do not need to sacrifice any Spell Slots</li>
+    <li>Your undead creatures do not heal. You must heal them yourself by forging repairs into them using your Cause Wounds spell.</li>
 </ul>
 <p>Both Velsharoon and Orcus hates the existence of Flesh Forgers and their followers are tasked with hunting them down and eliminating them.</p>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead', 'Necromancy']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Cause Wounds' => 'You must forge your undead creatures to heal them that takes 1 minute. You may forge your undead with this spell up to 5/day'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Flesh Forge Master';
         $feat->description = '<p>You may have no more than 3 Artificer Disciple feats</p>
 <ul>
-    <li>You gain the Animate Dead spell. You may craft dead bodies into undead Skeletons or Zombies, except the Duration becomes Permanent. For every 4 animated undead, you must Attune to them. You may allow others to Attune to the undead you animate.</li>
     <li>
+        <p>You gain the Animate Dead spell. You may craft dead bodies into undead Skeletons or Zombies, except the Duration becomes Permanent. For every 4 animated undead, you must Attune to them. You may allow others to Attune to the undead you animate.</p>
         <p>You may now apply one of the following abilities to each group of undead</p>
         <ul>
             <li>Wings, granting a Fly Speed of 40</li>
@@ -465,11 +470,16 @@ class ClassArtificerSeeder extends Seeder
             <li>If you have the Wand of Cantrips feat, a single undead can gain the ability to trigger any of your Wand of Cantrips (but not to any other wand or other magical item). Undead with this ability cannot be Attuned to any but the forger.</li>
         </ul>
     </li>
+    <li>
+        <p>You gain the Create Undead spell. You may craft dead bodies into more powerful undead. The undead from 2 castings of Create Undead requires 1 Attunement. If you Heighten it +1, the undead from that casting requires 1 Attunement. You may not Heighten more than +1.</p>
+        <p>You may apply the same modifications as above to these undead. These undead are more corrupting, and increases the CHA Save by +3 instead of +1.</p>
+    </li>
 </ul>
-<p>Creatures that Attune undead to themselves must make a CHA Save (DC 12) each day or become corrupted by demonic voices. Once a creature fails 3 of these Saves, they become possessed. The crafter of these undead do not need to make these Saves.</p>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead']);
+<p>Creatures that Attune undead to themselves must make a CHA Save (DC 10 + 1 for each undead you have attuned to, so if you have attuned 4 skeletons to yourself using a single Attunement slot, the Save DC is 14) each day or become corrupted by demonic voices. Once a creature fails 3 of these Saves, they become possessed by a demon. The crafter of these undead do not need to make these Saves.</p>';
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Undead', 'Necromancy']);
         $helper->addSpellsToFeat($feat, [
             3 => ['Animate Dead'],
+            6 => ['Create Undead'],
         ]);
 
         $feat              = new Feat;
@@ -594,8 +604,8 @@ class ClassArtificerSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Infused Item Master';
         $feat->description = '<p>You may have no more than 3 Artificer Discipline feats.</p>
-<p>You gain the Improved Crafting feat.</p>
-<p>You gain 2 other Item Creation feats that are not an Artificer Discipline feat. If the item you create requires Attunement, the cost to create the magic item is halved.</p>';
+<p>You gain the Improved Crafting Feat.</p>
+<p>You gain 2 other Item Creation Feats that are not an Artificer Discipline feat. If the item you create requires Attunement, the cost to create the magic item is halved.</p>';
         $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
         $feat->parent_feats()->save(app()->feats['Craft Infusion']);
 
@@ -608,7 +618,7 @@ class ClassArtificerSeeder extends Seeder
         ]);
         $class->features()->save(app()->features['wizard_spell_list'], [
             'level' => 1,
-            'meta'  => 'Spells that you can memorize but cannot cast due to not having a number for that level means that you may memorize a spell of that level for use in crafting purposes, but you cannot cast for its effect',
+            'meta'  => 'Spells that you can memorize but cannot cast due to not having a number for that level means that you may memorize a spell of that level for use in crafting, but you may not cast it as a spell outside of crafting.',
         ]);
         $class->features()->save(app()->features['feat'], [
             'level' => 2,
@@ -653,17 +663,17 @@ class ClassArtificerSeeder extends Seeder
                 'Hideous Laughter', 'Immunity to Adhesive', 'Jump', 'Knight Unburdened', 'Mage Armor', 'Magic Missile',
                 'Mold Metal', 'Portal Stabilization', 'Shock Bolt', 'Silent Image', 'Sleep', 'Snare', 'Spring Sheath', 'Swift',
                 'Swift Ready', 'Thunderwave', 'Ventriloquism', 'Weapon Shift', ],
-            2 => ['Acid Arrow', 'Air Sphere', 'Alter Self', 'Arcane Lock', "Bear's Endurance", 'Blindness', 'Blur',
-                "Bull's Strength", "Cat's Grace", 'Comprehend Languages', 'Continual Flame', 'Darkness', 'Darkvision',
-                'Deafness', 'Drain Construct', "Eagle's Splendor", 'Endure Elements', 'Enlarge', 'Flaming Sphere',
+            2 => ['Acid Arrow', 'Air Sphere', 'Alter Self', 'Animate Objects, Lesser', 'Arcane Lock', "Bear's Endurance",
+                'Blindness', 'Blur', "Bull's Strength", "Cat's Grace", 'Comprehend Languages', 'Continual Flame', 'Darkness',
+                'Darkvision', 'Deafness', 'Drain Construct', "Eagle's Splendor", 'Endure Elements', 'Enlarge', 'Flaming Sphere',
                 "Fox's Cunning", 'Gentle Repose', 'Gust of Wind', 'Hypercognition', 'Invisibility', 'Knock', 'Levitate',
                 'Magic Mouth', 'Magic Weapon', 'Mirror Image', 'Misty Step', 'Obscuring Mist', "Owl's Wisdom", 'Pyrotechnics',
                 'Ray of Enfeeblement', 'Resist Energy', 'Rope Trick', 'Scorching Ray', 'See Invisibility', 'Shatter', 'Spider Climb',
                 'Suggestion', 'Touch of Idiocy', 'Unseen Crafter', 'Water Walk', 'Web', ],
-            3 => ['Analyze Portal', 'Blink', 'Clairvoyance', 'Create Homunculus', 'Dispel Magic', 'Erupting Earth',
-                'Flame Arrows', 'Fireball', 'Fly', 'Glyph of Warding', 'Haste', 'Hypnotic Pattern', 'Keen Edge', 'Lightning Bolt',
-                'Sending', 'Sleet Storm', 'Slow', 'Stinking Cloud', 'Tidal Wave', 'Tiny Servant', 'Thunder Step', 'Tongues',
-                'Water Breathing', 'Wall of Sand', 'Wall of Wind', ],
+            3 => ['Analyze Portal', 'Blink', 'Clairvoyance', 'Dispel Magic', 'Erupting Earth', 'Flame Arrows', 'Fireball',
+                'Fly', 'Glyph of Warding', 'Haste', 'Hypnotic Pattern', 'Keen Edge', 'Lightning Bolt', 'Sending', 'Sleet Storm',
+                'Slow', 'Stinking Cloud', 'Tidal Wave', 'Tiny Servant', 'Thunder Step', 'Tongues', 'Water Breathing', 'Wall of Sand',
+                'Wall of Wind', ],
             4 => ['Arcane Eye', 'Confusion', 'Control Water', 'Dimension Door', 'Dimensional Anchor', 'Fabricate', 'Fire Shield',
                 'Globe of Invulnerability', 'Ice Storm', 'Phantasmal Killer', 'Portal View', 'Resilient Sphere', 'Sabotage Construct',
                 'Stoneskin', 'Wall of Fire', 'Watery Sphere', ],
@@ -718,6 +728,7 @@ class ClassArtificerSeeder extends Seeder
 </ul>";
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Armor']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 10, 'meta' => 'Blacksmithing']);
+        $formula->feats()->save(app()->feats['Improved Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Armor of Magical Strength';
@@ -732,6 +743,7 @@ class ClassArtificerSeeder extends Seeder
 <p>The armor regains 1D6 expended charges daily at dawn</p>";
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Armor']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Blacksmithing']);
+        $formula->feats()->save(app()->feats['Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Armor of Tools';
@@ -742,6 +754,7 @@ class ClassArtificerSeeder extends Seeder
         $formula->description = "<p>As an Action, a creature wearing this infused armor can integrate into it artisan’s tools or thieves' tools. The tools remain integrated in the armor until the wearer removes the tools as an Action. The armor can have only one tool integrated at a time. The wearer can add its INT modifier to any ability checks it makes with the integrated tool. The wearer must have a hand free to use the tool.</p>";
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Armor']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Blacksmithing']);
+        $formula->feats()->save(app()->feats['Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Enhanced Arcane Focus';
@@ -752,6 +765,7 @@ class ClassArtificerSeeder extends Seeder
 <p>If this item is used to create one of your Wand of Cantrips, treat the cantrip as if it was cast by a spellcaster of your level +4</p>';
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Attunement']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Woodworking']);
+        $formula->feats()->save(app()->feats['Wand of Cantrips']);
 
         $formula              = new Formula;
         $formula->name        = 'Infused Defense';
@@ -761,6 +775,7 @@ class ClassArtificerSeeder extends Seeder
 <p>This bonus increases to +2 when you reach 10th level in this class</p>';
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 2, 'meta' => 'Blacksmithing']);
+        $formula->feats()->save(app()->feats['Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Infused Bolt Launcher';
@@ -773,8 +788,9 @@ class ClassArtificerSeeder extends Seeder
     <li>As an Action, you may fire a Hand Crossbow bolt. You gain a +1 to Hit and +3 to Damage with any bolt you fire from your Infused Hand Crossbow.</li>
     <li>As long as you are wearing your Infused Armor, you gain an Additional Action. This Additional Action my only be used to load your Infused Hand Crossbow. You may also use an Action to load a bolt to your Infused Hand Crossbow.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical']);
+        $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Extra Action']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 5, 'meta' => 'Bowmaking']);
+        $formula->feats()->save(app()->feats['Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Improved Infused Bolt Launcher';
@@ -786,6 +802,7 @@ class ClassArtificerSeeder extends Seeder
 <p>Your attached Hand Crossbow now deals Heavy Crossbow Bolt damage. This replaces the damage from Infused Bolt Launcher and Rapid Infused Bolt Launcher.</p>';
         $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 7, 'meta' => 'Bowmaking']);
+        $formula->feats()->save(app()->feats['Artifice Armorer']);
 
         $formula              = new Formula;
         $formula->name        = 'Rapid Infused Bolt Launcher';
@@ -799,13 +816,23 @@ class ClassArtificerSeeder extends Seeder
     <li>As an Action, you may fire 5 Hand Crossbow bolts. You gain a +2 to Hit and +6 to Damage with any bolt you fire from your Infused Hand Crossbow.</li>
     <li>As long as you are wearing your Infused Armor, you gain an Additional Action. This Additional Action my only be used to load 5 bolts to your Infused Hand Crossbow. You may also use an Action to load 5 bolts to your Infused Hand Crossbow.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical']);
+        $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Extra Action']);
         $formula->skills()->save(app()->skills['Crafting'], ['dc' => 12, 'meta' => 'Bowmaking']);
         $formula->spells()->save(Spell::where('name', 'Haste')->firstOrFail());
+        $formula->feats()->save(app()->feats['Improved Artifice Armorer']);
 
-        // Enhanced Weapons
+        $formula              = new Formula;
+        $formula->name        = 'Extra Armor Limb';
+        $formula->type        = 'Infusion';
+        $formula->level       = 12;
+        $formula->method      = 'Armor, worn';
+        $formula->description = '<p>You attach an arm or tentacle to your armor. This arm gives you an Additional Action. This Additional Action can be used to make Weapon Attacks, Manipulation Actions, hold and Raise a Shield, or just holding on to something. It cannot be used to cast spells (unless you have the Multi Spell Caster Feat).</p>
+<p>This limb is clumsy, and you suffer a -3 penalty on all Actions taken with the limb. This penalty can be offset with the Improved Extra Limb Talent.</p>
+<p>You may add at most 2 additional limbs to your armor.</p>';
+        $helper->addTypesToSimpleObject($formula, ['Infusion', 'Magical', 'Extra Action']);
+        $formula->skills()->save(app()->skills['Crafting'], ['dc' => 14, 'meta' => 'Blacksmithing']);
+        $formula->feats()->save(app()->feats['Improved Artifice Armorer']);
         // Helm of Awareness
-        // Homunculus Servant
         // Mind Sharpener
         // Radiant Weapon
         // Replicate Magic Item

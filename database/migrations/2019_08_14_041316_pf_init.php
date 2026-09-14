@@ -11,8 +11,17 @@ class PfInit extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
+        // insert the test user
+        DB::table('users')->insert([
+            'name'       => 'Peter Ha',
+            'email'      => 'eizzn21@gmail.com',
+            'password'   => '$2y$12$MLIZIpfglm687f5m/yHxYuGwF1Vd9lLK2FF.jDPv.j3nLktICzQDS',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         Schema::create('attributes', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('attr', 3)->unique();
@@ -102,6 +111,8 @@ class PfInit extends Migration
             $table->enum('type', ['Light', 'Medium', 'Heavy', 'Shield', 'Barding']);
             $table->enum('group', ['Cloth', 'Chain', 'Composite', 'Leather', 'Plate', 'Wood', 'Other'])->nullable();
             $table->string('bulk')->nullable();
+            $table->string('hardness')->nullable();
+            $table->string('hit_points')->nullable();
             $table->smallInteger('weight')->unsigned()->nullable();
             $table->text('description')->nullable();
         });
@@ -113,6 +124,8 @@ class PfInit extends Migration
             $table->smallInteger('hands')->unsigned()->nullable();
             $table->enum('group', ['Axe', 'Bow', 'Brawling', 'Club', 'Dart', 'Flail', 'Hammer', 'Knife', 'Pick', 'Polearm', 'Shield', 'Sling', 'Spear', 'Sword', 'Exotic']);
             $table->enum('type', ['Simple Melee', 'Martial Melee', 'Simple Ranged', 'Martial Ranged', 'Uncommon Simple Melee', 'Uncommon Martial Melee', 'Uncommon Exotic Melee', 'Uncommon Martial Ranged', 'Ammunition']);
+            $table->string('hardness')->nullable();
+            $table->string('hit_points')->nullable();
             $table->text('description')->nullable();
         });
         Schema::create('equipments', function (Blueprint $table) {
@@ -137,6 +150,8 @@ class PfInit extends Migration
             $table->text('armor')->nullable();
             $table->text('weapon')->nullable();
             $table->text('other')->nullable();
+            $table->string('hardness')->nullable();
+            $table->string('hit_points')->nullable();
         });
         Schema::create('materialables', function (Blueprint $table) {
             $table->integer('material_id')->unsigned();
@@ -197,7 +212,7 @@ class PfInit extends Migration
                 'Prime', 'Modron',
                 'Fey Lord', 'Archfey',
                 'Archomental',
-                'Dead',
+                'Dead', 'Departed',
             ]);
             $table->string('sub_level', '15')->nullable();
             $table->text('description')->nullable();
@@ -232,11 +247,12 @@ class PfInit extends Migration
             $table->string('favored_weapon', 100)->nullable();
             $table->string('regions')->nullable();
             $table->integer('master_id')->unsigned()->nullable();
-            $table->foreign('master_id')->references('god_id')->on('god_pantheon')
-                ->onDelete('cascade');
             $table->text('description')->nullable();
 
             $table->primary(['god_id', 'pantheon_id', 'name']);
+            $table->unique(['god_id', 'pantheon_id']);
+            $table->foreign(['master_id', 'pantheon_id'])->references(['god_id', 'pantheon_id'])->on('god_pantheon')
+                ->onDelete('cascade');
         });
     }
 

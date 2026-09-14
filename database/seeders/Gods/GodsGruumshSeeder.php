@@ -13,10 +13,8 @@ class GodsGruumshSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -56,7 +54,8 @@ class GodsGruumshSeeder extends Seeder
             'Cleric'  => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Orc', [
-            $class->name, 'Barbarian', 'Fighter',
+            $class->name => ['is_clergy' => true],
+            'Barbarian', 'Fighter',
         ]);
 
         // Skills
@@ -110,6 +109,15 @@ class GodsGruumshSeeder extends Seeder
             'master_id'      => $gruumsh->id,
         ]);
 
+        $helper->addClassesToGod($god, 'Orc', [
+            'Barbarian' => 20,
+            'Paladin'   => 5,
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Orc', [
+            'Paladin' => ['is_clergy' => true],
+            'Barbarian',
+        ]);
+
         $feat              = new Feat;
         $feat->name        = 'Paladin of Bahgtru';
         $feat->requirement = 'Worshiper of Bahgtru';
@@ -122,13 +130,15 @@ class GodsGruumshSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Divine Warrior']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Resist'],
-            1 => ['Bless', "Bull's Strength" => 'Self only. Heighten +1 to target others', 'Compelled Duel',
+            1 => ['Bless', "Bull's Strength" => 'Self only. Heighten +1 to target others',
+                'Compelled Duel',
                 'Rage' => 'Self only. Heighten +1 to target others', ],
             2 => ['Aura of the Bull', "Aura of the Bull's Curse", "Bear's Endurance", 'Delay Poison', 'Divine Presence'],
             3 => ["Bear's Hex", 'Brittleskin'],
             4 => ['Divine Power', 'Giant Form'],
             5 => ['Aura of Power', 'Holy Weapon', 'Great Shout'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Orc', $feat);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Orc']->id,
@@ -186,8 +196,9 @@ class GodsGruumshSeeder extends Seeder
             'master_id'      => $gruumsh->id,
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Paladin', 'Fighter', 'Scout',
+        $helper->addWorshipClassesToGod($god, 'Orc', [
+            'Paladin' => ['is_clergy' => true],
+            'Fighter', 'Scout',
         ]);
 
         $feat              = new Feat;
@@ -206,6 +217,7 @@ class GodsGruumshSeeder extends Seeder
             4 => ['Blink', 'Weapon Storm'],
             5 => ['Atonement', 'Banishing Smite', 'Arcane Sword'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Orc', $feat);
 
         /**********************************************************************/
 
@@ -244,7 +256,9 @@ class GodsGruumshSeeder extends Seeder
             'Sorcerer' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Orc', [
-            $class->name, 'Monk', 'Divine Oracle',
+            $class->name    => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Monk',
         ]);
 
         // Skills
@@ -262,8 +276,9 @@ class GodsGruumshSeeder extends Seeder
         $helper->addChannelDivinityToClass($class, 'negative', 'Undead');
         $helper->addSpellsToClass($class, [
             0 => ['Dancing Lights', 'Detect Magic', 'Ghost Sound', 'Mold Earth', 'Stabilize'],
-            1 => ['Alarm', 'Bless', 'Cure Wounds', 'Curse', 'Detect Good', 'Detect Poison and Disease', 'Divine Favor',
-                'Dragon Claws'             => 'This appears as generic claws instead of dragon claws', 'Fear', 'Protection From Good',
+            1 => ['Alarm', 'Bless', 'Cure Wounds', 'Curse', 'Detect Good', 'Detect Poison and Disease',
+                'Divine Favor', 'Dragon Claws' => 'This appears as generic claws instead of dragon claws', 'Fear',
+                'Protection From Good',
                 'Summon Elemental, Lesser' => 'Earth only', ],
             2 => ['Aura of Fear', "Bull's Strength", "Bear's Endurance", 'Comprehend Language', 'Death Knell', 'Endure Elements',
                 "Owl's Wisdom", 'Remove Fear', 'Remove Paralysis', 'Restoration', 'Undead Bane Weapon', ],
@@ -311,7 +326,8 @@ class GodsGruumshSeeder extends Seeder
             'Rogue' => 25,
         ]);
         $helper->addWorshipClassesToGod($god, 'Orc', [
-            $class->name, 'Scout', 'Rogue',
+            $class->name => ['is_clergy' => true],
+            'Scout', 'Rogue',
         ]);
 
         // Skills
@@ -343,7 +359,7 @@ class GodsGruumshSeeder extends Seeder
             'favor'       => "<p>Shargaas's favor falls like a shadow over the fringes of society. Every soul that can't find a purpose elsewhere, every lost cause and abandoned child - Shargaas sees them all, and sweeps them away under his leathery wings.</p>
 <p>Shargaas’s scions are the lost and broken, the friendless and despised. With nowhere else to turn, Shargaas will find a home for you in his unseen legions.</p>
 <ol>
-    <li>You were born with a disability and your parents attempted to abandon you on a hillside. You survived</li>
+    <li>You were born with a disability, and your parents attempted to abandon you on a hillside. You survived</li>
     <li>They tried to hang you for serial murders, but you escaped. You ran far away, into the dark</li>
     <li>Your whole adventuring party died to a terrible evil, and it was all your fault</li>
     <li>You ran away from home, and before you could return, your village was slaughtered</li>
@@ -396,7 +412,10 @@ class GodsGruumshSeeder extends Seeder
             'Assassin' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Orc', [
-            'Druid', 'Monk', 'Rogue', 'Assassin',
+            'Druid'    => ['is_clergy' => true],
+            'Assassin' => ['is_clergy' => true],
+            'Monk'     => ['is_clergy' => true],
+            'Rogue',
         ]);
 
         $feat              = new Feat;
@@ -412,6 +431,7 @@ class GodsGruumshSeeder extends Seeder
             0 => ['Ghost Sound'],
             2 => ['Invisibility'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Orc', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'White Palm of Yurtrus';
@@ -423,6 +443,12 @@ class GodsGruumshSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Orc']);
         $feat->parent_feats()->save(app()->feats['White Finger of Yurtrus']);
+        $helper->addFeatToGodPantheon($god, 'Orc', $feat);
+
+        $helper->addFeatsToClass(Klass::where('name', 'Druid')->first(), [
+            'White Finger of Yurtrus' => 1,
+            'White Palm of Yurtrus'   => 5,
+        ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Orc']->id,
@@ -430,9 +456,9 @@ class GodsGruumshSeeder extends Seeder
 <p>Yurtrus's scions can appear in any shape and form, but are always changed by ill health, infirmity, age or a combination of the three.</p>
 <ol>
     <li>You were born sick, and you won't have as long to live as most people</li>
-    <li>You have a distinctive birthmark - a white hand that signified Yurtrus' claim on you</li>
+    <li>You have a distinctive birthmark – a white hand that signified Yurtrus' claim on you</li>
     <li>You've worked hard your entire life, and now you've reached an old age you don't see Yurtrus as an enemy</li>
-    <li>You have a terrible disease that will kill you in days, months or years. Each moment is precious</li>
+    <li>You have a terrible disease that will kill you in a few days, months or years. Each moment is precious</li>
     <li>You wer scarred by a pox as a baby, and it left you with physical handicaps</li>
     <li>You spent your life keeping a vow of silence, and you don't intend to break it now</li>
 </ol>",
@@ -443,7 +469,7 @@ class GodsGruumshSeeder extends Seeder
     <dt>Mortality</dt> <dd>We all have to die. It's the manner in which we do so that makes the difference</dd>
     <dt>Humility</dt> <dd>Even the greatest of us are brought low by sickness and death eventually</dd>
     <dt>Acceptance</dt> <dd>Once you accept what life has in store, you can see everything more clearly</dd>
-    <dt>Secrets</dt> <dd>There's a wisdom in silence and stillness. It comes with age - you'll get there in time</dd>
+    <dt>Secrets</dt> <dd>There's wisdom in silence and stillness. It comes with age - you'll get there in time</dd>
 </dl>",
             'earn_piety' => [
                 'Showing respect to the elderly and experienced',

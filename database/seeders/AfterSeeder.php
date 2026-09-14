@@ -19,29 +19,9 @@ class AfterSeeder extends Seeder
     public function run()
     {
         // spells
-        $olinFeat = Feat::where('name', 'Olin Gisir')->firstOrFail();
-        Spell::where('name', 'Arrn`Tel`Orar')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
-        Spell::where('name', 'Evaliir`Enevahr')->firstOrFail()->feats()->save($olinFeat, ['level' => 8]);
-        Spell::where('name', 'Fhaor`Akh`Tel`Quess')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
-        Spell::where('name', 'Ghaatiil')->firstOrFail()->feats()->save($olinFeat, ['level' => 9]);
-        Spell::where('name', 'N`Quor`Khaor')->firstOrFail()->feats()->save($olinFeat, ['level' => 10]);
-        Spell::where('name', 'Suyoll')->firstOrFail()->feats()->save($olinFeat, ['level' => 10]);
-        Spell::where('name', 'Uaul`Selu`Keryth')->firstOrFail()->feats()->save($olinFeat, ['level' => 11]);
         Spell::where('name', 'Starmantle')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Pixie')->firstOrFail(), ['meta' => "A pinch of dust from a pixie's wing (20 gp)"]
         );
-
-        $highMagic = Feat::where('name', 'High Magic')->firstOrFail();
-        Spell::where('name', 'Akh`Faen`Tel`Quess')->firstOrFail()->feats($highMagic, ['level' => 7]);
-        Spell::where('name', 'Akrmaesual')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
-        Spell::where('name', 'Daoin`Teague`Feer')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
-        Spell::where('name', 'Ialyshae`Seldar`Wihylos')->firstOrFail()->feats()->save($highMagic, ['level' => 6]);
-        Spell::where('name', 'N`Tel`Orar')->firstOrFail()->feats()->save($highMagic, ['level' => 8]);
-        Spell::where('name', 'N`Maernthor')->firstOrFail()->feats()->save($highMagic, ['level' => 7]);
-        Spell::where('name', 'Oacil`Quevan')->firstOrFail()->feats()->save($highMagic, ['level' => 8]);
-        Spell::where('name', 'Quomaniith')->firstOrFail()->feats()->save($highMagic, ['level' => 3]);
-        Spell::where('name', 'U`Aestar`Kess')->firstOrFail()->feats()->save($highMagic, ['level' => 5]);
-        Spell::where('name', 'Vuorl`Kyshuf')->firstOrFail()->feats()->save($highMagic, ['level' => 4]);
 
         Spell::where('name', 'Arcane Evasion')->firstOrFail()->spells()->save(
             Spell::where('name', 'Teleport')->firstOrFail()
@@ -59,6 +39,9 @@ class AfterSeeder extends Seeder
         );
         Formula::where('name', 'Gravedust')->firstOrFail()->formulas()->save(
             Formula::where('name', 'Holy Water')->firstOrFail()
+        );
+        Formula::where('name', 'Basilisk Eye')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Basilisk')->firstOrFail(), ['meta' => 'Eye of the Basilisk. Must be preserved or less than 3 days old.']
         );
         Formula::where('name', 'Carrion Crawler Mucus Poison')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Carrion Crawler')->firstOrFail(), ['meta' => 'Must be harvested from a dead or incapacitated specimen']
@@ -164,6 +147,12 @@ class AfterSeeder extends Seeder
         );
         Formula::where('name', 'Potion of Gaseous Form')->firstOrFail()->monsters()->save(
             Monster::where('name', 'Air Mephit')->firstOrFail(), ['meta' => 'Clipping from nail or horn']
+        );
+        Formula::where('name', 'Ghoul Claw')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Ghoul')->firstOrFail(), ['meta' => 'Undamaged arm. Must cast Gentle Repose on it and attached before the Gentle Repose Duration ends']
+        );
+        Formula::where('name', 'Graft Muscle')->firstOrFail()->monsters()->save(
+            Monster::where('name', 'Ogre')->firstOrFail(), ['meta' => '2 living specimens, as the muscles must be extracted while the ogre is still alive.']
         );
         $formula = Formula::where('name', 'Potion of Longevity')->firstOrFail();
         $formula->monsters()->save(

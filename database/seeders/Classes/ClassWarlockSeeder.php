@@ -60,12 +60,19 @@ class ClassWarlockSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Agonizing Blast';
         $feat->description = '<p>When you cast Eldritch Blast, add your CHA modifier to the damage it deals on a hit.</p>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 1]);
+        $helper->addTypesToFeat($feat, ['Invocation' => 2]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Improved Agonizing Blast';
+        $feat->description = '<p>Increase the damage of your Eldritch Blast by +1D10.</p>
+<p>You my take this feat up to 3 times.</p>';
+        $helper->addTypesToFeat($feat, ['Invocation' => 6]);
+        $feat->parent_feats()->save(app()->feats['Agonizing Blast']);
 
         $feat              = new Feat;
         $feat->name        = 'Armor of Shadows';
         $feat->description = '<p>You can cast Mage Armor on yourself at will. The spell is Always Heightened to the highest spell slot you have.</p>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 1]);
+        $helper->addTypesToFeat($feat, ['Invocation' => 2]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Mage Armor'],
         ]);
@@ -82,7 +89,7 @@ class ClassWarlockSeeder extends Seeder
         $feat->name        = 'Beast Speech';
         $feat->requirement = 'You must have a Pact feat with the Fey type';
         $feat->description = '<p>You can cast Speak with Animals on yourself at will, without expending a spell slot or material components.</p>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 1]);
+        $helper->addTypesToFeat($feat, ['Invocation' => 2]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Speak with Animals'],
         ]);
@@ -94,8 +101,8 @@ class ClassWarlockSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Eldritch Spear';
-        $feat->description = '<p>When you cast Eldritch Blast, its range is 300 feet.</p>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 1]);
+        $feat->description = '<p>When you cast Eldritch Blast, its range is 1,200 feet.</p>';
+        $helper->addTypesToFeat($feat, ['Invocation' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Eldritch Sight';
@@ -118,7 +125,7 @@ class ClassWarlockSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Multi Blast';
         $feat->description = '<p>You gain an additional Action. This additional Action may only be used to cast Eldritch Blast.</p>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 6]);
+        $helper->addTypesToFeat($feat, ['Extra Action', 'Invocation' => 6]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Multi Blast';
@@ -127,19 +134,15 @@ class ClassWarlockSeeder extends Seeder
         $feat->parent_feats()->save(app()->feats['Multi Blast']);
 
         $feat              = new Feat;
-        $feat->name        = 'Greater Multi Blast';
-        $feat->description = '<ul>
-    <li>You gain 3 Spell Points</li>
-    <li>You may spend a Spell Point to gain an Additional Action. This Additional Action can only be used to cast Eldritch Blast.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Invocation' => 16]);
-        $feat->parent_feats()->save(app()->feats['Improved Multi Blast']);
-
-        $feat              = new Feat;
         $feat->name        = "Warlock's Sight";
         $feat->requirement = 'You must have a Pact feat with the Devil type';
         $feat->description = '<p>You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.</p>';
         $helper->addTypesToFeat($feat, ['Invocation']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Aim Eldritch Blast';
+        $feat->description = '<p>You gain a +2 bonus to Hit with your Eldritch Blast</p>';
+        $helper->addTypesToFeat($feat, ['Invocation' => 4]);
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Aboleth';
@@ -169,7 +172,6 @@ class ClassWarlockSeeder extends Seeder
             'Repelling Blast'      => 1,
             'Multi Blast'          => 5,
             'Improved Multi Blast' => 11,
-            'Greater Multi Blast'  => 17,
 
             'Ascendant Step' => 9,
 

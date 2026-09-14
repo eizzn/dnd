@@ -3,7 +3,12 @@
 namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
+use App\Filters\ChallengeRating;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypesByName;
 use App\Models\Monster;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,11 +34,11 @@ class MonsterService implements Contracts\MonsterService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\ChallengeRating::class,
-                \App\Filters\TypesByName::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                ChallengeRating::class,
+                TypesByName::class,
+                Order::class,
             ])
             ->thenReturn();
 

@@ -13,7 +13,7 @@ class FeySeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -64,8 +64,11 @@ class FeySeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 4 (1D6 +1) Piercing.</dd>
     <dt>Teleport (Recharge 4-6)</dt> <dd>The dog magically Teleports, along with any equipment it is wearing or carrying, up to 40 feet to an unoccupied space it can see.</dd>
 </dl>';
-        $monster->description = '<p>A blink dog takes its name from its ability to blink in and out of existence, a talent it uses to aid its attacks and to avoid harm. Blink dogs harbor a long-standing hatred for displacer beasts and attack them on sight.</p>';
-        $helper->saveMonster($monster, ['Fey'], [
+        $monster->description = '<p>A blink dog takes its name from its ability to blink in and out of existence, a talent it uses to aid its attacks and to avoid harm. Blink dogs harbor a long-standing hatred for displacer beasts and attack them on sight.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'  => [12, 17, 12, 10, 13, 11, .25, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -174,8 +177,11 @@ class FeySeeder extends Seeder
 </dl>';
         $monster->description = '
 <p>The displacement effect is an effect of minute vibrations of the skin and fur. This causes light to refract and causes the beast to appear shifted from where it actually is. This effect stops if the beast is incapacitated or has a Speed of 0.</p>
-<p>Other displacer beasts are immune to this effect due to their special green eyes.</p>';
-        $helper->saveMonster($monster, ['Fey', 'Beast'], [
+<p>Other displacer beasts are immune to this effect due to their special green eyes.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>4th Level Spell Slot (Ranger 2nd Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Animal Companion'], [
             'stats'    => [18, 15, 16, 6, 12, 8, 3, 2],
             'features' => [
                 'displacement' => ['meta' => 'Attackers have Disadvantage to hit you. If hit, this effect ends until the displacer beast moves again.'],
@@ -298,7 +304,7 @@ class FeySeeder extends Seeder
 <p>They are sometimes seen guarding or accompanying elves or dwarves and are known to be capable of forging strong friendships that can last their entire lives.</p>
 <p>The clergy of Aerdrie Faenya are primarily concerned with exploration and maintaining good relations with giant eagles.</p>
 <p>For a very long time Avariels nourished a respectful bond with giant eagles.</p>";
-        $helper->saveMonster($monster, ['Fey', 'Beast'], [
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Animal Companion'], [
             'stats'  => [16, 17, 13, 8, 14, 10, 1, 2],
             'skills' => [
                 'Perception' => ['dc' => 4],
@@ -325,7 +331,8 @@ class FeySeeder extends Seeder
     <dt>Scimitar</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 Slashing.</dd>
     <dt>Shortbow</dt> <dd>Range Weapon Attack, reach 80/320 ft, one target. 1D6 Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Goblin', 'Fey'], [
+        $monster->description = '<p>Goblin society is built on cruelty, and not every goblin is willing to spend its life on the receiving end of it. A goblin that finds a spellcaster willing to take it in will often serve loyally and eagerly, not out of any love for its new master, but simply because servitude to one reasonable creature beats a lifetime of abuse under an entire tribe of them.</p>';
+        $helper->saveMonster($monster, ['Goblin', 'Fey', 'Animal Companion'], [
             'stats'    => [8, 14, 10, 10, 8, 8, .25, 2],
             'features' => [
                 'darkvision' => ['meta' => '60 feet'],
@@ -435,13 +442,14 @@ class FeySeeder extends Seeder
                 'Intimidation' => ['dc' => 5],
                 'Perception'   => ['dc' => 3],
             ],
+            'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'darkvision'      => ['meta' => '60 ft'],
                 'vulnerability'   => ['meta' => 'Fire'],
                 'favored_terrain' => ['meta' => 'Bogs and Swamps'],
             ],
             'spells' => [
-                'Animate Dead' => ['meta' => '1/day, 2 zombies only at any time'],
+                'Animate Dead' => ['meta' => '1/day, 5 zombies only at any time'],
             ],
             'languages' => ['Sylvan', 'Aquan', 'Special' => ['meta' => '1 Region language']],
         ]);
@@ -474,6 +482,7 @@ class FeySeeder extends Seeder
 <p>Sea hags can be found in the Sea of Fallen Stars, typically swimming at a depth between 150‒300 ft. Within the underwater caves of Skullport, sea hags dwell in the husks of lost ships.</p>';
         $helper->saveMonster($monster, ['Fey', 'Water'], [
             'stats'    => [16, 13, 16, 12, 12, 13, 2, 2],
+            'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'amphibious',
                 'darkvision' => ['meta' => '60 ft'],
@@ -506,7 +515,7 @@ class FeySeeder extends Seeder
 <p>They are also known to eagerly transform themselves into local legends to lure in those curious about such things, creating gossip about wise women of the wilds or fair fey of the forest to set their traps. For example, they can seduce others into secluded locations under guises of beauty, and though they don't exclusively use this trick on men, they generally find it works easier on them. Only after getting their partners there would they sadistically reveal the deception, either before the encounter began, in which case they slaughtered and consumed them, or, debatably the crueler choice, after it has ended, leaving most survivors traumatized to the point of madness.</p>
 <p>While unarguably terrible, such small-scale schemes are less favorable to green hags than more grand machinations. They beguile themselves into powerful authority positions, such as the lovers of leaders or the idols of savage humanoid tribes, pulling them deeper into depravity by encouraging profane acts. Despite their wickedness and hateful personalities, green hags are actually the least xenophobic of hags, willing to reason with others and cooperate with those of similar mindset, even withstanding their natural sense of superiority to others. Despite their egotism however, green hags are also cautious, possibly to the point of being considered craven, going so far as to not leave their lairs if not invisible to avoid being seen. They play with weaker prey before consuming it but flee from any strong and determined opposition, effectively acting as conspiratorial bullies towards any being they can.</p>
 <p>As the most tolerant of hags, green hags are capable of infiltrating the humanoid civilizations that they wish to terrorize and destroy, even occasionally joining adventuring parties to complete their goals. They can and do blend into urban settlements more frequently and efficiently than other hags, sometimes hunting their prey directly in their homes rather than in their own environments. Covens of green hags, including covens including other types and covens exclusively of their own kind, are formed far more regularly than those of other hags.</p>
-<p>Outside of their own race, they are known to have affinity with the alien malice of the will-o-wisps, put aside their spite to ally with evil druids, and deal with the less intelligent creatures like ogres and hill giants to obtain information, food, and protection in exchange for random trinkets they steal from their victims. Regardless, any green hag partnership, whether framed as an alliance or master-servant relationship and possible with the green hag in the servant role, lasting only until the hag stops benefiting or can take control.</p>
+<p>Outside their own race, they are known to have affinity with the alien malice of the will-o-wisps, put aside their spite to ally with evil druids, and deal with the less intelligent creatures like ogres and hill giants to obtain information, food, and protection in exchange for random trinkets they steal from their victims. Regardless, any green hag partnership, whether framed as an alliance or master-servant relationship and possible with the green hag in the servant role, lasting only until the hag stops benefiting or can take control.</p>
 <p>Green hags are known to live in twisted trees, underwater caverns and caves concealed by foliage or boulders, sometimes warrens of their own creation. Those in urban environments are known to dwell in slums or hide underground inside sewers. Powerful green hags, such as grandmas or aunties, corrupt the region around their lairs in sinister ways; the plants can form a twisted thicket, the fetid swamp mud can grow thicker, trees can awaken and attack hostile intruders, and sometimes illusory duplicates of the hag can appear at random, allowing them to interact with others from behind the illusion. Within such a hag's lair the illusions will become more deliberately made and tangible, capable of interacting with the environment but still incapable of causing physical harm.</p>
 <p>Green hags make their homes in wet, temperate environments, gloomy and isolated regions like dark swamps, dying forests and misty marshes where they can take full advantage of their abilities. Countrysides and desolate areas of civilization can also suffice, but they typically chose spots near bodies of water such as rivers. Their acute senses, including superior sight, smell, and hearing, along with their coloration and ability to move silently through the swamp, make them dangerous predators without their cunning and magic. Poison is an ineffective deterrent against them and they will eat practically anything that moves with humanoid flesh being favored.</p>
 <p>Green hags are said to be the longest-living hags, assuming hags aren't entirely ageless, persisting for centuries longer than other hags, possibly because of their arboreal flesh or just greater vitality. They are believed to be relatives of night hags and annis hags, with there potentially being some ancestral link between them all, although this isn't certain.</p>
@@ -519,6 +528,7 @@ class FeySeeder extends Seeder
                 'Perception' => ['dc' => 4],
                 'Stealth'    => ['dc' => 4],
             ],
+            'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'amphibious',
                 'darkvision'          => ['meta' => '60 ft'],
@@ -572,6 +582,7 @@ class FeySeeder extends Seeder
             ],
             'feats' => [
                 'Craft Implement' => ['meta' => 'Used to craft their Graystaff. Crafting requires a year and a day'],
+                'Hag Spellcaster',
             ],
             'spells' => [
                 'Alter Self'      => ['meta' => 'At will'],
@@ -604,14 +615,14 @@ class FeySeeder extends Seeder
     <dt>Slam</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 10 (2D8 +1) Bludgeoning +3 (1D6) Cold.</dd>
     <dt>Ice Walk</dt> <dd>The hag can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost her extra moment.</dd>
 </dl>";
-        $monster->description = '<p>Bheurs are known by many names, sometimes specified as bheur hags but also referred to as blue hags, white hags and winter hags. The wicked witches of winter are cold-hearted ice queens said to bring the season\'s cold, but it is possible the sadistic fey are simply drawn to the frost.</p>
-<p>Bheurs appear as wrinkled beldams, gaunt as if they have survived hard times by subsisting on inedible matter. Fittingly, they have pallid, blue-white skin like they have died of hypothermia and pale hair as white as snow. The flesh surrounding their muted eyes are dark as if it was bruised and their voices are like howling winter winds. They are known to wear ragged, grey-blue shawls and often carried gnarled, wooden staffs taller than themselves, the gray bark contrasting against the dry blood that typically stains their hands.</p>
+        $monster->description = "<p>Bheurs are known by many names, sometimes specified as bheur hags but also referred to as blue hags, white hags and winter hags. The wicked witches of winter are cold-hearted ice queens said to bring the season's cold, but it is possible the sadistic fey are simply drawn to the frost.</p>
+<p>Bheurs appear as wrinkled beldams, gaunt as if they have survived hard times by subsisting on inedible matter. Fittingly, they have pallid, blue-white skin like they have died of hypothermia and pale hair as white as snow. The flesh surrounding their muted eyes are dark as if it was bruised and their voices are like howling winter winds. They are known to wear ragged, gray-blue shawls and often carried gnarled, wooden staffs taller than themselves, the gray bark contrasting against the dry blood that typically stains their hands.</p>
 <p>Winter hags are creatures of cruel depravity that live for the pleasure of bringing icy doom to as many people as they can. They consider selfish actions justified by unrelentingly circumstances, normally the overpowering cold, especially enticing. Using their mastery of cold weather, they spread misery and despair to communities during winter seasons with intent to create enough desperation to instill a miserly mindset.</p>
-<p>The pitiful attempts of unprepared mortals to survive, such as eating leather in place of actual food, their suffering and the suffering they bring to others, such as by murdering people or defiling the sacred for resources, and their eventual deaths are all delightful to a bheur. The sweetest part of such times for bheur hags are when the selfish acts are committed unnecessarily, like when individuals hoard more resources than can be use, and the conniving crones love planting such excessive ideas.</p>
+<p>The pitiful attempts of unprepared mortals to survive, such as eating leather in place of actual food, their suffering and the suffering they bring to others, such as by murdering people or defiling the sacred for resources, and their eventual deaths are all delightful to a bheur. The sweetest part of such times for bheur hags are when the selfish acts are committed unnecessarily, like when individuals hoard more resources than can be used, and the conniving crones love planting such excessive ideas.</p>
 <p>Bheurs themselves have great knowledge of nature and substantial survival skills.</p>
 <p>Despite being chaotic crones with deadly magic, the rightfully feared bheurs are occasionally sought out for their wisdom or prophecies. They are likely lone wanderers, having little to no space for community or kinship in their cold hearts. Nevertheless, they are sometimes accompanied by mounted ice archons or avariel guards, or found working with orglashes to deceive and devour others.</p>
 <p>When they establish lairs, the more powerful bheur hags, such as grandmas and aunties, have greater power within their lairs, such as the ability to create small, blinding blizzards. Regions inhabited by such hags are known to suffer from frequent, unpredictable snowstorms and small avalanches.</p>
-<p>Bheurs reside in winter lands like frosty forests and prefer snowy mountains, particularly their peaks. They are commonly found in Auril\'s realm within the Deep Wilds as well as on the isolated outskirts of Rashemen to the point they are considered unique to the region.</p>';
+<p>Bheurs reside in winter lands like frosty forests and prefer snowy mountains, particularly their peaks. They are commonly found in Auril's realm within the Deep Wilds as well as on the isolated outskirts of Rashemen to the point they are considered unique to the region.</p>";
         $helper->saveMonster($monster, ['Fey', 'Cold'], [
             'stats' => [13, 16, 14, 12, 13, 16, 4, 3],
             'saves' => [
@@ -629,10 +640,11 @@ class FeySeeder extends Seeder
                 'immunity'            => ['meta' => 'Cold'],
                 'resistance'          => ['meta' => 'Fire'],
                 'vulnerability'       => ['meta' => 'Acid, Electricity'],
-                'innate_spellcasting' => ['meta' => 'CD 14'],
+                'innate_spellcasting' => ['meta' => 'DC 14'],
             ],
             'feats' => [
                 'Craft Implement' => ['meta' => 'Used to craft their Graystaff. Crafting requires a year and a day'],
+                'Hag Spellcaster',
             ],
             'spells' => [
                 'Ray of Frost'    => ['meta' => 'At will'],
@@ -678,6 +690,7 @@ class FeySeeder extends Seeder
                 'Deception'  => ['dc' => 5],
                 'Perception' => ['dc' => 5],
             ],
+            'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'darkvision'          => ['meta' => '60 ft'],
                 'resistance'          => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing] (Cold Iron, Silvered)'],
@@ -754,6 +767,7 @@ class FeySeeder extends Seeder
             ],
             'feats' => [
                 'Craft Implement' => ['meta' => 'Used to craft their Heartstone (30 days to craft) and Soul Bag (7 days to craft)'],
+                'Hag Spellcaster',
             ],
             'spells' => [
                 'Detect Magic'        => ['meta' => 'At will'],
@@ -804,7 +818,11 @@ class FeySeeder extends Seeder
         $monster->actions     = '<dl>
     <dt>Hooves</dt> <dd>Melee Weapon attack, reach 5 ft, one target. (2D6 +4) Bludgeoning</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey', 'Celestial'], [
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Celestial', 'Animal Companion'], [
             'stats' => [18, 15, 16, 10, 15, 13, 2, 2],
             'saves' => [
                 'DEX' => ['bonus' => 4],
@@ -821,6 +839,32 @@ class FeySeeder extends Seeder
         ]);
 
         $monster                   = new Monster;
+        $monster->name             = 'Petal';
+        $monster->size             = 'Tiny';
+        $monster->type             = 'Fey';
+        $monster->alignment        = 'NG';
+        $monster->armor_class      = '15';
+        $monster->damage_reduction = '5';
+        $monster->hit_dice         = 1;
+        $monster->speed            = '15 ft / Fly 60 ft (good)';
+        $monster->actions          = "<dl>
+    <dt>Dagger +7</dt> <dd>Melee Weapon Attack, reach 0 ft, one target. 1D2-4 Piercing (19-20 crit).</dd>
+    <dt>Sleep Songs: Lullaby</dt> <dd>The petal sings a song of relaxation. Any creature within a 20-foot-radius that fails a DC 14 WIS Save is affected as though by a Sleep Spell. A creature that successfully saves cannot be affected again by that petal's lullaby song for 24 hours. For each additional Petal that also sings increases the Save DC by +2.</dd>
+</dl>";
+        $monster->description  = '<p>Petals like to use their sleep songs from a distance to put travelers to sleep. They avoid close combat.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Good', 'Animal Companion'], [
+            'stats'    => [3, 20, 15, 15, 10, 18, 0, 1],
+            'features' => [
+                'darkvision',
+                'vulnerability' => ['meta' => 'Cold Iron'],
+            ],
+            'languages' => ['Sylvan'],
+        ]);
+
+        $monster                   = new Monster;
         $monster->name             = 'Pixie';
         $monster->size             = 'Tiny';
         $monster->type             = 'Fey';
@@ -833,7 +877,11 @@ class FeySeeder extends Seeder
     <dt>Shortsword</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 -2) Piercing.</dd>
     <dt>Shortbow</dt> <dd>Ranged Weapon Attack, reach 80/320 ft, one target. (1D7) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey'], [
+        $monster->description      = '
+<dl>
+    <dt>Animal Companion</dt> <dd>5th Level Spell Slot (Ranger 3rd Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'    => [7, 20, 12, 16, 15, 16, 1, 2],
             'features' => [
                 'darkvision'          => ['meta' => '60 ft'],
@@ -866,12 +914,15 @@ class FeySeeder extends Seeder
 <p>Their general attitude is similar to that of a small cat but with a cunning intelligence. They are wary of evil beings, but are willing to serve as a companion to another being if treated well and respected.</p>
 <p>A pseudodragon often vocalizes animal noises. A rasping purr indicates pleasure, while a hiss means unpleasant surprise. A bird-like chirping represents desire, and a growl always means anger or discontent.</p>
 <p>In the wild, pseudodragons often seek out quiet places to inhabit such as the hollows of trees and small caves. They are likely to be found in temperate forests.</p>
-<p>They are sometimes dispatched in times of need by an array of deities including Brandobaris, Erevan Ilesere, Gond, Gwaeron Windstrom, Marthammor Duin, Mystra, and Rillifane Rallathil.</p>';
+<p>They are sometimes dispatched in times of need by an array of deities including Brandobaris, Erevan Ilesere, Gond, Gwaeron Windstrom, Marthammor Duin, Mystra, and Rillifane Rallathil.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon Attack +4 to hit, reach 5 ft, one target. 1D4 +2 Piercing damage</dd>
     <dt>Sting</dt> <dd>Melee Weapon Attack +4, reach 5 ft, one target. 1D4 +2 Piercing damage, and the target must make a CON Save or become Paralyzed for 1 hour. Taking damage or being shaken causes the Parallelization to end the start of the victims next turn. This parallelization causes the muscles to hold the position they are in. Pseudodragons like to pose victims in humorous poses when paralyzed this way.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey', 'Dragon'], [
+        $helper->saveMonster($monster, ['Fey', 'Dragon', 'Animal Companion'], [
             'stats'     => [6, 15, 13, 10, 12, 10, .25, 2],
             'skills'    => [
                 'Perception' => ['dc' => 3],
@@ -932,7 +983,11 @@ class FeySeeder extends Seeder
     <dt>Shortsword</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +1) Slashing</dd>
     <dt>Shortbow</dt> <dd>Ranged Weapon Attack, reach 80/320 ft, one target. (1D6 +1) Piercing.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey', 'Humanoid'], [
+        $monster->description      = '
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (no pipes)(Ranger 1st Level Spell Slot). 4th Level Spell Slot (with pipes)(Ranger 2nd Level Spell Slot)</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Humanoid', 'Animal Companion'], [
             'stats'    => [12, 16, 11, 12, 10, 14, .5, 2],
             'features' => [
                 'magic_resistance',
@@ -981,7 +1036,11 @@ class FeySeeder extends Seeder
     <dt>Longsword</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D1 Slashing</dd>
     <dt>Shortbow</dt> <dd>Ranged Weapon Attack, reach 40/160 ft, one target. 1D1 Piercing. The target must succeed a DC 10 CON Save or become Sickened 2 for 1 minute. If its Save is a Critical Failure, the target falls unconscious for the same duration, or until it takes damage or another creautre takes an Action to shake it awake.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey'], [
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'  => [3, 18, 10, 14, 13, 11, .25, 2],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -1026,6 +1085,34 @@ class FeySeeder extends Seeder
                 'Charm'       => ['meta' => 'At will. Can Heighten 3/day'],
                 'Hold Person' => ['meta' => 'At will. Can Heighten 3/day'],
                 'Suggestion'  => ['meta' => '1/day'],
+            ],
+            'languages' => ['Sylvan'],
+        ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Thorn';
+        $monster->size             = 'Small';
+        $monster->type             = 'Fey';
+        $monster->alignment        = 'N';
+        $monster->armor_class      = '13';
+        $monster->damage_reduction = '5';
+        $monster->hit_dice         = 6;
+        $monster->speed            = '20 ft';
+        $monster->actions          = "<dl>
+    <dt>Thorn Longsword</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 + 3 Piercing/Slashing.</dd>
+    <dt>Longbow</dt> <dd>Ranged Weapon Attack, range 100/400 ft, one target. 1D6 Piercing.</dd>
+    <dt>Sleep Arrows (Ex)</dt> <dd>Any opponent struck by a thorn's arrow, regardless of Hit Dice, must succeed on a DC 16 Fortitude save or be affected as though by a sleep spell. The save DC is Charisma-based.</dd>
+    <dt>Sneak Attack (Ex)</dt> <dd>The thorn deals an extra 2D6 points of damage on a successful attack when it has advantage or flags a target that is caught flat-footed.</dd>
+</dl>";
+        $monster->description  = '<p>Thorns generally do not pick fights, but they will attack anyone or anything that threatens or harms other fey. They are sneaky creatures that launch vicious attacks from hiding.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot)</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Neutral', 'Animal Companion'], [
+            'stats'    => [16, 15, 13, 10, 10, 13, 3, 4],
+            'features' => [
+                'darkvision',
+                'vulnerability' => ['meta' => 'Cold Iron'],
             ],
             'languages' => ['Sylvan'],
         ]);
@@ -1077,7 +1164,7 @@ class FeySeeder extends Seeder
 <p>Like ordinary cats, tressym stalk and pounce on their prey, using their claws and fangs to slay it. However, the ability to fly gives them a new dimension to hunt in and makes them much more dangerous to birds and insects. They can also get into aerial cat-fights.</p>
 <p>Otherwise, they avoid fighting with anything larger than themselves, by flying away and hiding. If pursued by larger flying creatures, they will go to ground and seek a small hole or crevice to conceal themselves in.</p>
 <p>Nevertheless, they are cunning and quick learners, knowing enough to scratch a foe's eyes and have learned the danger of weapons and wands held by people.</p>";
-        $helper->saveMonster($monster, ['Fey'], [
+        $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'    => [3, 15, 10, 11, 12, 12, 0, 2],
             'features' => [
                 'darkvision' => ['meta' => '60 feet'],
@@ -1101,8 +1188,11 @@ class FeySeeder extends Seeder
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D6 +4) Bludgeoning.</dd>
     <dt>Cold Iron Silvered Horn</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +4) Piercing.</dd>
 </dl>';
-        $monster->description = '<p>A unicorn resembles a horse with a white coat, mane, and tail. However, it has a number of traits that distinguished it from a horse, including cloven hooves and a long ivory-colored horn that protrudes from its forehead. Males have a white beard.</p>';
-        $helper->saveMonster($monster, ['Fey', 'Celestial'], [
+        $monster->description = '<p>A unicorn resembles a horse with a white coat, mane, and tail. However, it has a number of traits that distinguished it from a horse, including cloven hooves and a long ivory-colored horn that protrudes from its forehead. Males have a white beard.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>5th Level Spell Slot (Ranger 3rd Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Celestial', 'Animal Companion'], [
             'stats'    => [18, 14, 15, 11, 17, 16, 5, 3],
             'features' => [
                 'magic_resistance',
@@ -1137,7 +1227,11 @@ class FeySeeder extends Seeder
     <dt>Bite</dt> <dd>Magical Melee Weapon Attack, reach 5 ft, one target. 2D4 +2 Piercing. If the target is a creature, it must succeed on a DC 11 STR Save or be knocked Prone.</dd>
     <dt>Cold Breath (Recharge 5-6)</dt> <dd>The wolf exhales a blast of freezing wind in a 15-foot cone. Each creature in that area must make a DC 12 DEX Save, taking 14 (3D8) Cold damage on a failed Save, or half as much damage on a successful one.</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Fey', 'Beast', 'Cold'], [
+        $monster->description      = '
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot)</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Cold', 'Animal Companion'], [
             'stats'  => [18, 13, 14, 7, 12, 8, 2, 3],
             'skills' => [
                 'Perception' => ['dc' => 5],
@@ -1231,8 +1325,11 @@ class FeySeeder extends Seeder
 <p>Griffons typically make their nests in homes in high rocky places like cliffs, as well as open caverns set in hills and mountain regions. They do this so that their young can be safe from those who would seek to steal them and use them as mounts.</p>
 <p>When acquainted with humans, they are usually stabled in airy, doorless stone halls, vaguely resembling their lairs.</p>
 <p>In the Unapproachable East, they nest at the highest reaches of the Tannath mountains and Umbergoth. They can also be found around the coastal regions and interior uplands of Aglarond.</p>
-<p>When tamed and raised at a young age they can become very loyal and fierce mounts. Because of this they are highly sought after, with eggs fetching prices of around 2,000 gp and fledglings for around 5,000 gp.</p>';
-        $helper->saveMonster($monster, ['Fey', 'Beast'], [
+<p>When tamed and raised at a young age they can become very loyal and fierce mounts. Because of this they are highly sought after, with eggs fetching prices of around 2,000 gp and fledglings for around 5,000 gp.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Animal Companion'], [
             'stats'  => [18, 15, 16, 5, 13, 8, 2, 3],
             'skills' => [
                 'Perception' => ['dc' => 5],
@@ -1265,7 +1362,7 @@ class FeySeeder extends Seeder
 <p>Hippogriffs are highly prized as aerial steeds. Because they are not as intelligent as griffons, a friendly attitude from the hippogriff to the rider or tamer was not required, but they still require a specialized saddle and appropriate training. The easiest way to tame a hippogriff is to steal an egg and raise it from birth, but these are not easy to obtain, due to the ferocity of their defenders.</p>
 <p>In Zakhara, the Caliphate of Huzuz raises large numbers of hippogriffs for military service.</p>
 <p>A hippogriff egg can fetch 1,000 gp, 2000 gp by some accounts, while young hippogriffs can sell for two to three times that price.</p>';
-        $helper->saveMonster($monster, ['Fey', 'Beast'], [
+        $helper->saveMonster($monster, ['Fey', 'Beast', 'Animal Companion'], [
             'stats'  => [17, 15, 13, 2, 12, 8, 1, 2],
             'skills' => [
                 'Perception' => ['dc' => 5],

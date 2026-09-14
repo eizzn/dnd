@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\God;
 use App\Models\Klass;
@@ -58,7 +59,9 @@ class GodsMoradinSeeder extends Seeder
             'Paladin'   => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Paladin', 'Artificer', 'Fighter',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Artificer', 'Fighter',
         ]);
 
         // Skills
@@ -99,7 +102,7 @@ class GodsMoradinSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Morndinsamman']->id,
-            'favor'       => "<p>Moradin's favour is given to those who excel in their craft, but moreover to those who possess an instinctual desire to follow sacred traditions, rites and preserve the old ways.</p>
+            'favor'       => "<p>Moradin's favor is given to those who excel in their craft, but moreover to those who possess an instinctual desire to follow sacred traditions, rites and preserve the old ways.</p>
 <p>Moradin's scions are often stubborn and intractable, and frequently found in vocations that benefit from an immovable mindset such as paladin orders.</p>
 <ol>
     <li>You crafted a work of great significance and dedicated it to Moradin</li>
@@ -138,7 +141,8 @@ class GodsMoradinSeeder extends Seeder
 
         /**********************************************************************/
 
-        God::where('name', 'Hanali Celanil')->first()->pantheons()->save(app()->pantheons['Morndinsamman'], [
+        $god = God::where('name', 'Hanali Celanil')->first();
+        $god->pantheons()->save(app()->pantheons['Morndinsamman'], [
             'name'           => 'Sharindlar',
             'title'          => 'Lady of Life and Mercy, the Shining Dancer',
             'level'          => 'Demi',
@@ -148,6 +152,15 @@ class GodsMoradinSeeder extends Seeder
             'symbol'         => 'Burning needle',
             'favored_weapon' => 'Fleetbite (Whip)',
             'master_id'      => $moradin->id,
+        ]);
+        $helper->addClassesToGod($god, 'Morndinsamman', [
+            'Cleric' => 15,
+            'Bard'   => 15,
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
+            $class->name    => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Bard',
         ]);
 
         /**********************************************************************/
@@ -187,7 +200,8 @@ class GodsMoradinSeeder extends Seeder
             'Paladin' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Paladin',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -249,6 +263,7 @@ class GodsMoradinSeeder extends Seeder
             4   => ['Aura of Life', 'Aura of Purity', 'Spirit Guardians'],
             5   => ['Aura of Power', 'Hallow'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Morndinsamman']->id,
@@ -320,7 +335,8 @@ class GodsMoradinSeeder extends Seeder
             'Divine', 'Dwarf', 'Rogue',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Rogue',
+            $class->name => ['is_clergy' => true],
+            'Rogue',
         ]);
 
         // Skills
@@ -410,7 +426,8 @@ class GodsMoradinSeeder extends Seeder
             'Bard'      => 8,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Paladin', 'Ranger',
+            'Paladin' => ['is_clergy' => true],
+            'Ranger'  => ['is_clergy' => true],
         ]);
 
         $feat              = new Feat;
@@ -434,6 +451,7 @@ class GodsMoradinSeeder extends Seeder
             4 => ['Irresistible Force', 'Lightning Bolt', 'Thunder Step'],
             5 => ['Banishing Smite', 'Control Winds', 'Fly'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
 
         /**********************************************************************/
 
@@ -449,7 +467,8 @@ class GodsMoradinSeeder extends Seeder
             'master_id'      => $moradin->id,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Paladin', 'Fighter', 'Scout',
+            'Paladin' => ['is_clergy' => true],
+            'Fighter', 'Scout',
         ]);
 
         $feat              = new Feat;
@@ -471,6 +490,7 @@ class GodsMoradinSeeder extends Seeder
             4 => ['Ceremony', 'Irresistible Force', 'Spell Immunity'],
             5 => ['Atonement', 'Dispel Evil', 'Ritual of the March'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
 
         /**********************************************************************/
 
@@ -490,7 +510,9 @@ class GodsMoradinSeeder extends Seeder
             'master_id'      => $moradin->id,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Druid', 'Ranger', 'Fighter', 'Scout',
+            'Druid'  => ['is_clergy' => true],
+            'Ranger' => ['is_clergy' => true],
+            'Fighter', 'Scout',
         ]);
 
         $feat              = new Feat;
@@ -499,6 +521,7 @@ class GodsMoradinSeeder extends Seeder
 <ul>
     <li>You gain proficiency with Claw Bracers and are allowed to use metal ones.</li>
     <li>When you use Wild Shape, you may increase the maximum CR of the creature you may Wild Shape into by +1.</li>
+    <li>You gain Resistance to Poison</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Dwarf']);
         $helper->addSpellsToFeat($feat, [
@@ -506,6 +529,10 @@ class GodsMoradinSeeder extends Seeder
             1 => ['Rage'],
             2 => ['Hurl'],
             3 => ['Freedom of Movement'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Druid')->first(), [
+            'Vuddor of Thard Harr' => 2,
         ]);
 
         $feat              = new Feat;
@@ -521,6 +548,10 @@ class GodsMoradinSeeder extends Seeder
             1 => ['Camouflage', 'Hurl', 'Immunity to Adhesive', 'Purify Food and Drink', 'Rage'],
             2 => ['Delay Disease', 'Delay Poison'],
             4 => ['Irresistible Force'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Ranger')->first(), [
+            'Ranger of Thard Harr' => 2,
         ]);
 
         /**********************************************************************/
@@ -539,7 +570,8 @@ class GodsMoradinSeeder extends Seeder
             'master_id' => $moradin->id,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Paladin', 'Barbarian',
+            'Paladin' => ['is_clergy' => true],
+            'Barbarian',
         ]);
 
         $helper->addClassesToGod($god, 'Morndinsamman', [
@@ -567,6 +599,7 @@ class GodsMoradinSeeder extends Seeder
             5 => ['Aura of Power'],
         ]);
         $feat->parent_feats()->save(Feat::where('name', 'Dwarven Battle Rager')->firstOrFail());
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
 
         /**********************************************************************/
 
@@ -637,7 +670,8 @@ class GodsMoradinSeeder extends Seeder
             'Divine', 'Dwarf', 'Evil',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Artificer', 'Psion', 'Cerebremancer', 'Psychic Warrior',
+            $class->name => ['is_clergy' => true],
+            'Artificer', 'Psion', 'Cerebremancer', 'Psychic Warrior',
         ]);
 
         $helper->addClassesToGod($lad, 'Morndinsamman', [
@@ -690,7 +724,9 @@ class GodsMoradinSeeder extends Seeder
             'Soul Knife'      => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Paladin', 'Psychic Warrior', 'Psion', 'Soul Knife',
+            'Paladin'         => ['is_clergy' => true],
+            'Psychic Warrior' => ['is_clergy' => true],
+            'Psion', 'Soul Knife',
         ]);
 
         $feat              = new Feat;
@@ -713,6 +749,7 @@ class GodsMoradinSeeder extends Seeder
             4 => ['Atonement', 'Commune'],
             5 => ['Raise Dead'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Morndinsamman->value, $feat);
 
         /**********************************************************************/
 
@@ -743,6 +780,16 @@ class GodsMoradinSeeder extends Seeder
             'alignment' => 'CE',
             'portfolio' => 'Vengeance',
             'symbol'    => '',
+        ]);
+
+        /**********************************************************************/
+
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Paladin of Berronar'    => 2,
+            'Paladin of Thor'        => 2,
+            'Paladin of Haela'       => 2,
+            'Paladin of Hanseath'    => 2,
+            'Mindaxe'                => 2,
         ]);
     }
 }

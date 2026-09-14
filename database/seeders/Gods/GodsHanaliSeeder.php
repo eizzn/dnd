@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\God;
 use App\Models\Klass;
@@ -73,18 +74,15 @@ class GodsHanaliSeeder extends Seeder
             'Wizard' => 15,
             'Bard'   => 10,
         ]);
-        $helper->addClassesToGod($god, 'Morndinsamman', [
-            'Cleric' => 15,
-            'Bard'   => 15,
-        ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Divine Oracle',
+            $class->name    => ['is_clergy' => true],
+            'Paladin'       => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
         ]);
         $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            $class->name, 'Sorcerer', 'Divine Oracle',
-        ]);
-        $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Bard', 'Divine Oracle',
+            $class->name    => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Sorcerer',
         ]);
 
         // Skills
@@ -150,10 +148,14 @@ class GodsHanaliSeeder extends Seeder
             4 => ['Aura of Life', 'Aura of Purity', 'Aura of the Sun', 'Celestial Brilliance'],
             5 => ['Blinding Beauty', 'Wall of Light'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Sisters and Brothers of the Ruby Rose' => 2,
+        ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Sune's favour is given to those who understand that beauty shines from the inside out. Sune is more likely to favour the kind of heart than she is to favour those born with flawless skin or silken hair.</p>
+            'favor'       => "<p>Sune's favor is given to those who understand that beauty shines from the inside out. Sune is more likely to favour the kind of heart than she is to favour those born with flawless skin or silken hair.</p>
 <p>Sune's scions can be found across the world, as her popular faith is promulgated in most large cities. They might be educators, socialites, social workers, courtesans or anything they set their mind to, though the scions of Sune rarely work in isolation.</p>
 <ol>
     <li>Your face could launch a thousand ships. Maybe more on a good hair day</li>

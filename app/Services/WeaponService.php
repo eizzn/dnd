@@ -4,6 +4,11 @@ namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Group;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypeByNameWild;
 use App\Models\Weapon;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,11 +33,11 @@ class WeaponService implements Contracts\WeaponService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\TypeByNameWild::class,
-                \App\Filters\Group::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                TypeByNameWild::class,
+                Group::class,
+                Order::class,
             ])
             ->thenReturn();
 

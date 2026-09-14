@@ -98,9 +98,9 @@ class TalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Distract and Strike';
         $talent->action_type = 'Double Action';
-        $talent->trigger     = 'You are weilding 2 Melee weapons and are in combat with a humanoid with a Melee weapon';
+        $talent->trigger     = 'You are wielding 2 Melee weapons and are in combat with a humanoid with a Melee weapon';
         $talent->description = '<p>You attempt to distract your opponent with one Melee attack to improve the chance of your other Melee attack to succeed.</p>
-<p>Use an Action to make a Melee Weapon attack without any ability modifier Bonus (ie STR). If you hit, then you deal damage without any ability modifier Bonus (ie STR). Unless you Critically miss, your next attack gains Advantage to Hit.</p>';
+<p>Use an Action to make a Melee Weapon attack without any ability modifier Bonus (ie STR and DEX). If you hit, then you deal damage without any ability modifier Bonus (ie STR and INT). Unless you Critically miss, your next attack gains Advantage to Hit the same Target.</p>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 6]);
 
         $talent              = new Talent;
@@ -186,7 +186,7 @@ class TalentsSeeder extends Seeder
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are wielding a weapon that does not have the Agile or Finesse type';
         $talent->description = "<p>You strike with such force, the target is knocked prone.</p>
-<p>Make a melee strike ignoring the target's Damage Reduction. If you hit, you deal -10 damage. If you deal no damage, it is an automatic fail. The Target must make a STR Save. The DC is equal to your Melee Attack roll total.</p>
+<p>Make a Melee strike ignoring the target's Damage Reduction. If you hit, you deal -10 damage. If you deal no damage, it is an automatic fail. The Target must make a STR Save. The DC is equal to your Melee Attack roll total.</p>
 <ul>
     <li>If the Target has the Athletics or Acrobatics skill, they may add either to their Save</li>
     <li>The Target gets a +4 to their STR Save for each Size Category above Medium</li>
@@ -199,6 +199,21 @@ class TalentsSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>The target falls prone and is Stunned: 1</dd>
 </dl>";
         $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Staggering Strike';
+        $talent->action_type = 'Action';
+        $talent->description = '<p>You strike your opponent, and they suffer an Initiative Penalty.</p>
+<p>Make a Melee attack, if you hit, you deal -4 Damage and the Target suffers a -4 Penalty to their Initiative immediately.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Stuttering Strike';
+        $talent->action_type = 'Action';
+        $talent->requirement = 'You must be wielding a weapon that deals Bludgeoning damage';
+        $talent->description = '<p>Your bludgeoning weapon causes the Target to be distracted so that they cannot react quickly.</p>
+<p>Make a Melee strike with a -4 to Damage. If you hit and the Target takes Damage, they cannot take Reactions until the start of your next turn.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Fierce Attack';
@@ -310,10 +325,8 @@ class TalentsSeeder extends Seeder
         $talent->name        = 'Deadly Aim';
         $talent->action_type = 'Double Action';
         $talent->trigger     = 'You are about to make a Ranged Weapon attack';
-        $talent->description = '<ul>
-    <li>You aim for a weak spot.</li>
-    <li>Make a Ranged Weapon attack with a -1 penalty to Hit. If you hit, you deal an additional +10 damage.</li>
-</ul>';
+        $talent->description = '<p>You aim for a weak spot.</p>
+<p>Make a Ranged Weapon attack with a -1 penalty to Hit. If you hit, you deal an additional +10 damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Ranged', 'Talent' => 8]);
 
         $talent              = new Talent;
@@ -328,14 +341,15 @@ class TalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Crushing Grapple';
-        $talent->description = '<p>Like a powerful constrictor, you crush targets in your unyielding grasp. When you successfully Grapple a creature, you can deal Bludgeoning damage to that creature equal to your STR modifier. You can make this nonlethal with no penalty.</p>';
+        $talent->description = '<p>Like a powerful constrictor, you crush targets in your unyielding grasp.</p>
+<p>When you successfully Grapple a creature, you can deal Bludgeoning damage to that creature equal to your STR modifier. You can make this nonlethal with no penalty.</p>';
         $helper->addTypesToSimpleObject($talent, ['Grapple', 'Unarmed', 'Talent' => 2]);
         $talent->feats()->save(app()->feats['Improved Grapple']);
 
         $talent              = new Talent;
         $talent->name        = 'Whirling Throw';
         $talent->requirement = 'You have a creature Grabbed or Restrained';
-        $talent->description = "<p>You propel your Grabbed or Restrained foe a great distance. You can throw the creature any distance up to 10 feet, plus 5 feet + your STR modifier. If you successfully throw the creature, it takes Bludgeoning damage equal to your STR modifier plus 1D6 per 10 feet your throw it.</p>
+        $talent->description = "<p>You propel your Grabbed or Restrained foe a great distance. You can throw the creature any distance up to 10 feet. If you successfully throw the creature, it takes Bludgeoning damage equal to your STR modifier plus 1D6 per 10 feet you throw it.</p>
 <p>Attempt an Athletics check against the foe's CON DC. You take a -2 circumstance on your check if the target is one size larger than you and a -4 circumstance penalty if it's larger than that. You get a +2 circumstance bonus to your checks if the target is one size smaller than you and a +4 circumstance bonus if it's smaller than that.</p>
 <dl>
     <dt>Critical Success</dt> <dd>You throw the creature the desired distance</dd>
@@ -356,7 +370,7 @@ class TalentsSeeder extends Seeder
         $talent->requirement = 'You are in in melee range with an opponent';
         $talent->action_type = 'Double Action';
         $talent->description = '<p>You make a melee attack, and while your opponent is slightly off balance from your blow, you find the leverage needed to pull him into your space while moving into his space.</p>
-<p>As part of this Talent, you make a single melee attack against a target. If your attack hits, the target takes damage normally and must make a DEX Save (DC 12 + your DEX modifier). If this save fails, you swap positions with the target. if the target is Large or larger, you can occupy any of the squares that make up its space. THe target must in turn occupy the square, or one of the squares, you previously occupied. You cannot use this Talent if you or the target would end up sharing the same space as another creature or an impassable terrain feature, such as a wall. If your target occupies a larger space than you do, they choose his final position according to the guidelines given above.</p>';
+<p>As part of this Talent, you make a single melee attack against a target. If your attack hits, the target takes damage normally and must make a DEX Save (DC 12 + your DEX modifier). If this Save fails, you swap positions with the target. The Target gets a +4 bonus to the Save for each size category the Target is larger than you and a -4 penalty for each size category the Target is smaller than you. If the target is Large or larger, you can occupy any of the squares that make up its space. The target must in turn occupy the square, or one of the squares, you previously occupied. You cannot use this Talent if you or the target would end up sharing the same space as another creature or an impassable terrain feature, such as a wall. If your target occupies a larger space than you do, they choose his final position according to the guidelines given above.</p>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 5]);
 
         $talent              = new Talent;
@@ -464,7 +478,7 @@ class TalentsSeeder extends Seeder
     <li>You gain a Reaction</li>
     <li>You may take this Talent multiple times. Each time you gain another Reaction, allowing you to take more Reactions each turn. You may not take more than 3 Reactions each turn.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Reaction', 'Talent' => 1]);
+        $helper->addTypesToSimpleObject($talent, ['Reaction', 'Talent' => 2]);
 
         $talent                    = new Talent;
         $talent->name              = 'Deny Advantage';
@@ -497,6 +511,13 @@ class TalentsSeeder extends Seeder
     <li>Any creature that you are Flanking must use an additional Action to use any Movement Action or to cast Spells. (example: a creature being Flanked wishes to use an Action to move away from the current situation. That creature is forced to use 2 Actions to make 1 Action worth of movement)</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Animal Companion', 'Flanking', 'Talent' => 12]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Opportunistic Flanker';
+        $talent->action_type = 'Double Reaction';
+        $talent->trigger     = 'Your flanked opponent is hit by an Ally who is also flanking the opponent';
+        $talent->description = '<p>Your ally successfully strikes an opponent that you and your ally are both Flanking. You may use a Double Reaction to make an Attack of Opportunity against the opponent. This attack does not trigger this Talent.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Flanking', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Acrobatic Charge';
@@ -602,6 +623,7 @@ class TalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Crusher';
+        $talent->requirement = 'You must be wielding a Melee Weapon that deals Bludgeoning damage';
         $talent->description = '<p>You gain the following benefits.</p>
 <ul>
     <li>Once per turn, when you hit a creature with an attack that deals Bludgeoning damage and the weapon die roll is high enough (see table), you can move the target 5 feet to an unoccupied space provided the target is no more than one size larger than you.
@@ -641,7 +663,18 @@ class TalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Talent' => 2]);
 
         $talent              = new Talent;
+        $talent->name        = 'Improved Crusher';
+        $talent->requirement = 'You must be wielding a Melee weapon that deals Bludgeoning damage';
+        $talent->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>When you hit a Target wearing armor, you may choose to deal 5 points less damage and reduce the Damage Reduction provided by the armor by -1 until the armor is repaired.</li>
+</ul>';
+        $talent->parent_id = Talent::where('name', 'Crusher')->first()->id;
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 7]);
+
+        $talent              = new Talent;
         $talent->name        = 'Piercer';
+        $talent->requirement = 'You must be wielding a Melee Weapon that deals Piercing damage';
         $talent->description = "<p>You gain the following benefits.</p>
 <ul>
     <li>Once per turn, when you hit a creature with an attack that deals Piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll.</li>
@@ -650,13 +683,36 @@ class TalentsSeeder extends Seeder
         $helper->addTypesToSimpleObject($talent, ['Talent' => 2]);
 
         $talent              = new Talent;
-        $talent->name        = 'Slasher';
+        $talent->name        = 'Improved Piercer';
+        $talent->requirement = 'You must be wielding a Melee Weapon that deals Piercing damage';
         $talent->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>Once per turn, when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of the target by 10 feet until the start of your next turn.</li>
+    <li>You may take a -2 Penalty to your Melee Attacks. If you do, you circumvent Damage Reduction from Armor.</li>
+    <li>You may take a -3 Penalty to your Melee Attacks. If you do, you curcumvent non-magical Damage Resistance.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 7]);
+        $talent->parent_id = Talent::where('name', 'Piercer')->first()->id;
+
+        $talent              = new Talent;
+        $talent->name        = 'Slasher';
+        $talent->requirement = 'You must be wielding a Melee Weapon that deals Slashing damage';
+        $talent->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>Once per turn, when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of the target by 5 feet until the start of your next turn.</li>
     <li>When you score a Critical Hit that deals Slashing damage to a creature, you grievously wound it. Until the start of your next turn, the target is Hampered: 15.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Talent' => 2]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Improved Slasher';
+        $talent->requirement = 'You must be wielding a Melee Weapon that deals Slashing damage';
+        $talent->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>All your weapons that deal Slashing Damage deals an additional +2 Slashing Damage.</li>
+    <li>If you score a Critical Hit, the Target suffers 2 points of Persistent Bleeding Damage until they gain any form of Healing.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 7]);
+        $talent->parent_id = Talent::where('name', 'Slasher')->first()->id;
 
         $talent              = new Talent;
         $talent->name        = 'Heavy Weapon Master';
@@ -677,7 +733,7 @@ class TalentsSeeder extends Seeder
         $talent->trigger     = 'You must be in a Grappling with an opponent and be wearing Light Armor or no Armor';
         $talent->action_type = 'Triple Action';
         $talent->description = '<p>You learn how to render an opponent unconscious while Grappling. If you have your opponent Pinned while Grappling you may use this Talent to attempt to make your opponent go unconscious. Make a STR challenge vs the opponents STR (the opponent may choose to use DEX instead). If you win, the opponent must make a CON Save (DC 10 + WIS modifier + Character Proficiency) or fall Unconscious for 1D3 + 1 rounds. A creature with no discernible anatomy or does not need to breath has immunity to this effect.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 8]);
+        $helper->addTypesToSimpleObject($talent, ['Grapple', 'Talent' => 8]);
         $talent->feats()->save(app()->feats['Improved Grapple']);
 
         $talent              = new Talent;
@@ -686,12 +742,12 @@ class TalentsSeeder extends Seeder
         $talent->action_type = 'Triple Action';
         $talent->description = '<p>If you have an opponent Pinned and you are able to maintain the Pin for 3 consecutive rounds, the opponent must make a CON Save (DC 10 + WIS modifier + Character Proficiency) at the end of the third round. If the opponent fails the Save, they become Unconscious. A creature with no discernible anatomy is immune to the effect of this ability.</p>';
         $talent->parent_id   = Talent::where('name', 'Sleeper Lock')->first()->id;
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 12]);
+        $helper->addTypesToSimpleObject($talent, ['Grapple', 'Talent' => 12]);
         $talent->feats()->save(app()->feats['Improved Grapple']);
 
         $throw              = new Talent;
         $throw->name        = 'Thrower';
-        $throw->description = '<p>You gain a +1 bonus to Hit to all Thrown weapons.</p>
+        $throw->description = '<p>You gain a +1 bonus to Hit with all Thrown weapons.</p>
 <p>Add a +1 bonus to the Critical Hit threat range of any weapon that you throw that you also have the Weapon Focus feat with.</p>';
         $throw->parent_id = Talent::where('name', 'Quick Draw')->first()->id;
         $helper->addTypesToSimpleObject($throw, ['Ranged', 'Talent' => 5]);
@@ -721,7 +777,7 @@ class TalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Precise Shot';
         $talent->description = "<ul>
-    <li>When you roll for damage from a Ranged Weapon attack, reroll all 1's and 2's</li>
+    <li>When you roll for damage from a Ranged Weapon attack, reroll all 1's</li>
 </ul>";
         $helper->addTypesToSimpleObject($talent, ['Ranged', 'Attack', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Point-Blank Shot']);
@@ -755,7 +811,7 @@ class TalentsSeeder extends Seeder
         $talent->description = '<p>Your blow inflicts wounds that bleed profusely.</p>
 <p>Make a Slashing or Piercing Strike with a weapon or Unarmed Strike. On a hit, the target also gains Persistent Damage: 1 (bleeding). If the user Succeeds a DC 12 Medicine check or receives any magical healing, then the Bleeding stops.</p>
 <p>You may spend a Heroic Surge as part of this attack. If you do, the Persistent Damage becomes 3.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Precision', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Precision', 'Panache', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Lethal Strike';
@@ -768,35 +824,35 @@ class TalentsSeeder extends Seeder
     <dt>Failure</dt> <dd>9D6 Precision damage</dd>
     <dt>Critical Failure</dt> <dd>12D6 Precision damage</dd>
 </dl>';
-        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Precision', 'Talent' => 18]);
+        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Panache', 'Heroic Surge', 'Precision', 'Talent' => 16]);
 
         $talent              = new Talent;
         $talent->name        = 'Perfect Strike';
         $talent->action_type = 'Action';
         $talent->description = '<p>You focus on your next attack, insuring that you successfully hit.</p>
 <p>Spend a Heroic Surge and gain Advantage on your next melee attack to Hit roll.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Talent' => 6]);
+        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Panache', 'Talent' => 6]);
 
         $talent              = new Talent;
         $talent->name        = 'Stunning Strike';
         $talent->action_type = 'Double Action';
         $talent->description = "<p>You attempt a dizzying blow.</p>
-<p>Spend a Heroic Surge, the next Melee attack you make, if you hit, they must make a CON Save vs your Class DC.</p>
+<p>Spend a Heroic Surge, the next Melee attack you make that deals Bludgeoning Damage, if you hit, the Target must make a CON Save vs your Class DC.</p>
 <dl>
     <dt>Critical Success</dt> <dd>Unaffected</dd>
     <dt>Success</dt> <dd>The Target can't use Reactions until the beginning of their next turn</dd>
     <dt>Failure</dt> <dd>The Target is Stunned: 1</dd>
     <dt>Critical Failure</dt> <dd>The Target is Stunned: 3</dd>
 </dl>";
-        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Panache', 'Heroic Surge', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Unbalancing Strike';
         $talent->action_type = 'Double Action';
         $talent->description = '<p>Your attack leaves your target off balance.</p>
-<p>Make a melee strike. If you hit and deal damage, the target is Flat-Footed until the beginning of your next turn.</p>
+<p>Make a Melee Strike. If you hit and deal damage, the target is Flat-Footed until the beginning of your next turn.</p>
 <p>If you use this Talent against the same opponent in the same Encounter, you gain a cumulative -1 penalty to Hit.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Talent' => 4, 'Diminishing']);
+        $helper->addTypesToSimpleObject($talent, ['Finisher', 'Panache', 'Talent' => 4, 'Diminishing']);
 
         $talent              = new Talent;
         $talent->name        = 'Quick Stride';
@@ -817,7 +873,7 @@ class TalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Piercing Attack';
         $talent->action_type = 'Action';
-        $talent->trigger     = 'You are about to deliver an attack that has Precision damage';
+        $talent->trigger     = 'You are about to deliver an attack that deals Precision damage';
         $talent->description = '<p>Your attack that deals Precision damage requires an additional Action. Take a -1 penalty to Hit and the attack gains the Piercing type.</p>';
         $helper->addTypesToSimpleObject($talent, ['Precision', 'Talent' => 1]);
 
@@ -832,6 +888,43 @@ class TalentsSeeder extends Seeder
         $talent->description = "<p>You launch yourself at a foe. Make a Leap or attempt a High Jump or long Jump. During any part of the jump, if you're adjacent to a foe, you can immediately Strike that foe with a Melee Attack, even if the foe is in midair. Your Strike deals an additional Die of damage. You fall to the ground after the Strike. If the distance you fall is no more than the height of your jump, you land upright and take no damage.</p>";
         $helper->addTypesToSimpleObject($talent, ['Talent' => 4]);
         $talent->skills()->save(app()->skills['Athletics'], ['dc' => 7]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Disabling Strike';
+        $talent->trigger     = 'You make an attack with a Slashing weapon';
+        $talent->action_type = 'Double Action';
+        $talent->description = '<p>Spend a Heroic Surge, the next Melee attack you make that deals Slashing Damage suffers a -2 Penalty to Hit, and if you hit and deal the minimum amount of Damage (see table below), the Target suffers a -10 Penalty to all Speed until they regain at least 3 Hit Points. This attack circumvents Damage Reduction from Armor.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Minimum Damage after Resistance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Small</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>Medium</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Large</td>
+            <td>15%</td>
+        </tr>
+        <tr>
+            <td>Huge</td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td>Gargantuan</td>
+            <td>20%</td>
+        </tr>
+    </tbody>
+</table>';
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Heroic Surge', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Improved Snare Crafting';
@@ -859,9 +952,26 @@ class TalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Improved Extra Limb';
-        $talent->description = '<p>The penalties to one of your Grafted limbs is reduced by +4.</p>
-<p>You may take this Talent multiple times. Each time reducing the penalties to one of your Grafted limbs.</p>';
+        $talent->description = '<p>The penalties of your Grafted limbs is reduced by +3.</p>
+<p>You may take this Talent multiple times.</p>';
         $helper->addTypesToSimpleObject($talent, ['Graft', 'Talent' => 3]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Assess Opponent';
+        $talent->description = "<p>You are skilled at gauging an opponents fighting ability compared to your own.</p>
+<p>Make a Insight (Sense Motive) check against an individual within 30 feet of you vs. the Target's Bluff check. If you Succeed, you gain the following information.</p>
+<dl>
+    <dt>Pushover/Outclassed</dt> <dd>The Target's CR is more than 4 lower than your Level</dd>
+    <dt>Easy</dt> <dd>The Target's CR is 2 to 4 lower than your level</dd>
+    <dt>Faire Fight</dt> <dd>The Target's CR is no more than 1 level higher or lower than your level</dd>
+    <dt>Dangerous/Dire Trait</dt> <dd>The Target's CR is 2 to 4 levels higher than your level</dd>
+    <dt>Unbeatable</dt> <dd>The Target's CR is 5 or more levels higher than your level</dd>
+</dl>
+<p>If you've seen the Target fight then you gain a +2 bonus on your check.</p>
+<p>If you Critically Succeed on your check, then you gain a +2 bonus to Hit the Target if you fight within 1 week of the Skill check. If you Critically Fail the check then you grossly underestimate the Target and suffer a -2 Penalty to Hit in the next fight vs. the Target.</p>
+<p>This Talent gauges your physical combat ability against the Target, and not strict CR. If you are a wizard, then a fighter up to 4 levels lower than you might be seen as an equal.</p>";
+        $helper->addTypesToSimpleObject($talent, ['Skill', 'Talent' => 5]);
+        $talent->skills()->save(app()->skills['Insight'], ['dc' => 5]);
 
         $feat   = Feat::where('name', 'Improved Mounted Combatant')->first();
         $talent = Talent::where('name', 'Improved Overrun')->first();

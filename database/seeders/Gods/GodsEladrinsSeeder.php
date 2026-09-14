@@ -2,10 +2,12 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\God;
 use App\Models\Klass;
 use App\Services\SeedHelper;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class GodsEladrinsSeeder extends Seeder
@@ -86,7 +88,8 @@ class GodsEladrinsSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Monk',
+            'Druid' => ['is_clergy' => true],
+            'Monk',
         ]);
 
         $helper->addPietyToGod($god, [
@@ -128,6 +131,7 @@ class GodsEladrinsSeeder extends Seeder
             'piety50' => "<h4>Chosen of Eldath</h4>
 <p>You can spend an Inspiration to cast Druid Grove. Once you cast this spell in this way, you can't do so again until you finish a Long Rest. WIS is your spellcasting ability for this spell</p>",
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Peace of Eldath')->first());
 
         $god        = new God;
         $god->name  = 'Hyrsam';
@@ -175,10 +179,10 @@ class GodsEladrinsSeeder extends Seeder
         $eachthighern->save();
         $eachthighern->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $eachthighern->name,
-            'title'     => 'Lord of Unicorns and Pegasi',
+            'title'     => 'Lord of Unicorns and Pegasus',
             'level'     => 'Archfey',
             'aliases'   => 'Kamerynn',
-            'portfolio' => 'Healing, Loyalty, Protection, Pegasi, Unicorns',
+            'portfolio' => 'Healing, Loyalty, Protection, Pegasus, Unicorns',
             'alignment' => 'CG',
             'symbol'    => 'Unicorn horn',
             'master_id' => $oberon->id,
@@ -216,7 +220,7 @@ class GodsEladrinsSeeder extends Seeder
             'name'        => $god->name,
             'title'       => 'The Winged Queen',
             'level'       => 'Archfey',
-            'portfolio'   => 'Pegasi',
+            'portfolio'   => 'Pegasus',
             'alignment'   => 'CG',
             'description' => 'Daughter to Eachthighern and younger sister to Lurue',
             'master_id'   => $eachthighern->id,
@@ -349,12 +353,12 @@ class GodsEladrinsSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Remnis';
-        $god->level = 'Hero';
+        $god->level = 'Archfey';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'      => $god->name,
             'title'     => 'Great Lord of Eagles',
-            'level'     => 'Hero',
+            'level'     => 'Archfey',
             'portfolio' => 'Giant Eagles, Sky, Service',
             'alignment' => 'N(G)',
             'symbol'    => 'Head of a giant eagle with green eyes',
@@ -386,6 +390,7 @@ class GodsEladrinsSeeder extends Seeder
             'alignment'      => 'NE',
             'symbol'         => 'Bloody Axe',
             'favored_weapon' => 'Battleaxe',
+            'master_id'      => $oberon->id,
         ]);
         $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'           => $god->name,
@@ -420,7 +425,12 @@ class GodsEladrinsSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'The Court of Stars', [
-            $class->name, 'Fighter', 'Barbarian', 'Artificer',
+            $class->name => ['is_clergy' => true],
+            'Fighter', 'Barbarian', 'Artificer',
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Goblin', [
+            $class->name => ['is_clergy' => true],
+            'Fighter', 'Barbarian', 'Artificer',
         ]);
         $helper->addSkillsToClass($class,
             ['Athletics', 'Concentration', 'Diplomacy', 'Intimidation', 'Religion']
@@ -444,6 +454,8 @@ class GodsEladrinsSeeder extends Seeder
         ]);
         $helper->addSpellSlotsToClass($class, 'eight');
         $maglubiyet = $god;
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Khurgorbaeyag';
@@ -477,6 +489,12 @@ class GodsEladrinsSeeder extends Seeder
             'Wizard'  => 10,
             'Cleric'  => 10,
         ]);
+        $helper->addWorshipClassesToGod($god, Pantheon::Goblin->value, [
+            'Paladin' => ['is_clergy' => true],
+            'Fighter', 'Scout',
+        ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Nomog-Geaya';
@@ -508,6 +526,12 @@ class GodsEladrinsSeeder extends Seeder
             'Fighter' => 30,
             'Cleric'  => 10,
         ]);
+        $helper->addWorshipClassesToGod($god, Pantheon::Goblin->value, [
+            'Paladin' => ['is_clergy' => true],
+            'Fighter',
+        ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Bargrivyek';
@@ -541,19 +565,25 @@ class GodsEladrinsSeeder extends Seeder
             'Cleric'    => 15,
             'Artificer' => 5,
         ]);
+        $helper->addWorshipClassesToGod($god, Pantheon::Goblin->value, [
+            'Shaman' => ['is_clergy' => true],
+        ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Hruggek';
         $god->level = 'Lesser';
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
-            'name'      => $god->name,
-            'title'     => '',
-            'level'     => 'Archfey',
-            'portfolio' => 'Ambush, Furious Fighting, Bugbears',
-            'alignment' => 'CE',
-            'symbol'    => 'Morningstar',
-            'master_id' => $maglubiyet->id,
+            'name'        => $god->name,
+            'title'       => '',
+            'level'       => 'Archfey',
+            'portfolio'   => 'Ambush, Furious Fighting, Bugbears',
+            'alignment'   => 'CE',
+            'symbol'      => 'Morningstar',
+            'master_id'   => $maglubiyet->id,
+            'description' => "<p>Bugbears as a race prize the severed heads of their conquered victims. They commonly spike these heads around their territories and especially their lairs. Whenever a powerful head is spiked in this way, they sometimes becomes an animated undead creature. The head is capable of serving as the tribe's memory (as bugbears cannot read).</p>",
         ]);
         $god->pantheons()->save(app()->pantheons['Goblin'], [
             'name'      => $god->name,
@@ -574,6 +604,26 @@ class GodsEladrinsSeeder extends Seeder
             'Ranger'  => 10,
             'Scout'   => 20,
         ]);
+        $helper->addWorshipClassesToGod($god, 'Goblin', [
+            'Ranger' => ['is_clergy' => true],
+            'Barbarian',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ranger of Hruggek';
+        $feat->requirement = 'Hruggek must be your patron and you must have the Favored Enemy Class Feature';
+        $feat->description = '<p>You gain the following.</p>
+<ul>
+    <li>You gain a +2 bonus to Stealth Skill checks.</li>
+    <li>You gain a Sudden Strike Feat.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Undead Head'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Goblin->value, $feat);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Grankhul';
@@ -605,6 +655,26 @@ class GodsEladrinsSeeder extends Seeder
             'Scout'  => 20,
             'Ranger' => 10,
         ]);
+        $helper->addWorshipClassesToGod($god, 'Goblin', [
+            'Ranger' => ['is_clergy' => true],
+            'Scout', 'Rogue',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ranger of Grankhul';
+        $feat->requirement = 'Grankhul must be your patron and you must have the Favored Enemy Class Feature';
+        $feat->description = '<p>You gain the following.</p>
+<ul>
+    <li>You gain a +2 bonus to Survival Skill checks.</li>
+    <li>You gain the Improved Initiative Feat.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Undead Head'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Goblin->value, $feat);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Skiggaret';
@@ -636,6 +706,25 @@ class GodsEladrinsSeeder extends Seeder
             'Fighter' => 20,
             'Ranger'  => 10,
         ]);
+        $helper->addWorshipClassesToGod($god, 'Goblin', [
+            'Ranger' => ['is_clergy' => true],
+            'Fighter', 'Barbarian',
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Ranger of Skiggaret';
+        $feat->requirement = 'Skiggaret must be your patron and you must have the Favored Enemy Class Feature';
+        $feat->description = '<p>You gain the following.</p>
+<ul>
+    <li>You may cast the Fear spell as an Action.</li>
+    <li>You gain an Additional 1st Level Spell Slot. This Additional Spell Slot can only be used to cast Fear.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Fear'],
+            2 => ['Undead Head'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Goblin->value, $feat);
 
         /**********************************************************************/
 
@@ -696,7 +785,7 @@ class GodsEladrinsSeeder extends Seeder
             'alignment' => 'CN(E)',
             'master_id' => $qad->id,
         ]);
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons['Yugoloth Lords'], [
             'name'      => 'Cegilune',
             'title'     => 'Mother of All Witches, The Hag Witch',
             'level'     => 'Yugoloth',
@@ -722,7 +811,7 @@ class GodsEladrinsSeeder extends Seeder
         $god             = new God;
         $god->name       = 'Ishaldra';
         $god->level      = 'Archfey';
-        $god->deleted_at = \Carbon\Carbon::now();
+        $god->deleted_at = Carbon::now();
         $god->save();
         $god->pantheons()->save(app()->pantheons['The Court of Stars'], [
             'name'        => $god->name,
@@ -896,34 +985,22 @@ class GodsEladrinsSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Fey Companion';
         $feat->requirement = 'You must have a Pact Feat that has the Fey type and you must be able to gain a Familiar';
-        $feat->description = '<p>Add the following creatures that you may choose as your familiar or animal companion.</p>
-<table>
-    <thead>
-        <tr>
-            <th>Spell Slot</th>
-            <th>Creature</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>3rd Level Spell Slot</td>
-            <td>Blink Dog</td>
-        </tr>
-        <tr>
-            <td>2nd Level Spell Slot (3rd Level with Pipes)</td>
-            <td>Satyr</td>
-        </tr>
-        <tr>
-            <td>2nd Level Spell Slot</td>
-            <td>Sprite</td>
-        </tr>
-        <tr>
-            <td>4th Level Spell Slot</td>
-            <td>Displacer Beast</td>
-        </tr>
-    </tbody>
-</table>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Invocation' => 7]);
+        $feat->description = '<ul>
+    <li>
+        <p>You gain the Enhanced Familiar Feat. You may choose the following as your Familiar/Animal Companion without having to capture/summon it.</p>
+        <ul>
+            <li>Blink Dog</li>
+            <li>Satyr</li>
+            <li>Displacer Beast</li>
+            <li>Faerie Dragon</li>
+        </ul>
+    </li>
+    <li>You gain a +2 bonus on all Diplomacy checks vs. Fey creatures.</li>
+    <li>You gain a +2 bonus on all Saves vs Spells of Fey origin.</li>
+    <li>You gain a Fey Contact. They are initially Friendly towards you, but you must maintain the relationship. They can provide minor aid and answers to questions they are likely to know.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Familiar', 'Animal Companion', 'Invocation' => 7]);
+        $feat->parent_feats()->save(app()->feats['Find Familiar']);
 
         // Pact to Baba Yaga with Yugoloth spells and spells helpful for mercenaries
     }

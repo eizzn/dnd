@@ -51,7 +51,7 @@ class FeaturesSeeder extends Seeder
         $feature->description = '<p>You gain the following</p>
 <ul>
     <li>You gain the Two-Weapon Fighter Feat</li>
-    <li>You mays spend a Power Point and gain an Additional Action. This additional Action can only be used to make an Unarmed Strike Melee attack. You cannot spend more than one Power Point in this way per turn.</li>
+    <li>You may spend a Power Point and gain an Additional Action. This additional Action can only be used to make an Unarmed Strike Melee attack. You cannot spend more than one Power Point in this way per turn.</li>
 </ul>';
         $helper->saveFeature($feature);
 
@@ -353,7 +353,7 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'talent';
         $feature->name        = 'Talent';
-        $feature->description = '<p>You gain a Talent</p>';
+        $feature->description = '<p>You gain the specified Talent</p>';
         $helper->saveFeature($feature, ['Talent']);
 
         $feature              = new Feature;
@@ -609,49 +609,49 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'acid_resistance';
         $feature->name        = 'Acid Resistance';
-        $feature->description = '<p>You gain Resistance to Acid</p>';
+        $feature->description = '<p>You gain the Acid Resistance Feat.</p>';
         $helper->saveFeature($feature, ['Acid']);
 
         $feature              = new Feature;
         $feature->key         = 'acid_immunity';
         $feature->name        = 'Acid Immunity';
-        $feature->description = '<p>You gain Immunity to Acid</p>';
+        $feature->description = '<p>You gain the Acid Immunity Feat.</p>';
         $helper->saveFeature($feature, ['Acid']);
 
         $feature              = new Feature;
         $feature->key         = 'cold_resistance';
         $feature->name        = 'Cold Resistance';
-        $feature->description = '<p>You gain Resistance to Cold</p>';
+        $feature->description = '<p>You gain the Cold Resistance Feat.</p>';
         $helper->saveFeature($feature, ['Cold']);
 
         $feature              = new Feature;
         $feature->key         = 'cold_immunity';
         $feature->name        = 'Cold Immunity';
-        $feature->description = '<p>You gain Immunity to Cold</p>';
+        $feature->description = '<p>You gain the Cold Immunity Feat.</p>';
         $helper->saveFeature($feature, ['Cold']);
 
         $feature              = new Feature;
         $feature->key         = 'fire_resistance';
         $feature->name        = 'Fire Resistance';
-        $feature->description = '<p>You gain Resistance to Fire</p>';
+        $feature->description = '<p>You gain the Fire Resistance Feat.</p>';
         $helper->saveFeature($feature, ['Fire']);
 
         $feature              = new Feature;
         $feature->key         = 'fire_immunity';
         $feature->name        = 'Fire Immunity';
-        $feature->description = '<p>You gain Immunity to Fire</p>';
+        $feature->description = '<p>You gain the Fire Immunity Feat.</p>';
         $helper->saveFeature($feature, ['Fire']);
 
         $feature              = new Feature;
         $feature->key         = 'electricity_resistance';
         $feature->name        = 'Electricity Resistance';
-        $feature->description = '<p>You gain Resistance to Electricity</p>';
+        $feature->description = '<p>You gain the Electricity Resistance Feat.</p>';
         $helper->saveFeature($feature, ['Electricity']);
 
         $feature              = new Feature;
         $feature->key         = 'electricity_immunity';
         $feature->name        = 'Electricity Immunity';
-        $feature->description = '<p>You gain Immunity to Electricity</p>';
+        $feature->description = '<p>You gain the Electricity Immunity Feat.</p>';
         $helper->saveFeature($feature, ['Electricity']);
 
         $feature              = new Feature;

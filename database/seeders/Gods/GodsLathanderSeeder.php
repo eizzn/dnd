@@ -12,10 +12,8 @@ class GodsLathanderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -58,7 +56,8 @@ class GodsLathanderSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -111,5 +110,43 @@ class GodsLathanderSeeder extends Seeder
             4 => ['Aura of Life', 'Aura of Purity', 'Perfection', 'Sacred Item'],
             5 => ['Banishing Smite', 'Celestial Brand', 'Dawn', 'Holy Weapon', "Undeath's Eternal Foe"],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
+        $lathander = $god;
+
+        /**********************************************************************/
+
+        $god                 = new God;
+        $god->name           = 'Apollo';
+        $god->level          = 'Intermediate';
+        $god->save();
+        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+            'name'           => $god->name,
+            'title'          => 'The Silver Bow of Dawn, The Prophet of Renewal, The Unstruck Chord, The Scourge of Rot',
+            'level'          => 'Demi',
+            'portfolio'      => 'Light from the Sun, Archery, Healing, Prophecy, Undead Hunting, the Purging of Corruption',
+            'alignment'      => 'NG',
+            'regions'        => 'Tethyr, Northern Calimshan',
+            'symbol'         => 'A golden lyre whose frame transitions into a functional recurve bow, backlit by a brilliant rising sun',
+            'favored_weapon' => 'Argyrotoxos (longbow)',
+            'master_id'      => $lathander->id,
+            'description'    => "<p>Apollo is a lesser deity in the Faerunian pantheon who serves as the active, aggressive vanguard to Lathander. While the Morninglord represents the abstract concept of hope and new beginnings, Apollo wields the sharp, pragmatic aspects of the sun: piercing archery, solar radiation, prophetic insight, and intense heat. He is the celestial huntsman who clears the dark so Lathander's dawn can break cleanly over the world</p>
+<p>Apollo' clergy are all Druids and Rangers. They are charged with destroying any and all undead. The circle of Apollo is located in the Southern Forest of Tethyr (Wealdath). They have cordial relations with the resident elves (and even some good aligned drow) in the area. They are more friendly with the Druids of Silvanus, but due to their differing focuses, they rarely mingle.</p>
+<p>Apollo always chooses one druid from among his clergy as an oracle (takes the Oracle Feat). While this oracle holds a special position in the circle, they are not usually the leader.</p>
+<p>While the circle is located in Tethyr, many Rangers of the circle travel to see the other lands where Lathander is worshipped.</p>",
+        ]);
+        $helper->addClassesToGod($god, 'Faeruneon', [
+            'Ranger' => 10,
+            'Druid'  => 15,
+        ]);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid'  => ['is_clergy' => true],
+            'Ranger' => ['is_clergy' => true],
+            'Scout',
+        ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Ranger of Apollo')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Glimmer of Apollo')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Spark of Apollo')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Light of Apollo')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Glory of Apollo')->first());
     }
 }

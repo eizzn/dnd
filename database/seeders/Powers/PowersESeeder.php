@@ -132,7 +132,7 @@ class PowersESeeder extends Seeder
         $power->requirements = 'You must have the Ectoplasmic Creation power';
         $power->targets      = 'One creature in range';
         $power->duration     = 'Instantaneous';
-        $power->description  = '<p>You manifest ectoplasm from the Astral Plane to form an arrow like shard at propel it at the target. Make a ranged attack. If you hit, the target takes 2D6 Piercing damage and suffers a -1 penalty to their Initiative.</p>';
+        $power->description  = '<p>You manifest ectoplasm from the Astral Plane to form an arrow like shard and propel it at the target. Make a ranged attack. If you hit, the target takes 2D6 Piercing damage and suffers a -1 penalty to their Initiative.</p>';
         $power->heightened   = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';

@@ -62,8 +62,6 @@ class ClassHexBladeSeeder extends Seeder
             'Brew Potion'            => 3,
             'Inscribe Tattoo'        => 3,
             'Craft Contingent Spell' => 7,
-            'Lingering Spell'        => 5,
-            'Repeat Spell'           => 6,
         ]);
 
         $helper->addSpellsToClass($class, [

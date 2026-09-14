@@ -8,10 +8,8 @@ class GodsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $this->call(GodsCorellonSeeder::class);
         $this->call(GodsSehanineSeeder::class);
@@ -26,6 +24,7 @@ class GodsSeeder extends Seeder
         $this->call(GodsGiantsSeeder::class);
         $this->call(GodsDragonsSeeder::class);
 
+        $this->call(GodsMystraSeeder::class);
         $this->call(GodsTycheSeeder::class);
         $this->call(GodsBaneSeeder::class);
         $this->call(GodsCyricSeeder::class);
@@ -37,9 +36,9 @@ class GodsSeeder extends Seeder
         $this->call(GodsLathanderSeeder::class);
         $this->call(GodsTyrSeeder::class);
         $this->call(GodsKelemvorSeeder::class);
-        $this->call(GodsHelmSeeder::class);
 
         $this->call(GodsMulhorandiSeeder::class);
+        $this->call(GodsHelmSeeder::class);
         $this->call(GodsUnthericSeeder::class);
         $this->call(GodsMazticaSeeder::class);
         $this->call(GodsKaraTurSeeder::class);
@@ -61,10 +60,12 @@ class GodsSeeder extends Seeder
 
         /**
          * In the beginning, there were the fey (eladrin) and the archons.
+         * The Archons; Jazirian, Ahriman, and Primus; asserts their lawful nature and organizes the cosmos
          * Araushnee (Lolth) attempts her coup. Her failure leads to her banishment, and she becomes one of the first Obyrith (The Queen of Chaos)
          *      Araushnee and Sehanine do battle (as Selune and Shar) and create the crystal sphere of Abeir-Toril.
          *      Chauntea, in her guise as Othea, is poisoned by her son Lanaxis and loses her avatar of Othea. This causes her to loss her title as the chief Nature god, allowing Silvanus to step in and claim the title.
          * More and more demons come into being at this point, as the greatest punishment among the fey is to be branded a demon and banished to the abyss
+         * Mortals begin to fill the Abyss more than any other plane.
          * With the growing number of demons threatening reality, the first Archons take up arms to quell the demonic horde.
          * The first archons (Jazirian, Ahriman, and Primus) take on aspects of Dragons, becoming Bahamut, Tiamat, and Sardior. Very few beings know of these aliases.
          * Jazirian, Ahriman, and Primus (along with the other 4 first members of The Celestial Hebdomad) lead their armies against the demons.

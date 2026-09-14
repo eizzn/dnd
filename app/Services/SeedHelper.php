@@ -9,6 +9,7 @@ use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\Formula;
 use App\Models\God;
+use App\Models\GodPantheonFeat;
 use App\Models\GodPiety;
 use App\Models\Klass;
 use App\Models\Language;
@@ -342,6 +343,16 @@ class SeedHelper
         $god->piety()->save($piety);
     }
 
+    public function addFeatToGodPantheon(God $god, $pantheon, Feat $feat): void
+    {
+        $godPantheonFeat              = new GodPantheonFeat;
+        $godPantheonFeat->god_id      = $god->id;
+        $godPantheonFeat->pantheon_id = app()->pantheons[$pantheon]->id;
+        $godPantheonFeat->feat_id     = $feat->id;
+
+        $godPantheonFeat->save();
+    }
+
     public function addTypesToSimpleObject($object, $types = []): void
     {
         $object->save();
@@ -531,7 +542,7 @@ class SeedHelper
         }
     }
 
-    public function saveCharacter(Character $char, array $classMetas = [])
+    public function saveCharacter(Character $char, array $classMetas = []): void
     {
         $char->save();
         $proficiencies = [
@@ -1051,10 +1062,10 @@ class SeedHelper
         }
         try {
             return match ($size) {
-                'Tiny'   => 4,
-                'Small'  => 6,
-                'Medium' => 8,
-                'Large'  => 10,
+                'Tiny'               => 4,
+                'Small'              => 6,
+                'Medium'             => 8,
+                'Large'              => 10,
                 'Huge', 'Gargantuan' => 12
             };
         } catch (\Throwable $e) {
@@ -1100,14 +1111,14 @@ class SeedHelper
     {
         $level = abs($level);
         $bonus = match ($level) {
-            0, 1 => 0,
-            2, 3 => 1,
-            4, 5 => 2,
-            6, 7, 8 => 3,
-            9, 10, 11, 12 => 4,
+            0, 1           => 0,
+            2, 3           => 1,
+            4, 5           => 2,
+            6, 7, 8        => 3,
+            9, 10, 11, 12  => 4,
             13, 14, 15, 16 => 5,
             17, 18, 19, 20 => 6,
-            default => 7,
+            default        => 7,
         };
         if (! is_null($data) && array_key_exists('classes', $data)) {
             foreach ($data['classes'] as $class) {

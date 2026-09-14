@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null group
  * @property string|null bulk
  * @property int|null    weight
+ * @property string|null hardness
+ * @property string|null hit_points
  * @property string|null description
  */
 class Armor extends Model

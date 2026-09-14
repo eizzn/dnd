@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -60,7 +61,8 @@ class GodsOghmaSeeder extends Seeder
             'Divine',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Bard', 'Monk', 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Bard', 'Monk', 'Wizard',
         ]);
 
         // Skills
@@ -95,7 +97,7 @@ class GodsOghmaSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Oghma's favour is given to those who have dedicated their life not only to learning, but to making that learning accessible to others. In Oghma’s eyes, the act of teaching is sacred and fundamental to a just society.</p>
+            'favor'       => "<p>Oghma's favor is given to those who have dedicated their life not only to learning, but to making that learning accessible to others. In Oghma’s eyes, the act of teaching is sacred and fundamental to a just society.</p>
 <p>Oghma's scions are frequently studious types, but also comprise skilled orators and dastardly playwrights.</p>
 <ol>
     <li>You learned to read when you were two. You've read everything you ever came across</li>
@@ -172,10 +174,12 @@ class GodsOghmaSeeder extends Seeder
             'Wizard'    => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Artificer', 'Rogue',
+            'Artificer' => ['is_clergy' => true],
+            'Rogue',
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            'Artificer', 'Rogue',
+            'Artificer' => ['is_clergy' => true],
+            'Rogue',
         ]);
 
         $feat              = new Feat;
@@ -202,6 +206,8 @@ class GodsOghmaSeeder extends Seeder
             4 => ['Creation', 'Fabricate', 'Shape Metal'],
             5 => ['Atonement', 'Brilliant Weapon', 'Holy Weapon'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+        $helper->addFeatToGodPantheon($god, Pantheon::Gnome->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Gondsmen';
@@ -225,15 +231,17 @@ class GodsOghmaSeeder extends Seeder
             10 => ['Genesis'],
         ]);
         $feat->parent_feats()->save(app()->feats['Gondsmen']);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+        $helper->addFeatToGodPantheon($god, Pantheon::Gnome->value, $feat);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
-            'favor'       => "<p>Gond's favour falls on a wide array of craftsmen and industrial powers. Gond loves those who innovate, but also loves those who dedicate themselves to the perfection of any mundane craft. In this way, a barrel maker can be the equal of an inventor in his eyes.</p>
-<p>Gond's scions tend to hail from cities and hubs of civilisation, where the resources and opportunities for great works of craft are more common, and often center their personalities around their incredible worth ethic.</p>
+            'favor'       => "<p>Gond's favor falls on a wide array of craftsmen and industrial powers. Gond loves those who innovate, but also loves those who dedicate themselves to the perfection of any mundane craft. In this way, a barrel maker can be the equal of an inventor in his eyes.</p>
+<p>Gond's scions tend to hail from cities and hubs of civilization, where the resources and opportunities for great works of craft are more common, and often center their personalities around their incredible worth ethic.</p>
 <ol>
     <li>You invented something unique and incredible</li>
     <li>You were raised by a cult of religiously obsessed rock gnomes who believe you are the Chosen One</li>
-    <li>Your lost part of your body in an accident, and replaced it with a clockwork wonder</li>
+    <li>The lost part of your body in an accident and replaced it with a clockwork wonder</li>
     <li>People seek you out across the land for your beautiful or skilled craftsmanship in a particular trade</li>
     <li>Gond blessed yo in a dream with schematics for a device ... but you don't know what it does</li>
     <li>You created a machine which came alive. You have no idea where it is now, but you suspect it may have malign intent</li>
@@ -306,7 +314,8 @@ class GodsOghmaSeeder extends Seeder
             'Divine', 'Skill',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard', 'Monk',
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Monk',
         ]);
 
         // Skills
@@ -318,7 +327,7 @@ class GodsOghmaSeeder extends Seeder
         $feature->key         = 'any_scroll';
         $feature->name        = 'Master of Scrolls';
         $feature->description = '<ul>
-    <li>You have to ability to cast spells from scrolls even if the spell is not on your Spell List.</li>
+    <li>You can cast spells from scrolls even if the spell is not on your Spell List.</li>
     <li>You can also create a Scroll using your Scribe Scroll feat of any spell, even if the spell is not on your Spell List. Spells that are not on your Spell List must be kept in written form somewhere (like a SpellBook). The maximum Spell Level that you can scribe for spells that are not on you Spell List is one level less than the maximum Spell Slot you have.</li>
 </ul>';
         $helper->saveFeature($feature, ['Scroll']);
@@ -345,11 +354,11 @@ class GodsOghmaSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Deneir's favour is given to those who prize not just the word, but the act of placing word to paper. It is this immortalizing of knowledge which separates Deneir from Oghma, god of knowledge.</p>
+            'favor'       => "<p>Deneir's favor is given to those who prize not just the word, but the act of placing word to paper. It is this immortalizing of knowledge which separates Deneir from Oghma, god of knowledge.</p>
 <p>Deneir's scions usually manifest in schools, libraries, art colleges and so on, though in a world as dangerous as Faerun the definition of a job like archivist can vary wildly from place to place.</p>
 <ol>
     <li>You penned a great work of art, literature or poetry</li>
-    <li>You are the caretaker of an important or specialised library</li>
+    <li>You are the caretaker of an important or specialized library</li>
     <li>You saved a noteworthy text from destruction</li>
     <li>You rediscovered up a forgotten book, lost to time</li>
     <li>You are the single expert in a very niche field</li>
@@ -405,13 +414,17 @@ class GodsOghmaSeeder extends Seeder
             'Swashbuckler' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Bard',
+            'Bard' => ['is_clergy' => true],
         ]);
 
         $feat              = new Feat;
         $feat->name        = 'Sorlyn';
         $feat->requirement = 'You must be Good and Milil must be your Patron Deity';
-        $feat->description = '<p>You dedicate yourself to the worship of Milil, serving as his clergy. The spells you gain from this Feat are in addition to your known spells limit.</p>';
+        $feat->description = '<p>You dedicate yourself to the worship of Milil, serving as his clergy. The spells you gain from this Feat are in addition to your known spells limit.</p>
+<ul>
+    <li>You may learn an additional Cantrip. This additional Cantrip must be from the list of spells provided by this feat.</li>
+    <li>You may learn an additional spell at each Spell Level. The additional spell must come form the list of spells provided by this feat.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Bardic Muse']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Conviction', 'Ghost Sound', 'Stabilize', 'Word of Radiance'],
@@ -420,6 +433,10 @@ class GodsOghmaSeeder extends Seeder
             3 => ['Insignia of Blessing', 'Insignia of Healing', 'Revivify', 'Undead Bane Weapon'],
             4 => ['Divination'],
             5 => ['Atonement'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Bard')->first(), [
+            'Sorlyn' => 2,
         ]);
 
         /**********************************************************************/
@@ -461,7 +478,8 @@ class GodsOghmaSeeder extends Seeder
             'Divine', 'Rogue', 'Skill',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Rogue',
+            $class->name => ['is_clergy' => true],
+            'Rogue',
         ]);
 
         // Skills

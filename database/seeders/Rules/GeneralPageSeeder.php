@@ -13,7 +13,7 @@ class GeneralPageSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $page              = new Page;
         $page->name        = 'General';
@@ -306,6 +306,19 @@ class GeneralPageSeeder extends Seeder
     <p>If you are addicted, and successfully make two Saves in a row, you have fought off your addiction and you have recovered, taking no more damage. Of course, you can always become addicted again later by taking another dose of the drug.</p>
     <p>A Restoration spell may negate some or all of the ability score damage caused by an addiction, but on the next day you may accrue more ability damage if you continue to fail CON Saves. Remove Disease immediately cause you to recover from the addiction, but does not restore lost ability score points. Heal causes recovery and restores all ability damage from the addiction.</p>';
         $rule->order = 1000;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'cold-environment';
+        $rule->name        = 'Cold Environment';
+        $rule->description = '<p>Cold Environment Survival Rules.</p>
+<dl>
+    <dt>Standard Cold (Below 40° F)</dt> <dd>Unprotected characters must make a DC 15 CON Save each hour or take 1D6 nonlethal damage.</dd>
+    <dt>Severe Cold (Below 0° F)</dt> <dd>CON Save required every 10 minutes (DC 15 +1 per previous check) or take 1D6 nonlethal damage.</dd>
+    <dt>Extreme Cold (Below -20° F)</dt> <dd>Deals 1D6 lethal damage per minute with no Save</dd>
+    <dt>Frostbite/Hypothermia</dt> <dd>Any nonlethal damage taken from cold conditions leaves a character Fatigued. Winter clothing reduces check frequencies to once per hour.</dd>
+</dl>';
+        $rule->order       = 1200;
         $page->rules()->save($rule);
     }
 }

@@ -70,13 +70,16 @@ class GodsSilvanusSeeder extends Seeder
             'Sacred Fist' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Monk', 'Sacred Fist', 'Hierophant',
+            'Druid'       => ['is_clergy' => true],
+            'Sacred Fist' => ['is_clergy' => true],
+            'Hierophant'  => ['is_clergy' => true],
+            'Monk',
         ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Silvanus's favour is given to those who understand that nature is at heart fair, and who seek always to view the bigger picture, not viewing events in isolation but in context - if a town being razed to the ground today means it will be fertile for a forest in 10 years, this might be for the best.</p>
-<p>Silvanus’s scions wield the power of nature as a bludgeon against those who would upset the balance. Quiet priests and world shaking warriors, all carry the song of the earth, wind and sky in their hearts.</p>
+            'favor'       => "<p>Silvanus's favor is given to those who understand that nature is at heart fair, and who seek always to view the bigger picture, not viewing events in isolation but in context - if a town being razed to the ground today means it will be fertile for a forest in 10 years, this might be for the best.</p>
+<p>Silvanus's scions wield the power of nature as a bludgeon against those who would upset the balance. Quiet priests and world shaking warriors, all carry the song of the earth, wind and sky in their hearts.</p>
 <ol>
     <li>You destroyed a settlement to protect a natural site</li>
     <li>You have long guarded a place a terrestrial wonder</li>
@@ -88,7 +91,7 @@ class GodsSilvanusSeeder extends Seeder
             'devotion' => '<p>Following Silvanus means dedicating yourself to nature. As a follower of Silvanus, consider the ideals below as alternatives to those suggested for your background.</p>
 <dl>
     <dt>Devotion</dt> <dd>My devotion to my god is more important to me than what they stand for. (Any)</dd>
-    <dt>Balance</dt> <dd>The equilibrium between civilisation must be maintained by whatever means necessary</dd>
+    <dt>Balance</dt> <dd>The equilibrium between civilization must be maintained by whatever means necessary</dd>
     <dt>Rage</dt> <dd>Seeing mortals violate the natural world sends me into a primal state of wrath I cannot control</dd>
     <dt>Humility</dt> <dd>The scope of nature fills me with awe and terror</dd>
     <dt>Ruthlessness</dt> <dd>A life for a life</dd>
@@ -103,7 +106,7 @@ class GodsSilvanusSeeder extends Seeder
                 'Averting natural disasters or catastrophes rather then weathering them',
             ],
             'piety3' => '<h4>Favored God: Silvanus</h4>
-<p>You gain Inspiration when you defend beasts, plants, or natural resources from the depredations of technology, commerce or artifice</p>',
+<p>You gain Inspiration when you defend beasts, plants, or natural resources from the depredations of technology, commerce, or artifice</p>',
             'piety10' => "<h4>Stranglevines</h4>
 <p>You can cast Entangle with this trait, requiring no components. Once you cast the spell in this way, you can't do so again until you finish a Long Rest. WIS is your spellcasting ability for this spell</p>",
             'piety25' => '<h4>Father of Nature</h4>
@@ -115,10 +118,10 @@ class GodsSilvanusSeeder extends Seeder
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
             'favor'       => "<p>Baervan gives her favor to gnomes who exhibit what she considers a healthy wanderlust, and those who forge strong bonds with animals or familiars. She is a retiring and calm god by instinct, but she bears a deep love for the mischief of Chiktikka, and shields her wayward companion from consequence however she can.</p>
-<p>Baervan favours those who work with nature and away from civilisation where possible, though she has also been known to choose arcane scions who have developed deep friendships with summoned creatures.</p>
+<p>Baervan favours those who work with nature and away from civilization where possible, though she has also been known to choose arcane scions who have developed deep friendships with summoned creatures.</p>
 <ol>
     <li>You summoned a familiar which you've bonded with so strongly that you consider it family</li>
-    <li>You've always been kind to the animals you met, eve if you didn't have much time for people</li>
+    <li>You've always been kind to the animals you met, even if you had little time for people</li>
     <li>You never stay in one place for long, moving from place to place before you get tied down</li>
     <li>You lost a companion that was dear to you, and Baervan watches over you out of compassion</li>
     <li>You've been kicked out of more towns than you can remember due to the antics of your pet</li>
@@ -150,6 +153,7 @@ class GodsSilvanusSeeder extends Seeder
             'piety50' => "<h4>Chosen of Baervan</h4>
 <p>You can spend an Inspiration to cast Conjure Animals with this trait. Once you cast the spell in this way, you can't do so again until you finish a Long Rest. WIS is your spellcasting ability for this spell</p>",
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Ascetic of Silvanus')->first());
 
         /**********************************************************************/
 
@@ -172,7 +176,11 @@ class GodsSilvanusSeeder extends Seeder
             'Ranger' => 25,
             'Druid'  => 15,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Ranger', 'Druid']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid'  => ['is_clergy' => true],
+            'Ranger' => ['is_clergy' => true],
+        ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', "Mielikki's Needles")->first());
         $mielikki = $god;
 
         /**********************************************************************/
@@ -193,7 +201,10 @@ class GodsSilvanusSeeder extends Seeder
         $helper->addClassesToGod($god, 'Faeruneon', [
             'Ranger' => 30,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Ranger']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Ranger' => ['is_clergy' => true],
+            'Scout',
+        ]);
 
         /**********************************************************************/
 
@@ -202,7 +213,7 @@ class GodsSilvanusSeeder extends Seeder
         $god->level = 'Hero';
         $god->save();
         $god->pantheons()->save(app()->pantheons['Faeruneon'], [
-            'name'           => 'Shiallia',
+            'name'           => $god->name,
             'title'          => 'The Golden, Dancer in the Glades, Daughter of the High Forest, The Lady of the Woods, Sister Goddess',
             'level'          => 'Hero',
             'portfolio'      => 'The High Forest, Neverwinter Wood, Woodland Glades, Woodland Fertility, Growth, Korreds',
@@ -217,7 +228,10 @@ class GodsSilvanusSeeder extends Seeder
             'Spirit Shaman' => 15,
             'Druid'         => 15,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Druid', 'Spirit Shaman']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Druid'         => ['is_clergy' => true],
+            'Spirit Shaman' => ['is_clergy' => true],
+        ]);
 
         /**********************************************************************/
 
@@ -250,7 +264,10 @@ class GodsSilvanusSeeder extends Seeder
             'Paladin' => 15,
             'Ranger'  => 15,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', ['Paladin', 'Ranger']);
+        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
+            'Paladin' => ['is_clergy' => true],
+            'Ranger'  => ['is_clergy' => true],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = "Nobanion's Pride Mate";
@@ -266,10 +283,11 @@ class GodsSilvanusSeeder extends Seeder
         $helper->addSpellsToFeat($feat, [
             4 => ["Lion's Roar"],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Nobanion’s favour is given to those who are strong and proud enough to claim leadership over their peers. He favours those who have proven themselves in some way, and who possess the requisite charisma to command respect.</p>
+            'favor'       => "<p>Nobanion’s favor is given to those who are strong and proud enough to claim leadership over their peers. He favours those who have proven themselves in some way, and who possess the requisite charisma to command respect.</p>
 <p>All scions of Nobanion have demonstrated their leadership ability in some meaningful fashion.</p>
 <ol>
     <li>Your leadership changed the tide of a battle that would have been a massacre</li>
@@ -321,6 +339,8 @@ class GodsSilvanusSeeder extends Seeder
             'alignment'      => 'N',
             'symbol'         => 'Maze',
             'favored_weapon' => 'Tyrannosaur head (heavy pick)',
+            'master_id'      => $silvanus->id,
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Mark of Ubtao')->first());
     }
 }

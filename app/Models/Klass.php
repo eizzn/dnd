@@ -11,6 +11,7 @@ use App\Traits\SpellableTrait;
 use App\Traits\TypeableTrait;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -32,6 +33,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int         max_level
  * @property Collection|ClassSpellSlot[] spell_slots
  * @property Collection|ClassPowerMeta[] power_slots
+ * @property Collection|GodPantheon[] worship_gods
  */
 class Klass extends Model
 {
@@ -49,5 +51,12 @@ class Klass extends Model
     public function power_slots(): HasMany
     {
         return $this->hasMany(ClassPowerMeta::class, 'class_id');
+    }
+
+    public function worship_gods(): BelongsToMany
+    {
+        return $this->belongsToMany(GodPantheon::class, 'god_worship_class', 'class_id', 'god_id', 'id', 'god_id')
+            ->whereColumn('god_worship_class.pantheon_id', 'god_pantheon.pantheon_id')
+            ->withPivot(['pantheon_id', 'multiclass_group', 'meta']);
     }
 }

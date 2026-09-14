@@ -44,7 +44,7 @@ class Hades extends Seeder
         $location->meta        = '<ul>
     <li>The seat of power of the Oinoloth</li>
 </ul>';
-        $location->pantheon_id = app()->pantheons['Yugoloth Lord']->id;
+        $location->pantheon_id = app()->pantheons['Yugoloth Lords']->id;
         $location->description = "<p>The tower looks like a spinal column. That's because it is - it was made from the backbones of the first god who moved against the Yugoloths.</p>
 <p>The tower is twenty miles high with another twenty miles of underground levels. Smaller towers are built out of the vertebra on the above-ground levels, while the structure of the underground levels are not known.</p>
 <p>In the top chamber of the tower is the Siege Malicious, a magical throne on which a prospective Oinoloth sits to be accepted as the future Oinoloth after killing its predecessor.</p>
@@ -84,7 +84,7 @@ class Hades extends Seeder
         $location              = new Location;
         $location->name        = "Hag's End";
         $location->type        = 'Divine Realm';
-        $location->pantheon_id = app()->pantheons['Yugoloth Lord']->id;
+        $location->pantheon_id = app()->pantheons['Yugoloth Lords']->id;
         $location->description = "<p>This realm is a dreary domain of endless misery. Ironically, the Wastes are without a moon or any other celestial bodies. It is simply a featureless gray expanse, a land of never-ending twilight offering neither the closure of dusk or the new hope of dawn. This realm drains the emotions and vibrancy from all that enter. The only known protection against the apathy is to hide and internalize all emotions deep within the mind.</p>
 <p>Hag's End is located halfway up a vast mountain of black, dead rock. From inside her filthy, bone-strewn cave crypt, Cegilune stirs her vile brew under a small, glowing, hovering replica of the full moon.</p>";
         $location->ruler()->associate(God::where('name', 'Baba Yaga')->firstOrFail());

@@ -4,6 +4,11 @@ namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Group;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypeByName;
 use App\Models\Armor;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,11 +33,11 @@ class ArmorService implements Contracts\ArmorService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\TypeByName::class,
-                \App\Filters\Name::class,
-                \App\Filters\Group::class,
-                \App\Filters\Order::class,
+                Id::class,
+                TypeByName::class,
+                Name::class,
+                Group::class,
+                Order::class,
             ])
             ->thenReturn();
 

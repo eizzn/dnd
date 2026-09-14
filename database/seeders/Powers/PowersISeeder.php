@@ -84,7 +84,7 @@ class PowersISeeder extends Seeder
         $power->targets          = 'Self';
         $power->duration         = '3 hours';
         $power->requirements     = 'You must have the Telekinesis power';
-        $power->description      = '<p>You create a skin-tight psychokinetic barrier around yourself that grants Damage Reduction 7 to Bludgeoning, Piercing, and Slashing damage.</p>';
+        $power->description      = '<p>You create a skin-tight psychokinetic barrier around yourself that grants Damage Reduction 10 to Bludgeoning, Piercing, and Slashing damage.</p>';
         $power->heightened       = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the Damage Reduction by +1</dd>
 </dl>';

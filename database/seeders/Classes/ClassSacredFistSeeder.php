@@ -24,7 +24,7 @@ class ClassSacredFistSeeder extends Seeder
         $class->requirements  = $helper->getClassRequirementsString([
             'Skills'   => '6 or more ranks in Concentration, 5 or more ranks in Religion',
             'Feats'    => 'Combat Casting, Improved Unarmed Strike, Stunning Fist, Psionic Fist',
-            'Spells'   => 'Able to cast 1st level Divine spells from a Halfling god',
+            'Spells'   => 'Able to cast 1st level Divine spells',
             'Features' => 'Flurry of Blows Class Feature',
         ]);
         $helper->saveClass($class, [

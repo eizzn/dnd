@@ -27,12 +27,22 @@ class PowersASeeder extends Seeder
         $power->duration       = 'Instantaneous';
         $power->description    = "<p>You are able to produce Acid from some part of your body.</p>
 <p>While you have the ability to produce Acid, you are not immune to your own Acid. Due to this, most manifest this power by spitting the Acid from one's mouth, dealing 4D6 Acid damage on a successful hit. The target continues to take half of the initial damage every round for no more than 2 rounds until the target succeeds on a DEX Save, or is doused with water.</p>
-<p>If you choose to manifest your Acid from your hands or claws, they are coated with Acid for 1 minute and they deal an extra 2D6 Acid damage (Note, you suffer the Acid damage every round).</p>
-<p>If you have the Acid Immunity feat, you are immune to your own Acid (although your equipment will not be).</p>";
+<p>If you choose to manifest your Acid from your hands or claws, they are coated with Acid for 1 minute, and they deal an extra 2D6 Acid damage (Note, you suffer the Acid damage every round).</p>
+<p>If you have the Acid Resistance feat, you are immune to your own Acid (although your equipment will not be).</p>";
         $power->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
         $helper->addTypesToPower($power, ['Psychometabolism', 'Acid'], 2);
+
+        $power                   = new Power;
+        $power->name             = 'Acid Absorption';
+        $power->action_type      = 'Action';
+        $power->maintenance_cost = '1 Power Point per turn';
+        $power->targets          = 'Self';
+        $power->duration         = 'Concentration, up to 1 minute';
+        $power->description      = '<p>You gain the ability to absorb acid and cause it to heal your wounds. When you activate this power, you gain Acid Immunity while this power is in effect. You must then spend at least 1 Action per turn in contact with some form of Acid (your own Acid power can be used). Roll for damage, half of the damage heals you.</p>
+<p>If you already have Immunity to Acid (for example from the Acid Psi-Immunity feat), then you heal the full damage rolled.</p>';
+        $helper->addTypesToPower($power, ['Psychometabolism', 'Acid'], 4);
 
         $power                   = new Power;
         $power->name             = 'Absorb Weapon';

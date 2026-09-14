@@ -3,6 +3,14 @@
 namespace App\Services;
 
 use App\Filters\FilterPipelinePayload;
+use App\Filters\HasPowers;
+use App\Filters\HasSpells;
+use App\Filters\HitDice;
+use App\Filters\Id;
+use App\Filters\KeyAttribute;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypeByName;
 use App\Models\Klass;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,14 +39,14 @@ class ClassService implements Contracts\ClassService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\KeyAttribute::class,
-                \App\Filters\HitDice::class,
-                \App\Filters\TypeByName::class,
-                \App\Filters\HasSpells::class,
-                \App\Filters\HasPowers::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                KeyAttribute::class,
+                HitDice::class,
+                TypeByName::class,
+                HasSpells::class,
+                HasPowers::class,
+                Order::class,
             ])
             ->thenReturn();
 

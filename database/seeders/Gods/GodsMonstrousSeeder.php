@@ -33,7 +33,7 @@ class GodsMonstrousSeeder extends Seeder
             'symbol'         => 'Lobster head or black pearl',
             'favored_weapon' => 'Pince staff',
         ]);
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, 'Monstrous', [
             'Cleric' => 14,
             'Wizard' => 12,
             'Monk'   => 14,
@@ -52,8 +52,9 @@ class GodsMonstrousSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         // TODO: add Features to class
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Monk', 'Fighter', $class->name,
+        $helper->addWorshipClassesToGod($god, 'Monstrous', [
+            $class->name => ['is_clergy' => true],
+            'Monk', 'Fighter',
         ]);
         $helper->addSpellsToClass($class, [
             0 => ['Dancing Lights', 'Detect Magic', 'Electric Arc', 'Hydraulic Blast', 'Light', 'Poison Spray', 'Resist',
@@ -67,8 +68,9 @@ class GodsMonstrousSeeder extends Seeder
                 'Slow', 'Speak with Dead', 'Summon Demon, Lesser', 'Tidal Wave', 'Tongues', 'Undersea Current', 'Wall of Water', ],
             4 => ['Aura of Confusion', 'Calling' => 'Demon only', 'Crushing Despair', 'Divination', 'Drain Life', 'Flowsight',
                 'Hydraulic Torrent', 'Lightning Bolt', 'Summon Demon', ],
-            5 => ['Atonement', 'Banishment', 'Commune', 'Contact Other Plane', 'Destructive Wave', 'False Vision', 'Fiend Form' => 'Demon only',
-                'Hallow' => 'Unholy only', 'Maelstrom', 'Scrying', 'Summon Elemental' => 'Water only', ],
+            5 => ['Atonement', 'Banishment', 'Commune', 'Contact Other Plane', 'Destructive Wave', 'False Vision',
+                'Fiend Form' => 'Demon only',
+                'Hallow'     => 'Unholy only', 'Maelstrom', 'Scrying', 'Summon Elemental' => 'Water only', ],
             6 => ['Baleful Polymorph', 'Dominate', 'Heal', 'Planar Ally' => 'Demon only'],
             7 => ['Blasphemy', 'Chain Lightning', 'Mind Blank'],
             8 => ['Antipathy / Sympathy', 'Maddening Darkness', 'Tsunami'],
@@ -112,12 +114,12 @@ class GodsMonstrousSeeder extends Seeder
 
         /**********************************************************************/
 
-        $ilsen        = new God;
-        $ilsen->name  = 'Ilsensine';
-        $ilsen->level = 'Intermediate';
-        $ilsen->save();
-        $ilsen->pantheons()->save(app()->pantheons['Monstrous'], [
-            'name'           => $ilsen->name,
+        $ilsensine        = new God;
+        $ilsensine->name  = 'Ilsensine';
+        $ilsensine->level = 'Intermediate';
+        $ilsensine->save();
+        $ilsensine->pantheons()->save(app()->pantheons['Monstrous'], [
+            'name'           => $ilsensine->name,
             'title'          => 'The Great Brain, The Tentacled Lord',
             'level'          => 'Intermediate',
             'portfolio'      => 'Illithids, Mastery of the mind, Psionics',
@@ -157,17 +159,17 @@ class GodsMonstrousSeeder extends Seeder
             'portfolio' => 'Illithids, Secrets, Knowledge, Philosophy',
             'alignment' => 'LE',
             'symbol'    => 'Silver crown set with a red gem',
-            'master_id' => $ilsen->id,
+            'master_id' => $ilsensine->id,
         ]);
 
         /**********************************************************************/
 
-        $kult        = new God;
-        $kult->name  = 'Kurtulmak';
-        $kult->level = 'Lesser';
-        $kult->save();
-        $kult->pantheons()->save(app()->pantheons['Kobold'], [
-            'name'           => $kult->name,
+        $kultulmak        = new God;
+        $kultulmak->name  = 'Kurtulmak';
+        $kultulmak->level = 'Lesser';
+        $kultulmak->save();
+        $kultulmak->pantheons()->save(app()->pantheons['Kobold'], [
+            'name'           => $kultulmak->name,
             'title'          => 'Gnomesmasher, The Watcher, Steelscale, Stingtail, The Horned Sorcerer, The Devourer',
             'level'          => 'Lesser',
             'portfolio'      => 'Kobolds, Mining, War',
@@ -190,7 +192,7 @@ class GodsMonstrousSeeder extends Seeder
             'portfolio' => 'Kobolds, Trickery, Traps, Stealth, Protection',
             'alignment' => 'LE',
             'symbol'    => 'A cauldron with whirling ellipses',
-            'master_id' => $kult->id,
+            'master_id' => $kultulmak->id,
         ]);
 
         /**********************************************************************/
@@ -206,7 +208,7 @@ class GodsMonstrousSeeder extends Seeder
             'portfolio'      => 'Urds',
             'alignment'      => 'NE',
             'symbol'         => 'Pair of feathered wings',
-            'master_id'      => $kult->id,
+            'master_id'      => $kultulmak->id,
             'favored_weapon' => 'Dagger',
         ]);
 
@@ -308,7 +310,8 @@ class GodsMonstrousSeeder extends Seeder
             'skill_progress' => 2,
         ], ['WIS', 'CHA']);
         $helper->addWorshipClassesToGod($god, 'Asathalfinare', [
-            $class->name, 'Barbarian', 'Scout',
+            $class->name => ['is_clergy' => true],
+            'Barbarian', 'Scout',
         ]);
         // TODO: add Features and finish spell list
         $helper->addSpellsToClass($class, [

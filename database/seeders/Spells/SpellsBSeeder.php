@@ -46,7 +46,7 @@ class SpellsBSeeder extends Seeder
     <dt>Critical Failure</dt> <dd>The target is transformed into the chosen harmless animal, body and mind, for 1 day</dd>
 </dl>";
         $spell->heightened = '<dl>
-    <dt>Heightened (+2)</dt> <dd>On a critical failure, the duration is unlimited.</dd>
+    <dt>Heightened (+2)</dt> <dd>On a critical failure, the duration is Permanent.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Polymorph', 'Transmutation'], 6);
 
@@ -314,7 +314,7 @@ class SpellsBSeeder extends Seeder
     <dt>Success</dt> <dd>Not effected</dd>
     <dt>Failure</dt> <dd>Fully effected</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Evil', 'Curse'], 4);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Evil', 'Curse', 'Extra Action'], 4);
 
         $spell              = new Spell;
         $spell->name        = "Bear's Endurance";

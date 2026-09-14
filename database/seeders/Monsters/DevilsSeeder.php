@@ -10,10 +10,11 @@ class DevilsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * TODO: update devils to have them be more humanoid or corrupted angel-like instead of monstrous. Demons are monstrous
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -22,7 +23,7 @@ class DevilsSeeder extends Seeder
         $monster->name        = 'Lemure';
         $monster->size        = 'Small';
         $monster->alignment   = 'LE';
-        $monster->armor_class = '8';
+        $monster->armor_class = 8;
         $monster->hit_dice    = 3;
         $monster->speed       = '15 ft';
         $monster->actions     = '<dl>
@@ -46,7 +47,7 @@ class DevilsSeeder extends Seeder
         $monster->name             = 'Nupperibo';
         $monster->size             = 'Medium';
         $monster->alignment        = 'LE';
-        $monster->armor_class      = '10';
+        $monster->armor_class      = 10;
         $monster->damage_reduction = '3 (Natural Armor)';
         $monster->hit_dice         = 2;
         $monster->speed            = '20 ft';
@@ -66,19 +67,24 @@ class DevilsSeeder extends Seeder
             'languages' => ['Infernal' => ['meta' => "Understand but can't speak"]],
         ]);
 
-        $monster              = new Monster;
-        $monster->name        = 'Imp';
-        $monster->size        = 'Tiny';
-        $monster->alignment   = 'LE';
-        $monster->armor_class = '15';
-        $monster->hit_dice    = 3;
-        $monster->speed       = '20 ft / Fly 40 ft';
-        $monster->actions     = '<dl>
+        $monster                   = new Monster;
+        $monster->name             = 'Imp';
+        $monster->size             = 'Tiny';
+        $monster->alignment        = 'LE';
+        $monster->armor_class      = '14';
+        $monster->damage_reduction = '1 (Natural Armor)';
+        $monster->hit_dice         = 3;
+        $monster->speed            = '20 ft / Fly 40 ft';
+        $monster->actions          = "<dl>
     <dt>Sting</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 2 (1D4) Bludgeoning.</dd>
-    <dt>Shapechanger</dt> <dd>The imp can use its action to polymorph into a beast form that resembles a rat (speed 20 ft), a raven (20 ft, fly 60 ft), or a spider (20 ft, climb 20 ft), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn\'t transformed. It reverts to its true form if it dies.</dd>
+    <dt>Shapechanger</dt> <dd>The imp can use its action to polymorph into a beast form that resembles a rat (speed 20 ft), a raven (20 ft, fly 60 ft), or a spider (20 ft, climb 20 ft), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</dd>
+</dl>";
+        $monster->description      = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
 </dl>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Familiar'], [
-            'stats'  => [6, 17, 13, 11, 2, 1, 1, 2],
+        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Animal Companion'], [
+            'stats'  => [6, 17, 13, 11, 12, 14, 2, 2],
             'skills' => [
                 'Deception' => ['dc' => 4],
                 'Insight'   => ['dc' => 3, 'meta' => 'Sense Motive'],
@@ -185,7 +191,7 @@ class DevilsSeeder extends Seeder
         $monster                   = new Monster;
         $monster->name             = 'Merregon';
         $monster->size             = 'Medium';
-        $monster->alignment        = 'NE';
+        $monster->alignment        = 'LE';
         $monster->armor_class      = '12';
         $monster->damage_reduction = '4 (Natural Armor)';
         $monster->hit_dice         = 6;
@@ -224,10 +230,11 @@ class DevilsSeeder extends Seeder
     <dt>Draining Kiss</dt> <dd>The fiend kisses a willing creature. The creature takes 5 WIS damage unless it makes a DC 15 CON Save for 2 WIS damage instead.</dd>
     <dt>Soul Drain</dt> <dd>The fiend can take the soul of a creature it has drained of all its WIS. A creature killed in this way cannot be Raised. To return the creature back to life, its soul must be retrieved from the fiend.</dd>
 </dl>';
-        $monster->description = '
-<p>Succubuses are fallen angels of love. Succubuses do not openly engage in the Blood War, and have become open to working with demons ever since Graz\'zt became a Demon Lord.</p>
-<p>The male versions of Succubus is called an Inccubus.</p>';
-        $helper->saveMonster($monster, ['Devil', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
+        $monster->description = "
+<p>Succubi are fallen angels of love. Succubi do not openly engage in the Blood War and have become open to working with demons ever since Graz'zt became a Demon Lord.</p>
+<p>Due to the invasion of Graz'zt from the Nine Hells to the Abyss, many Succubi went to the Abyss and stayed. There are now those succubi that are still Baatezu and those that are now Tanar'ri.</p>
+<p>The male versions of Succubus are called an Inccubus.</p>";
+        $helper->saveMonster($monster, ['Devil', 'Demon', 'Fiend', 'Shapechanger', 'Outer Planes', 'Evil', 'Lawful', 'Outsider'], [
             'stats'  => [8, 17, 13, 15, 12, 20, 4, 4],
             'skills' => [
                 'Deception'  => ['dc' => 9],

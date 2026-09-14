@@ -15,7 +15,7 @@ trait Attributable
 {
     public function attributes(): MorphToMany
     {
-        return $this->morphToMany(\App\Models\Attribute::class, 'attributable')
+        return $this->morphToMany(Attribute::class, 'attributable')
             ->withPivot('dc');
     }
 }

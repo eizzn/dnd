@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null    hands
  * @property string      group
  * @property string      type
+ * @property string|null hardness
+ * @property string|null hit_points
  * @property string|null description
  */
 class Weapon extends Model

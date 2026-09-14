@@ -2,7 +2,10 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
+use App\Models\Feat;
 use App\Models\God;
+use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class GodsUnthericSeeder extends Seeder
@@ -14,6 +17,9 @@ class GodsUnthericSeeder extends Seeder
      */
     public function run()
     {
+        /** @var SeedHelper $helper */
+        $helper = app()->seedHelper;
+
         $enlil        = new God;
         $enlil->name  = 'Enlil';
         $enlil->level = 'Greater';
@@ -28,6 +34,8 @@ class GodsUnthericSeeder extends Seeder
             'symbol'         => 'Pick Axe',
             'favored_weapon' => 'Pick Axe',
         ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Gilgeam';
@@ -45,6 +53,8 @@ class GodsUnthericSeeder extends Seeder
             'master_id'      => $enlil->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Girru';
         $god->level = 'Lesser';
@@ -61,6 +71,8 @@ class GodsUnthericSeeder extends Seeder
             'master_id'      => $enlil->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Inanna';
         $god->level = 'Intermediate';
@@ -75,6 +87,8 @@ class GodsUnthericSeeder extends Seeder
             'symbol'    => "Shepard's Staff",
             'master_id' => $enlil->id,
         ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Ishtar';
@@ -91,6 +105,8 @@ class GodsUnthericSeeder extends Seeder
             'master_id' => $enlil->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Ki';
         $god->level = 'Intermediate';
@@ -105,6 +121,8 @@ class GodsUnthericSeeder extends Seeder
             'symbol'    => 'Iris',
             'master_id' => $enlil->id,
         ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Nanna-Sin';
@@ -121,6 +139,8 @@ class GodsUnthericSeeder extends Seeder
             'favored_weapon' => "Black Axe of the Moon's Champion (Hand Axe)",
             'master_id'      => $enlil->id,
         ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Nergal';
@@ -146,6 +166,8 @@ class GodsUnthericSeeder extends Seeder
 <p>In an attempt to learn the secrets of silver fire, he captured Elminster whilst the wizard was in Avernus and exhausted from sealing a planar rift between Avernus and Shadowdale. Nergal subjected Elminster to horrific suffering, all the while stealing his memories using a mental link, until Nergal's body was destroyed by the Simbul (his life-force seemingly escaped).</p>",
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Ramman';
         $god->level = 'Lesser';
@@ -169,6 +191,8 @@ class GodsUnthericSeeder extends Seeder
             'favored_weapon' => 'Khopesh',
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Utu';
         $god->level = 'Intermediate';
@@ -185,12 +209,11 @@ class GodsUnthericSeeder extends Seeder
             'master_id'      => $enlil->id,
         ]);
 
-        $god        = new God;
-        $god->name  = 'Assuran';
-        $god->level = 'Demi';
-        $god->save();
+        /**********************************************************************/
+
+        $god = God::where('name', 'Sardior')->first();
         $god->pantheons()->save(app()->pantheons['Untheric'], [
-            'name'           => $god->name,
+            'name'           => 'Assuran',
             'title'          => 'The Doombringer, Lord of Three Thunders, Poet of Justice',
             'level'          => 'Hero',
             'portfolio'      => 'Poetic Justice, Revenge, Retribution',
@@ -208,7 +231,38 @@ class GodsUnthericSeeder extends Seeder
             'alignment'      => 'LN',
             'symbol'         => 'A coin with a two-faced head',
             'favored_weapon' => "Retribution's Sting (Javelin of lightning)",
-            'master_id'      => God::where('name', 'Horus-Re')->first()->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god = God::where('name', 'Bahamut')->first();
+        $god->pantheons()->save(app()->pantheons['Untheric'], [
+            'name'      => 'Marduk',
+            'title'     => 'The Justice Bringer, Lord of Pure Incantations, Valiant',
+            'level'     => 'Demi',
+            'portfolio' => 'City, Wind, Thunder, Storms and Rain',
+            'alignment' => 'LG',
+            'symbol'    => 'A silvery net',
+            'master_id' => $enlil->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god = God::where('name', 'Tiamat')->first();
+        $god->pantheons()->save(app()->pantheons['Untheric'], [
+            'name'           => 'Tiamat',
+            'title'          => 'Nemesis of the Gods',
+            'level'          => 'Lesser',
+            'portfolio'      => 'Chessenta',
+            'alignment'      => 'LE',
+            'symbol'         => 'A five-headed dragon',
+            'favored_weapon' => 'A dragon head (heavy pick)',
+            'master_id'      => $enlil->id,
+        ]);
+        $helper->addWorshipClassesToGod($god, Pantheon::Untheric->value, [
+            'Priest of Tiamat' => ['is_clergy' => true],
+            'Paladin'          => ['is_clergy' => true],
+            'Fighter',
         ]);
     }
 }

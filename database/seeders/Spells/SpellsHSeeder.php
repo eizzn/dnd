@@ -311,7 +311,7 @@ class SpellsHSeeder extends Seeder
         $spell->name        = 'Heal Animal Companion';
         $spell->casting     = 'Somatic Casting';
         $spell->range       = 'Touch';
-        $spell->targets     = 'Your Familiar or Animal Companion touched';
+        $spell->targets     = 'Your Familiar, Animal Companion, or Special Mount touched';
         $spell->duration    = 'Instantaneous';
         $spell->description = '<p>This spell functions like Heal, except that you can only cast it on your Familiar, Animal Companion, or Special Mount.</p>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Positive'], 3);
@@ -455,7 +455,7 @@ class SpellsHSeeder extends Seeder
 <dl>
     <dt>Material Components</dt> <dd>A carved stone heart of exceptional quality (jade, obsidian, or gold-veined marble) worth 5,000 gp.</dd>
 </dl>";
-        $helper->addTypesToSpell($spell, ['Necromancy'], 7);
+        $helper->addTypesToSpell($spell, ['Necromancy'], 6);
 
         $spell              = new Spell;
         $spell->name        = 'Heart of Water';

@@ -454,6 +454,19 @@ class SpellsLSeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Electricity'], 8);
 
+        $spell              = new Spell;
+        $spell->name        = 'Limited Wish';
+        $spell->casting     = '1 minute (Material, Somatic, Verbal)';
+        $spell->rarity      = 'Rare';
+        $spell->duration    = 'Instantaneous';
+        $spell->description = '<p>You pronounce a Wish, making your greatest desire come true. A Wish spell can produce any one of the following effects.</p>
+<ul>
+    <li>Duplicate any arcane spell of 4th level or lower.</li>
+    <li>Duplicate any non-arcane spell of 2nd level or lower.</li>
+    <li>Produce any effect whose power level is in line with the above effects.</li>
+</ul>';
+        $helper->addTypesToSpell($spell, ['Enchantment'], 5);
+
         $spell                 = new Spell;
         $spell->name           = "Lion's Roar";
         $spell->casting        = 'Somatic Casting, Verbal Casting';

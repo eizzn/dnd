@@ -48,6 +48,7 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Orb of the Void'],
             9 => ['Imprisonment'],
         ]);
+        $helper->addFeatToGodPantheon($asmodeus, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Asmodeus';
@@ -59,6 +60,7 @@ class GodsDevilsSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Devil', 'Lawful', 'Invocation' => 5]);
         $feat->parent_feats()->save(app()->feats['Find Familiar']);
         $feat->parent_feats()->save(app()->feats['Pact to Asmodeus']);
+        $helper->addFeatToGodPantheon($asmodeus, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Disciple of Asmodeus';
@@ -80,6 +82,7 @@ class GodsDevilsSeeder extends Seeder
             6 => ['Planar Ally'],
         ]);
         $feat->parent_feats()->save(app()->feats['Disciple of Asmodeus']);
+        $helper->addFeatToGodPantheon($asmodeus, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Disciple of Asmodeus';
@@ -90,6 +93,7 @@ class GodsDevilsSeeder extends Seeder
             7 => ['Shield of Law', 'Unholy Aura'],
         ]);
         $feat->parent_feats()->save(app()->feats['Improved Disciple of Asmodeus']);
+        $helper->addFeatToGodPantheon($asmodeus, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -131,7 +135,7 @@ class GodsDevilsSeeder extends Seeder
         $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Cutting Hand', 'Mage Armor' => 'Self only. Armor is iron instead of Force',
-                'Sword Strike' => 'The sword is iron instead of Force', ],
+                'Sword Strike'                               => 'The sword is iron instead of Force', ],
             1 => ['Command', 'Fear'],
             2 => ['Body Blades', 'Cloud of Daggers', 'Find Traps' => 'Metal based traps only', 'Transmuted Weapon'],
             3 => ['Keen Edge'],
@@ -142,6 +146,7 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Repel Metal or Stone'],
             9 => ['Invulnerability'],
         ]);
+        $helper->addFeatToGodPantheon($dis, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Dispater';
@@ -158,6 +163,7 @@ class GodsDevilsSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to Dispater']);
         $feat->parent_feats()->save(app()->feats['Power Attack']);
+        $helper->addFeatToGodPantheon($dis, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Disciple of Dispater';
@@ -171,6 +177,7 @@ class GodsDevilsSeeder extends Seeder
 </ul>';
         $helper->addTypesTofeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful', 'Invocation' => 9]);
         $feat->parent_feats()->save(app()->feats['Disciple of Dispater']);
+        $helper->addFeatToGodPantheon($dis, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -212,6 +219,7 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Glibness'],
             9 => ['Soul Bind'],
         ]);
+        $helper->addFeatToGodPantheon($mammon, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Mammon';
@@ -226,6 +234,7 @@ class GodsDevilsSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to Mammon']);
         $feat->parent_feats()->save(app()->feats['Disciple of Darkness']);
+        $helper->addFeatToGodPantheon($mammon, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Disciple of Mammon';
@@ -238,6 +247,7 @@ class GodsDevilsSeeder extends Seeder
 <p>You may take the Sacrificial Mastery Feat.</p>';
         $helper->addTypesTofeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful', 'Invocation' => 9]);
         $feat->parent_feats()->save(app()->feats['Disciple of Mammon']);
+        $helper->addFeatToGodPantheon($mammon, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -305,6 +315,7 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Polar Ray'],
             9 => ['Burst of Glacial Wrath'],
         ]);
+        $helper->addFeatToGodPantheon($lev, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -357,13 +368,14 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Feeblemind'],
             9 => ['Power Word Kill'],
         ]);
+        $helper->addFeatToGodPantheon($baalzebul, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Baalzebul';
         $feat->requirement = 'You must be LE';
         $feat->description = "<p>You gain the following abilities.</p>
 <ul>
-    <li>As a Free Action, you can surround yourself an Aura of Flies, a magical aura that looks like buzzing flies. The aura extends 5 feet from you in every direction, but not through total cover. It lasts until you're Incapacitated or you dismiss it as an Action. The aura grants you Advantage on Intimidation checks but Disadvantage on all other CHA checks. Any other creature that starts its turn in the aura takes Poison damage equal to your CHA modifier. Once you use this Invocation, you can't use it again until you finish a Long Rest.</li>
+    <li>As a Free Action, you can surround yourself with an Aura of Flies, a magical aura that looks like buzzing flies. The aura extends 5 feet from you in every direction, but not through total cover. It lasts until you're Incapacitated or you dismiss it as an Action. The aura grants you Advantage on Intimidation checks but Disadvantage on all other CHA checks. Any other creature that starts its turn in the aura takes Poison damage equal to your CHA modifier. Once you use this Invocation, you can't use it again until you finish a Long Rest.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful', 'Invocation' => 5]);
         $helper->addSpellsToFeat($feat, [
@@ -371,6 +383,7 @@ class GodsDevilsSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to Baalzebul']);
         $feat->parent_feats()->save(app()->feats['Disciple of Darkness']);
+        $helper->addFeatToGodPantheon($baalzebul, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Disciple of Baalzebul';
@@ -385,6 +398,7 @@ class GodsDevilsSeeder extends Seeder
             5 => ['Calling' => 'Heightened +2. Cornugon only'],
         ]);
         $feat->parent_feats()->save(app()->feats['Disciple of Baalzebul']);
+        $helper->addFeatToGodPantheon($baalzebul, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -420,6 +434,7 @@ class GodsDevilsSeeder extends Seeder
             8 => ['Incendiary Cloud'],
             9 => ['Meteor Swarm'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Mephistopheles';
@@ -434,13 +449,14 @@ class GodsDevilsSeeder extends Seeder
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to Mephistopheles']);
         $feat->parent_feats()->save(app()->feats['Disciple of Darkness']);
+        $helper->addFeatToGodPantheon($god, 'The Lords of the Nine', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Disciple of Mephistopheles';
         $feat->requirement = 'You must be LE';
         $feat->description = "<p>You have reached the highest ranks in the hierarchy of Mephistopheles' cult. You gain the following abilities.</p>
 <ul>
-    <li>You gain Damage Reduction vs Fire becomes 15</li>
+    <li>You gain Damage Reduction vs. Fire becomes 15</li>
     <li>You may take the Sacrificial Mastery Feat.</li>
 </ul>";
         $helper->addTypesTofeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful', 'Invocation' => 9]);
@@ -449,6 +465,7 @@ class GodsDevilsSeeder extends Seeder
             5 => ['Immolation'],
         ]);
         $feat->parent_feats()->save(app()->feats['Disciple of Mephistopheles']);
+        $helper->addFeatToGodPantheon($god, 'The Lords of the Nine', $feat);
 
         /**********************************************************************/
 
@@ -595,7 +612,7 @@ class GodsDevilsSeeder extends Seeder
             'alignment'   => 'LE',
             'master_id'   => $dis->id,
             'description' => '<p>Alocer is a war-like general with a lion-like head. He is greatly proficient in most weapons and leads 36 companies of erinyes and rides about his estate on a nightmare. he wears plate mail and fights with broadsword, axe, mace, and dagger, wielding one at a time and biting at the same time with his great jaws. Alocer has a humanoid body with red-gold flesh and a fearsome leonine head. The fiery flash of his eyes can be seen for some distance. If one meets his gaze, the victim must Save vs WIS or be Blinded for 2-12 days (Baatezu are immune). A Cure Blindness, Dispel Magic, Restoration or similar magic can restore sight to the victim.</p>
-<p>Once per round, Alocer can employ one of the following spell-like powers</p>
+<p>Once per round, Alocer can use one of the following spell-like powers</p>
 <ul>
     <li>Pyrotechnics</li>
     <li>Produce Flame</li>
@@ -817,7 +834,7 @@ class GodsDevilsSeeder extends Seeder
             'aliases'     => 'Dagon',
             'alignment'   => 'LE',
             'description' => "<p>Jaqon resembles a clean-shaven satyr with red skin and green eyes. He also has pointed ears and small, curved horns like those of a pit fiend. He typically wears a weapon harness bearing a whip and rapier, and a backpack.</p>
-<p>Jaqon was an archdevil, and possesses an outlook typical of their kind: the strong rule and the weak obey. He is a skilled actor and diplomat when he needs to be. However, he also considers himself above the rulings and decrees of Asmodeus, and feels a sort of kinship with the archdevil Geryon and the rebellious pit fiends that dwelt on the edges of Cania.</p>
+<p>Jaqon was an archdevil and possesses an outlook typical of their kind: the strong rule and the weak obey. He is a skilled actor and diplomat when he needs to be. However, he also considers himself above the rulings and decrees of Asmodeus, and feels a sort of kinship with the archdevil Geryon and the rebellious pit fiends that dwelt on the edges of Cania.</p>
 <p>Jaqon was originally an archdevil of Asmodeus's court, serving the Lord of Nessus as herald and messenger. However, certain unpleasant activities of his led to his expulsion from the diabolical hierarchy and exile to Avernus. The activities that led to his exile included procuring substances from the Nine Hells at summoners' requests for a fee, giving information to summoners to aid in the summoning of other powerful devils,and giving hints at the truenames and preferences of various she-devils to the archdevils who sought their hands. For that last crime, all the consorts in Baator despise him.</p>
 <p>To make his exile a punishment, Asmodeus forcibly changed Jaqon's truename to Dagon, an insult to both the archdevil and the demon prince of the same name. However, it was effective: anyone who trys to summon Jaqon will instead get the more powerful demon prince's aspect. It is an effective foil to an archdevil that was used to being summoned frequently.</p>
 <p>Trapped in Avernus by Asmodeus' decree, Jaqon is forced to roam that layer. He often pretends to be an unlucky woodland creature who is searching for a way 'home' to the Material Plane.</p>
@@ -857,7 +874,7 @@ class GodsDevilsSeeder extends Seeder
 <p>Lilith appears to be a beautiful, nubile, 9 feet tall woman, so alluring that she is easily the most attractive of Hell's fiends (at least for a time). She has crimson skin, hooves, a serpentine tail, small, curved hors and eyes that glow white, including her pupils. She rarely wears clothing, preferring to use clinging shadows when she fells it is necessary. Lilith is known to use her ability to change shape to take ont he form of her victim's loved ones.</p>
 <p>Lilith is an incredibly intelligent devil who exhibits the sadism common to most of her kind. She often toys with her prey, subjecting them to psychological and physical torture before murdering the.</p>
 <p>Among Lilith's various spell-like abilities are fire manipulation, charming, psionics, tongues, teleportation, dispelling magic, darkness, shape changing, necromancy, and lightning. She has an aura of desire which baatezu are immune to, and can clock herself in clinging shadows. She can also summon other baatezu once per day. In melee, Lilith prefers to fight with her tail, which she uses to strike and constrict.</p>
-<p>Although she uses them less frequently in order to avoid breaking them, Lilith also fights with a scimitar and a metal-barbed whip called \"Lilith's Caress\" which sapped the strength of her victims, causing exhaustion.</p>
+<p>Although she uses them less frequently to avoid breaking them, Lilith also fights with a scimitar and a metal-barbed whip called \"Lilith's Caress\" which sapped the strength of her victims, causing exhaustion.</p>
 <p>Lilith mostly uses her seductive charms to survive the tumultuous infernal political landscape whilst waiting for the chance to take over as the ruler of Maladomini.</p>
 <p>As a result of her attractiveness, many devils are willing to do small favors for Lilith. Though once a consort of Moloch, she is more loyal to Baalzebul than the deposed Duke, abandoning Malbolge when he fell from power to return to the side of the Lord of the Flies. However, even when she was under Moloch, her loyalty to Baalzebul was not what it had been in the past. She fells largely powerless and resents being moved around at Baalzebul's whim. Even though she chose to stick by him, she is only staying close in order find some weakness to use in her own ascent to power. Until then, she gives counsel to the Slug Archduke so that he (and more importantly she) can be restored to glory. During Moloch's reign, Lilith often worked with the like-minded legate Tartach. For a time she worked closely with both him and Glasya, but chose not to work for that latter partially out of resentment for her sudden rise to power.</p>
 <p>Lilith residence in Baator can be traced at least as far back as Asmodeus's rule, and throughout that period she has always been a figure near power. The earliest records of her existence is when she was gifted to Moloch by Baalzebul as a blatant attempt to keep him obedient, for Lilith was easily Hell's most alluring denizen, with a way of diverting the attention of those she encountered from important matters. As Moloch's consort, she was also regarded as loyal to Baalzebul, as was the nature of all of Moloch's vassals at the time. She moved with Moloch between the many cornugon-led fortresses of Malbolge at Baalzebul's command, usually brought by his herald Neabaz.</p>
@@ -929,8 +946,8 @@ class GodsDevilsSeeder extends Seeder
     <li>A muscular, dark-skinned humanoid. He typically wears black velvet robes studded with hundreds of gemstones</li>
     <li>A large crow-like bird, black in color.</li>
 </ul>
-<p>Malphas's voice is deep and persuasive and he never wore armor.</p>
-<p>Malphas leads 40 companies of abishai. He is  known to be skilled at deceiving other creatures.</p>",
+<p>Malphas's voice is deep and persuasive, and he never wore armor.</p>
+<p>Malphas leads 40 companies of abishai. He is known to be skilled at deceiving other creatures.</p>",
             'master_id' => God::where('name', 'Tiamat')->first()->id,
         ]);
 

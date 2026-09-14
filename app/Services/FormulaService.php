@@ -4,6 +4,11 @@ namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Level;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\TypeByName;
 use App\Models\Formula;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,11 +33,11 @@ class FormulaService implements Contracts\FormulaService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\TypeByName::class,
-                \App\Filters\Level::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                TypeByName::class,
+                Level::class,
+                Order::class,
             ])
             ->thenReturn();
 

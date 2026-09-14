@@ -13,7 +13,7 @@ class CombatPageSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $page              = new Page;
         $page->name        = 'Combat';
@@ -64,7 +64,7 @@ class CombatPageSeeder extends Seeder
         $rule              = new Rule;
         $rule->key         = 'critical-hits';
         $rule->name        = 'Critical Hits';
-        $rule->description = "<p>When you score a Critical Hit, you get to roll extra dice for the attack's  damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.</p>
+        $rule->description = "<p>When you score a Critical Hit, you get to roll extra dice for the attack's damage against the target. Roll all the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.</p>
 <blockquote>
     For example, if you score a Critical Hit with a dagger, roll 2D4 for the damage, rather than 1D4, and then add your relevant ability modifier. If the attack involves other damage dice, such as from the Rogue's Sneak Attack feature, you roll those dice twice as well.
 </blockquote>
@@ -75,6 +75,22 @@ class CombatPageSeeder extends Seeder
     <dt>Rank 4 (26%)</dt> <dd>13 - 18</dd>
 </dl>";
         $rule->order = 25;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'resistance-and-damage-reduction';
+        $rule->name        = 'Resistance and Damage Reduction';
+        $rule->description = "<p>Resistance and Damage Reduction both reduce the damage you take from an attack, but they work differently and must be applied in the correct order.</p>
+<ul>
+    <li><strong>Resistance</strong> halves the incoming damage (rounded down), before any other reduction is applied.</li>
+    <li><strong>Damage Reduction</strong> subtracts a flat amount from the damage remaining after Resistance has been applied.</li>
+</ul>
+<p>Apply Resistance first, then subtract Damage Reduction from what remains. Applying them in the opposite order lets more damage through, since Damage Reduction subtracted before Resistance ends up having half its value halved away along with the rest of the damage.</p>
+<blockquote>
+    Ex. A creature with Resistance to Fire and Damage Reduction 6 takes 20 Fire damage. Resistance is applied first, halving the damage to 10. Damage Reduction is then subtracted, reducing the damage to 4. If Damage Reduction were applied first instead (20 - 6 = 14, then halved to 7), the creature would take nearly double the damage, so Resistance must always be applied first.
+</blockquote>
+<p>If a creature has neither Resistance nor Damage Reduction against the damage type, or only one of the two, skip whichever step doesn't apply.</p>";
+        $rule->order = 27;
         $page->rules()->save($rule);
 
         $rule              = new Rule;
@@ -227,7 +243,8 @@ class CombatPageSeeder extends Seeder
         $rule->name        = 'Heavy Armor Use';
         $rule->description = '<p>Fighting in heavy armor is tiring.</p>
 <p>If you are not proficient in Heavy Armor, after 3 rounds of combat (making melee, ranged attacks, moving or casting spells), you must make a DC 12 CON Save or become Fatigued. You must make this Save each round after the 3rd until you Fail or combat ends</p>
-<p>If you are proficient in Heavy Armor, then you must start making Saves after 10 rounds.</p>';
+<p>If you are proficient in Heavy Armor, then you must start making Saves after 10 rounds.</p>
+<p>Sleeping in Heavy Armor automatically causes you to wake up Fatigued. If you sleep in Heavy Armor 2 nights in a row, then you gain a level of Exhaustion. If you sleep in Heavy Armor and you have any levels of Exhaustion, then you gain another level of Exhaustion.</p>';
         $rule->order       = 1000;
         $page->rules()->save($rule);
     }

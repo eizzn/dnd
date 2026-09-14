@@ -45,7 +45,10 @@ class AnimalsSeeder extends Seeder
 <p>Living in warm climates, the ankheg dwells in partially collapsed burrows usually around 40 feet underground. The ankheg hunts in forests or grasslands where prey will wander into its traps. If an area becomes too barren, the ankheg will move on to other, more lucrative areas. Ankheg tunnels are sometimes filled with the remains of victims, eggs, or chitin. Their tunnels can sometimes be around 60 to 150 feet long and 5 feet high. Hollow tunnel ends are used to lair purposes, such as sleeping or hibernation.</p>
 <p>They are known to compete with giant ants for territory. If they are killed or driven away from their nests, the broodlings left behind are sometimes made to serve the giant ant colony.</p>
 <p>Ankhegs can prove to be useful for farmers. Provided it stays alive, its tunnels can bring in water and its excrement contains enriching minerals. Ankheg burrows also aerate the nearby land which can improve crop yields by as much as 15%, provided the ankheg population is managed.</p>
-<p>An ankheg shell harvested form a slain ankheg weighs roughly 100 pounds. Armorers can forge armor from the shells. It takes three days to make. The armor is nearly as effective as full plate mail, but weighed considerably less and can be worn by warriors who usually can't wear such heavy armor. A full set of ankheg armor can cost 20,000 gp. However, if one provides the shell, it can cost 4,000 gp.</p>";
+<p>An ankheg shell harvested form a slain ankheg weighs roughly 100 pounds. Armorers can forge armor from the shells. It takes three days to make. The armor is nearly as effective as full plate mail, but weighed considerably less and can be worn by warriors who usually can't wear such heavy armor. A full set of ankheg armor can cost 20,000 gp. However, if one provides the shell, it can cost 4,000 gp.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [17, 11, 13, 1, 13, 6, 2, 2],
             'feats' => [
@@ -245,7 +248,7 @@ class AnimalsSeeder extends Seeder
             'stats'    => [13, 11, 12, 2, 9, 5, .25, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
-                'multi_attack' => ['meta' => 'If the bear makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The bear can only gain this additional Action once per turn.'],
+                'multi_attack' => ['meta' => 'If the boar succeeds a Bull Rush attack and the target becomes Prone, the boar gains an additional Action. This additional Action can only be used to make a Tusk attack.'],
             ],
             'feats'   => ['Improved Bull Rush'],
             'talents' => ['Die Hard'],
@@ -263,11 +266,15 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Tusk</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 10 (2D6 +3) Slashing.</dd>
 </dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [17, 10, 16, 2, 7, 5, 2, 2],
             'features' => [
                 'keen_sense'   => ['meta' => 'Smell'],
-                'multi_attack' => ['meta' => 'If the bear makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The bear can only gain this additional Action once per turn.'],
+                'multi_attack' => ['meta' => 'If the boar succeeds a Bull Rush attack and the target becomes Prone, the boar gains an additional Action. This additional Action can only be used to make a Tusk attack.'],
             ],
             'feats'   => ['Improved Bull Rush'],
             'talents' => ['Die Hard'],
@@ -286,6 +293,9 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack +8 to hit, reach 5 ft, one target. (4D12 +4) Piercing.</dd>
     <dt>Deadly Leap</dt> <dd> If the bulette jumps at least 15 ft. as part of its movement, it can then use this Action to land on its feet in a space that contains one or more other creatures. Each of those creatures must succeed on a DC 16 STR or DEX Save (target's choice) or be knocked prone and take 14 (3D6 +4) Bludgeoning damage plus 14 (3D6 +4) Slashing damage. On a successful Save, the creature takes only half the damage, isn't knocked prone, and is pushed 5 ft. out of the bulette's space into an unoccupied space of the creature's choice. If no unoccupied space is within range, the creature instead falls prone in the bulette's space.</dd>
     <dt>Burrowing Slime</dt> <dd>As a Free Action, the bulette secretes a slime from the front of their body that softens earth and soil, allowing the fast Burrow Speed. This slime can be collected from the soil that the bulette has burrowed through and extracted from the soil (DC 15 Alchemy). Farmers have been known to use this slime on their plows.</dd>
+</dl>
+<dl>
+    <dt>Animal Companion</dt> <dd>6th Level Spell Slot (Ranger 4th Level Spell Slot).</dd>
 </dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'  => [19, 11, 21, 2, 10, 5, 6, 4],
@@ -327,6 +337,10 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Tentacles</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. 4 (1D4 +2) Poison damage, and the target must succeed on a DC 13 CON Save or be Paralyzed for 1 minute. The target can repeat the Save at the end of each of its turns, ending the Paralysis on a success.</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, on target. 7 (2D4 +2) Piercing damage</dd>
+</dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [14, 13, 16, 1, 12, 5, 2, 3],
@@ -533,6 +547,10 @@ class AnimalsSeeder extends Seeder
     <dt>Gore</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (3D8 +6) Bludgeoning.</dd>
     <dt>Stomp</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (3D10 +6) Bludgeoning.</dd>
 </dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [22, 9, 17, 3, 11, 6, 4, 3],
             'features' => [
@@ -573,6 +591,10 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Ram</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D6 +4) Bludgeoning.</dd>
     <dt>Hooves</dt> <dd>Melee Weapon Attack, reach 5 ft, one Prone target. (4D8 +3) Bludgeoning.</dd>
+</dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [19, 16, 14, 7, 14, 10, 2, 2],
@@ -865,8 +887,11 @@ class AnimalsSeeder extends Seeder
 <p>Owlbears hunt from around sunset to sunrise. They hoot or screech to declare their territory and to flush prey into their hunting grounds. Owlbears also screech as a way to attract a mate. When an owlbear successfully catches its prey, it tends to partially consume part of it on the spot, before dragging the rest back to its lair to be stored. The scent of flesh that emanate from an owlbear's lair often attract creatures and therefore, more prey.</p>
 <p>These creatures are incredibly aggressive, going so far as to slay any living creature they see. This territorial attitude causes many folks who live with nature to purposefully hunt owlbears before they have a chance to destroy the local wildlife.</p>
 <p>Training an owlbear requires a DC 25 Animal Handling (Train an Animal).</p>
-<p>The owlbears eyes cannot move. This is compensated by their ability to rotate their heads like owls 270 degrees.</p>";
-        $helper->saveMonster($monster, ['Animal', 'Monstrosity'], [
+<p>The owlbears eyes cannot move. This is compensated by their ability to rotate their heads like owls 270 degrees.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Animal', 'Monstrosity', 'Animal Companion'], [
             'stats'  => [20, 12, 17, 3, 12, 7, 3, 3],
             'skills' => [
                 'Perception' => ['dc' => 3],
@@ -878,6 +903,43 @@ class AnimalsSeeder extends Seeder
             ],
             'feats'   => ['Improved Grapple'],
             'talents' => ['Die Hard'],
+        ]);
+
+        $monster              = new Monster;
+        $monster->name        = 'Rat';
+        $monster->size        = MonsterSize::Tiny->toString();
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
+        $monster->armor_class = '10';
+        $monster->hit_dice    = 1;
+        $monster->speed       = '20 ft';
+        $monster->actions     = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 Piercing.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
+            'stats'    => [2, 11, 9, 2, 10, 4, 0, 2],
+            'features' => [
+                'keen_sense' => ['meta' => 'Smell'],
+            ],
+        ]);
+
+        $monster              = new Monster;
+        $monster->name        = 'Raven';
+        $monster->size        = MonsterSize::Tiny->toString();
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
+        $monster->armor_class = '12';
+        $monster->hit_dice    = 1;
+        $monster->speed       = '10 ft / Fly 50 ft';
+        $monster->actions     = "<dl>
+    <dt>Beak</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 Piercing.</dd>
+    <dt>Mimicry</dt> <dd>The raven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful WIS (Insight) check opposed by the raven's DEX (Deception) check.</dd>
+</dl>";
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
+            'stats'    => [2, 14, 8, 2, 12, 6, 0, 2],
+            'features' => [
+                'keen_sense' => ['meta' => 'Sight'],
+            ],
         ]);
 
         $monster                   = new Monster;
@@ -897,9 +959,12 @@ class AnimalsSeeder extends Seeder
 <p>Giant ravens born living in the wild rarely attack other creatures unless they feel threatened or they perceive that their nests, young, or eggs are endangered. Young ravens can be trained as aerial mounts, through they are less prized than giant eagles, giant owls, or pegasi.</p>
 <p>Training a giant raven as an aerial mount requires a successful Animal Handling check (DC 18 for a young creature or 25 for an adult) and that the creature be willing. Members of the Black Raven tribe gain a +4 circumstance bonus on these checks due to their close affiliation with the birds.</p>
 <p>Giant raven eggs are worth 1,500 gp apiece on the open market, while hatchlings are worth 3,000 gp each. Professional trainers charge 1,000 gp to rear or train a giant raven, and riding one requires an exotic saddle. A giant raven can fight while carrying a rider, but the rider cannot also attack unless he succeeds at a Ride check against DC 10.</p>
-<p>A light load for a giant raven is up to 150 pounds, a medium load, 151-300 pounds, and a heavy load, 301-450 pounds. A giant raven cannot fly with a heavy load.</p>";
+<p>A light load for a giant raven is up to 150 pounds, a medium load, 151-300 pounds, and a heavy load, 301-450 pounds. A giant raven cannot fly with a heavy load.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
-            'stats'  => [16, 19, 13, 12, 12, 1, 2],
+            'stats'  => [16, 19, 13, 12, 12, 10, 2],
             'skills' => [
                 'Deception'  => ['dc' => 5],
                 'Survival'   => ['dc' => 4],
@@ -920,6 +985,10 @@ class AnimalsSeeder extends Seeder
         $monster->speed            = '40 ft';
         $monster->actions          = '<dl>
     <dt>Gore</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +5) Bludgeoning.</dd>
+</dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [21, 8, 15, 2, 12, 6, 2, 3],
@@ -956,6 +1025,10 @@ class AnimalsSeeder extends Seeder
         $monster->actions          = '<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D8 +2) Bludgeoning and the target is Grappled (escape DC 12). The scorpion has two claws, each of which can grapple only one target.</dd>
     <dt>Sting</dt> <dd>Melee Weapon Attack +3, reach 5 ft, one target. (1D10 +2) Piercing + (4D10) Poison on a Failed Save (CON DC 12), or half as much damage on a Successful one.</dd>
+</dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [15, 13, 15, 1, 9, 3, 3, 2],
@@ -998,6 +1071,10 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 10 ft, one target. (2D6 +4) Piercing</dd>
     <dt>Constrict</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (2D8 +4) Bludgeoning and the target is Grappled (Escape DC 16). Until the Grapple ends, the creature is Restrained, and the snake can't Constrict another target.</dd>
 </dl>";
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [19, 14, 12, 1, 10, 3, 2, 2],
             'feats' => [
@@ -1142,7 +1219,10 @@ class AnimalsSeeder extends Seeder
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D6 +2) Piercing</dd>
     <dt>Poison Spray</dt> <dd>Three times per day, a giant whip scorpion can discharge a 20-foot diameter spread of noxious vapor centered on itself. This cloud functions as an inhaled poison (CON Save DC 14, initial and secondary damage 1D4 DEX).</dd>
 </dl>';
-        $monster->description = "<p>About the size of an ogre, this spider has a long, flat body and six spindly legs. Two more legs held close to the creature's month and end in spiny pincers. Two long, whip like appendages emerge from its body just behind its pincer-legs, and a third stretches up from the rear of its abdomen.</p>";
+        $monster->description = "<p>About the size of an ogre, this spider has a long, flat body and six spindly legs. Two more legs held close to the creature's month and end in spiny pincers. Two long, whip like appendages emerge from its body just behind its pincer-legs, and a third stretches up from the rear of its abdomen.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [15, 12, 14, 1, 10, 2, 2, 2],
             'feats' => [
@@ -1170,10 +1250,9 @@ class AnimalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [13, 14, 14, 1, 10, 2, 1, 2],
             'feats' => [
-                'Improved Grapple',
+                'Improved Grapple', 'Poison Immunity',
                 'Blindsight' => ['meta' => '60 ft'],
             ],
-            'talents'  => ['Poison Immunity'],
             'features' => [
                 'darkvision' => ['meta' => '60 ft'],
             ],
@@ -1194,7 +1273,10 @@ class AnimalsSeeder extends Seeder
 </dl>';
         $monster->description = '<p>Though it resembles a spider, this creature is the size of a rhinoceros and the color of a camel. In segmented, hairy body sprouts ten legs. The two front legs are thicker than the rest and end in small pincers. The head is dominated by two gigantic mandibles, and two bulging, black eyes gaze malevolently outward.</p>
 <p>Giant Sun Spiders can most easily be distinguished from Large monstrous spiders by their coloration, which ranges from brown to yellow. A giant sun spider is about 10 feet in diameter and weighs approximately 250 pounds.</p>
-<p>Sages call these creatures monstrous solifugids or monstrous solpugids. Less educated people sometimes call them giant camel spiders or giant false spiders.</p>';
+<p>Sages call these creatures monstrous solifugids or monstrous solpugids. Less educated people sometimes call them giant camel spiders or giant false spiders.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>1st Level Spell Slot.</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [17, 15, 14, 1, 10, 2, 2, 3],
             'feats' => [
@@ -1237,7 +1319,10 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +6) Slashing</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 +6) Piercing</dd>
 </dl>';
-        $monster->description = "<p>A variety of tigers are common in the North, the red tiger is also known as the snow cat. The animal's coat changes with the seasons: rust-red in autumn, dappled white in winter, and golden brown in spring and summer. The animal is somewhat hardier and hardier than other tigers common in other lands.</p>";
+        $monster->description = "<p>A variety of tigers are common in the North, the red tiger is also known as the snow cat. The animal's coat changes with the seasons: rust-red in autumn, dappled white in winter, and golden brown in spring and summer. The animal is somewhat hardier and hardier than other tigers common in other lands.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats' => [23, 15, 18, 2, 12, 6, 4],
             'saves' => [
@@ -1265,10 +1350,10 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->size             = MonsterSize::Large->toString();
         $monster->type             = 'Animal';
         $monster->alignment        = '-';
-        $monster->armor_class      = '11';
-        $monster->damage_reduction = '2 (Natural Armor)';
+        $monster->armor_class      = 12;
+        $monster->damage_reduction = '3 (Natural Armor)';
         $monster->hit_dice         = 6;
-        $monster->speed            = '40 feet / 10 Climb';
+        $monster->speed            = '40 feet / 20 Climb';
         $monster->actions          = '<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D8 +6) Slashing</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. (1D4 +6) Piercing</dd>
@@ -1279,9 +1364,12 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
 <p>Normally solitary, snow tigers may be encountered in mated pairs during spring and summer. During this period there is a 25% chance that a pair will have 1-2 cubs. Rashemaar hunters sometimes take cubs and raise them as pets, training them to hunt. In order to be successfully trained, the cub must be less than three months old and the trainer must make three successive Animal Handling checks. Only one check may be made per week, and if one fails the trainer must start all over again. Once a cub is over three months old, it cannot be trained and is usually returned to the wild.</p>
 <p>Cloaks of snow tiger fur are symbols of status among the Rashemaar. They are never sold and may only be worn by individuals who successfully slew the tiger that became the cloak. Individuals who wear cloaks thay are not entitled to are usually attacked by Rashemaar who learn their secret.</p>
 <p>A cunning and resourceful predator, snow tigers prefer larger prey such as deer, mountain goats, sheep, and horses. During the depths of winter, snow tigers are sometimes reduced to stalking mice, rabbits, foxes and other small game.</p>
-<p>A few are intelligent enough to realize that humans are relatively easy prey, but this is rare. Most snow tigers avoid humans and attack only if cornered or starving.</p>";
+<p>A few are intelligent enough to realize that humans are relatively easy prey, but this is rare. Most snow tigers avoid humans and attack only if cornered or starving.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>";
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
-            'stats'     => [22, 16, 18, 2, 10, 6, 3],
+            'stats'     => [23, 16, 18, 2, 10, 4, 2, 2],
             'saves'     => [
                 'CON' => ['bonus' => 2],
                 'DEX' => ['bonus' => 4],
@@ -1299,6 +1387,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             'feats'     => [
                 'Two-Weapon Fighter',
                 'Improved Grapple',
+                'Pounce',
             ],
         ]);
 
@@ -1318,9 +1407,12 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Rear Claw Rake</dt> <dd>In any round that a dire tiger starts its turn Grappling an opponent, it gets an Additional Action. This Additional Action can only be used to make Melee Attacks against the Grappled foe with its rear claws. Treat these rear Claws as a Claw attack.</dd>
 </dl>';
         $monster->description      = '<p>Dire tigers prey on just about anything that moves. They will patiently stalk a potential meal, striking whenever the creature lets down its guard.</p>
-<p>Dire tigers grow to be over 12 feet long and can weigh up to 6,000 pounds.</p>';
+<p>Dire tigers grow to be over 12 feet long and can weigh up to 6,000 pounds.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>5th Level Spell Slot (Ranger 3rd Level Spell Slot).</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
-            'stats'  => [27, 15, 17, 2, 12, 10, 8, 5],
+            'stats'  => [27, 15, 17, 2, 12, 10, 6, 5],
             'skills' => [
                 'Stealth'   => ['dc' => 7],
                 'Athletics' => ['dc' => 14],
@@ -1399,6 +1491,24 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             'stats' => [10, 14, 10, 1, 10, 3, .5, 2],
         ]);
 
+        $monster              = new Monster;
+        $monster->name        = 'Weasel';
+        $monster->size        = MonsterSize::Tiny->toString();
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
+        $monster->armor_class = '13';
+        $monster->hit_dice    = 1;
+        $monster->speed       = '30 ft';
+        $monster->actions     = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1 Piercing.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Animal', 'Familiar'], [
+            'stats'    => [3, 16, 8, 2, 12, 3, 0, 2],
+            'features' => [
+                'keen_sense' => ['meta' => 'Hearing and Smell'],
+            ],
+        ]);
+
         $monster                   = new Monster;
         $monster->name             = 'Killer Whale';
         $monster->size             = MonsterSize::Huge->toString();
@@ -1411,6 +1521,10 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $monster->actions          = '<dl>
     <dt>Bite</dt> <dd>Melee Weapon attack, 5 ft, one target. (5D6 +4) Piercing</dd>
     <dt>Hold Breath</dt> <dd>The whale can hold its breath for 30 minutes</dd>
+</dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>2nd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
 </dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [19, 10, 13, 3, 12, 7, 3, 2],
@@ -1482,6 +1596,10 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
     <dt>Claw</dt> <dd>Melee Weapon Attack, 5 ft reach, one target. (1D6 + 6)</dd>
     <dt>Bite</dt> <dd>Melee Weapon Attack, 5 ft reach, one target. (1D8 + 6)</dd>
 </dl>';
+        $monster->description = '
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'     => [22, 17, 19, 2, 12, 10, 4, 2],
             'skills'    => [
@@ -1496,11 +1614,11 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             'talents'   => ['Die Hard'],
         ]);
 
-        $monster            = new Monster;
-        $monster->name      = 'Cave Glow Worm';
-        $monster->size      = MonsterSize::Tiny->toString();
-        $monster->type      = 'Animal';
-        $monster->alignment = '-';
+        $monster              = new Monster;
+        $monster->name        = 'Cave Glow Worm';
+        $monster->size        = MonsterSize::Tiny->toString();
+        $monster->type        = 'Animal';
+        $monster->alignment   = '-';
         $monster->armor_class = '11';
         $monster->hit_dice    = 1;
         $monster->speed       = '0 / 0 Burrow';

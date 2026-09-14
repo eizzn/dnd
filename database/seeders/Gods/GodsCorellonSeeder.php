@@ -2,6 +2,9 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Attribute;
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -23,18 +26,18 @@ class GodsCorellonSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Corellon Larethian';
-        $god->level = 'Greater';
+        $god->level = GodPantheonLevel::Greater->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => $god->name,
             'title'          => 'Creator of the Elves, First of the Seldarine, Coronal of Arvandor, The Protector, Ruler of All Elves',
-            'level'          => 'Greater',
+            'level'          => GodPantheonLevel::Greater->toString(),
             'portfolio'      => 'Magic, Music, Arts, Crafts, War, the Elven Race (Sun Elves), Poetry, Bards, Warriors, High Magic',
             'alignment'      => 'CG',
             'symbol'         => 'Quarter moon or starburst',
             'favored_weapon' => 'Sahandrian (Long Sword)',
         ]);
-        $helper->addClassesToGod($god, 'Seldarine', [
+        $helper->addClassesToGod($god, Pantheon::Seldarine->value, [
             'Fighter' => 20,
             'Wizard'  => 20,
             'Ranger'  => 5,
@@ -52,7 +55,7 @@ class GodsCorellonSeeder extends Seeder
             'hit_dice'       => 8,
             'skill_points'   => 4,
             'skill_progress' => 3,
-        ], ['WIS', 'CHA'], [
+        ], [Attribute::WIS->value, Attribute::CON->value], [
             'Elf', 'Divine',
         ]);
 
@@ -84,16 +87,18 @@ class GodsCorellonSeeder extends Seeder
         ]);
         $helper->addSpellSlotsToClass($class);
 
-        $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            $class->name, 'Paladin', 'Wizard', 'Fighter', 'Ranger',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Wizard', 'Fighter', 'Ranger',
         ]);
 
         $corellon = $god;
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Seldarine']->id,
-            'favor'       => "<p>Corellon's favour is bestowed with his characteristic whimsy, but usually on those who possess great magical gifts, and who display a similar temperament to their progenitor.</p>
-<p>Corellon's scions are frequently difficult travel companions despite their best intentions, displaying irregular behaviour and an insatiable curiosity.</p>
+            'pantheon_id' => app()->pantheons[Pantheon::Seldarine->value]->id,
+            'favor'       => "<p>Corellon's favor is bestowed with his characteristic whimsy, but usually on those who possess great magical gifts, and who display a similar temperament to their progenitor.</p>
+<p>Corellon's scions are frequently difficult travel companions despite their best intentions, displaying irregular behavior and an insatiable curiosity.</p>
 <ol>
     <li>You remember all your past lives. It can be overwhelming at times</li>
     <li>You were born with great, nigh uncontrollable sorcerous power</li>
@@ -134,38 +139,39 @@ class GodsCorellonSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Solonor Thelandira';
-        $god->level = 'Intermediate';
+        $god->level = GodPantheonLevel::Intermediate->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => $god->name,
             'title'          => 'The Forest Hunter, The Great Archer, Keen-Eye',
-            'level'          => 'Intermediate',
+            'level'          => GodPantheonLevel::Intermediate->toString(),
             'portfolio'      => 'Archery, Hunting, Survival, Green Elves',
             'symbol'         => 'Silver arrow with green fletching',
             'alignment'      => 'CG',
             'master_id'      => $corellon->id,
             'favored_weapon' => 'Longshot (Longbow)',
         ]);
-        $helper->addClassesToGod($god, 'Seldarine', [
+        $helper->addClassesToGod($god, Pantheon::Seldarine->value, [
             'Fighter'       => 20,
             'Ranger'        => 10,
             'Arcane Archer' => 10,
             'Wizard'        => 5,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Ranger', 'Scout', 'Fighter', 'Arcane Archer',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            'Ranger' => ['is_clergy' => true],
+            'Scout', 'Fighter', 'Arcane Archer',
         ]);
 
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Labelas Enoreth';
-        $god->level = 'Intermediate';
+        $god->level = GodPantheonLevel::Intermediate->toString();
         $god->save();
         $god->pantheons()->save(app()->pantheons['Seldarine'], [
             'name'           => $god->name,
             'title'          => 'The Lifegiver, Lord of the Continuum, The One-Eyed God, The Philosopher, The Sage at Sunset',
-            'level'          => 'Intermediate',
+            'level'          => GodPantheonLevel::Intermediate->toString(),
             'aliases'        => 'The Simbul of Yuirwood, Chronos, Karonis, Kronus',
             'portfolio'      => 'Time, Longevity, History, the Moment of Choice',
             'alignment'      => 'CG',
@@ -185,7 +191,7 @@ class GodsCorellonSeeder extends Seeder
             'hit_dice'       => 8,
             'skill_points'   => 4,
             'skill_progress' => 3,
-        ], ['WIS', 'CHA'], [
+        ], [Attribute::WIS->value, Attribute::CHA->value], [
             'Elf', 'Divine',
         ]);
 
@@ -224,26 +230,27 @@ class GodsCorellonSeeder extends Seeder
         ]);
         $helper->addSpellSlotsToClass($class);
 
-        $helper->addClassesToGod($god, 'Seldarine', [
+        $helper->addClassesToGod($god, Pantheon::Seldarine->value, [
             'Wizard'   => 20,
             'Bard'     => 10,
             'Sorcerer' => 10,
             'Monk'     => 5,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Wizard', 'Bard',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Bard',
         ]);
 
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Eilistraee';
-        $god->level = 'Lesser';
+        $god->level = GodPantheonLevel::Lesser->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => $god->name,
             'title'          => 'The Dark Maiden, Lady of the Dance, Lady Silverhair, THe Dark Dancer, The Dancing Goddess',
-            'level'          => 'Lesser',
+            'level'          => GodPantheonLevel::Lesser->toString(),
             'portfolio'      => 'Song, Beauty, Dance, Swordwork, Hunting, Moonlight',
             'alignment'      => 'CG',
             'regions'        => 'High Forest, Silverymoon, Waterdeep, Cormanthor',
@@ -252,13 +259,15 @@ class GodsCorellonSeeder extends Seeder
             'master_id'      => $corellon->id,
         ]);
 
-        $helper->addClassesToGod($god, 'Seldarine', [
+        $helper->addClassesToGod($god, Pantheon::Seldarine->value, [
             'Adventurer'   => 20,
             'Swashbuckler' => 10,
             'Bard'         => 10,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            'Paladin', 'Swashbuckler', 'Adventurer', 'Bard', 'Ranger',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            'Paladin' => ['is_clergy' => true],
+            'Ranger'  => ['is_clergy' => true],
+            'Swashbuckler', 'Adventurer', 'Bard',
         ]);
 
         $feat              = new Feat;
@@ -282,17 +291,21 @@ class GodsCorellonSeeder extends Seeder
             5 => ['Atonement', 'Banishing Smite', 'Divine Weapon', 'Holy Weapon'],
             6 => ['Crown of Stars', 'Holy Aura'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Seldarine->value, $feat);
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Sword Dancer' => 2,
+        ]);
 
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Fenmarel Mestarine';
-        $god->level = 'Hero';
+        $god->level = GodPantheonLevel::Hero->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => $god->name,
             'title'          => 'The Lone Wolf',
-            'level'          => 'Hero',
+            'level'          => GodPantheonLevel::Hero->toString(),
             'portfolio'      => 'Outcasts, Scapegoats, Isolation',
             'alignment'      => 'CN',
             'symbol'         => 'Pair of elven eyes in the darkness',
@@ -300,30 +313,30 @@ class GodsCorellonSeeder extends Seeder
             'master_id'      => $corellon->id,
         ]);
 
-        $helper->addClassesToGod($god, 'Seldarine', [
+        $helper->addClassesToGod($god, Pantheon::Seldarine->value, [
             'Ranger' => 30,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            'Ranger', 'Rogue', 'Scout',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            'Ranger' => ['is_clergy' => true], 'Rogue', 'Scout',
         ]);
 
         /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Elikarashae';
-        $god->level = 'Hero';
+        $god->level = GodPantheonLevel::Hero->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Seldarine'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Seldarine->value], [
             'name'           => $god->name,
             'title'          => 'Defender of the Yuirwood',
-            'level'          => 'Hero',
+            'level'          => GodPantheonLevel::Hero->toString(),
             'portfolio'      => 'Defense of the Yuirwood',
             'alignment'      => 'CG',
             'favored_weapon' => 'Shama (Spear), Maelat (Club), Ukava (Sling)',
             'master_id'      => $corellon->id,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Ranger', 'Barbarian',
+        $helper->addWorshipClassesToGod($god, Pantheon::Seldarine->value, [
+            'Ranger' => ['is_clergy' => true], 'Barbarian',
         ]);
 
         // Sarula Iliene

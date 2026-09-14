@@ -22,14 +22,14 @@ class SkillNatureSeeder extends Seeder
         $skill->untrained_uses = '<ul>
     <li>Recall Knowledge (Action)</li>
 </ul>';
-        $skill->trained_uses = '<ul>
+        $skill->trained_uses   = '<ul>
     <li>Identify Magic (Activity)</li>
 </ul>';
-        $skill->armor_penalty = 0;
+        $skill->armor_penalty  = 0;
         $skill->save();
-        $skills               = app()->skills;
-        $skills[$skill->name] = $skill;
-        app()->skills         = $skills;
+        $skills                = app()->skills;
+        $skills[$skill->name]  = $skill;
+        app()->skills          = $skills;
 
         $subskill                   = new SubSkill;
         $subskill->name             = 'Recall Knowledge';

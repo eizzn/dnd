@@ -2,6 +2,9 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
+use App\Models\Feat;
 use App\Models\God;
 use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
@@ -20,13 +23,13 @@ class GodsChaunteaSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Chauntea';
-        $god->level = 'Intermediate';
+        $god->level = GodPantheonLevel::Intermediate->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'aliases'        => 'Earthmother (Mooonshae), Jannath (Netheril), Pahluruk (Great Glacier)',
             'title'          => 'The Great Mother, the Grain Goddess, Earthmother',
-            'level'          => 'Intermediate',
+            'level'          => GodPantheonLevel::Intermediate->toString(),
             'portfolio'      => 'Agriculture, Plants cultivated by humans, Farmers, gardeners, Summer, Spirits of Nature',
             'alignment'      => 'NG',
             'symbol'         => 'Sheaf of grain or a blooming rose over grain',
@@ -34,43 +37,45 @@ class GodsChaunteaSeeder extends Seeder
             'favored_weapon' => 'A shock of grain (Scythe)',
             'master_id'      => God::where('name', 'Silvanus')->first()->id,
         ]);
-        $god->pantheons()->save(app()->pantheons["Yondalla's Children"], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::YondallasChildren->value], [
             'name'           => 'Sheela Peryroyl',
             'title'          => 'Green Sister, Watchful Mother',
-            'level'          => 'Lesser',
+            'level'          => GodPantheonLevel::Lesser->toString(),
             'portfolio'      => 'Nature, Agriculture, Weather, Song, Dance, Beauty, Romantic Love',
             'alignment'      => 'NG',
             'symbol'         => 'Daisy',
             'favored_weapon' => 'Oakthorn (Sickle)',
             'master_id'      => God::where('name', 'Yondalla')->first()->id,
         ]);
-        $god->pantheons()->save(app()->pantheons['The Ordning'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheOrdning->value], [
             'name'      => 'Othea',
             'aliases'   => 'Deronain (Auld Dwarvish), Sonnhild (ancient Thorass)',
             'title'     => '',
-            'level'     => 'Dead',
+            'level'     => GodPantheonLevel::Dead->toString(),
             'portfolio' => 'Mother of Giants',
             'alignment' => 'N',
             'master_id' => God::where('name', 'Annam')->first()->id,
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Spirit Shaman' => 25,
             'Druid'         => 20,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Druid', 'Spirit Shaman',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            'Druid'         => ['is_clergy' => true],
+            'Spirit Shaman' => ['is_clergy' => true],
         ]);
-        $helper->addClassesToGod($god, "Yondalla's Children", [
+        $helper->addClassesToGod($god, Pantheon::YondallasChildren->value, [
             'Druid'         => 20,
             'Spirit Shaman' => 5,
         ]);
-        $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
-            'Druid', 'Ranger',
+        $helper->addWorshipClassesToGod($god, Pantheon::YondallasChildren->value, [
+            'Druid'  => ['is_clergy' => true],
+            'Ranger' => ['is_clergy' => true],
         ]);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
             'favor'       => "<p>Chauntea's favor is oft given to those who take care of their communities and provide for those around them. Chauntea prizes not only bravery, but selflessness and collective responsibility.</p>
 <p>Chauntea's scions tend to have large hearts and empty pockets as they look out for the needs of their team members.</p>
 <ol>
@@ -109,5 +114,10 @@ class GodsChaunteaSeeder extends Seeder
             'piety50' => '<h4>Chosen of Chauntea</h4>
 <p>You can spend an Inspiration to cast Plant Growth with this trait. Once you cast the spell in this way, you can\'t do so again until you finish a lOng Rest. WIS is your spellcasting ability for this spell</p>',
         ]);
+
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', "Chauntea's Smile")->first());
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', "Chauntea's Harvest")->first());
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', "Chauntea's Plenty")->first());
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', "Chauntea's Bounty")->first());
     }
 }

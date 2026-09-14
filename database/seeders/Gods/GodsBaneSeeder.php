@@ -2,6 +2,11 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Attribute;
+use App\Enums\ClassType;
+use App\Enums\GodLevels;
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -23,21 +28,21 @@ class GodsBaneSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Bane';
-        $god->level = 'Greater';
+        $god->level = GodPantheonLevel::Greater->toString();
         $god->save();
         $bane = $god;
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'Lord Bane, The Black Lord, Lord of Darkness, The Black Hand, THe Dark One',
             'aliases'        => 'Iyachtu Xvim',
-            'level'          => 'Greater',
+            'level'          => GodPantheonLevel::Greater->toString(),
             'portfolio'      => 'Tyranny, Ambition, Control, Summoning Fiends',
             'alignment'      => 'LE',
             'symbol'         => 'Upright black right hand, thumb and fingers together',
             'regions'        => 'Zhentil Keep, Amn, Moonsea, Thay, Voonlar, Phlan, Daggerdale',
             'favored_weapon' => 'The Black Hand of Bane (gauntlet)',
         ]);
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Cleric'  => 20,
             'Paladin' => 20,
             'Wizard'  => 10,
@@ -45,8 +50,8 @@ class GodsBaneSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Dreadmasters';
-        $class->type          = 'Priest';
-        $class->key_attribute = 'WIS';
+        $class->type          = ClassType::Priest->value;
+        $class->key_attribute = Attribute::WIS->value;
         $class->weapons       = 'Simple Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Light Shields, Medium Shields';
         $class->has_spells    = 1;
@@ -91,17 +96,22 @@ class GodsBaneSeeder extends Seeder
     <li>The Black Lord's Alter in Mulmaster, considered for a time to be the center of power for the High Imperceptor and Banite church</li>
     <li>The Black Alter in Zhentil Keep, the result of a splinter in the church instigated by Fzoul Chembryl. It was destroyed a number of times, contested , and at different stages was reconsecrated to both Cyric and Iyachtu Xvim.</li>
     <li>The Black Lord's Cloak in the city of Mourktar in the land of Threskel is the largest temple of Bane in the Realms. It is led by the self-appointed Dread Imperceptor Kabbarath Telthaug, who separated himself and his clergy form the greater church of Bane some time before the Time of Troubles. the temple is served by over 700 ranked Banite priests, and over 1000 clergy. They even include a loyal and disciplined army, who has enjoyed numerous victories in Chessenta.</li>
-</ul>";
+</ul>
+<p>Dreadmasters have been known to take imp Familiars as they rise in status. This helps them to negotiate with the Baatezu that Bane focuses on in summoning.</p>
+<p>Dreadmasters have been known to become liches in the service of Bane. You may take the Lichdom Feat without having to meet the requirement for the Necromancer Feat.</p>";
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 4,
             'skill_progress' => 2,
-        ], ['WIS', 'CHA'], [
+        ], [Attribute::WIS->value, Attribute::CHA->value], [
             'Divine', 'Evil', 'Fiend',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin', 'Fighter', 'Wizard' => ['meta' => 'Conjurer'], 'Divine Disciple',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Fighter',
+            'Wizard' => ['meta' => 'Conjurer'], 'Divine Disciple',
         ]);
 
         // Skills
@@ -165,11 +175,12 @@ class GodsBaneSeeder extends Seeder
             6 => ['Shield of Law', 'Unholy Aura'],
             7 => ['Hellish Horde'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
 
         $helper->addPietyToGod($god, [
-            'pantheon_id' => app()->pantheons['Faeruneon']->id,
+            'pantheon_id' => app()->pantheons[Pantheon::Faeruneon->value]->id,
             'favor'       => "<p>Bane's divine portfolio is that of dominance. The strong must rule over those who are unfit to rule - this is the way of the world. Thus, Bane watches for those with the ambition, talent and drive to fulfil their potential.</p>
-<p>Bane favours physical force over magical supremacy, and his scions are often powerful military leaders and warlords.</p>
+<p>Bane favors physical force over magical supremacy, and his scions are often powerful military leaders and warlords.</p>
 <ol>
     <li>You defeated a much more powerful enemy in battle</li>
     <li>You bullied your way to the top of your command structure</li>
@@ -210,12 +221,12 @@ class GodsBaneSeeder extends Seeder
 
         $god        = new God;
         $god->name  = 'Loviatar';
-        $god->level = 'Lesser';
+        $god->level = GodLevels::Lesser->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'The Maiden of Pain, The Willing Whip, The Scourge Mistress, Patroness of Torturers',
-            'level'          => 'Lesser',
+            'level'          => GodPantheonLevel::Lesser->toString(),
             'portfolio'      => 'Pain, Hurt, Agony, Torment, Suffering, Torture',
             'alignment'      => 'LE',
             'symbol'         => 'Nine-tailed barbed scourge',
@@ -224,7 +235,7 @@ class GodsBaneSeeder extends Seeder
             'master_id'      => $bane->id,
         ]);
 
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Cleric' => 20,
             'Monk'   => 15,
             'Wizard' => 5,
@@ -232,8 +243,8 @@ class GodsBaneSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Pain';
-        $class->type          = 'Priest';
-        $class->key_attribute = 'WIS';
+        $class->type          = ClassType::Priest->value;
+        $class->key_attribute = Attribute::WIS->value;
         $class->weapons       = 'Simple Weapons, Whips';
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';
         $class->has_spells    = 1;
@@ -242,12 +253,15 @@ class GodsBaneSeeder extends Seeder
             'hit_dice'       => 8,
             'skill_points'   => 4,
             'skill_progress' => 2,
-        ], ['CON', 'WIS'], [
+        ], [Attribute::CON->value, Attribute::WIS->value], [
             'Divine', 'Evil',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Monk', 'Favored Soul', 'Paladin',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name   => ['is_clergy' => true],
+            'Favored Soul' => ['is_clergy' => true],
+            'Paladin'      => ['is_clergy' => true],
+            'Monk'         => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -326,6 +340,8 @@ class GodsBaneSeeder extends Seeder
             5 => ['Aura of Undeath'],
             6 => ['Harm'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, Feat::where('name', 'Disciples of the White Rod')->first());
 
         /**********************************************************************/
 
@@ -333,7 +349,7 @@ class GodsBaneSeeder extends Seeder
         $god->name  = 'Bhaal';
         $god->level = 'Hero';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => $god->name,
             'title'          => 'Lord of Murder',
             'level'          => 'Hero',
@@ -343,7 +359,7 @@ class GodsBaneSeeder extends Seeder
             'favored_weapon' => 'Dagger',
             'master_id'      => $bane->id,
         ]);
-        $helper->addClassesToGod($god, 'Faeruneon', [
+        $helper->addClassesToGod($god, Pantheon::Faeruneon->value, [
             'Rogue'     => 10,
             'Ninja'     => 5,
             'Assassin'  => 5,
@@ -351,13 +367,13 @@ class GodsBaneSeeder extends Seeder
 
         $class                = new Klass;
         $class->name          = 'Deathstalker';
-        $class->type          = 'Priest';
-        $class->key_attribute = 'WIS';
+        $class->type          = ClassType::Priest->value;
+        $class->key_attribute = Attribute::WIS->value;
         $class->weapons       = 'Simple Weapons, Dagger, Short Sword, Long Sword';
         $class->armors        = 'Light Armor, Medium Armor';
         $class->has_spells    = 1;
         $class->description   = '<p>A deathstalker, also known as a deathstalker of Bhaal, are priests of the Lord of Murder, Bhaal.</p>
-<p>In order to become initiated as a deathstalker, you must have fulfilled a set of strict requirements.</p>
+<p>To become initiated as a deathstalker, you must have fulfilled a set of strict requirements.</p>
 <ul>
     <li>You must worship Bhaal as your patron deity.</li>
     <li>You must be adept in Hiding, Moving Silently, and Surviving in difficult scenarios.</li>
@@ -380,8 +396,10 @@ class GodsBaneSeeder extends Seeder
             'Divine', 'Evil',
         ]);
 
-        $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Rogue', 'Ninja', 'Assassin',
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name => ['is_clergy' => true],
+            'Assassin'   => ['is_clergy' => true],
+            'Rogue', 'Ninja',
         ]);
 
         // Skills
@@ -439,11 +457,86 @@ class GodsBaneSeeder extends Seeder
 
         /**********************************************************************/
 
+        $god = God::where('name', 'Tiamat')->firstOrFail();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
+            'name'           => 'Tiamat',
+            'title'          => 'Archdevil, The Avaricious, Bane of Bahamut, Creator of Evil Dragonkind, The Chromatic Dragon, The Dragon Queen, The Dark Lady, Queen of Chaos, Queen of Evil Dragonkind, The Undying Queen',
+            'level'          => 'Lesser',
+            'portfolio'      => 'Chessenta, Evil Dragons, Evil Reptiles, Greed',
+            'alignment'      => 'LE',
+            'symbol'         => 'A five-headed dragon',
+            'favored_weapon' => 'A dragon head (heavy pick)',
+        ]);
+
+        // Priest of Tiamat
+        $class                = new Klass;
+        $class->name          = 'Priest of Tiamat';
+        $class->type          = ClassType::Priest->value;
+        $class->key_attribute = Attribute::WIS->value;
+        $class->weapons       = 'Simple Weapons';
+        $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
+        $class->has_spells    = 1;
+        $helper->saveClass($class, [
+            'hit_dice'       => 8,
+            'skill_points'   => 2,
+            'skill_progress' => 2,
+        ], ['WIS', 'CHA']);
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
+            'Fighter',
+        ]);
+        // Skills
+        $helper->addSkillsToClass($class, [
+            'Concentration', 'Deception', 'Diplomacy', 'Medicine', 'Performance', 'Religion',
+        ]);
+
+        $helper->addFeaturesToClass($class, [
+            'channel_divinity_dragon' => [3],
+        ]);
+        $helper->addChannelDivinityToClass($class, 'negative', 'Dragons');
+        $helper->addDomainToClass($class, ['Dragons', 'Evil', 'Greed']);
+        $helper->addSpellsToClass($class, [
+            0 => ['Acid Splash', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Light', 'Poison Spray', 'Resist', 'Treasure Scent'],
+            1 => ['Acid Stream', 'Bless', 'Cure Wounds', 'Dragon Claws', 'Fear'],
+            2 => ['Aura of Fear', 'Comprehend Language', 'Dragon Scales', 'Endure Elements'],
+            3 => ['Aspect of the Deity, Lesser', 'Dragon Breath'],
+            4 => ['Ceremony', 'Dragon Wings'],
+            5 => ['Abate Dracorage', 'Aggravate Dracorage', 'Atonement', 'Chromatic Ray', 'Dragon Ally',
+                'Reincarnate' => 'Always reincarnates into a Dragon Born', 'Spawn of Tiamat', ],
+            6 => ['Commune Archetype', 'Dragon Form', "Dragon's Head"],
+            7 => ['Aspect of the Deity, Greater', 'Death Door', 'Enervating Breath'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Serpent Guards';
+        $feat->requirement = 'You must be LE and Tiamat must be your Patron Deity';
+        $feat->description = "<p>You are a Blackguard of Tiamat.</p>
+<p>A fellowship of Untherite warriors devoted to Tiamat. They are charged with guarding Tiamat's cult in Unther.</p>
+<ul>
+    <li>You gain a +3 bonus to Diplomacy checks with Chromatic Dragons.</li>
+    <li>You are immune to the Fear aura of all Dragons</li>
+    <li>You can gain a draconic mount by sacrificing 3 Spell Points and a 3rd level Spell Slot.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Dragon', 'Evil']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Acid Splash', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Poison Spray'],
+            1 => ['Bane', 'Dragon Claws', 'Fear', 'Wrathful Smite'],
+            2 => ['Aura of Fear', 'Aura of War', 'Dragon Breath'],
+            3 => ['Aspect of the Deity, Lesser'],
+            4 => ['Aggravate Dracorage', 'Draconic Might', 'Dragon Ally', 'Dragon Wings'],
+            5 => ['Chromatic Ray', 'Dispel Good'],
+            6 => ['Dragon Form'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Maram of the Great Spear';
         $god->level = 'Dead';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'      => $god->name,
             'title'     => '',
             'alignment' => 'LE',
@@ -455,7 +548,7 @@ class GodsBaneSeeder extends Seeder
         $god->name  = 'Haask';
         $god->level = 'Dead';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'      => $god->name,
             'title'     => 'The Voice of Hargut',
             'level'     => 'Dead',
@@ -467,7 +560,7 @@ class GodsBaneSeeder extends Seeder
         $god->name  = 'Tyranthraxus';
         $god->level = 'Altraloth';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Yugoloth Lord'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'      => $god->name,
             'title'     => 'Lord of the Ruins, The Flamed One',
             'aliases'   => 'Possessing Spirit',
@@ -475,30 +568,58 @@ class GodsBaneSeeder extends Seeder
             'alignment' => 'NE',
             'master_id' => $bane->id,
         ]);
+        $god->pantheons()->save(app()->pantheons[Pantheon::YugolothLords->value], [
+            'name'      => $god->name,
+            'title'     => 'Lord of the Ruins, The Flamed One',
+            'aliases'   => 'Possessing Spirit',
+            'level'     => 'Hero',
+            'alignment' => 'NE',
+        ]);
 
         $god        = new God;
         $god->name  = 'Borem';
         $god->level = 'Demon Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
+            'name'      => $god->name,
+            'title'     => 'Of the Lake of Boiling Mud',
+            'portfolio' => 'Anger',
+            'alignment' => 'CE',
+            'level'     => 'Hero',
+            'master_id' => $bane->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons[Pantheon::Demonic->value], [
             'name'      => $god->name,
             'title'     => 'Of the Lake of Boiling Mud',
             'portfolio' => 'Anger',
             'alignment' => 'CE',
             'level'     => 'Archdemon',
-            'master_id' => $bane->id,
         ]);
 
         $god        = new God;
         $god->name  = 'Camnod';
         $god->level = 'Demon Lord';
         $god->save();
-        $god->pantheons()->save(app()->pantheons['Demonic'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
+            'name'      => $god->name,
+            'title'     => 'The Unseen',
+            'alignment' => 'CE',
+            'level'     => 'Hero',
+            'master_id' => $bane->id,
+        ]);
+        $god->pantheons()->save(app()->pantheons[Pantheon::Demonic->value], [
             'name'      => $god->name,
             'title'     => 'The Unseen',
             'alignment' => 'CE',
             'level'     => 'Archdemon',
-            'master_id' => $bane->id,
+        ]);
+
+        /**********************************************************************/
+
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Knights of the Black Gauntlet' => 2,
+            'Scourge Maiden'                => 2,
+            'Serpent Guards'                => 2,
         ]);
     }
 }

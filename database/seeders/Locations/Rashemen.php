@@ -85,6 +85,6 @@ class Rashemen extends Seeder
 </ul>";
         $rashemen->sub_locations()->save($location);
 
-        // Shevel, Taporan, Thasunta, Tinnir, Urling
+        // Shevel, Taporan, Assunta, Tinnier, Urling
     }
 }

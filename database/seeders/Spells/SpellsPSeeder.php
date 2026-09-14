@@ -467,9 +467,9 @@ class SpellsPSeeder extends Seeder
     <dt>Secondary Caster</dt> <dd>At least 3 other spell casters.</dd>
     <dt>Sacrifice</dt> <dd>1 CON damage</dd>
 </dl>';
-        $spell->description = '<p>With this spell, you attempt to bind a Celestial, an Elemental, a Fey, or a Fiend to your service. The creature must be within range for hte entire casting of this spell (Typically, the creature is first summoned into the center of a magic circle in order to keep it trapped while this spellis cast).</p>
+        $spell->description = '<p>With this spell, you attempt to bind a Celestial, an Elemental, a Fey, or a Fiend to your service. The creature must be within range for hte entire casting of this spell (Typically, the creature is first summoned into the center of a magic circle in order to keep it trapped while this spell is cast).</p>
 <p>At the completion of this casting, the target must make a CHA Save. If the creature was summoned or created by another spell, that spell\'s duration is extended to match the duration of this spell.</p>
-<p>A bound creature must follow your instructions  to the best of its ability. You might command the creature to accompany you on an adventure, to guard a location, or to deliver a message. The creautre obeys the letter of your instructions, but if the creature is hostile to you, it strives to twist your words to achieve its own objectives.</p>
+<p>A bound creature must follow your instructions  to the best of its ability. You might command the creature to accompany you on an adventure, to guard a location, or to deliver a message. The creature obeys the letter of your instructions, but if the creature is hostile to you, it strives to twist your words to achieve its own objectives.</p>
 <p>If the creature carries out your instructions completely before the spell ends, it travels to you to report this fact if you are on the same plane of existence. If you are on a different plane of existence, it returns to the place where you bound it and remains there until the spell ends.</p>';
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the duration to 10 days</dd>
@@ -643,9 +643,13 @@ class SpellsPSeeder extends Seeder
 <p>The target assumes the hit points of its new form. When it reverts to its normal form, the creature returns to the number of hit points it had before it transformed. If it reverts as a result of dropping to 0 hit points, any excess damage carries over to its normal form. As long as the excess damage doesn’t reduce the creature’s normal form to 0 hit points, it isn’t knocked unconscious.</p>
 <p>The creature is limited in the actions it can perform by the nature of its new form, and it can’t speak, cast spells, or take any other action that requires hands or speech.</p>
 <p>The target’s gear melds into the new form. The creature can’t activate, use, wield, or otherwise benefit from any of its equipment.</p>';
-        $spell->saves = '<dl>
+        $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Polymorphed</dd>
+</dl>';
+        $spell->heightened     = '<dl>
+    <dt>Heightened +1</dt> <dd>Increase the Save DC by +2</dd>
+    <dt>Heightened +1</dt> <dd>Double the Duration</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Polymorph'], 4);
 

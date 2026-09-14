@@ -20,7 +20,7 @@ class BackgroundsSeeder extends Seeder
         $background->ability_boost = 'Choose two ability boosts. One must be to CON or WIS, and one is a free ability boost';
         $background->skills        = 'You gain the following benefits</p>
 <ul>
-    <li>Impeccable Skill feat for the Religion skill</li>
+    <li>Impeccable Skill Feat for the Religion skill</li>
     <li>You gain a +2 bonus on Religion skill</li>
 </ul>';
         $background->save();
@@ -31,9 +31,9 @@ class BackgroundsSeeder extends Seeder
         $background->ability_boost = 'Choose two ability boosts. One must be to STR or DEX, and one is a free ability boost';
         $background->skills        = "<p>You gain the following benefits:</p>
 <ul>
-    <li>Masterful Skill feat for Acrobatics (Balance only)</li>
+    <li>Masterful Skill Feat for Acrobatics (Balance only)</li>
     <li>You are not flat-footed while attempting to Balance on narrow surfaces and uneven ground</li>
-    <li>If your're attacked while Balancing, you fall only if you Critically Fail</li>
+    <li>If you're attacked while Balancing, you fall only if you Critically Fail</li>
     <li>You gain a +2 bonus to the Lore (Circus) skill</li>
 </ul>";
         $background->save();
@@ -44,7 +44,8 @@ class BackgroundsSeeder extends Seeder
         $background->ability_boost = 'Choose two ability boosts. One must be to WIS or CHA, and one is a free ability boost';
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
-    <li>You gain the Skilled feat, and all of the gained Skill Points must be spent on Animal Handling (Train an Animal)</li>
+    <li>You gain the Skilled feat, and all the gained Skill Points must be spent on Animal Handling (Train an Animal)</li>
+    <li>You may take an Animal with a CR of 1/8 or less as your Trained pet (GM approval).</li>
 </ul>';
         $background->save();
 
@@ -154,7 +155,7 @@ class BackgroundsSeeder extends Seeder
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
     <li>You gain a +2 bonus to all Society checks<li>
-    <li>You gain a +2 bonus to the Lore (Nobility) skill</li>
+    <li>You start the game with an additional 50 gp</li>
 </ul>';
         $background->save();
 
@@ -176,6 +177,7 @@ class BackgroundsSeeder extends Seeder
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
     <li>You gain a +5 bonus to the Lore (Sailing) skill</li>
+    <li>You know how to tie some useful knots</li>
 </ul>';
         $background->save();
 
@@ -216,7 +218,6 @@ class BackgroundsSeeder extends Seeder
         $background->name          = 'Warrior';
         $background->description   = 'As a warrior in a tribe or a member of a militia or army, you waded into battle in your younger days. You might have wanted to break out from the regimented structure of these forces, or could have always been as independent a warrior as you are now.';
         $background->ability_boost = 'Choose two ability boosts. One must be to STR or CON, and one is a free ability boost';
-        $background->skills        = 'You gain the Quick Repair skill feat, and you\'re trained in the Warfare Lore skill.';
         $background->skills        = '<p>You gain the following benefits:</p>
 <ul>
     <li>You gain a +1 bonus to all Perception checks<li>

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\GodPantheonLevel;
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\God;
 use App\Models\Talent;
@@ -25,7 +27,7 @@ class GodsArchonsSeeder extends Seeder
         $zaphkiel->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
             'name'           => 'Zaphkiel',
             'title'          => 'The Watcher, Ruler of Chronias',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'alignment'      => 'LG',
             'symbol'         => 'Donkey',
             'favored_weapon' => 'None',
@@ -39,31 +41,18 @@ class GodsArchonsSeeder extends Seeder
 <p>Zaphkiel is one of the Tome Archons, rulers and protectors of the Seven Heavens. Of the first 7 Tome Archons, Zaphkiel is the only one of the original seven.</p>
 <p>The only entities in existence to have actually seen Zaphkiel are the gods and the other Tome Archons (and perhaps Ahriman). All evil beings that have encountered him have not survived.</p>',
         ]);
-        $zaphkiel->pantheons()->save(app()->pantheons['Draconic'], [
-            'name'        => 'Jazirian',
-            'level'       => 'Intermediate',
-            'portfolio'   => 'Community, Peace, Learning, Parenthood, Couatls',
-            'symbol'      => 'Uroboric Couatl',
-            'alignment'   => 'LG',
-            'description' => "<p>Jazirian is the deity of Couatls. His history is somewhat sketchy; never being a major player in divine politics, but with some citing Jazirian as being the source of all goodness, one of the creators of the multiverse, being the twin brother of Asmodeus (before he became a Baatezu) and is opposed to the other serpentine deities Merrshaulk and Ssharstrune, fighting him over the love of their mutual sister, Shekinester. Jazirian's gender is a bit spotty: certain sources refer to Jazirian as being a hermaphrodite or sexless and use neutral pronouns while other sources refer to Jazirian as being either male or female.</p>
-<h3>History</h3>
-<p>It is said that at the beginning of time, there were only a handful of uber-beings, including Ao, the Lady of Pain and the World Serpent.</p>
-<p>Of the group, the World Serpent is the only overpower who actually seems to do anything, dividing himself into separate aspects in order to get stuff done. the three aspects of Law: Jazirian, Ahriman, and Primus collaborated to bring form out of the primordial Chaos. Their efforts created the Unity of Rings: everything keeps happening over and over again, and things tend to end where they began. This place, the first ring, became known as the Outlands. When it was defined, the outer planes fell in around it, thus creating the Outer Planes. Thus, together, they built the multiverse.</p>
-<p>Jazirian and Ahriman squabble over where the center of the multiverse should be. While Primus thought that something that is infinite cannot have a center, Jazirian argued for Mount Celestial and Ahriman for Baator. The two pulled on each other, each with the others tail in their mouths. Finally, they separated, Jazirian flew up, while Ahriman fell.</p>
-<p>Jazirian and Ssharstrune both courted the Naga goddess Shekinester. Shekinester eventually chooses Jazirian, and they sire Parrafaire.</p>
-<h3>Worshippers</h3>
-<p>Jazirian doesn't actually have worshippers per se. Acting similarly to Bahamut, he is typically an exemplar for Goodness and Law. Though Jazirian does not accept Clerics or answer prayers directly.</p>",
-        ]);
+
+        /**********************************************************************/
 
         $god        = new God;
         $god->name  = 'Sealtiel';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Defender, Ruler of Jovar',
             'portfolio'      => 'Warden Archons',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'alignment'      => 'LG',
             'symbol'         => 'Dog',
             'favored_weapon' => 'Greatclub',
@@ -75,151 +64,164 @@ class GodsArchonsSeeder extends Seeder
 <p>One of Sealtiel's favored champions is Arkareon, a nature-loving movanic deva whom Sealtiel has raised from the dead at least seventeen times to continue his service.</p>",
         ]);
 
+        $feat                    = new Feat;
+        $feat->name              = 'Defender of Sealtiel';
+        $feat->action_type       = 'Free';
+        $feat->requirement       = "Must be LG. You can't be Fatigued";
+        $feat->short_description = '<p>You devout yourself to the service of Sealtiel, the celestial paragon of defenders.</p>';
+        $feat->description       = '<p>You can become a stalwart bastion of defense. You can activate this ability (called a Defensive Stance) only on your turn to gain the following benefits.</p>
+<ul>
+    <li>+2 bonus to STR</li>
+    <li>+4 bonus to CON</li>
+    <li>+2 Resistance bonus to all Saves</li>
+    <li>+4 Damage Reduction (stacks with Armor Damage Reduction)</li>
+    <li>You cannot take Move Actions, use any Feat, Talent, Class Features, or Skill that includes a Movement</li>
+    <li>You gain a +5 bonus to any roll you make to prevent you from being moved.</li>
+</ul>
+<p>Your Defensive Stance lasts for 1 minute. You may end your Defensive Stance voluntarily at any time as a Free Action. At the end of your Defensive Stance, you become Fatigued for 3 rounds (the number of rounds of Fatigue stacks with other abilities that causes Fatigue, such as Rage).</p>
+<p>Once you have used Defensive Stance the maximum number of times, you must finish a Long Rest before you can use Defensive Stance again. When you first get this feat, you may use Defensive Stance equal to the number of Exalted feats that you have (including this feat).</p>';
+        $helper->addTypesToFeat($feat, ['Archon', 'Exalted', 'Good', 'Lawful']);
+        $feat->parent_feats()->save(app()->feats['Endurance']);
+        $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
+        $feat->talents()->save(Talent::where('name', 'Die Hard')->firstOrFail());
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
+
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Raziel';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Crusader, The Firestar, Ruler of Merion',
             'portfolio'      => 'Paladins',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'symbol'         => 'Bear',
             'alignment'      => 'LG',
             'favored_weapon' => 'Holy Avenger Longsword',
             'master_id'      => $zaphkiel->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Pistis Sophia';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Ascetic, Ruler of Solania',
             'portfolio'      => 'Ascetics, Monks, Mystics',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'symbol'         => 'Eagle',
             'alignment'      => 'LG',
             'favored_weapon' => 'Open Hand',
             'master_id'      => $zaphkiel->id,
         ]);
 
+        $feat              = new Feat;
+        $feat->name        = 'Initiate of Pistis Sophia';
+        $feat->requirement = 'Must be LG';
+        $feat->description = '<p>You devout yourself to the service of Pistis Sophia, the celestial paragon of Mystics and Monks.</p>
+<ul>
+    <li>You gain 2 Power Points</li>
+    <li>You gain the Fist of the Heavens Talent.</li>
+    <li>You gain the Arcane Sense Feat.</li>
+    <li>You gain the Sacred Vow Feat.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
+        $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
+        $feat->parent_feats()->save(app()->feats['Arcane Background']);
+        $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Detect Evil', 'Exorcism'],
+            3 => ['Celestial Blood', "Heart's Ease"],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
+
+        $feat              = new Feat;
+        $feat->name        = 'Improved Initiate of Pistis Sophia';
+        $feat->requirement = 'Must be LG';
+        $feat->description = '<p>You further devote yourself to the Archon Pistis Sophia</p>
+<ul>
+    <li>You gain 3 Power Points</li>
+    <li>You gain a Talent</li>
+    <li>You gain a Talent</li>
+    <li>You gain Resistance to Electricity</li>
+    <li>You gain an additional 1st level Spell Slot. This additional Spell Slot may only be used to cast Divine Smite.</li>
+    <li>
+        <p>You gain an Exalted Feat, which must be one from the following list.</p>
+        <ul>
+            <li>Vow of Abstinence</li>
+            <li>Vow of Chastity</li>
+            <li>Vow of Nonviolence</li>
+            <li>Vow of Obedience</li>
+            <li>Vow of Peace</li>
+            <li>Vow of Purity</li>
+        </ul>
+    </li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
+        $feat->parent_feats()->save(app()->feats['Initiate of Pistis Sophia']);
+        $feat->parent_feats()->save(app()->feats['Improved Arcane Background']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Smite'],
+            1 => ['Divine Smite'],
+            3 => ['Emerald Burst'],
+            4 => ['Condemnation'],
+            5 => ['Perfection'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
+
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Erathaol';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Seer, Ruler of Venya',
             'portfolio'      => 'Seers, Prophets',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'symbol'         => 'Dragon',
             'alignment'      => 'LG',
             'favored_weapon' => 'Quarterstaff',
             'master_id'      => $zaphkiel->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Domiel';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Mercy Bringer, Ruler of Mercuria',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'symbol'         => 'Ox',
             'alignment'      => 'LG',
             'favored_weapon' => 'Holy Flaming Greatsword',
             'master_id'      => $zaphkiel->id,
         ]);
 
+        /**********************************************************************/
+
         $god        = new God;
         $god->name  = 'Barachiel';
-        $god->level = 'Tome Archon';
+        $god->level = GodPantheonLevel::TomeArchon->toString();
         $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
             'name'           => $god->name,
             'title'          => 'The Messenger, Ruler of Lunia',
             'portfolio'      => 'Trumpet Archons',
-            'level'          => 'Tome Archon',
+            'level'          => GodPantheonLevel::TomeArchon->toString(),
             'symbol'         => 'Lion',
             'alignment'      => 'LG',
             'favored_weapon' => 'Longsword',
             'master_id'      => $zaphkiel->id,
-        ]);
-
-        $god             = new God;
-        $god->name       = 'Terxyx';
-        $god->level      = 'Tome Archon';
-        $god->deleted_at = Carbon::now();
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['The Celestial Hebdomad'], [
-            'name'        => $god->name,
-            'title'       => 'Tome Archon of Mercuria',
-            'level'       => 'Tome Archon',
-            'alignment'   => 'LG',
-            'master_id'   => $zaphkiel->id,
-            'description' => "<p>Terxyx appears as a winged humanoid with a hawk's head.</p>
-<p>In 1357 DR, Terxyx led a company of sword archons in the Astral Plane to save Gareth Dragonsbane and his party from pursuing demons and to accompany them to meet his master Saint Sollars. Sometime after this, Terxyx ceased being the Lord of Mercuria. Weather he was destroyed or promoted is not known, but Domiel has since this time became the new Lord of Mercuria.</p>",
-        ]);
-
-        /**********************************************************************/
-
-        $primus = God::where('name', 'Sardior')->first();
-        $primus->pantheons()->save(app()->pantheons['Modron'], [
-            'name'      => 'Primus',
-            'title'     => 'The One and Prime',
-            'level'     => 'Prime',
-            'alignment' => 'LN',
-        ]);
-
-        $god        = new God;
-        $god->name  = '1 of 4';
-        $god->level = 'Modron';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Modron'], [
-            'name'      => $god->name,
-            'title'     => 'One of Four',
-            'level'     => 'Modron',
-            'alignment' => 'LN',
-            'master_id' => $primus->id,
-        ]);
-
-        $god        = new God;
-        $god->name  = '2 of 4';
-        $god->level = 'Modron';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Modron'], [
-            'name'      => $god->name,
-            'title'     => 'Two of Four',
-            'level'     => 'Modron',
-            'alignment' => 'LN',
-            'master_id' => $primus->id,
-        ]);
-
-        $god        = new God;
-        $god->name  = '3 of 4';
-        $god->level = 'Modron';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Modron'], [
-            'name'      => $god->name,
-            'title'     => 'Three of Four',
-            'level'     => 'Modron',
-            'alignment' => 'LN',
-            'master_id' => $primus->id,
-        ]);
-
-        $god        = new God;
-        $god->name  = '4 of 4';
-        $god->level = 'Modron';
-        $god->save();
-        $god->pantheons()->save(app()->pantheons['Modron'], [
-            'name'      => $god->name,
-            'title'     => 'Four of Four',
-            'level'     => 'Modron',
-            'alignment' => 'LN',
-            'master_id' => $primus->id,
         ]);
 
         $feat                    = new Feat;
@@ -267,78 +269,23 @@ class GodsArchonsSeeder extends Seeder
             3 => ["Heaven's Trumpet", 'Remove Curse'],
             4 => ['Atonement', 'Sending'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
 
-        $feat                    = new Feat;
-        $feat->name              = 'Defender of Sealtiel';
-        $feat->action_type       = 'Free';
-        $feat->requirement       = "Must be LG. You can't be Fatigued";
-        $feat->short_description = '<p>You devout yourself to the service of Sealtiel, the celestial paragon of defenders.</p>';
-        $feat->description       = '<p>You can become a stalwart bastion of defense. You can activate this ability (called a Defensive Stance) only on your turn to gain the following benefits.</p>
-<ul>
-    <li>+2 bonus to STR</li>
-    <li>+4 bonus to CON</li>
-    <li>+2 Resistance bonus to all Saves</li>
-    <li>+4 Damage Reduction (stacks with Armor Damage Reduction)</li>
-    <li>You cannot take Move Actions, use any Feat, Talent, Class Features, or Skill that includes a Movement</li>
-    <li>You gain a +5 bonus to any roll you make to prevent you from being moved.</li>
-</ul>
-<p>Your Defensive Stance lasts for 1 minute. You may end your Defensive Stance voluntarily at any time as a Free Action. At the end of your Defensive Stance, you become Fatigued for 3 rounds (the number of rounds of Fatigue stacks with other abilities that causes Fatigue, such as Rage).</p>
-<p>Once you have used Defensive Stance the maximum number of times, you must finish a Long Rest before you can use Defensive Stance again. When you first get this feat, you may use Defensive Stance equal to the number of Exalted feats that you have (including this feat).</p>';
-        $helper->addTypesToFeat($feat, ['Archon', 'Exalted', 'Good', 'Lawful']);
-        $feat->parent_feats()->save(app()->feats['Endurance']);
-        $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
-        $feat->talents()->save(Talent::where('name', 'Die Hard')->firstOrFail());
+        /**********************************************************************/
 
-        $feat              = new Feat;
-        $feat->name        = 'Initiate of Pistis Sophia';
-        $feat->requirement = 'Must be LG';
-        $feat->description = '<p>You devout yourself to the service of Pistis Sophia, the celestial paragon of Mystics and Monks.</p>
-<ul>
-    <li>You gain 2 Power Points</li>
-    <li>You gain the Fist of the Heavens Talent.</li>
-    <li>You gain the Arcane Sense Feat.</li>
-    <li>You gain the Sacred Vow Feat.</li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
-        $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
-        $feat->parent_feats()->save(app()->feats['Arcane Background']);
-        $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
-        $helper->addSpellsToFeat($feat, [
-            0 => ['Detect Evil', 'Exorcism'],
-            3 => ['Celestial Blood', "Heart's Ease"],
-        ]);
-
-        $feat              = new Feat;
-        $feat->name        = 'Improved Initiate of Pistis Sophia';
-        $feat->requirement = 'Must be LG';
-        $feat->description = '<p>You further devote yourself to the Archon Pistis Sophia</p>
-<ul>
-    <li>You gain 3 Power Points</li>
-    <li>You gain a Talent</li>
-    <li>You gain a Talent</li>
-    <li>You gain Resistance to Electricity</li>
-    <li>You gain an additional 1st level Spell Slot. This additional Spell Slot may only be used to cast Divine Smite.</li>
-    <li>
-        <p>You gain an Exalted Feat, which must be one from the following list.</p>
-        <ul>
-            <li>Vow of Abstinence</li>
-            <li>Vow of Chastity</li>
-            <li>Vow of Nonviolence</li>
-            <li>Vow of Obedience</li>
-            <li>Vow of Peace</li>
-            <li>Vow of Purity</li>
-        </ul>
-    </li>
-</ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
-        $feat->parent_feats()->save(app()->feats['Initiate of Pistis Sophia']);
-        $feat->parent_feats()->save(app()->feats['Improved Arcane Background']);
-        $helper->addSpellsToFeat($feat, [
-            0 => ['Smite'],
-            1 => ['Divine Smite'],
-            3 => ['Emerald Burst'],
-            4 => ['Condemnation'],
-            5 => ['Perfection'],
+        $god             = new God;
+        $god->name       = 'Terxyx';
+        $god->level      = GodPantheonLevel::TomeArchon->toString();
+        $god->deleted_at = Carbon::now();
+        $god->save();
+        $god->pantheons()->save(app()->pantheons[Pantheon::TheCelestialHebdomad->value], [
+            'name'        => $god->name,
+            'title'       => 'Tome Archon of Mercuria',
+            'level'       => GodPantheonLevel::TomeArchon->toString(),
+            'alignment'   => 'LG',
+            'master_id'   => $zaphkiel->id,
+            'description' => "<p>Terxyx appears as a winged humanoid with a hawk's head.</p>
+<p>In 1357 DR, Terxyx led a company of sword archons in the Astral Plane to save Gareth Dragonsbane and his party from pursuing demons and to accompany them to meet his master Saint Sollars. Sometime after this, Terxyx ceased being the Lord of Mercuria. Weather he was destroyed or promoted is not known, but Domiel has since this time became the new Lord of Mercuria.</p>",
         ]);
 
         $feat              = new Feat;
@@ -363,6 +310,7 @@ class GodsArchonsSeeder extends Seeder
             8 => ['Crown of Glory'],
             9 => ['Blinding Glory'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Blessing of the Hebdomad';
@@ -385,6 +333,7 @@ class GodsArchonsSeeder extends Seeder
             7 => ['Righteous Glare'],
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to the Hebdomad']);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Chains of Heaven';
@@ -394,6 +343,73 @@ class GodsArchonsSeeder extends Seeder
             5 => ['Hold Person' => 'Heightened +3. Demons, Devils, Yugoloths, Slaad and related beings, such as Warlocks with Pacts to those beings'],
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to the Hebdomad']);
+        $helper->addFeatToGodPantheon($god, Pantheon::TheCelestialHebdomad->value, $feat);
+
+        /**********************************************************************/
+
+        $primus = God::where('name', 'Sardior')->first();
+        $primus->pantheons()->save(app()->pantheons[Pantheon::Modron->value], [
+            'name'      => 'Primus',
+            'title'     => 'The One and Prime',
+            'level'     => GodPantheonLevel::Prime->toString(),
+            'alignment' => 'LN',
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = '1 of 4';
+        $god->level = GodPantheonLevel::Modron->toString();
+        $god->save();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Modron->value], [
+            'name'      => $god->name,
+            'title'     => 'One of Four',
+            'level'     => GodPantheonLevel::Modron->toString(),
+            'alignment' => 'LN',
+            'master_id' => $primus->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = '2 of 4';
+        $god->level = GodPantheonLevel::Modron->toString();
+        $god->save();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Modron->value], [
+            'name'      => $god->name,
+            'title'     => 'Two of Four',
+            'level'     => GodPantheonLevel::Modron->toString(),
+            'alignment' => 'LN',
+            'master_id' => $primus->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = '3 of 4';
+        $god->level = GodPantheonLevel::Modron->toString();
+        $god->save();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Modron->value], [
+            'name'      => $god->name,
+            'title'     => 'Three of Four',
+            'level'     => GodPantheonLevel::Modron->toString(),
+            'alignment' => 'LN',
+            'master_id' => $primus->id,
+        ]);
+
+        /**********************************************************************/
+
+        $god        = new God;
+        $god->name  = '4 of 4';
+        $god->level = GodPantheonLevel::Modron->toString();
+        $god->save();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Modron->value], [
+            'name'      => $god->name,
+            'title'     => 'Four of Four',
+            'level'     => GodPantheonLevel::Modron->toString(),
+            'alignment' => 'LN',
+            'master_id' => $primus->id,
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Pact to Modron';
@@ -428,6 +444,7 @@ class GodsArchonsSeeder extends Seeder
             8 => ['Antimagic Field'],
             9 => ['Foresight' => 'Self only'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Modron->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Modron Pact';
@@ -448,6 +465,7 @@ class GodsArchonsSeeder extends Seeder
             5 => ['Call Modron Workers'],
         ]);
         $feat->parent_feats()->save(app()->feats['Pact to Modron']);
+        $helper->addFeatToGodPantheon($god, Pantheon::Modron->value, $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Modron Pact';
@@ -465,5 +483,6 @@ class GodsArchonsSeeder extends Seeder
             9 => ['Call Marut'],
         ]);
         $feat->parent_feats()->save(app()->feats['Improved Modron Pact']);
+        $helper->addFeatToGodPantheon($god, Pantheon::Modron->value, $feat);
     }
 }

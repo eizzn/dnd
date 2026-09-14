@@ -26,7 +26,14 @@ class MagicPageSeeder extends Seeder
         $rule->name        = 'Schools of Magic';
         $rule->description = '<p>All magic falls into one or more of the eight schools of magic.</p>
 <dl>
-    <dt>Abjuration</dt> <dd>This school is focused on protective spells, as well as spells involving wards and counter magic (which they are the best at).</dd>
+    <dt>Abjuration</dt> <dd>
+        <p>This school is focused on protection spells.</p>
+        <ul>
+            <li>Personal wards and shields</li>
+            <li>Wards, Glyphs</li>
+            <li>Counter Spells</li>
+        </ul>
+    </dd>
     <dt>Conjuration</dt> <dd>
         <p>This school is focused on instantaneous transport, conjuring manifestations of creatures or objects, and traversing or accessing the inner and outer planes of existence.</p>
         <ul>
@@ -42,10 +49,16 @@ class MagicPageSeeder extends Seeder
             <li>Scrying</li>
             <li>Discerning truth</li>
             <li>Answers from the Outer Planes</li>
+            <li>Portents and fleeting visions that may offer advantages in the immediate future.</li>
         </ul>
     </dd>
     <dt>Enchantment</dt> <dd>
         <p>This school is focused on magical modifications (short-lived curses, blessings), long-lasting magical auras (such as mythals), and magic in general. It is the best at manipulating magic (through Metamagic Feats).</p>
+        <ul>
+            <li>Some overlap with Abjuration in regards to personal wards and shields</li>
+            <li>Some overlap with Divination in regards to Discerning truths</li>
+            <li>Meta magic</li>
+        </ul>
     </dd>
     <dt>Evocation</dt> <dd>
         <p>This school is focused on energy and manipulating forms of energy.</p>
@@ -58,7 +71,7 @@ class MagicPageSeeder extends Seeder
         </ul>
     </dd>
     <dt>Illusion</dt> <dd>
-        <p>This school is focused on spells that fools the senses, manipulates emotions, warps memories, compulsion effects, and controlling and manipulating shadows.</p>
+        <p>This school is focused on spells that fool the senses, manipulate emotions, warp memories, compulsion effects, and controlling and manipulating shadows.</p>
         <ul>
             <li>Compulsion</li>
             <li>Figment</li>
@@ -68,10 +81,25 @@ class MagicPageSeeder extends Seeder
         <p>Illusionists can focus even deeper into Illusions and also gain access to Shadow magic</p>
     </dd>
     <dt>Necromancy</dt> <dd>
-        <p>This school is focused on spells that have to do with life, death and spirits in general. It also has to do with the undead, disease, and long-lasting curses.</p>
+        <p>This school is focused on spells that have to do with life, death, and spirits in general. It also has to do with the undead, disease, and long-lasting curses.</p>
+        <ul>
+            <li>Causing Damage</li>
+            <li>Healing Damage</li>
+            <li>Animating dead bodies with unlife</li>
+            <li>Controlling animated undead and spirits</li>
+            <li>Curses</li>
+            <li>Diseases</li>
+        </ul>
     </dd>
     <dt>Transmutation</dt> <dd>
-        <p>This school is focused on spells that involve changing or shaping physical matter. This includes the creation of acids, and poisons.</p>
+        <p>This school is focused on spells that involve changing or shaping physical matter. This includes the creation of acids and poisons.</p>
+        <ul>
+            <li>Acid</li>
+            <li>Poison</li>
+            <li>Creating solid objects out of thin air</li>
+            <li>Transmuting metals into other metals</li>
+            <li>Animating inanimate objects</li>
+        </ul>
     </dd>
 </dl>';
         $rule->order = 1;
@@ -131,7 +159,7 @@ class MagicPageSeeder extends Seeder
         $rule->name        = 'Circle Magic';
         $rule->description = "<p>Some of the most powerful and spectacular spells worked across Faerun are cast in the form of circle magic. Circle magic is a type of cooperative spellcasting that allows the spellcaster leading the circle to increase her caster level significantly and achieve results otherwise unavailable to the spellcasters composing the circle. The Red Wizards of Thay and the Witches of Rashemen make frequent use of circle magic. Stories of other forms of circle magic abound in Faerun.</p>
 <h3>Participation</h3>
-<p>Any one may participate in Circle Magic, however, certain feats improves the participants contribution.</p>
+<p>Any one may participate in Circle Magic; however, certain feats improves the participants contribution.</p>
 <p>One spellcaster, usually the most powerful or experienced character present, stands at the center of the circle. This character is the circle leader. This individual must have the Mage Circle Leader feat.</p>
 <p>A circle requires a minimum of two participants plus the circle leader. Up to five participants can aid a circle leader in a standard circle. If the leader has the Great Mage Circle Leader feat, then the circle may have up to 9 participants.</p>
 <p>All participants in a circle must stand within 10 feet of the circle leader, who stands in the center. At the end of the ritual, each participant sacrifices any number of Spell Slots to the Circle Leader (you cannot sacrifice Cantrip Spell Slots). The Circle Leader receives a number of Spell Points equal to the number of Spell Slots given (ie. a 4th level Spell Slot grants 4 Spell Points). You may also sacrifice Spell Points on a one-for-one basis.</p>
@@ -657,6 +685,18 @@ class MagicPageSeeder extends Seeder
     </dd>
 </dl>";
         $rule->order       = 1301;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'activate-magic-items';
+        $rule->name        = 'Activate Magic Items';
+        $rule->description = '<p>Certain magic items require Activation Manipulation Action to use. If you do not have any spell caster levels, then you cannot Activate these items unless you have the Activate Magic Item Feat (see feat for details).</p>
+<ul>
+    <li>If the item does not describe the number of Actions that it requires to Activate, then it is assumed to be a Double Action.</li>
+    <li>A magic item typically requires it to be readied to be activated.</li>
+    <li>You cannot Activate 2 different Magic Items in the same round.</li>
+</ul>';
+        $rule->order       = 49;
         $page->rules()->save($rule);
     }
 }

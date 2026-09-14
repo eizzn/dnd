@@ -13,14 +13,14 @@ class FightingTalentsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
 
         $talent              = new Talent;
         $talent->name        = 'High Sword Low Axe';
-        $talent->requirement = 'You must be weilding both a sword and an axe';
+        $talent->requirement = 'You must be wielding both a sword and an axe';
         $talent->description = '<p>If you hit the same creature with both your sword and your axe in the same round, you immediately gain an additional Action. This additional Action can only be used to make a Trip Attack.</p>';
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
@@ -29,7 +29,7 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Anvil of Thunder';
-        $talent->requirement = 'You must be weilding both a hammer and an axe';
+        $talent->requirement = 'You must be wielding both a hammer and an axe';
         $talent->description = '<p>You have mastered the style of fighting with hammer and axe at the same time</p>
 <p>If you hit the same opponent with both your axe and your hammer in the same round, the opponent must make a CON Save (DC 10 + Proficiently Bonus + your STR modifier) or be Dazed for 1 round.</p>';
         $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 5]);
@@ -49,7 +49,7 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Crescent Moon';
-        $talent->requirement = 'You must be weilding both a sword and a dagger';
+        $talent->requirement = 'You must be wielding both a sword and a dagger';
         $talent->description = "<p>You have mastered the style of fighting with sword and dagger. You know how to twist an opponent's weapons from its grasp with a single graceful motion while using your two weapons together.</p>
 <p>If you hit the same creature with both your sword and your dagger in the same round, you immediately gain an additional Action. This additional Action can only be used to make a Disarm Action.</p>";
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
@@ -59,7 +59,7 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = "Hammer's Edge";
-        $talent->requirement = 'You must be weilding both a sword and hammer';
+        $talent->requirement = 'You must be wielding both a sword and hammer';
         $talent->description = '<p>If you hit the same creature with both your sword and hammer, it must make CON Save (DC equal to the total damage rolled with your sword and hammer), or fall prone.</p>
 <p>For each size category larger than you, the target gains a +3 bonus to the Save. For each size category smaller than you, the target suffers a -3 penalty to the Save.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
@@ -69,7 +69,7 @@ class FightingTalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Net and Trident';
-        $talent->requirement = 'You must weilding a net and trident';
+        $talent->requirement = 'You must wielding a net and trident';
         $talent->description = '<p>If you successfully hit an opponent with your net and win the opposed STR check, you may make a free Move Action (up to half your Speed) towards the opponent and use an Action to attack any creature in your net with an additional +3 to Hit and +3 to Damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
@@ -109,11 +109,50 @@ class FightingTalentsSeeder extends Seeder
         $talent->feats()->save(app()->feats['Shield Master']);
 
         $talent              = new Talent;
+        $talent->name        = 'Surging Accuracy';
+        $talent->action_type = 'Free';
+        $talent->requirement = 'You have an unspent Heroic Surge';
+        $talent->description = '<p>At the beginning of your turn, you may use a Heroic Surge. Instead of the Additional Action, you gain a +5 bonus to Hit with Weapon Attacks until the beginning of your next turn.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Surging Power';
+        $talent->action_type = 'Free';
+        $talent->requirement = 'You have an unspent Heroic Surge';
+        $talent->description = '<p>At the beginning of your turn, you may use a Heroic Surge. Instead of the Additional Action, you gain a +7 bonus to all Weapon Damage until the beginning of your next turn.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Surging Skill';
+        $talent->action_type = 'Free';
+        $talent->requirement = 'You have an unspent Heroic Surge';
+        $talent->description = '<p>At the beginning of your turn, you may use a Heroic Surge. Instead of the Additional Action, you gain a +1 bonus to Hit with Weapon Attacks and a +10 bonus to all Skill checks and Ability checks until the beginning of your next turn.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Surging Resistance';
+        $talent->action_type = 'Reaction';
+        $talent->requirement = 'You have an unspent Heroic Surge';
+        $talent->description = '<p>You may use a Reaction and use a Heroic Surge. Instead of the Additional Action, you can immediately make another Save to end an ongoing effect that allows an initial Save.</p>';
+        $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Talented Surger';
+        $talent->description = '<p>Any time you use a Heroic Surge, you gain your choice of the following.</p>
+<ul>
+    <li>+1 bonus to Hit on your next Melee Weapon Attack</li>
+    <li>+1 bonus to Hit on your next Ranged Weapon Attack</li>
+    <li>+2 bonus on your next Skill or Ability check</li>
+    <li>+1 Dodge bonus against one opponent you can see until the start of your next turn</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
+
+        $talent              = new Talent;
         $talent->name        = 'Shield Mastery';
         $talent->requirement = 'You are wielding a Shield and have taken the Raise a Shield Action';
         $talent->description = '<p>You are skilled at focusing your shield against one opponent</p>
 <ul>
-    <li>At the beginning of your turn, you may select an opponent that you are aware of within 120 feet of you. Your shield provides an additional +2 bonus to AC (and to your DEX Save if you have some other Feat or Talent that allows it)</li>
+    <li>At the beginning of your turn, you may select an opponent that you are aware of within 120 feet of you. Your shield provides an additional +2 bonus to AC (and to your DEX Save if you have some other Feat or Talent that allows it) so long as you have taken the Raise a Shield Action.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Shield', 'Talent' => 7]);
         $talent->feats()->save(app()->feats['Shield Master']);
@@ -129,7 +168,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->action_type = 'Triple Action';
         $talent->parent_id   = Talent::where('name', 'Fists of Steel')->first()->id;
         $talent->description = '<p>Activate your Fist of Steel Talent. If you do, you may make a single unarmed Melee attack that if it hits, deals damage equal to 1D6 for each point of STR modifier you have. If applied to an inanimate object, the damage is doubled.</p>
-<p>Note, this Talent should not be used to break held weapons or shields. Use the normal Improved Sunder feat.</p>';
+<p>Note, this Talent should not be used to break held weapons or shields. Use the normal Improved Sunder Feat.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Unarmed', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Improved Sunder']);
 
@@ -202,8 +241,18 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Claw at the Moon';
         $talent->action_type = 'Double Action';
-        $talent->description = "<p>As part of this Talent, you make an Athletics (High Jump) check to leap into the air. The Athletics DC is equal to the target's AC. If this check succeeds, you gain a +2 bonus to Hit with this attack and it deals an additional 2D6 points of damage. If the Athletics check fails, you may still make the Melee attack as normal.</p>";
+        $talent->description = "<p>As part of a Double Move, you make an Athletics (High Jump) check to leap into the air. The Athletics DC is equal to the target's AC. If this check succeeds, you gain a +2 bonus to Hit with this attack, and it deals an additional 3D6 points of damage. If the Athletics check fails, you may still make the Melee attack as normal.</p>";
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 4]);
+
+        $talent              = new Talent;
+        $talent->name        = 'Undead Slayer';
+        $talent->description = '<p>You are skilled at fighting undead creatures. You gain the following.</p>
+<ul>
+    <li>You gain a +2 bonus to any Lore Skill checks concerning undead.</li>
+    <li>You gain a +2 bonus to Hit Undead creatures.</li>
+    <li>You deal an Additional +5 damage with Melee and Ranged weapon attacks vs. Undead.</li>
+</ul>';
+        $helper->addTypesToSimpleObject($talent, ['Undead', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Tatsu';
@@ -233,7 +282,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = "<p>The Shor'yuken, commonly referred to as the Dragon Punch, is a jumping uppercut in which the user spins upwards with some horizontal movement as well, knocking the opponent to the ground and inflicting damage.</p>
 <p>You make a single melee Unarmed Strike that deals an Additional 2 Unarmed Strike damage dices. You also rise 5 feet into the air and suffer a -5 penalty to your Initiative starting at the next initiative cycle.</p>
 <p>You may also make this attack as a Triple Action, if you do, you gain 5 Additional Unarmed Strike damage dice instead of 2, rise into the air 10 feet, and suffer a -10 penalty to your Initiative starting at the next initiative cycle.</p>";
-        $helper->addTypesTosimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Shoto Style']);
 
         $talent              = new Talent;
@@ -372,7 +421,7 @@ class FightingTalentsSeeder extends Seeder
     <dd>Crescent Kick</dd> <dd>You bring your leg up against your body and then sweep it down and across. You gain an Additional Action. This Additional Action can only be used to make a Stunning Strike with this attack. Make an Unarmed Melee attack as a Double Action with a +1 to Hit. If you hit, you deal an Additional +5 damage and the target suffers a -3 penalty to your Stunning Strike.</dd>
     <dd>Axe Kick</dd> <dd>You bring your leg straight up against your body and bring it down like an axe against your opponent. Make an Unarmed Melee attack as a Double Action with a -2 to Hit and an increased Critical Range of +1. If you Hit, you deal an Additional +5 Damage per Die.</dd>
 </dl>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Extra Action', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Koryo Style']);
 
         $talent              = new Talent;

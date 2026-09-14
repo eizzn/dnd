@@ -3,7 +3,15 @@
 namespace App\Services;
 
 use App\Exceptions\InvalidArgumentException;
+use App\Filters\Alignment;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\GodPantheonId;
+use App\Filters\Level;
+use App\Filters\Name;
+use App\Filters\Order;
+use App\Filters\PantheonId;
+use App\Filters\Portfolio;
+use App\Filters\Title;
 use App\Models\GodPantheon;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -35,13 +43,14 @@ class GodPantheonService implements Contracts\GodPantheonService
                 $search
             ))
             ->through([
-                \App\Filters\GodPantheonId::class,
-                \App\Filters\PantheonId::class,
-                \App\Filters\Name::class,
-                \App\Filters\Level::class,
-                \App\Filters\Title::class,
-                \App\Filters\Portfolio::class,
-                \App\Filters\Order::class,
+                GodPantheonId::class,
+                PantheonId::class,
+                Name::class,
+                Level::class,
+                Alignment::class,
+                Title::class,
+                Portfolio::class,
+                Order::class,
             ])
             ->thenReturn();
 

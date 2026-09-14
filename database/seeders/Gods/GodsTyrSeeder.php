@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -83,7 +84,8 @@ class GodsTyrSeeder extends Seeder
             'Cleric'  => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Paladin',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
         ]);
         // TODO: add Class Features
         $helper->addChannelDivinityToClass($class, 'positive', 'Undead');
@@ -132,6 +134,7 @@ class GodsTyrSeeder extends Seeder
             4 => ['Aura of Life', 'Aura of Purity', 'Celestial Fortress', 'Divine Power', 'Favor of Ilmater', 'Sacred Item'],
             5 => ['Exalted Fury', 'Holy Aura', 'Holy Weapon', 'Shield of Law'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
 
         $class                = new Klass;
         $class->name          = 'Priest of Clangeddin';
@@ -177,7 +180,9 @@ class GodsTyrSeeder extends Seeder
             'Barbarian' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            $class->name, 'Fighter', 'Barbarian' => ['meta' => 'Must take the Dwarven Battle Rager Feat'],
+            $class->name => ['is_clergy' => true],
+            'Fighter',
+            'Barbarian' => ['meta' => 'Must take the Dwarven Battle Rager Feat'],
         ]);
 
         $helper->addPietyToGod($god, [
@@ -267,7 +272,9 @@ class GodsTyrSeeder extends Seeder
         );
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Monk', 'Paladin',
+            $class->name => ['is_clergy' => true],
+            'Monk'       => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
         ]);
 
         $feature              = new Feature;
@@ -305,6 +312,10 @@ class GodsTyrSeeder extends Seeder
             9  => ['Blinding Glory', 'Empty Body', 'End to Strife', 'Miracle', 'Revival'],
         ]);
         $helper->addSpellSlotsToClass($class, 'eight');
+
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Broken Ones')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Order of St. Dionysus')->first());
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', Feat::where('name', 'Followers of the Unhindered Path')->first());
 
         /**********************************************************************/
 
@@ -374,16 +385,22 @@ class GodsTyrSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Paladin', 'Fighter',
+            'Paladin' => ['is_clergy' => true],
+            'Fighter',
         ]);
         $helper->addWorshipClassesToGod($god, "Yondalla's Children", [
-            'Paladin', 'Ranger', 'Scout', 'Monk', 'Sacred Fist',
+            'Paladin'     => ['is_clergy' => true],
+            'Ranger'      => ['is_clergy' => true],
+            'Sacred Fist' => ['is_clergy' => true],
+            'Scout', 'Monk',
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            'Paladin', 'Fighter',
+            'Paladin' => ['is_clergy' => true],
+            'Fighter',
         ]);
         $helper->addWorshipClassesToGod($god, 'Morndinsamman', [
-            'Paladin', 'Fighter',
+            'Paladin' => ['is_clergy' => true],
+            'Fighter',
         ]);
 
         $feat              = new Feat;
@@ -393,7 +410,7 @@ class GodsTyrSeeder extends Seeder
 <h5>Code of Torm</h5>
 <dl>
     <dt>Be the champion of the weak and the defenseless</dt> <dd>Your duty is to those who lack the power you wield. Care for the sick and aid the distressed. Be an example to the young. Protect your friends. Be generous in so far as your resources allow. There are two things that will blemish the faithful, and these are riches and pride. If one but remains in strained circumstances, he will not be marred.</dd>
-    <dt>Be stern, unyielding and unswerving in your battles with evil</dt> <dd>Make war upon evil and injustice without cessation. Do not recoil before the enemy, but let your wrath undo the wicked. Seek not only courage, but also wisdom to see that stupidity and courage are cousins. Courage also means taking the side of truth in all matters, rather than seeking the expedient lie.</dd>
+    <dt>Be stern, unyielding, and unswerving in your battles with evil</dt> <dd>Make war upon evil and injustice without cessation. Do not recoil before the enemy, but let your wrath undo the wicked. Seek not only courage, but also wisdom to see that stupidity and courage are cousins. Courage also means taking the side of truth in all matters, rather than seeking the expedient lie.</dd>
     <dt>Obey your masters with alert judgment and anticipation</dt> <dd>Trust in your master, for his duty to you is given by Torm , serve him as though your own body were already dead, and you will be one man in a thousand. There are many places where compromise is expected; loyalty is not amongst them. If your path is without mortal master, let Torm and his code guide your steps.</dd>
     <dt>Serve the common good and the rule of law established by honorable rulers</dt> <dd>Your fourfold duties are to faith, family, masters, and all good being of Faerun. Strive to maintain law and order. Question unjust laws by suggesting improvement or alternatives, not additional laws.</dd>
     <dt>Seek prowess and skill in all endeavors</dt> <dd>Throughout your life, advance daily, becoming more skillful than yesterday, more skillful than today so that your strength may be used in the service of the Triad, rather than in personal aggrandizement. This is never ending.</dd>
@@ -421,6 +438,7 @@ class GodsTyrSeeder extends Seeder
             5 => ['Aura of Power', 'Exalted Fury', 'Fiery Vision', 'Holy Aura', 'Holy Weapon', 'Righteous Glare', 'Shield of Law'],
             6 => ['Heavenly Host'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Faeruneon', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Paladin of Arvoreen';
@@ -444,6 +462,7 @@ class GodsTyrSeeder extends Seeder
             5 => ['Aura of Power', 'Holy Aura', 'Holy Weapon'],
             6 => ['Heavenly Host'],
         ]);
+        $helper->addFeatToGodPantheon($god, "Yondalla's Children", $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Paladin of Gaerdal Ironhand';
@@ -463,6 +482,7 @@ class GodsTyrSeeder extends Seeder
                 'Insignia of Blessing', 'Insignia of Healing', 'Lawful Sword', 'Prayer', 'Remove Curse', ],
             4 => ['Celestial Fortress'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Gnome', $feat);
 
         $feat              = new Feat;
         $feat->name        = 'Paladin of Gorm';
@@ -485,6 +505,7 @@ class GodsTyrSeeder extends Seeder
             5 => ['Aura of Power', 'Exalted Fury', 'Holy Weapon', 'Righteous Glare'],
             6 => ['Heavenly Host' => 'The summoned host will appear dwarven'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Morndinsamman', $feat);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
@@ -566,7 +587,7 @@ class GodsTyrSeeder extends Seeder
         ]);
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
-            'favor'       => "<p>Gaerdal's favour is given to those who appreciate the fact that for some gnomes to live their lives free of worry or concern, others must see to the borders and defences of their towns and cities. This philosophy is often seen as self-sacrificing by those who adopt it, and it can sometimes lead to ill will when ‘irresponsible’ gnomes clash with Gaerdal’s hardline chosen.</p>
+            'favor'       => "<p>Gaerdal's favor is given to those who appreciate the fact that for some gnomes to live their lives free of worry or concern, others must see to the borders and defences of their towns and cities. This philosophy is often seen as self-sacrificing by those who adopt it, and it can sometimes lead to ill will when ‘irresponsible’ gnomes clash with Gaerdal’s hardline chosen.</p>
 <p>Gaerdal's scions hail from communities that are sheltered from assault by a variety of cunning methods, first and foremost amongst which is a discreet location</p>
 <ol>
     <li>You lost loved ones in an attack on your home</li>
@@ -604,7 +625,7 @@ class GodsTyrSeeder extends Seeder
         ]);
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Morndinsamman']->id,
-            'favor'       => "<p>Gorm's favour is reserved for those who consider their duty to be the same as their life. He gives his blessing to bodyguards for noble figures, to wall sentries and to any who would rather die than risk letting down their companions.</p>
+            'favor'       => "<p>Gorm's favor is reserved for those who consider their duty to be the same as their life. He gives his blessing to bodyguards for noble figures, to wall sentries and to any who would rather die than risk letting down their companions.</p>
 <p>Gorm’s scions are almost always dwarves, but could in theory hail from any society needing to defend itself from a terrible outside threat. He prefers martial champions able to block blows with their bodies and shields than those of the Art.</p>
 <ol>
     <li>You are (or were) the personal bodyguard to a King</li>
@@ -643,7 +664,8 @@ class GodsTyrSeeder extends Seeder
 
         /**********************************************************************/
 
-        God::where('name', 'Bahamut')->first()->pantheons()->save(app()->pantheons['Faeruneon'], [
+        $god = God::where('name', 'Bahamut')->first();
+        $god->pantheons()->save(app()->pantheons[Pantheon::Faeruneon->value], [
             'name'           => 'Bahamut',
             'title'          => 'Angel of the Seven Heavens, Draco Paladin, The God of Dragons, Grandfather of Dragons, King of the Good Dragons, Justifies, Lord of the North Wind, The Platinum Dragon',
             'aliases'        => 'Xymor, Jazirian',
@@ -653,26 +675,56 @@ class GodsTyrSeeder extends Seeder
             'alignment'      => 'LG',
             'symbol'         => 'A star above a milky nebula',
             'favored_weapon' => 'Bite (heavy pick)',
-            'master_id'      => $tyr->id,
+        ]);
+
+        $helper->addWorshipClassesToGod($god, Pantheon::Faeruneon->value, [
+            'Paladin' => ['is_clergy' => true],
+            'Fighter',
         ]);
 
         $feat              = new Feat;
         $feat->name        = 'Platinum Knights';
         $feat->requirement = 'You must be LG and Bahamut must be your Patron Deity';
-        $feat->description = '<p>You are a Paladin of Bahamut.</p>
+        $feat->description = '<p>You are a Paladin of Bahamut</p>
 <ul>
-    <li>You gain a +3 Diplomacy checks with Metallic Dragons.</li>
-    <li>You are immune to the Fear aura of all Dragons</li>
-    <li>You can gain a draconic mount by sacrificing 3 Spell Points and a 3rd level Spell Slot.</li>
+    <li>Increase your STR score by 1, to a maximum of 20</li>
+    <li>Increase your CHA score by 1, to a maximum of 20</li>
+    <li>You gain Proficiency with Heavy Armor</li>
+    <li>You gain a +3 bonus to Diplomacy checks against Metallic dragons</li>
+    <li>You are always affected by a Resistance spell</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Dragon', 'Good']);
+        $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior', 'Good']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Acid Splash', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Poison Spray'],
-            1 => ['Bless', 'Dragon Claws', 'Fear', 'Wrathful Smite'],
-            2 => ['Aura of Fear', 'Aura of War', 'Dragon Breath'],
-            3 => ['Aspect of the Deity, Lesser'],
-            4 => ['Aggravate Dracorage', 'Draconic Might', 'Dragon Ally', 'Dragon Wings'],
-            5 => ['Chromatic Ray', 'Dispel Evil', 'Dragon Form'],
+            1 => ['Aura of Courage', 'Dragon Claws', 'Detect Evil', 'Endure Elements'],
+            2 => ['Aura of Fear', 'Dragon Breath', 'Restoration'],
+            3 => ['Aspect of the Deity, Lesser', 'Dragon Wings', 'Remove Curse'],
+            4 => ['Atonement', 'Divine Power', 'Dragon Ally', 'Draconic Might'],
+            5 => ['Aura of Power', 'Dragon Form'],
+            6 => ['Aspect of the Deity, Greater', 'Holy Aura', 'Commune Archetype'],
+        ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+
+        $feat              = new Feat;
+        $feat->name        = 'Honor Guard of Bahamut';
+        $feat->description = '<p>You further your devotion to Bahamut</p>
+<ul>
+    <li>When you cast the Spell Dragon Breath, treat it as if it was Heightened +2</li>
+    <li>You gain the Channel Divinity (Positive: Dragons) and the Channel Divinity: Dragon Class Features</li>
+    <li>You may gain a Pseudo Dragon as your Familiar.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior']);
+        $feat->parent_feats()->save(app()->feats['Platinum Knights']);
+        $helper->addFeatToGodPantheon($god, Pantheon::Faeruneon->value, $feat);
+
+        /**********************************************************************/
+
+        $helper->addFeatsToClass(Klass::where('name', 'Paladin')->first(), [
+            'Paladin of Tyr'              => 2,
+            'Paladin of Torm'             => 2,
+            'Paladin of Arvoreen'         => 2,
+            'Paladin of Gaerdal Ironhand' => 2,
+            'Paladin of Gorm'             => 2,
         ]);
     }
 }

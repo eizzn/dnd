@@ -4,7 +4,7 @@ import {Head} from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
-import MultiSelect from "@/Components/MultiSelect.vue";
+import MultiSelect from "@/components/MultiSelect.vue";
 
 const Uri = "monsters";
 const filters = {
@@ -128,6 +128,8 @@ const filters = {
                                             { value: 'ooze', label: 'Ooze' },
                                             { value: 'plant', label: 'Plant' },
                                             { value: 'undead', label: 'Undead' },
+                                            { value: 'familiar', label: 'Familiar' },
+                                            { value: 'animal companion', label: 'Animal Companion' },
                                         ]"
                                     />
                                 </th>

@@ -225,11 +225,10 @@ class FeatsTransformationsSeeder extends Seeder
     <li>
         <p>As a Triple Action, you can transform into a monstrous hybrid: half-beast, half-sentient. While in your hybrid form, the following applies.</p>
         <ul>
-            <li>You gain a +2 bonus to Str. If your STR is still less than 13, it becomes 13.</li>
-            <li>You gain a +2 bonus to DEX. If your DEX is still less than 13, it becomes 13.</li>
-            <li>You gain a +2 bonus to CON. If your CON is still less than 14, it becomes 14.</li>
-            <li>Any armor you are wearing must be removed or it becomes destroyed and deals double the armors Damage Reduction to.</li>
-            <li>While transformed and not wearing any armor or using a shield, you gain the benefits of the Tough Defense feat.</li>
+            <li>You gain a +1 bonus to Str. If your STR is still less than 13, it becomes 13.</li>
+            <li>You gain a +1 bonus to DEX. If your DEX is still less than 13, it becomes 13.</li>
+            <li>You gain a +1 bonus to CON. If your CON is still less than 14, it becomes 14.</li>
+            <li>Any armor you are wearing must be removed, or it becomes destroyed, and you suffer Double the Hardness of the Armor.</li>
             <li>While transformed you can use weapons and equipment as normal, unless specified elsewhere.</li>
             <li>You gain a Claw attack that deals 1D8 + STR modifier Slashing damage that is considered Cold Iron and Silvered.</li>
             <li>You gain a Bite attack that deals 1D10 + STR modifier Piercing damage that is considered Cold Iron and Silvered. If you deal 5 or more damage to a creature with your Bite attack, they must make a DC 15 CON Save. if they fail, they gain the Curse of Lycanthropy feat with the same type as your own.</li>
@@ -240,7 +239,7 @@ class FeatsTransformationsSeeder extends Seeder
             <li>
                 <p>While in your Hybrid form, you must succeed at a DC 10 WIS Save at the beginning of each turn or lose control. If you are in the light of a full moon, you automatically fail this Save.</p>
                 <ul>
-                    <li>You must move toward the closest non-player creature you can see, smell or hear, prioritising helpless creatures. If you end your movement and no non-player creature is within 5 feet of you , then you must use your another Action to move towards one.</li>
+                    <li>You must move toward the closest non-player creature you can see, smell or hear, prioritizing helpless creatures. If you end your movement and no non-player creature is within 5 feet of you , then you must use your another Action to move towards one.</li>
                     <li>If there is a non-player creature within 5 feet of you and you have an Action, you must make a melee attack against it, prioritizing helpless creatures.</li>
                     <li>If you made a melee attack against a creature, and that creature is still alive, you must use any remaining Actions to attack that creature.</li>
                 </ul>
@@ -265,7 +264,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>You cannot gain the Lesser Vampire Spawn or the Vampire's Curse Feat.</li>
     <li>If you deal 10 or more damage to a Vampire or Vampire Spawn with a Claw or Bite attack, then the Vampire or Vampire Spawn also loses 1 Blood Point.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Lycanthrope', 'Shapechanger']);
+        $helper->addTypesToFeat($feat, ['Lycanthrope', 'Shapechanger', 'Extra Action']);
 
         $feat              = new Feat;
         $feat->name        = "Lycanthrope's Vigor";
@@ -273,7 +272,7 @@ class FeatsTransformationsSeeder extends Seeder
 <ul>
     <li>You gain a +2 bonus to your CON. If your CON is still less than 16, it becomes 16.</li>
     <li>You gain Resistance to all Bludgeoning, Piercing, and Slashing attacks.</li>
-    <li>You gain Regeneration: 4</li>
+    <li>You gain Regeneration: 2</li>
     <li>The Save DC to resist becoming a Lycanthrope from your Bite attack becomes DC 20.</li>
 </ul>
 <p>Based on your lycanthrope type, you also gain the following.</p>
@@ -289,7 +288,7 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Bat</td>
             <td>
                 <ul>
-                    <li>+2 bonus to DEX, to a maximum of 20</li>
+                    <li>+1 bonus to DEX, to a maximum of 20</li>
                     <li>Fly 40 feet</li>
                     <li>You gain the Keen Sense Feature (Hearing)</li>
                 </ul>
@@ -299,8 +298,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Bear</td>
             <td>
                 <ul>
-                    <li>+4 bonus to STR, to a maximum of 20</li>
-                    <li>+2 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
+                    <li>+2 bonus to STR, to a maximum of 20</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
                     <li>You gain the Scent Feature</li>
                 </ul>
             </td>
@@ -309,8 +308,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Boar</td>
             <td>
                 <ul>
-                    <li>+3 bonus to STR, to a maximum of 18</li>
-                    <li>+6 bonus to CON, to a maximum of 22 (this is in addition to the +2 bonus from above)</li>
+                    <li>+1 bonus to STR, to a maximum of 18</li>
+                    <li>+2 bonus to CON, to a maximum of 22</li>
                     <li>Replace your Bite attack with a Tusk attack (2D6).</li>
                     <li>You gain the Die Hard Feat</li>
                 </ul>
@@ -320,8 +319,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Cat</td>
             <td>
                 <ul>
-                    <li>+4 bonus to DEX, to a maximum of 20</li>
-                    <li>+2 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
+                    <li>+2 bonus to DEX, to a maximum of 20</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
                 </ul>
             </td>
         </tr>
@@ -329,8 +328,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Crocodile</td>
             <td>
                 <ul>
-                    <li>+4 bonus to DEX, to a maximum of 18</li>
-                    <li>+4 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
+                    <li>+1 bonus to DEX, to a maximum of 18</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
                     <li>Your Bite attack deals 2D10 damage</li>
                     <li>You gain a Swim Speed of 30</li>
                 </ul>
@@ -340,7 +339,7 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Rat</td>
             <td>
                 <ul>
-                    <li>+6 bonus to DEX, to a maximum of 22</li>
+                    <li>+2 bonus to DEX, to a maximum of 22</li>
                     <li>+1 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
                     <li>You gain the Scent Feature</li>
                 </ul>
@@ -350,8 +349,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Shark</td>
             <td>
                 <ul>
-                    <li>+6 bonus to STR, to a maximum of 20</li>
-                    <li>+4 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
+                    <li>+2 bonus to STR, to a maximum of 20</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
                     <li>Swim 60 feet</li>
                     <li>You gain the Scent Feature</li>
                 </ul>
@@ -361,9 +360,9 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Tiger</td>
             <td>
                 <ul>
-                    <li>+4 bonus to DEX, to a maximum of 18</li>
-                    <li>+4 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
-                    <li>+5 bonus to Perception checks that rely on hearing and smell</li>
+                    <li>+1 bonus to DEX, to a maximum of 18</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
+                    <li>+2 bonus to Perception checks that rely on hearing and smell</li>
                     <li>You gain the Pounce Feat</li>
                 </ul>
             </td>
@@ -372,8 +371,8 @@ class FeatsTransformationsSeeder extends Seeder
             <td>Were Wolf</td>
             <td>
                 <ul>
-                    <li>+2 bonus to DEX, to a maximum of 18</li>
-                    <li>+2 bonus to CON, to a maximum of 20 (this is in addition to the +2 bonus from above)</li>
+                    <li>+1 bonus to DEX, to a maximum of 18</li>
+                    <li>+1 bonus to CON, to a maximum of 20</li>
                     <li>You gain the Scent Feature</li>
                     <li>You gain a +2 bonus to all Perception checks</li>
                 </ul>
@@ -466,7 +465,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>You cannot take the Dodge or Disengage Actions.</li>
     <li>You cannot use Reactions</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Undead']);
+        $helper->addTypesToFeat($feat, ['Undead', 'Necromancy']);
         $feat->parent_feats()->save(app()->feats['Craft Wondrous Item']);
         $feat->parent_feats()->save(app()->feats['Necromancer']);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 12]);
@@ -485,7 +484,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>Becoming unconscious.</li>
     <li>Entering Hallowed ground</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Undead']);
+        $helper->addTypesToFeat($feat, ['Undead', 'Necromancy']);
         $feat->parent_feats()->save(app()->feats['Lichdom']);
 
         $feat              = new Feat;
@@ -497,7 +496,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>As an Action, you may sacrifice a number of souls to recover a Spell Slot. To recover a 3rd level Spell Slot, you must sacrifice 3 CR of souls. You may only recover 1 Spell Slot per Action.</li>
     <li>You may use CR of souls as Spell Points, 1 CR of souls as 1 Spell Point.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Undead']);
+        $helper->addTypesToFeat($feat, ['Undead', 'Necromancy']);
         $feat->parent_feats()->save(app()->feats['Improved Lichdom']);
 
         /**********************************************************************/
@@ -556,5 +555,35 @@ class FeatsTransformationsSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Undead', 'Incorporeal']);
         $feat->parent_feats()->save(app()->feats['Returned as Ghost']);
+
+        /**********************************************************************/
+
+        $feat              = new Feat;
+        $feat->name        = 'Hag Spellcaster';
+        $feat->requirement = 'You must have hag blood';
+        $feat->description = '<p>Hags are skilled at casting Arcane magic. You gain the following.</p>
+<ul>
+    <li>You gain the Find Familiar Feat, or you may gain a spell from this feat without being in a coven (castable 1/day).</li>
+    <li>If you join a coven, you gain all the spells from this feat. As a coven (all 3 hags who must all have this feat) gains two Spell Slots from 1st to 5th Level to cast the spells from this Feat. The spells may be Heightened.</li>
+    <li>As a coven, you gain the ability to create 100 gp per month. This causes 5 CON Damage to each coven member and the coven cannot cast any coven spells until all coven members are fully recovered (you maintain control of undead from Animate Dead and charmed creatures from Charm Person).</li>
+    <li>As a coven, you gain the Brew Potion Feat.</li>
+    <li>When casting spells or brewing potions as a coven, the Material Components never cost more than 1 gp.</li>
+</ul>
+<p>While Hags are willing to bargain for services in exchange for favors, cross them and the next potion they brew will contain a Curse.</p>';
+        $helper->addTypesToFeat($feat, ['Arcane', 'Fey', 'Item Creation']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Animal Friendship', 'Animal Messenger', 'Animal Sense', 'Beast Bond', 'Bestow Curse', 'Cure Wounds',
+                'Obscuring Mist', 'Restoration', 'Speak with Animals', 'Speak with Dead', ],
+            2 => ['Augury', 'Dispel Magic', 'Leap Into Animal', 'Veil',
+                'Animate Dead'     => 'can maintain control over 20 skeletons/zombies but may not sacrifice Spell Slots to maintain additional undead',
+                "Bull's Strength"  => 'Can be made Permanent in potion form (2 CON Damage, Blood from an Ogre), but can only be made Permanent on non-coven members',
+                "Eagle's Splendor" => 'Can be made Permanent in potion form (2 CON Damage, Flower of beauty), but can only be made Permanent on non-coven members'],
+            3 => ['Raise Dead', 'Control Weather', 'Dream',
+                'Charm' => 'can maintain control over 3 individuals'],
+            4 => ['Baleful Polymorph'],
+            5 => ['Dimensional Lock', 'Planar Binding',
+                'Limited Wish' => 'may only be cast 1/year, and never for the benefit of the coven',
+                'Geas'         => 'may only be cast 1/year, and only in connection with the Curse spell'],
+        ]);
     }
 }

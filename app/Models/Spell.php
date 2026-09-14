@@ -47,10 +47,4 @@ class Spell extends Model
         return $this->morphedByMany(Klass::class, 'spellable')
             ->withPivot('level', 'meta');
     }
-
-    public function feats(): MorphToMany
-    {
-        return $this->morphedByMany(Feat::class, 'spellable')
-            ->withPivot('level', 'meta');
-    }
 }

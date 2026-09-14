@@ -703,6 +703,19 @@ class SpellsASeeder extends Seeder
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy'], 4);
 
+        $spell              = new Spell;
+        $spell->name        = 'Animate Air';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '60 feet';
+        $spell->targets     = 'Up to a 5 foot cube of air';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>You animate a small amount of air. Treat this creature as an air mephit, but it has no alignment, is immune to physical attacks, and has 5 Hit Points.</p>
+<p>Treat the animated air as having a STR of 1 and no Hardness. The animated air can be used to block Ranged Weapon attacks with ammunition of size small. Any small sized ammunition that comes into contact with the animated air is deflected by its swirling currents of air that is its body.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>Increase the STR by +2, Hit Points by +10 and Size by +1.</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Air', 'Animate'], 2);
+
         $spell                = new Spell;
         $spell->name          = 'Animate Dead';
         $spell->casting       = '10 minute (Verbal, Somatic, Material)';
@@ -713,12 +726,26 @@ class SpellsASeeder extends Seeder
         $spell->description   = "<p>You create an undead servant. Choose a pile of bones or a corpse of a Medium or Small humanoid within range. Your spell imbues the target with a foul mimicry of life, raising it as an undead creature. The target becomes a skeleton if you chose bones or a zombie if you chose a corpse.</p>
 <p>On each of your turns, you can use an Action to mentally command any undead creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete.</p>
 <p>The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell, rather than animating a new one.</p>
-<p>You may also sacrifice a spell slot to continue to maintain control of your created undead. Each spell slot sacrificed in this way acts exactly as if you had cast the spell to maintain control, except that you do not need to be in the presence of the undead to maintain control. If you ever choose to regain the sacrificed spell slot and memorize a spell, you lose control of a number of undead that the spell slot granted control over. To regain control, you must cast this spell in the presence of the undead to regain control.</p>";
+<p>You may also sacrifice a Spell Slot of 3rd Level or higher to continue to maintain control of your created undead. Each spell slot sacrificed in this way acts exactly as if you had cast the spell to maintain control, except that you do not need to be in the presence of the undead to maintain control. If you ever choose to regain the sacrificed spell slot and memorize a spell, you lose control of a number of undead that the spell slot granted control over. To regain control, you must cast this spell in the presence of the undead to regain control.</p>";
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>The casting becomes 3 Casting Actions instead of 10 minutes</dd>
     <dt>Heightened (+1)</dt> <dd>You animate or reassert control over two additional undead creatures for each additional spell slot. Each creature must come from a different corpse or pile of bones.</dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Ritual'], 3);
+
+        $spell              = new Spell;
+        $spell->name        = 'Animate Earth';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '60 feet';
+        $spell->targets     = 'Up to a 5 foot cube of unworked earth';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>You animate a patch of unworked earth with mobility and the semblance of life. It can attack or perform simple tasks. Use the statistics for a Small Object from the Animate Object spell. The animated earth can make Slam attacks that deal 2D6 + 5 point of Bludgeoning damage. It has Damage Resistance to Bludgeoning, Piercing, and Slashing.</p>
+<p>You must have access to a patch of unworked earth.</p>
+<p>The animated earth can push/pull or carry double what a normal creature could and is treated as having STR 20.</p>';
+        $spell->heightened  = '<dl>
+    <dt>Heightened (+2)</dt> <dd>Increase the maximum size that this spell can target by 1 (this also increase the statistics to be used)</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Earth', 'Animate'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Animate Fire';
@@ -732,7 +759,7 @@ class SpellsASeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the maximum size that this spell can target by 1 (this also increase the statistics to be used)</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Fire'], 2);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Evocation', 'Fire', 'Animate'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Animate Instrument';
@@ -746,7 +773,7 @@ class SpellsASeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 2);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Animate'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Animate Objects';
@@ -843,7 +870,90 @@ class SpellsASeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>You may animate two additional objects</dd>
     <dt>Permanency (Heightened +2)</dt> <dd>15,000 gp. 10 CON damage.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Permanency'], 5);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Permanency', 'Animate'], 5);
+
+        $spell              = new Spell;
+        $spell->name        = 'Animate Objects, Lesser';
+        $spell->casting     = 'Somatic Casting, Verbal Casting';
+        $spell->range       = '60 feet';
+        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->description = '<p>Objects come to life at your command. Choose up to 4 nonmagical objects within range that are not being worn or carried. Medium targets count as two objects, and Large targets count as four objects.</p>
+<p>As a Bonus Action, you can mentally command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete.</p>
+<table>
+    <thead>
+        <tr>
+            <th colspan=\"6\">Animated Object Statistics</th>
+        </tr>
+        <tr>
+            <th>Size</th>
+            <th>HP</th>
+            <th>AC</th>
+            <th>Attack</th>
+            <th>STR</th>
+            <th>DEX</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tiny</td>
+            <td>10</td>
+            <td>14</td>
+            <td>
+                <ul>
+                    <li>+6 to hit</li>
+                    <li>1D4 damage</li>
+                </ul>
+            </td>
+            <td>4</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Small</td>
+            <td>15</td>
+            <td>12</td>
+            <td>
+                <ul>
+                    <li>+4 to hit</li>
+                    <li>1D6 damage</li>
+                </ul>
+            </td>
+            <td>6</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>Medium</td>
+            <td>20</td>
+            <td>12</td>
+            <td>
+                <ul>
+                    <li>+3 to hit</li>
+                    <li>1D8 damage</li>
+                </ul>
+            </td>
+            <td>10</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Large</td>
+            <td>25</td>
+            <td>8</td>
+            <td>
+                <ul>
+                    <li>+4 to hit</li>
+                    <li>1D10 damage</li>
+                </ul>
+            </td>
+            <td>14</td>
+            <td>10</td>
+        </tr>
+    </tbody>
+</table>
+<p>An animated object is a construct with AC, hit points, attacks, STR, and DEX determined by its size. Its CON is 10 and its INT and WIS are 3, and its CHA is 1. Its speed is 30 feet; if the object lacks legs or other appendages it can use for locomotion, it instead has a flying speed of 30 feet and can hover. If the object is securely attached to a surface or a larger object, such as a chain bolted to a wall, its speed is 0. It has blindsight with a radius of 30 feet and is blind beyond that distance. When the animated object drops to 0 hit points, it reverts to its original object form, and any remaining damage carries over to its original object form.</p>
+<p>If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and bludgeoning damage determined by its size. The GM might rule that a specific object inflicts slashing or piercing damage based on its form.</p>';
+        $spell->heightened = '<dl>
+    <dt>Heightened (+1)</dt> <dd>You may animate two additional objects</dd>
+</dl>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Animate'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Animate Plants';
@@ -866,7 +976,7 @@ class SpellsASeeder extends Seeder
     <dt>Heightened (+4)</dt> <dd>You may animate an additional 11 Large plants.</dd>
     <dt>Heightened (+5)</dt> <dd>You may animate an additional 15 Large plants.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Plant'], 5);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Plant', 'Animate'], 5);
         $spell->materials()->save(Material::where('name', 'Mistletoe')->firstOrFail());
 
         $spell              = new Spell;
@@ -881,7 +991,7 @@ class SpellsASeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the maximum size that this spell can target by 1 (this also increase the statistics to be used)</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Enchantment', 'Water'], 1);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Enchantment', 'Water', 'Animate'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Animate Weapon';
@@ -897,7 +1007,7 @@ class SpellsASeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>Increase the move Speed by +5</dd>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 3);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Animate'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Animate with Spirit';
@@ -934,7 +1044,7 @@ The spirit remains within the body until the spell is dismissed, the duration en
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the maximum size that this spell can target by 1 (this also increase the statistics to be used)</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation'], 1);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Transmutation', 'Animate'], 1);
 
         $spell                 = new Spell;
         $spell->name           = 'Annihilate Spirit';

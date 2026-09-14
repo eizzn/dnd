@@ -99,7 +99,7 @@ class ClassBardSeeder extends Seeder
     <li>You gain an additional use of your Bardic Inspiration</li>
     <li>You gain an additional Action. This additional Action can only be used to grant Bardic Inspirations.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bardic Inspiration']);
+        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Extra Action']);
         $feat->parent_feats()->save(app()->feats['Improved Bardic Inspiration']);
 
         $feat              = new Feat;

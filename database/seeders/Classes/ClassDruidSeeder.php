@@ -66,7 +66,7 @@ class ClassDruidSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'wild_shape';
         $feature->name        = 'Wild Shape';
-        $feature->description = "<p>You gain the ability to change into natural animals.</p>
+        $feature->description = "<p>You gain the ability to change into natural animal that is from the same environment as you (you may not Wild Shape into any dinosaurs unless you are from Chult).</p>
 <ul>
     <li>You gain 1 use of Wild Shape. You regain all your uses of Wild Shape at the end of a Long Rest.</li>
     <li>You may use 1 use of your Wild Shape ability to cast Pest Form even though you do not have it memorized and without using a Spell Slot. When you cast Pest Form in this way, the Duration is changed to 1 hour. You revert to your normal form at the end of this duration unless you spend 2 Spell Points or another use of your Wild Shape ability. You can revert to your normal form earlier by using an Action on your turn. You automatically revert if you fall Unconscious, drop to 0 Hit Points, or die.</li>
@@ -135,7 +135,10 @@ class ClassDruidSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Call of the Wild';
-        $feat->description = '<p>Your bond with nature allows you to call upon its servants to aid you in times of need. You can cast Summon Animals by spending 1 Spell Point instead of using spell slots. This spell can be heightened to any level that you can cast, but if you heighten the spell, it costs you 1 additional Spell Point. Increase your Spell Point pool by 2.</p>';
+        $feat->description = '<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>Your bond with nature allows you to call upon its servants to aid you in times of need. You can cast Summon Animals by spending 1 Spell Point instead of using spell slots. This spell can be heightened to any level that you can cast, but if you heighten the spell, it costs you 1 additional Spell Point per Spell Level Heightened.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Summoning']);
 
         $feat              = new Feat;
@@ -288,8 +291,8 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'You must be Good, and Mielikki must be your Patron deity';
         $feat->description = '<ul>
     <li>You may use your Wild Shape ability to cast the spell Aerial Form but to polymorph into a Swanmay.</li>
-    <li>You can use a 4th level Spell Slot to form an Animal Companion bond with a Pegasus (or a 3rd level Ranger Spell Slot).</li>
-    <li>You can use a 6th level Spell Slot to form an Animal Companion bond with a Unicorn (or a 4th level Ranger Spell Slot).</li>
+    <li>You can gain a Unicorn as your Animal Companion.</li>
+    <li>You can gain a Pegasus as your Animal Companion.</li>
     <li>You may cast the spell Fey Form to transform into a Pegasus or Unicorn only.</li>
     <li>Add the spells this feat grants to both your Druid and Ranger spell lists.</li>
 </ul>';
@@ -314,7 +317,7 @@ class ClassDruidSeeder extends Seeder
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Fiendish Creature template.</li>
-            <li>You may gain a Displacer Beast as your Animal Companion by Sacrificing 2 Spell Points and a 4th level Spell Slot</li>
+            <li>You may gain a Displacer Beast as your Animal Companion</li>
         </ul>
     </li>
     <li>You may take the following feats by only qualifying for the level requirement
@@ -371,7 +374,8 @@ class ClassDruidSeeder extends Seeder
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Channel Divinity']);
         $helper->addSpellsToFeat($feat, [
-            1 => ['Animate Wood', 'Barkskin' => 'Requires 1 Spell Point to cast as a 1st level spell',
+            1 => ['Barkskin' => 'Requires 1 Spell Point to cast as a 1st level spell',
+                'Animate Wood',
                 'Entangle' => 'Requires 1 Spell Point to cast as 1st level spell', ],
             2 => ['Consecrate' => 'Only farmlands', 'Favor of Chauntea', 'Plant Growth'],
         ]);
@@ -491,8 +495,8 @@ class ClassDruidSeeder extends Seeder
 <ul>
     <li>You gain the benefits of Endure Elements (Extreme Cold) Permanently</li>
     <li>You may now use your Wild Empathy ability on Winter Wolves.</li>
-    <li>You may grant any axe you hold the Frost ability for 1 hour by spending 1 use of your Wild Shape or 1 Spell Point</li>
-    <li>If you have the Animal Companion feat, you may gain a Winter Wolves as an Animal Companion. Having a Winter Wolf as an Animal Companion costs a 3rd level Spell Slot and 1 Spell Point instead of the normal costs for an Animal Companion.</li>
+    <li>You may grant any axe you hold the Frost ability for 1 hour by spending 1 use of your Wild Shape or 2 Spell Points</li>
+    <li>If you have the Animal Companion feat, you may gain a Winter Wolf as an Animal Companion (without having to capture or summon it). Having a Winter Wolf as an Animal Companion costs a 2nd level Spell Slot instead of the normal costs for an Animal Companion.</li>
 </ul>';
         $helper->addTypesToFeat($kiss, ['Cold', 'Primal']);
         $helper->addSpellsToFeat($kiss, [
@@ -505,7 +509,7 @@ class ClassDruidSeeder extends Seeder
         $hold->name        = "Auril's Hold";
         $hold->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Cold Resistance Feature</li>
+    <li>You gain the Cold Resistance Feat.</li>
     <li>If you have the Improved Wild Shape Feat, you may also change into a Winter Wolf using your Wild Shape ability.</li>
 </ul>';
         $helper->addTypesToFeat($hold, ['Cold', 'Primal']);
@@ -519,7 +523,7 @@ class ClassDruidSeeder extends Seeder
         $embrace->name        = "Auril's Embrace";
         $embrace->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Cold Immunity Feature</li>
+    <li>You gain the Cold Immunity Feat.</li>
     <li>You may grant any axe you hold the Freezing Burst ability for 1 hour by spending 1 use of your Wild Shape or 2 Spell Points</li>
     <li>You may use your Wild Shape ability to cast Ice Storm as an Action.</li>
 </ul>';
@@ -555,9 +559,9 @@ class ClassDruidSeeder extends Seeder
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
     <li>All Animal Companions you have deal an additional +3 Poison damage when they hit with a Physical Bite, Claw, or Stinger attack.</li>
-    <li>You gain the Disease Immunity feat</li>
-    <li>You gain the Poison Resistance feat</li>
-    <li>You gain proficiency with the glaive</li>
+    <li>You gain the Disease Immunity Feat.</li>
+    <li>You gain the Poison Resistance Feat.</li>
+    <li>You gain proficiency with the glaive.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $feat->parent_feats()->save(app()->feats["Talona's Taint"]);
@@ -569,9 +573,9 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Talona's Affliction";
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You may use your Wild Shape ability to cast the Poison spell as an Action.</li>
+    <li>You may use your Wild Shape ability to cast the Poison Spell as an Action.</li>
     <li>You may make any dagger or glaive you hold Poisoned by spending 1 use of your Wild Shape. The poison lasts for 10 rounds. Treat the poison as Black Adder Venom.</li>
-    <li>You gain the Poison Immunity feat</li>
+    <li>You gain the Poison Immunity Feat.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -670,9 +674,9 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Moander's Rot";
         $feat->description = '<p>You gain the following</p>
 <ul>
-    <li>If you have the Animal Companion feat, you may take a Gray Ooze as an Animal Companion by sacrificing a 2nd level Spell Slot and 1 Spell Point.</li>
-    <li>You gain the Tremorsense feat</li>
-    <li>You may cast the spell Animate Dead with just a Somatic Component (one Action)</li>
+    <li>If you have the Animal Companion feat, you may take a Gray Ooze as an Animal Companion by sacrificing a 2nd level Spell Slot.</li>
+    <li>You gain the Tremorsense Feat.</li>
+    <li>You may cast the spell Animate Dead with just a Somatic Component (one Action) if Heightened +1.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -687,6 +691,7 @@ class ClassDruidSeeder extends Seeder
 <ul>
     <li>You may spend one of your uses of Wild Shape to cast Cloud Kill. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
     <li>You may spend one of your uses of Wild Shape to cast Ooze Form. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>Your undead created from your Animate Dead now lasts 1 month.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -699,6 +704,8 @@ class ClassDruidSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You may spend one of your uses of Wild Shape to transform into a Shambling Mound</li>
+    <li>Your undead created from your Animate Dead now lasts for 6 months.</li>
+    <li>You may take the Lichdom Feat as if you had the Necromancer Feat.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -739,12 +746,13 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Champion of Osiris';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Favored Enemy Class Feature vs worshipers of Set.</li>
+    <li>You gain the Favored Enemy Class Feature vs. worshipers of Set.</li>
+    <li>The Casting Time for Animate Dead becomes a Triple Action.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
             4 => ['Sand Form'],
-            6 => ['Raise Dead'],
+            5 => ['Raise Dead'],
         ]);
         $feat->parent_feats()->save(app()->feats['Defender of Osiris']);
 
@@ -753,6 +761,9 @@ class ClassDruidSeeder extends Seeder
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
     <li>You may only cast the Create Undead spell to create Mummys. You must heighten the spell to create Mummys.</li>
+    <li>The Casting Time for Animate Dead becomes 1 Action.</li>
+    <li>Unitelligent Undead cannot attack you for any reason.</li>
+    <li>You emit a Fear aura out to 60 ft that affects all intelligent Undead similar to the Fear Aura of a Dragon (DC 20).</li>
     <li>You learn the Ritual to becoming a Mummy Lord.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
@@ -768,7 +779,7 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'Ubtao must be your Patron deity (Druid only)';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain 3 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>When you cast Animal Form, it is automatically Heightened by +1</li>
     <li>Because you are from Chult, the land of Dinosaurs, you may use your Wild Shape ability to change into Dinosaurs (you must still qualify for the CR restrictions)</li>
 </ul>';
@@ -779,17 +790,68 @@ class ClassDruidSeeder extends Seeder
             8 => ['Maze'],
         ]);
 
+        $feat              = new Feat;
+        $feat->name        = 'Glimmer of Apollo';
+        $feat->requirement = 'Apollo must be your Patron deity (Druid only)';
+        $feat->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>You gain the Flare Cantrip. This does not count towards the number of Cantrips you may memorize.</li>
+    <li>You may use and are proficient with all shortbows, longbows, composite shortbows, and composite longbows.</li>
+    <li>You gain the Weapon Focus Feat with Long Bows</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addSpellsToFeat($feat, [
+            0 => ['Flare'],
+            1 => ['Guiding Light', 'Lantern Light', 'Luminous Gaze', 'Nimbus of Light', 'Ray of Light'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Spark of Apollo';
+        $feat->requirement = 'Apollo must be your Patron deity (Druid only)';
+        $feat->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>You gain the Weapon Specialization Feat with Long Bows.</li>
+    <li>You may spend one of your uses of Wild Shape to cast a Fireball, but it only affects Undead creatures. The effect appears as an exploding ball of washed out colors.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addSpellsToFeat($feat, [
+            2 => ['Flash', 'Sun Bolt'],
+            3 => ['Daylight', 'Moon Blade', 'Sunrise'],
+        ]);
+        $feat->parent_feats()->save(Feat::where('name', 'Glimmer of Apollo')->first());
+
+        $feat              = new Feat;
+        $feat->name        = 'Light of Apollo';
+        $feat->requirement = 'Apollo must be your Patron deity (Druid only)';
+        $feat->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>At will, you can cause your body to shed light as if you had cast the Light spell on yourself as an Action.</li>
+    <li>You gain Resistance to Negative Damage.</li>
+    <li>You are Immune to all Diseases, Curses, Poisons, Exhaustion, Enervated Condition, and Drained Condition caused by undead.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addSpellsToFeat($feat, [
+            4 => ['Aura of the Sun', 'Sunmantle'],
+            5 => ['Dawn', 'Crown of Brilliance'],
+        ]);
+        $feat->parent_feats()->save(Feat::where('name', 'Spark of Apollo')->first());
+
+        $feat              = new Feat;
+        $feat->name        = 'Glory of Apollo';
+        $feat->requirement = 'Apollo must be your Patron deity (Druid only)';
+        $feat->description = '<p>You gain the following benefits.</p>
+<ul>
+    <li>You gain Immunity to Negative Damage.</li>
+    <li>You gain the Improved Weapon Focus Feat with the Long Bow</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addSpellsToFeat($feat, [
+            6 => ['Crown of Brilliance', 'False Dawn', 'Purifying Light', 'Sunbeam'],
+        ]);
+        $feat->parent_feats()->save(Feat::where('name', 'Light of Apollo')->first());
+
         $helper->addFeatsToClass($class, [
             'Call of the Wild'  => 1,
-            'Spell Pool'        => 1,
-            'Extend Spell Pool' => 5,
-            'Reach Spell'       => 1,
-            'Widen Spell'       => 1,
-
-            'Animal Companion' => 2,
-
-            'Improved Summoner' => 3,
-            'Greater Summoner'  => 9,
 
             'Extend Wild Shape'       => 3,
             'Improved Wild Shape'     => 4,
@@ -833,6 +895,11 @@ class ClassDruidSeeder extends Seeder
             "Mielikki's Needles"   => 3,
             'Blood of Malar'       => 3,
             'Talonatar Blightlord' => 15,
+
+            'Glimmer of Apollo'    => 3,
+            'Spark of Apollo'      => 5,
+            'Light of Apollo'      => 9,
+            'Glory of Apollo'      => 11,
         ]);
     }
 }

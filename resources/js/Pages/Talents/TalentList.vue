@@ -9,6 +9,7 @@ import MultiSelect from "@/components/MultiSelect.vue";
 const Uri = "talents";
 const filters = {
     name: null,
+    type: [],
 };
 </script>
 
@@ -43,13 +44,13 @@ const filters = {
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Requirements</label>
+                                    <label class="block text-sm font-medium text-gray-700">Requirements</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Trigger</label>
+                                    <label class="block text-sm font-medium text-gray-700">Trigger</label>
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Types</label>
+                                    <label class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
                                         :options="[
@@ -85,11 +86,19 @@ const filters = {
                                             { value: 'strike', label: 'Strike' },
                                             { value: 'unarmed', label: 'Unarmed' },
                                             { value: 'wild shape', label: 'Wild Shape' },
+                                            { value: 'abjuration', label: 'Abjuration' },
+                                            { value: 'conjuration', label: 'Conjuration' },
+                                            { value: 'divination', label: 'Divination' },
+                                            { value: 'enchantment', label: 'Enchantment' },
+                                            { value: 'evocation', label: 'Evocation' },
+                                            { value: 'illusion', label: 'Illusion' },
+                                            { value: 'necromancy', label: 'Necromancy' },
+                                            { value: 'transmutation', label: 'Transmutation' },
                                         ]"
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">
-                                    <label for="talent-name-filter" class="block text-sm font-medium text-gray-700">Description</label>
+                                    <label class="block text-sm font-medium text-gray-700">Description</label>
                                 </th>
                             </template>
 

@@ -74,10 +74,16 @@ class GodsSehanineSeeder extends Seeder
             'Divine', 'Good',
         ]);
         $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            $class->name, 'Favored Soul', 'Adventurer', 'Divine Oracle',
+            $class->name    => ['is_clergy' => true],
+            'Favored Soul'  => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Adventurer',
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Favored Soul', 'Adventurer', 'Divine Oracle',
+            $class->name    => ['is_clergy' => true],
+            'Favored Soul'  => ['is_clergy' => true],
+            'Divine Oracle' => ['is_clergy' => true],
+            'Adventurer',
         ]);
 
         // Skills
@@ -119,7 +125,7 @@ class GodsSehanineSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Seldarine']->id,
-            'favor'       => "<p>Sehanine's favour is bestowed on any who truly need it, seeping into their dreams to warn them of dangers to come. Sehanine's blessing most often falls on elves, but could wind its way to any creature she deems wanting of her wisdom.</p>
+            'favor'       => "<p>Sehanine's favor is bestowed on any who truly needs it, seeping into their dreams to warn them of dangers to come. Sehanine's blessing most often falls on elves, but could wind its way to any creature she deems wanting of her wisdom.</p>
 <p>Sehanine's scions are those who appreciate her innate mystery and complexity. Not all questions were meant to be answered, and those who walk the path of Sehanine understand that the beauty of the riddle far exceeds any solution to it.</p>
 <ol>
     <li>You dreamed of Sehanine, once. Or she dreamed of you. Perhaps there's little difference</li>
@@ -159,7 +165,7 @@ class GodsSehanineSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Selune's favour is given to those on a journey. Whether a physical odyssey or a metaphorical journey like motherhood, Selune acts as a gentle guide and sponsor to the lost and seeking. The light of the moon is a revelation, and strips away deception.</p>
+            'favor'       => "<p>Selune's favor is given to those on a journey. Whether a physical odyssey or a metaphorical journey like motherhood, Selune acts as a gentle guide and sponsor to the lost and seeking. The light of the moon is a revelation, and strips away deception.</p>
 <p>Selune's scions are wayfarers of the mind and soul. Whether a pirate on the open seas or a ranger walking the hidden roads, each has something they are looking for, out there in the darkness.</p>
 <ol>
     <li>You were a lycanthrope, but Selune cured you</li>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Gods;
 
+use App\Enums\Pantheon;
 use App\Models\Feat;
 use App\Models\Feature;
 use App\Models\God;
@@ -68,7 +69,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Cleric'  => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Paladin',
+            $class->name => ['is_clergy' => true],
+            'Paladin'    => ['is_clergy' => true],
         ]);
 
         // Skills
@@ -125,6 +127,7 @@ class GodsMulhorandiSeeder extends Seeder
             4 => ['Divine Wrath', 'Sun Scepter', 'Sunmantle'],
             5 => ['Aerial Form' => 'Hawk only', 'Banishing Smite', 'Dawn', 'Dispel Chaos', "Undeath's Eternal Foe"],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Mulhorandi->value, $feat);
 
         $class                = new Klass;
         $class->name          = 'Sunlords';
@@ -180,13 +183,14 @@ class GodsMulhorandiSeeder extends Seeder
             'Fighter' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Fighter', 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Fighter', 'Wizard',
         ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,
-            'favor'       => "<p>Amaunator demands that his followers exhibit a law abiding, honest nature and he asks no less of his chosen. Amaunator chooses those who exhibit a strong sympathy with law over chaos and who understand that the perfect is the enemy of the good. Justice must be done, even if it isn’t always infallible.</p>
-<p>Amaunator’s scions tend to be stern and inflexible in their approach, rooting out crime and applying the law equally to all even in exceptional circumstances that might reasonably require another solution.</p>
+            'favor'       => "<p>Amaunator demands that his followers exhibit a law-abiding, honest nature, and he asks no less of his chosen. Amaunator chooses those who exhibit a strong sympathy with law over chaos and who understand that the perfect is the enemy of the good. Justice must be done, even if it isn’t always infallible.</p>
+<p>Amaunator's scions tend to be stern and inflexible in their approach, rooting out crime and applying the law equally to all even in exceptional circumstances that might reasonably require another solution.</p>
 <ol>
     <li>You arrested a fellow officer of the law when they broke it</li>
     <li>You might be the greatest legal scholar of your generation</li>
@@ -247,7 +251,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Cleric'  => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            'Paladin', 'Fighter', 'Scout',
+            'Paladin' => ['is_clergy' => true],
+            'Fighter', 'Scout',
         ]);
 
         $feat              = new Feat;
@@ -269,6 +274,7 @@ class GodsMulhorandiSeeder extends Seeder
             4 => ['Divine Power', 'Lightning Bolt'],
             5 => ['Control Winds', 'Dispel Evil'],
         ]);
+        $helper->addFeatToGodPantheon($god, Pantheon::Mulhorandi->value, $feat);
 
         /**********************************************************************/
 
@@ -295,7 +301,9 @@ class GodsMulhorandiSeeder extends Seeder
             'Paladin' => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            'Druid', 'Paladin', 'Ranger',
+            'Druid'   => ['is_clergy' => true],
+            'Paladin' => ['is_clergy' => true],
+            'Ranger'  => ['is_clergy' => true],
         ]);
 
         $feat              = new Feat;
@@ -316,6 +324,11 @@ class GodsMulhorandiSeeder extends Seeder
             4 => ['Atonement', 'Control Plants'],
             5 => ['Create Undead', 'Raise Dead'],
         ]);
+        $helper->addFeatToGodPantheon($god, 'Mulhorandi', $feat);
+        $helper->addFeatToGodPantheon($god, 'Mulhorandi', Feat::where('name', 'Watcher of Osiris')->first());
+        $helper->addFeatToGodPantheon($god, 'Mulhorandi', Feat::where('name', 'Defender of Osiris')->first());
+        $helper->addFeatToGodPantheon($god, 'Mulhorandi', Feat::where('name', 'Champion of Osiris')->first());
+        $helper->addFeatToGodPantheon($god, 'Mulhorandi', Feat::where('name', 'Judge of Osiris')->first());
 
         /**********************************************************************/
 
@@ -356,7 +369,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Bard'   => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Wizard',
         ]);
 
         // Skills
@@ -443,7 +457,8 @@ class GodsMulhorandiSeeder extends Seeder
         ]);
 
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Rogue', 'Bard',
+            $class->name => ['is_clergy' => true],
+            'Rogue', 'Bard',
         ]);
 
         // Skills
@@ -481,7 +496,8 @@ class GodsMulhorandiSeeder extends Seeder
         ], ['WIS', 'CHA']);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            $class->name, 'Fighter', 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Fighter', 'Wizard',
         ]);
 
         // Skills
@@ -552,7 +568,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Bard'   => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Wizard', 'Bard',
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Bard',
         ]);
 
         // Skills
@@ -621,7 +638,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Cleric' => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Wizard',
         ]);
 
         // Skills
@@ -690,13 +708,16 @@ class GodsMulhorandiSeeder extends Seeder
             'master_id' => God::where('name', 'Silvanus')->first()->id,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            'Favored Soul', 'Ranger',
+            'Favored Soul' => ['is_clergy' => true],
+            'Ranger'       => ['is_clergy' => true],
         ]);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
-            'Favored Soul', 'Bard',
+            'Favored Soul' => ['is_clergy' => true],
+            'Bard',
         ]);
         $helper->addWorshipClassesToGod($god, 'Seldarine', [
-            'Favored Soul', 'Ranger',
+            'Favored Soul' => ['is_clergy' => true],
+            'Ranger'       => ['is_clergy' => true],
         ]);
 
         /**********************************************************************/
@@ -738,7 +759,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Favored Soul' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Bard',
+            $class->name => ['is_clergy' => true],
+            'Bard',
         ]);
 
         // Skills
@@ -784,7 +806,7 @@ class GodsMulhorandiSeeder extends Seeder
             'level'          => 'Intermediate',
             'portfolio'      => 'The Desert, Destruction, Drought, Night, Rot, Snakes, Hate, Betrayal, Evil Magic, Ambition, Poison, Murder',
             'regions'        => 'Mulhorand',
-            'alignment'      => 'LE',
+            'alignment'      => 'NE',
             'symbol'         => 'Coiled cobra',
             'favored_weapon' => 'The Spear of Darkness (longspear, halfspear or shortspear)',
         ]);
@@ -822,7 +844,8 @@ class GodsMulhorandiSeeder extends Seeder
             'Rogue'          => 5,
         ]);
         $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
-            $class->name, 'Wizard', 'Rogue', 'Fighter',
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Rogue', 'Fighter',
         ]);
 
         // Skills
@@ -875,7 +898,9 @@ class GodsMulhorandiSeeder extends Seeder
             'favored_weapon' => 'The Sorrowful Sear (longspear, shortspear, or halfspear)',
             'master_id'      => $set->id,
         ]);
-        $helper->addWorshipClassesToGod($god, 'Mulhorandi', ['Ranger']);
+        $helper->addWorshipClassesToGod($god, 'Mulhorandi', [
+            'Ranger' => ['is_clergy' => true],
+        ]);
 
         /**********************************************************************/
 

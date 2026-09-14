@@ -149,6 +149,36 @@ class MonstersOSeeder extends Seeder
         ]);
 
         $monster                   = new Monster;
+        $monster->name             = 'Gray Ooze';
+        $monster->size             = 'Medium';
+        $monster->type             = 'Ooze';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '8';
+        $monster->hit_dice         = 3;
+        $monster->speed            = '10 ft / Climb 10 ft';
+        $monster->actions          = '<dl>
+    <dt>Pseudopod</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 4 (1D6 +1) Bludgeoning damage and 7 (2D6) Acid damage. If the target is wearing nonmagical Metal Armor, the armor takes a permanent and cumulative -1 penalty to AC. The armor is destroyed if the penalty reduces its AC to 10.</dd>
+    <dt>Corrode Metal</dt> <dd>Any nonmagical Metal Weapon that hits the ooze corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to Damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical Ammunition made of Metal that hits it is destroyed after dealing damage.</dd>
+</dl>';
+        $monster->description      = "<p>A gray ooze looks like a puddle of gray, gelatinous liquid or a glistening wet patch of stone or floor, and it is easy to mistake it for such if it goes unnoticed. It lurks motionless in dungeon corridors, dank caverns, and other places where it can wait for food to blunder into range.</p>
+<p>The ooze's tissue is acidic enough to dissolve metal, and its favorite prey are unwary adventurers, whose gear it happily degrades to nothing as it feeds.</p>";
+        $helper->saveMonster($monster, ['Ooze'], [
+            'stats'    => [12, 6, 16, 1, 6, 2, .5, 2],
+            'skills'   => [
+                'Stealth' => ['dc' => 2],
+            ],
+            'features' => [
+                'immunity'   => ['meta' => 'Blinded, Charmed, Deafened, Exhaustion, Frightened, Prone'],
+                'resistance' => ['meta' => 'Acid, Cold, Fire'],
+                'camouflage' => ['meta' => 'Indistinguishable from an oily pool of liquid or a wet rock while motionless'],
+                'amorphous',
+            ],
+            'feats' => [
+                'Blindsight' => ['meta' => '60 ft, blind beyond this radius'],
+            ],
+        ]);
+
+        $monster                   = new Monster;
         $monster->name             = 'Otyugh';
         $monster->size             = 'Large';
         $monster->type             = 'Beast';

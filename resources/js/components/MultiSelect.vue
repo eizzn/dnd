@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue';
 
 const props = defineProps({
     modelValue: {
@@ -20,48 +20,86 @@ const emit = defineEmits(['update:modelValue']);
 
 const open = ref(false);
 const container = ref(null);
+const panel = ref(null);
 const dropdownStyle = ref({});
+// Selections are staged here while the dropdown is open, and only emitted
+// (triggering a search) once the dropdown closes.
+const draft = ref([...props.modelValue]);
+
+// modelValue restored from the URL on page load always arrives as strings
+// (URLSearchParams), while option values may be numbers (e.g. ids loaded
+// from the API). Compare as strings so a stored '3' still matches an
+// option whose value is the number 3.
+const toKey = (v) => String(v);
 
 const toggle = (value) => {
-    const current = [...props.modelValue];
-    const idx = current.indexOf(value);
+    const current = [...draft.value];
+    const idx = current.findIndex(v => toKey(v) === toKey(value));
     if (idx === -1) current.push(value);
     else current.splice(idx, 1);
-    emit('update:modelValue', current);
+    draft.value = current;
 };
 
-const isSelected = (value) => props.modelValue.includes(value);
+const isSelected = (value) => draft.value.some(v => toKey(v) === toKey(value));
 
 const summary = computed(() => {
-    if (props.modelValue.length === 0) return props.placeholder;
-    if (props.modelValue.length === 1) {
-        const opt = props.options.find(o => o.value === props.modelValue[0]);
-        return opt ? opt.label : props.modelValue[0];
+    const values = open.value ? draft.value : props.modelValue;
+    if (values.length === 0) return props.placeholder;
+    if (values.length === 1) {
+        const opt = props.options.find(o => toKey(o.value) === toKey(values[0]));
+        return opt ? opt.label : values[0];
     }
-    return `${props.modelValue.length} selected`;
+    return `${values.length} selected`;
 });
 
-const openDropdown = () => {
-    open.value = !open.value;
-    if (open.value) {
-        nextTick(() => {
-            const rect = container.value.getBoundingClientRect();
-            dropdownStyle.value = {
-                position: 'fixed',
-                top: `${rect.bottom + 4}px`,
-                left: `${rect.left}px`,
-                width: `${rect.width}px`,
-                zIndex: 9999,
-            };
-        });
+const commit = () => {
+    const changed = draft.value.length !== props.modelValue.length
+        || draft.value.some(v => !props.modelValue.some(mv => toKey(mv) === toKey(v)));
+    if (changed) {
+        emit('update:modelValue', [...draft.value]);
     }
+};
+
+const openDropdown = () => {
+    if (open.value) {
+        open.value = false;
+        commit();
+        return;
+    }
+    draft.value = [...props.modelValue];
+    open.value = true;
+    nextTick(() => {
+        const rect = container.value.getBoundingClientRect();
+        dropdownStyle.value = {
+            position: 'fixed',
+            top: `${rect.bottom + 4}px`,
+            left: `${rect.left}px`,
+            width: `${rect.width}px`,
+            zIndex: 9999,
+        };
+    });
 };
 
 const closeOnOutsideClick = (e) => {
-    if (container.value && !container.value.contains(e.target)) {
+    if (!open.value) return;
+    const insideContainer = container.value && container.value.contains(e.target);
+    const insidePanel = panel.value && panel.value.contains(e.target);
+    if (!insideContainer && !insidePanel) {
         open.value = false;
+        commit();
     }
 };
+
+// Keep the draft in sync with external changes (e.g. a "reset filters"
+// action, or the initial filters being restored from the URL on mount)
+// while the dropdown isn't open. `deep: true` is required because those
+// changes mutate the modelValue array in place (e.g. push()) rather than
+// replacing it, which a shallow watch wouldn't otherwise detect.
+watch(() => props.modelValue, (val) => {
+    if (!open.value) {
+        draft.value = [...val];
+    }
+}, { deep: true });
 
 onMounted(() => document.addEventListener('mousedown', closeOnOutsideClick));
 onUnmounted(() => document.removeEventListener('mousedown', closeOnOutsideClick));
@@ -74,7 +112,7 @@ onUnmounted(() => document.removeEventListener('mousedown', closeOnOutsideClick)
             @click="openDropdown"
             class="mt-1 flex w-full items-center justify-between gap-1 rounded-md border border-stone-600 bg-stone-900 px-2 py-1 text-left text-sm text-stone-200 shadow-sm transition-colors hover:border-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
         >
-            <span class="truncate" :class="modelValue.length === 0 ? 'text-stone-500' : 'text-stone-200'">
+            <span class="truncate" :class="(open ? draft : modelValue).length === 0 ? 'text-stone-500' : 'text-stone-200'">
                 {{ summary }}
             </span>
             <svg
@@ -96,6 +134,7 @@ onUnmounted(() => document.removeEventListener('mousedown', closeOnOutsideClick)
                 leave-to-class="opacity-0 -translate-y-1"
             >
                 <div
+                    ref="panel"
                     v-show="open"
                     :style="dropdownStyle"
                     class="max-h-56 min-w-max overflow-y-auto rounded-md border border-stone-700 bg-stone-900 shadow-xl"

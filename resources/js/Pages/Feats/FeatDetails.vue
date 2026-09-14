@@ -64,7 +64,31 @@ onMounted(fetchFeatDetails);
                                             <th class="px-4 py-2 border border-gray-300">Types</th>
                                         </tr>
                                         <tr>
-                                            <td class="px-4 py-2 border border-gray-300">{{ feat.requirements }}</td>
+                                            <td class="px-4 py-2 border border-gray-300">
+                                                {{ feat.requirements }}
+                                                <div v-if="feat.action_type">
+                                                    <dl>
+                                                        <dt class="text-sm font-medium text-gray-500">Action Type:</dt>
+                                                        <dd>{{ feat.action_type }}</dd>
+                                                    </dl>
+                                                </div>
+                                                <div v-if="feat.attributes">
+                                                    <dl v-for="(attribute, index) in feat.attributes" :key="index">
+                                                        <dt class="text-sm font-medium text-gray-500">{{ attribute.attr }}:</dt>
+                                                        <dd>{{ attribute.dc }}</dd>
+                                                    </dl>
+                                                </div>
+                                                <div v-if="feat.features">
+                                                    <h4 class="text-sm font-semibold">Features:</h4>
+                                                    <ul>
+                                                        <li v-for="(feature, index) in feat.features" :key="index">
+                                                            <NavLink :href="`/feature/${feature.id}`" class="text-blue-500 hover:underline">
+                                                                {{ feature.name }}
+                                                            </NavLink>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
                                             <td class="px-4 py-2 border border-gray-300">{{ feat.trigger }}</td>
                                             <td class="px-4 py-2 border border-gray-300">
                                                 <ul class="space-y-1.5">
@@ -72,7 +96,10 @@ onMounted(fetchFeatDetails);
                                                         <NavLink
                                                             :href="`/skill/${skill.id}`"
                                                             style="border-bottom-width: 0 !important;"
-                                                        >{{ skill.name }}</NavLink>
+                                                        >
+                                                            {{ skill.name }}
+                                                            <span v-if="skill.dc" class="ml-1 text-stone-400">({{ skill.dc }})</span>
+                                                        </NavLink>
                                                     </li>
                                                 </ul>
                                             </td>

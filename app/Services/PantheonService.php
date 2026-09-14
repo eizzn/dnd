@@ -3,6 +3,9 @@
 namespace App\Services;
 
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Name;
+use App\Filters\Order;
 use App\Models\Pantheon;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -24,9 +27,9 @@ class PantheonService implements Contracts\PantheonService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\Order::class,
+                Id::class,
+                Name::class,
+                Order::class,
             ])
             ->thenReturn();
 

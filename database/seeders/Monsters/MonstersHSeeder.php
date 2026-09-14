@@ -43,5 +43,26 @@ class MonstersHSeeder extends Seeder
                 'Special' => ['meta' => "Understands one language of its creator but can't speak"],
             ],
         ]);
+
+        $monster                   = new Monster;
+        $monster->name             = 'Homunculus';
+        $monster->size             = 'Tiny';
+        $monster->type             = 'Construct';
+        $monster->alignment        = '-';
+        $monster->armor_class      = '12 (Natural Armor)';
+        $monster->damage_reduction = 1;
+        $monster->hit_dice         = 2;
+        $monster->speed            = '20 ft / Fly 40 ft';
+        $monster->actions          = '<dl>
+    <dt>Bite</dt> <dd>Melee Weapon Attack +4, reach 5 ft, one target. 1 Piercing Damage, and the Target must make a DC 10 CON Save or be Sick for 1 minute. If the Save fails by 5 or more, the Target is instead Unconscious for 1 minute.</dd>
+    <dt>Telepathic Bond</dt> <dd>While the homunculus is on the same plane of existence as its master, it can magically convey what it senses to its master, and the two can communicate telepathically.</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Construct'], [
+            'stats'     => [4, 15, 11, 10, 10, 7, 0, 2],
+            'languages' => [
+                'Special'   => ['meta' => 'Understands one language of its creator'],
+                'Telepathy' => ['meta' => 'Unlimited same Plane, with creator only'],
+            ],
+        ]);
     }
 }

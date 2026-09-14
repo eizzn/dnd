@@ -2,7 +2,10 @@
 
 namespace App\Services;
 
+use App\Filters\Attr;
 use App\Filters\FilterPipelinePayload;
+use App\Filters\Id;
+use App\Filters\Name;
 use App\Models\Attribute;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -24,9 +27,9 @@ class AttributeService implements Contracts\AttributeService
                 $search
             ))
             ->through([
-                \App\Filters\Id::class,
-                \App\Filters\Name::class,
-                \App\Filters\Attr::class,
+                Id::class,
+                Name::class,
+                Attr::class,
             ])
             ->thenReturn();
 

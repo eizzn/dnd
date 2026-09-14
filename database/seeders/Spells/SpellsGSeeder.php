@@ -173,7 +173,8 @@ class SpellsGSeeder extends Seeder
         $spell->duration    = '24 Hours';
         $spell->description = "<p>The corpse doesn't decay, nor can it be transformed into an undead. Time spent under the effect of this spell doesn't count when determining the success of spells that require a fresh corpse.</p>";
         $spell->heightened  = "<dl>
-    <dt>Heightened (+3)</dt> <dd>The spell's duration is permanent, but you must add a Material Casting Action with 6gp worth of embalming fluids.</dd>
+    <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
+    <dt>Heightened (+5)</dt> <dd>The spell's Duration is permanent, but you must add a Material Casting Action with 6 gp worth of embalming fluids.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Necromancy'], 2);
 
@@ -258,7 +259,7 @@ class SpellsGSeeder extends Seeder
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 3);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Conjuration'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Ghost Trap';
@@ -268,7 +269,7 @@ class SpellsGSeeder extends Seeder
         $spell->duration    = '30 minutes';
         $spell->description = '<p>You create a field of energy that locks the Ethereal Plane from the plane you are currently on and has the following effects.</p>
 <ul>
-    <li>When the spell is cast, all Incorporeal creatures in the area become Corporeal</li>
+    <li>When the spell is cast, all Incorporeal creatures in the area become Corporeal and are Dazed: 1.</li>
     <li>Creatures cannot become Ethereal</li>
     <li>Ethereal creatures Materialize</li>
     <li>Spells that depend on calling Ectoplasm cannot do so, as access to the Ethereal Plane is blocked off.</li>
@@ -277,7 +278,7 @@ class SpellsGSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>Double the Duration</dd>
     <dt>Heightened (+1)</dt> <dd>Double the Area</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Conjuration', 'Abjuration', 'Ectoplasm'], 5);
+        $helper->addTypesToSpell($spell, ['Conjuration', 'Abjuration', 'Ectoplasm'], 4);
 
         $spell              = new Spell;
         $spell->name        = 'Ghostharp';

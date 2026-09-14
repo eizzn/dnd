@@ -30,8 +30,11 @@ class MonstersESeeder extends Seeder
     <dt>Dagger</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D2 Slashing.</dd>
     <dt>Shapechanger</dt> <dd>A coure can assume the form of an incorporeal ball of light at will as a Double Action. In this form, the coure can be harmed only by other incorporeal creatures, and Ghost Touchced weapons. A coure in this form can pass through solid objects, but not force effects, at will. The coure sheds light if it wishes, providing illumination with any radius it wishes up to 30 feet. Changing the amount of light it sheds as an Cction that the coure can perform once per round.</dd>
 </dl>';
-        $monster->description = '<p>Coures are sprite-like celestials.</p>';
-        $helper->saveMonster($monster, ['Celestial', 'Eladrin', 'Shapechanger', 'Outer Planes', 'Good', 'Outsider', 'Chaotic', 'Familiar'], [
+        $monster->description = '<p>Coures are sprite-like celestials.</p>
+<dl>
+    <dt>Animal Companion</dt> <dd>3rd Level Spell Slot (Ranger 1st Level Spell Slot).</dd>
+</dl>';
+        $helper->saveMonster($monster, ['Celestial', 'Eladrin', 'Shapechanger', 'Outer Planes', 'Good', 'Outsider', 'Chaotic', 'Animal Companion'], [
             'stats'  => [6, 20, 12, 12, 10, 14, 2, 2],
             'skills' => [
                 'Arcana'     => ['dc' => 6],

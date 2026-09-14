@@ -23,15 +23,15 @@ class SkillSurvivalSeeder extends Seeder
     <li>Sense Direction (Activity)</li>
     <li>Survive in the Wild (Activity)</li>
 </ul>';
-        $skill->trained_uses = '<ul>
+        $skill->trained_uses   = '<ul>
     <li>Cover Tracks (Action)</li>
     <li>Track (Action)</li>
 </ul>';
-        $skill->armor_penalty = 1;
+        $skill->armor_penalty  = 1;
         $skill->save();
-        $skills               = app()->skills;
-        $skills[$skill->name] = $skill;
-        app()->skills         = $skills;
+        $skills                = app()->skills;
+        $skills[$skill->name]  = $skill;
+        app()->skills          = $skills;
 
         $subskill              = new SubSkill;
         $subskill->name        = 'Sense Direction';

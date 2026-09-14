@@ -11,10 +11,8 @@ class ClassMonkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -53,11 +51,12 @@ class ClassMonkSeeder extends Seeder
         $feat->name        = 'Order of the Sun Soul';
         $feat->requirement = 'You must have levels in Monk';
         $feat->description = '<p>The Order of the Sun Soul is a monastic order that, during the time of Netheril, worshiped the god Amaunator as the Brotherhood of the Sun. When Netheril fell, the order survived, though their god seemed not to have. Individual monasteries began worshipping other gods, including, Lathander, Selune, and Sune. Over time, they forgot Amaunator but the order always kept the same goal of serving the common folk of Faerun.</p>
-<p>The order is widespread but their largest monastery is the Monastery of the Sun in Waterdeep. It is set up there because of its proximity to temples of Lathander, Selune, and Sune.</p>
-<p>Joining the order was free, but required a fee of 3 gp per month.</p>
+<p>The order is widespread, but their largest monastery is the Monastery of the Sun in Waterdeep. It is set up there because of its proximity to temples of Lathander, Selune, and Sune.</p>
+<p>Joining the order was free but required a fee of 3 gp per month.</p>
 <ul>
     <li>You gain the Mantis Stance feat</li>
     <li>You gain the Wise Defense or Beautiful Defense feat</li>
+    <li>All Powers with the Light type costs 1 Power Point less.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
         $helper->addPowersToFeat($feat, [
@@ -76,7 +75,7 @@ class ClassMonkSeeder extends Seeder
 <p>Each monastery is independent of the others and is led by a single individual.</p>
 <p>Monks of the Long Death focus their energies on studying death and the art of killing. They learn about the effect of the process of death on living tissue. The ultimate objective is to discover the 'perfect death' - an objective that no member of the group really understand, let alone achieve.</p>
 <p>Within their monasteries, they spend the majority of their time is spent sparring with one another, resting in quiet contemplation, or studying the nature of death. For their studies, the monks dig up bodies, take them to their respective monasteries examine their states of decomposition within their well-stocked laboratories. Perhaps most horrific, the followers of the Long Death purchase or capture slaves, giving them slow deaths in order to observe and record the results.</p>
-<p>Outside of the monasteries, they wander aimlessly, often disguised as beggars, attacking humanoids that they come across in an effort to inflict as painful a death as they can using only their bare hands.</p>
+<p>Outside the monasteries, they wander aimlessly, often disguised as beggars, attacking humanoids that they come across in an effort to inflict as painful a death as they can using only their bare hands.</p>
 <p>Every year the leader of each monastery has to prove themselves against their best warrior through trials by combat on the Feast of the Moon.</p>
 <p>There are at least three known monasteries of the Long Death. One in the easter realm of Thay, one in the Firesteap Mountains on the easter edge of the Lake of Steam, and the Abbot of the High Crypt within the Turnstone Hills in the Silver Marches.</p>
 <p>The order was formed after the people of Calimshan freed themselves from the Djen. Its original purpose was to teach people how they could attack and kill their former masters. Over time however, the monks developed an obsession with death. For their perverse fixation they were eventually run out of Calimshan.</p>
@@ -112,6 +111,8 @@ class ClassMonkSeeder extends Seeder
         </table>
     </li>
     <li>You gain either the Wise Defense or the Intelligent Defense feat</li>
+    <li>You gain the Sudden Strike Feat and may take Precision Feats using Generic Feats.</li>
+    <li>Members of this order frequently take the Assassin Prestige class.</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
         $helper->addPowersToFeat($feat, [
@@ -133,15 +134,52 @@ class ClassMonkSeeder extends Seeder
 <p>People often mistake the monks of the Order of the Long Death, who regularly disguise themselves as beggars, for Broken Ones.</p>
 <p>The Broken Ones have many sects.</p>
 <ul>
-    <li>Disciples of St. Morgan the Taciturn</li>
-    <li>Disciples of St. Sollars the Twice-Martyred (genealogical studies) represented by a yellow rose, and revered from the Monastery of the Yellow Rose.</li>
-    <li>Followers of the Unhindered Path</li>
-    <li>Order of St. Dionysus (Bloodstone Lands)</li>
-    <li>Order of St. Uzurr (order that governs the cty of Uzurr in Lapaliiya)</li>
-    <li>Sisters of St. Jasper of the Rocks</li>
-    <li>Weeping Friars</li>
+    <li>
+        <p>Disciples of St. Morgan the Taciturn</p>
+        <p>The Disciples of St. Morgan the Taciturn are an intense, highly respected monastic order dedicated to Ilmater. Unlike mainstream Ilmatari, they are often considered slightly crazed by outsiders due to their fanatical devotion to achieving a martyr's death.</p>
+        <p>St. Morgan believed in demonstrating his faith through absolute action rather than speech. He spent his life preaching against the brutal tyrants of the Moonsea and successfully freed hundreds of slaves, indentured servants, and political prisoners from the dungeons of Mulmaster, Zhentil Keep, and Melvaunt.</p>
+        <p>St. Morgan was eventually captured in Mulmaster by the sadistic priestesses of Loviatar (The Maiden of Pain). During a lengthy and horrific public torture session, Morgan never uttered a single word, maintaining a legendary, stoic silence until he died. This silence remains a major point of bitter religious tension between the churches of Ilmater and Loviatar.</p>
+    </li>
+    <li>
+        <p>Disciples of St. Sollars the Twice-Martyred</p>
+        <p>The Disciples of St. Sollars the Twice-Martyred, widely known as the Order of the Yellow Rose (or Monks of the Yellow Rose), are the most prominent and respected monastic order dedicated to Ilmater. Based in the cold north of the Bloodstone Lands, they are famous for balancing extreme asceticism with unmatched martial arts mastery and a bizarre symbiotic relationship with deadly Arctic monsters.</p>
+        <p>The monastery tracks genealogical records of all the major dynasties and royal families. Some monks specialize as scribes instead of focusing on their martial skills. These monks are members of the Order of the Scroll within the monastery.</p>
+        <p>The Order of the Chisel train as stonemasons, weavers, and creators of their famous blueberry wine.</p>
+        <p>THe Order of the Rose are the traditional martial artists the monaster is known for.</p>
+        <p>The monks have the following ranks within the Order of the Rose</p>
+        <ul>
+            <li>Brother</li>
+            <li>Disciple</li>
+            <li>Immaculate</li>
+            <li>Superior Master</li>
+            <li>Master of Dragons (3 members)</li>
+            <li>Master of the Four Winds (4 members: North, South, East, and West)</li>
+            <li>Master of the Seasons (4 members: Spring, Summer, Fall, and Winter)</li>
+            <li>Grand Master of Flowers (only one)</li>
+        </ul>
+    </li>
+    <li>
+        <p>Order of St. Uzurr (order that governs the cty of Uzurr in Lapaliiya)</p>
+        <p>The Order of St. Uzurr is a cloistered monastic order dedicated to Ilmater that stands out because it operates as a theocratic government, ruling over an entire independent city-state. While most Ilmatari focus purely on personal ministry, the Order of St. Uzurr manages regional politics, international trade, and military alliances.</p>
+        <p>During the Year of Rogue Dragons (1373 DR), the Order became a primary target for the serpentfolk of the Yuan-ti House Eselemas. The reigning Abbot, Kadar al Ilmater (a powerful 14th-level monk), successfully researched a cure to reverse yuan-ti transformation (specifically targeting tainted ones and broodguards). This discovery led to an infiltration and assassination plot against the monastery's leadership.</p>
+        <p>Members of this order can use the Body Restoration Power (Heightened +6) to reverse the effects of yuan-ti transformations.</p>
+    </li>
+    <li>
+        <p>Sisters of St. Jasper of the Rocks</p>
+        <p>The Sisters of St. Jasper of the Rocks are a unique, highly specialized monastic sect within the Church of Ilmater that stands out because they are an exclusively female, largely hereditary order focused specifically on easing the unique suffering of women and infants. While the broader Ilmatari faith focuses on general martyrdom and enduring global suffering, this sisterhood addresses localized medical and maternal trauma.</p>
+        <p>The order honors Saint Jasper, a legendary historical cleric of Ilmater who dedicated his life to saving impoverished mothers and newborns from death during challenging childbirths</p>
+        <p>In a rare twist for a monastic order, a large portion of the sisterhood consists of direct descendants of the women and babies Saint Jasper originally saved. Joining the order is often treated as a sacred family obligation to pay forward the miracle of their ancestors' survival.</p>
+        <p>The Sisters hold a theological belief that women bear the greatest portion of the world's suffering because it is they who endure the physical trauma required to bring new life into the world. Because of this, their ministry focuses tightly on midwifery, treating postpartum illness, and protecting vulnerable mothers.</p>
+        <p>While other sects use roses or broken bones, the Sisters of St. Jasper use a blue lily as their sacred floral emblem.</p>
+    </li>
+    <li>
+        <p>Weeping Friars</p>
+        <p>The Weeping Friars are one of the most fanatical, traveling monastic orders associated with the Church of Ilmater in the Forgotten Realms. They are widely known across the Savage Frontier for their extreme and highly literal interpretation of the Crying God's dogma.</p>
+        <p>The Weeping Friars operate on a unique theological math problem: they believe there is only a finite, fixed amount of pain and suffering in the multiverse. Therefore, they believe that the more pain they actively take upon themselves, the less suffering there is left in the world for innocent people to endure. Because of this, they are considered the ultimate \"bleeders\" of the faith. They actively travel from town to town offering a bizarre transactional service: they will undergo physical torture or beatings on a person's behalf to clear away that person's cosmic share of suffering. In exchange, they usually ask for small trinkets, handouts, or alcohol.</p>
+    </li>
 </ul>
 <ul>
+    <li>You gain a Heroic Surge</li>
     <li>You gain either the Crane Stance or Mantis Stance feat</li>
     <li>You gain the Wise Defense feat</li>
 </ul>";
@@ -155,15 +193,57 @@ class ClassMonkSeeder extends Seeder
         ]);
 
         $feat              = new Feat;
+        $feat->name        = 'Followers of the Unhindered Path';
+        $feat->requirement = 'You must have levels in Monk';
+        $feat->description = '<p>You are a member of the ultra orthodox Followers of the Unhindered Path. You do not believe in the use of any weapons or armor. As soon as you are able, you must take the Vow of Poverty Feat.</p>
+<ul>
+    <li>You gain the Sacred Vow Feat, in devotion to Ilmater.</li>
+    <li>You gain either the Mantis Stance Feat or the Northern Fist Stance</li>
+    <li>You gain either the Wise Defense or Tough Defense Feat</li>
+    <li>You may use any Feat type to take Exalted Feats</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addPowersToFeat($feat, [
+            1 => ['Awareness', 'Burst', 'Dexterity Defense', 'Empathy', 'Heal', 'Intelligence Defense', 'Strength Blast',
+                'Thicken Skin', 'Vigor', ],
+            2 => ['Biofeedback', 'Body Equilibrium', 'Dexterity Blast', 'Mental Augmentation', 'Physical Augmentation',
+                'Power Defense', 'Ubiquitous Sight', ],
+            3 => ['Body Purification', 'Haste'],
+            4 => ['Aura Sight', 'Life Blast', 'Intellect Fortress'],
+            5 => ['Adapt Body', 'Psychic Crush', 'Quivering Palm'],
+        ]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Order of St. Dionysus';
+        $feat->requirement = 'You must have levels in Monk';
+        $feat->description = "<p>The Order of St. Dionysus stands out as the single most rowdy, unusual, and paradoxically jovial faction within the otherwise solemn Church of Ilmater. While most of Ilmater's followers focus on quiet suffering, martyrdom, and austere discipline, this order is famous for being an often-inebriated collection of rough-and-tumble brawlers.</p>
+<ul>
+    <li>You are considered Proficient with random items as weapons as long as they are used in Melee</li>
+    <li>Once per day, you may add a +3 bonus to any roll you make after rolling but before the results are determined.</li>
+    <li>You gain a +2 Save bonus vs. Poison</li>
+    <li>You gain the Drunken Master Stance</li>
+    <li>You gain either the Tough Defense or Beautiful Defense feat</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addPowersToFeat($feat, [
+            1 => ['Awareness', 'Body Adjustment', 'Burst', 'Empathy', 'Heal', 'Thicken Skin', 'Vigor'],
+            2 => ['Biofeedback', 'Compression', 'Mental Augmentation', 'Physical Augmentation', 'Ubiquitous Sight'],
+            3 => ['Body Purification', 'Flame Breath', 'Haste'],
+            4 => ['Aura Sight', 'Immovability', 'Intellect Fortress'],
+            5 => ['Adapt Body', 'Barrage', 'Catapsi'],
+        ]);
+
+        $feat              = new Feat;
         $feat->name        = 'Shining Hand';
         $feat->requirement = 'You must have levels in Monk';
-        $feat->description = "<p>The Shining Hand is a monastic order based in Amn, dedicated to the god Azuth.</p>
-<p>The monks of the Shining Hand mix their monastic practices and their faith in Azuth with the study of magic.</p>
-<p>The Shining Hand is one of the longest-running monastic orders in Amn, however, Amn's persecution of wizards and their practices cause many monks of the order to go underground or even to leave the country. Some of them founded the Shining Hand Monastery in Vaasa that gained renown and a small fortune for creating the robes fo the Shining Hand that is in high demand across Faerun, keeping the monks busy creating variations of the successful design.</p>
+        $feat->description = "<p>The Shining Hand is a monastic order based in Amn, dedicated to the gods Azuth and Savras.</p>
+<p>The monks of the Shining Hand mix their monastic practices and their faith in Azuth and Savras with the study of magic.</p>
+<p>The Shining Hand is one of the longest-running monastic orders in Amn, however, Amn's persecution of wizards and their practices cause many monks of the order to go underground or even to leave the country. Some of them founded the Shining Hand Monastery in Vaasa that gained renown and a small fortune for creating the robes fo the Shining Hand that is in high demand across Faerûn, keeping the monks busy creating variations of the successful design.</p>
 <p>Monks of the Shining Hand take the Enlightened Fist prestige class.</p>
 <ul>
     <li>You gain the Psionic Fist feat</li>
     <li>You gain the Intelligent Defense feat</li>
+    <li>You gain the Psionic Fist feat</li>
 </ul>";
         $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
         $helper->addPowersToFeat($feat, [
@@ -181,6 +261,7 @@ class ClassMonkSeeder extends Seeder
 <p>Members of this monastic order prefer to inflict pain upon their enemies through the use of their bare hands. They are known for their use of whips and nunchakus.</p>
 <ul>
     <li>You gain either the Dragon Stance or Tiger Stance feat</li>
+    <li>When you make an attack with a whip, add your Unarmed Strike damage to the whip's damage</li>
     <li>Monks of this order are able to deliver their Stunning Fist ability through their whips.</li>
     <li>You gain either the Tough Defense or Beautiful Defense feat</li>
 </ul>";
@@ -196,9 +277,10 @@ class ClassMonkSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Avowed';
         $feat->requirement = 'You must have levels in Monk';
-        $feat->description = '<p>The Disciples of the Avowed that protects the library fortress of Candelkeep. You serve as library staff, and defense.</p>
+        $feat->description = '<p>The Disciples of the Avowed protect the library fortress of Candelkeep. You serve as library staff and defense.</p>
 <p>You gain the following</p>
 <ul>
+    <li>Increase your INT or WIS by +1 to a maximum of 20</li>
     <li>You gain the Psionic Talent Feat</li>
     <li>You gain either the Intelligent Defense or Wise Defense feat</li>
 </ul>';
@@ -217,6 +299,7 @@ class ClassMonkSeeder extends Seeder
         $feat->requirement = 'You must have levels in Monk';
         $feat->description = '<p>The Disciples of Wing-ta are monks from the town of Goisho in Koryo. They practice Koryo Style martial arts.</p>
 <ul>
+    <li>Increase your DEX by +1 to a maximum of 20</li>
     <li>You gain the Koryo Style Feat.</li>
     <li>You gain the Wise Defense Feat.</li>
 </ul>';
@@ -234,6 +317,7 @@ class ClassMonkSeeder extends Seeder
         $feat->requirement = 'You must be of the Githzerai race';
         $feat->description = '<p>You are a Gith from the plane of Limbo.</p>
 <ul>
+    <li>Increase your WIS by +1 to a maximum of 20</li>
     <li>You may spend 1 Power Point to manipulate the roiling chaos of Limbo into a basic and stable piece of matter (earth, water or air, nothing that is complex). This effect lasts for 8 hours and you can create a 30 ft x 10 ft area of chaos</li>
     <li>You gain the Wise Defense Feat.</li>
 </ul>';
@@ -247,10 +331,18 @@ class ClassMonkSeeder extends Seeder
             5 => ['Adapt Body', 'Catapsi', 'Null Psionics Field', 'Quivering Palm', 'Tower of Iron Will'],
         ]);
 
-        // Brotherhood of the Scarlet Scourge (monk orcs seeking to unite the orcs of the Sword Mountains)
-        // Order of Rainbow Monks (religious organization of Byubo found in the Hordelands)
-        // Standing Tree Monastery (Shou monastery dedicated to the pursuit of knowledge)
-
+        /**
+         * This custom document outlines the mechanics and lore for the major Kara-Turan monk orders, formatting them into a highly scannable reference guide for your campaign.
+         *
+         * Brotherhood of the Scarlet Scourge: A group of orcs that have been hunted by the Sword Mountains for centuries. They are known for their ability to manipulate the mountains into a form of magic.
+         * Order of the Rainbow Monks: A group of monks that have been trained to use the power of the rainbow to their advantage. They are known for their ability to manipulate the mountains into a form of magic.
+         * Standing Tree Monastery: A monastery dedicated to the pursuit of knowledge. It is located in the northern part of the Forgotten Realms, and is home to the Shou monks.
+         * Monasteries of the Golden Way: Lore on how these orders expanded their networks westward into Eastern Faerûn (Thesk and Sembia) to serve as a bridge for your players.
+         * Signature Combat Techniques: Mechanically balanced feat-style abilities unique to each order:
+         * True Path: Passive bonuses to saving throws through cosmic alignment.
+         * Black Hand: Forceful ki strikes that inflict progressive physical debuffs on targets.
+         * Tabot Ascetics: High-altitude survival traits and cold-damage resistance.
+         */
         $helper->addFeatsToClass($class, [
             'Order of the Sun Soul'      => 2,
             'Order of the Long Death'    => 2,

@@ -14,7 +14,7 @@ class SpellsCSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         /** @var SeedHelper $helper */
         $helper = app()->seedHelper;
@@ -285,7 +285,7 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '1 hour';
-        $spell->description = '<p>You change the coloring of your skin and clothing to match the environment around you. Throughout the duration of the spell, your coloration changes instantly to match the background of any new environment you enter, with no effort on your part. This effect grants you a +10 circumstance bonus on DEX (Sneak) check.</p>';
+        $spell->description = '<p>You change the coloring of your skin and clothing to match the surrounding environment. Throughout the duration of the spell, your coloration changes instantly to match the background of any new environment you enter, with no effort on your part. This effect grants you a +10 circumstance bonus on DEX (Sneak) check.</p>';
         $helper->addTypesToSpell($spell, ['Transmutation'], 1);
 
         $spell                 = new Spell;
@@ -711,7 +711,7 @@ class SpellsCSeeder extends Seeder
         $spell->targets        = 'One humanoid creature';
         $spell->save_attribute = 'WIS';
         $spell->duration       = '1 hour or until dismissed';
-        $spell->description    = "<p>To the target, your words are honey and your visage bathed in dreamy haze. It must attempt a Save, with a +4 circumstance bonus if you or your allies recently threatened it or acted hostile.</p>
+        $spell->description    = "<p>To the target, your words are honey and your visage bathed in a dreamy haze. It must attempt a Save, with a +4 circumstance bonus if you or your allies recently threatened it or acted hostile.</p>
 <p>You can dismiss charm with a Verbal Casting action. If you act hostile to the target, the spell ends. When the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, which could potentially allow you to convince the target to continue being your friend via mundane means.</p>";
         $spell->saves = "<dl>
     <dt>Critical Success</dt> <dd>The target is unaffected and aware you tried to charm it</dd>
@@ -904,7 +904,7 @@ class SpellsCSeeder extends Seeder
     <dt>Heightened (+1)</dt> <dd>The duration increases to 1 hour.</dd>
     <dt>Heightened (+1)</dt> <dd>The Area becomes a 5-ft X 50-ft Wall</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Evil', 'Chaos', 'Demon'], 3);
+        $helper->addTypesToSpell($spell, ['Abjuration', 'Enchantment', 'Evil', 'Chaotic', 'Demon'], 3);
         $spell->materials()->save(Material::where('name', 'Silver')->firstOrFail(), [
             'price' => '50 gp',
             'meta'  => 'Powdered, drawn into a 3-ft diameter circle on the floor',
@@ -2475,31 +2475,6 @@ class SpellsCSeeder extends Seeder
         $helper->addTypesToSpell($spell, ['Transmutation', 'Ritual'], 2);
 
         $spell               = new Spell;
-        $spell->name         = 'Create Homunculus';
-        $spell->casting      = '1 hour (Material, Somatic, Verbal)';
-        $spell->range        = 'Touch';
-        $spell->rarity       = 'Uncommon';
-        $spell->requirements = '<dl>
-    <dt>Ability Damage</dt> <dd>4 CON damage</dd>
-</dl>';
-        $spell->duration     = 'Instantaneous';
-        $spell->description  = "<p>While speaking an intricate incantation, you cut yourself with a jewel-encrusted dagger, taking 2D4 piercing damage that can't be reduced in any way. You then drip your blood on the spell's other components and touch them, transforming them into a special construct called a homunculus. It is your faithful companion, and it dies if you die.</p>
-<p>Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your CON modifier to it. Your hit point maximum is reduced by the total, and the homunculus's hit point maximum and current hit points are both increased by it. This process can reduce you to no lower than 1 hit point. and the change to your and the homunculus's hit points ends when you finish your next long rest. The reduction to your hit point maximum can't be removed by any means before then, except by the homunculus‘s death.</p>
-<p>You can have only one homunculus at a time. If you perform this ritual while your homunculus lives, the ritual fails.</p>
-<dl>
-    <dt>Material Components</dt> <dd>
-        <ul>
-            <li>Clay (consumed)</li>
-            <li>Ash (consumed)</li>
-            <li>Mandrake Root (consumed)</li>
-            <li>A jewel-encrusted dagger worth at least 1,000 gp</li>
-        </ul>
-    </dd>
-</dl>";
-        $helper->addTypesToSpell($spell, ['Enchantment'], 3);
-        $spell->skills()->save(app()->skills['Arcana'], ['dc' => 15]);
-
-        $spell               = new Spell;
         $spell->name         = 'Create Lantern Archon';
         $spell->casting      = '1 minute (Somatic, Verbal, Sacrifice)';
         $spell->requirements = '<dl>
@@ -2563,53 +2538,58 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = '10 minutes (Somatic, Verbal, Material)';
         $spell->range       = '10 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You can cast this spell only at night. Choose up to three corpses of Medium or Small humanoids within range. Each corpse becomes a Ghoul or Dread Warrior under your control.</p>
+        $spell->description = '<p>You can cast this spell only at night. Choose a corpse of Medium or Small humanoid within range. You create a Ghoul or a Dread Warrior that is under your control.</p>
 <p>As an Action, you can mentally command any creature you animated with this spell if the creature is within 120 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete.</p>
-<p>The creature is under your control for 24 hours, after which it stops obeying any commands you have given it. To maintain control of the creature, you must sacrifice a spell slot to maintain control. Once you memorize a spell in the spell slot the creatures become free willed. One sacrificed spell slot maintains control of up to 3 creatures.</p>
-<table>
-    <thead>
-        <tr>
-            <th>Heightened</th>
-            <th>Undead Types</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Base</td>
-            <td>
-                <ul>
-                    <li>Ghoul</li>
-                    <li>Dread Warrior</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>+1</td>
-            <td>
-                <ul>
-                    <li>2 Ghouls</li>
-                    <li>1 Juju Zombie</li>
-                    <li>Baneguard (Divine, Bane only)</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>+2</td>
-            <td>
-                <ul>
-                    <li>2 Ghasts</li>
-                    <li>1 Wight</li>
-                    <li>1 Mummy</li>
-                    <li>1 Zin-carla (Lolth only) zombie</li>
-                    <li>Direguard</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>';
+<p>The creature is under your control for 24 hours, after which it stops obeying any commands you have given it. To maintain control of the creature, you must sacrifice a spell slot to maintain control. Once you memorize a spell in the spell slot the creatures become free willed. One sacrificed spell slot maintains control of up to 4 creatures. You must sacrifice a Spell Slot equal to the Heightened amount to animate it to maintain control.</p>
+<blockquote>
+    You animate 6 Ghouls and 4 Juju zombies. You must sacrifice two 6th level Spell Slots to maintain control of the 6 Ghouls and one 7th level Spell Slot to maintain control of the 4 Juju Zombies. You could maintain control of 2 additional Ghouls with the two 6th level Spell Slots that you sacrificed.
+</blockquote>';
         $spell->heightened = '<dl>
-    <dt>Heightened (+1)</dt> <dd>You can create an additional ghoul for each additional spell slot used to cast this spell or one juju zombie. You may sacrifice a higher level spell slot to maintain control over an additional ghoul for each additional spell slot sacrificed.</dd>
-    <dt>Heightened (+2)</dt> <dd>You can animate two ghasts or one wight. You may sacrifice a spell slot +2 to maintain control over two ghasts, or one mummy, or one wight.</dd>
+    <dt>Heightened (+1)</dt> <dd>
+        <ul>
+            <li>2 Ghouls</li>
+            <li>2 Dread Warriors</li>
+            <li>1 Juju Zombie</li>
+            <li>1 Ghast</li>
+            <li>Baneguard (Divine, Bane only)</li>
+        </ul>
+    </dd>
+    <dt>Heightened (+2)</dt> <dd>
+        <ul>
+            <li>4 Ghouls</li>
+            <li>4 Dread Warriors</li>
+            <li>2 Juju Zombies</li>
+            <li>2 Ghasts</li>
+            <li>2 Baneguard (Divine, Bane only)</li>
+            <li>1 Wight</li>
+            <li>1 Direguard</li>
+            <li>1 Zin-carla (Lolth only)</li>
+        </ul>
+    </dd>
+    <dt>Heightened (+3)</dt> <dd>
+        <ul>
+            <li>8 Ghouls</li>
+            <li>8 Dread Warriors</li>
+            <li>4 Juju Zombies</li>
+            <li>4 Ghasts</li>
+            <li>4 Baneguard (Divine, Bane only)</li>
+            <li>2 Wight</li>
+            <li>2 Direguard</li>
+            <li>2 Zin-carla (Lolth only)</li>
+        </ul>
+    </dd>
+    <dt>Heightened (+4)</dt> <dd>
+        <ul>
+            <li>16 Ghouls</li>
+            <li>16 Dread Warriors</li>
+            <li>8 Juju Zombies</li>
+            <li>8 Ghasts</li>
+            <li>8 Baneguard (Divine, Bane only)</li>
+            <li>4 Wight</li>
+            <li>4 Direguard</li>
+            <li>4 Zin-carla (Lolth only)</li>
+        </ul>
+    </dd>
 </dl>';
         $helper->addTypesToSpell($spell, ['Necromancy', 'Undead', 'Ritual'], 6);
 
@@ -2798,7 +2778,7 @@ class SpellsCSeeder extends Seeder
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the number motes by 2.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Positive', 'Light'], 7);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Positive', 'Light'], 7);
 
         $spell                 = new Spell;
         $spell->name           = 'Crowning Touch';

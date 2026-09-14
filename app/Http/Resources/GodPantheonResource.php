@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\GodPantheon;
 use App\Models\GodPantheonClass;
+use App\Models\GodPantheonFeat;
 use App\Models\GodPantheonWorshipClass;
 use App\Models\GodPiety;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -29,28 +30,47 @@ class GodPantheonResource extends JsonResource
             'favored_weapon'  => $this->favored_weapon,
             'regions'         => $this->regions,
             'description'     => $this->description,
-            'master'          => new SimpleGodPantheonResource(GodPantheon::where('god_id', $this->master_id)->where('pantheon_id', $this->pantheon_id)->first()),
-            'servants'        => GodPantheon::where('master_id', $this->god_id)->where('pantheon_id', $this->pantheon_id)->get()->map(function (GodPantheon $god) {
-                return new SimpleGodPantheonResource($god);
-            }),
-            'classes'         => GodPantheonClass::where('god_id', $this->god_id)->where('pantheon_id', $this->pantheon_id)->with('klass')->get()->map(function (GodPantheonClass $class) {
-                return [
-                    'id'    => $class->class_id,
-                    'name'  => $class->klass->name,
-                    'level' => $class->level,
-                    'meta'  => $class->meta,
-                ];
-            }),
-            'worship_classes' => GodPantheonWorshipClass::where('god_id', $this->god_id)->where('pantheon_id', $this->pantheon_id)->with('klass')->get()->map(function (GodPantheonWorshipClass $class) {
-                return [
-                    'id'               => $class->class_id,
-                    'name'             => $class->klass->name,
-                    'multiclass_group' => $class->multiclass_group,
-                    'meta'             => $class->meta,
-                ];
-            }),
-            'piety'           => GodPiety::where('god_id', $this->god_id)->where('pantheon_id', $this->pantheon_id)
-                ->get()->first(function (GodPiety $piety) {
+            'master'          => new SimpleGodPantheonResource(
+                GodPantheon::where('god_id', $this->master_id)
+                    ->where('pantheon_id', $this->pantheon_id)
+                    ->first()
+            ),
+            'servants'        => GodPantheon::where('master_id', $this->god_id)
+                ->where('pantheon_id', $this->pantheon_id)
+                ->get()
+                ->map(function (GodPantheon $god) {
+                    return new SimpleGodPantheonResource($god);
+                }),
+            'classes'         => GodPantheonClass::where('god_id', $this->god_id)
+                ->where('pantheon_id', $this->pantheon_id)
+                ->with('klass')
+                ->get()
+                ->map(function (GodPantheonClass $class) {
+                    return [
+                        'id'    => $class->class_id,
+                        'name'  => $class->klass->name,
+                        'level' => $class->level,
+                        'meta'  => $class->meta,
+                    ];
+                }),
+            'worship_classes' => GodPantheonWorshipClass::where('god_id', $this->god_id)
+                ->where('pantheon_id', $this->pantheon_id)
+                ->with('klass')
+                ->orderBy('is_clergy', 'desc')
+                ->get()
+                ->map(function (GodPantheonWorshipClass $class) {
+                    return [
+                        'id'               => $class->class_id,
+                        'name'             => $class->klass->name,
+                        'multiclass_group' => $class->multiclass_group,
+                        'meta'             => $class->meta,
+                        'is_clergy'        => $class->is_clergy,
+                    ];
+                }),
+            'piety'           => GodPiety::where('god_id', $this->god_id)
+                ->where('pantheon_id', $this->pantheon_id)
+                ->get()
+                ->first(function (GodPiety $piety) {
                     return [
                         'favor'      => $piety->favor,
                         'devotion'   => $piety->devotion,
@@ -60,6 +80,15 @@ class GodPantheonResource extends JsonResource
                         'piety10'    => $piety->piety10,
                         'piety25'    => $piety->piety25,
                         'piety50'    => $piety->piety50,
+                    ];
+                }),
+            'feats'           => GodPantheonFeat::where('god_id', $this->god_id)
+                ->where('pantheon_id', $this->pantheon_id)
+                ->get()
+                ->map(function (GodPantheonFeat $feat) {
+                    return [
+                        'id'    => $feat->feat_id,
+                        'name'  => $feat->feat->name,
                     ];
                 }),
         ];

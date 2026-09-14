@@ -54,7 +54,8 @@ class GodsGarlSeeder extends Seeder
             'Rogue'   => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            $class->name, 'Wizard', 'Rogue',
+            $class->name => ['is_clergy' => true],
+            'Wizard', 'Rogue',
         ]);
 
         // Skills
@@ -91,7 +92,7 @@ class GodsGarlSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
-            'favor'       => "<p>Garl's favour is given to those who enjoy life and who remind the world that despite the evils which plague society, there is joy to be hand in the small things. A whimsical god, the tales of his pranks and japes on the other gods are held dear to gnomish hearts, and many attempt to emulate his successes.</p>
+            'favor'       => "<p>Garl's favor is given to those who enjoy life and who remind the world that despite the evils which plague society, there is joy to be hand in the small things. A whimsical god, the tales of his pranks and japes on the other gods are held dear to gnomish hearts, and many attempt to emulate his successes.</p>
 <p>Garl’s scions hail from all kinds of professions, but he prefers those who are able to bring others together, whether with riotous laughter, inspiring speech or conspiratorial giggles.</p>
 <ol>
     <li>You seek to play the ultimate prank, and it has been years in the making</li>
@@ -145,12 +146,13 @@ class GodsGarlSeeder extends Seeder
             'favored_weapon' => 'Spiderbane (Battleaxe)',
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            'Druid', 'Artificer', 'Wizard',
+            'Druid' => ['is_clergy' => true],
+            'Artificer', 'Wizard',
         ]);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
-            'favor'       => "<p>Callarduran's favour lies with the inquisitive and curious. Callarduran's legends often focus on how his insatiable, relentless curiosity lead him and others to ruin, such as when he stole the heart of Ogremoch, turning the ancient elemental into an implacable monster.</p>
+            'favor'       => "<p>Callarduran's favor lies with the inquisitive and curious. Callarduran's legends often focus on how his insatiable, relentless curiosity lead him and others to ruin, such as when he stole the heart of Ogremoch, turning the ancient elemental into an implacable monster.</p>
 <p>Callarduran's scions most often hail from hidden deep gnome communities, but comprise all manner of crafters, sages and investigators.</p>
 <ol>
     <li>You are an expert on gems and magical stones</li>
@@ -266,7 +268,8 @@ class GodsGarlSeeder extends Seeder
             'Gnome', 'Good',
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            $class->name, 'Artificer', 'Fighter',
+            $class->name => ['is_clergy' => true],
+            'Artificer', 'Fighter',
         ]);
 
         // Skills
@@ -297,7 +300,7 @@ class GodsGarlSeeder extends Seeder
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Gnome']->id,
-            'favor'       => "<p>Flandal's favour is given to those who allow the urge to create to drive their actions above all else, leading them to acts of larceny, mischief and rebellion. Flandal's creative efforts are augmented (and occasionally stymied) by the gnomish spirit of chaos, and he looks for this in his chosen.</p>
+            'favor'       => "<p>Flandal's favor is given to those who allow the urge to create to drive their actions above all else, leading them to acts of larceny, mischief and rebellion. Flandal's creative efforts are augmented (and occasionally stymied) by the gnomish spirit of chaos, and he looks for this in his chosen.</p>
 <p>Flandal’s scions are crafters and makers before anything else. They also comprise alchemists, glassblowers, metallurgists and other specialist craftsmen.</p>
 <ol>
     <li>You think you created a philosopher's stone, but you dare not tell anyone because you can't make it work</li>
@@ -370,7 +373,8 @@ class GodsGarlSeeder extends Seeder
             'Wizard' => 20,
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            $class->name, 'Wizard',
+            $class->name => ['is_clergy' => true],
+            'Wizard',
         ]);
 
         // Skills
@@ -480,7 +484,8 @@ class GodsGarlSeeder extends Seeder
             'Wizard' => 10,
         ]);
         $helper->addWorshipClassesToGod($god, 'Gnome', [
-            $class->name, 'Rogue', 'Assassin',
+            $class->name => ['is_clergy' => true],
+            'Rogue', 'Assassin',
         ]);
 
         // Skills
