@@ -5,12 +5,31 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import MultiSelect from "@/components/MultiSelect.vue";
+import {computed, onMounted, ref} from "vue";
+import axios from "axios";
 
 const Uri = "talents";
 const filters = {
     name: null,
-    type: [],
 };
+
+const types = ref([]);
+const typeOptions = computed(() => types.value.map(t => ({ value: t.name, label: t.name })));
+
+const getTypeOptions = async () => {
+    try {
+        const response = await axios.get('/api/types', {
+            params: { typeable_type: 'Talent', per_page: 200 },
+        });
+        types.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching type options:", error);
+    }
+};
+
+onMounted(() => {
+    getTypeOptions();
+});
 </script>
 
 <template>
@@ -53,48 +72,7 @@ const filters = {
                                     <label class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
-                                        :options="[
-                                            { value: 'animal companion', label: 'Animal Companion' },
-                                            { value: 'attack', label: 'Attack' },
-                                            { value: 'attack of opportunity', label: 'Attack of Opportunity' },
-                                            { value: 'arcane', label: 'Arcane' },
-                                            { value: 'charge', label: 'Charge' },
-                                            { value: 'concentration', label: 'Concentration' },
-                                            { value: 'diminishing', label: 'Diminishing' },
-                                            { value: 'divine', label: 'Divine' },
-                                            { value: 'finisher', label: 'Finisher' },
-                                            { value: 'flanking', label: 'Flanking' },
-                                            { value: 'graft', label: 'Graft' },
-                                            { value: 'grapple', label: 'Grapple' },
-                                            { value: 'heroic surge', label: 'Heroic Surge' },
-                                            { value: 'initiative', label: 'Initiative' },
-                                            { value: 'item creation', label: 'Item Creation' },
-                                            { value: 'melee', label: 'Melee' },
-                                            { value: 'move', label: 'Move' },
-                                            { value: 'mounted', label: 'Mounted' },
-                                            { value: 'precision', label: 'Precision' },
-                                            { value: 'primal', label: 'Primal' },
-                                            { value: 'psionic', label: 'Psionic' },
-                                            { value: 'psionic combat', label: 'Psionic Combat' },
-                                            { value: 'psionic focus', label: 'Psionic Focus' },
-                                            { value: 'rage', label: 'Rage' },
-                                            { value: 'ranged', label: 'Ranged' },
-                                            { value: 'reaction', label: 'Reaction' },
-                                            { value: 'shield', label: 'Shield' },
-                                            { value: 'skill', label: 'Skill' },
-                                            { value: 'stance', label: 'Stance' },
-                                            { value: 'strike', label: 'Strike' },
-                                            { value: 'unarmed', label: 'Unarmed' },
-                                            { value: 'wild shape', label: 'Wild Shape' },
-                                            { value: 'abjuration', label: 'Abjuration' },
-                                            { value: 'conjuration', label: 'Conjuration' },
-                                            { value: 'divination', label: 'Divination' },
-                                            { value: 'enchantment', label: 'Enchantment' },
-                                            { value: 'evocation', label: 'Evocation' },
-                                            { value: 'illusion', label: 'Illusion' },
-                                            { value: 'necromancy', label: 'Necromancy' },
-                                            { value: 'transmutation', label: 'Transmutation' },
-                                        ]"
+                                        :options="typeOptions"
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">

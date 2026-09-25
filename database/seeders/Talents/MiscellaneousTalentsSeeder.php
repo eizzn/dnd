@@ -278,28 +278,28 @@ class MiscellaneousTalentsSeeder extends Seeder
 </ul>
 <p>Once you activate this ability and have chosen one of the elements, your Melee Weapon is empowered for 1 minute with that element and deals an additional 1D6 Damage per hit of that element.</p>
 <p>As an Action, before the 1-minute duration is up, you may switch elements.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Spend Spell Point', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Sorcerous Resistance';
         $talent->action_type = 'Free';
         $talent->requirement = 'You must have the ability to cast at least 2nd level Arcane spells';
         $talent->description = '<p>You may spend 3 Spell Points as part of making a STR, DEX, or CON Save to give yourself Advantage on the Save.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Spend Spell Point', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Sorcerous Travel';
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You must have the ability to cast at least 3rd level Arcane spells';
         $talent->description = '<p>You may spend 5 Spell Points as a Double Action to cast Misty Step.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Spend Spell Point', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Sorcerous Speed';
         $talent->action_type = 'Free';
         $talent->requirement = 'You must have the ability to cast at last 4th level Arcane spells';
         $talent->description = '<p>You may spend 15 Spell Points to gain the Quickened Condition for 1 minute.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Talent' => 15]);
+        $helper->addTypesToSimpleObject($talent, ['Arcane', 'Spend Spell Point', 'Talent' => 15]);
 
         /**********************************************************************/
 
@@ -926,7 +926,7 @@ class MiscellaneousTalentsSeeder extends Seeder
         $talent->trigger     = 'You start to cast a spell that deals damage';
         $talent->description = '<p>You can infuse a spell that deals damage to cause additional damage to undead.</p>
 <p>Spend 1 Spell Point. The modified spell now deals an additional 3D6 Positive damage to undead (no Save).</p>';
-        $helper->addTypesToSimpleObject($talent, ['Metamagic', 'Positive', 'Necromancy', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Metamagic', 'Positive', 'Necromancy', 'Spend Spell Point', 'Talent' => 3]);
 
         $talent              = new Talent;
         $talent->name        = 'Acid Spell Specialization';

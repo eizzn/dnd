@@ -27,8 +27,8 @@ class ClassSpellThiefSeeder extends Seeder
         $class->weapons       = 'Simple Weapons, Shortbow, Shortsword';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
             'has_spells'     => true,
         ], ['DEX', 'INT'], [
             'Spellthief', 'Arcane', 'Skill', 'Spell Pool', 'Sneak Attack',
@@ -44,7 +44,7 @@ class ClassSpellThiefSeeder extends Seeder
         $feature->name        = 'Steal Spell';
         $feature->description = '<p>You can steal a spell from an arcane spell caster. As an Action, you may spend a Spell Point after striking with a Sneak Attack. You steal a spell from the target at the highest level that you can cast and the highest level the target can cast (which ever is lower). You may cast this spell by spending a number of Spell Points equal to the stolen Spells Level.</p>
 <p>After you spend the Spell Points to cast the spell, you lose the ability to cast the spell again unless you know fewer spells than your maximum. You may also choose to keep the stolen spell by forgetting a known spell to make room for the stolen spell.</p>';
-        $helper->saveFeature($feature, ['Sneak Attack']);
+        $helper->saveFeature($feature, ['Sneak Attack', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'rogue_feat'       => [2, 4, 12, 18],

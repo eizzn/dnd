@@ -68,8 +68,8 @@ class GodsSehanineSeeder extends Seeder
         $class->description   = '<p>Priest of Sehanine and Selune</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);

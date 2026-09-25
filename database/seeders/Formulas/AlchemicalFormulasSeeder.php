@@ -35,7 +35,7 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->level       = 1;
         $formula->price       = '20 gp';
         $formula->bulk        = '1 lb';
-        $formula->description = "<p>Alchemist's fire is a flask filled with a volatile liquid that ignites when exposed to air. You can throw this flask as a splash weapon. A direct hit deals 1d6 points of fire damage. On the round following a direct hit, the target takes an additional 1d6 points of fire damage. To extinguish the flames before this round, the target can spend a full-round action to make a DC 15 Reflex save, or submerge themselves in water. Every creature within 5 feet of the splash point takes 1 point of fire damage from the initial impact.</p>";
+        $formula->description = "<p>Alchemist's fire is a flask filled with a volatile liquid that ignites when exposed to air. You can throw this flask as a splash weapon. A direct hit deals 1d6 points of fire damage. On the round following a direct hit, the target takes an additional 1d6 points of fire damage. To extinguish the flames before this round, the target can spend a full-round action to make a DC 15 DEX Save, or submerge themselves in water. Every creature within 5 feet of the splash point takes 1 point of fire damage from the initial impact.</p>";
         $helper->saveFormula($formula, ['Alchemical', 'Bomb', 'Consumable', 'Fire', 'Splash'], [
             'skills'    => ['Crafting' => ['dc' => 20, 'meta' => 'Alchemy']],
             'materials' => [
@@ -582,7 +582,7 @@ class AlchemicalFormulasSeeder extends Seeder
         $formula->level       = 2;
         $formula->price       = '50 gp';
         $formula->bulk        = '4 lb';
-        $formula->description = '<p>A tanglefoot bag is a small sack filled with a tough, sticky glue. When you throw it as a splash weapon, a direct hit forces the target to make a DC 15 Reflex save or be glued to the floor (if airborne, it falls). Even with a successful save, the creature is entangled, moving at half speed for 2d4 rounds. A creature glued to the floor can break free with a DC 17 Strength check or by dealing 15 points of slashing damage to the goo. A tanglefoot bag is ineffective against creatures of Huge size or larger, or creatures completely submerged in water.</p>';
+        $formula->description = '<p>A tanglefoot bag is a small sack filled with a tough, sticky glue. When you throw it as a splash weapon, a direct hit forces the target to make a DC 15 DEX Save or be glued to the floor (if airborne, it falls). Even with a successful save, the creature is entangled, moving at half speed for 2d4 rounds. A creature glued to the floor can break free with a DC 17 Strength check or by dealing 15 points of slashing damage to the goo. A tanglefoot bag is ineffective against creatures of Huge size or larger, or creatures completely submerged in water.</p>';
         $helper->saveFormula($formula, ['Alchemical', 'Bomb', 'Consumable'], [
             'skills' => ['Crafting' => ['dc' => 25, 'meta' => 'Alchemy and Bomb Making']],
         ]);

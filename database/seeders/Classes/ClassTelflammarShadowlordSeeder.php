@@ -34,8 +34,7 @@ class ClassTelflammarShadowlordSeeder extends Seeder
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 5,
-            'skill_progress' => 5,
+            'skill_progress' => 4,
             'has_spells'     => true,
         ], ['DEX', 'CHA'], [
             'Arcane', 'Skill', 'Sneak Attack',

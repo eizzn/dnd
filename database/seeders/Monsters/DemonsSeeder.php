@@ -32,7 +32,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider', 'Familiar'], [
             'stats'    => [10, 9, 13, 3, 8, 4, .125, 2],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity'],
                 'immunity'      => ['meta' => 'Poison, Charm, Frightened'],
@@ -57,7 +57,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [11, 11, 12, 5, 8, 3, .25, 2],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity'],
                 'immunity'      => ['meta' => 'Poison'],
@@ -89,7 +89,7 @@ class DemonsSeeder extends Seeder
             'stats'    => [5, 17, 10, 7, 10, 10, 2, 2],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison'],
@@ -116,7 +116,7 @@ class DemonsSeeder extends Seeder
             'stats'    => [15, 15, 12, 11, 14, 10, 4, 2],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity'],
                 'immunity'      => ['meta' => 'Poison'],
@@ -149,7 +149,7 @@ class DemonsSeeder extends Seeder
             'stats'    => [18, 15, 16, 7, 14, 9, 5, 2],
             'features' => [
                 'magic_resistance', 'rage',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'          => ['meta' => 'Cold, Fire, Electricity'],
                 'immunity'            => ['meta' => 'Poison'],
@@ -200,7 +200,7 @@ class DemonsSeeder extends Seeder
             'stats'    => [17, 15, 18, 8, 13, 8, 6, 3],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison'],
@@ -231,7 +231,7 @@ class DemonsSeeder extends Seeder
             'stats'    => [19, 17, 20, 5, 12, 13, 8, 3],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison'],
@@ -275,7 +275,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [20, 15, 21, 19, 17, 16, 9, 4],
             'features' => [
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'           => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Poison'],
@@ -339,7 +339,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Shapechanger', 'Outsider'], [
             'stats'    => [15, 14, 18, 13, 15, 15, 10, 5],
             'features' => [
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'           => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Poison'],
@@ -381,7 +381,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [21, 10, 22, 19, 12, 15, 13, 5],
             'features' => [
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'           => ['meta' => 'Cold, Fire, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Poison'],
@@ -431,7 +431,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [18, 20, 20, 18, 16, 20, 16, 5],
             'features' => [
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'           => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Poison'],
@@ -492,7 +492,7 @@ class DemonsSeeder extends Seeder
         $helper->saveMonster($monster, ['Demon', 'Fiend', 'Outer Planes', 'Evil', 'Outsider'], [
             'stats'    => [26, 15, 22, 20, 16, 22, 19, 6],
             'features' => [
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Axiomatic, Cold Iron, Holy'],
                 'resistance'           => ['meta' => 'Cold, Electricity, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Fire, Poison'],

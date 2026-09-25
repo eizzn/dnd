@@ -62,7 +62,7 @@ class GodsMystraSeeder extends Seeder
         $class->description   = '<p>Priests of Mystra</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 2,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], [Attribute::INT->value, Attribute::WIS->value], [
             'Divine',
@@ -353,8 +353,8 @@ class GodsMystraSeeder extends Seeder
         $class->description   = '<p>Priest of Savras</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Divine', 'Arcane', 'Divination',
         ]);

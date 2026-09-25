@@ -32,7 +32,7 @@ class PowersSSeeder extends Seeder
     <li>Both your minds communicate with each other telepathically.</li>
     <li>If you are subject to a Compulsion or Charm effect while you are of two minds, make a second Save if you fail the first. If you fail both, then only your primary mind is affected. The second mind can take Actions (still under the control of the player). The second mind is only affected if the effect is specifically targeting the second mind.</li>
 </ul>";
-        $helper->addTypesToPower($power, ['Telepathy'], 4);
+        $helper->addTypesToPower($power, ['Telepathy', 'Spend Power Point'], 4);
 
         $power                   = new Power;
         $power->name             = "Seer's Sight";

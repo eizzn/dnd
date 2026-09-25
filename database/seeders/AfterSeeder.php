@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use App\Models\Feat;
 use App\Models\Formula;
 use App\Models\Monster;
+use App\Models\Race;
 use App\Models\Spell;
+use App\Models\SubRace;
 use App\Models\Talent;
 use Illuminate\Database\Seeder;
 
@@ -249,5 +251,237 @@ class AfterSeeder extends Seeder
         Feat::where('name', 'Deflect Ranged Attack')->firstOrFail()->talents(
             Talent::where('name', 'Improved Reaction')->firstOrFail()
         );
+
+        // racial traits — races are seeded before features, so the links live
+        // here. `meta` is JSON holding the race's own numbers for a shared
+        // feature (see FeaturesSeeder's "Racial traits" section); null means
+        // the feature's text says it all.
+        $dwarvenWeapons = ['weapons' => ['Battleaxe', 'Handaxe', 'Light Hammer', 'Warhammer']];
+        $elvenWeapons   = ['weapons' => ['Longsword', 'Shortsword', 'Shortbow', 'Longbow']];
+        $darkvision     = ['range' => 60];
+        $raceFeatures   = [
+            'Human'       => [
+                'ability_score_increase' => ['choose' => ['count' => 1, 'value' => 2], 'others' => 1],
+                'racial_feat'            => ['feat_choice' => 'General'],
+                'skill_training'         => ['choose' => 1, 'bonus_skill_points' => 2],
+            ],
+            'Half-Elf'    => [
+                'ability_score_increase' => ['cha' => 2, 'choose' => ['count' => 2, 'value' => 1]],
+                'darkvision'             => $darkvision,
+                'fey_ancestry'           => ['charm_save' => 2],
+                'racial_feat'            => ['feats' => ['Skilled']],
+            ],
+            'Half-Orc'    => [
+                'ability_score_increase' => ['cha' => 2, 'choose' => ['count' => 2, 'value' => 1]],
+                'darkvision'             => $darkvision,
+                'menacing'               => null,
+                'racial_feat'            => ['feats' => ['Die Hard']],
+            ],
+            'Tiefling'    => [
+                'ability_score_increase' => ['cha' => 2, 'int' => 1],
+                'darkvision'             => $darkvision,
+                'hellish_resistance'     => null,
+                'racial_feat'            => ['feats' => ['Arcane Background'], 'cantrip' => 'Thaumaturgy'],
+            ],
+            'Aasimar'     => [
+                'ability_score_increase' => ['cha' => 2, 'int' => 1],
+                'darkvision'             => $darkvision,
+                'racial_feat'            => ['feats' => ['Arcane Background'], 'cantrip' => 'Light'],
+                'divine_resistance'      => null,
+            ],
+            'Elf'         => [
+                'darkvision'   => $darkvision,
+                'fey_ancestry' => ['charm_save' => 4],
+                'keen_senses'  => null,
+                'trance'       => null,
+            ],
+            'Dwarf'       => [
+                'ability_score_increase' => ['con' => 2],
+                'dwarven_speed'          => null,
+                'darkvision'             => $darkvision,
+                'poison_resilience'      => null,
+            ],
+            'Halfling'    => [
+                'ability_score_increase' => ['dex' => 2],
+                'brave'                  => null,
+                'racial_feat'            => ['feats' => ['Lucky']],
+                'nimbleness'             => null,
+            ],
+            'Goblin'      => [
+                'ability_score_increase' => ['dex' => 2, 'con' => 1],
+                'darkvision'             => $darkvision,
+                'fury_of_the_small'      => null,
+                'racial_feat'            => ['feats' => ['Nimble Escape']],
+            ],
+            'Hobgoblin'   => [
+                'ability_score_increase' => ['con' => 2, 'int' => 1],
+                'darkvision'             => $darkvision,
+                'martial_training'       => null,
+            ],
+            'Bugbear'     => [
+                'ability_score_increase' => ['str' => 2, 'wis' => 1],
+                'darkvision'             => $darkvision,
+                'long_limbed'            => null,
+                'powerful_build'         => null,
+                'sneak_attack'           => null,
+                'sneaky'                 => null,
+            ],
+            'Kobold'      => [
+                'ability_score_increase' => ['dex' => 2, 'str' => 2],
+                'darkvision'             => $darkvision,
+                'racial_feat'            => ['feats' => ['Nimble Escape', 'Attack of Opportunity']],
+                'sunlight_sensitivity'   => null,
+            ],
+            'Orc'         => [
+                'ability_score_increase' => ['str' => 2],
+                'darkvision'             => $darkvision,
+                'aggressive'             => null,
+            ],
+            'Lizardfolk'  => [
+                'ability_score_increase' => ['con' => 2, 'wis' => 1],
+                'bite_attack'            => null,
+                'hold_breath'            => ['duration' => '15 minutes'],
+                'natural_armor'          => ['ac_base' => 13],
+                'swim_speed'             => null,
+            ],
+            'Gith'        => [
+                'ability_score_increase' => ['wis' => 2],
+                'racial_feat'            => ['feats' => ['Wild Talent']],
+            ],
+            'Yuan-ti'     => [
+                'ability_score_increase' => ['cha' => 2],
+                'poison_immunity'        => null,
+                'psionics'               => ['power_level' => 0, 'power_class' => 'Psychic Warrior'],
+            ],
+            'Spirit Folk' => [
+                'ability_score_increase' => ['cha' => 2, 'choose' => ['count' => 1, 'value' => 1, 'from' => ['wis', 'dex']]],
+                'darkvision'             => $darkvision,
+            ],
+            'Hagspawn'    => [
+                'ability_score_increase' => ['str' => 2, 'con' => 2, 'cha' => -2],
+                'darkvision'             => $darkvision,
+                'fey_heritage'           => null,
+                'initial_hit_die'        => ['hit_die' => '1D8'],
+                'natural_armor'          => ['damage_reduction' => 1],
+            ],
+            'Centaur'     => [
+                'ability_score_increase' => ['str' => 2, 'wis' => 1],
+                'charge'                 => null,
+                'equine_build'           => null,
+                'creature_type'          => ['type' => 'Fey'],
+                'hooves'                 => null,
+                'initial_hit_die'        => ['hit_die' => '2D10'],
+                'languages'              => ['languages' => ['Sylvan']],
+                'level_adjustment'       => ['value' => 2],
+                'skill_training'         => ['skills' => ['Survival']],
+            ],
+            'Satyr'       => [
+                'ability_score_increase' => ['cha' => 2, 'dex' => 1],
+                'creature_type'          => ['type' => 'Fey'],
+                'languages'              => ['languages' => ['Sylvan']],
+                'leap'                   => null,
+                'satyr_magic_resistance' => null,
+                'ram'                    => null,
+            ],
+            'Taer'        => [
+                'ability_score_increase' => ['str' => 2, 'con' => 2],
+                'arctic_heart'           => null,
+                'creature_type'          => ['type' => 'Giant'],
+                'hurler'                 => null,
+                'languages'              => ['languages' => ['Giant']],
+                'powerful_build'         => null,
+            ],
+            'Ratatosk'    => [
+                'ability_score_increase' => ['dex' => 2, 'str' => -2],
+                'creature_type'          => ['type' => 'Celestial'],
+                'darkvision'             => $darkvision,
+                'languages'              => ['languages' => ['Celestial']],
+                'telepathy'              => ['range' => 120],
+                'message_spell'          => null,
+            ],
+            'Gnoll'       => [
+                'darkvision' => $darkvision,
+            ],
+        ];
+        foreach ($raceFeatures as $raceName => $features) {
+            $race = Race::where('name', $raceName)->firstOrFail();
+            foreach ($features as $key => $meta) {
+                $race->features()->save(app()->features[$key], ['meta' => $meta === null ? null : json_encode($meta)]);
+            }
+        }
+
+        // sub-race traits add to (or, for the same feature, refine) their
+        // race's — e.g. Duergar's Darkvision range 120 over Dwarf's 60.
+        $subRaceFeatures = [
+            'Elf'         => [
+                'High Elf (Sun)' => ['ability_score_increase' => ['int' => 1], 'high_elf_cantrip' => null, 'weapon_training' => $elvenWeapons],
+                'Moon Elf'       => ['ability_score_increase' => ['dex' => 1], 'bathed_in_moonlight' => null, 'weapon_training' => $elvenWeapons],
+                'Wood Elf'       => ['ability_score_increase' => ['wis' => 1], 'weapon_training' => $elvenWeapons, 'fleet_of_foot' => null, 'mask_of_the_wild' => null],
+                'Star Elf'       => ['ability_score_increase' => ['cha' => 1], 'extraplanar' => null, 'otherworldly_touch' => null],
+                'Drow'           => [
+                    'ability_score_increase' => ['dex' => 1],
+                    'darkvision'             => ['range' => 120],
+                    'weapon_training'        => ['weapons' => ['Hand Crossbow']],
+                    'drow_magic'             => null,
+                    'sunlight_sensitivity'   => null,
+                ],
+            ],
+            'Dwarf'       => [
+                'Gold Dwarf'           => ['ability_score_increase' => ['wis' => 1], 'weapon_training' => $dwarvenWeapons, 'stonecunning' => null],
+                'Shield Dwarf'         => ['ability_score_increase' => ['str' => 1], 'weapon_training' => $dwarvenWeapons, 'stonecunning' => null],
+                'Gray Dwarf (Duergar)' => [
+                    'ability_score_increase' => ['str' => 1],
+                    'racial_feat'            => ['feats' => ['Wild Talent']],
+                    'stonecunning'           => null,
+                    'sunlight_sensitivity'   => null,
+                    'darkvision'             => ['range' => 120],
+                ],
+            ],
+            'Halfling'    => [
+                'Lightfoot Halfling' => ['ability_score_increase' => ['cha' => 1], 'naturally_stealthy' => null],
+                'Stout Halfling'     => ['ability_score_increase' => ['con' => 1], 'poison_resilience' => null],
+            ],
+            'Gnoll'       => [
+                'Gnoll'      => ['ability_score_increase' => ['str' => 2], 'initial_hit_die' => ['hit_die' => '1D8']],
+                'Half Gnoll' => ['ability_score_increase' => ['str' => 1, 'int' => -1], 'initial_hit_die' => ['hit_die' => '1D8'], 'sneaky' => null],
+                'Flind'      => ['ability_score_increase' => ['str' => 1], 'creature_type' => ['type' => 'Fiend (Demon of Yeenoghu)'], 'initial_hit_die' => ['hit_die' => '1D8']],
+            ],
+            'Orc'         => [
+                'Mountain Orc' => ['ability_score_increase' => ['con' => 1], 'powerful_build' => null, 'primal_intuition' => null],
+                'Gray Orc'     => ['ability_score_increase' => ['wis' => 1], 'weapon_training' => ['weapons' => ['Battleaxe', 'Handaxe', 'Bastard Sword', 'Shortbow']]],
+                'Orog'         => ['ability_score_increase' => ['con' => 2], 'darkvision' => ['range' => 120]],
+                // "CON +2, STR an additional +2" on top of Orc's STR +2, and
+                // its separate "Ability Score Decrease" (CHA, INT -2) folded in
+                'Ogrillon'     => ['ability_score_increase' => ['con' => 2, 'str' => 2, 'cha' => -2, 'int' => -2], 'creature_type' => ['type' => 'Giant']],
+            ],
+            'Gith'        => [
+                'Githyanki' => ['ability_score_increase' => ['str' => 1], 'psionics' => ['power_level' => 0, 'power_class' => 'Psychic Warrior']],
+                'Githzerai' => ['ability_score_increase' => ['dex' => 1], 'psionics' => ['power_level' => 0, 'power_class' => 'Psychic Warrior']],
+            ],
+            'Spirit Folk' => [
+                'Mountain Spirit Folk' => [
+                    'bird_whisperer' => null,
+                    'daring_athlete' => null,
+                    'expert_climber' => null,
+                    'languages'      => ['languages' => ['Sylvan', 'Terran']],
+                ],
+                'River Spirit Folk'    => [
+                    'amphibious'     => null,
+                    'expert_swimmer' => null,
+                    'fish_whisperer' => null,
+                    'languages'      => ['languages' => ['Sylvan', 'Aquan']],
+                    'water_affinity' => null,
+                ],
+            ],
+        ];
+        foreach ($subRaceFeatures as $raceName => $subRaces) {
+            $raceId = Race::where('name', $raceName)->firstOrFail()->id;
+            foreach ($subRaces as $subRaceName => $features) {
+                $subRace = SubRace::where('race_id', $raceId)->where('name', $subRaceName)->firstOrFail();
+                foreach ($features as $key => $meta) {
+                    $subRace->features()->save(app()->features[$key], ['meta' => $meta === null ? null : json_encode($meta)]);
+                }
+            }
+        }
     }
 }

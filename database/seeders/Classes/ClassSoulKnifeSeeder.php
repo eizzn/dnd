@@ -28,8 +28,8 @@ class ClassSoulKnifeSeeder extends Seeder
         $class->armors        = 'Light Armor';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
             'has_powers'     => true,
         ], ['WIS', 'DEX'], [
             'Psionic', 'Skill', 'Mind Blade',
@@ -194,7 +194,7 @@ class ClassSoulKnifeSeeder extends Seeder
         $feat->description = '<p>As an Action, you may imbue your Mind Blade with Psychic Energy by spending 1 Power Point for each die of damage. This effect deals an additional 1D8 Mental damage to the next living non-mindless target you successfully hit with your Mind Blade. Once this additional damage is dealt, your Mind Blade is no longer imbued, but you can imbue your Mind Blade again with an Action.</p>
 <p>Once a Mind Blade is imbued, it stays imbued until it is discharged. If you dismiss your Mind Blade while it is imbued, the next time you manifest your Mind Blade again, it is still imbued. If your Mind Blade is forcibly dispelled or broken, the next time you manifest your Mind Blade, it will not be imbued.</p>
 <p>You may gain this feat multiple times, every four levels. For example, if you gained this feat at 3rd level, you cannot take it again until 7th level. Each time you gain this feat, your Psychic Strike damage increases by +1D8.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Spend Power Point']);
         $feat->features()->save(app()->features['mind_blade']);
 
         $feat              = new Feat;
@@ -203,7 +203,7 @@ class ClassSoulKnifeSeeder extends Seeder
         $feat->requirement = 'You have manifested your Mind Blade and you have a Psionic Combat attack power';
         $feat->description = "<p>As an Action, you can imbue your Mind Blade with a Psionic Combat attack power like you would imbue your Mind Blade with a Psychic Strike.</p>
 <p>You must spend the Power Point cost of the Psionic Combat powers cost +1. Until your next attack with your imbued Mind Blade successfully hits, it is made as a Touch Melee attack. On a hit, it does not deal its normal damage, only the effects of the Psionic Combat power's effect is applied. The target gets a Save as normal, however, they cannot use a Reaction to raise a Psionic Combat defense power.</p>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Psychic Strike']);
 
         $feat              = new Feat;
@@ -211,7 +211,7 @@ class ClassSoulKnifeSeeder extends Seeder
         $feat->action_type = 'Free';
         $feat->requirement = 'You have manifested your Mind Blade and you have a Psionic Combat attack power';
         $feat->description = '<p>You may now imbue your Mind Blade as a Free Action by spending an additional 2 Power Points.</p>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Improved Psychic Strike']);
 
         $feat              = new Feat;
@@ -253,13 +253,13 @@ class ClassSoulKnifeSeeder extends Seeder
     <li>You may spend an Action to manifest your Mind Shield and expend your Psionic Focus to manifest a Heavy Shield</li>
     <li>You may spend an Action to manifest your Mind Shield and 2 Power Points to manifest a Heavy Shield</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->features()->save(app()->features['mind_blade']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Mind Shield';
         $feat->requirement = 'You must have a free hand to manifest your Mind Shield';
-        $feat->description = '<p>Your ability to manifest your Mind Shield improves. While you have your Mind Shield ready, you gain a +2 bonus to all INT, WIS, and CHR Saves and a +4 bonus vs all Psionic Combat attack Saves.</p>
+        $feat->description = '<p>Your ability to manifest your Mind Shield improves. While you have your Mind Shield ready, you gain a +2 bonus to all INT, WIS, and CHR Saves and a +2 bonus vs all Psionic Combat attack Saves.</p>
 <ul>
     <li>You may manifest a Light Shield as a Free Action</li>
     <li>You may manifest a Heavy Shield as an Action</li>
@@ -268,12 +268,12 @@ class ClassSoulKnifeSeeder extends Seeder
     <li>You may expend your Psionic Focus to manifest a Tower Shield as an Action</li>
     <li>You may expend your Psionic Focus, and spend 2 Power Points to manifest a Tower Shield as a Free Action</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Mind Shield']);
 
         $feat              = new Feat;
         $feat->name        = 'Mind Armor';
-        $feat->description = '<p>As an Action, and 1 Power Point, you can create a semisolid suit of Light Armor (equivalent to a Chain Shirt). While you have your Mind Armor on, you gain a +2 bonus to all INT, WIS, and CHR Saves and a +4 bonus vs all Psionic Combat attack Saves. This armor does not weigh anything and lasts for 1 hour.</p>
+        $feat->description = '<p>As an Action, and 1 Power Point, you can create a semisolid suit of Light Armor (equivalent to a Chain Shirt). While you have your Mind Armor on, you gain a +2 bonus to all INT, WIS, and CHR Saves and a +2 bonus vs all Psionic Combat attack Saves. This armor does not weigh anything and lasts for 1 hour.</p>
 <p>If you have the Enhance Mind Blade feat, you may also enhance your Mind Armor.</p>';
         $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
         $feat->features()->save(app()->features['mind_blade']);
@@ -287,7 +287,7 @@ class ClassSoulKnifeSeeder extends Seeder
     <li>You may expend your Psionic Focus and 3 Power Points to manifest a Medium Armor as a Free Action</li>
     <li>You may spend an additional 2 Power Points to extend the duration by an additional 1 hour</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Mind Armor']);
 
         $feat              = new Feat;
@@ -299,7 +299,7 @@ class ClassSoulKnifeSeeder extends Seeder
     <li>You may expend your Psionic Focus and 4 Power Points to manifest a Heavy Armor as a Free Action</li>
     <li>You may now spend an additional 1 Power Point instead of 2 to extend the duration by an additional 1 hour</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Mind Blade', 'Psionic Combat', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Improved Mind Armor']);
 
         $features = app()->features;

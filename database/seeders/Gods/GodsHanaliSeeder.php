@@ -58,8 +58,8 @@ class GodsHanaliSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);
@@ -119,7 +119,7 @@ class GodsHanaliSeeder extends Seeder
         $feat->requirement = 'Must be CG and Sune must be your Patron Deity';
         $feat->description = '<p>You are a Paladin of Sune.</p>
 <ul>
-    <li>Increase your CHA score by 1, to a maximum of 20</li>
+    <li>Increase your CHA score by 1, to a maximum of 20.</li>
     <li>You gain proficiency with Heavy Armor</li>
     <li>You may take the Beautiful Defense Feat</li>
     <li>
@@ -133,7 +133,7 @@ class GodsHanaliSeeder extends Seeder
     </li>
 </ul>
 <p>Initiation into the order is done by standing vigil in a temple of Sune for an entire night. If the goddess shows her favor by granting a vision or some other boon, the candidate is accepted into the order.</p>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Ability Boost']);
         $feat->attributes()->save(app()->attributes['CHA'], ['dc' => 13]);
         $helper->addSpellsToFeat($feat, [
             0 => ['Clean Self', 'Conviction', 'Light', 'Love Bite', 'Radiant Mark', 'Stabilize'],

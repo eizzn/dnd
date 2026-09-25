@@ -70,7 +70,7 @@ class FightingTalentsSeeder extends Seeder
         $talent              = new Talent;
         $talent->name        = 'Net and Trident';
         $talent->requirement = 'You must wielding a net and trident';
-        $talent->description = '<p>If you successfully hit an opponent with your net and win the opposed STR check, you may make a free Move Action (up to half your Speed) towards the opponent and use an Action to attack any creature in your net with an additional +3 to Hit and +3 to Damage.</p>';
+        $talent->description = '<p>If you successfully hit an opponent with your net and win the opposed STR check, you may make a free Move Action (up to half your Speed) towards the opponent and use an Action to attack any creature in your net with an additional +1 to Hit and +3 to Damage.</p>';
         $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Two-Weapon Fighter']);
         $talent->feats()->save(app()->feats['Weapon Focus'], ['meta' => 'trident']);
@@ -112,7 +112,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->name        = 'Surging Accuracy';
         $talent->action_type = 'Free';
         $talent->requirement = 'You have an unspent Heroic Surge';
-        $talent->description = '<p>At the beginning of your turn, you may use a Heroic Surge. Instead of the Additional Action, you gain a +5 bonus to Hit with Weapon Attacks until the beginning of your next turn.</p>';
+        $talent->description = '<p>At the beginning of your turn, you may use a Heroic Surge. Instead of the Additional Action, you gain a +2 bonus to Hit with Weapon Attacks until the beginning of your next turn.</p>';
         $helper->addTypesToSimpleObject($talent, ['Heroic Surge', 'Talent' => 5]);
 
         $talent              = new Talent;
@@ -249,7 +249,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = '<p>You are skilled at fighting undead creatures. You gain the following.</p>
 <ul>
     <li>You gain a +2 bonus to any Lore Skill checks concerning undead.</li>
-    <li>You gain a +2 bonus to Hit Undead creatures.</li>
+    <li>You gain a +1 bonus to Hit Undead creatures.</li>
     <li>You deal an Additional +5 damage with Melee and Ranged weapon attacks vs. Undead.</li>
 </ul>';
         $helper->addTypesToSimpleObject($talent, ['Undead', 'Talent' => 3]);
@@ -273,7 +273,7 @@ class FightingTalentsSeeder extends Seeder
 <ul>
     <li>You spend a Heroic Surge and 1 Power Point. You make 4 Melee Unarmed Strikes against all opponents in an adjacent space to yours. Each hit deals your normal Unarmed Strike Damage. You remain in your starting space. Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Tatsu attacks have been made.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 6]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Spend Power Point', 'Talent' => 6]);
 
         $talent              = new Talent;
         $talent->name        = "Shor'yuken";
@@ -294,14 +294,14 @@ class FightingTalentsSeeder extends Seeder
 <ul>
     <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Points. You make a single Melee Unarmed Strike that deals an Additional +10 Unarmed Strike Damage per Damage Die. You also rise 10 feet and suffer a -10 penalty to your Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Spend Power Point', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = "Ha'doken";
         $talent->action_type = 'Double Action';
         $talent->requirement = 'You are not holding anything in both hands and you must not be wearing any armor and are lightly encumbered or less';
         $talent->description = '<p>When you manifest your Pyrokinesis Power to shoot a flaming ray, you may spend a Heroic Surge (you still gain the additional Action) and an Additional 1 Power Point. If you do, the Ray deals Triple Damage. The additional Power Point counts toward the maximum number of Power Points you can spend per turn.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Spend Power Point', 'Talent' => 7]);
         $talent->feats()->save(app()->feats['Shoto Style']);
 
         $talent              = new Talent;
@@ -323,7 +323,7 @@ class FightingTalentsSeeder extends Seeder
 <ul>
     <li>You spend a Heroic Surge (you still gain the additional Action) and 2 Power Point. You make 6 Melee Unarmed Strikes against all opponents in an adjacent space as yours. Each hit deals your normal Unarmed Strike damage +5 Bludgeoning damage. You remain in your starting space.  Any creature hit must make a STR Save vs the amount of damage or be pushed 5 feet away from you. This Save is made after all Improved Spinning Bird attacks have been made. You gain a +10 bonus to your Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Spend Power Point', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Lightning Kick';
@@ -332,7 +332,7 @@ class FightingTalentsSeeder extends Seeder
         $talent->description = '<p>You unleash a flurry of kicks.</p>
 <p>You spend 1 Power Point and make 4 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike.</p>
 <p>You may also spend a Heroic Surge. If you do, you make 6 Melee Unarmed Strikes instead and suffer a -5 to your Initiative starting at the next initiative cycle.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 6]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Spend Power Point', 'Talent' => 6]);
         $talent->feats()->save(app()->feats['Tu Lung Style']);
 
         $talent              = new Talent;
@@ -344,7 +344,7 @@ class FightingTalentsSeeder extends Seeder
 <ul>
     <li>Spend a Heroic Surge and 4 Power Points. You make 8 Melee Unarmed Strikes against the same opponent with one of your legs. Each hit deals your normal Unarmed Strike +1D4 Bludgeoning damage.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Spend Power Point', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Somersault Axe Kick';
@@ -364,7 +364,7 @@ class FightingTalentsSeeder extends Seeder
     <li>You spend 1 Power Point and make 3 Melee Unarmed Strikes against the same opponent with both hands. Each hit deals your normal Unarmed Strike Bludgeoning damage. After all attacks have completed, the target must make a STR Save against the total damage taken or be pushed back 5 ft.</li>
     <li>You may also make this attack using a Triple Action and 1 Power Point. If you do, you make 4 Melee Unarmed Strikes instead and suffer a -5 Initiative starting at the next initiative cycle.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Strike', 'Initiative', 'Spend Power Point', 'Talent' => 3]);
         $talent->feats()->save(app()->feats['Improved Bull Rush']);
 
         $talent              = new Talent;

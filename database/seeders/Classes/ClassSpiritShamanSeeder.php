@@ -29,8 +29,8 @@ class ClassSpiritShamanSeeder extends Seeder
         $class->has_spells    = true;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Spirit', 'Primal',
         ]);
@@ -174,7 +174,7 @@ class ClassSpiritShamanSeeder extends Seeder
         $feature->key         = 'chastise_spirit';
         $feature->name        = 'Chastise Spirit';
         $feature->description = '<p>You may spend 1 Spell Point and deal 1D6 per Spirit Shaman Level Force Damage to any Spirit within 60 feet of you. (Spirits include all Outsiders, Fey, Intelligent and Incorporeal Undead).</p>';
-        $helper->saveFeature($feature, ['Primal', 'Spirit']);
+        $helper->saveFeature($feature, ['Primal', 'Spirit', 'Spend Spell Point']);
 
         $feature              = new Feature;
         $feature->key         = 'detect_spirit';
@@ -208,7 +208,7 @@ class ClassSpiritShamanSeeder extends Seeder
 <p>While incorporeal, you gain all the advantages of the incorporeal subtype, including immunity to all nonmagical attack forms, a 50% chance to ignore damage from any corporeal source, and the ability to enter or pass through solid objects. You lose any armor or natrual armor bonus to AC, but gain a deflection bonus equal to your CHA modifier (minimum +1).</p>
 <p>You have no STR score against corporeal creatures or objects and cannot make physical attacks against them, but you gain the ability to make a melee touch attack (add your DEX modifier to your attack roll) that deals 1D6 points of damage to a corporeal target. This effect is treated as a magic weapon for the purpose of overcoming damage reduction.</p>
 <p>You may take this feat up to 3 times. Each time you gain this feat, you may use this ability an additional time per day. You may gain this feat at every 5 level intervals.</p>';
-        $helper->addTypesToFeat($feat, ['Primal', 'Spirit']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spirit', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Blessing of the Spirit';
@@ -262,7 +262,7 @@ The blessing performs just like Protection from Evil, except it protects against
     <li>When you use your Action to make an attack from your possessing spirit it appears as a spectral apparition of the attack, and while you deal the damage type and dice of the attack, you still use your weapon on the attack, so, if you use a ranged weapon, like a bow, you can still make any attack from your spirit, like a bite attack. Also, any extra damage, or bonus to attack rolls you gain from magical weapons still affect your spirit attacks.</li>
     <li>Your spirit's senses overlap yours, so you lose any senses you possess that your spirit doesn't possess with exception to your ethereal sight.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Spirit']);
+        $helper->addTypesToFeat($feat, ['Spirit', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Spirit Sense']);
 
         $feat              = new Feat;
@@ -307,7 +307,7 @@ The blessing performs just like Protection from Evil, except it protects against
     <li><strong>Fire</strong> A Fire burns in your heart, and the flames give you mental strength. You can't be Charmed or Frightened while this Spirit is active and within 60 feet of you.</li>
     <li><strong>Water</strong> Your movements are fluid. You can't be grappled or restrained. And you have Advantage against effects that paralyze or petrify creatures. As long as you are within 60 feet of this Spirit.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Spirit']);
+        $helper->addTypesToFeat($feat, ['Spirit', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Improved Elemental Spirit Magic']);
 
         $feat              = new Feat;
@@ -330,7 +330,7 @@ The blessing performs just like Protection from Evil, except it protects against
 <p>You can use your Spiritual Possession ability as an Action.</p>
 <p>Also, once per long rest, you can swap your current spirit and be possessed by a different one by spending 1 Spell Point and an Action. This change doesn't affect the duration of the possession (so, if there were only 3 minutes left, your new spirit stays in your for only 3 minutes). A sudden changes like that is very taxing, you gain 1 level of Exhaustion after your possession ends if you used this feature during it.</p>
 <p>The fetish itself costs 100 gp and 1 day to create.</p>";
-        $helper->addTypesToFeat($feat, ['Spirit']);
+        $helper->addTypesToFeat($feat, ['Spirit', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Spiritual Possession']);
 
         $feat              = new Feat;
@@ -338,7 +338,7 @@ The blessing performs just like Protection from Evil, except it protects against
         $feat->action_type = 'Action';
         $feat->description = '<p>You may spend 4 Spell Points and summon all the spirits in your Spirit Fetish (the spirits take on physical form). They appear within 20 feet of you and are treated as if they were summoned using Summon Animals. You can direct their Actions by using an Action. You may direct all of them to take the same Action.</p>
 <p>If any of your Spirits are killed, they evaporate into nothing and their spirit returns to your Spirit Fetish. If the spirit is banished, or spiritually trapped, the spirit is lost and will not automatically return to your Spirit Fetish.</p>';
-        $helper->addTypesToFeat($feat, ['Spirit']);
+        $helper->addTypesToFeat($feat, ['Spirit', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Spirit Fetish']);
 
         $helper->addFeatsToClass($class, [
@@ -428,8 +428,8 @@ The blessing performs just like Protection from Evil, except it protects against
         $class->has_spells    = true;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Spirit', 'Primal',
         ]);

@@ -34,7 +34,7 @@ class DevilsSeeder extends Seeder
         $helper->saveMonster($monster, ['Devil', 'Fiend', 'Outer Planes', 'Evil', 'Lawful', 'Outsider', 'Familiar'], [
             'stats'    => [10, 5, 11, 1, 11, 3, 0, 2],
             'features' => [
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold'],
                 'immunity'      => ['meta' => 'Fire, Poison, Charmed, Frightened'],
@@ -92,7 +92,7 @@ class DevilsSeeder extends Seeder
                 'Stealth'   => ['dc' => 5],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -120,7 +120,7 @@ class DevilsSeeder extends Seeder
             'stats'    => [10, 15, 12, 11, 14, 8, 2, 3],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -145,7 +145,7 @@ class DevilsSeeder extends Seeder
             'stats'    => [17, 12, 14, 6, 13, 6, 3, 2],
             'skills'   => ['Perception' => ['dc' => '5']],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'immunity'      => ['meta' => 'Fire'],
                 'keen_sense'    => ['meta' => 'Hearing and Smell'],
@@ -175,7 +175,7 @@ class DevilsSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -204,7 +204,7 @@ class DevilsSeeder extends Seeder
             'stats'    => [18, 14, 17, 6, 12, 8, 4, 3],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire'],
@@ -244,7 +244,7 @@ class DevilsSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire'],
@@ -276,7 +276,7 @@ class DevilsSeeder extends Seeder
             'stats'    => [16, 17, 18, 12, 14, 14, 5, 5],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -306,7 +306,7 @@ class DevilsSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -343,7 +343,7 @@ class DevilsSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison'],
@@ -389,7 +389,7 @@ class DevilsSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'    => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fire, Poison, Charmed, Exhaustion'],
@@ -426,7 +426,7 @@ class DevilsSeeder extends Seeder
             'features' => [
                 'magic_resistance',
                 'legendary_resistance' => ['meta' => '1/day'],
-                'darkvision'           => ['meta' => '120 ft'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'vulnerability'        => ['meta' => 'Anarchic, Holy, Silvered'],
                 'resistance'           => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'             => ['meta' => 'Fire, Poison'],

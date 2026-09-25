@@ -26,8 +26,8 @@ class ClassSwashbucklerSeeder extends Seeder
         $class->armors        = 'Light Armor and Bucklers';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['STR', 'DEX'], [
             'Panache', 'Heroic Surge', 'Combat Mastery',
         ]);

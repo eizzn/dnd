@@ -31,8 +31,8 @@ class ClassWarlockSeeder extends Seeder
         $class->max_level     = 20;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
             'has_spells'     => true,
         ], ['WIS', 'CHA'], [
             'Arcane', 'Pact',
@@ -101,7 +101,7 @@ class ClassWarlockSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Eldritch Spear';
-        $feat->description = '<p>When you cast Eldritch Blast, its range is 1,200 feet.</p>';
+        $feat->description = '<p>Double the Range of your Eldritch Blast.</p>';
         $helper->addTypesToFeat($feat, ['Invocation' => 3]);
 
         $feat              = new Feat;

@@ -144,6 +144,50 @@ class MagicPageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
+        $rule->key         = 'spell-points';
+        $rule->name        = 'Spell Points';
+        $rule->description = '<p>Spell Points can be used for many various purposes. Some Metamagic Feats require the use of Spell Points as well as some Class Features.</p>
+<p>Spell Points can be exchanged for recovering spent Spell Slots.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Spell Slot to gain</th>
+            <th>Spell Points cost</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1st</td>
+            <td>2</td>
+            <td>Action</td>
+        </tr>
+        <tr>
+            <td>2nd</td>
+            <td>3</td>
+            <td>Action</td>
+        </tr>
+        <tr>
+            <td>3rd</td>
+            <td>5</td>
+            <td>Double Action</td>
+        </tr>
+        <tr>
+            <td>4th</td>
+            <td>7</td>
+            <td>Double Action</td>
+        </tr>
+        <tr>
+            <td>5th</td>
+            <td>9</td>
+            <td>Double Action</td>
+        </tr>
+    </tbody>
+</table>';
+        $rule->order       = 20;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
         $rule->key         = 'attunement';
         $rule->name        = 'Attunement';
         $rule->description = "<p>Some Magic Items require a creature to form a bond with them before their magical properties can be used. This bond is called attunement, and certain items have a prerequisite for it. If the prerequisite is a class, a creature must be a member of that class to attune to the item. (If the class is a Spellcasting class, a monster qualifies if it has Spell Slots and uses that class's spell list.) If the prerequisite is to be a Spellcaster, a creature qualifies if it can cast at least one spell using its Traits or features, not using a magic item or the like.</p>
@@ -190,7 +234,7 @@ class MagicPageSeeder extends Seeder
 <ul>
     <li>As an Action, any of the bonded creatures can remove one die from the Communal Pool and add it to their next Attack Roll, Damage Roll or Ability Check. They must choose the number of dice when it is taken form the pool, and before rolling the pool die.</li>
     <li>As a Reaction when one of the bonded creatures makes a Save, that creature and/or the Communal Pool creator (who must be able to see the creature that is to receive the Communal Pool's benefits) can remove one die (each) from the pool and add it to the Save. They must do so after the Save has been rolled, but before determining the result.</li>
-    <li>As long as there is at least one die in the Communal Pool, the pool creator can add that die to any Save made to maintain Concentration without expending the die.</li>
+    <li>As long as there is at least one die in the Communal Pool, the pool creator can add that die to any Concentration check made to maintain a spell without expending the die.</li>
 </ul>
 <p>No creature can be part of multiple Communal Pools. Multiple individuals with this feature can be a part of the same Communal Pool, but there is only one pool creator. No matter the number of individuals with the ability to create Communal Pools are part of a Communal Pool, only one Pool is created.</p>
 <p>Having multiple individuals with the ability to create Communal Pools be a part of the same Communal Pool increases the die of the Pool using the following table.</p>
@@ -534,7 +578,7 @@ class MagicPageSeeder extends Seeder
         $page->rules()->save($rule);
 
         $rule              = new Rule;
-        $rule->key         = 'magic-circle-magic';
+        $rule->key         = 'item-creation';
         $rule->name        = 'Item Creation';
         $rule->description = '<p>The process of enchanting takes time and money. To create a magical item, a character must have the formula for the item, or create one themselves if one does not already exist. The formula describes any Feats, Spells, Powers, Skills, and/or Materials needed to create the item. The time needed to create the item is dependent on the items cost and your skill in Arcana.</p>
 <table>
@@ -633,11 +677,11 @@ class MagicPageSeeder extends Seeder
 <p>The caster level for the fiend's possession ability is equal to the fiend's Hit Dice. Fiends with the possession ability generally have a Challenge Rating 2 higher than the standard fiends of their kind. For example, a succubus with the possession ability is CR 11.</p>
 <p>Once a fiend is on the Ethereal Plane, it generally floats through the world insubstantially, seeking a target to possess. Making a possession attempt is a supernatural ability that a fiend can attempt at will as a standard action.</p>
 <h5>Possessed Creatures</h5>
-<p>If a fiend wishes to possess a creature, the fiends ethereal form must be adjacent to its desired target. A protection from evil spell (or similar effect) makes a creature immune to possession attempts. An unprotected target of a possession attempt must succeed at a Will Save (DC 10 + 1/2 fiend's HD + fiend's CHA bonus) to avoid possession. Evil targets of a possession attempt take a –2 circumstance penalty on this Saves, and target of a possession attempt who is in the middle of committing an evil act takes a further –2 circumstance penalty.</p>
+<p>If a fiend wishes to possess a creature, the fiends ethereal form must be adjacent to its desired target. A protection from evil spell (or similar effect) makes a creature immune to possession attempts. An unprotected target of a possession attempt must succeed at a WIS Save (DC 10 + 1/2 fiend's HD + fiend's CHA bonus) to avoid possession. Evil targets of a possession attempt take a –2 circumstance penalty on this Saves, and target of a possession attempt who is in the middle of committing an evil act takes a further –2 circumstance penalty.</p>
 <p>Once a creature succeeds at a Save vs possession, that fiend cannot attempt to possess that creature again for 1 week. On a Failed Save, the victim is possessed.</p>
 <p>A fiend in possession of a body becomes a part of the victim, aware of what is going on around the creature that they possess. It can see and hear as well as the victim can. A possessing fiend can, at any time, speak mentally to the creature that it possesses in a language that the creature can understand, although if the victim isn't very intelligent, its understanding may be limited.</p>
 <p>A creature possessed by a fiend doesn't always know that it is possessed. Further, a fiend can attempt to hide its presence within the possessed creature, allowing it to pass through a magic circle against evil, enter a forbiddance-warded church, and escape detection by detect evil. To do so, the fiend must make a special “mental” Hide check. This is a Hide check using the fiend's INT modifier rather than its DEX modifier, but which otherwise uses the Hide skill. The Difficulty Class (DC) for the Hide check is 10 + level of the spell + spell caster's relevant ability modifier (just like the Save for a spell). The fiend gains a +4 circumstance bonus on its Hide check if it is not currently controlling the victim. The fiend can also make this Hide check to prevent the possessed creature from taking damage from alignment-based spells such as holy smite. The DC for the Hide check is the same as the Save DC for the damaging spell. If the fiend's Hide check fails, the spell affects the possessed creature as if it had the same alignment as the fiend.</p>
-<p>Possessing fiends have immediate access to all of their victim's current thoughts, as the detect thoughts spell, except that they automatically read surface thoughts. If desired, a possessing fiend can probe the possessed creature's memories as well, but the victim is allowed a Will save (DC 10 + 1/2 fiend's HD + fiend's CHA bonus). If the save is successful, the victim keeps the fiend out of his or her thoughts for 24 hours. Whether the save succeeds or fails, probing memories automatically reveals the fiend's presence to the victim.</p>
+<p>Possessing fiends have immediate access to all of their victim's current thoughts, as the detect thoughts spell, except that they automatically read surface thoughts. If desired, a possessing fiend can probe the possessed creature's memories as well, but the victim is allowed a WIS Save (DC 10 + 1/2 fiend's HD + fiend's CHA bonus). If the save is successful, the victim keeps the fiend out of his or her thoughts for 24 hours. Whether the save succeeds or fails, probing memories automatically reveals the fiend's presence to the victim.</p>
 <p>Physical harm to the possessed creature does not harm the fiend. Killing the possessed victim only forces the fiend back onto the Ethereal Plane, from where it can attempt a new possession; the fiend is unharmed. Not even ethereal creatures can harm a possessing fiend.</p>
 <p>A fiend possessing a creature can take one of four roles with respect to its victim: rider, ally, controller, or enemy. The fiend can choose only one role at a time. If a fiend is acting as a controller, it can't also grant its victim the bonuses it could if the fiend were an ally, for example.</p>
 <dl>
@@ -650,21 +694,21 @@ class MagicPageSeeder extends Seeder
     <dt>Controller</dt> <dd>
         <p>In the most feared aspect of possession, a fiend can take a standard action to attempt direct control over the actions of the victim, who struggles to maintain control over his or her own body. The victim must succeed at a WIS Save every round (DC 10 + 1/2 fiend's HD + fiend's CHA modifier, + 1 for each previous failed save against control that day) to avoid losing control. If the victim's save succeeds, the victim has resisted the fiend, but the fiend can make another control attempt in the next round. Victims struggling against control are considered staggered and can take only partial actions.</p>
         <p>If the possessed creature makes three consecutive Successful Saves, then the possessing fiend cannot make further attempts to control the victim that day. The success or failure of the victim's Save vs control does not affect the overall possession, however, and the fiend is still possessing the creature.</p>
-        <p>If the possessed creature fails the Will save against control, the fiend has access to all of the creature's senses, abilities, skills, feats, and spell knowledge. The fiend now acts as though it is the creature in all respects, until control is lost or it relinquishes control. During this time, the possessed creature can still speak mentally to the fiend and is still privy to all sensory input—unless the possessor takes an Action to block the possessed creature's access to the senses. If the fiend wishes, the victim blacks out while the fiend is in charge.</p>
+        <p>If the possessed creature fails the WIS Save against control, the fiend has access to all of the creature's senses, abilities, skills, feats, and spell knowledge. The fiend now acts as though it is the creature in all respects, until control is lost or it relinquishes control. During this time, the possessed creature can still speak mentally to the fiend and is still privy to all sensory input—unless the possessor takes an Action to block the possessed creature's access to the senses. If the fiend wishes, the victim blacks out while the fiend is in charge.</p>
         <p>The fiend uses its own INT, WIS, and CHA scores, but it adopts all of the creature's physical ability scores. Fiends of at least 9 HD and 15 INT that maintain control of a victim for at least 10 rounds a day for seven consecutive days can also draw upon the possessed creature's spell-like abilities (at the same caster level as the possessed creature). The fiend assumes the victim's type and is affected by spells and effects as if it were the possessed creature. Thus, a cornugon-possessed wolf is subject to spells affecting animals, even though it is far more intelligent than a normal wolf.</p>
         <p>The fiend automatically maintains control for a number of rounds equal to 1/2 the fiend's HD + the fiend's Charisma modifier + 1 for each time the fiend has controlled this specific victim. When the fiend's control lapses, it can attempt to reassert control if it chooses.</p>
-        <p>Fiends often choose weak-willed creatures to possess, such as golems and other constructs. The construct can make a Will save just as any other creature can to avoid the possession, but it is likely that the possessing fiend can take and retain control, because most constructs have poor Will saves. A fiend possessing a construct can also aid it as described under the ally role, but it must relinquish direct control to do so, and the construct reverts to its prior programming.</p>
+        <p>Fiends often choose weak-willed creatures to possess, such as golems and other constructs. The construct can make a WIS Save just as any other creature can to avoid the possession, but it is likely that the possessing fiend can take and retain control, because most constructs have poor WIS Saves. A fiend possessing a construct can also aid it as described under the ally role, but it must relinquish direct control to do so, and the construct reverts to its prior programming.</p>
     </dd>
     <dt>Enemy</dt> <dd>
         <p>The opposite of an ally, this possessing fiend is a hindrance to a creature it possesses. A possessing fiend usually takes this tactic when it has failed to control its victim or when it is angry with a possessed creature that the fiend was acting as an ally toward. The possessing fiend can grant the victim a –4 profane penalty to any single ability score. The fiend is in control of this penalty and can take it away as a free action, sometimes by working out an agreement with the possessed creature after some telepathic negotiation.</p>
     </dd>
 </dl>
 <h5>Possessed Objects</h5>
-<p>A fiend can possess an object of at least Tiny size and no larger than Huge. An item held, worn, or carried by a character (including magic items) uses its owner's Save to resist possession. Unattended magic items gain a Save as if a spell was being cast upon the item. In each case, the Will save DC is 10 + 1/2 the fiend's HD + the fiend's Charisma modifier. A fiend with the possession ability automatically succeeds when attempting to possess an unattended, nonmagical item</p>
+<p>A fiend can possess an object of at least Tiny size and no larger than Huge. An item held, worn, or carried by a character (including magic items) uses its owner's Save to resist possession. Unattended magic items gain a Save as if a spell was being cast upon the item. In each case, the WIS Save DC is 10 + 1/2 the fiend's HD + the fiend's Charisma modifier. A fiend with the possession ability automatically succeeds when attempting to possess an unattended, nonmagical item</p>
 <p>A fiend possessing an object becomes a part of the object. A possessing fiend can see and hear up to 60 feet away from the object, but it can't use darkvision or blindsight while possessing an object, even if it ordinarily has these abilities. The possessing fiend remains vulnerable to spells that affect outsiders, extraplanar creatures, or evil creatures (such as holy word and holy smite) and mind-affecting spells and effects. Physical attacks and most spells (such as fireball) don't affect the fiend, but they might affect the object. Harming the object does not harm the possessing fiend; if the object is destroyed, the fiend takes ethereal form and can choose a new host object (or creature).</p>
 <p>A fiend can attempt to hide its presence within a possessed object, allowing it to pass through a magic circle, enter a forbiddance-warded church, and escape detection via spells such as detect evil. Use the same rules as when a fiend hides in a creature. If the spell ordinarily detects or targets only creatures, the fiend gains a +8 circumstance bonus on its Hide check because it is within an object. The fiend can also attempt this Hide check to avoid taking damage from alignment-based damaging spells, such as holy smite. If the fiend fails its Hide check, the possessed object takes damage as if it were the fiend.</p>
 <p>A fiend can also possess a substance that has no fixed shape (such as a pool of water or a dust cloud) or is part of a larger object (such as a section of a wall). When it does so, a fiend cannot possess an area or a volume larger than 10 feet on a side.</p>
-<p>Some fiends possess an item as a stepping stone for a possession attempt on a character. The possessing fiend gets a bonus on attempts to possess creatures that carry, hold, or wear the item. For each day the possessed item was worn, held, or carried by the target prior to the possession attempt, the DC for the target's Will save increases by +1, up to a maximum of +10.</p>
+<p>Some fiends possess an item as a stepping stone for a possession attempt on a character. The possessing fiend gets a bonus on attempts to possess creatures that carry, hold, or wear the item. For each day the possessed item was worn, held, or carried by the target prior to the possession attempt, the DC for the target's WIS Save increases by +1, up to a maximum of +10.</p>
 <p>A fiend possessing an object can take any of the following roles. Changing roles is a standard action.</p>
 <dl>
     <dt>Watcher</dt> <dd>
@@ -675,7 +719,7 @@ class MagicPageSeeder extends Seeder
         <p>More powerful fiends can exert greater control. A fiend with at least 10 HD and Charisma 17 can force an object to animate even if the object doesn't have any moving parts (such as a table or statue). The possessed object functions as an animated object (see the Monster Manual). However, no fiend can control an animated object with a higher Challenge Rating than the fiend's.</p>
     </dd>
     <dt>Corrupter</dt> <dd>
-        <p>The possessed item radiates a cursed, befouling presence. Anyone touching the possessed object must succeed at a Will save (DC 10 + 1/2 fiend's HD + fiend's CHA modifier) or fall under the effect of a bestow curse spell with a caster level equal to the fiend's Hit Dice. Unlike the bestow curse spell, the subject does not necessarily know that the curse is in effect or that it came from the item. Nothing about the object's appearance suggests that it is possessed (although there might be residual evil effects, as described in the Lingering Evil section below). The curse lasts until removed with break enchantment, limited wish, miracle, remove curse, or wish, even if the fiend vacates the possessed object.</p>
+        <p>The possessed item radiates a cursed, befouling presence. Anyone touching the possessed object must succeed at a WIS Save (DC 10 + 1/2 fiend's HD + fiend's CHA modifier) or fall under the effect of a bestow curse spell with a caster level equal to the fiend's Hit Dice. Unlike the bestow curse spell, the subject does not necessarily know that the curse is in effect or that it came from the item. Nothing about the object's appearance suggests that it is possessed (although there might be residual evil effects, as described in the Lingering Evil section below). The curse lasts until removed with break enchantment, limited wish, miracle, remove curse, or wish, even if the fiend vacates the possessed object.</p>
         <p>A particularly crafty fiend might possess a small fountain as a corrupter, affecting anyone who touches or drinks the water. Similarly, a fiend could corrupt a patch of ground, affecting anyone who walks over it.</p>
     </dd>
     <dt>Enhancer</dt> <dd>
@@ -697,6 +741,20 @@ class MagicPageSeeder extends Seeder
     <li>You cannot Activate 2 different Magic Items in the same round.</li>
 </ul>';
         $rule->order       = 49;
+        $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'concentration';
+        $rule->name        = 'Concentration and Sustained Spells';
+        $rule->description = '<p>Many spells have a duration of <strong>Concentration</strong> or <strong>Sustained</strong>.</p>
+<dl>
+    <dt>Concentration</dt> <dd>The spell lasts as long as you keep concentrating on it, up to its listed duration. Concentrating does not cost an Action, and you may stop concentrating at any time.</dd>
+    <dt>Sustained</dt> <dd>A Sustained spell is a Concentration spell that also costs 1 Action on each of your turns after the turn you cast it. If you do not spend the Action, the spell ends. Everything below about Concentration also applies to Sustained spells.</dd>
+    <dt>One Spell at a Time</dt> <dd>You can only concentrate on one spell at a time. If you cast another Concentration or Sustained spell, the first one ends. Some feats let you concentrate on additional spells (such as the wizard school feats), and a Familiar with an INT of at least 4 can concentrate on a spell that summons a creature for you (see Familiar).</dd>
+    <dt>Taking Damage</dt> <dd>Whenever you take damage while concentrating, make a Concentration check for each spell you are concentrating on. The DC is 10 + the spell level + half the damage taken (rounded down). On a failure, the spell ends.</dd>
+    <dt>Other Distractions</dt> <dd>Some effects, such as casting from a moving mount or standing in a violent storm, also call for a Concentration check to keep concentrating. They list their own DC.</dd>
+</dl>';
+        $rule->order       = 12;
         $page->rules()->save($rule);
     }
 }

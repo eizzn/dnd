@@ -245,8 +245,8 @@ class GodsGruumshSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['WIS', 'CHA'], [
             'Orc', 'Divine', 'Evil',
         ]);
@@ -316,8 +316,8 @@ class GodsGruumshSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['DEX', 'WIS'], [
             'Orc', 'Divine', 'Sneak Attack', 'Rogue', 'Evil',
         ]);

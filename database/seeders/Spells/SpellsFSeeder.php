@@ -801,7 +801,7 @@ class SpellsFSeeder extends Seeder
         $spell->casting     = 'Somatic Casting, Verbal Casting';
         $spell->range       = '150 feet';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>A storm made up of sheets of roaring flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes 7d10 fire damage on a failed save, or half as much damage on a successful one.</p>
+        $spell->description = '<p>A storm made up of sheets of roaring flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a DEX Save. It takes 7d10 fire damage on a failed save, or half as much damage on a successful one.</p>
 <p>The fire damages objects in the area and ignites flammable objects that aren’t being worn or carried. If you choose, plant life in the area is unaffected by this spell.</p>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Fire'], 7);
 
@@ -917,7 +917,7 @@ class SpellsFSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>You transform one of your hands into a mighty fist of living stone, gaining a +3 bonus to melee attacks and melee damage made with your transformed fist. Your Unarmed Strike is now considered magical in terms of overcoming Damage Reduction.</p>
+        $spell->description = '<p>You transform one of your hands into a mighty fist of living stone, gaining a +1 bonus to melee attacks and melee damage made with your transformed fist. Your Unarmed Strike is now considered magical in terms of overcoming Damage Reduction.</p>
 <p>You fist becomes solid (you cannot flex your fingers or palm)</p>';
         $spell->heightened = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the duration by 1 hour</dd>
@@ -1227,10 +1227,10 @@ class SpellsFSeeder extends Seeder
         $spell->name        = 'Focusing Chant';
         $spell->casting     = 'Verbal Casting';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, up to 3 hours';
+        $spell->duration    = 'Sustained, up to 3 hours';
         $spell->description = '<p>You chant to focus your mind and block out distractions and hone your attention. You gain a +1 circumstance bonus to Attack, Skill Checks, and Ability Checks. You also gain a +3 bonus against Fear effects.</p>
-<p>To maintain this spell, you must use an Action to continue to chant. While chanting, you cannot speak or use any ability that requires speaking.</p>';
-        $helper->addTypesToSpell($spell, ['Enchantment'], 0);
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it (by continuing to chant). If you do not, the spell ends. While chanting, you cannot speak or use any ability that requires speaking.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Sustained'], 0);
 
         $spell              = new Spell;
         $spell->name        = 'Foe Bane';
@@ -1260,10 +1260,10 @@ class SpellsFSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->range          = '0';
         $spell->area           = '150-feet radius emanation centered on you';
-        $spell->duration       = 'Concentration, up to 10 minutes';
+        $spell->duration       = 'Sustained, up to 10 minutes';
         $spell->description    = '<p>Like the legendary piper, you can play a tune so beguiling that those that hear it feel compelled to follow you, dancing merrily.</p>
 <p>You can lure up to 10 HD of creatures. Those with the fewest Hit Dice are the first to be affected. Once you have reached your limit of creatures, the music does not affect any others. Creatures thus captivated can defend themselves, but do not initial attacks. If you lead your followers directly into danger, they receive another Save with a +1 bonus.</p>
-<p>To maintain this spell, you must use an Action to continue playing.</p>';
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it (by continuing to play). If you do not, the spell ends.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No effect</dd>
     <dt>Failure</dt> <dd>Captivated to follow you</dd>
@@ -1271,7 +1271,7 @@ class SpellsFSeeder extends Seeder
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the maximum number of HD by +5</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Auditory'], 4);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Auditory', 'Sustained'], 4);
 
         $spell               = new Spell;
         $spell->name         = 'Forbiddance';
@@ -1752,8 +1752,8 @@ class SpellsFSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->range          = '120 feet';
         $spell->area           = '30 foot radius emanation centered on you';
-        $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = '<p>You start to play a discordant cacophony of haunting and alien music. All the area (except yourself) must make a WIS Save. Those who fail suffer the effects of the Fugue. On each of your turns (including the turn you cast this spell), make a Performance check. You may have those targets that are under the effects of this spell act according to the table. Choose any that your Performance check equals or exceeds. To continue this spell, you must Concentrate and use an Action to play the discordant music each turn except for the turn you cast this spell.</p>
+        $spell->duration       = 'Sustained, up to 1 minute';
+        $spell->description    = '<p>You start to play a discordant cacophony of haunting and alien music. All the area (except yourself) must make a WIS Save. Those who fail suffer the effects of the Fugue. On each of your turns (including the turn you cast this spell), make a Performance check. You may have those targets that are under the effects of this spell act according to the table. Choose any that your Performance check equals or exceeds. <strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it (by continuing to play the discordant music). If you do not, the spell ends.</p>
 <table>
     <thead>
         <tr>
@@ -1796,6 +1796,6 @@ class SpellsFSeeder extends Seeder
     <dt>Success</dt> <dd>Suffer a -2 penalty to Attack and Skill Checks and Ability Checks until the beginning of your next turn. If you are still in the area, you must make another Save</dd>
     <dt>Failure</dt> <dd>You suffer the effects that the caster chooses based on their Performance check.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Auditory'], 4);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Emotion', 'Auditory', 'Sustained'], 4);
     }
 }

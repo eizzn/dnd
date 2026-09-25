@@ -81,7 +81,7 @@ class GodsDragonsSeeder extends Seeder
     <li>If you cast the Summon Mount Spell, you may summon a Lesser Dragon Mount (when casting the spell Call Mount). Use the Stats for a Pegasus, except that it is a Young Metallic Dragon with an Elemental Breath Weapon of the appropriate type.</li>
     <li>If you have the Leadership Feat, you may gain an appropriate CR Dragon as your cohort</li>
 </ul>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity', 'Spend Spell Point']);
 
         $helper->addPietyToGod($god, [
             'pantheon_id' => app()->pantheons['Faeruneon']->id,

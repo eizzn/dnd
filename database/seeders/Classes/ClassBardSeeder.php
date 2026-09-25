@@ -29,8 +29,8 @@ class ClassBardSeeder extends Seeder
         $class->armors        = 'Light Armor';
         $class->has_spells    = 1;
         $helper->saveClass($class, [
-            'skill_points'   => 8,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['DEX', 'CHA'], [
             'Arcane', 'Bardic Inspiration', 'Spell Pool',
         ]);
@@ -49,7 +49,7 @@ class ClassBardSeeder extends Seeder
     <li>Using a musical instrument can count as your Somatic Casting component, as if you had the Combat Casting feat.</li>
     <li>You may use this feature a number of times per day equal to your CHA Bonus (minimum of 1). You regain 1 use after a Short Rest and all uses after a Long Rest.</li>
 </ul>';
-        $helper->saveFeature($feature, ['Emotion', 'Bardic Inspiration', 'Auditory']);
+        $helper->saveFeature($feature, ['Emotion', 'Bardic Inspiration', 'Auditory', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'spell_pool'         => [2],
@@ -189,7 +189,7 @@ class ClassBardSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Allegro';
-        $feat->description = '<p>You can cast the spell associated spells in the same way as Bardic Inspiration (requiring 1 Spell Point), as long as you are high enough level to cast spells of the required Spell Level.</p>';
+        $feat->description = '<p>You can cast the associated spells in the same way as Bardic Inspiration (requiring 1 Spell Point), as long as you are high enough level to cast spells of the required Spell Level.</p>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Emotion', 'Mental']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Triple Time'],
@@ -199,7 +199,7 @@ class ClassBardSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Dirge and Ballad';
-        $feat->description = '<p>You repertoire now includes dirges and ballads and you may cast the associated spells as you would Bardic Inspiration (requiring 1 Spell Point), as long as you are high enough level to cast spells of the required Spell Level.</p>';
+        $feat->description = '<p>Your repertoire now includes dirges and ballads, and you may cast the associated spells as you would Bardic Inspiration (requiring 1 Spell Point), as long as you are high enough level to cast spells of the required Spell Level.</p>';
         $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Emotion', 'Mental']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Dirge of Doom', 'Disquietude'],
@@ -222,11 +222,11 @@ class ClassBardSeeder extends Seeder
         $feat->action_type = 'Action';
         $feat->description = '<p>You can perform your Bardic Inspiration such that it is heard as background noise, yet still delivers its effects.</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>Spend 2 Spell Points and at least 1 round Performing your Bardic Inspiration, along with the additional Action required to add this Metamagic effect. Your Bardic Inspiration takes effect, but it sounds like normal background noise (such as the chirping of birds or the croaking of frogs).</li>
     <li>An opponent who suspects something and makes a successful INT Save realizes that the sound has been altered and can hear its true nature.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic']);
+        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Inspire Heroics';
@@ -237,7 +237,7 @@ class ClassBardSeeder extends Seeder
     <dt>Success</dt> <dd>The status bonus from your Inspire Courage or Inspire Defense increases to +2</dd>
     <dt>Failure</dt> <dd>Your Inspire Courage or Inspire Defense provides only its normal bonus of +1, but your don't spend the Spell Point for casting the Bardic Inspiration</dd>
 </dl>";
-        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic']);
+        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic', 'Spend Spell Point']);
         $feat->parent_feats()->save(Feat::where('name', 'Expanded Inspirations')->first());
 
         $feat              = new Feat;
@@ -249,7 +249,7 @@ class ClassBardSeeder extends Seeder
     <dt>Success</dt> <dd>The Inspiration lasts 3 rounds</dd>
     <dt>Failure</dt> <dd>The Inspiration lasts 1 round, but you don't spend the Spell Point for casting the Inspiration spell.</dd>
 </dl>";
-        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic']);
+        $helper->addTypesToFeat($feat, ['Bardic Inspiration', 'Metamagic', 'Spend Spell Point']);
 
         $helper->addFeatsToClass($class, [
             'Improved Bardic Inspiration' => 5,

@@ -34,7 +34,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Kobold', 'Dragon'], [
             'stats'    => [7, 15, 9, 8, 7, 8, .125, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'sunlight_sensitivity',
             ],
             'languages' => ['Yipyak'],
@@ -57,7 +57,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Kobold', 'Dragon'], [
             'stats'    => [7, 16, 9, 8, 7, 8, .25, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'sunlight_sensitivity',
             ],
             'languages' => ['Yipyak'],
@@ -136,7 +136,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration'], [
             'stats'    => [13, 10, 11, 11, 10, 8, .25, 2],
             'features' => [
-                'darkvision' => ['meta' => '120 feet'],
+                'darkvision' => ['meta' => '{"range":120}'],
                 'amphibious',
                 'sunlight_sensitivity',
             ],
@@ -159,7 +159,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration'], [
             'stats'    => [14, 10, 14, 12, 14, 11, 0, 2],
             'features' => [
-                'darkvision' => ['meta' => '120 feet'],
+                'darkvision' => ['meta' => '{"range":120}'],
                 'amphibious',
                 'sunlight_sensitivity',
             ],
@@ -190,7 +190,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration'], [
             'stats'    => [16, 10, 14, 12, 14, 11, 3, 2],
             'features' => [
-                'darkvision' => ['meta' => '120 feet'],
+                'darkvision' => ['meta' => '{"range":120}'],
                 'amphibious',
                 'sunlight_sensitivity',
                 'good_at_talents',
@@ -223,7 +223,7 @@ class MonstersKSeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration'], [
             'stats'    => [16, 10, 14, 12, 14, 11, 3, 2],
             'features' => [
-                'darkvision' => ['meta' => '120 feet'],
+                'darkvision' => ['meta' => '{"range":120}'],
                 'amphibious',
                 'sunlight_sensitivity',
             ],

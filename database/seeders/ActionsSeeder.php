@@ -122,9 +122,9 @@ class ActionsSeeder extends Seeder
         $action->key         = 'counterspell';
         $action->name        = 'Counterspell';
         $action->description = "<p>It is possible to cast any Spell as a Counterspell. By doing so, you are using the spell's energy to disrupt the casting of the same spell by another character. Counterspelling works even if one spell is Divine and the other Arcane.</p>
-<p>To use a Counterspell, you must select an opponent as the target of the Counterspell. You do this by using Actions to cast the spell, either by holding your Actions (turning them into Reactions), or having Reactions from Attacks of Opportunity or other means, so that you may use them when your opponent starts to cast a Spell that you wish to counter.</p>
-<p>To counter a spell, you must identify the spell being cast (with an Immediate Action) using an Arcane check (DC 15 + the spell's level). If you succeed in identify the spell, you may then choose to cast a Spell that will counter the target Spell. If you fail to identify the spell, you may only counter the spell using Dispel Magic (this normally requires the Improved Counter Spell Feat).</p>
-<p>After identifying the target Spell, you may then use a number of Reactions to cast the Spell. At this point, the Spell is countered. Spells that are Heightened must be matched with an equally Heightened Spell or higher. Spells augmented with Metamagic does not impact if a spell can be countered.</p>
+<p>To use a Counterspell, you must select an opponent as the Target of the Counterspell. You do this by using Actions to cast the spell, either by holding your Actions (turning them into Reactions), or having Reactions from Attacks of Opportunity or other means, so that you may use them when your opponent starts to cast a Spell that you wish to counter.</p>
+<p>To counter a spell, you must identify the spell being cast (with an Immediate Action) using an Arcane check (DC 15 + the spell's level). If you succeed in identify the spell, you may then choose to cast a Spell that will counter the Target Spell. If you fail to identify the spell, you may only counter the spell using Dispel Magic (this normally requires the Improved Counter Spell Feat).</p>
+<p>After identifying the Target Spell, you may then use a number of Reactions to cast the Spell. At this point, the Spell is countered. Spells that are Heightened must be matched with an equally Heightened Spell or higher. Spells augmented with Metamagic does not impact if a spell can be countered.</p>
 <p>Some spells specifically counter each other, especially when they have diametrically opposed effects. The specific Spell entry will describe what spells they Specifically Counter and what Spells Specifically Counter them.</p>
 <p>Using Dispel Magic to Counter a spell does not require you to successfully identify the spell first, but this leaves you with no information on what Spell Level the Spell is cast at, or what School the Spell belongs to. The chance to Counter a Spell using Dispel Magic requires a Spell Caster check (DC 12 + the Target spell's level including any Heightening).</p>";
         $helper->addTypesToSimpleObject($action, ['Counterspell', 'Abjuration']);
@@ -150,7 +150,7 @@ class ActionsSeeder extends Seeder
         $action->key         = 'dismiss';
         $action->name        = 'Dismiss';
         $action->action_type = 'Action';
-        $action->description = '<p>You end one spell effect or magic item effect. This must be an effect you are allowed to dismiss, as defined by the spell or item. Dismissal might end the effect entirely or might end it just for a certain target or targets, depending on the spell or item.</p>';
+        $action->description = '<p>You end one spell effect or magic item effect. This must be an effect you are allowed to dismiss, as defined by the spell or item. Dismissal might end the effect entirely or might end it just for a certain Target or Targets, depending on the spell or item.</p>';
         $helper->addTypesToSimpleObject($action, ['Concentrate']);
 
         $action              = new Action;
@@ -174,10 +174,20 @@ class ActionsSeeder extends Seeder
         $action->action_type = 'Action';
         $action->description = '<p>You attempt to escape from being grabbed, immobilized, or restrained.  Choose one creature, object, spell effect, hazard, or other impediment imposing any of those conditions on you.</p>
 <p>Attempt a check using your unarmed attack modifier against the DC of the effect.  This is typically the Athletics DC of the creature grabbing you, the Thievery DC of the creature who tied you up, the spell DC for the spell effect, or the listed Escape DC of an object, hazard, or other impediment. You can attempt an Acrobatics or Athletics check instead of using your attack modifier if you choose (but this Action still has the Attack trait).</p>';
-        $action->critical_success = 'You get free and remove the Grabbed, Immobilized, and Restrained conditions imposed by your chosen targets. You can then Stride up to 5 feet';
-        $action->success          = 'You get free and remove the Grabbed, Immobilized, and Restrained conditions by your chosen target';
+        $action->critical_success = 'You get free and remove the Grabbed, Immobilized, and Restrained conditions imposed by your chosen Targets. You can then Stride up to 5 feet';
+        $action->success          = 'You get free and remove the Grabbed, Immobilized, and Restrained conditions by your chosen Target';
         $action->critical_failure = "You don't get Free, and you can't attempt to Escape again until your next turn'";
         $helper->addTypesToSimpleObject($action, ['Attack']);
+
+        $action                   = new Action;
+        $action->key              = 'bypass-damage-reduction';
+        $action->name             = 'Bypass Damage Reduction';
+        $action->action_type      = 'Action';
+        $action->requirements     = 'You are wielding a Melee weapon with the Piercing trait';
+        $action->description      = "<p>Rather than swinging with full force, you thread your weapon through a gap in your Target's armor, scales, or hide. Make a melee Strike against your Target's AC with a -6 circumstance penalty to your attack roll. If your Target is Grabbed or Restrained, this penalty is only -2 instead, since it can't move to protect its vulnerable points.</p>";
+        $action->success          = "You ignore the Target's Damage Reduction. Roll your weapon's damage die once, double the result, then add your STR (or DEX, for a Finesse weapon) modifier once, undoubled — as with a Critical Hit, but for damage purposes only.";
+        $action->critical_success = "As success, but triple the weapon damage die instead of doubling it, still adding your modifier once, undoubled (any Deadly or Fatal die is added once as normal, not tripled). The Target's Damage Reduction still does not apply.";
+        $helper->addTypesToSimpleObject($action, ['Attack', 'Melee']);
 
         $action              = new Action;
         $action->key         = 'fighting-defensively';
@@ -279,7 +289,7 @@ class ActionsSeeder extends Seeder
         $action->key              = 'strike';
         $action->name             = 'Strike';
         $action->action_type      = 'Action';
-        $action->description      = "<p>You attack with a weapon you’re wielding or with an unarmed attack, targeting one creature within your reach (for a melee attack) or within range (for a ranged attack). Roll the attack roll for the weapon or unarmed attack you are using and compare the result to the target creature's AC to determine the effect. See Melee Strikes and Ranged Strikes for details on calculating your attack and damage rolls.</p>";
+        $action->description      = "<p>You attack with a weapon you’re wielding or with an unarmed attack, targeting one creature within your reach (for a melee attack) or within range (for a ranged attack). Roll the attack roll for the weapon or unarmed attack you are using and compare the result to the Target creature's AC to determine the effect. See Melee Strikes and Ranged Strikes for details on calculating your attack and damage rolls.</p>";
         $action->success          = 'You deal damage according to the weapon or unarmed attack, including any circumstance and conditional bonuses and penalties';
         $action->critical_success = 'You critically succeed at an attack roll, dealing double damage';
         $helper->addTypesToSimpleObject($action, ['Attack']);
@@ -338,7 +348,7 @@ class ActionsSeeder extends Seeder
         $action->key          = 'point-out';
         $action->name         = 'Point Out';
         $action->requirements = 'A creature is not unseen by you, but it is unseen by one or more of your allies';
-        $action->description  = '<p>You indicate a creature that you can see to one or more allies, gesturing in a direction and describing the distance verbally. Allies treat that creature as sensed rather than unseen (see page 303). This works only for allies who can see you and are in a position where they could potentially sense the target. If your allies can’t hear or understand you, they must succeed at a Perception check against the creature\'s Stealth DC or they misunderstand the distance to the target and believe it to be in a different location.</p>';
+        $action->description  = '<p>You indicate a creature that you can see to one or more allies, gesturing in a direction and describing the distance verbally. Allies treat that creature as sensed rather than unseen (see page 303). This works only for allies who can see you and are in a position where they could potentially sense the Target. If your allies can’t hear or understand you, they must succeed at a Perception check against the creature\'s Stealth DC or they misunderstand the distance to the Target and believe it to be in a different location.</p>';
         $helper->addTypesToSimpleObject($action, ['Manipulate', 'Visual']);
 
         $action               = new Action;

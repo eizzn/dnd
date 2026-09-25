@@ -48,7 +48,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 feet'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'immunity'     => ['meta' => 'Cold, Positive, Negative'],
                 'power_points' => ['meta' => '2 Power Points'],
             ],
@@ -92,7 +92,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '30 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Cold, Positive, Negative'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points' => ['meta' => '6 Power Points'],
@@ -138,7 +138,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold, Positive, Negative'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -185,7 +185,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold, Positive, Negative'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '15 Power Points'],
@@ -231,7 +231,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 feet'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'resistance'   => ['meta' => 'Cold, Positive, Negative, INT damage'],
                 'power_points' => ['meta' => '2 Power Points'],
                 'amphibious',
@@ -276,7 +276,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '30 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'resistance'   => ['meta' => 'Cold, Negative, INT damage'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points' => ['meta' => '6 Power Points'],
@@ -322,7 +322,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Cold, Negative, INT damage'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -369,7 +369,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Cold, Negative, INT damage'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -416,7 +416,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 feet'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'resistance'   => ['meta' => 'Fire, INT damage, WIS damage, DEX damage'],
                 'power_points' => ['meta' => '2 Power Points'],
                 'earth_glide'  => ['meta' => 'The dragon can burrow through solid rock at half its Burrow Speed and can leave a 5-foot diameter tunnel in its wake'],
@@ -462,7 +462,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '30 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'resistance'   => ['meta' => 'Fire, INT damage, WIS damage, DEX damage'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points' => ['meta' => '6 Power Points'],
@@ -509,7 +509,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Fire, INT damage, WIS damage, DEX damage'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -556,7 +556,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Fire, INT damage, WIS damage, DEX damage'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '15 Power Points'],
@@ -602,7 +602,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 feet'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'resistance'   => ['meta' => 'Electricity, INT damage, WIS damage, STR damage'],
                 'immunity'     => ['meta' => 'Frightened'],
                 'power_points' => ['meta' => '2 Power Points'],
@@ -650,7 +650,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '30 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'resistance'   => ['meta' => 'Electricity, INT damage, WIS damage, STR damage'],
                 'immunity'     => ['meta' => 'Frightened'],
                 'power_points' => ['meta' => '6 Power Points'],
@@ -698,7 +698,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Electricity, INT damage, WIS damage, STR damage'],
                 'immunity'             => ['meta' => 'Frightened'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -747,7 +747,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'resistance'           => ['meta' => 'Electricity, INT damage, WIS damage, STR damage'],
                 'immunity'             => ['meta' => 'Frightened'],
                 'power_points'         => ['meta' => '12 Power Points'],
@@ -795,7 +795,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Force, Frightened, Prone'],
                 'power_points' => ['meta' => '3 Power Points'],
                 'amphibious',
@@ -841,7 +841,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '30 ft'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Force'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points' => ['meta' => '10 Power Points'],
@@ -888,7 +888,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Force'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '15 Power Points'],
@@ -938,7 +938,7 @@ class DragonsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Force'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'power_points'         => ['meta' => '20 Power Points'],
@@ -982,7 +982,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Cold'],
                 'amphibious',
             ],
@@ -1017,7 +1017,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Cold'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'ice_walk',
@@ -1058,7 +1058,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1101,7 +1101,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1138,7 +1138,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Acid'],
                 'amphibious',
             ],
@@ -1173,7 +1173,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Acid'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'amphibious',
@@ -1214,7 +1214,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1257,7 +1257,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 19. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1295,7 +1295,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Poison'],
                 'amphibious',
             ],
@@ -1332,7 +1332,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Poison'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'amphibious',
@@ -1376,7 +1376,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Poison'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1422,7 +1422,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Poison'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 19. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1459,7 +1459,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '60 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Electricity'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -1493,7 +1493,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '60 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Electricity'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
             ],
@@ -1533,7 +1533,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Electricity'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 20. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1575,7 +1575,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Electricity'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 20. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1611,7 +1611,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Fire'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -1645,7 +1645,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '60 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Fire'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
             ],
@@ -1685,7 +1685,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 19. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1727,7 +1727,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 21. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1768,7 +1768,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Fire'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -1808,7 +1808,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Fire'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
             ],
@@ -1855,7 +1855,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1908,7 +1908,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -1949,7 +1949,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Acid'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -1989,7 +1989,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Cold'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
             ],
@@ -2035,7 +2035,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Acid'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 16. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2087,7 +2087,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Acid'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2128,7 +2128,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Electricity'],
                 'amphibious',
             ],
@@ -2169,7 +2169,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Electricity'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'amphibious',
@@ -2220,7 +2220,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Electricity'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2273,7 +2273,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Electricity'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2315,7 +2315,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Cold'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -2356,7 +2356,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Cold'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
             ],
@@ -2407,7 +2407,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2460,7 +2460,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Cold'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2501,7 +2501,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '10 ft']],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Fire'],
                 'amphibious',
             ],
@@ -2543,7 +2543,7 @@ class DragonsSeeder extends Seeder
             ],
             'feats'    => ['Blindsight' => ['meta' => '30 ft']],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Fire'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'amphibious',
@@ -2595,7 +2595,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 21. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2649,7 +2649,7 @@ class DragonsSeeder extends Seeder
                 'Melee Mastery', 'Extra Melee Action',
             ],
             'features' => [
-                'darkvision'           => ['meta' => '120 feet'],
+                'darkvision'           => ['meta' => '{"range":120}'],
                 'immunity'             => ['meta' => 'Fire'],
                 'frightful_presence'   => ['meta' => 'Range: 120 ft. DC: 18. Duration: 1 minute'],
                 'multi_attack'         => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
@@ -2682,7 +2682,7 @@ class DragonsSeeder extends Seeder
                 'WIS' => ['bonus' => 7],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '120 feet'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'resistance'   => ['meta' => 'Fire'],
                 'multi_attack' => ['meta' => 'If the dragon makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The dragon can only gain this additional Action once per turn.'],
                 'amphibious',

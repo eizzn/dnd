@@ -127,12 +127,12 @@ class GodsDevilsSeeder extends Seeder
         $feat->name        = 'Pact to Dispater';
         $feat->description = '<p>You have made a Pact to Dispater</p>
 <ul>
-    <li>Increase your CON score by 1, to a maximum of 20</li>
+    <li>Increase your CON score by 1, to a maximum of 20.</li>
     <li>Add the Thievery skill to all of your Class Skills</li>
     <li>You are proficient in all metal weapons</li>
     <li>You may take the Sacrificial Mastery Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful']);
+        $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful', 'Ability Boost']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Cutting Hand', 'Mage Armor' => 'Self only. Armor is iron instead of Force',
                 'Sword Strike'                               => 'The sword is iron instead of Force', ],
@@ -299,10 +299,10 @@ class GodsDevilsSeeder extends Seeder
         $feat->name        = 'Pact to Levistus';
         $feat->description = '<p>You have made a Pact to Levistus</p>
 <ul>
-    <li>You gain Resistance to Cold Damage</li>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
+    <li>You gain the Resistance to Cold Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Evil', 'Vile', 'Lawful']);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Pact', 'Evil', 'Vile', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Ice Knife', 'Ray of Frost'],
             1 => ['Armor of Frost', 'Frost Fingers'],
@@ -352,10 +352,10 @@ class GodsDevilsSeeder extends Seeder
         $feat->name        = 'Pact to Baalzebul';
         $feat->description = '<p>You formally supplicate yourself to Baalzebul. You gain the following abilities.</p>
 <ul>
-    <li>Increase your CHA score by 1, to a maximum of 20</li>
+    <li>Increase your CHA score by 1, to a maximum of 20.</li>
     <li>You gain the Sneak Attack Class Feature. If you already have the Sneak Attack class feature, you may take a Sneak Attack feat that you qualify for.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Evil', 'Devil', 'Lawful']);
+        $helper->addTypesToFeat($feat, ['Vile', 'Pact', 'Ability Boost', 'Evil', 'Devil', 'Lawful']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Eldritch Blast', 'Ghost Sound', 'Hex', 'Infestation', 'Produce Flame'],
             1 => ['Biting Words', 'Burning Hands', 'Charm', 'Curse', 'Tongue of Baalzebul'],

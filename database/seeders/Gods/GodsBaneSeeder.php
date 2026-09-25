@@ -101,7 +101,7 @@ class GodsBaneSeeder extends Seeder
 <p>Dreadmasters have been known to become liches in the service of Bane. You may take the Lichdom Feat without having to meet the requirement for the Necromancer Feat.</p>";
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], [Attribute::WIS->value, Attribute::CHA->value], [
             'Divine', 'Evil', 'Fiend',
@@ -251,7 +251,7 @@ class GodsBaneSeeder extends Seeder
         $class->description   = '<p>Priest of Loviatar</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], [Attribute::CON->value, Attribute::WIS->value], [
             'Divine', 'Evil',
@@ -274,20 +274,20 @@ class GodsBaneSeeder extends Seeder
         $feature->name        = 'Channel Divinity Cause Wound';
         $feature->description = '<p>You can use your Channel Divinity to cast the Cause Wounds spell.</p>
 <p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you cast the Cause Wounds spell. You may spend an additional 2 Spell Points to Heighten the spell at +1.</p>';
-        $helper->saveFeature($feature, ['Necromancy', 'Harm']);
+        $helper->saveFeature($feature, ['Necromancy', 'Harm', 'Spend Spell Point']);
 
         $feature              = new Feature;
         $feature->key         = 'pain_touch';
         $feature->name        = 'Pain Touch';
         $feature->description = '<p>As part of casting Cause Wounds, you may spend 4 Spell Points and remove the Verbal Casting requirement.</p>';
-        $helper->saveFeature($feature, ['Harm']);
+        $helper->saveFeature($feature, ['Harm', 'Spend Spell Point']);
 
         $feature              = new Feature;
         $feature->key         = 'lasher';
         $feature->name        = 'Lasher';
         $feature->description = '<p>As part of a Strike with a whip, you may spend 2 Spell Points and an Action and deliver a spell that has a range of Touch through the whip. You do not need to spend the Actions required to cast the spell as long as it is delivered through your whip.</p>
 <p>If you have the Stunning Fist feat, you may attempt your Stunning attempt through your whip.</p>';
-        $helper->saveFeature($feature, ['Harm']);
+        $helper->saveFeature($feature, ['Harm', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'channel_divinity_cause_wound' => [3],
@@ -390,8 +390,8 @@ class GodsBaneSeeder extends Seeder
 </blockquote>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Evil',
         ]);
@@ -413,7 +413,7 @@ class GodsBaneSeeder extends Seeder
         $feature->name        = 'Channel Divinity: Call Dagger';
         $feature->description = '<p>You can use your Channel Divinity to cause a Dagger or Knife that you have Attuned to appear in your hand.</p>
 <p>Spend 1 Spell Point and a use of your Channel Divinity. As a Double Action, you cause your Attuned Dagger or Knife to your hands from any distance so long as the weapon is on the same plane of existence.</p>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'stalked_enemy'                => [2],

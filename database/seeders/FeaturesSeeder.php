@@ -53,7 +53,7 @@ class FeaturesSeeder extends Seeder
     <li>You gain the Two-Weapon Fighter Feat</li>
     <li>You may spend a Power Point and gain an Additional Action. This additional Action can only be used to make an Unarmed Strike Melee attack. You cannot spend more than one Power Point in this way per turn.</li>
 </ul>';
-        $helper->saveFeature($feature);
+        $helper->saveFeature($feature, ['Spend Power Point']);
 
         $feature              = new Feature;
         $feature->key         = 'glorious_resistance';
@@ -90,6 +90,18 @@ class FeaturesSeeder extends Seeder
         $helper->saveFeature($feature, ['Discipline']);
 
         $feature              = new Feature;
+        $feature->key         = 'ranger_devotion_feat';
+        $feature->name        = 'Ranger Devotion Feat';
+        $feature->description = '<p>You gain a Ranger Devotion Feat.</p>';
+        $helper->saveFeature($feature, ['Ranger Devotion']);
+
+        $feature              = new Feature;
+        $feature->key         = 'arcane_rogue_feat';
+        $feature->name        = 'Arcane Rogue Feat';
+        $feature->description = '<p>You gain a Arcane, Precision, Rogue, or Skill Feat.</p>';
+        $helper->saveFeature($feature, ['Arcane', 'Precision', 'Skill']);
+
+        $feature              = new Feature;
         $feature->key         = 'class_group_feat';
         $feature->name        = 'Class Group Feat';
         $feature->description = '<p>You gain a Class Group feat</p>';
@@ -102,9 +114,8 @@ class FeaturesSeeder extends Seeder
         $feature->description  = '<p>You have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.</p>
 <p>Choose a type of Favored Enemy from the table. You gain the following benefits against those creatures.</p>
 <ul>
-    <li>+2 bonus to Hit against members of your Favored Enemy using Melee or Ranged weapons.</li>
+    <li>+1 bonus to Hit against members of your Favored Enemy using Melee or Ranged weapons.</li>
     <li>When you hit a member of your Favored Enemy, you deal an additional Weapon Die of Damage</li>
-    <li>When you score a critical hit against a member of your Favored Enemy, add an additional damage dice.</li>
     <li>+3 circumstance bonus to Survival checks to Track your Favored Enemy.</li>
     <li>+3 circumstance bonus to Perception checks when you Seek your Favored Enemy.</li>
     <li>+3 circumstance bonus to Lore checks when recalling information about them.</li>
@@ -139,7 +150,14 @@ class FeaturesSeeder extends Seeder
     <li>Your group can't become lost except by magical means.</li>
     <li>Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.</li>
     <li>If you are traveling alone, you can move stealthily at a normal pace.</li>
-    <li>You gain a +5 bonus to Stealth (Hide) checks to hide in your Favored Terrain.</li>
+    <li>
+        You gain a +5 bonus to the following skills when in your Favored Terrain.
+        <ul>
+            <li>Stealth (Hide and Sneak) checks</li>
+            <li>Nature (Recall Knowledge) checks</li>
+            <li>Survival checks</li>
+        </ul>
+    </li>
     <li>When you Forage, you find twice as much food as you normally would.</li>
     <li>While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.</li>
 </ul>";
@@ -280,7 +298,7 @@ class FeaturesSeeder extends Seeder
     <li>You may spend 1 Spell Point and use your Channel Divinity to turn/rebuke certain creatures as a Double Action. The type of creatures depends on your deity.</li>
     <li>You may spend 1 Spell Point to cast the Cure Wounds spell as a 1st level spell as an Action. You may Heighten the spell by spending +2 Spell Points for +1 Heighten.</li>
 </ul>';
-        $helper->saveFeature($feature, ['Positive', 'Negative']);
+        $helper->saveFeature($feature, ['Positive', 'Negative', 'Spend Spell Point']);
 
         $feature              = new Feature;
         $feature->key         = 'place_magic';
@@ -378,18 +396,18 @@ class FeaturesSeeder extends Seeder
         $feature->key         = 'channel_divinity_caster';
         $feature->name        = 'Channel Divinity Caster';
         $feature->description = '<p>Once per turn, you can cast the specified spell by spending 1 Spell Point and a use of your Channel Divinity</p>';
-        $helper->saveFeature($feature, ['Spell Pool']);
+        $helper->saveFeature($feature, ['Spell Pool', 'Spend Spell Point']);
 
         $feature              = new Feature;
         $feature->key         = 'spell_resistance';
         $feature->name        = 'Spell Resistance';
-        $feature->description = '<p>You gain a +3 bonus to all Saves vs spells.</p>';
+        $feature->description = '<p>You gain a +2 bonus to all Saves vs spells.</p>';
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
         $feature->key         = 'darkvision';
         $feature->name        = 'Darkvision';
-        $feature->description = '<p>You have Darkvision.</p>';
+        $feature->description = "<p>You can see in dim light within the listed range as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</p>";
         $helper->saveFeature($feature);
 
         $feature              = new Feature;
@@ -597,7 +615,7 @@ class FeaturesSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'fey_ancestry';
         $feature->name        = 'Fey Ancestry';
-        $feature->description = "<p>You have Advantage on Saves against being Charmed, and magic can't put you to sleep</p>";
+        $feature->description = "<p>You gain a bonus to Saves against being Charmed (the amount depends on your ancestry), and magic can't put you to sleep.</p>";
         $helper->saveFeature($feature, ['Fey']);
 
         $feature              = new Feature;
@@ -684,5 +702,72 @@ class FeaturesSeeder extends Seeder
     <dt>Ethereal Plane</dt> <dd>You see into the Ethereal Plane</dd>
 </dl>';
         $helper->saveFeature($feature);
+
+        // Racial traits — linked to races/sub-races in AfterSeeder (races are
+        // seeded before features). Shared mechanics are one generic feature
+        // whose per-race numbers live in the featureables `meta` (as JSON);
+        // race-unique traits keep their race's exact text.
+        foreach ([
+            'ability_score_increase' => ['Ability Score Increase', '<p>Your ability scores change by the amounts listed for your race. Where a choice is listed, you choose which ability scores receive the increase.</p>'],
+            'racial_feat'            => ['Racial Feat', '<p>You gain the feat(s) listed for your race. Where a choice is listed, you choose a feat of that type.</p>'],
+            'weapon_training'        => ['Weapon Training', '<p>You have proficiency with the weapons listed for your race.</p>'],
+            'poison_resilience'      => ['Poison Resilience', '<p>You gain a +4 bonus on Saves vs Poison. You have Damage Reduction 2 vs Poison.</p>'],
+            'creature_type'          => ['Creature Type', "<p>Your creature type is the type listed for your race, instead of Humanoid. Spells and effects that only target Humanoids don't affect you.</p>"],
+            'initial_hit_die'        => ['Initial Hit Die', '<p>You start with Hit Points equal to the Hit Die listed for your race.</p>'],
+            'languages'              => ['Languages', '<p>You can speak, read, and write the languages listed for your race.</p>'],
+            'telepathy'              => ['Telepathy', '<p>You can communicate telepathically with any creature within the listed range.</p>'],
+            'skill_training'         => ['Skill Training', '<p>The skills listed for your race count as class skills for you, so their points count at full value. Where a choice is listed, you choose the skill(s). Some races also grant bonus skill points at 1st level.</p>'],
+            'natural_armor'          => ['Natural Armor', '<p>You have tough, scaly skin that protects you as listed for your race: either a base AC you can use in place of worn armor, or Damage Reduction.</p>'],
+            'psionics'               => ['Psionics', '<p>You gain a psionic power of the level and class listed for your race.</p>'],
+            'level_adjustment'       => ['Level Adjustment', '<p>Your Level Adjustment is the amount listed for your race.</p>'],
+            'stonecunning'           => ['Stonecunning', '<p>Whenever you make a Lore (Recall Knowledge: History) check related to the origin of stonework, you have Advantage on the check.</p>'],
+            'powerful_build'         => ['Powerful Build', '<p>You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>'],
+            'sneaky'                 => ['Sneaky', '<p>You gain a +2 bonus to all Stealth checks.</p>'],
+            'aggressive'             => ['Aggressive', '<p>You gain an additional Action. This additional Action can only be taken to move towards an enemy of your choice that you can see or hear. You cannot use this Action if the move does not bring you within melee range of the target.</p>'],
+            'arctic_heart'           => ['Arctic Heart', '<p>You have Resistance to Cold damage.</p>'],
+            'bathed_in_moonlight'    => ['Bathed in Moonlight', '<p>You gain a +2 bonus to Stealth checks.</p>'],
+            'bird_whisperer'         => ['Bird Whisperer', '<p>Once per day, you can cast Speak with Animals to speak with birds only.</p>'],
+            'bite_attack'            => ['Bite Attack', '<p>Your fanged maw is a natural weapon, which you can use to make unarmed strikes. You gain an extra Action, which can only be used to make Bite attacks. You suffer a -2 to Hit with Bite attacks, and if you make a Bite attack, your DEX bonus to AC is reduced by -1 (minimum 0) until the beginning of your next turn. If you hit with it, you deal piercing damage equal to 1D6 + your STR modifier.</p>'],
+            'brave'                  => ['Brave', '<p>You gain a +2 bonus on Saves against being Frightened.</p>'],
+            'high_elf_cantrip'       => ['Cantrip', '<p>You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.</p>'],
+            'charge'                 => ['Charge', '<p>If you move at least 30 feet straight toward a target and then hit it with a melee weapon attack on the same turn, you gain an additional Action. This additional Action can only be used to make a Hoof attack against the same target you just hit.</p>'],
+            'daring_athlete'         => ['Daring Athlete', '<p>You are at home with heights and have Advantage on DEX and STR checks while on steep slopes, sheer edges, or narrow paths or other mountainous or treacherous terrain.</p>'],
+            'divine_resistance'      => ['Divine Resistance', '<p>You gain a +1 bonus to all Saves.</p>'],
+            'dwarven_speed'          => ['Speed', '<p>Your speed is not reduced by wearing Heavy Armor.</p>'],
+            'equine_build'           => ['Equine Build', '<p>Any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal extra foot.</p>'],
+            'expert_climber'         => ['Expert Climber', '<p>You have a Climb Speed of 30 feet and have Advantage on all STR checks while climbing.</p>'],
+            'expert_swimmer'         => ['Expert Swimmer', '<p>You have a base Swim Speed of 30 feet and have Advantage on all STR checks made while swimming.</p>'],
+            'extraplanar'            => ['Extraplanar', '<p>Star elves are not outsiders, but they are not native to Faerun. Spells and effects that target extraplanar creatures affect star elves. Banishment, dismissal, and similar effects that banish outsiders return a star elf to Sildeyuir.</p>'],
+            'fey_heritage'           => ['Fey Heritage', "<p>You have enough of your mother's fey heritage to make you immune to spell effects that only affect humanoids.</p>"],
+            'fish_whisperer'         => ['Fish Whisperer', '<p>Once per day, you can cast Speak with Animals to speak with fish.</p>'],
+            'fleet_of_foot'          => ['Fleet of Foot', '<p>Your base walking speed increases to 35 feet.</p>'],
+            'fury_of_the_small'      => ['Fury of the Small', "<p>When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a long rest.</p>"],
+            'hellish_resistance'     => ['Hellish Resistance', '<p>You have Resistance to Fire damage.</p>'],
+            'hooves'                 => ['Hooves', '<p>Your hooves are natural melee weapons, which you can use to make Unarmed Strikes. If you hit with them, you deal 1D4 + STR modifier Bludgeoning damage.</p>'],
+            'hurler'                 => ['Hurler', '<p>You have proficiency with improvised weapons. When you throw an improvised weapon, you can use your Strength or Dexterity modifier for the attack and damage rolls and can roll one of the weapon’s damage dice one additional time and add it to the damage dealt.</p>'],
+            'keen_senses'            => ['Keen Senses', '<p>You gain a +2 Racial bonus to Perception checks.</p>'],
+            'leap'                   => ['Leap', '<p>Whenever you make a long or high jump, you can roll a D8 and add the number to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal.</p>'],
+            'long_limbed'            => ['Long-Limbed', '<p>When you make a melee attack on your turn, your reach for it is 5 feet greater than normal.</p>'],
+            'drow_magic'             => ['Magic', '<p>You know the Dancing Lights cantrip. Use INT as your spellcasting ability.</p>'],
+            'satyr_magic_resistance' => ['Magic Resistance', '<p>You gain a +1 bonus to all Saves vs spells and magical effects.</p>'],
+            'martial_training'       => ['Martial Training', '<p>You are proficient with two martial weapons of your choice and with light armor, and you gain the Attack of Opportunity feat.</p>'],
+            'mask_of_the_wild'       => ['Mask of the Wild', '<p>You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>'],
+            'menacing'               => ['Menacing', '<p>You gain a +2 bonus to all Intimidation checks.</p>'],
+            'message_spell'          => ['Message Spell', '<p>You may cast the Message spell at will.</p>'],
+            'naturally_stealthy'     => ['Naturally Stealthy', '<p>You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.</p>'],
+            'nimbleness'             => ['Nimbleness', '<p>You can move through the space of any creature that is of a size larger than yours.</p>'],
+            'otherworldly_touch'     => ['Otherworldly Touch', '<p>Between sunset and sunrise a star elf confers the Ghost Touch ability to any melee weapon they wield and any armor they wear.</p>'],
+            'poison_immunity'        => ['Poison Immunity', '<p>You are immune to Poison damage and the Sickened condition.</p>'],
+            'primal_intuition'       => ['Primal Intuition', '<p>Two of the following skills of your choice count as class skills for you.</p><ul><li>Animal Handling</li><li>Insight</li><li>Intimidation</li><li>Medicine</li><li>Nature</li><li>Survival</li></ul>'],
+            'ram'                    => ['Ram', '<p>You can use your head and horns to make Unarmed Strikes. If you hit with them, you deal Bludgeoning damage equal to 1D4 + STR modifier.</p>'],
+            'swim_speed'             => ['Swim Speed', '<p>You have a Swim Speed of 30 feet.</p>'],
+            'water_affinity'         => ['Water Affinity', '<p>You have Advantage on Saves against water-based and other magical effects. The DM determines if a spell is water based.</p>'],
+        ] as $key => [$name, $description]) {
+            $feature              = new Feature;
+            $feature->key         = $key;
+            $feature->name        = $name;
+            $feature->description = $description;
+            $helper->saveFeature($feature);
+        }
     }
 }

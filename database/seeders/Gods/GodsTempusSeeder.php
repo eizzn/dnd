@@ -161,13 +161,13 @@ class GodsTempusSeeder extends Seeder
         $feat->requirement = 'Must be LN and Red Knight must be your Patron';
         $feat->description = '<p>You are a Paladin of Red Knight, which serves as the clergy of her church. You are concerned with war between large groups and using strategy to gain victory.</p>
 <ul>
-    <li>Increase your WIS score by 1, to a maximum of 20</li>
+    <li>Increase your WIS score by 1, to a maximum of 20.</li>
+    <li>You gain a Talent</li>
     <li>You are proficient with Heavy Armor</li>
     <li>You gain the Skilled feat and must pick the Lore Skill (with a focus on wars of the past)</li>
-    <li>You gain a Talent of your choice</li>
     <li>You gain a +2 bonus to all Ride an Animal Skill checks</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Ability Boost', 'Talent']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Booming Blade', 'Call Attuned Weapon', 'Conviction', 'Detect Magic', 'Guiding Light', 'Light',
                 'True Strike', ],
@@ -215,8 +215,8 @@ class GodsTempusSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['DEX', 'WIS'], [
             'Divine', 'Rogue', 'Fighter Feat',
         ]);
@@ -363,7 +363,7 @@ class GodsTempusSeeder extends Seeder
 </ul>
 <h4>Ancestor Mound</h4>
 <p>Ravenrock</p>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Blue Bear Uthgar Tribe';

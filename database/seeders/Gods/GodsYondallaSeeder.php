@@ -45,7 +45,7 @@ class GodsYondallaSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Halfling', 'Good',
@@ -160,8 +160,8 @@ class GodsYondallaSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 8,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['WIS', 'CHA'], [
             'Divine', 'Skill', 'Halfling',
         ]);
@@ -280,8 +280,8 @@ class GodsYondallaSeeder extends Seeder
         $class->description   = '<p>Priest of Lliira</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);
@@ -335,8 +335,8 @@ class GodsYondallaSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Halfling', 'Good',
         ]);

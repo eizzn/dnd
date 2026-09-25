@@ -61,7 +61,7 @@ class GodsTyrSeeder extends Seeder
         $class->description   = '<p>Priest of Tyr</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
@@ -116,11 +116,11 @@ class GodsTyrSeeder extends Seeder
         $feat->requirement = 'Must be LG';
         $feat->description = '<p>You are a Paladin of Tyr.</p>
 <ul>
-    <li>Increase your WIS score by 1, to a maximum of 20</li>
+    <li>Increase your WIS score by 1, to a maximum of 20.</li>
     <li>Increase your CHA score by 1, to a maximum of 20</li>
     <li>You gain Proficiency with Heavy Armor</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Ability Boost']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Clean Self', 'Forbidding Ward', 'Light', 'Message', 'Radiant Mark'],
             1 => ['Command', 'Detect Evil', 'Faith Healing', 'Protection From Chaos', 'Protection From Evil', 'Silvered Weapon',
@@ -260,7 +260,7 @@ class GodsTyrSeeder extends Seeder
         $class->description   = '<p>Priest of Ilmater</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 10,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['CON', 'WIS'], [
             'Divine', 'Good',
@@ -445,11 +445,11 @@ class GodsTyrSeeder extends Seeder
         $feat->requirement = 'Must be LG and Arvoreen must be your Patron';
         $feat->description = '<p>You gain the following</p>
 <ul>
+    <li>You gain a Talent.</li>
     <li>Add the Stealth skill as a Class Skill</li>
     <li>You gain the Dodge Feat</li>
-    <li>You gain 2 Talents</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Halfling']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Talent', 'Halfling']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Message', 'Shield', 'Stabilize'],
             1 => ['Aura of Courage', 'Enlarge', 'Darkvision', 'Silvered Weapon', 'Undead Bane Weapon'],
@@ -470,9 +470,9 @@ class GodsTyrSeeder extends Seeder
         $feat->description = '<ul>
     <li>You gain Proficiency with Heavy Armors</li>
     <li>You gain the Shield Master Feat</li>
-    <li>You gain 1 Talent</li>
+    <li>You gain a Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Gnome']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Talent', 'Gnome']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Conviction', 'Shield', 'Stabilize'],
             1 => ['Deafening Clang', 'Shield of Faith', 'Silvered Weapon', 'Undead Bane Weapon'],
@@ -490,9 +490,9 @@ class GodsTyrSeeder extends Seeder
         $feat->description = '<ul>
     <li>You gain Proficiency with Heavy Armors</li>
     <li>You gain the Sentry Feat</li>
-    <li>You gain 1 Talent</li>
+    <li>You gain a Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Dwarf']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Talent', 'Dwarf']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Conviction', 'Shield', 'Stabilize'],
             1 => ['Silvered Weapon', 'Silverbeard', 'Undead Bane Weapon'],
@@ -687,13 +687,13 @@ class GodsTyrSeeder extends Seeder
         $feat->requirement = 'You must be LG and Bahamut must be your Patron Deity';
         $feat->description = '<p>You are a Paladin of Bahamut</p>
 <ul>
-    <li>Increase your STR score by 1, to a maximum of 20</li>
-    <li>Increase your CHA score by 1, to a maximum of 20</li>
+    <li>Increase your STR score by 1, to a maximum of 20.</li>
+    <li>Increase your CHA score by 1, to a maximum of 20.</li>
     <li>You gain Proficiency with Heavy Armor</li>
     <li>You gain a +3 bonus to Diplomacy checks against Metallic dragons</li>
     <li>You are always affected by a Resistance spell</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior', 'Good']);
+        $helper->addTypesToFeat($feat, ['Dragon', 'Divine Warrior', 'Good', 'Ability Boost']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Acid Splash', 'Electric Arc', 'Fire Bolt', 'Frostbite', 'Poison Spray'],
             1 => ['Aura of Courage', 'Dragon Claws', 'Detect Evil', 'Endure Elements'],

@@ -117,7 +117,7 @@ class GodsMulhorandiSeeder extends Seeder
     <li>You may cast the Light Spell as if it is modified with the Silent Spell Meta Magic Feat without spending any Spell Points.</li>
     <li>You gain the Favored Enemy Class Feature against the agents of Set</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Clean Self', 'Disrupt Undead', 'Light'],
             1 => ['Bless', 'Cloak of Shade', 'Command', 'Detect Chaos', 'Divine Favor', 'Exorcism', 'Nimbus of Light', 'Protection From Chaos',
@@ -152,7 +152,7 @@ class GodsMulhorandiSeeder extends Seeder
         $feature->name        = 'Superior Light';
         $feature->description = '<p>Whenever you cast a spell with the Light type, it is treated as 1 level higher to determine if it can Counter or Dispel a spell with the Darkness type. This also counts towards a Darkness spell can Counter or Dispel the Light spell.</p>
 <p>You may spend 1 Spell Point to cast the Light Spell</p>';
-        $helper->saveFeature($feature, ['Light']);
+        $helper->saveFeature($feature, ['Light', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'superior_light' => [2],
@@ -261,9 +261,9 @@ class GodsMulhorandiSeeder extends Seeder
         $feat->description = '<p>You are concerned with preparing the troops of Mulhorand for war. You are seek out and destroy the agents of Set as a secondary objective. You gain the following.</p>
 <ul>
     <li>You gain the Weapon Focus Feat with the Falchion</li>
-    <li>You gain a Talent of your choice</li>
+    <li>You gain a Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine Warrior']);
+        $helper->addTypesToFeat($feat, ['Divine Warrior', 'Talent']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Electric Arc', 'Gust', 'Light', 'Radiant Mark', 'Thunderclap'],
             1 => ['Aura of Courage', 'Cloak of Shade', 'Compelled Duel', 'Detect Evil', 'Gust of Wind', 'Heroism', 'Protection From Evil',
@@ -357,7 +357,7 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Divine', 'Good', 'Arcane',
@@ -450,8 +450,8 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);
@@ -492,7 +492,7 @@ class GodsMulhorandiSeeder extends Seeder
         $helper->saveClass($class, [
             'hit_dice'       => 8,
             'skill_points'   => 3,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA']);
 
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
@@ -557,8 +557,8 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Divine', 'Arcane',
         ]);
@@ -627,8 +627,8 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Divine',
         ]);
@@ -748,8 +748,8 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Good',
         ]);
@@ -831,7 +831,7 @@ class GodsMulhorandiSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 2,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Evil',

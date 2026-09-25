@@ -2,19 +2,37 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
 import ListFetcher from "@/components/ListFetcher.vue";
-import { ref } from "vue";
+import {computed, onMounted, ref} from "vue";
 import {TailwindPagination} from "laravel-vue-pagination";
 import NavLink from "@/components/NavLink.vue";
 import MultiSelect from "@/components/MultiSelect.vue";
+import axios from "axios";
 
 const Uri = 'powers';
 const filters = {
     name: null,
-    type: [],
     action_type: [],
     duration: null,
     default_level: [],
 };
+
+const types = ref([]);
+const typeOptions = computed(() => types.value.map(t => ({ value: t.name, label: t.name })));
+
+const getTypeOptions = async () => {
+    try {
+        const response = await axios.get('/api/types', {
+            params: { typeable_type: 'Power', per_page: 200 },
+        });
+        types.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching type options:", error);
+    }
+};
+
+onMounted(() => {
+    getTypeOptions();
+});
 </script>
 
 <template>
@@ -51,26 +69,7 @@ const filters = {
                                     <label for="power-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
-                                        :options="[
-                                            { value: 'clairsentience', label: 'Clairsentience' },
-                                            { value: 'metacreativity', label: 'Metacreativity' },
-                                            { value: 'psychokinesis', label: 'Psychokinesis' },
-                                            { value: 'psychometabolism', label: 'Psychometabolism' },
-                                            { value: 'telepathy', label: 'Telepathy' },
-                                            { value: 'astral', label: 'Astral' },
-                                            { value: 'acid', label: 'Acid' },
-                                            { value: 'cold', label: 'Cold' },
-                                            { value: 'creation', label: 'Creation' },
-                                            { value: 'construct', label: 'Construct' },
-                                            { value: 'ectoplasm', label: 'Ectoplasm' },
-                                            { value: 'electricity', label: 'Electricity' },
-                                            { value: 'fire', label: 'Fire' },
-                                            { value: 'force', label: 'Force' },
-                                            { value: 'light', label: 'Light' },
-                                            { value: 'psionic combat', label: 'Psionic Combat' },
-                                            { value: 'sonic', label: 'Sonic' },
-                                            { value: 'time', label: 'Time' },
-                                        ]"
+                                        :options="typeOptions"
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">

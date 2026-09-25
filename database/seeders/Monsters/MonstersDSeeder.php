@@ -80,7 +80,7 @@ class MonstersDSeeder extends Seeder
                 'Cleave', 'Improved Bull Rush', 'Power Attack', 'Multi Attacker', 'Improved Multi Attacker',
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'immunity'     => ['meta' => 'Poison'],
                 'multi_attack' => ['meta' => 'A deepspawn gets 3 additional Actions. These additional Actions may only be used to attack with their tentacles.'],
                 'power_points' => ['meta' => '35'],
@@ -108,7 +108,7 @@ class MonstersDSeeder extends Seeder
     <dt>Tar</dt> <dd>Farastus are always oozing a tar-like substance from their bodies. Contact with this tar causes the touching object to stick to the farastu. A creature can break free with a DC 15 Escape check made with Disadvantage. The farastu can also exude another chemical that negates the tar as an Action.</dd>
     <dt>Slick</dt> <dd>As an Action, the farastu can exude a chemical that cancels the tar. This can also be used to escape from any sticky based trap or offer a +10 bonus to Escape Checks.</dd>
 </dl>';
-        $monster->description      = '<p>Farastus (pronounced: far-AS-too), also known as tarry demodands or tarry leths are the lowest-ranking of the demodands. They got their namesake from the tar-like substance they exude from their unsightly forms and are despised by the other denizens of Tarterus.</p>
+        $monster->description      = '<p>Farastus (pronounced: far-AS-too), also known as tarry demodands or tarry leths are the lowest-ranking of the demodands. They get their namesake from the tar-like substance they exude from their unsightly forms and are despised by the other denizens of Tarterus.</p>
 <p>Farastus are the most slender of the demodands, standing 7ft tall and weighing somewhere between 220 and 420 pounds. Their bodies are badly emaciated with elongated limbs, and long-nailed hands. Their large, oblong heads hosts massive jaws laden with teeth. A black, viscous, tar-like substance coats their grotesque frames, constantly oozing and trickling to the ground.</p>
 <p>Farastus are hateful creatures made angry and vengeful by their low position in demodand society. Despite knowing their purpose from the beginning of their existence, their lack of power leaves them incapable of fulfilling it, leaving them full of resentment. Higher-ranking demodands persecute the farastu and so when unsupervised, they, in turn, bully entities weaker than themselves. Their cruelty and malevolence are allowed to fully manifest when not being watched by their superiors and escape attempts by their wards are seen as enjoyable opportunities to express their rage.</p>
 <p>They are especially favorable to being summoned, as they are trapped in their home plane of Carceri.</p>';
@@ -121,7 +121,7 @@ class MonstersDSeeder extends Seeder
             ],
             'features'  => [
                 'spider_climb',
-                'darkvision'   => ['meta' => '120 ft'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Acid, Poison, Paralyzed, Restrained'],
                 'resistance'   => ['meta' => 'Cold, Fire'],
                 'multi_attack' => ['meta' => 'The Farastu gains an additional Action. This additional Action can only be used to make Bite Attacks'],
@@ -160,7 +160,7 @@ class MonstersDSeeder extends Seeder
                 'Perception' => ['dc' => 7],
             ],
             'features'  => [
-                'darkvision'   => ['meta' => '120 ft'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Acid, Poison, Paralyzed, Restrained'],
                 'resistance'   => ['meta' => 'Cold, Fire'],
                 'multi_attack' => ['meta' => 'The Farastu gains an additional Action. This additional Action can only be used to make Bite Attacks'],
@@ -195,7 +195,7 @@ class MonstersDSeeder extends Seeder
 <p>Shators are fearsome entities with great intellects that project an almost palpable air of self-confidence. They possess shocking levels of cruelty and are incredibly suspicious of each other, only working together against a dangerous, common enemy. Like the farastu, they are slow to react and secretly desire escape from Carcerian petitioners, but they want potential escapees to succeed so that they can send bounty hunters to bring them back.</p>
 <p>Shators are morbid beings that take comfort in malaise and delighted in spreading angst, corrupting the cultures of others rather than developing their own. Often times, they find mortal poets and philosophers to use as unwitting mouthpieces for their ideas, inducing visions of poetic despair and granting them texts about cosmicism, futility, and the bleak senselessness of the multiverse. Shators preferred their victims to be compelling enough to present their miserable ideas favorably and make sure that their summoner will not try to banish them, leaving only on their own terms and slaying their unsuspecting servitors when they did. Their other works are guides on summoning various fiends aside from demodands, normally named beings, particularly yugoloths, that have drawn the ire of the shator.</p>
 <p>Bizarrely, shators on other planes treat the three-headed chimera like most humans would treat kittens, reserving their ordinary sadism and occasionally showing concern for them.</p>
-<p>As the nobility and commanders of their kind, shators are responsible for making the important decisions for the demodand race. Much of their time is spent scheming against the other factions of Carceri and deciding whether or not to send gehreleth bounty hunters after escaped petitioners. Although normally found with their lackeys nearby, their capricious nature leads them to organize their troops only when pressed.</p>
+<p>As the nobility and commanders of their kind, shators are responsible for making the important decisions for the demodand race. Much of their time is spent scheming against the other factions of Carceri and deciding whether to send gehreleth bounty hunters after escaped petitioners. Although normally found with their lackeys nearby, their capricious nature leads them to organize their troops only when pressed.</p>
 <p>They are known to make lairs within the tunnel systems of Colothys.</p>';
         $helper->saveMonster($monster, ['Demodand', 'Fiend', 'Outer Planes', 'Evil', 'Neutral', 'Outsider'], [
             'stats'     => [24, 15, 17, 21, 16, 20, 16, 7],
@@ -204,7 +204,7 @@ class MonstersDSeeder extends Seeder
                 'Stealth'    => ['dc' => 7],
             ],
             'features'  => [
-                'darkvision'   => ['meta' => '120 ft'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Acid, Charmed, Frightened, Poison, Paralyzed, Restrained'],
                 'resistance'   => ['meta' => 'Cold, Fire'],
                 'multi_attack' => ['meta' => 'The Farastu gains an additional Action. This additional Action can only be used to make Bite Attacks'],

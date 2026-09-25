@@ -153,7 +153,7 @@ class SpellsBSeeder extends Seeder
         $spell->range       = 'Touch';
         $spell->targets     = 'Bow touched';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You enchant a bow you hold. It gains a +2 bonus to Hit and Damage against any of your Favored Enemies or against your Studied Enemy, as well as dealing an additional Weapon Die of damage.</p>';
+        $spell->description = '<p>You enchant a bow you hold. It gains a +1 bonus to Hit and Damage against any of your Favored Enemies or against your Studied Enemy, as well as dealing an additional Weapon Die of damage.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment'], 2);
 
         $spell                = new Spell;
@@ -656,7 +656,7 @@ class SpellsBSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = '60 feet';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, With an Action, you can make a Ranged Spell Attack to attack with the blade. You may use up to 2 Actions per turn with the blade. On a hit, the target takes 4D12 Force damage. The blade has a critical hit range of 3. On a critical hit, the blade deals an extra 8D12 Force damage (for a total of 12D12 Force damage)</p>
+        $spell->description = '<p>You create a blade-shaped planar rift about 3 feet long in an unoccupied space you can see within range. The blade lasts for the duration. When you cast this spell, With an Action, you can make a Ranged Spell Attack to attack with the blade. You may use up to 2 Actions per turn with the blade. On a hit, the target takes 4D12 Force damage. Your critical threat range increases by 1 with the blade. On a critical hit, the blade deals an extra 8D12 Force damage (for a total of 12D12 Force damage)</p>
 <p>As an Action, you can move the blade up to 30 feet to an unoccupied space you can see.</p>
 <p>The blade can cut through any barrier, including Wall of Force, Prismatic effects and Anti-magical fields, ending their effect.</p>';
         $helper->addTypesToSpell($spell, ['Evocation', 'Force', 'Attack', 'Ranged'], 9);

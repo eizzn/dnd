@@ -51,9 +51,9 @@ class SpellsPSeeder extends Seeder
         $spell->save_attribute = 'CON';
         $spell->range          = '30 feet';
         $spell->targets        = 'Up to 3 creatures within Range, no two of which are more than 30 feet apart';
-        $spell->duration       = 'Concentration, up to 1 minute';
+        $spell->duration       = 'Sustained, up to 1 minute';
         $spell->description    = '<p>Your shout seems to echo into eternity, causing your foes to twitch and writhe as reverberations pummel them internally. Each round, the spell deals 1D4 Sonic Damage and Sickened: 1. When you cast this spell, and at the beginning of each round, each target makes a CON Save. Success negates the Damage and Sickened Condition for the round.</p>
-<p>On your turn, you must use an Action to maintain this effect.</p>';
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it. If you do not, the spell ends.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No Damage and not Sickened for the round</dd>
     <dt>Failure</dt> <dd>Full Damage and Sickened: 1 for the round</dd>
@@ -61,7 +61,7 @@ class SpellsPSeeder extends Seeder
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the number of targets</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Sonic'], 2);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Sonic', 'Sustained'], 2);
 
         $spell              = new Spell;
         $spell->name        = 'Painless Death';
@@ -253,7 +253,7 @@ class SpellsPSeeder extends Seeder
         $spell->save_attribute = 'WIS';
         $spell->spell_creator  = 'Carbury';
         $spell->duration       = 'Concentration, up to 1 minute';
-        $spell->description    = '<p>You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must make a Wisdom saving throw. On a failed save, the target becomes frightened for the duration. At the end of each of the target’s turns before the spell ends, the target must succeed on a WIS Save or take 4D10 Mental damage. On a successful save, the spell ends.</p>';
+        $spell->description    = '<p>You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must make a WIS Save. On a failed save, the target becomes frightened for the duration. At the end of each of the target’s turns before the spell ends, the target must succeed on a WIS Save or take 4D10 Mental damage. On a successful save, the spell ends.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>The spell ends</dd>
     <dt>Failure</dt> <dd>Frightened for the duration. Continuous: full damage</dd>
@@ -1063,7 +1063,7 @@ class SpellsPSeeder extends Seeder
         $spell->duration       = '10 minutes';
         $spell->description    = '<p>A shimmering, multicolored plane of light forms a vertical opaque wall—up to 90 feet long, 30 feet high, and 1 inch thick—centered on a point you can see within range. Alternatively, you can shape the wall into a sphere up to 30 feet in diameter centered on a point you choose within range. The wall remains in place for the duration. If you position the wall so that it passes through a space occupied by a creature, the spell fails, and your action and the spell slot are wasted.</p>
 <p>The wall sheds bright light out to a range of 100 feet and dim light for an additional 100 feet. You and creatures you designate at the time you cast the spell can pass through and remain near the wall without harm. If another creature that can see the wall moves to within 20 feet of it or starts its turn there, the creature must succeed on a CON Save or become blinded for 1 minute.</p>
-<p>The wall consists of seven layers, each with a different color. When a creature attempts to reach into or pass through the wall, it does so one layer at a time through all the wall’s layers. As it passes or reaches through each layer, the creature must make a Dexterity saving throw or be affected by that layer’s properties as described below.</p>
+<p>The wall consists of seven layers, each with a different color. When a creature attempts to reach into or pass through the wall, it does so one layer at a time through all the wall’s layers. As it passes or reaches through each layer, the creature must make a DEX Save or be affected by that layer’s properties as described below.</p>
 <p>The wall can be destroyed, also one layer at a time, in order from red to violet, by means specific to each layer. Once a layer is destroyed, it remains so for the duration of the spell. A rod of cancellation destroys a prismatic wall, but an antimagic field has no effect on it.</p>
 <dl>
     <dt>Red</dt> <dd>The creature takes 10d6 Fire damage on a failed DEX Save, or half as much damage on a successful one. While this layer is in place, nonmagical ranged attacks can’t pass through the wall. The layer can be destroyed by dealing at least 25 Cold damage to it.</dd>
@@ -1298,7 +1298,7 @@ class SpellsPSeeder extends Seeder
     <li>The larger creature's new space must completely cover the space previously occupied by the smaller</li>
     <li>You must start and end adjacent to each other</li>
     <li>Your ally gains a +2 Sacred Bonus to AC and on Saves for 1 round</li>
-    <li>You gain a +2 Sacred Bonus to Hit until the beginning of your next turn.</li>
+    <li>You gain a +1 Sacred Bonus to Hit until the beginning of your next turn.</li>
 </ul>";
         $helper->addTypesToSpell($spell, ['Conjuration', 'Teleportation'], 1);
 

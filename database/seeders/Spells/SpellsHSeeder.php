@@ -210,8 +210,8 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting, Verbal Casting';
         $spell->range       = '30 feet';
         $spell->targets     = 'One living creature';
-        $spell->duration    = 'Concentration, up to 5 rounds';
-        $spell->description = '<p>This spell lets you improve the spellcasting ability of another spellcaster. For the duration, any spell cast by the target is Heightened by +1. Starting on the turn after you first cast this spell, you must use an Action to maintain this spell.</p>
+        $spell->duration    = 'Sustained, up to 5 rounds';
+        $spell->description = '<p>This spell lets you improve the spellcasting ability of another spellcaster. For the duration, any spell cast by the target is Heightened by +1. <strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it. If you do not, the spell ends.</p>
 <dl>
     <dt>Heightened (+1)</dt> <dd>A tuning fork</dd>
 </dl>';
@@ -221,7 +221,7 @@ class SpellsHSeeder extends Seeder
     <dt>Heightened (+4)</dt> <dd>Any spell the target casts of 5th level or lower does not require the Somatic Casting Verbal Casting instead of any other benefit.</dd>
     <dt>Heightened (+5)</dt> <dd>Any spell the target casts of 6th level or lower does not require the Somatic Casting Verbal Casting instead of any other benefit.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless', 'Auditory'], 1);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless', 'Auditory', 'Sustained'], 1);
 
         $spell              = new Spell;
         $spell->name        = 'Harmonic Void';
@@ -290,7 +290,7 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = 'Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Concentration, up to 1 minute';
-        $spell->description = '<p>For the Duration, you gain a +3 bonus on all Ranged attacks.</p>';
+        $spell->description = '<p>For the Duration, you gain a +1 bonus on all Ranged attacks.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+1)</dt> <dd>Double the duration</dd>
 </dl>';
@@ -321,9 +321,9 @@ class SpellsHSeeder extends Seeder
         $spell->casting     = '1 minute (Somatic, Verbal)';
         $spell->area        = '5-foot radius emanation';
         $spell->targets     = 'Self';
-        $spell->duration    = 'Concentration, up to 10 minutes';
-        $spell->description = '<p>You create an area of healing. All those in the area gain 2 Hit Points per round. You must use an Action on your turn to maintain this spell.</p>';
-        $helper->addTypesToSpell($spell, ['Necromancy', 'Positive'], 5);
+        $spell->duration    = 'Sustained, up to 10 minutes';
+        $spell->description = '<p>You create an area of healing. All those in the area gain 2 Hit Points per round. <strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it. If you do not, the spell ends.</p>';
+        $helper->addTypesToSpell($spell, ['Necromancy', 'Positive', 'Sustained'], 5);
 
         $spell              = new Spell;
         $spell->name        = 'Healing Tree';
@@ -1102,15 +1102,15 @@ class SpellsHSeeder extends Seeder
         $spell->name        = 'Hymn of Praise';
         $spell->casting     = 'Verbal Casting';
         $spell->area        = '100-foot radius emanation centered on you';
-        $spell->duration    = 'Concentration, up to 1 minute';
+        $spell->duration    = 'Sustained, up to 1 minute';
         $spell->description = '<p>You strike up a rousing, inspirational song that temporarily boosts Good aligned Divine spell casters. They gain the following.</p>
 <ul>
     <li>Any spell they cast is automatically Heightened +1</li>
     <li>All Good aligned Divine Spell casters gains 1 Spell Point. This Spell Point is lost if not spent before the duration</li>
     <li>Any Channel Divinity ability gains a +2 bonus.</li>
 </ul>
-<p>You must an Action to maintain this spell.</p>';
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless', 'Auditory', 'Good'], 3);
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it. If you do not, the spell ends.</p>';
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Bless', 'Auditory', 'Good', 'Sustained'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Hymn of Willpower';

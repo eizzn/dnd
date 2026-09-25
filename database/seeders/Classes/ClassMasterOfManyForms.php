@@ -28,7 +28,7 @@ class ClassMasterOfManyForms extends Seeder
         $class->description   = '<p>The Druids of the Chondalwood favor freedom of form over spells. The majority of the Druid Circles of the Chondalwood have a xenophobic outlook, and avoid contact with civilization. However, one group has taken to the worship of Talona, and can sometimes be hired as spies and assassins (as their Thousand Faces ability allows them to infiltrate almost any organization). This Druid Circle calls themselves the Ganglers.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
             'has_spells'     => true,
         ], ['WIS', 'CHA'], [
             'Wild Shape', 'Primal',
@@ -99,7 +99,7 @@ class ClassMasterOfManyForms extends Seeder
     <li>Reduce the number of rounds needed for the Stalked Enemy Class Feature by 1 round</li>
     <li>You may spend one use of your Wild Shape ability and 1 Spell Point to absorb a small item (such as a Dagger or a vile of poison) into your flesh as a Triple Action. Spend 1 Spell Point and an Action to retract the item from your body. This effect cannot be detected by magic.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape', 'Favored Enemy']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Favored Enemy', 'Spend Spell Point']);
 
         $helper->addFeatsToClass($class, [
             'Improved Animal Companion' => 1,

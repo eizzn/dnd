@@ -44,7 +44,7 @@ class MonstersMSeeder extends Seeder
         $helper->saveMonster($monster, ['Beast', 'Monstrosity'], [
             'stats'    => [17, 16, 17, 7, 12, 8, 3, 3],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'keen_sense'   => ['meta' => 'Sight'],
                 'multi_attack' => ['meta' => 'A manticore gains an additional Action. This additional Action can only be used to make a Tail Spike attack.'],
             ],
@@ -118,7 +118,7 @@ class MonstersMSeeder extends Seeder
                 'Perception' => ['dc' => 7],
             ],
             'features' => [
-                'darkvision'      => ['meta' => '60 ft.'],
+                'darkvision'      => ['meta' => '{"range":60}'],
                 'favored_terrain' => ['meta' => 'Mazes'],
             ],
             'classes' => [

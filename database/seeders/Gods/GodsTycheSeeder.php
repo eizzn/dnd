@@ -68,8 +68,8 @@ class GodsTycheSeeder extends Seeder
         $class->description   = '<p>Priest of Tymora and Vergadain</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['DEX', 'WIS'], [
             'Divine', 'Good', 'Rogue', 'Skill',
         ]);
@@ -167,7 +167,7 @@ class GodsTycheSeeder extends Seeder
             'piety25' => '<h4>Lucky Charm</h4>
 <p>You gain the Lucky feat</p>',
             'piety50' => '<h4>Chosen of Tymora</h4>
-<p>Anyone who rolls a 20 before modifiers on an ability check within 30 feet of you finds their Action has unexpectedly good results in addition to the result of the roll, like stumbling across a treasure hoard or idly picking up a vital clue</p>',
+<p>Anyone who rolls a natural 20 on 2D10 on an ability check within 30 feet of you finds their Action has unexpectedly good results in addition to the result of the roll, like stumbling across a treasure hoard or idly picking up a vital clue</p>',
         ]);
 
         /**********************************************************************/
@@ -199,8 +199,8 @@ class GodsTycheSeeder extends Seeder
         $class->description   = '<p>Priest of Beshaba</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['DEX', 'WIS'], [
             'Divine', 'Rogue',
         ]);
@@ -333,14 +333,14 @@ class GodsTycheSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Traveller of Shaundakul';
-        $feat->requirement = ' You must have the Favored Enemy Class Feature and Shaundakul must be your patron';
+        $feat->requirement = 'You must have the Favored Enemy Class Feature and Shaundakul must be your patron';
         $feat->description = '<p>You are a worshiper of the Rider of the Winds, Shaundakul.</p>
 <ul>
     <li>You gain an additional Favored Terrain. This additional Favored Terrain must be used to select Caverns.</li>
     <li>You gain the Endurance Feat.</li>
     <li>You gain the Mobile Feat</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Portal']);
+        $helper->addTypesToFeat($feat, ['Portal', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Air Shield', 'Feather Fall', 'Gust', 'Portal Stabilization', 'Portal Well'],
             2 => ['Air Bubble', 'Analyze Portal', 'Gust of Wind', 'Quick March'],

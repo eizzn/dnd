@@ -27,8 +27,8 @@ class ClassArtificerSeeder extends Seeder
             'key_attribute'  => 'INT',
             'has_spells'     => true,
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
             'weapons'        => 'Simple Weapons, Hand Crossbow, Heavy Crossbow',
             'armors'         => 'Light Armor, Medium Armor, Shields',
         ], ['CON', 'INT'], [
@@ -83,7 +83,7 @@ class ClassArtificerSeeder extends Seeder
         <p>You may cast this spell from your Bonded Sword for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Casting Level.</p>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Shashkah'],
         ]);
@@ -99,7 +99,7 @@ class ClassArtificerSeeder extends Seeder
     <li>Pick 2 Cantrips from your Artificer Spell List. Your bonded sword can cast these Cantrips as if you had the Cantrip Caster Class Feature. Whenever you complete a Long Rest, you may swap out one of your Cantrips with another one that you know.</li>
     <li>You may imbue your Bonded Sword with an additional 3 spells</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Artificer Discipline']);
+        $helper->addTypesToFeat($feat, ['Artificer Discipline', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Raumathari Sword Adept']);
 
         $feat              = new Feat;
@@ -130,7 +130,7 @@ class ClassArtificerSeeder extends Seeder
         <p>You may cast this spell from your Battle Wrap for 1 less Action than it takes to cast it by spending a number of Spell Points equal to the spells Casting Level.</p>
     </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Artificer Discipline', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Bane', 'Bless'],
             3 => ['Magic Weapon', "Arcanist's Magic Aura"],
@@ -145,7 +145,7 @@ class ClassArtificerSeeder extends Seeder
     <li>You gain an Item Creation Feat</li>
     <li>You may craft an Additional Battle Wrap</li>
     <li>You may store an additional Spell into each of your Battle Wraps</li>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point</li>
     <li>
         <p>You can use your Battle Wrap to attach yourself to another willing creature who can cast spells. this process takes 10 minutes and can only be ended as part of a Short or Long Rest, or if either of you die. If you have an Effigy or a Golem, you may choose to attach your Battle Wrap to your Effigy or Golem.</p>
         <p>While bound in this way, either of you can use an Action to gain the following benefits.</p>
@@ -157,7 +157,7 @@ class ClassArtificerSeeder extends Seeder
     </li>
     <li>If you participate in a Communal Binding, you are considered to have the ability to create Communal Pools when determining what type of Die the Pool will have.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation']);
+        $helper->addTypesToFeat($feat, ['Downtime', 'Item Creation', 'Spell Pool']);
         $feat->parent_feats()->save(app()->feats['Vremyonni']);
 
         $feat              = new Feat;
@@ -170,7 +170,7 @@ class ClassArtificerSeeder extends Seeder
     <li>
         <p>With an Action, you cause any number of your Battle Wraps to flare brightly with energy. For 10 minutes, the following changes apply to your Battle Wrap and whatever it is bound upon:</p>
         <ul>
-            <li>Weapons grant +3 bonus to attack and causes Double Damage</li>
+            <li>Weapons grant +1 bonus to attack and causes Double Damage</li>
             <li>Armor grants Resistance to Bludgeoning, Piercing, and Slashing damage, as well as granting an Additional Damage Reduction 3.</li>
             <li>If you are bound to a willing spellcaster, you both gain 10 Temporary Spell Points. These Spell Points are lost at the end of the duration of this ability. If either of you tries to cast a spell, they can use a spell slot from the other bound creature if the other creature consents. Either spellcaster may use any Meta Magic Feat that either knows to modify the cast spell.</li>
         </ul>

@@ -42,8 +42,8 @@ class GodsGarlSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Gnome', 'Divine', 'Good',
         ]);
@@ -262,8 +262,8 @@ class GodsGarlSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CON'], [
             'Gnome', 'Good',
         ]);
@@ -362,8 +362,8 @@ class GodsGarlSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['WIS', 'CHA'], [
             'Divine', 'Gnome', 'Good', 'Skill',
         ]);
@@ -473,8 +473,8 @@ class GodsGarlSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['WIS', 'CHA'], [
             'Gnome', 'Divine', 'Evil',
         ]);

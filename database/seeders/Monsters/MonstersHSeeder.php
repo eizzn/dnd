@@ -37,7 +37,7 @@ class MonstersHSeeder extends Seeder
                 'immunity'      => ['meta' => 'Force, Necrotic, Poison, Blinded, Charmed, Deafened, Frightened, Paralyzed, Petrified, Stunned'],
                 'resistance'    => ['meta' => 'Bludgeoning, Piercing, Slashing'],
                 'vulnerability' => ['meta' => 'Adamantine'],
-                'blindsight'    => ['meta' => '60 ft'],
+                'blindsight'    => ['meta' => '{"range":60}'],
             ],
             'languages' => [
                 'Special' => ['meta' => "Understands one language of its creator but can't speak"],

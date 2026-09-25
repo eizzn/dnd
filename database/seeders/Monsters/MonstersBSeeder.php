@@ -41,7 +41,7 @@ class MonstersBSeeder extends Seeder
                 'Perception' => ['dc' => 4],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
 
@@ -70,7 +70,7 @@ class MonstersBSeeder extends Seeder
                 'Stealth'    => ['dc' => 7],
             ],
             'features' => [
-                'darkvision' => ['meta' => '90 ft'],
+                'darkvision' => ['meta' => '{"range":90}'],
                 'immunity'   => ['meta' => 'Electricity'],
             ],
             'languages' => ['Auld Wyrmish'],
@@ -125,7 +125,7 @@ class MonstersBSeeder extends Seeder
                 'CHA' => ['bonus' => 8],
             ],
             'features'  => [
-                'darkvision'   => ['meta' => '120 ft'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'multi_attack' => ['meta' => 'The Beholder gains an Additional Action. This Additional Action can only be used to use a Eye Ray Attack'],
                 'immunity'     => ['meta' => 'Cannot be Prone'],
             ],
@@ -165,7 +165,7 @@ class MonstersBSeeder extends Seeder
                 'Perception' => ['dc' => 6],
             ],
             'features'  => [
-                'darkvision'   => ['meta' => '120 ft'],
+                'darkvision'   => ['meta' => '{"range":120}'],
                 'immunity'     => ['meta' => 'Cannot be Prone'],
             ],
             'languages' => [

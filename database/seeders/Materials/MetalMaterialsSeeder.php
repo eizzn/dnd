@@ -3,6 +3,7 @@
 namespace Database\Seeders\Materials;
 
 use App\Models\Material;
+use App\Services\SeedHelper;
 use Illuminate\Database\Seeder;
 
 class MetalMaterialsSeeder extends Seeder
@@ -14,6 +15,9 @@ class MetalMaterialsSeeder extends Seeder
      */
     public function run()
     {
+        /** @var SeedHelper $helper */
+        $helper = app()->seedHelper;
+
         $mat              = new Material;
         $mat->name        = 'Abyssal Bloodiron';
         $mat->type        = 'Metal';
@@ -26,7 +30,9 @@ class MetalMaterialsSeeder extends Seeder
         -- Sunil Elora, elven scholar
 </blockquote>';
         $mat->weapon      = '<p>Weapons crafted from Abyssal Bloodiron have far sharper edges than their usual counterparts. Attacks made with weapons crafted from Abyssal Bloodiron have a +1 to Hit and Damage rolls.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Adamant';
@@ -57,13 +63,15 @@ class MetalMaterialsSeeder extends Seeder
 <p>Adamantine is black with a clear, green sheen when seen through candlelight. The smelting of this alloy is almost exclusively a dwarven secret which they care not to share with anyone else.</p>';
         $mat->armor = "<p>Armor (Chain Shirt, Scale Mail, Breastplate, Half Plate, Ring Mail, Chain Mail, Splint, or Plate). This jet-black armor is nigh impenetrable, a bulwark against all harm.</p>
 <ul>
-    <li>The base Damage Reduction of the armor is increased by 4</li>
-    <li>While you're wearing the armor, critical hits that strike you are treated as normal hits.</li>
+    <li>The base Damage Reduction of the armor is increased by 2.</li>
 </ul>
 <p>The armor's base cost is multiplied by 200.</p>";
         $mat->weapon = '<p>Weapon (any melee) or 10 pieces of ammunition. This dark weapon has a unique hardness that renders it an excellent machine of destruction.</p>
 <p>Whenever an Adamantine weapon hits an object (including Sunder attempts and attacks vs. constructs, but not normal monsters and NPCs), it results in an automatic critical hit. Adamantine weapons are known to be hard enough to penetrate the heavy layered exteriors of magical golems, allowing one to damage them without the need for magic.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+6'],
+            'Hit Points' => ['value' => '+12'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Alchemical Silver';
@@ -98,7 +106,9 @@ class MetalMaterialsSeeder extends Seeder
     </tbody>
 </table>';
         $mat->weapon = '<p>A weapon that is coated with Alchemical Silver is considered Silver for the purpose of Damage Resistance.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '-1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Arambarium';
@@ -111,7 +121,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->description = '<p>Mined from the body of a dead primordial, this silver-sheen metal is tuned to the creatures of the elemental planes.</p>';
         $mat->armor       = '<p>Replace the metal. Grants Resistance to Acid, Cold, and Fire damage to the wearer</p>';
         $mat->weapon      = '<p>Replace the metal. Weapons forged with this metal is immune to rust.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+2'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Arandur';
@@ -136,7 +149,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->armor  = '<p>Replace the metal. Can be used to make armor and shields that resist Acid, Cold, Electricity, Fire, Sonic, and Force attacks. It is said that armor can be made that absorbs the damage from Magic Missiles and immune to Disintegration.</p>';
         $mat->weapon = "<p>Replace the metal. Weapons made with Arandur add a +1 to Attack and Damage rolls made with the weapon. When rolling for damage on a Critical Hit, reroll all 1's (taking the re-roll, even if it's also a 1).</p>";
         $mat->other  = '';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+2'],
+            'Hit Points' => ['value' => '+2'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Asmoroch Steel';
@@ -145,7 +161,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->price       = '500 gp';
         $mat->armor       = '<p>Used to craft an Armor of Necrotic Resistance (metallic armor only)</p>';
         $mat->weapon      = '<p>Used to craft necrotic damage dealing weapons, such as the Sword of Life Stealing</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Astral Driftmetal';
@@ -156,7 +175,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->source      = "<ul>
     <li>Tu'narath, the capital of the Githyanki in the Astral Plane.</li>
 </ul>";
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+2'],
+            'Hit Points' => ['value' => '+2'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Aurorum';
@@ -171,7 +193,10 @@ class MetalMaterialsSeeder extends Seeder
 <p>Forging Aurorum is extremely difficult as the material seems to have its own preferred shape.</p>';
         $mat->armor  = '<p>Replaces the metal. Armor forged with Aurorum that is Sundered or broken can be repaired with a Manipulate Triple Action.</p>';
         $mat->weapon = '<p>Replaces the metal. Weapons forged with Aurorum that are Sundered or broken can be repaired with a Manipulate Triple Action.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+2'],
+            'Hit Points' => ['value' => '+2'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Baatorian Green Steel';
@@ -186,23 +211,9 @@ class MetalMaterialsSeeder extends Seeder
     A Maul (2D6 Bludgeoning damage) adds 2 Negative damage or 4 Negative damage on a Critical Hit.</br>
     If used in a Sneak Attack, it would also add 1 Negative damage for each dice used in the Sneak Attack (Doubling on Critical Hits).
 </blockquote>';
-        $mat->save();
-
-        $mat         = new Material;
-        $mat->name   = 'Blood Glass';
-        $mat->type   = 'Stone';
-        $mat->rarity = 'Common';
-        $mat->price  = '250 gp';
-        $mat->source = "<ul>
-    <li>Kossuth's Eyes</li>
-    <li>Mount Hotenow</li>
-    <li>Peaks of Flame</li>
-    <li>Firepeaks</li>
-</ul>";
-        $mat->description = '<p>Formed when crystal deposits are laced with volcanic glass, blood glass weapons are 10% lighter than their steel counterparts.</p>
-<p>While blood glass is magical, it is also quite fragile. Attacks made against items made with blood glass automatically score Critical Hits, and items made of blood glass caught in an area where Sonic Damage is dealt shatter (no Save).</p>';
-        $mat->weapon      = '<p>Replaces the metal. +1 to Hit and Damage</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Blood Metal';
@@ -216,7 +227,10 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>Also called orcslayer metal. The ore to craft with Blood Metal is extremely rare, and few dwarves know the process to forge Blood Metal.</p>';
         $mat->weapon      = '<p>Replaces the metal. A weapon forged with Blood metal adds +1 to Attack and Damage. If the creature hit by a weapon made with Blood Metal has the Orc type, it receives no benefit from magical healing for 24 hours.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Chromium';
@@ -246,7 +260,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->armor  = '<p>A piece of armor incorporating (usually gilding or edging) Cold Iron gives the wearer (or wielder in case of a shield) Advantage on spells and spell-like abilities cast by Fey, and Demons. In addition, if attacked by these types of creatures that make contact with the wearer (ie. bite, slam, touch, etc), the attacker takes 1D4 damage (as if from a magic weapon). Only metal armor (and studded armor) and metal shields may be edged in Cold Iron. As with weapons, due to the expense, armor is usually inlaid with Cold Iron metal wire, rather than making the whole armor of the metal.</p>';
         $mat->weapon = '<p>When you hit a Fey or a Demon with a Cold Iron weapon, you have Advantage on the Damage roll</p>';
         $mat->other  = '<p>Fey and Demons have difficulty passing a barrier of Cold Iron. To do so, they must first pass a CON check of DC 15.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '-1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Copper';
@@ -269,7 +286,9 @@ class MetalMaterialsSeeder extends Seeder
         $mat->type        = 'Metal';
         $mat->price       = '500 gp';
         $mat->weapon      = '<p>Weapons made with Darksteel automatically deal a Critical Hit when used to break objects.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '+2'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Dlarun';
@@ -290,7 +309,9 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>This weird ever shifting ore comes from the Outer Plane of Limbo. It is mined by the Githzerai, and they are the only known crafters who work with Entropium.</p>';
         $mat->armor       = '<p>Armor made with Entropium grants a +1 bonus to AC. If the armor normally imposes a penalty to DEX (Stealth) check or has a STR requirement, armor made with Entropium does not. Entropium weighs 25% less than the steel counterpart.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hit Points' => ['value' => '-1'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Fever Iron';
@@ -301,7 +322,10 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>Fever Iron comes from places where the Elemental Plane of Fire meets the Prime Material. It appears as black as obsidian, even when forged except for a dull orange sheen.</p>';
         $mat->weapon      = '<p>Metal weapons forged with Fever Iron grants a +1 bonus to Hit and Damage. It also grants the wielder a +3 bonus vs. Cold effects.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+2'],
+            'Hit Points' => ['value' => '-2'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Fyrite';
@@ -313,7 +337,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->description = '<p>This metal must be smelted and forged in the Elemental Plane of Fire, or it will be normal Steel.</p>
 <p>Fyrite continues to emit a low level of heat even after forging is complete. If this metal is used to make a suit of armor, it provides a +5 bonus to all Saves vs Cold and grants Resistance to Cold Damage. However, it also increases Fire damage by +1 point per die.</p>';
         $mat->armor       = '<p>Replaces the metal. Grants the bonus to Save vs Cold and imposes the vulnerability to Fire damage as described.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Frystalline';
@@ -324,7 +351,10 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>This metal increases the effects of Healing magic cast on one who wears a suit of armor made of Frystalline. Increase the Healing by +1 point per die.</p>';
         $mat->armor       = '<p>Replaces the metal. Grants the bonus to healing to the wearer. Does not work with shields of any kind.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Gehennan Morghuth Iron';
@@ -334,7 +364,10 @@ class MetalMaterialsSeeder extends Seeder
 </ul>';
         $mat->description = '<p>The weathered and pitted look of this metal makes it look to be fragile, but is actually quite strong. The metal is poisonous to the touch. Prolonged exposure will eventually cause 1 Poison damage (1/day). After being refined, it will cause 1 Poison Damage per round it is touched.</p>';
         $mat->weapon      = '<p>Weapons made with this metal suffers a -1 penalty to damage, but inflicts an additional 1D6 Poison Damage per hit.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+2'],
+            'Hit Points' => ['value' => '+2'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Githsilver';
@@ -345,7 +378,9 @@ class MetalMaterialsSeeder extends Seeder
         $mat->description = '<p>Only the Githyanki has knowledge of the process in smelting and forging of Githsilver.</p>';
         $mat->weapon      = '<p>Bladed weapons forged from Githsilver gains the ability to cut the Silver Cord that tethers the target to their Astral Body.</p>';
         $mat->armor       = '<p>Armor forged with Githsilver offers some protection to their Silver Cord from being cut form Githsilver weapons.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Glassteel';
@@ -375,7 +410,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->price  = '750 gp';
         $mat->weapon = '<p>Used to craft an armor of Fire Resistance (metallic armor only) or a demon armor</p>';
         $mat->other  = '<p>Used to craft Fire damage dealing magic items, such as the Staff of Fire</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+1'],
+            'Hit Points' => ['value' => '+1'],
+        ]);
 
         $mat       = new Material;
         $mat->name = 'Iron';
@@ -405,7 +443,10 @@ class MetalMaterialsSeeder extends Seeder
         $mat->weapon = "<p>Weapon (any). This silvery-blue weapon is far lighter than it ought to be, and catches the light in an almost supernatural fashion.</p>
 <p>A mithral weapon weighs half as much as it normally would, loses the heavy trait if it had it, and gains the Finesse trait if it didn't already have it.</p>
 <p>The weapon costs an additional 500 gp.</p>";
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness'   => ['value' => '+3'],
+            'Hit Points' => ['value' => '+4'],
+        ]);
 
         $mat         = new Material;
         $mat->name   = 'Nickel';
@@ -459,14 +500,18 @@ class MetalMaterialsSeeder extends Seeder
         $mat->price       = '1,000 gp / 4 oz';
         $mat->description = '<p>This purple metal can only be found in the deepest parts of the underdark.</p>';
         $mat->armor       = '<p>While wearing at least 4 oz of Urdukar, you become difficult to Scry. Anyone attempting to Scry you must immediately make a DC 20 Arcana check or fail. If the Urdukar is woven into a piece of armor and the armor is enchanted, add a +1 to the DC for each +1 AC bonus the armor provides.</p>';
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '+1'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Ysgardian Heartwire';
         $mat->type        = 'Mineral';
         $mat->description = '<p>Ysgardian Heartwire is harvested from the Outer Plane of Ysgard, and too rare to create a whole suit of armor with.  It is instead typically woven in to the armor to reinforce it.</p>';
         $mat->armor       = "<p>(Chain Mail or any Heavy Armor) Armor that has Ysgardian Heartwire woven into it is strengthened against Critical Hits. Critical Hits scored against you must re-roll any dice that rolled it's maximum amount must reroll.</p>";
-        $mat->save();
+        $helper->addPropertiesToSimpleObject($mat, [
+            'Hardness' => ['value' => '+2'],
+        ]);
 
         $mat              = new Material;
         $mat->name        = 'Zardazil';

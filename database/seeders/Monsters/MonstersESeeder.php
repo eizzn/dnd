@@ -44,7 +44,7 @@ class MonstersESeeder extends Seeder
                 'Thievery'   => ['dc' => 12],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -95,7 +95,7 @@ class MonstersESeeder extends Seeder
                 'Survival'     => ['dc' => 4],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'    => ['meta' => 'Poison, (Non-magical, non-unholy) [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -153,7 +153,7 @@ class MonstersESeeder extends Seeder
                 'Stealth'         => ['dc' => 13],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -208,7 +208,7 @@ class MonstersESeeder extends Seeder
                 'Survival'        => ['dc' => 7],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -267,7 +267,7 @@ class MonstersESeeder extends Seeder
                 'Survival'      => ['dc' => 5],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -329,7 +329,7 @@ class MonstersESeeder extends Seeder
                 'Insight'         => ['dc' => 14],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -395,7 +395,7 @@ class MonstersESeeder extends Seeder
                 'Society'       => ['dc' => 23],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Poison, (Non-magical, non-unholy) [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -462,7 +462,7 @@ class MonstersESeeder extends Seeder
                 'Society'       => ['dc' => 20],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Axiomatic, Cold Iron, Unholy'],
                 'resistance'          => ['meta' => 'Poison, (Non-magical, non-unholy) [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -520,7 +520,7 @@ class MonstersESeeder extends Seeder
                 'Thievery' => ['dc' => 10],
                 'Stealth'  => ['dc' => 5],
             ],
-            'features'  => ['ethereal_jaunt', 'darkvision'],
+            'features'  => ['ethereal_jaunt', 'darkvision' => ['meta' => '{"range":60}']],
             'spells'    => ['Detect Magic' => ['meta' => 'At will']],
             'languages' => ['Aberration Speech'],
         ]);
@@ -541,7 +541,7 @@ class MonstersESeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration', 'Ethereal'], [
             'stats'     => [14, 12, 11, 7, 12, 10, 3, 2],
             'feats'     => ['Improved Initiative'],
-            'features'  => ['ethereal_jaunt', 'darkvision'],
+            'features'  => ['ethereal_jaunt', 'darkvision' => ['meta' => '{"range":60}']],
             'languages' => ['Aberration Speech'],
         ]);
 
@@ -578,7 +578,7 @@ class MonstersESeeder extends Seeder
                 'Survival'   => ['dc' => 3],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats' => ['Two-Weapon Fighter'],
         ]);

@@ -44,7 +44,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -84,7 +84,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -125,7 +125,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -167,7 +167,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -204,7 +204,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -242,7 +242,7 @@ class MonstersYSeeder extends Seeder
             ],
             'features'  => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -291,7 +291,7 @@ Merrenoloths are sometimes called the in-between, as they represented a middle g
             ],
             'features' => [
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
             ],
@@ -348,7 +348,7 @@ It is postulated that Canoloths are created from Mezzoloths that show enough cou
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'keen_sense'    => ['meta' => 'Hearing and Smell'],
                 'magic_resistance',
             ],
@@ -395,7 +395,7 @@ Mezzoloths are easily drawn into service on the Material Plane by offering oppor
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'magic_resistance',
             ],
             'feats'  => ['Blindsight'],
@@ -453,7 +453,9 @@ The reason for the existence of Dhergoloths is confusing to most, and they are s
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison, Charmed'],
                 'multi_attack'  => ['meta' => 'The Dhergoloth may make up to to 2 additional Actions. The additional Actions can only be used to make Claw attacks, and these Claw attacks must be made on different targets'],
-                'magic_resistance', 'darkvision',
+                'darkvision'    => ['meta' => '{"range":60}'],
+                'blindsight'    => ['meta' => '{"range":60}'],
+                'magic_resistance',
             ],
             'spells' => [
                 'Darkness'   => ['meta' => 'At will'],
@@ -510,7 +512,9 @@ After learning that a decrease in power can confer unforeseen advantages, in the
                 'resistance'            => ['meta' => 'Cold, Electricity, [Bludgeoning, Piercing, Slashing] (Cold Iron, Holy)'],
                 'immunity'              => ['meta' => 'Acid, Poison, Charmed'],
                 'environment_advantage' => ['meta' => 'While submerged in liquid. The Hydroloth is also immune to the waters of the River Styx as well as any effect that would steal or modify its memories or detect or read its thoughts.'],
-                'amphibious', 'magic_resistance', 'darkvision',
+                'darkvision'            => ['meta' => '{"range":60}'],
+                'blindsight'            => ['meta' => '{"range":60}'],
+                'amphibious', 'magic_resistance',
             ],
             'spells' => [
                 'Detect Magic'      => ['meta' => 'At will'],
@@ -567,7 +571,9 @@ After learning that a decrease in power can confer unforeseen advantages, in the
                 'vulnerability'         => ['meta' => 'Fire, Cold Iron, Holy'],
                 'resistance'            => ['meta' => 'Cold, Electricity, [Bludgeoning, Piercing, Slashing] (Cold Iron, Holy)'],
                 'immunity'              => ['meta' => 'Acid, Poison, Charmed'],
-                'magic_resistance', 'darkvision',
+                'darkvision'            => ['meta' => '{"range":60}'],
+                'blindsight'            => ['meta' => '{"range":60}'],
+                'magic_resistance',
             ],
             'spells' => [
                 'Detect Magic' => ['meta' => 'At will'],
@@ -615,7 +621,9 @@ After learning that a decrease in power can confer unforeseen advantages, in the
                 'vulnerability' => ['meta' => 'Cold Iron, Holy'],
                 'resistance'    => ['meta' => 'Cold, Electricity, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Acid, Poison'],
-                'magic_resistance', 'darkvision',
+                'darkvision'    => ['meta' => '{"range":60}'],
+                'blindsight'    => ['meta' => '{"range":60}'],
+                'magic_resistance',
             ],
             'spells' => [
                 'Shocking Grasp' => ['meta' => 'At will. Heightened +3. No Action'],
@@ -637,7 +645,7 @@ After learning that a decrease in power can confer unforeseen advantages, in the
         $monster->alignment        = 'NE';
         $monster->armor_class      = '11';
         $monster->damage_reduction = '6 (Natural Armor)';
-        $monster->hit_dice         = 4;
+        $monster->hit_dice         = 16;
         $monster->speed            = '30 ft / 30 Fly';
         $monster->actions          = '<dl>
     <dt>Claws</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 8 (2D4 +3) Slashing damage. The target must make a DC 14 CON Save, taking 10 (3D6) Poison damage on a failed Save, or half as much damage on a successful one.</dd>
@@ -704,7 +712,7 @@ Within the Book of Keeping is an incantation detailing instructions on how to br
         $monster->alignment        = 'NE';
         $monster->armor_class      = '13';
         $monster->damage_reduction = '4 (Natural Armor)';
-        $monster->hit_dice         = 0;
+        $monster->hit_dice         = 12;
         $monster->speed            = '40 ft';
         $monster->actions          = "<dl>
     <dt>Claw</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 14 (3D6 +4) Slashing damage plus 22 (4D10) Negative damage.</dd>

@@ -136,7 +136,7 @@ class PowersESeeder extends Seeder
         $power->heightened   = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the damage by +1D6</dd>
 </dl>';
-        $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 1);
+        $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm', 'Initiative'], 1);
 
         $power                 = new Power;
         $power->name           = 'Ectoplasmic Sheen';

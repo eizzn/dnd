@@ -53,7 +53,7 @@ class GodsCorellonSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], [Attribute::WIS->value, Attribute::CON->value], [
             'Elf', 'Divine',
@@ -189,7 +189,7 @@ class GodsCorellonSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], [Attribute::WIS->value, Attribute::CHA->value], [
             'Elf', 'Divine',
@@ -206,7 +206,7 @@ class GodsCorellonSeeder extends Seeder
     <li>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you improve your Initiative by +5 beginning on your next turn.</li>
     <li>Spend 2 Spell Points and a use of your Channel Divinity. As a Triple Action, you cast Haste on yourself only. You may use this ability at 4th Level or higher.</li>
 </ul>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'channel_divinity_improve_initiative' => [2],

@@ -26,8 +26,8 @@ class ClassPsychicWarriorSeeder extends Seeder
         $class->armors        = 'All Armor and Shields';
         $helper->saveClass($class, [
             'hit_dice'       => 10,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
             'has_powers'     => true,
         ], ['CON', 'WIS'], [
             'Psionic', 'Combat Mastery',

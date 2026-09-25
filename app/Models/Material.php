@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Propertyable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -23,5 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Material extends Model
 {
+    use Propertyable;
+
     public $timestamps = false;
 }

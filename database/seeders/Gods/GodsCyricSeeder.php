@@ -67,8 +67,8 @@ class GodsCyricSeeder extends Seeder
         $class->description   = '<p>Priest of Cyric</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 6,
-            'skill_progress' => 5,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], [Attribute::INT->value, Attribute::DEX->value], [
             'Evil', 'Divine', 'Illusion',
         ]);
@@ -214,7 +214,7 @@ class GodsCyricSeeder extends Seeder
 </ul>
 <p>The ritual was developed some time during or after the Year of the Banner, 1368 DR, when Cyric drove himself mad by reading from the Cyrinishad. This was mostly performed upon members of the Company of the Ebon Spur.</p>
 <p>The ritual requires the use of a black onyx gem worth at least 100 gp, which the ritual consumes.</p>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Ritual', 'Invocation' => 5]);
+        $helper->addTypesToFeat($feat, ['Pact', 'Ritual', 'Spend Spell Point', 'Invocation' => 5]);
         $feat->parent_feats()->save(app()->feats['Pact to Cyric']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Eldritch Blast'],
@@ -317,7 +317,7 @@ class GodsCyricSeeder extends Seeder
         $feature->name        = 'Channel Divinity: Combat Bonus';
         $feature->description = '<p>You can use your Channel Divinity to improve your combat skills.</p>
 <p>Spend 1 Spell Point and a use of your Channel Divinity. As an Action, you gain a +1 Divine bonus to Hit and +3 Divine bonus to Damage for 1 minute. This effect does not stack with itself.</p>';
-        $helper->saveFeature($feature, ['Divine', 'Channel Divinity']);
+        $helper->saveFeature($feature, ['Divine', 'Channel Divinity', 'Spend Spell Point']);
 
         // Skills
         $helper->addSkillsToClass($class, ['Athletics', 'Concentration', 'Religion']);

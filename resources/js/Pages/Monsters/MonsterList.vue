@@ -5,13 +5,32 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
 import MultiSelect from "@/components/MultiSelect.vue";
+import {computed, onMounted, ref} from "vue";
+import axios from "axios";
 
 const Uri = "monsters";
 const filters = {
     name: null,
-    type: [],
     cr: null,
 };
+
+const types = ref([]);
+const typeOptions = computed(() => types.value.map(t => ({ value: t.name, label: t.name })));
+
+const getTypeOptions = async () => {
+    try {
+        const response = await axios.get('/api/types', {
+            params: { typeable_type: 'Monster', per_page: 200 },
+        });
+        types.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching type options:", error);
+    }
+};
+
+onMounted(() => {
+    getTypeOptions();
+});
 </script>
 
 <template>
@@ -91,46 +110,7 @@ const filters = {
                                     <label for="monster-type-filter" class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
-                                        :options="[
-                                            { value: 'elemental', label: 'Elemental' },
-                                            { value: 'acid', label: 'Acid' },
-                                            { value: 'air', label: 'Air' },
-                                            { value: 'cold', label: 'Cold' },
-                                            { value: 'earth', label: 'Earth' },
-                                            { value: 'electricity', label: 'Electricity' },
-                                            { value: 'fire', label: 'Fire' },
-                                            { value: 'water', label: 'Water' },
-                                            { value: 'outsider', label: 'Outsider' },
-                                            { value: 'chaotic', label: 'Chaotic' },
-                                            { value: 'evil', label: 'Evil' },
-                                            { value: 'good', label: 'Good' },
-                                            { value: 'lawful', label: 'Lawful' },
-                                            { value: 'neutral', label: 'Neutral' },
-                                            { value: 'celestial', label: 'Celestial' },
-                                            { value: 'fiend', label: 'Fiend' },
-                                            { value: 'archon', label: 'Archon' },
-                                            { value: 'demon', label: 'Demon' },
-                                            { value: 'devil', label: 'Devil' },
-                                            { value: 'eladrin', label: 'Eladrin' },
-                                            { value: 'guardinal', label: 'Guardinal' },
-                                            { value: 'modron', label: 'Modron' },
-                                            { value: 'slaad', label: 'Slaad' },
-                                            { value: 'yugoloth', label: 'Yugoloth' },
-                                            { value: 'aberration', label: 'Aberration' },
-                                            { value: 'animal', label: 'Animal' },
-                                            { value: 'construct', label: 'Construct' },
-                                            { value: 'dragon', label: 'Dragon' },
-                                            { value: 'fey', label: 'Fey' },
-                                            { value: 'giant', label: 'Giant' },
-                                            { value: 'humanoid', label: 'Humanoid' },
-                                            { value: 'beast', label: 'Beast' },
-                                            { value: 'monstrosity', label: 'Monstrosity' },
-                                            { value: 'ooze', label: 'Ooze' },
-                                            { value: 'plant', label: 'Plant' },
-                                            { value: 'undead', label: 'Undead' },
-                                            { value: 'familiar', label: 'Familiar' },
-                                            { value: 'animal companion', label: 'Animal Companion' },
-                                        ]"
+                                        :options="typeOptions"
                                     />
                                 </th>
                             </template>

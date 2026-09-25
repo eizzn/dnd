@@ -55,7 +55,7 @@ class AnimalsSeeder extends Seeder
                 'Tremorsense',
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Turpentine on touch causes Ankhegs to Save vs Poison (DC 15) or Fall Asleep for 1 minute.'],
             ],
         ]);
@@ -304,7 +304,7 @@ class AnimalsSeeder extends Seeder
                 'Perception' => ['dc' => 6],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats'   => ['Tremorsense'],
             'talents' => ['Leap Attack'],
@@ -626,7 +626,7 @@ class AnimalsSeeder extends Seeder
             ],
             'features' => [
                 'amphibious',
-                'darkvision' => ['meta' => '30 ft'],
+                'darkvision' => ['meta' => '{"range":30}'],
             ],
         ]);
 
@@ -652,7 +652,7 @@ class AnimalsSeeder extends Seeder
             ],
             'features' => [
                 'amphibious',
-                'darkvision' => ['meta' => '30 ft'],
+                'darkvision' => ['meta' => '{"range":30}'],
             ],
         ]);
 
@@ -827,7 +827,7 @@ class AnimalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Animal', 'Animal Companion'], [
             'stats'    => [15, 12, 13, 2, 10, 5, .25, 2],
             'features' => [
-                'darkvision' => ['meta' => '30 ft'],
+                'darkvision' => ['meta' => '{"range":30}'],
             ],
         ]);
 
@@ -866,7 +866,7 @@ class AnimalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 3],
             ],
             'features' => [
-                'darkvision' => ['meta' => '120 ft'],
+                'darkvision' => ['meta' => '{"range":120}'],
             ],
         ]);
 
@@ -897,7 +897,7 @@ class AnimalsSeeder extends Seeder
                 'Perception' => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'keen_sense'   => ['meta' => 'Sight and Smell'],
                 'multi_attack' => ['meta' => 'The owlbear gains an additional Action. This additional Action can only be used to make a Grapple attack. The owlbear only gains this additional Action if it successfully makes 2 Claw attacks on the same target.'],
             ],
@@ -1172,7 +1172,7 @@ class AnimalsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10 ft'],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'spider_climb', 'web_sense', 'web_walker',
             ],
         ]);
@@ -1200,7 +1200,7 @@ class AnimalsSeeder extends Seeder
                 'Blindsight' => ['meta' => '10'],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'spider_climb', 'web_sense', 'web_walker',
             ],
         ]);
@@ -1254,7 +1254,7 @@ class AnimalsSeeder extends Seeder
                 'Blindsight' => ['meta' => '60 ft'],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
 
@@ -1283,7 +1283,7 @@ class AnimalsSeeder extends Seeder
                 'Improved Grapple',
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
 
@@ -1302,7 +1302,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
         $helper->saveMonster($monster, ['Animal', 'Familiar'], [
             'stats'    => [4, 16, 11, 2, 8, 6, .125, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats' => ['Weapon Finesse'],
         ]);
@@ -1337,7 +1337,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
             'features' => [
                 'keen_sense' => ['meta' => 'Scent'],
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats' => [
                 'Two-Weapon Fighter',
@@ -1382,7 +1382,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
             'features'  => [
                 'keen_sense' => ['meta' => 'Scent'],
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats'     => [
                 'Two-Weapon Fighter',
@@ -1427,7 +1427,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
             ],
             'features' => [
                 'keen_sense' => ['meta' => 'Scent'],
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
 
@@ -1450,7 +1450,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
                 'Perception' => ['dc' => 10],
             ],
             'features' => [
-                'darkvision' => ['meta' => '30 ft'],
+                'darkvision' => ['meta' => '{"range":30}'],
                 'amphibious',
             ],
         ]);
@@ -1471,7 +1471,7 @@ The stirge can detach itself by spending 5 feet of its movement. It does so afte
                 'Perception' => ['dc' => 7],
             ],
             'features' => [
-                'darkvision' => ['meta' => '20 ft'],
+                'darkvision' => ['meta' => '{"range":20}'],
                 'amphibious',
             ],
         ]);

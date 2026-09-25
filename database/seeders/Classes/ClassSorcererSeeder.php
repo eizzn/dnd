@@ -26,7 +26,7 @@ class ClassSorcererSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 2,
+            'skill_points'   => 3,
             'skill_progress' => 3,
         ], ['CON', 'CHA'], [
             'Arcane', 'Spell Pool', 'Bloodline',
@@ -44,45 +44,11 @@ class ClassSorcererSeeder extends Seeder
         $feature              = new Feature;
         $feature->key         = 'flexible_casting';
         $feature->name        = 'Flexible Casting';
-        $feature->description = "<p>You can use Spell Points to gain additional Spell Slots or sacrifice Spell Slots to gain additional Spell Points.</p>
-<table>
-    <thead>
-        <tr>
-            <th>Spell Slot to gain</th>
-            <th>Spell Points cost</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1st</td>
-            <td>2</td>
-            <td>Free Action</td>
-        </tr>
-        <tr>
-            <td>2nd</td>
-            <td>3</td>
-            <td>Action</td>
-        </tr>
-        <tr>
-            <td>3rd</td>
-            <td>5</td>
-            <td>Action</td>
-        </tr>
-        <tr>
-            <td>4th</td>
-            <td>7</td>
-            <td>Action</td>
-        </tr>
-        <tr>
-            <td>5th</td>
-            <td>9</td>
-            <td>Action</td>
-        </tr>
-    </tbody>
-</table>
-<p>As an Action, you can sacrifice a Spell Slot to gain a number of Spell Points equal to the Slot's level.</p>";
-        $helper->saveFeature($feature, ['Spell Pool']);
+        $feature->description = "<ul>
+    <li>You can sacrifice Spell Slots to gain additional Spell Points. As an Action, you can sacrifice a Spell Slot to gain a number of Spell Points equal to the Slot's level.</li>
+    <li>When you spend Spell Points to recover Spell Slots, it requires 1 less Action to do so.</li>
+</ul>";
+        $helper->saveFeature($feature, ['Spell Pool', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'bloodline_feat'        => [1],
@@ -157,7 +123,7 @@ class ClassSorcererSeeder extends Seeder
     <dt>Angelic Wings</dt> <dd>3 Spell Points</dd>
     <dt>Celestial Brand</dt> <dd>5 Spell Points</dd>
 </dl>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Celestial']);
+        $helper->addTypesToFeat($feat, ['Celestial', 'Spend Spell Point', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Angelic Bloodline']);
 
         $feat              = new Feat;
@@ -165,9 +131,9 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = "<p>The demons of the Abyss debase all they touch, and one of your ancestors fell victim to their corruption. You're burdened with dark thoughts and the desire for destruction. This urge can be overcome if you choose to fight it, but the variety of sin calls to you always.</p>
 <ul>
     <li>You may spend a Spell Point to gain a +2 bonus to CON for 1 hour. This stacks with the bonus from Bear's Endurance.</li>
-    <li>You may take Vile Feats</li>
+    <li>You may take Vile Feats.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Demon']);
+        $helper->addTypesToFeat($feat, ['Bloodline', 'Demon', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Control Flames', 'Cutting Hand', 'Fire Bolt', 'Heroism' => 'Self only', 'Light', 'Produce Flame',
                 'Ray of Flame', 'Resist', ],
@@ -188,10 +154,10 @@ class ClassSorcererSeeder extends Seeder
         $feat->description = '<p>The devils of the Nine Hells frequently make deals with mortals. Your devilish heritage corrupts your thoughts, but your destiny is yours to decide.</p>
 <p>You gain the following abilities</p>
 <ul>
-    <li>You may spend a Spell Point to gain Resistance to Fire for 1 hour</li>
-    <li>You may take Vile Feats</li>
+    <li>You may spend a Spell Point to gain Resistance to Fire for 1 hour.</li>
+    <li>You may take Vile Feats.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Devil']);
+        $helper->addTypesToFeat($feat, ['Bloodline', 'Devil', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Blade Ward', 'Control Flames', 'Fire Bolt', 'Minor Illusion', 'Poison Spray'],
             1 => ['Bane', 'Burning Hands', 'Charm', 'Comprehend Language', 'Mage Armor', 'Ray of Clumsiness'],
@@ -330,7 +296,7 @@ class ClassSorcererSeeder extends Seeder
     <dt>Dragon Breath</dt> <dd>3 Spell Points</dd>
     <dt>Dragon Wings</dt> <dd>5 Spell Points</dd>
 </dl>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Dragon']);
+        $helper->addTypesToFeat($feat, ['Dragon', 'Spend Spell Point', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Draconic Bloodline']);
 
         $feat              = new Feat;
@@ -363,7 +329,7 @@ class ClassSorcererSeeder extends Seeder
     <dt>Fey Disappearance</dt> <dd>3 Spell Points</dd>
     <dt>Ridiculous Notion</dt> <dd>5 Spell Points</dd>
 </dl>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Fey']);
+        $helper->addTypesToFeat($feat, ['Fey', 'Spend Spell Point', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Fey Bloodline']);
 
         $feat              = new Feat;
@@ -373,7 +339,7 @@ class ClassSorcererSeeder extends Seeder
     <li>Increase your STR by +1 to a maximum of 20</li>
     <li>You gain the Earth Spell Specialization Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Earth']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Bloodline', 'Earth']);
         $helper->addSpellsToFeat($feat, [
             0  => ['Magic Stone', 'Mold Earth', 'Sand Dagger'],
             1  => ['Earth Tremor', 'Fist of Stone', 'Summon Elemental, Lesser' => 'Earth Elemental only'],
@@ -393,10 +359,10 @@ class ClassSorcererSeeder extends Seeder
         $feat->name        = 'Djinni Bloodline';
         $feat->description = '<p>You have an ancestry from the Air genies. You gain the following spells.</p>
 <ul>
-    <li>Increase your DEX by +1 to a maximum of 20</li>
+    <li>Increase your DEX by +1 to a maximum of 20.</li>
     <li>You gain the Air Spell Specialization Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Air', 'Electricity']);
+        $helper->addTypesToFeat($feat, ['Bloodline', 'Ability Boost', 'Air', 'Electricity']);
         $helper->addSpellsToFeat($feat, [
             0  => ['Air Shield', 'Electric Arc', 'Feather Fall', 'Gust', 'Shocking Grasp', 'Thunderclap'],
             1  => ['Catapult', 'Dust Devil', 'Fog Cloud', 'Gust of Wind', 'Jump', 'Summon Elemental, Lesser' => 'Air Elemental only'],
@@ -439,10 +405,10 @@ class ClassSorcererSeeder extends Seeder
         $feat->name        = 'Marid Bloodline';
         $feat->description = '<p>You have an ancestry from the Water genies. You gain the following spells.</p>
 <ul>
-    <li>Increase your CON by +1 to a maximum of 20</li>
+    <li>Increase your CON by +1 to a maximum of 20.</li>
     <li>You gain the Water Spell Specialization Talent</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Bloodline', 'Water', 'Cold']);
+        $helper->addTypesToFeat($feat, ['Bloodline', 'Ability Boost', 'Water', 'Cold']);
         $helper->addSpellsToFeat($feat, [
             0  => ['Acid Splash', 'Fist of Ice', 'Frostbite', 'Hydraulic Blast', 'Ray of Frost', 'Shape Water'],
             1  => ['Acid Stream', 'Aquavision', 'Air Bubble', 'Animate Water', 'Create or Destroy Water', 'Fog Cloud',
@@ -458,29 +424,186 @@ class ClassSorcererSeeder extends Seeder
             10 => ['Wish'],
         ]);
 
-        $helper->addFeatsToClass($class, [
-            'Angelic Bloodline'  => 1,
-            'Demonic Bloodline'  => 1,
-            'Devilish Bloodline' => 1,
-            'Draconic Bloodline' => 1,
-            'Fey Bloodline'      => 1,
-            'Dao Bloodline'      => 1,
-            'Djinni Bloodline'   => 1,
-            'Efreeti Bloodline'  => 1,
-            'Marid Bloodline'    => 1,
+        $feat              = new Feat;
+        $feat->name        = 'Demonic Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Fear</dt> <dd>1 Spell Point</dd>
+    <dt>Fly</dt> <dd>3 Spell Points</dd>
+    <dt>Fiend Form</dt> <dd>5 Spell Points (Demon only)</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Demon', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Demonic Bloodline']);
 
-            'Draconic Form'       => 5,
+        $feat              = new Feat;
+        $feat->name        = 'Devilish Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Charm</dt> <dd>1 Spell Point</dd>
+    <dt>Fireball</dt> <dd>3 Spell Points</dd>
+    <dt>Fiend Form</dt> <dd>5 Spell Points (Devil only)</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Devil', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Devilish Bloodline']);
 
-            'Abjurer'                  => 1,
-            'Improved Counterspell'    => 2,
-            'Expanded Spell Knowledge' => 5,
-            'Arcane Strike'            => 7,
-            'Greater Counterspell'     => 10,
+        $feat              = new Feat;
+        $feat->name        = 'Dao Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Fist of Stone</dt> <dd>1 Spell Point</dd>
+    <dt>Meld into Stone</dt> <dd>3 Spell Points</dd>
+    <dt>Wall of Stone</dt> <dd>5 Spell Points</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Earth', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Dao Bloodline']);
 
-            'Find Familiar'    => 2,
-            'Enhance Familiar' => 4,
+        $feat              = new Feat;
+        $feat->name        = 'Djinni Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Gust of Wind</dt> <dd>1 Spell Point</dd>
+    <dt>Fly</dt> <dd>3 Spell Points (Self only)</dd>
+    <dt>Control Winds</dt> <dd>5 Spell Points</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Air', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Djinni Bloodline']);
 
-            'Extend Spell Pool' => 5,
-        ]);
+        $feat              = new Feat;
+        $feat->name        = 'Efreeti Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Burning Hands</dt> <dd>1 Spell Point</dd>
+    <dt>Fireball</dt> <dd>3 Spell Points</dd>
+    <dt>Immolation</dt> <dd>5 Spell Points</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Fire', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Efreeti Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Marid Form';
+        $feat->description = '<p>You gain the ability to cast the following spells using Spell Points. You must pay additional Spell Points equal to the additional Spell Slots to heighten a spell.</p>
+<dl>
+    <dt>Ice Knife</dt> <dd>1 Spell Point</dd>
+    <dt>Wall of Water</dt> <dd>3 Spell Points</dd>
+    <dt>Cone of Cold</dt> <dd>5 Spell Points</dd>
+</dl>';
+        $helper->addTypesToFeat($feat, ['Water', 'Spend Spell Point', 'Generic' => 5]);
+        $feat->parent_feats()->save(app()->feats['Marid Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Celestial Ascension';
+        $feat->description = '<p>The celestial blood within you has fully awakened. You are more angel than mortal.</p>
+<ul>
+    <li>You gain the Celestial type in addition to your own and are affected by all effects that affect Celestials.</li>
+    <li>Feathered wings grow from your back permanently. You gain a Fly Speed equal to your Speed.</li>
+    <li>You gain Resistance to Fire and Cold. You are immune to Negative damage.</li>
+    <li>You can speak with any creature that has a language.</li>
+    <li>You may spend 3 Spell Points as a Double Action to regain a number of Hit Points equal to 3 times your level. This has the Positive trait.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Celestial', 'Exalted', 'Spend Spell Point', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Angelic Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Demonic Ascension';
+        $feat->description = '<p>The Abyss calls to you, and you have answered. You are more demon than mortal.</p>
+<ul>
+    <li>You gain the Demon type in addition to your own and are affected by all effects that affect Demons.</li>
+    <li>You are immune to Poison. You gain Resistance to Cold, Electricity, and Fire.</li>
+    <li>You gain the Telepathy language out to 60 feet.</li>
+    <li>You may spend 1 Spell Point as a Free Action when you hit with an unarmed attack to deal an additional 2D6 damage of a type of your choice: Fire, Cold, or Electricity.</li>
+    <li>You gain Vulnerability to Cold Iron.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Demon', 'Fiend', 'Vile', 'Spend Spell Point', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Demonic Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Infernal Ascension';
+        $feat->description = '<p>The contract written in your blood has come due. You are more devil than mortal.</p>
+<ul>
+    <li>You gain the Devil type in addition to your own and are affected by all effects that affect Devils.</li>
+    <li>You are immune to Fire and Poison. You gain Resistance to Cold.</li>
+    <li>You can see normally in darkness, including magical Darkness, out to 120 feet.</li>
+    <li>You have Advantage on Saves against spells.</li>
+    <li>You gain Vulnerability to Silver.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Devil', 'Fiend', 'Vile', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Devilish Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Draconic Ascension';
+        $feat->description = "<p>The dragon within you rises. You are more dragon than mortal.</p>
+<ul>
+    <li>You gain the Dragon type in addition to your own and are affected by all effects that affect Dragons.</li>
+    <li>Great wings grow from your back. You gain a Fly Speed equal to your Speed.</li>
+    <li>You are immune to your dragon's Breath Weapon damage type.</li>
+    <li>You may cast Dragon Breath for 1 less Spell Point.</li>
+    <li>As an Action, you may unleash your Frightful Presence. Each creature of your choice within 30 feet must make a WIS Save against your Spell DC or become Frightened 2 (Frightened 1 on a success). A creature that succeeds is immune to your Frightful Presence for 24 hours.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Dragon', 'Fear', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Draconic Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Fey Ascension';
+        $feat->description = '<p>The First World has claimed you as its own. You are more fey than mortal.</p>
+<ul>
+    <li>You gain the Fey type in addition to your own and are affected by all effects that affect Fey.</li>
+    <li>You are immune to Charm effects.</li>
+    <li>You may spend 1 Spell Point as an Action to teleport up to 30 feet to an unoccupied space you can see.</li>
+    <li>You no longer age and cannot be magically aged.</li>
+    <li>You gain Vulnerability to Cold Iron.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Fey', 'Spend Spell Point', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Fey Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Dao Ascension';
+        $feat->description = '<p>The earth within you has fully awakened. You are more dao than mortal.</p>
+<ul>
+    <li>You gain the Elemental type in addition to your own and are affected by all effects that affect Elementals.</li>
+    <li>Increase your STR by +1, to a maximum of 20.</li>
+    <li>You gain the Tremorsense feat.</li>
+    <li>You gain a Burrow Speed of 20 feet through earth and natural stone.</li>
+    <li>You are immune to being Petrified.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Elemental', 'Earth', 'Ability Boost', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Dao Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Djinni Ascension';
+        $feat->description = '<p>The wind within you has fully awakened. You are more djinni than mortal.</p>
+<ul>
+    <li>You gain the Elemental type in addition to your own and are affected by all effects that affect Elementals.</li>
+    <li>Increase your DEX by +1, to a maximum of 20.</li>
+    <li>Your lower body becomes a permanent whirlwind. You gain a Fly Speed equal to your Speed.</li>
+    <li>You are immune to Electricity.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Elemental', 'Air', 'Ability Boost', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Djinni Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Efreeti Ascension';
+        $feat->description = '<p>The fire within you has fully awakened. You are more efreeti than mortal.</p>
+<ul>
+    <li>You gain the Elemental type in addition to your own and are affected by all effects that affect Elementals.</li>
+    <li>Increase your CHA by +1, to a maximum of 20.</li>
+    <li>You are immune to Fire.</li>
+    <li>A creature that hits you with any melee attack takes 1D6 Fire damage.</li>
+    <li>You gain Vulnerability to Cold.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Elemental', 'Fire', 'Ability Boost', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Efreeti Bloodline']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Marid Ascension';
+        $feat->description = '<p>The sea within you has fully awakened. You are more marid than mortal.</p>
+<ul>
+    <li>You gain the Elemental type in addition to your own and are affected by all effects that affect Elementals.</li>
+    <li>Increase your CON by +1, to a maximum of 20.</li>
+    <li>You can breathe water and gain a Swim Speed of 60 feet.</li>
+    <li>You are immune to Cold.</li>
+    <li>You may cast Control Water once per day without spending a Spell Slot.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Elemental', 'Water', 'Ability Boost', 'Generic' => 15]);
+        $feat->parent_feats()->save(app()->feats['Marid Bloodline']);
     }
 }

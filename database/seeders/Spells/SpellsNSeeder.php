@@ -173,7 +173,7 @@ class SpellsNSeeder extends Seeder
         $spell->range       = '30 feet';
         $spell->targets     = 'All Familiars, Animal Companions, and Summoned Animals within range';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>All of your Familiars, Animal Companions, and Summoned or Called Animals within range receives a +2 bonus to Hit and Damage for the Duration.</p>';
+        $spell->description = '<p>All of your Familiars, Animal Companions, and Summoned or Called Animals within range receives a +1 bonus to Hit and Damage for the Duration.</p>';
         $spell->heightened  = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the bonus by +1</dd>
 </dl>';

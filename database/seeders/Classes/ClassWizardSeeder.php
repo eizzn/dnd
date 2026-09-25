@@ -30,7 +30,7 @@ class ClassWizardSeeder extends Seeder
 <p>Wizards memorize their spells that they wish to have prepared. This includes Cantrips (i.e., Wizards can change the list of Cantrips that they have Prepared).</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 6,
+            'skill_points'   => 4,
             'skill_progress' => 2,
         ], ['INT', 'WIS'], [
             'Arcane', 'Wizard School',
@@ -50,61 +50,6 @@ class ClassWizardSeeder extends Seeder
             'wizard_feat'     => [2, 3, 5, 8, 12, 15, 18],
             'spell_point'     => [2],
             'arcane_recovery' => [4],
-        ]);
-
-        $helper->addFeatsToClass($class, [
-            'Abjurer'               => 2,
-            'Expert Abjurer'        => 8,
-            'Master Abjurer'        => 12,
-            'Improved Counterspell' => 3,
-            'Greater Counterspell'  => 7,
-
-            'Conjurer'          => 2,
-            'Expert Conjurer'   => 8,
-            'Master Conjurer'   => 12,
-            'Improved Summoner' => 3,
-            'Greater Summoner'  => 12,
-            'Find Familiar'     => 2,
-            'Enhance Familiar'  => 7,
-
-            'Diviner'        => 2,
-            'Expert Diviner' => 8,
-            'Master Diviner' => 12,
-
-            'Enchanter'        => 2,
-            'Expert Enchanter' => 8,
-            'Master Enchanter' => 12,
-
-            'Evoker'        => 2,
-            'Expert Evoker' => 8,
-            'Master Evoker' => 12,
-            'Battle Caster' => 9,
-
-            'Illusionist'        => 2,
-            'Expert Illusionist' => 8,
-            'Master Illusionist' => 12,
-
-            'Necromancer'        => 2,
-            'Expert Necromancer' => 8,
-            'Master Necromancer' => 12,
-            'Improved Undead'    => 3,
-            'Undead Ally'        => 7,
-
-            'Transmuter'        => 2,
-            'Expert Transmuter' => 8,
-            'Master Transmuter' => 12,
-
-            'Wand Caster'        => 2,
-            'Expert Wand Caster' => 8,
-            'Master Wand Caster' => 12,
-
-            'Ring Caster'        => 2,
-            'Expert Ring Caster' => 8,
-            'Master Ring Caster' => 12,
-
-            'Shadow Weave Caster'        => 2,
-            'Expert Shadow Weave Caster' => 8,
-            'Master Shadow Weave Caster' => 12,
         ]);
 
         $helper->addSpellsToClass($class, [

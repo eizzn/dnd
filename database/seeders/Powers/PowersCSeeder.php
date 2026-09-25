@@ -77,7 +77,7 @@ class PowersCSeeder extends Seeder
         $power->heightened       = '<dl>
     <dt>Heightened (+4)</dt> <dd>Increase the range and area by 10 feet</dd>
 </dl>';
-        $helper->addTypesToPower($power, ['Clairsentience'], 5);
+        $helper->addTypesToPower($power, ['Clairsentience', 'Spend Power Point'], 5);
 
         $power                   = new Power;
         $power->name             = 'Chameleon';

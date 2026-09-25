@@ -29,8 +29,8 @@ class ClassDruidSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Primal', 'Wild Shape',
         ]);
@@ -69,7 +69,7 @@ class ClassDruidSeeder extends Seeder
         $feature->description = "<p>You gain the ability to change into natural animal that is from the same environment as you (you may not Wild Shape into any dinosaurs unless you are from Chult).</p>
 <ul>
     <li>You gain 1 use of Wild Shape. You regain all your uses of Wild Shape at the end of a Long Rest.</li>
-    <li>You may use 1 use of your Wild Shape ability to cast Pest Form even though you do not have it memorized and without using a Spell Slot. When you cast Pest Form in this way, the Duration is changed to 1 hour. You revert to your normal form at the end of this duration unless you spend 2 Spell Points or another use of your Wild Shape ability. You can revert to your normal form earlier by using an Action on your turn. You automatically revert if you fall Unconscious, drop to 0 Hit Points, or die.</li>
+    <li>You may use 1 use of your Wild Shape ability and 1 Spell Point to cast Pest Form even though you do not have it memorized and without using a Spell Slot. When you cast Pest Form in this way, the Duration is changed to 1 hour. You revert to your normal form at the end of this duration unless you spend 2 Spell Points or another use of your Wild Shape ability. You can revert to your normal form earlier by using an Action on your turn. You automatically revert if you fall Unconscious, drop to 0 Hit Points, or die.</li>
     <li>You may not use Wild Shape more than once a turn.</li>
     <li>
         <p>While you are transformed, the following rules apply:</p>
@@ -82,13 +82,13 @@ class ClassDruidSeeder extends Seeder
         </ul>
     </li>
 </ul>";
-        $helper->saveFeature($feature, ['Wild Shape']);
+        $helper->saveFeature($feature, ['Wild Shape', 'Spend Spell Point']);
 
         $helper->addFeaturesToClass($class, [
             'favored_terrain'  => [1],
             'wild_empathy'     => [1],
             'wild_shape'       => [2],
-            'spell_point'      => [2],
+            'spell_pool'       => [2],
             'class_group_feat' => [3, 5, 9, 15, 18],
             'woodland_stride'  => [4],
         ]);
@@ -137,22 +137,24 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Call of the Wild';
         $feat->description = '<ul>
     <li>You gain 1 Spell Point.</li>
-    <li>Your bond with nature allows you to call upon its servants to aid you in times of need. You can cast Summon Animals by spending 1 Spell Point instead of using spell slots. This spell can be heightened to any level that you can cast, but if you heighten the spell, it costs you 1 additional Spell Point per Spell Level Heightened.</li>
+    <li>Your bond with nature allows you to call upon its servants to aid you in times of need. You can cast Summon Animals by spending 1 Spell Point instead of using a Spell Slot. This spell can be Heightened to any level that you can cast, but if you Heighten the spell, it costs you 2 additional Spell Points per Spell Level Heightened.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Summoning']);
+        $helper->addTypesToFeat($feat, ['Summoning', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Extra Wild Shape';
         $feat->description = '<ul>
+    <li>You gain 1 Spell Point.</li>
     <li>You gain 2 additional uses of Wild Shape.</li>
-    <li>You may take this feat multiple times.</li>
+    <li>You may take this Feat multiple times.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Wild Shape']);
 
         $feat              = new Feat;
         $feat->name        = 'Extend Wild Shape';
         $feat->description = '<ul>
-    <li>Double the duration of your Wild Shape.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>Double the Duration of your Wild Shape.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Wild Shape']);
         $feat->features()->save(app()->features['wild_shape']);
@@ -161,17 +163,19 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Improved Wild Shape';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Animal Form instead of Pest Form. The Animal Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 2 Spell Points to cast Animal Form instead of Pest Form. The Animal Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Wild Shape';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Aerial Form instead. The Aerial Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 2 Spell Points to cast Aerial Form. The Aerial Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Improved Wild Shape']);
         $helper->addSpellsToFeat($feat, [
             4 => ['Aerial Form'],
@@ -181,9 +185,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Master Wild Shape';
         $feat->action_type = 'Double Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Insect Form instead. The Insect Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 2 Spell Points to cast Insect Form. The Insect Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Greater Wild Shape']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Insect Form'],
@@ -193,9 +198,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Plant Wild Shape';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Plant Form instead. The Plant Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 2 Spell Points to cast Plant Form. The Plant Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->features()->save(app()->features['wild_shape']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Plant Form'],
@@ -205,9 +211,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Thousand Faces';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Humanoid Form instead. The Humanoid Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 3 Spell Points to cast Humanoid Form. The Humanoid Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Extend Spell Pool']);
         $feat->features()->save(app()->features['wild_shape']);
         $helper->addSpellsToFeat($feat, [
@@ -218,9 +225,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Elemental Wild Shape';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Elemental Form instead. The Elemental Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 3 Spell Points to cast Elemental Form. The Elemental Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Greater Wild Shape']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Elemental Form'],
@@ -230,9 +238,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Dragon Wild Shape';
         $feat->action_type = 'Action';
         $feat->description = '<ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Dragon Form instead. The Dragon Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now spend 1 use of your Wild Shape and 4 Spell Points to cast Dragon Form. The Dragon Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wild Shape']);
+        $helper->addTypesToFeat($feat, ['Wild Shape', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Greater Wild Shape']);
         $helper->addSpellsToFeat($feat, [
             6 => ['Dragon Form'],
@@ -240,20 +249,29 @@ class ClassDruidSeeder extends Seeder
 
         $feat              = new Feat;
         $feat->name        = 'Fast Wild Shape';
-        $feat->description = '<p>You may now activate your Wild Shape as an Action</p>';
+        $feat->description = '<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now activate your Wild Shape as an Action.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Wild Shape']);
         $feat->parent_feats()->save(app()->feats['Improved Wild Shape']);
 
         $feat              = new Feat;
         $feat->name        = 'Quick Wild Shape';
-        $feat->description = '<p>You may now activate your Wild Shape as a Free Action.</p>';
+        $feat->description = '<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>You may now activate your Wild Shape as a Free Action.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Wild Shape']);
         $feat->parent_feats()->save(app()->feats['Fast Wild Shape']);
         $feat->parent_feats()->save(app()->feats['Greater Wild Shape']);
 
         $feat              = new Feat;
         $feat->name        = 'Wild Shape Spell Caster';
-        $feat->description = '<p>You now have the ability to cast spells while in Wild Shape form.</p>';
+        $feat->description = '<ul>
+    <li>You gain 1 Spell Point.</li>
+    <li>You now have the ability to cast spells while in Wild Shape form.</li>
+</ul>';
         $helper->addTypesToFeat($feat, ['Wild Shape']);
         $feat->parent_feats()->save(app()->feats['Improved Wild Shape']);
 
@@ -291,10 +309,10 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'You must be Good, and Mielikki must be your Patron deity';
         $feat->description = '<ul>
     <li>You may use your Wild Shape ability to cast the spell Aerial Form but to polymorph into a Swanmay.</li>
-    <li>You can gain a Unicorn as your Animal Companion.</li>
-    <li>You can gain a Pegasus as your Animal Companion.</li>
+    <li>You can gain a Unicorn as your Animal Companion (without having to capture/summon one).</li>
+    <li>You can gain a Pegasus as your Animal Companion (without having to capture/summon one).</li>
     <li>You may cast the spell Fey Form to transform into a Pegasus or Unicorn only.</li>
-    <li>Add the spells this feat grants to both your Druid and Ranger spell lists.</li>
+    <li>Add the Spells this Feat grants to both your Druid and Ranger spell lists.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -369,14 +387,14 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'Chauntea must be your Patron deity (Druid only)';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Spell Pool Class Feature</li>
+    <li>You gain 3 Spell Points.</li>
     <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to command Plants.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Channel Divinity']);
         $helper->addSpellsToFeat($feat, [
-            1 => ['Barkskin' => 'Requires 1 Spell Point to cast as a 1st level spell',
+            1 => ['Barkskin' => 'Requires 2 Spell Points to cast as a 1st level spell',
                 'Animate Wood',
-                'Entangle' => 'Requires 1 Spell Point to cast as 1st level spell', ],
+                'Entangle' => 'Requires 2 Spell Points to cast as 1st level spell', ],
             2 => ['Consecrate' => 'Only farmlands', 'Favor of Chauntea', 'Plant Growth'],
         ]);
         $feat->features()->save(app()->features['wild_shape']);
@@ -399,10 +417,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Chauntea's Plenty";
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You may now spend 1 use of your Wild Shape to cast Plant Form instead. The Plant Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
+    <li>You may now spend 1 use of your Wild Shape and 2 Spell Points to cast Plant Form. The Plant Form spell is automatically Heightened to the highest Spell Slot you can cast.</li>
     <li>You may spend one of your uses of Wild Shape to cast Animate Plants. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 3rd level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats["Chauntea's Harvest"]);
         $helper->addSpellsToFeat($feat, [
             5 => ['Healing Circle', 'Plant Form'],
@@ -413,7 +431,8 @@ class ClassDruidSeeder extends Seeder
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
     <li>Creatures with the Plant type will no longer attack you. If you attack a Plant creature, it may protect itself, but it will make attempts to escape from you.</li>
-    <li>You cast all Plant spells as if they were cast from a spell slot 1 level higher. A 9th level spell will be treated as if it was cast from a 10th level spell slot, but a 10th level spell will not be cast as if from an 11th level spell slot.</li>
+    <li>All Spells you cast with the Plant type is automatically Heightened +1.</li>
+    <li>Once per turn, you may cast the Cure Wounds Spell (no Heightening) on any Target with the Plant type without using a Spell Slot. You gain an Additional Action. This Additional Action can only be used to cast Cure Wounds in this way.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $feat->parent_feats()->save(app()->feats["Chauntea's Plenty"]);
@@ -423,10 +442,10 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'Talos must be your Patron deity';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You may spend one of your uses of Wild Shape to cast Shock Bolt. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
-    <li>You may spend one of your uses of Wild Shape to cast Burning Hands. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You may spend one of your uses of Wild Shape and 1 Spell Point to cast Shock Bolt. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You may spend one of your uses of Wild Shape and 1 Spell Point to cast Burning Hands. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Fire Bolt', 'Sonic Snap'],
             2 => ['Flame Blade'],
@@ -437,9 +456,10 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Anger of Talos';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You may spend two of your uses of Wild Shapes to cast Lightning Bolt. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 3rd level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You gain the Electricity Resistance Feat.</li>
+    <li>You may spend one of your uses of Wild Shapes and 3 Spell Points to cast Lightning Bolt. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 3rd level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             3 => ['Lightning Bolt'],
             4 => ['Lightning Lance'],
@@ -450,9 +470,8 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Rage of Talos';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You have Resistance to Fire damage</li>
-    <li>You have Resistance to Electricity damage</li>
-    <li>You may use Wild Shape to change into a Fire Elemental, as if you had the Elemental Wild Shape feat</li>
+    <li>You gain the Fire Resistance Feat.</li>
+    <li>You may use Wild Shape to turn into a Fire Elemental, as if you had the Elemental Wild Shape Feat.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
         $helper->addSpellsToFeat($feat, [
@@ -465,7 +484,7 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = 'Fury of Talos';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Elemental Focus feat with the chosen type being Fire.</li>
+    <li>You gain the Elemental Focus Feat with the chosen type being Fire.</li>
     <li>If you summon a Fire Elemental, if the Elemental is within 90 feet of you, you may cast any Fire spell and have the Fire Elemental be the source of the spell.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
@@ -480,7 +499,7 @@ class ClassDruidSeeder extends Seeder
         $touch->requirement = 'Auril must be your Patron deity (Druids and Spirit Shamans only)';
         $touch->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the benefits of Endure Elements (Severe Cold) Permanently</li>
+    <li>You gain the benefits of Endure Elements (Severe Cold) Permanently.</li>
     <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to command Elementals with the Cold type.</li>
 </ul>';
         $helper->addTypesToFeat($touch, ['Cold', 'Primal', 'Channel Divinity']);
@@ -493,12 +512,12 @@ class ClassDruidSeeder extends Seeder
         $kiss->name        = "Auril's Kiss";
         $kiss->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the benefits of Endure Elements (Extreme Cold) Permanently</li>
+    <li>You gain the benefits of Endure Elements (Extreme Cold) Permanently.</li>
     <li>You may now use your Wild Empathy ability on Winter Wolves.</li>
-    <li>You may grant any axe you hold the Frost ability for 1 hour by spending 1 use of your Wild Shape or 2 Spell Points</li>
-    <li>If you have the Animal Companion feat, you may gain a Winter Wolf as an Animal Companion (without having to capture or summon it). Having a Winter Wolf as an Animal Companion costs a 2nd level Spell Slot instead of the normal costs for an Animal Companion.</li>
+    <li>You may grant any axe you hold the Frost ability for 1 hour by spending 1 use of your Wild Shape or 2 Spell Points.</li>
+    <li>If you have the Animal Companion Feat, you may gain a Winter Wolf as an Animal Companion (without having to capture or summon it).</li>
 </ul>';
-        $helper->addTypesToFeat($kiss, ['Cold', 'Primal']);
+        $helper->addTypesToFeat($kiss, ['Cold', 'Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($kiss, [
             2 => ['Chill Metal', 'Control Temperature'],
             3 => ['Control Snow and Ice', 'Corona of Cold', 'Ice Shape'],
@@ -525,9 +544,9 @@ class ClassDruidSeeder extends Seeder
 <ul>
     <li>You gain the Cold Immunity Feat.</li>
     <li>You may grant any axe you hold the Freezing Burst ability for 1 hour by spending 1 use of your Wild Shape or 2 Spell Points</li>
-    <li>You may use your Wild Shape ability to cast Ice Storm as an Action.</li>
+    <li>You may use your Wild Shape ability and 3 Spell Points to cast Ice Storm as an Action.</li>
 </ul>';
-        $helper->addTypesToFeat($embrace, ['Cold', 'Primal']);
+        $helper->addTypesToFeat($embrace, ['Cold', 'Primal', 'Spend Spell Point']);
         $embrace->parent_feats()->save($hold);
         $helper->addSpellsToFeat($embrace, [
             6 => ['Freezing Sphere'],
@@ -544,7 +563,7 @@ class ClassDruidSeeder extends Seeder
     <li>You gain the formulas for 4 Poison recipes.</li>
     <li>You gain a +2 bonus to Craft checks for making Poisons.</li>
     <li>You have Advantage on all Saves vs Poison or Disease.</li>
-    <li>You may use your Wild Shape ability to cast the Contagion spell.</li>
+    <li>You may use your Wild Shape ability and 1 Spell Point to cast the Contagion spell.</li>
     <li>You may use Assassin Spell Slots to cast Druid spells and Druid Spell Slots to cast Assassin spells</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal']);
@@ -573,11 +592,11 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Talona's Affliction";
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You may use your Wild Shape ability to cast the Poison Spell as an Action.</li>
-    <li>You may make any dagger or glaive you hold Poisoned by spending 1 use of your Wild Shape. The poison lasts for 10 rounds. Treat the poison as Black Adder Venom.</li>
+    <li>You may use your Wild Shape ability and 2 Spell Points to cast the Poison Spell as an Action.</li>
+    <li>You may make any dagger or glaive you hold Poisoned by spending 1 use of your Wild Shape or 2 Spell Points. The poison lasts for 10 rounds. Treat the poison as Black Adder Venom.</li>
     <li>You gain the Poison Immunity Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Cloudkill', 'Plague of Rats'],
             6 => ['Plague Bearer'],
@@ -588,6 +607,7 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Talona's Plague";
         $feat->description = "<p>You gain the following benefits.</p>
 <ul>
+    <li>You gain 1 Spell Point.</li>
     <li>
         <p>You may now choose from the following poisons when you use your ability to apply poison</p>
         <ul>
@@ -632,8 +652,8 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'Umberlee must be your Patron deity';
         $feat->description = '<p>You gain the following benefits:</p>
 <ul>
-    <li>You may cast Feet to Fins as an Action for 1 use of your Wild Shape without using a Spell Slot</li>
-    <li>You may cast Water Breathing as an Action for 1 use of your Wild Shape without using a Spell Slot</li>
+    <li>You may cast Feet to Fins as an Action for 1 use of your Wild Shape and 1 Spell Point without using a Spell Slot</li>
+    <li>You may cast Water Breathing as an Action for 1 use of your Wild Shape and 1 Spell Point without using a Spell Slot</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Water']);
         $helper->addSpellsToFeat($feat, [
@@ -662,9 +682,9 @@ class ClassDruidSeeder extends Seeder
         $feat->description = '<p>You gain the following</p>
 <ul>
     <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to Command Molds, Fungus, and Oozes.</li>
-    <li>You may spend one of your uses of Wild Shape to cast Stinking Cloud. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You may spend one of your uses of Wild Shape and 1 Spell Point to cast Stinking Cloud. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal', 'Channel Divinity']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Channel Divinity', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Touch of Death'],
             2 => ['Black Talon', 'Stinking Cloud'],
@@ -674,7 +694,7 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Moander's Rot";
         $feat->description = '<p>You gain the following</p>
 <ul>
-    <li>If you have the Animal Companion feat, you may take a Gray Ooze as an Animal Companion by sacrificing a 2nd level Spell Slot.</li>
+    <li>If you have the Animal Companion feat, you may take a Gray Ooze as an Animal Companion.</li>
     <li>You gain the Tremorsense Feat.</li>
     <li>You may cast the spell Animate Dead with just a Somatic Component (one Action) if Heightened +1.</li>
 </ul>';
@@ -689,11 +709,11 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Moander's Decay";
         $feat->description = '<p>You gain the following</p>
 <ul>
-    <li>You may spend one of your uses of Wild Shape to cast Cloud Kill. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
-    <li>You may spend one of your uses of Wild Shape to cast Ooze Form. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You may spend one of your uses of Wild Shape and 2 Spell Points to cast Cloud Kill. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
+    <li>You may spend one of your uses of Wild Shape and 1 Spell Point to cast Ooze Form. If you triggered your Wild Shape as an Action or less, then the spell is cast with a 1st level spell slot, otherwise it is Heightened to the highest Spell Level you can cast.</li>
     <li>Your undead created from your Animate Dead now lasts 1 month.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Cloudkill', 'Seed of Moander', 'Ooze Form'],
         ]);
@@ -703,11 +723,11 @@ class ClassDruidSeeder extends Seeder
         $feat->name        = "Moander's Corruption";
         $feat->description = '<p>You gain the following</p>
 <ul>
-    <li>You may spend one of your uses of Wild Shape to transform into a Shambling Mound</li>
+    <li>You may spend one of your uses of Wild Shape and 2 Spell Points to transform into a Shambling Mound</li>
     <li>Your undead created from your Animate Dead now lasts for 6 months.</li>
     <li>You may take the Lichdom Feat as if you had the Necromancer Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             7 => ['Soul Cage', 'Undeath after Death'],
             9 => ['Despoil'],
@@ -719,8 +739,8 @@ class ClassDruidSeeder extends Seeder
         $feat->requirement = 'Osiris must be your Patron deity (Druid only)';
         $feat->description = '<p>You gain the following benefits.</p>
 <ul>
-    <li>You gain the Spell Pool Class Feature</li>
-    <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to turn Undead.</li>
+    <li>You gain the Channel Divinity (Positive) Class Feature. You can use it to turn/destroy Undead.</li>
+    <li>You gain the Improved Channel Divinity Feat.</li>
 <ul>';
         $helper->addTypesToFeat($feat, ['Primal', 'Undead']);
         $feat->features()->save(app()->features['wild_shape']);

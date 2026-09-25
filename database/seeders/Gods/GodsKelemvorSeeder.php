@@ -51,7 +51,7 @@ class GodsKelemvorSeeder extends Seeder
         $class->description   = '<p>Doomguides are priests of Kelemvor.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'CHA'], [
             'Divine',
@@ -166,7 +166,7 @@ class GodsKelemvorSeeder extends Seeder
         $class->description   = '<p>Priest of Jergal</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'INT']);
         $helper->addWorshipClassesToGod($god, 'Faeruneon', [
@@ -218,8 +218,8 @@ class GodsKelemvorSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA']);
 
         $helper->addClassesToGod($god, 'Faeruneon', [

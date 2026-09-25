@@ -39,7 +39,7 @@ class MonstersGSeeder extends Seeder
         $helper->saveMonster($monster, ['Giant'], [
             'stats'    => [19, 8, 16, 5, 7, 7, 2, 3],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'languages' => ['Jotun', 'Special' => ['meta' => 'One regional language']],
         ]);
@@ -63,7 +63,7 @@ class MonstersGSeeder extends Seeder
                 'Perception' => ['dc' => 2],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 feet'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'keen_sense'   => ['meta' => 'Smell'],
                 'regeneration' => ['meta' => '10. Vulnerable to Acid and Fire'],
                 'multi_attack' => ['meta' => 'If the troll makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The troll can only gain this additional Action once per turn.'],
@@ -106,7 +106,7 @@ class MonstersGSeeder extends Seeder
                 'Perception' => ['dc' => 4, 'meta' => 'Having two heads, one head is always awake.'],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'multi_attack' => ['meta' => 'The ettin gains an additional Action. This additional Action can only be used to make attacks with the off head.'],
             ],
             'languages' => ['Jotun', 'Daraktan'],
@@ -132,9 +132,6 @@ class MonstersGSeeder extends Seeder
             'stats' => [27, 9, 19, 6, 8, 6, 8, 4],
             'feats' => [
                 'Cleave', 'Great Cleave', 'Power Attack', 'Point-Blank Shot', 'Far Shot',
-            ],
-            'features' => [
-                'darkvision',
             ],
             'languages' => ['Jotun', 'Jotunhaug'],
         ]);
@@ -198,7 +195,7 @@ class MonstersGSeeder extends Seeder
                 'Stealth'    => ['dc' => 1],
             ],
             'features' => [
-                'darkvision'      => ['meta' => '60 ft'],
+                'darkvision'      => ['meta' => '{"range":60}'],
                 'favored_terrain' => ['meta' => 'Rocky terrain'],
             ],
             'feats' => [
@@ -234,7 +231,7 @@ class MonstersGSeeder extends Seeder
                 'Nature' => ['dc' => 5],
             ],
             'features'  => [
-                'darkvision' => ['meta' => '120 ft'],
+                'darkvision' => ['meta' => '{"range":120}'],
             ],
             'languages' => ['Jotun'],
         ]);
@@ -465,7 +462,7 @@ class MonstersGSeeder extends Seeder
         $helper->saveMonster($monster, ['Gnoll', 'Fiend'], [
             'stats'    => [14, 12, 11, 6, 10, 7, .5, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats'   => ['Power Attack', 'Sudden Strike'],
             'classes' => [
@@ -506,7 +503,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'scent',
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'immunity'     => ['meta' => 'Paralysis and Sleep effects'],
                 'multi_attack' => ['meta' => 'You gain 8 additional Actions. These additional Actions can only be used for Tail Whip, or Claw attacks.'],
             ],
@@ -539,7 +536,7 @@ class MonstersGSeeder extends Seeder
                 'Thievery'   => ['dc' => 9],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -587,7 +584,7 @@ class MonstersGSeeder extends Seeder
                 'Survival'        => ['dc' => 9],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -637,7 +634,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -689,7 +686,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -747,7 +744,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -801,7 +798,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold, Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -862,7 +859,7 @@ class MonstersGSeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Silvered, Unholy'],
                 'resistance'          => ['meta' => 'Acid, Cold'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],

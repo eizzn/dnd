@@ -24,7 +24,7 @@ class ClassMonkSeeder extends Seeder
         $class->weapons       = 'Simple Weapons, Shortsword';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
+            'skill_points'   => 4,
             'skill_progress' => 4,
             'has_powers'     => 1,
         ], ['DEX', 'CON', 'WIS'], [
@@ -114,7 +114,7 @@ class ClassMonkSeeder extends Seeder
     <li>You gain the Sudden Strike Feat and may take Precision Feats using Generic Feats.</li>
     <li>Members of this order frequently take the Assassin Prestige class.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Spend Power Point']);
         $helper->addPowersToFeat($feat, [
             1 => ['Body Adjustment', 'Burst', 'Heal', 'Thicken Skin', 'Vigor', 'Vitality Blast'],
             2 => ['Animal Sight', 'Physical Augmentation'],
@@ -179,11 +179,11 @@ class ClassMonkSeeder extends Seeder
     </li>
 </ul>
 <ul>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
     <li>You gain either the Crane Stance or Mantis Stance feat</li>
     <li>You gain the Wise Defense feat</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Psionic', 'Discipline']);
         $helper->addPowersToFeat($feat, [
             1 => ['Awareness', 'Burst', 'Call to Mind', 'Empathy', 'Heal', 'Thicken Skin', 'Vigor'],
             2 => ['Animal Sight', 'Biofeedback', 'Mental Augmentation', 'Object Reading', 'Physical Augmentation', 'Ubiquitous Sight'],
@@ -299,11 +299,11 @@ class ClassMonkSeeder extends Seeder
         $feat->requirement = 'You must have levels in Monk';
         $feat->description = '<p>The Disciples of Wing-ta are monks from the town of Goisho in Koryo. They practice Koryo Style martial arts.</p>
 <ul>
-    <li>Increase your DEX by +1 to a maximum of 20</li>
+    <li>Increase your DEX by +1 to a maximum of 20.</li>
     <li>You gain the Koryo Style Feat.</li>
     <li>You gain the Wise Defense Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Ability Boost']);
         $helper->addPowersToFeat($feat, [
             1 => ['Body Adjustment', 'Daze', 'Dexterity Defense', 'Empty Mind', 'Inertial Armor'],
             2 => ['Heal', 'Dexterity Blast', 'Extend Limb', 'Physical Augmentation'],
@@ -317,11 +317,11 @@ class ClassMonkSeeder extends Seeder
         $feat->requirement = 'You must be of the Githzerai race';
         $feat->description = '<p>You are a Gith from the plane of Limbo.</p>
 <ul>
-    <li>Increase your WIS by +1 to a maximum of 20</li>
+    <li>Increase your WIS by +1 to a maximum of 20.</li>
     <li>You may spend 1 Power Point to manipulate the roiling chaos of Limbo into a basic and stable piece of matter (earth, water or air, nothing that is complex). This effect lasts for 8 hours and you can create a 30 ft x 10 ft area of chaos</li>
     <li>You gain the Wise Defense Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Ability Boost', 'Spend Power Point']);
         $helper->addPowersToFeat($feat, [
             1 => ['Absorb Weapon', 'Astral Traveler', 'Body Adjustment', 'Burst', 'Call to Mind', 'Control Object', 'Detect Psionics',
                 'Empty Mind', 'Inertial Armor', 'Telekinesis', ],

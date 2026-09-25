@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\FeatureableTrait;
 use App\Traits\TypeableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class SubRace extends Model
 {
-    use TypeableTrait;
+    use FeatureableTrait, TypeableTrait;
 
     public $timestamps = false;
 

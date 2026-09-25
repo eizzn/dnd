@@ -58,7 +58,7 @@ The egg gestation process can be stopped using spells that cure Disease, removed
                 'Perception' => ['meta' => 1],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -110,7 +110,7 @@ Only a wish spell can return a transformed victim to normal after the process ha
                 'Perception' => ['meta' => 1],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -152,7 +152,7 @@ They can also polymorph themselves into humanoid forms of various sizes, typical
             ],
             'feats'    => ['Blindsight'],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -204,7 +204,7 @@ There are also special havocs with even more dangerous abilities known as Acolyt
             ],
             'feats'    => ['Blindsight'],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -262,7 +262,7 @@ Through a process similar to how their Green Slaad forms became Gray Slaads, Dea
             ],
             'feats'    => ['Blindsight'],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -313,7 +313,7 @@ Through a process similar to how their Green Slaad forms became Gray Slaads, Dea
             ],
             'feats'    => ['Blindsight'],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],
@@ -367,7 +367,7 @@ Through a process similar to how their Green Slaad forms became Gray Slaads, Dea
             ],
             'feats'    => ['Blindsight'],
             'features' => [
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'regeneration'  => ['meta' => '10.'],
                 'vulnerability' => ['meta' => 'Axiomatic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Electricity, Fire, Sonic'],

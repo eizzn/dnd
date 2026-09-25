@@ -29,6 +29,11 @@ class TalentsSeeder extends Seeder
         $talent->feats()->save(app()->feats['Endurance']);
 
         $talent              = new Talent;
+        $talent->name        = 'Trained Eye';
+        $talent->description = "<p>You have trained your eye to spot the seams in an opponent's defenses. Reduce the circumstance penalty to your attack roll from Bypass Damage Reduction by 2 (from -6 to -4 normally, or from -2 to +0 against a Grabbed or Restrained target).</p>";
+        $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 3]);
+
+        $talent              = new Talent;
         $talent->name        = 'Careful Strike';
         $talent->action_type = 'Action';
         $talent->trigger     = 'You are about to make a melee attack';
@@ -205,7 +210,7 @@ class TalentsSeeder extends Seeder
         $talent->action_type = 'Action';
         $talent->description = '<p>You strike your opponent, and they suffer an Initiative Penalty.</p>
 <p>Make a Melee attack, if you hit, you deal -4 Damage and the Target suffers a -4 Penalty to their Initiative immediately.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Melee', 'Talent' => 5]);
+        $helper->addTypesToSimpleObject($talent, ['Melee', 'Initiative', 'Talent' => 5]);
 
         $talent              = new Talent;
         $talent->name        = 'Stuttering Strike';
@@ -716,7 +721,7 @@ class TalentsSeeder extends Seeder
 
         $talent              = new Talent;
         $talent->name        = 'Heavy Weapon Master';
-        $talent->requirement = 'Wield a Martial Melee weapon that does not have the Agile or Finesse trait.';
+        $talent->trigger     = 'You must be wielding a Martial Melee weapon that does not have the Agile or Finesse trait.';
         $talent->description = "<p>When you roll for damage with your Martial Melee weapon, reroll all 1's and 2's</p>";
         $helper->addTypesToSimpleObject($talent, ['Attack', 'Melee', 'Talent' => 5]);
         $talent->feats()->save(app()->feats['Power Attack']);
@@ -748,7 +753,7 @@ class TalentsSeeder extends Seeder
         $throw              = new Talent;
         $throw->name        = 'Thrower';
         $throw->description = '<p>You gain a +1 bonus to Hit with all Thrown weapons.</p>
-<p>Add a +1 bonus to the Critical Hit threat range of any weapon that you throw that you also have the Weapon Focus feat with.</p>';
+<p>With a weapon that you throw that you also have the Weapon Focus feat with, your critical threat range increases by 1.</p>';
         $throw->parent_id = Talent::where('name', 'Quick Draw')->first()->id;
         $helper->addTypesToSimpleObject($throw, ['Ranged', 'Talent' => 5]);
         $throw->feats()->save(app()->feats['Point-Blank Shot']);

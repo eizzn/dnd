@@ -202,7 +202,7 @@ class RaceMiscSeeder extends Seeder
     <dt>Charge</dt> <dd>If you move at least 30 feet straight toward a target and the hit it with a melee weapon attack on the same turn, you gain an additional Action. This additional Action can only be used to make a Hoof attack against the same target you just hit.</dd>
     <dt>Hooves</dt> <dd>Your hooves are natural melee weapons, which you can use to make Unarmed Strikes. If you hit with them, you deal 1D4 + STR modifier Bludgeoning damage.</dd>
     <dt>Equine Build</dt> <dd>Any climb that requires hands and feet is especially difficult for you because of your equine legs. When you make such a climb, each foot of movement costs you 4 extra feet, instead of the normal extra foot.</dd>
-    <dt>Skills</dt> <dd>You are proficient with the Survival skill</dd>
+    <dt>Skills</dt> <dd>Survival counts as a class skill for you</dd>
     <dt>Languages</dt> <dd>Centaur typically learn the Sylvan language</dd>
     <dt>Level Adjustment</dt> <dd>+2</dd>
 </dl>';

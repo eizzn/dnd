@@ -26,8 +26,8 @@ class ClassNinjaSeeder extends Seeder
         $class->weapons       = 'Simple Weapons, Hand Crossbow, Kama, Kukri, Nunchaku, Sai, Shortbow, Short Sword, Shuriken and Saingham';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 8,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
             'has_powers'     => true,
         ], ['DEX', 'CHA'], [
             'Psionic', 'Sneak Attack', 'Skill',
@@ -129,7 +129,7 @@ class ClassNinjaSeeder extends Seeder
     <li>Your Sudden Strikes deal an additional +1 point of Damage per Precision feat you have.</li>
     <li>You may as a Double Action, spend 1 Power Point and make a Ranged Attack with your absorbed grappling hook with a Range of 30 ft. If you hit, you may forgo 1D6 Sudden Strike damage and start a Grapple as if you had the Improved Grapple Feat (Get over here!)</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Talent', 'Spend Power Point']);
         $helper->addPowersToFeat($feat, [
             1 => ['Absorb Weapon' => 'Grappling hook and 50 ft rope only. The Maintenance Cost becomes 1 Power Point per day',
                 'Body Adjustment', 'Burst', 'Sense Minds', 'Vigor'],
@@ -145,12 +145,12 @@ class ClassNinjaSeeder extends Seeder
         $feat->description = '<p>The Royal Vagabonds are a secret clan in service to the Shou Emperor. All members of the clan are ninja. They are not an official part of the government but still reports to the Minister of State Security and the Chief Imperial Censor. They do most of the difficult missions that the Emperor orders. Nobody outside the clan can positively identify a vagabond. The only positive means of identification is a magical sigil borne on the chest of each man.</p>
 <p>When you take this feat, you gain a Psychic Tattoo that grants you the following</p>
 <ul>
-    <li>Increase your DEX by +1 to a maximum of 20</li>
+    <li>Increase your DEX by +1 to a maximum of 20.</li>
     <li>You gain a Talent</li>
     <li>You gain an additional 5 Power Points</li>
     <li>You are psychically bond to not betray the Emperor and must obey his commands (similar to a Geas spell). This effect can be removed with a successful Psychic Chirurgery power</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Talent']);
+        $helper->addTypesToFeat($feat, ['Psionic', 'Discipline', 'Talent', 'Ability Boost', 'Power Point']);
         $helper->addPowersToFeat($feat, [
             1 => ['Awareness', 'Burst', 'Call Object', 'Daze', 'Dexterity Defense', 'Distract', 'Wisdom Defense'],
             2 => ['Chameleon', 'Charisma Blast', 'Dexterity Blast', 'Mind Trap', 'Simulate Skill'],

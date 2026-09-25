@@ -41,7 +41,7 @@ class MonstersLSeeder extends Seeder
                 'Stealth'   => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'innate_spellcasting' => ['meta' => 'INT DC 13'],
             ],
             'spells' => [
@@ -125,7 +125,7 @@ class MonstersLSeeder extends Seeder
                 'Alertness', 'Cleave', 'Great Cleave', 'Improved Initiative', 'Power Attack',
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'spell_resistance',
             ],
             'spells' => [
@@ -151,7 +151,7 @@ class MonstersLSeeder extends Seeder
             'features' => [
                 'amorphous',
                 'magic_resistance',
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Sickened, Prone. If the Living Spell has a energy type, it has immunity to it.'],
                 'resistance' => ['meta' => 'Bludgeoning, Piercing, Slashing from non-magical attacks'],
             ],
@@ -178,7 +178,7 @@ class MonstersLSeeder extends Seeder
             'features' => [
                 'amorphous',
                 'magic_resistance',
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Sickened, Prone. If the Living Spell has a energy type, it has immunity to it.'],
                 'resistance' => ['meta' => 'Bludgeoning, Piercing, Slashing from non-magical attacks'],
             ],
@@ -205,7 +205,7 @@ class MonstersLSeeder extends Seeder
             'features' => [
                 'amorphous',
                 'magic_resistance',
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Sickened, Prone. If the Living Spell has a energy type, it has immunity to it.'],
                 'resistance' => ['meta' => 'Bludgeoning, Piercing, Slashing from non-magical attacks'],
             ],

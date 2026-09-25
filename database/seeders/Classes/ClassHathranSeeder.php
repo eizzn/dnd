@@ -39,7 +39,7 @@ class ClassHathranSeeder extends Seeder
 <p>To calculate the number of dice your Chastise Spirit deals, add your Hathran levels with your Spirit Shaman levels.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
             'has_spells'     => true,
         ], ['WIS', 'CHA'], ['Primal', 'Spirit']);
 
@@ -49,7 +49,7 @@ class ClassHathranSeeder extends Seeder
         $feature->description = "<p>You are able to use your Communal Binding that you have created in new ways. You can use an Action to channel energies among those who are part of your Communal Binding, and are within 30 feet of you when the channeling begins. The channeling lasts for 1 minute. It ends early if you are knocked unconscious or your use an Action on your turn to end it. When you begin channeling, you choose one of the following options.</p>
 <dl>
     <dt>Commanding Channeling</dt> <dd>You take tighter control of the Communal Binding. For the duration of the channeling, only you can use dice from the Communal Pool. Once on each of their turns, other creatures within the Communal Binding can deal additional damage equal to your INT or CHA modifier to a creature or creatures damaged by one of the bonded creature's spells or attacks</dd>
-    <dt>Protective Channeling</dt> <dd>You raise the defenses of the bonded creatures. When you begin channeling and at the start of each of their turns, this feature grants temporary Hit Points ao all other creatures that are a part of the Communal Binding that your created. The number of temporary Hit Points is equal the creator's Proficiency Bonus. When a creature loses these temporary Hit Points, the creator takes Psychic damage equal to half the creator's Proficiency Bonus, rounded down. If multiple members take damage from a single source, the total Psychic damage you can take is capped at the creator's Proficiency Bonus. This damage cannot be prevented, but it does not cause Concentration Saves for maintaining spells.</dd>
+    <dt>Protective Channeling</dt> <dd>You raise the defenses of the bonded creatures. When you begin channeling and at the start of each of their turns, this feature grants temporary Hit Points ao all other creatures that are a part of the Communal Binding that your created. The number of temporary Hit Points is equal the creator's Proficiency Bonus. When a creature loses these temporary Hit Points, the creator takes Psychic damage equal to half the creator's Proficiency Bonus, rounded down. If multiple members take damage from a single source, the total Psychic damage you can take is capped at the creator's Proficiency Bonus. This damage cannot be prevented, but it does not cause Concentration checks to maintain spells.</dd>
     <dt>Psychic Channeling</dt> <dd>You form a strong telepathic connection with the bonded creatures. For the duration of the channeling, all creatures within your Communal Binding can communicate telepathically, regardless of distance. The connection formed enables the affected creatures to perform more complex maneuvers by giving them awareness of what their comrades are about to do. Additionally, as a Free Action, a bonded creature can use the senses of another bonded creature instead of their own until the end of their own turn. For example, a human can gain a dwarf's darkvision.</dd>
 </dl>";
         $helper->saveFeature($feature, ['Primal', 'Spirit']);

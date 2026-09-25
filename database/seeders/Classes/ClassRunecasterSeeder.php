@@ -29,7 +29,7 @@ class ClassRunecasterSeeder extends Seeder
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
             'has_spells'     => true,
         ], ['INT', 'WIS'], [
             'Divine', 'Rune',

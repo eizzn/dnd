@@ -46,7 +46,7 @@ class MonstersRSeeder extends Seeder
         $helper->saveMonster($monster, ['Beast'], [
             'stats'     => [13, 12, 13, 2, 13, 6, .5],
             'features'  => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
     }

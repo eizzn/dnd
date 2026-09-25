@@ -83,7 +83,7 @@ class MonstersPSeeder extends Seeder
         $helper->saveMonster($monster, ['Aberration', 'Ethereal'], [
             'stats'     => [15, 15, 12, 6, 10, 6, 3, 2],
             'skills'    => ['Stealth' => ['dc' => 6]],
-            'features'  => ['ethereal_jaunt', 'darkvision' => ['meta' => '60 ft']],
+            'features'  => ['ethereal_jaunt', 'darkvision' => ['meta' => '{"range":60}']],
         ]);
     }
 }

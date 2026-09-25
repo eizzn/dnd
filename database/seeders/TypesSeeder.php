@@ -223,6 +223,7 @@ class TypesSeeder extends Seeder
             'Possession'            => '',
             'Potent'                => '',
             'Potion'                => 'Category of magic items that one can drink to gain their benefits',
+            'Power Point'           => 'A Feat that grants Power Points',
             'Precision'             => 'You hit the target in a vulnerable spot. Precision damage is weak against armor. If the target has Damage Reduction, apply the Damage Reduction to both the Weapon damage and the Precision damage. If the Weapon damage is less than the Damage Reduction, the all of the Precision damage is also negated.',
             'Prediction'            => '',
             'Primal'                => 'Pertaining to druid or ranger abilities',
@@ -235,6 +236,7 @@ class TypesSeeder extends Seeder
             'Psychoportation'       => 'Psionic discipline of space and time. Psychoportation powers moves the manifester, an object, or another creature through space and time.',
             'Rage'                  => '',
             'Ranged'                => '',
+            'Ranger Devotion'       => '',
             'Ray'                   => 'Pertaining to effects that project a single beam of energy',
             'Reach'                 => 'This weapon is long and can be used to attack creatures up to 10 feet away instead of only adjacent creatures. FOr creatures that already have reach with the limb or limbs that wield the weapon, the weapon increase their reach by 5 feet. You suffer a -2 penalty to hit creatures that are inside your reach (that is adjacent to you)',
             'Reaction'              => 'Category of Actions that can only be taken outside of your initiative order',
@@ -249,7 +251,7 @@ class TypesSeeder extends Seeder
             'Shapechanger'          => 'Category of creatures that have the ability to change their shape into one or more different forms',
             'Shield'                => 'Pertaining to shields and the use of shields',
             'Shove'                 => 'You can use this weapon to Shove with the Athletics skill even if you don’t have a free hand. This uses the weapon’s reach (if different from your own) and adds the weapon’s item bonus to attack rolls (if any) as a bonus to the Athletics check. If you critically fail a check to Shove using the weapon, you can drop the weapon to treat the outcome as a normal failure.',
-            'Skill'                 => 'A feat with the skill trait improves your skills and their uses or gives you new uses for a skill.',
+            'Skill'                 => 'Pertaining to skills.',
             'Skirmish'              => '',
             'Slaad'                 => 'Concerning the Outsiders that inhabit Limbo',
             'Slashing'              => 'Damage type that is caused by sharp edges',
@@ -260,6 +262,8 @@ class TypesSeeder extends Seeder
             'Spellcasting'          => 'This action is used as part of the Cast a Spell activity.',
             'Spellthief'            => 'Pertaining to the class',
             'Spell Pool'            => 'An amount of energy spell casters can use for various effects',
+            'Spend Power Point'     => 'Has an ability that lets you spend one or more Power Points for a specific effect.',
+            'Spend Spell Point'     => 'Has an ability that lets you spend one or more Spell Points for a specific effect.',
             'Spirit'                => '<p>These creatures are usually from other plains of existence.</p>
 <ul>
     <li>All incorporeal undead</li>
@@ -275,6 +279,7 @@ class TypesSeeder extends Seeder
             'Sword'                 => '',
             'Stance'                => 'A stance is a general combat strategy that you enter by using an Action with the stance trait, and you remain in that stance for some time. A stance lasts until you get knocked out, until its requirements (if any) are violated, until the encounter ends, or until you enter a new stance, whichever comes first. You can enter or be in a stance only in encounter mode.',
             'Summoning'             => 'Pertaining to effects that draws forth an avatar of a creature from a different Plane of existence to your current Plane',
+            'Sustained'             => 'A Sustained spell is a Concentration spell that also costs 1 Action on each of your turns after the turn you cast it. If you do not spend the Action, the spell ends (see the Concentration and Sustained Spells rule).',
             'Sweep'                 => 'This weapon makes wide-sweeping or spinning attacks, making it easier to attack multiple enemies. When you attack with this weapon, you gain a +1 circumstance bonus to your attack roll if you already attempted an attack this turn against a creature other than the target of this attack.',
             'Talent'                => 'An ability that is lesser than a Feat or something that grants a Talent',
             'Tattoo'                => 'Pertaining to magical or psionic writings on flesh that grants a persistent effect or allows the casting of a Spell or manifesting a Power',

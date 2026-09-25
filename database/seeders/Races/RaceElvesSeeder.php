@@ -36,7 +36,7 @@ class RaceElvesSeeder extends Seeder
         $race->benefits = "<dl>
     <dt>Darkvision</dt> <dd>Accustomed to twilight forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</dd>
     <dt>Keen Senses</dt> <dd>You gain a +2 Racial bonus to Perception checks</dd>
-    <dt>Fey Ancestry</dt> <dd>You have Advantage on Saves against being Charmed, and magic can’t put you to sleep.</dd>
+    <dt>Fey Ancestry</dt> <dd>You gain a +4 bonus to Saves against being Charmed, and magic can’t put you to sleep.</dd>
     <dt>Trance</dt> <dd>Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.</dd>
 </dl>";
         $helper->addTypesToSimpleObject($race, ['Elf']);

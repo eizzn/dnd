@@ -66,7 +66,7 @@ onMounted(fetchTalentDetails);
                                         <th class="px-4 py-2 border border-gray-300">Types</th>
                                     </tr>
                                     <tr>
-                                        <td class="px-4 py-2 border border-gray-300">{{ talent.requirements }}</td>
+                                        <td class="px-4 py-2 border border-gray-300">{{ talent.requirement }}</td>
                                         <td class="px-4 py-2 border border-gray-300">{{ talent.trigger }}</td>
                                         <td class="px-4 py-2 border border-gray-300">
                                             <ul class="space-y-1.5">

@@ -10,8 +10,6 @@ class CombatPageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -45,7 +43,7 @@ class CombatPageSeeder extends Seeder
         $rule->description = '<p>Initiative determines the order of turns during combat. When combat starts, every participant makes a DEX check to determine their place in the Initiative order. The GM makes one roll for an entire group of identical creatures, so each member of the group acts at the same time.</p>
 <p>The GM ranks the combatants in order from the one with the highest DEX check total to the one with the lowest. This is the order (called the Initiative order) in which they act during each round. The Initiative order remains the same from round to round.</p>
 <p>If a tie occurs, the GM decides the order among tied GM--controlled creatures, and the players decide the order among their tied characters. The GM can decide the order if the tie is between a monster and a player character.</p>
-<p>Optionally, the GM can have the tied characters and Monsters each roll a d20 to determine the order, highest roll going first.</p>';
+<p>Optionally, the GM can have the tied characters and Monsters each roll 2D10 to determine the order, highest roll going first.</p>';
         $rule->order = 20;
         $page->rules()->save($rule);
 
@@ -64,16 +62,22 @@ class CombatPageSeeder extends Seeder
         $rule              = new Rule;
         $rule->key         = 'critical-hits';
         $rule->name        = 'Critical Hits';
-        $rule->description = "<p>When you score a Critical Hit, you get to roll extra dice for the attack's damage against the target. Roll all the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.</p>
+        $rule->description = "<p>You score a Critical Hit when your attack hits and the natural 2D10 roll (the dice alone, before modifiers) falls within your critical threat range, which is normally 19-20. Some feats and effects increase your critical threat range (for example, Improved Critical increases it by 1, to 18-20). These increases stack with each other, but your critical threat range can never be wider than 16-20. A natural 19 or 20 on an attack that still misses is not a Critical Hit.</p>
+<p>When you score a Critical Hit, you deal double damage. Roll the attack's damage dice once as normal, then double that rolled result before adding any relevant modifiers — the modifiers themselves are only added once, not doubled.</p>
 <blockquote>
-    For example, if you score a Critical Hit with a dagger, roll 2D4 for the damage, rather than 1D4, and then add your relevant ability modifier. If the attack involves other damage dice, such as from the Rogue's Sneak Attack feature, you roll those dice twice as well.
+    Ex. You score a Critical Hit with a dagger (1D4) and a +2 STR modifier. You roll the 1D4 once and get a 3. Double it to 6, then add your +2 modifier once for a total of 8 damage. If the attack involves other damage dice, such as from the Rogue's Sneak Attack feature, roll those once too and double each of their results the same way.
 </blockquote>
-<dl>
-    <dt>Rank 1 (4.7%)</dt> <dd>16 - 18</dd>
-    <dt>Rank 2 (9.3%)</dt> <dd>15 - 18</dd>
-    <dt>Rank 3 (16.3%)</dt> <dd>14 - 18</dd>
-    <dt>Rank 4 (26%)</dt> <dd>13 - 18</dd>
-</dl>";
+<p>Weapons with the <strong>Deadly</strong> or <strong>Fatal</strong> trait behave differently from each other on a Critical Hit, and differently from the base rule above. A weapon never has both traits.</p>
+<ul>
+    <li><strong>Deadly [die]</strong> adds the listed die to the damage, on top of the doubled base damage. This extra die is rolled once and is not itself doubled.</li>
+    <li><strong>Fatal [die]</strong> replaces the weapon's own damage die entirely — you don't roll the weapon's base die at all. Instead, roll the listed Fatal die once and double that result, following the same Critical Hit rule above, as if it were the weapon's own die.</li>
+</ul>
+<blockquote>
+    Ex. A Dwarven Waraxe (1D8, Deadly 1D12) scores a Critical Hit. Roll the 1D8 once — say a 5 — and double it to 10. Then roll the Deadly 1D12 once — say a 7 — and add it undoubled. With a +3 STR modifier, the total is 10 + 7 + 3 = 20 damage.
+</blockquote>
+<blockquote>
+    Ex. A Greatpick (1D10, Fatal 1D12) scores a Critical Hit. Because the weapon has the Fatal trait, its own 1D10 is not rolled at all. Instead, roll the Fatal 1D12 once — say an 8 — and double it to 16, then add the modifier once. With a +2 STR modifier, the total is 16 + 2 = 18 damage.
+</blockquote>";
         $rule->order = 25;
         $page->rules()->save($rule);
 

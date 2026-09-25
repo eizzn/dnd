@@ -55,8 +55,8 @@ class GodsOghmaSeeder extends Seeder
         $class->description   = '<p>Priests of Oghma</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine',
         ]);
@@ -308,8 +308,8 @@ class GodsOghmaSeeder extends Seeder
         $class->description   = '<p>Priest of Deneir</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['INT', 'WIS'], [
             'Divine', 'Skill',
         ]);
@@ -472,7 +472,7 @@ class GodsOghmaSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'CHA'], [
             'Divine', 'Rogue', 'Skill',

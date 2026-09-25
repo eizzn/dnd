@@ -38,7 +38,7 @@ class MonstersWSeeder extends Seeder
                 'Perception' => ['dc' => 4],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
     }

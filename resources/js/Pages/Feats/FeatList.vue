@@ -5,12 +5,31 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import TailwindPagination from "laravel-vue-pagination/src/TailwindPagination.vue";
 import NavLink from "@/components/NavLink.vue";
 import MultiSelect from "@/components/MultiSelect.vue";
+import {computed, onMounted, ref} from "vue";
+import axios from "axios";
 
 const Uri = "feats";
 const filters = {
     name: null,
-    type: [],
 };
+
+const types = ref([]);
+const typeOptions = computed(() => types.value.map(t => ({ value: t.name, label: t.name })));
+
+const getTypeOptions = async () => {
+    try {
+        const response = await axios.get('/api/types', {
+            params: { typeable_type: 'Feat', per_page: 200 },
+        });
+        types.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching type options:", error);
+    }
+};
+
+onMounted(() => {
+    getTypeOptions();
+});
 </script>
 
 <template>
@@ -53,54 +72,7 @@ const filters = {
                                     <label class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
-                                        :options="[
-                                            { value: 'generic', label: 'Generic' },
-                                            { value: 'abjuration', label: 'Abjuration' },
-                                            { value: 'conjuration', label: 'Conjuration' },
-                                            { value: 'divination', label: 'Divination' },
-                                            { value: 'enchantment', label: 'Enchantment' },
-                                            { value: 'evocation', label: 'Evocation' },
-                                            { value: 'illusion', label: 'Illusion' },
-                                            { value: 'necromancy', label: 'Necromancy' },
-                                            { value: 'transmutation', label: 'Transmutation' },
-                                            { value: 'acid', label: 'Acid' },
-                                            { value: 'cold', label: 'Cold' },
-                                            { value: 'electricity', label: 'Electricity' },
-                                            { value: 'fire', label: 'Fire' },
-                                            { value: 'force', label: 'Force' },
-                                            { value: 'poison', label: 'Poison' },
-                                            { value: 'negative', label: 'Negative' },
-                                            { value: 'positive', label: 'Positive' },
-                                            { value: 'sonic', label: 'Sonic' },
-                                            { value: 'metapsionic', label: 'Metapsionic' },
-                                            { value: 'psionic', label: 'Psionic' },
-                                            { value: 'psionic combat', label: 'Psionic Combat' },
-                                            { value: 'psionic focus', label: 'Psionic Focus' },
-                                            { value: 'stance', label: 'Stance' },
-                                            { value: 'animal companion', label: 'Animal Companion' },
-                                            { value: 'pact', label: 'Pact' },
-                                            { value: 'arcane', label: 'Arcane' },
-                                            { value: 'artificer discipline', label: 'Artificer Discipline' },
-                                            { value: 'bardic inspiration', label: 'Bardic Inspiration' },
-                                            { value: 'discipline', label: 'Discipline'},
-                                            { value: 'channel divinity', label: 'Channel Divinity' },
-                                            { value: 'combat mastery', label: 'Combat Mastery' },
-                                            { value: 'divine', label: 'Divine' },
-                                            { value: 'fighter feat', label: 'Fighter Feat' },
-                                            { value: 'primal', label: 'Primal' },
-                                            { value: 'rage', label: 'Rage' },
-                                            { value: 'totem', label: 'Totem' },
-                                            { value: 'wizard school', label: 'Wizard School' },
-                                            { value: 'dwarf', label: 'Dwarf' },
-                                            { value: 'elf', label: 'Elf' },
-                                            { value: 'gnome', label: 'Gnome' },
-                                            { value: 'halfling', label: 'Halfling' },
-                                            { value: 'human', label: 'Human' },
-                                            { value: 'extra action', label: 'Extra Action' },
-                                            { value: 'item creation', label: 'Item Creation' },
-                                            { value: 'metamagic', label: 'Metamagic' },
-                                            { value: 'talent', label: 'Talent' },
-                                        ]"
+                                        :options="typeOptions"
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300 text-left">

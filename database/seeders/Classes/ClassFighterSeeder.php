@@ -27,7 +27,7 @@ class ClassFighterSeeder extends Seeder
         $class->weapons       = 'Simple Weapons, Martial Weapons';
         $class->armors        = 'Light Armor, Medium Armor, Heavy Armor, Shields';
         $helper->saveClass($class, [
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['STR', 'CON'], [
             'Fighter Feat', 'Heroic Surge', 'Combat Mastery',

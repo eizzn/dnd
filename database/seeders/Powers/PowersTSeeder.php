@@ -38,7 +38,7 @@ class PowersTSeeder extends Seeder
     <dt>Heightened (+4)</dt> <dd>You may pummel a 10 ft radius area with Telekinetic onslaught. All creatures in the area takes 3D6 Bludgeoning (Force) damage. Each creature makes a STR Save for half damage.</dd>
     <dt>Heightened (+2)</dt> <dd>Increase the Telekinetic onslaught damage by +1D6</dd>
 </dl>';
-        $helper->addTypesToPower($power, ['Psychokinesis', 'Force'], 1);
+        $helper->addTypesToPower($power, ['Psychokinesis', 'Force', 'Spend Power Point'], 1);
 
         $power                 = new Power;
         $power->name           = 'Telekinetic Thrust';

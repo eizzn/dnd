@@ -11,8 +11,6 @@ class SpellsCSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -1387,8 +1385,8 @@ class SpellsCSeeder extends Seeder
         $spell->casting     = 'Verbal Casting';
         $spell->targets     = 'Self';
         $spell->duration    = 'Instantaneous';
-        $spell->description = '<p>You gain a sudden boost in awareness. Your Initiative position is improved by +1. If this spell is cast with a 1st Level Spell Slot or higher, the bonus becomes +5.</p>';
-        $helper->addTypesToSpell($spell, ['Divination'], 0);
+        $spell->description = '<p>You gain a sudden boost in awareness. Your Initiative position is improved by +1, starting at the next initiative cycle. If this spell is cast with a 1st Level Spell Slot or higher, the bonus becomes +5.</p>';
+        $helper->addTypesToSpell($spell, ['Divination', 'Initiative'], 0);
 
         $spell                 = new Spell;
         $spell->name           = 'Command';
@@ -1510,7 +1508,7 @@ class SpellsCSeeder extends Seeder
         $spell->description = "<p>You contact any local spirit creature with 4 or fewer HD and can ask it up to 5 questions. You must know the identity of the spirit, and you must be within 10 feet of the spirit's location.</p>
 <p>The spirit's knowledge is limited to matters within its immediate area (so that the spirit of a great tree in a village cannot answer questions about events outside the village, for example), and you must ask questions that could typically have one-word answers. \"Unclear\" is a legitimate answer, because spirits are not necessarily omniscient, but in cases where a one-word answer would be misleading or contrary ot the spirit's interest, the DM can respond with a short phrase (five words or fewer) instead.</p>
 <p>If the spirit has been subject to this spell within the past week, this spell fails.</p>
-<p>If the spirit's alignment is different from yours, it gets a WILL Save to resist the spell.</p>
+<p>If the spirit's alignment is different from yours, it gets a WIS Save to resist the spell.</p>
 <p>Unasked questions are wasted if the spell's duration ends.</p>
 <dl>
     <dt>Material Components</dt> <dd>Incense and a small offering with 10 gp.</dd>
@@ -1620,9 +1618,9 @@ class SpellsCSeeder extends Seeder
         $spell->casting        = 'Verbal Casting';
         $spell->range          = '60 feet';
         $spell->targets        = 'One outsider';
-        $spell->save_attribute = 'WILL';
+        $spell->save_attribute = 'WIS';
         $spell->duration       = '1 round';
-        $spell->description    = '<p>You speak words of power, forcing the outsider to shrink with horror. The outsider targeted by this spell must succeed on a WILL Save or be Stunned for 1 round suffer a -5 penalty to all Saves for the next 1 minute.</p>';
+        $spell->description    = '<p>You speak words of power, forcing the outsider to shrink with horror. The outsider targeted by this spell must succeed on a WIS Save or be Stunned for 1 round suffer a -5 penalty to all Saves for the next 1 minute.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>No affect</dd>
     <dt>Failure</dt> <dd>Stunned: 1 and a -5 penalty to all Saves for 1 minute.</dd>
@@ -2352,7 +2350,7 @@ class SpellsCSeeder extends Seeder
         $spell->targets        = 'One humanoid touched';
         $spell->duration       = 'Instantaneous';
         $spell->description    = '<p>Casting this spell transforms the victim into a Chosen One under the control of one of the casters (chosen at the beginning of the casting). If the spell is started and all the casters do not agree on the controller, then all suffer the Ability damage and hte spell ends.</p>
-<p>Once the spell is complete, the victim makes a WILL Save. The victim must be bound and helpless during the entire casting or the spell fails.</p>
+<p>Once the spell is complete, the victim makes a WIS Save. The victim must be bound and helpless during the entire casting or the spell fails.</p>
 <p>This spell is mostly known and used by the Red Wizards of Thay.</p>';
         $helper->addTypesToSpell($spell, ['Transmutation', 'Evil', 'Ritual'], 5);
 
@@ -2405,7 +2403,7 @@ class SpellsCSeeder extends Seeder
         $spell->range        = '30 ft';
         $spell->targets      = 'One animal of no more than 2 HD within range';
         $spell->duration     = 'Instantaneous';
-        $spell->description  = "<p>You transform one Small or Medium sized animal with no more than 2 Hit Dice into a Darkenbeast. A target with an INT of 5 or more gets a WILL Save to resist this spell. You may have up to 5 Darkenbeasts under your control at any time.</p>
+        $spell->description  = "<p>You transform one Small or Medium sized animal with no more than 2 Hit Dice into a Darkenbeast. A target with an INT of 5 or more gets a WIS Save to resist this spell. You may have up to 5 Darkenbeasts under your control at any time.</p>
 <p>This spell can only be cast in darkness, at night, indoors or underground. Its effects last until the Darkenbeast is slain or until the Darkenbeast is exposed to sunlight, which causes the creature to die and revert to its original form. This spell can be Dispelled with a Dispel Magic Spell.</p>
 <p>As part of casting this spell, you may imprint one additional spell onto the Darkenbeast. To do this, you must sacrifice a Spell Slot equal to the Imprinted Spell. You may not Imprint a spell that takes longer to cast than 3 Actions, requires Secondary Casters, causes Ability Damage, or requires a Feat to cast. As a Triple Action, you may cast the Imprinted Spell as if the Darkenbeast is casting the spell. Once the spell is cast, the Darkenbeast dies and you may recover your Sacrificed Spell Slot.</p>
 <dl>

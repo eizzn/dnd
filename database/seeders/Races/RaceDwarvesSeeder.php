@@ -98,7 +98,7 @@ class RaceDwarvesSeeder extends Seeder
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your WIS score increases by +1</dd>
     <dt>Dwarven Combat Training</dt> <dd>You have proficiency with the Battleaxe, Handaxe, Light Hammer, and Warhammer</dd>
-    <dt>Stonecunning</dt> <dd>Whenever you make an INT (History) check related to the origin of stonework, you are considered proficient in the History skill and add double proficiency bonus to the check, instead of your normal proficiency bonus</dd>
+    <dt>Stonecunning</dt> <dd>Whenever you make a Lore (Recall Knowledge: History) check related to the origin of stonework, you have Advantage on the check</dd>
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Dwarf', 'Duergar']);
 
@@ -109,7 +109,7 @@ class RaceDwarvesSeeder extends Seeder
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your STR score increases by +1</dd>
     <dt>Dwarven Combat Training</dt> <dd>you have proficiency with the Battleaxe, Handaxe, Light Hammer, and Warhammer</dd>
-    <dt>Stonecunning</dt> <dd>Whenever you make an INT (History) check related to the origin of stonework, you are considered proficient in the History skill and add double proficiency bonus to the check, instead of your normal proficiency bonus</dd>
+    <dt>Stonecunning</dt> <dd>Whenever you make a Lore (Recall Knowledge: History) check related to the origin of stonework, you have Advantage on the check</dd>
 </dl>';
         $helper->addTypesToSimpleObject($subrace, ['Dwarf', 'Duergar']);
 
@@ -120,7 +120,7 @@ class RaceDwarvesSeeder extends Seeder
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your STR score increases by +1</dd>
     <dt>Superior Darkvision</dt> <dd>Your Darkvision has a range of 120 feet</dd>
-    <dt>Stonecunning</dt> <dd>Whenever you make an INT (History) check related to the origin of stonework, you are considered proficient in the History skill and add double proficiency bonus to the check, instead of your normal proficiency bonus</dd>
+    <dt>Stonecunning</dt> <dd>Whenever you make a Lore (Recall Knowledge: History) check related to the origin of stonework, you have Advantage on the check</dd>
     <dt>Psionics</dt> <dd>You gain the Wild Talent feat</dd>
     <dt>Sunlight Sensitivity</dt> <dd>You have Disadvantage on attack rolls and on WIS (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.</dd>
 </dl>';

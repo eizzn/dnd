@@ -44,11 +44,11 @@ class FeatsDwarvenSeeder extends Seeder
         $feat->name        = 'Dwarven Lore';
         $feat->description = '<p>You eagerly absorbed the old stories and traditions of your ancestors, your gods, and the dwarven people, studying in subjects and techniques passed down for generation upon generation.</p>
 <ul>
-    <li>Increase your INT by 1, to a maximum of 20</li>
+    <li>Increase your INT by 1, to a maximum of 20.</li>
     <li>You gain a +2 bonus to Crafting and Religion checks</li>
     <li>You gain a +4 bonus on Lore checks that are related to Dwarves</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Dwarf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Dwarf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Dwarven Stonecunning';
@@ -58,7 +58,7 @@ class FeatsDwarvenSeeder extends Seeder
     <li>You gain a +2 circumstance bonus to Perception checks to notice unusual stonework. This bonus applies to check to discover mechanical traps made of stone or hidden within stone.</li>
 </ul>
 <p>If you aren't using the Seek action or searching. The GM automatically rolls a secret check for you to notice unusual stonework anyway. This checks doesn't gain the circumstance bonus, and it takes a -2 circumstance penalty.</p>";
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Dwarf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Dwarf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Dwarven Weapons';
@@ -76,11 +76,11 @@ class FeatsDwarvenSeeder extends Seeder
         $feat->name        = 'Unburdened Iron';
         $feat->description = "<p>You've learned techniques first devised by your ancestors during their ancient wars, allowing you to comfortably wear massive suits of armor.</p>
 <ul>
-    <li>Increase your CON by 1, to a maximum of 20</li>
+    <li>Increase your CON by 1, to a maximum of 20.</li>
     <li>Ignore the reduction to your Speed from any armor you wear.</li>
     <li>In addition, any time you're taking a penalty to your Speed from some other reason (such as from the encumbered condition), deduct 5 feet from the penalty. For example the encumbered condition normally gives a -10-foot penalty to Speed, but it gives you only a -5-foot penalty. If your Speed is taking multiple penalties, pick only one penalty to reduce.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Dwarf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Dwarf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Giant Bane';
@@ -99,16 +99,16 @@ class FeatsDwarvenSeeder extends Seeder
     <li>Increase your CON by 1, up to a maximum of 22.</li>
     <li>You gain the Poison Resistance feat</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Dwarf' => 3]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Dwarf' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Duergar Psionics';
         $feat->description = '<p>Duergar have natural Psionic abilities.</p>
 <ul>
-    <li>You gain 2 Power Points.</li>
+    <li>You gain 1 Power Point.</li>
     <li>You gain the Expansion power as a 1st level power. Use WIS as your primary ability.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Duergar' => 3]);
+        $helper->addTypesToFeat($feat, ['Power Point', 'Ancestry', 'Duergar' => 3]);
         $helper->addPowersToFeat($feat, [
             1 => ['Expansion'],
         ]);
@@ -117,10 +117,10 @@ class FeatsDwarvenSeeder extends Seeder
         $feat->name        = 'Improved Duergar Psionics';
         $feat->description = '<p>Duergar have natural Psionic abilities.</p>
 <ul>
-    <li>You gain 4 Power Points</li>
+    <li>You gain 2 Power Points.</li>
     <li>You gain the Invisibility power as a 2nd level power. Use WIS as your primary ability.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Duergar' => 5]);
+        $helper->addTypesToFeat($feat, ['Power Point', 'Ancestry', 'Duergar' => 5]);
         $helper->addPowersToFeat($feat, [
             2 => ['Invisibility'],
         ]);
@@ -147,7 +147,7 @@ class FeatsDwarvenSeeder extends Seeder
     <li>When you have the dying condition, the DC of your recovery check is equal to 9 + your dying value (instead of 10 + your dying value).</li>
     <li>If you have the Toughness feat, the Hit Points gained from it and this feat are cumulative, and the DC of your recovery checks is equal to 6 + your dying value.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Dwarf' => 9]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Ancestry', 'Dwarf' => 9]);
         $feat->parent_feats()->save(app()->feats['Dwarven Toughness']);
     }
 }

@@ -10,8 +10,6 @@ class PropertiesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -26,7 +24,6 @@ class PropertiesSeeder extends Seeder
             'Melee Damage'        => '',
             'Range'               => '',
             'Ranged Damage'       => '',
-            'Threat Range'        => '',
             '2 Handed Damage'     => 'This is the weapons damage when used with 2 hands',
             'Deadly'              => 'On a Critical Hit, the weapon adds a weapon damage die',
             'Fatal'               => "On a Critical Hit, use the Fatal's die instead of the weapon's die",
@@ -34,6 +31,8 @@ class PropertiesSeeder extends Seeder
             'Volley'              => 'The ranged weapon is less effective at close range, Your attacks against targets that are at a distance within the range listed take a -2 less Damage',
             'Hardness'            => 'The Damage Reduction of an object when it is attacked directly (i.e. Sunder)',
             'Hit Points'          => 'The amount of damage that an object can take before it is considered destroyed',
+            'Extra'               => 'Any extra effects',
+            'Ammunition'          => 'The ammunition that can be used for this weapon',
         ];
 
         ksort($props);

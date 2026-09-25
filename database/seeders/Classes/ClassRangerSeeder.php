@@ -28,8 +28,8 @@ class ClassRangerSeeder extends Seeder
         $class->armors        = 'Light Armor, Medium Armor, Light Shields';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 8,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
             'has_spells'     => true,
         ], ['STR', 'DEX', 'CON'], [
             'Fighter Feat', 'Primal', 'Favored Enemy', 'Heroic Surge', 'Combat Mastery',
@@ -87,64 +87,78 @@ class ClassRangerSeeder extends Seeder
         $helper->saveFeature($feature, ['Favored Enemy', 'Precision']);
 
         $helper->addFeaturesToClass($class, [
-            'class_group_feat'    => [3, 4, 9, 13, 16, 19, 20],
-            'wild_empathy'        => [1],
-            'favored_terrain'     => [1],
-            'favored_enemy'       => [2],
-            'study_enemy'         => [3],
-            'woodland_stride'     => [3],
-            'combat_mastery'      => [7, 15],
-            'trackless_step'      => [5],
-            'heroic_surge'        => [6],
-            'evasion'             => [7],
-            'hide_in_plain_sight' => [10],
+            'fighter_feat'         => [3, 4, 7, 9, 12, 14, 16, 18],
+            'wild_empathy'         => [1],
+            'favored_terrain'      => [1],
+            'favored_enemy'        => [2],
+            'ranger_devotion_feat' => [2],
+            'study_enemy'          => [3],
+            'woodland_stride'      => [3],
+            'combat_mastery'       => [7, 15],
+            'trackless_step'       => [5],
+            'evasion'              => [5],
+            'heroic_surge'         => [6],
+            'hide_in_plain_sight'  => [10],
         ]);
 
         $feat              = new Feat;
         $feat->name        = 'Favored Enemy';
         $feat->requirement = 'You must have the Favored Enemy Class Feature';
-        $feat->description = '<p>You may select an additional Enemy.</p>
-<p>You may take this feat multiple times.</p>';
-        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Precision']);
+        $feat->description = '<ul>
+    <li>You may select an additional Enemy.</li>
+    <li>You gain a +1 bonus to Hit and Damage vs. your Favored Enemies.</li>
+</ul>
+<p>You may take this Feat multiple times.</p>';
+        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Precision', 'Generic' => 5]);
 
         $feat              = new Feat;
         $feat->name        = 'Favored Terrain';
         $feat->requirement = 'You must have the Favored Terrain Class Feature';
-        $feat->description = '<p>You may select an additional Favored Terrain.</p>
-<p>You may take this feat multiple times.</p>';
-        $helper->addTypesToFeat($feat, ['Favored Terrain']);
+        $feat->description = '<ul>
+    <li>You may select an additional Favored Terrain.</li>
+    <li>You gain a +2 bonus to your skill check bonus.</li>
+</ul>
+<p>You may take this Feat multiple times.</p>';
+        $helper->addTypesToFeat($feat, ['Favored Terrain', 'Generic' => 4]);
         $feat->features()->save(app()->features['favored_terrain']);
-
-        $feat              = new Feat;
-        $feat->name        = 'Quick Study Enemy';
-        $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
-        $feat->description = '<p>Reduce the number of rounds you need to study your enemy by 3.</p>';
-        $helper->addTypesToFeat($feat, ['Favored Enemy']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Study Enemy';
         $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
-        $feat->description = '<p>You may now have 2 Targets at a time when you Study a Target.</p>';
-        $helper->addTypesToFeat($feat, ['Favored Enemy']);
+        $feat->description = '<ul>
+    <li>You gain a Talent.</li>
+    <li>You may now have 2 Targets at a time when you Study a Target.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Talent', 'Generic' => 5]);
+
+        $feat              = new Feat;
+        $feat->name        = 'Quick Study Enemy';
+        $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
+        $feat->description = '<ul>
+    <li>Increase your WIS by +1, to a maximum of 20.</li>
+    <li>Reduce the number of rounds you need to study your enemy by 3.</li>
+</ul>';
+        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Ability Boost', 'Generic' => 10]);
+        $feat->parent_feats()->save(Feat::where('name', 'Improved Study Enemy')->first());
 
         $feat              = new Feat;
         $feat->name        = 'Improved Enemy';
         $feat->requirement = 'You must have the Favored Enemy or Stalked Enemy Class Feature';
         $feat->description = '<ul>
-    <li>The bonus to Hit against your Enemy is now +3</li>
-    <li>The bonus to your Critical Hit Threat Ranges against your Enemy is now +2</li>
-    <li>If you score a Critical Hit against your Enemy, add 3 Additional Damage Dice instead.</li>
+    <li>The bonus to Hit from your Favored Enemy feature increases from +1 to +2.</li>
+    <li>Your critical threat range against your Enemy increases by 1.</li>
+    <li>If you score a Critical Hit against your Enemy, add 2 Additional Damage Dice.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Favored Enemy']);
+        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Generic' => 10]);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Enemy';
         $feat->description = '<ul>
-    <li>The bonus to Hit against your Enemy is now +4</li>
-    <li>The bonus to your Critical Hit Threat Ranges against your Enemy is now +3</li>
-    <li>If you score a Critical Hit against your Enemy, add 5 Additional Damage Dice instead.</li>
+    <li>The bonus to Hit from your Favored Enemy feature increases to +3. This replaces the increase from Improved Enemy.</li>
+    <li>Your critical threat range against your Enemy increases by 2. This replaces the increase from Improved Enemy.</li>
+    <li>If you score a Critical Hit against your Enemy, add 4 Additional Damage Dice. This replaces the bonus from Improved Enemy.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Favored Enemy']);
+        $helper->addTypesToFeat($feat, ['Favored Enemy', 'Generic' => 15]);
         $feat->parent_feats()->save(app()->feats['Improved Enemy']);
 
         $feat              = new Feat;
@@ -155,9 +169,9 @@ class ClassRangerSeeder extends Seeder
     <li>You gain 1 Spell Point.</li>
     <li>You may cast the spell Guiding Light by spending 1 Spell Point and an Action</li>
     <li>You may cast the True Strike spell by spending 1 Spell Point and an Action</li>
-    <li>You gain the Weapon Focus Feat. You must choose Longbow or Shortbow (or Composite versions).</li>
+    <li>You gain the Weapon Focus Feat with any Bow (Long Bow, Short Bow, Composite Long Bow, or Composite Short Bow).</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Elf']);
+        $helper->addTypesToFeat($feat, ['Elf', 'Spend Spell Point', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Purify Food and Drink', 'True Strike'],
             2 => ['Restoration'],
@@ -172,11 +186,11 @@ class ClassRangerSeeder extends Seeder
         $feat->requirement = 'Malar must be your patron and you must have the Favored Enemy Class Feature';
         $feat->description = '<p>You are a worshiper of Malar. You gain the following.</p>
 <ul>
-    <li>You gain a +2 bonus to Sneak Skill Checks</li>
-    <li>You gain an additional Favored Enemy</li>
-    <li>You may gain a Displacer Beast as your Animal Companion by Sacrificing 2 Spell Points and a 3rd level Spell Slot</li>
+    <li>You gain a +2 bonus to Sneak Skill Checks.</li>
+    <li>You gain an additional Favored Enemy.</li>
+    <li>You may gain a Displacer Beast as your Animal Companion.</li>
 </ul>';
-        $helper->addTypesToFeat($feat);
+        $helper->addTypesToFeat($feat, ['Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Scent'],
             2 => ['Fey Form' => 'Worgs, Yeth Hounds, Chimera, Displacer Beast, or Manticore only', 'Blood Lust'],
@@ -188,11 +202,11 @@ class ClassRangerSeeder extends Seeder
         $feat->requirement = 'Apollo must be your patron and you must have the Favored Enemy Class Feature and you must have chosen Undead';
         $feat->description = '<p>You are a worshiper of Apollo. You gain the following.</p>
 <ul>
-    <li>You gain the Weapon Focus Feat with the Long Bow.</li>
+    <li>You gain the Weapon Focus Feat with any Bow (Long Bow, Short Bow, Composite Long Bow, or Composite Short Bow).</li>
     <li>You may cast the Light spell at will as a Double Action. If you cast Light on an arrow, you may cast it as part of the Action to nock the arrow. The light fades if you do not fire the arrow by the end of your next turn.</li>
     <li>You gain Resistance to Negative Damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Light']);
+        $helper->addTypesToFeat($feat, ['Light', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Flare', 'Guiding Light', 'Lantern Light'],
             2 => ['Flash', 'Sun Bolt'],
@@ -210,7 +224,7 @@ class ClassRangerSeeder extends Seeder
     <li>Due to your psionic abilities, you may communicate telepathically with your Animal Companion to a Range of 120 feet. This allows you to direct your Animal Companion as a Free Action.</li>
     <li>Your Animal Companion gains 1 Power Point, and it may use one of your 1st level Powers as a Double Action.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Primal', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Primal', 'Discipline', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Animate Wood'],
             2 => ['Forest Eyes', 'Forest Voice'],
@@ -223,40 +237,6 @@ class ClassRangerSeeder extends Seeder
             3 => ['Battlesense', 'Body Purification', 'Body Restoration', 'Combat Sense', 'Danger Sense', 'Haste'],
             4 => ['Fate of One', 'Energy Adaptation', 'Steadfast Perception'],
             5 => ['Adapt Body', 'Quivering Palm', 'Regeneration'],
-        ]);
-
-        $helper->addFeatsToClass($class, [
-            'Spell Pool'           => 1,
-            'Improved Study Enemy' => 5,
-            'Quick Study Enemy'    => 10,
-
-            'Weapon Finesse'              => 2,
-            'Sharpshooter'                => 7,
-            'Two-Weapon Fighter'          => 1,
-            'Improved Two-Weapon Fighter' => 6,
-            'Greater Two-Weapon Fighter'  => 15,
-            'Evasion'                     => 7,
-            'Improved Evasion'            => 15,
-            'Weapon Focus'                => 4,
-            'Weapon Specialization'       => 6,
-
-            'Favored Enemy'  => 5,
-            'Improved Enemy' => 10,
-            'Greater Enemy'  => 15,
-
-            'Favored Terrain' => 4,
-
-            'Peerless Archer'          => 9,
-            'Improved Peerless Archer' => 13,
-            'Greater Peerless Archer'  => 17,
-
-            'Divine Archer of Solonor' => 2,
-            'Hunter of Malar'          => 2,
-            'Ranger of Apollo'         => 2,
-            'Ascetic Hunter'           => 2,
-
-            'Extra Melee Action'    => 6,
-            'Extra Ranged Action'   => 5,
         ]);
     }
 }

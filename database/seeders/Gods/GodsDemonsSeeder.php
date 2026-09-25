@@ -202,12 +202,12 @@ class GodsDemonsSeeder extends Seeder
         $feat->requirement = 'You must be Evil';
         $feat->description = '<p>You are able to control more skeletons and zombies.</p>
 <ul>
+    <li>You gain a Talent</li>
     <li>You gain a Vile Feat of your choice</li>
-    <li>You gain a Talent of your choice</li>
     <li>When you cast the spell Animate Dead or sacrifice a spell slot to maintain control over your created skeletons and or zombies, you maintain control of an additional skeleton or zombie. If you have the Pact to Orcus feat, you can now control Skeletons and Zombies from Animate Dead equal to 1 1/2 times your Warlock level instead.</li>
     <li>You gain another use of Rebuke Undead per day</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic', 'Talent']);
         $feat->parent_feats()->save(app()->feats['Skull Lord of Orcus']);
         $helper->addSpellsToFeat($feat, [
             5   => ['Dust to Dust', 'Ghoul Gauntlet'],
@@ -232,13 +232,13 @@ class GodsDemonsSeeder extends Seeder
         $feat->name        = "Thrall to Graz'zt";
         $feat->requirement = 'You must be Evil';
         $feat->description = "<p>You have given yourself to the demon price Graz'zt. You gain the following abilities.</p>
-<dl>
-    <dt>Demonic Beauty</dt> <dd>Increase your CHA by +1 to a maximum of 20</dd>
-    <dt>Charm</dt> <dd>As an Action, you gain a gaze attack (as an Action) that acts like the Charm spell cast by an arcane spell caster of your level. You may use this ability twice per Long Rest.</dd>
-    <dt>Beautiful Defense</dt> <dd>You may take the Beautiful Defense feat as a Generic feat.</dd>
-    <dt>Beguiler</dt> <dd>You gain a +5 bonus to Deception skills.</dd>
-</dl>";
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic']);
+<ul>
+    <li>Increase your CHA by +1 to a maximum of 20.</li>
+    <li>As an Action, you gain a gaze attack (as an Action) that acts like the Charm spell cast by an arcane spell caster of your level. You may use this ability twice per Long Rest.</li>
+    <li>You may take the Beautiful Defense feat as a Generic feat.</li>
+    <li>You gain a +5 bonus to Deception skills.</li>
+</ul>";
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Demon', 'Chaotic', 'Ability Boost']);
         $feat->parent_feats()->save(app()->feats['Thrall to Demon']);
         $feat->skills()->save(app()->skills['Arcana'], ['dc' => 5]);
         $feat->skills()->save(app()->skills['Deception'], ['dc' => 4]);
@@ -383,7 +383,7 @@ class GodsDemonsSeeder extends Seeder
         $class->description   = '<p>Priest of Ghaunadaur.</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 10,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'CON']);
 
@@ -512,7 +512,7 @@ class GodsDemonsSeeder extends Seeder
         <p>Double the cost of the Material Components must be paid to Eltab at the time this Feat is taken and after each death. If the cost cannot be paid, then this Feat has no effect. Once the Material Components are paid, you must return to the Hall of the Hidden Throne and receive the ritual again to benefit from the Death Pact spell.</p>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic', 'Invocation' => 15]);
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Chaotic', 'Talent', 'Invocation' => 15]);
         $feat->parent_feats()->save(app()->feats['Pact to Eltab']);
         $helper->addFeatToGodPantheon($god, Pantheon::Demonic->value, $feat);
 
@@ -1018,7 +1018,7 @@ class GodsDemonsSeeder extends Seeder
     <li>You are proficient with the hand crossbow</li>
     <li>You gain immunity to all Spider venom. This includes the drow sleep poison</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Drow']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Demon', 'Evil', 'Talent', 'Drow']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Detect Magic', 'Eldritch Blast'],
             1 => ['Cloak of Dark Power', 'Command', 'Disguise Self'],

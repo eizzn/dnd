@@ -94,8 +94,8 @@ class GodsLolthSeeder extends Seeder
 <p>The church of Shar does not sponsor any fighting orders or knightly orders. Fighters can be associated to specific cells or temples, not the faith in general. Clergy of the faith who have killed on of the clergy of Selune are rumored to gain access to an honorary order or secret society known as the Dark Justiciars.</p>";
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Evil',
         ]);
@@ -169,8 +169,8 @@ class GodsLolthSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine', 'Drow', 'Evil',
         ]);
@@ -365,8 +365,8 @@ class GodsLolthSeeder extends Seeder
         $class->description   = '<p>Priest of Vhaeraun and Mask</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 6,
-            'skill_progress' => 4,
+            'skill_points'   => 4,
+            'skill_progress' => 3,
         ], ['WIS', 'DEX'], [
             'Divine', 'Evil', 'Skill',
         ]);
@@ -451,7 +451,7 @@ class GodsLolthSeeder extends Seeder
         $class->has_spells    = 1;
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
         ], ['WIS', 'DEX'], [
             'Divine', 'Drow', 'Evil', 'Necromancy', 'Undead',

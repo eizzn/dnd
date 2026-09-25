@@ -7,6 +7,7 @@ use App\Filters\FilterPipelinePayload;
 use App\Filters\Id;
 use App\Filters\Name;
 use App\Filters\Order;
+use App\Filters\TypeableType;
 use App\Models\Type;
 use App\Traits\GetDataTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,6 +34,7 @@ class TypeService implements Contracts\TypeService
             ->through([
                 Id::class,
                 Name::class,
+                TypeableType::class,
                 Order::class,
             ])
             ->thenReturn();

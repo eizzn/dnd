@@ -47,7 +47,7 @@ class MonstersNSeeder extends Seeder
             'feats'     => ['Improved Initiative', 'Great Fortitude'],
             'talents'   => ['Combat Casting'],
             'features'  => [
-                'darkvision'     => ['meta' => '60 ft'],
+                'darkvision'     => ['meta' => '{"range":60}'],
                 'ethereal_jaunt' => ['meta' => 'At will'],
                 'aberrant_mind',
             ],
@@ -108,7 +108,7 @@ class MonstersNSeeder extends Seeder
                 'resistance'    => ['meta' => 'Cold, Bludgeoning, Piercing, Slashing'],
                 'immunity'      => ['meta' => 'Poison, Critical Hits'],
                 'vulnerability' => ['meta' => 'Attacks with the Air type, A Rod of Absorption or Ring of Spell Turning brought into contact with a nishruu has a 5% chance to destroy it immediately. The creature is absorbed with no harm to the item, though its color changes to a dusky-red. If the item does not absorb the nishruu, it is negated in the same manner as other magic items. Salt deals 2D10 damage.'],
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
             ],
             'powers' => [
                 'Mind Blank' => ['meta' => 'Always on'],

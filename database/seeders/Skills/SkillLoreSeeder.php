@@ -10,10 +10,8 @@ class SkillLoreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $skill              = new Skill;
         $skill->name        = 'Lore';

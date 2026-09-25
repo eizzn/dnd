@@ -39,7 +39,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 4],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Electricity, Poison, Sickened'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
             ],
@@ -73,7 +73,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 4],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Poison, Sickened'],
                 'vulnerability'       => ['meta' => 'Fire'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
@@ -104,7 +104,7 @@ class ElementalsSeeder extends Seeder
                 'Perception' => ['dc' => 2],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Poison, Sickened'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
             ],
@@ -138,7 +138,7 @@ class ElementalsSeeder extends Seeder
                 'Perception' => ['dc' => 1],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Fire, Poison, Sickened'],
                 'vulnerability'       => ['meta' => 'Cold, Water'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
@@ -171,7 +171,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'       => ['meta' => '60 ft'],
+                'darkvision'       => ['meta' => '{"range":60}'],
                 'immunity'         => ['meta' => 'Cold, Poison, Sickened'],
                 'vulnerability'    => ['meta' => 'Bludgeoning, Fire'],
                 'false_appearance' => ['meta' => 'While the mephit remains motionless, it is indistinguishable from an ordinary shard of ice.'],
@@ -200,7 +200,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth' => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Fire, Poison, Sickened'],
                 'vulnerability'       => ['meta' => 'Cold'],
                 'false_appearance'    => ['meta' => 'While the mephit remains motionless, it is indistinguishable from an ordinary mound of magma.'],
@@ -233,7 +233,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth' => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'       => ['meta' => '60 ft'],
+                'darkvision'       => ['meta' => '{"range":60}'],
                 'immunity'         => ['meta' => 'Poison, Sickened'],
                 'false_appearance' => ['meta' => 'While the mephit remains motionless, it is indistinguishable from an ordinary mound of mud.'],
             ],
@@ -262,7 +262,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 4],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Fire, Poison, Sickened'],
                 'false_appearance'    => ['meta' => 'While the mephit remains motionless, it is indistinguishable from an ordinary mound of mud.'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
@@ -291,7 +291,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Air', 'Fire', 'Outer Planes', 'Outsider'], [
             'stats'    => [5, 11, 10, 11, 10, 12, .25, 3],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Fire, Poison, Sickened'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
             ],
@@ -318,7 +318,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Water', 'Outer Planes', 'Outsider'], [
             'stats'    => [7, 11, 10, 11, 10, 12, .25, 3],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Acid, Poison, Sickened, [Piercing, Slashing]'],
                 'vulnerability'       => ['meta' => 'Cold, Electricity'],
                 'innate_spellcasting' => ['meta' => 'DC 10'],
@@ -347,7 +347,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Air', 'Outer Planes', 'Outsider'], [
             'stats'    => [14, 20, 14, 6, 10, 6, 5, 4],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'resistance' => ['meta' => 'Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'   => ['meta' => 'Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
             ],
@@ -375,7 +375,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Earth', 'Outer Planes', 'Outsider'], [
             'stats'    => [20, 8, 20, 6, 11, 5, 5, 4],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Fire, Electricity)'],
                 'immunity'      => ['meta' => 'Poison, Sickened, Exhaustion, Petrified, Prone, Unconscious'],
                 'vulnerability' => ['meta' => 'Acid, Sonic'],
@@ -406,7 +406,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Fire', 'Outer Planes', 'Outsider'], [
             'stats'    => [10, 17, 16, 6, 10, 7, 5, 4],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing] (Electricity, Sonic)'],
                 'immunity'      => ['meta' => 'Fire, Poison, Sickened, Exhaustion, Grapple, Petrified, Prone, Restrained, Unconscious'],
                 'vulnerability' => ['meta' => 'Cold, Water'],
@@ -431,7 +431,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Cold', 'Outer Planes', 'Outsider'], [
             'stats'    => [18, 10, 20, 5, 10, 6, 5, 4],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Cold, Poison, Sickened, Exhaustion, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
                 'vulnerability' => ['meta' => 'Fire, Sonic'],
@@ -464,7 +464,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Water', 'Outer Planes', 'Outsider'], [
             'stats'    => [18, 14, 18, 5, 10, 8, 5, 4],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Acid, [Bludgeoning, Piercing, Slashing] (Sonic)'],
                 'immunity'      => ['meta' => 'Poison, Sickened, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained, Unconscious'],
                 'vulnerability' => ['meta' => 'Fire'],
@@ -501,7 +501,7 @@ class ElementalsSeeder extends Seeder
                 'CHA' => ['bonus' => 6],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Petrified'],
             ],
             'feats'  => ['Extra Melee Action'],
@@ -553,7 +553,7 @@ class ElementalsSeeder extends Seeder
                 'CHA' => ['bonus' => 9],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'resistance' => ['meta' => 'Electricity, Sonic'],
             ],
             'feats'  => ['Extra Melee Action'],
@@ -603,7 +603,7 @@ class ElementalsSeeder extends Seeder
                 'CHA' => ['bonus' => 7],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Fire'],
             ],
             'feats'  => ['Extra Melee Action'],
@@ -648,7 +648,7 @@ class ElementalsSeeder extends Seeder
                 'CHA' => ['bonus' => 9],
             ],
             'features' => [
-                'darkvision' => ['meta' => '120 ft'],
+                'darkvision' => ['meta' => '{"range":120}'],
                 'immunity'   => ['meta' => 'Cold, Lightning'],
                 'amphibious',
             ],
@@ -722,7 +722,7 @@ class ElementalsSeeder extends Seeder
         $helper->saveMonster($monster, ['Elemental', 'Earth', 'Outer Planes', 'Outsider'], [
             'stats'    => [15, 11, 16, 6, 11, 7, 2, 3],
             'features' => [
-                'darkvision'       => ['meta' => '60 ft'],
+                'darkvision'       => ['meta' => '{"range":60}'],
                 'resistance'       => ['meta' => 'Bludgeoning, Piercing, Slashing from nonmagical or Adamantine weapons'],
                 'immunity'         => ['meta' => 'Sickened, Poison, Exhaustion, Petrification'],
                 'multi_attack'     => ['meta' => 'If the gargoyle makes a successful Claw attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The gargoyle can only gain this additional Action once per turn.'],
@@ -781,7 +781,7 @@ class ElementalsSeeder extends Seeder
                 'Stealth'    => ['dc' => 3],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Adamantine'],
                 'resistance'    => ['meta' => '[Piercing, Slashing]'],
                 'camouflage'    => ['meta' => 'Rocky terrain'],

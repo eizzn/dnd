@@ -27,8 +27,8 @@ class ClassAdventurerSeeder extends Seeder
         $class->armors        = 'Light Armor';
         $class->has_spells    = 1;
         $helper->saveClass($class, [
-            'skill_points'   => 6,
-            'skill_progress' => 6,
+            'skill_points'   => 4,
+            'skill_progress' => 4,
         ], ['DEX', 'CHA'], [
             'Arcane', 'Skill', 'Combat Mastery',
         ]);
@@ -39,27 +39,8 @@ class ClassAdventurerSeeder extends Seeder
         ]);
 
         $helper->addFeaturesToClass($class, [
-            'class_group_feat' => [1, 3, 4, 6, 9, 10, 12, 13, 15, 18, 19, 20],
-            'combat_mastery'   => [7],
-        ]);
-
-        $helper->addFeatsToClass($class, [
-            'Sneak Attack'             => 2,
-            'Skilled'                  => 2,
-            'Impeccable Skill'         => 2,
-            'Masterful Skill'          => 2,
-            'Find Familiar'            => 2,
-            'Enhance Familiar'         => 8,
-            'Improved Feint'           => 2,
-            'Weapon Finesse'           => 2,
-            'Expanded Spell Knowledge' => 5,
-            'Sharpshooter'             => 7,
-            'Evasion'                  => 7,
-            'Improved Evasion'         => 13,
-            'Resolve'                  => 17,
-            'Arcane Multiclasser'      => 5,
-            'Extra Melee Action'       => 7,
-            'Extra Ranged Action'      => 7,
+            'arcane_rogue_feat' => [1, 3, 4, 6, 9, 10, 12, 13, 15, 18, 19, 20],
+            'combat_mastery'    => [7],
         ]);
 
         $helper->addSpellsToClass($class, [

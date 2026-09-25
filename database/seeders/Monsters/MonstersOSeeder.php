@@ -38,7 +38,7 @@ class MonstersOSeeder extends Seeder
                 'Intimidation' => ['dc' => 2],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'languages' => ['Daraktan'],
         ]);
@@ -204,7 +204,7 @@ class MonstersOSeeder extends Seeder
             'stats'    => [16, 11, 19, 6, 13, 6, 5, 3],
             'saves'    => ['CON' => ['bonus' => 7]],
             'features' => [
-                'darkvision' => ['meta' => '120 ft'],
+                'darkvision' => ['meta' => '{"range":120}'],
             ],
             'feats' => [
                 'Extra Melee Action' => ['meta' => 'The extra Action can only be used to make Tentacle attacks (including the Slam)'],

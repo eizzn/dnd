@@ -27,7 +27,7 @@ class ClassPaladinSeeder extends Seeder
         $class->armors        = 'Light Armor, Medium Armor and Shields';
         $helper->saveClass($class, [
             'hit_dice'       => 10,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
             'has_spells'     => 1,
         ], ['WIS', 'CHA'], [

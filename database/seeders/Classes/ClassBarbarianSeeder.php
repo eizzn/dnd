@@ -26,8 +26,8 @@ class ClassBarbarianSeeder extends Seeder
         $helper->saveClass($class, [
             'key_attribute'  => 'STR',
             'hit_dice'       => 12,
-            'skill_points'   => 4,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
             'weapons'        => 'Simple Weapons, Martial Weapons',
             'armors'         => 'Light Armor, Medium Armor, Light Shields',
         ], ['STR', 'CON'], [
@@ -275,7 +275,7 @@ class ClassBarbarianSeeder extends Seeder
 <p>Failing to accept a personal challenge of your strength is anathema to your totem.</p>
 <h4>Titan Mauler (Totem Ability)</h4>
 <ul>
-    <li>Increase your STR by +1, to a maximum of 20</li>
+    <li>Increase your STR by +1, to a maximum of 20.</li>
     <li>You can use a weapon built for a Large creature if you are Small or Medium, you can use a weapon built for a creature one size larger than you. You also gain access to your choice of weapon at character creation. When you are wielding such a weapon in combat, double your conditional bonus to damage rolls from raging, but you have the Sluggish 1 Condition because of the weapon's unwieldy size. You can't remove this sluggish condition or ignore its penalties by any means while you're wielding the weapon.</li>
     <li>You gain Advantage on all STR Saves and STR checks</li>
     <li>At 5th level, you may cast Enlarge 1/day only on yourself. The spell gains the Rage trait and you must be Raging to cast this spell</li>
@@ -295,7 +295,7 @@ class ClassBarbarianSeeder extends Seeder
         </ul>
     </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Ability Boost']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Enlarge' => 'Self only'],
         ]);
@@ -391,7 +391,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Gain a +4 bonus to STR</li>
     <li>You gain 30 Temporary Hit Points</li>
     <li>No penalty to AC</li>
-    <li>Gain a +4 bonus to DEX and WIS Saves</li>
+    <li>Gain a +2 bonus to DEX and WIS Saves</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Rage']);
         $feat->features()->save(app()->features['rage']);
@@ -437,7 +437,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Slashing</li>
     <li>Poison</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Totem', 'Rage']);
 
         $feat              = new Feat;
         $feat->name        = 'Fox Berserker';
@@ -534,7 +534,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Slashing</li>
     <li>Grapple Damage</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Ability Boost', 'Talent']);
 
         $feat              = new Feat;
         $feat->name        = 'Snow Tiger Berserker';
@@ -559,7 +559,7 @@ class ClassBarbarianSeeder extends Seeder
                 <p>If you gain the Mighty Rage feat, you instead gain the following</p>
                 <ul>
                     <li>You gain an additional Action. This additional Action can only be used to make Melee Weapon attacks.</li>
-                    <li>You gain a +4 bonus to DEX Saves</li>
+                    <li>You gain a +2 bonus to DEX Saves</li>
                 </ul>
             </li>
         </ul>
@@ -571,7 +571,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Piercing</li>
     <li>Slashing</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Extra Action']);
+        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Extra Action', 'Talent']);
 
         $feat              = new Feat;
         $feat->name        = 'Wolf Berserker';
@@ -649,7 +649,7 @@ class ClassBarbarianSeeder extends Seeder
 <p>You do not have an Anathema</p>
 <ul>
     <li>You gain a +5 bonus on all Perception checks</li>
-    <li>You gain a +2 bonus to Hit on all Ranged attacks</li>
+    <li>You gain a +1 bonus to Hit on all Ranged attacks</li>
 </ul>
 <h4>Resistance</h4>
 <ul>
@@ -728,7 +728,7 @@ class ClassBarbarianSeeder extends Seeder
     <li>Slashing</li>
     <li>Poison</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Totem', 'Rage', 'Dwarf']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Totem', 'Rage', 'Dwarf']);
 
         $feat              = new Feat;
         $feat->name        = 'Runescarring';

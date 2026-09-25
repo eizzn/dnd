@@ -39,11 +39,11 @@ class FeatsElvenSeeder extends Seeder
         $feat->name        = 'Elven Lore';
         $feat->description = "<p>You've studied in traditional elven arts, learning about arcane magic and the world around you.</p>
 <ul>
-    <li>Increase your INT by 1, to a maximum of 20</li>
+    <li>Increase your INT by 1, to a maximum of 20.</li>
     <li>You gain a +2 bonus to Arcana and Nature checks</li>
     <li>You gain a +4 bonus to Lore checks that are related to Elves</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Elf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Elf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Elven Weapons';
@@ -67,16 +67,16 @@ class FeatsElvenSeeder extends Seeder
     <li>You gain a Heroic Surge</li>
     <li>You gain a +1 circumstance bonus to Saves against emotion effects. If you roll a success on a Save against an emotion effect, you get a critical success instead.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Elf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Heroic Surge', 'Elf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Nimble Elf';
         $feat->description = '<p>Your muscles are tightly honed.</p>
 <ul>
-    <li>Increase your DEX by +1, to a maximum of 20</li>
+    <li>Increase your DEX by +1, to a maximum of 20.</li>
     <li>Your Speed increases by 5 feet</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Elf' => 1]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Ability Boost', 'Elf' => 1]);
 
         $feat              = new Feat;
         $feat->name        = 'Otherworldly Magic';
@@ -128,7 +128,7 @@ class FeatsElvenSeeder extends Seeder
     <li>You gain a Talent</li>
     <li>Whenever you critically hit using an elf weapon or one of the weapons listed in the Elven Weapons feat, you apply the weapon's critical specialization effect.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Ancestry', 'Elf' => 5]);
+        $helper->addTypesToFeat($feat, ['Ancestry', 'Talent', 'Elf' => 5]);
         $feat->parent_feats()->save(app()->feats['Elven Weapons']);
 
         $feat              = new Feat;

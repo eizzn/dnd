@@ -80,7 +80,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [11, 13, 12, 6, 10, 7, .25, 2],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
@@ -115,7 +115,7 @@ class ModronsSeeder extends Seeder
             'stats'     => [12, 13, 12, 9, 10, 9, .5, 2],
             'features'  => [
                 'axiomatic_mind',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
@@ -152,7 +152,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [12, 14, 12, 10, 10, 11, 1, 2],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
@@ -194,7 +194,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [15, 14, 12, 10, 10, 13, 2, 3],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
@@ -229,7 +229,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [13, 15, 15, 14, 14, 14, 8, 5],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'    => ['meta' => '120 ft'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'vulnerability' => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Fear, Negative, Positive'],
@@ -269,7 +269,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [15, 16, 12, 13, 13, 15, 4, 4],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -322,7 +322,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [13, 15, 16, 15, 15, 15, 5, 4],
             'features' => [
                 'axiomatic_mind',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -365,7 +365,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [15, 15, 12, 15, 15, 16, 6, 5],
             'features' => [
                 'axiomatic_mind', 'magic_resistance',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -410,7 +410,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [16, 16, 12, 6, 16, 17, 7, 4],
             'features' => [
                 'axiomatic_mind', 'magic_resistance',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -451,7 +451,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [17, 15, 12, 17, 17, 18, 8, 5],
             'features' => [
                 'axiomatic_mind', 'magic_resistance',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -492,7 +492,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [18, 17, 12, 18, 18, 19, 9, 5],
             'features' => [
                 'axiomatic_mind', 'magic_resistance',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -533,7 +533,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [20, 17, 12, 20, 20, 21, 10, 5],
             'features' => [
                 'axiomatic_mind', 'magic_resistance', 'flurry_of_blows',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],
@@ -577,7 +577,7 @@ class ModronsSeeder extends Seeder
             'stats'    => [22, 18, 12, 21, 21, 22, 11, 6],
             'features' => [
                 'axiomatic_mind', 'magic_resistance', 'flurry_of_blows',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Adamantine, Mithral'],
                 'resistance'          => ['meta' => 'Acid, Cold, Fire, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Fear, Negative, Positive'],

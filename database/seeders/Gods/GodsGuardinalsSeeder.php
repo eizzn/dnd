@@ -117,11 +117,11 @@ class GodsGuardinalsSeeder extends Seeder
         $feat->name        = 'Roar of Talsid';
         $feat->description = "<p>You devote yourself to the Guardinal Talsid</p>
 <ul>
-    <li>Increase your CHA by +1, to a maximum of 20</li>
+    <li>Increase your CHA by +1, to a maximum of 20.</li>
     <li>When you cast the spell Bull's Strength or Perfection on yourself, the STR bonus is an additional +2</li>
     <li>Casting the Spell Sonic Burst only requires a Verbal Casting</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Pact', 'Guardinal', 'Neutral', 'Good']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Guardinal', 'Neutral', 'Good', 'Ability Boost']);
         $feat->parent_feats()->save(app()->feats['Pact to the Five Companions']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Animal Form' => 'Lion only'],
@@ -138,11 +138,11 @@ class GodsGuardinalsSeeder extends Seeder
         $feat->name        = 'Wind of Sathia';
         $feat->description = '<p>You devote yourself to the Guardinal Sathia</p>
 <ul>
-    <li>Increase your DEX by +1, to a maximum of 20</li>
+    <li>Increase your DEX by +1, to a maximum of 20.</li>
     <li>You gain a +1 bonus to Hit to all Ranged Attacks</li>
     <li>You gain a +1 bonus to AC against all Ranged Weapon Attacks</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Pact', 'Guardinal', 'Neutral', 'Good']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Guardinal', 'Neutral', 'Good', 'Ability Boost']);
         $feat->parent_feats()->save(app()->feats['Pact to the Five Companions']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Animal Form' => 'Bird only', 'Gust of Wind'],

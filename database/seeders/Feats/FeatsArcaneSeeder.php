@@ -56,7 +56,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You may spend 1 Spell Point as a Reaction. When you do, you can make your Abjuration Shield a 15 x 15 wall or a 10-ft radius globe until the start of your next turn. Your Abjuration Shield maintains it's distance to you if you move. Regardless of the option chosen, your Abjuration Shield must be within 5-ft of you, and in the case of the globe, you must be inside it.</li>
 </ul>
 \n" . $text;
-        $helper->addTypesToFeat($feat, ['Abjuration', 'Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Abjuration', 'Wizard School', 'Arcane', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Expert Abjurer']);
 
         $feat              = new Feat;
@@ -184,7 +184,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Talent.</li>
     <li>You may now Concentrate on an additional Enchantment spell.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Enchantment', 'Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Enchantment', 'Wizard School', 'Arcane', 'Talent']);
         $feat->parent_feats()->save(app()->feats['Enchanter']);
 
         $feat              = new Feat;
@@ -438,7 +438,7 @@ class FeatsArcaneSeeder extends Seeder
     </li>
     <li>You can draw Wands as a Free Action, as if you had the Quick Draw Talent.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Expert Wand Caster';
@@ -449,7 +449,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain the ability to recharge a Wand. Once per day, you can spend 1 Spell Point and add 1 Charge to a magical Wand by focusing on it for 1 hour, once per day.</li>
     <li>When you create a Magical Wand, reduce the cost by 50% (to a minimum of 10 gp). Wands, Rods, and Staves you create with this discount require Attunement. You may create Wands, Rods, and Staves without the discount. These items would not require Attunement (this feat does not grant the ability to Craft Wands, Rods, or Staves).</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Wand Caster']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Siphon'],
@@ -465,7 +465,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>As an Action, you may spend Spell Points and channel them through a Wand or Staff to deal 1D6 Force damage per Spell Point spent by making a Ranged Touch Attack. You may not spend more Spell Points during a turn than your Spell Caster Level.</li>
     <li>You can now recharge 3 charges to a Wand or Staff per day by Spending a Spell Point per charge and focusing on the Wand or Staff for 1 hour, once per day.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Wand', 'Wizard School', 'Arcane', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Expert Wand Caster']);
 
         $feat              = new Feat;
@@ -487,7 +487,7 @@ class FeatsArcaneSeeder extends Seeder
     </li>
     <li>While you are wearing a magical ring, you gain the Cantrip Caster Class Feature</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Heroic Surge', 'Wizard School', 'Arcane', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Expert Ring Caster';
@@ -497,7 +497,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Heroic Surge</li>
     <li>While you are wearing a magical ring, you may use a Heroic Surges to fulfill the Somatic Casting of an Arcane Spell of 1st or 2nd Level. You must also spend a number of Spell Points equal to the Spell Level of the Spell being cast. A spell cast this way cannot be Heightened or modified with Metamagic.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Heroic Surge', 'Wizard School', 'Arcane', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Ring Caster']);
 
         $feat              = new Feat;
@@ -508,7 +508,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Heroic Surge</li>
     <li>While you are wearing a magical ring, you may use a Heroic Surges to fulfill the Somatic Casting of an Arcane Spell of 1st through 4th Level. You must also spend a number of Spell Points equal to the Spell Level of the Spell being cast. A spell cast this way cannot be Heightened or modified with Metamagic.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Wizard School', 'Arcane']);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Heroic Surge', 'Wizard School', 'Arcane', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Expert Ring Caster']);
 
         $feat              = new Feat;
@@ -526,7 +526,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You can activate magic items that use the Shadow Weave without taking WIS damage. Whenever you create a new Magic Item, it uses the Shadow Weave.</li>
 </ul>
 \n" . $text;
-        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Arcane' => 3, 'Divine']);
+        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Arcane' => 3, 'Divine', 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Expert Shadow Weave Caster';
@@ -539,7 +539,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>Divination Spells with the Detect Type do not work on you unless the source uses the Shadow Weave</li>
     <li>Your Figment Spells are harder to disbelieve. Disbelievers suffer a -3 penalty.</li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Arcane', 'Divine']);
+        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Arcane', 'Divine', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Shadow Weave Caster']);
         $helper->addSpellsToFeat($feat, [
             5 => ['Shadow Evocation', 'Shadow Guardian'],
@@ -584,7 +584,7 @@ class FeatsArcaneSeeder extends Seeder
         </table>
     </li>
 </ul>\n" . $text;
-        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Divine']);
+        $helper->addTypesToFeat($feat, ['Shadow Weave', 'Wizard School', 'Divine', 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Expert Shadow Weave Caster']);
 
         $feat                    = new Feat;
@@ -600,11 +600,6 @@ class FeatsArcaneSeeder extends Seeder
     <li>
         <p>You gain the Animal Companion Feat. The Animal Companion you gain is now your Familiar (this Animal Companion replaces the Familiar you get from Find Familiar)</p>
         <p>If you gain additional Animal Companions, they all also count as your Familiar and have all the abilities of Familiars.</p>
-    </li>
-    <li>
-        <p>You can assign your familiar the task of Concentrating on a spell or spell-like ability that is maintained through Concentration as long as your Familiar has an INT of at least 4. You can act normally while your familiar concentrates on the spell.</p>
-        <p>Your familiar can concentrate on only one spell at a time. If necessary to maintain the spell, your familiar makes Concentration checks for you, using your Concentration modifier. You do not have to make Concentration checks for circumstances such as taking damage, but if your familiar takes damage, then it must make a Concentration check to maintain the spell.</p>
-        <p>If you have multiple familiars, then each one can Concentrate on a spell.</p>
     </li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Conjuration', 'Familiar', 'Animal Companion', 'Arcane' => 5]);
@@ -622,7 +617,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>The DC for spells of your chosen School get a bonus of +1.</li>
 </ul>
 <p>You may take this feat multiple times. Each time you must select a different School of Wizardry.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane' => 4]);
+        $helper->addTypesToFeat($feat, ['Arcane' => 4, 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Spell Focus';
@@ -634,7 +629,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>The DC for spells of the chosen School get a bonus of +2. This replaces the bonus from Spell Focus.</li>
 </ul>
 <p>You may take this feat multiple times. Each time you must select a different School of Wizardry.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane' => 9]);
+        $helper->addTypesToFeat($feat, ['Talent', 'Arcane' => 9]);
         $feat->parent_feats()->save(app()->feats['Spell Focus']);
 
         $feat              = new Feat;
@@ -647,7 +642,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>The DC for spells of the chosen School get a bonus of +3. This replaces the bonus from Improved Spell Focus.</li>
 </ul>
 <p>You may take this feat multiple times. Each time you must select a different School of Wizardry.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane' => 15]);
+        $helper->addTypesToFeat($feat, ['Talent', 'Arcane' => 15]);
         $feat->parent_feats()->save(app()->feats['Improved Spell Focus']);
 
         $feat              = new Feat;
@@ -659,7 +654,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You may memorize an additional Evocation Cantrip.</li>
     <li>When you cast an Evocation Cantrip, you may spend 1 Spell Point and have the spell deal damage as if your Caster Level was 3 levels higher.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Evocation', 'Arcane' => 7]);
+        $helper->addTypesToFeat($feat, ['Evocation', 'Arcane' => 7, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Evoker']);
 
         $feat              = new Feat;
@@ -684,7 +679,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You may spend a Spell Point to gain an additional Reaction. This additional Reaction may only be used to cast a Counterspell. If you have the Attack of Opportunity feat, you may also use the Reaction from that feat to cast the Countering spell.</li>
     <li>You may also Counterspell using the Dispel Magic spell. If the spell being Countered is a higher Spell Slot then the Dispel Magic, then you must make a Spell Level check (DC = 10 + Spell Level of spell being Countered).</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 3]);
+        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 3, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Abjurer']);
 
         $feat              = new Feat;
@@ -696,7 +691,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a +2 bonus on your Counterspell check when attempting to Counterspell with Dispel Magic.</li>
     <li>You may now Spend 2 Spell Points and use a Reaction to Counter a Cantrip.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 7]);
+        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 7, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Improved Counterspell']);
 
         $feat              = new Feat;
@@ -714,7 +709,7 @@ class FeatsArcaneSeeder extends Seeder
     </li>
     <li>Whenever you cast a spell to Counter another spell, treat the spell you cast as if it was Heightened +1 without having to use a higher level Spell Slot.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 12]);
+        $helper->addTypesToFeat($feat, ['Abjuration', 'Counterspell', 'Arcane' => 12, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Greater Counterspell']);
 
         $feat              = new Feat;
@@ -722,20 +717,39 @@ class FeatsArcaneSeeder extends Seeder
         $feat->trigger     = 'You cast a spell with the Summoning type';
         $feat->description = '<ul>
     <li>Creatures you summon with a Conjuration Spell gain a +4 Enhancement bonus to STR and CON.</li>
-    <li>The Duration of all your Conjuration Spells with the Summoning type is Doubled</li>
+    <li>The Duration of all your Conjuration Spells with the Summoning type is Doubled.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Conjuration', 'Summoning', 'Arcane' => 3, 'Divine' => 3, 'Primal' => 3]);
-        $feat->parent_feats()->save(app()->feats['Conjurer']);
 
         $feat              = new Feat;
         $feat->name        = 'Greater Summoner';
         $feat->trigger     = 'You cast a spell with the Summoning type';
         $feat->description = '<ul>
-    <li>You may Concentrate on an additional Summoning Spell at the same time.</li>
+    <li>You may Concentrate on an additional Summoning Spell.</li>
     <li>Spells with the Summoning type are automatically Heightened +1 without having to use a Higher Level Spell Slot (up to your highest Spell Slot that you can cast).</li>
-    <li>The Duration of all your Conjuration Spells with the Summoning type is Tripled</li>
+    <li>The Duration of all your Conjuration Spells with the Summoning type is Tripled. This replaces the Double Duration from Improved Summoner.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Conjuration', 'Summoning', 'Arcane' => 9, 'Divine' => 9, 'Primal' => 9]);
+        $helper->addTypesToFeat($feat, ['Conjuration', 'Summoning', 'Arcane' => 9]);
+        $feat->parent_feats()->save(app()->feats['Conjurer']);
+        $feat->parent_feats()->save(app()->feats['Improved Summoner']);
+
+        $feat              = new Feat;
+        $feat->name        = 'Great Wild Summoner';
+        $feat->trigger     = 'You cast a spell with the Summoning type';
+        $feat->requirement = 'You must have levels in Druid, Spirit Shaman, or Ranger';
+        $feat->description = '<ul>
+    <li>You may Concentrate on an additional Summoning Spell.</li>
+    <li>Spells with the Summoning type are automatically Heightened +1 without having to use a Higher Level Spell Slot (up to your highest Spell Slot that you can cast).</li>
+    <li>The Duration of all your Conjuration Spells with the Summoning type is Tripled. This replaces the Double Duration from Improved Summoner.</li>
+    <li>
+        If you have an Animal Companion that has an INT of 4 or greater, then your Animal Companion can Concentrate on a Summoned creature and command it.
+        <blockquote>
+            You summon a Fey creature and assign your Animal Companion to Concentrate on it. You give your Familiar a command to control the summoned Fey creature to defend your right Flank. You may then Concentrate on 2 more Summoning spells (one normal, and the additional Concentration this Feat grants).
+        </blockquote>
+    </li>
+</ul>
+<p>You cannot take this Feat if you have the Greater Summoner Feat and you cannot take the Greater Summoner Feat once you have this Feat.</p>';
+        $helper->addTypesToFeat($feat, ['Conjuration', 'Summoning', 'Primal' => 9]);
         $feat->parent_feats()->save(app()->feats['Improved Summoner']);
 
         $feat              = new Feat;
@@ -745,7 +759,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain 1 Spell Point</li>
     <li>You now spend 1 Spell Point less whenever you activate a Metamagic feat. You cannot reduce the Spell Point cost to less than 1.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Talent', 'Spell Pool', 'Enchantment', 'Metamagic', 'Arcane' => 8, 'Divine' => 8, 'Primal' => 8]);
+        $helper->addTypesToFeat($feat, ['Talent', 'Spell Pool', 'Enchantment', 'Metamagic', 'Arcane' => 8, 'Divine' => 8, 'Primal' => 8, 'Spend Spell Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Metamagic Master';
@@ -909,7 +923,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Spell Point</li>
     <li>You may spend 2 Spell Points to cast Misty Step. The limitation is that the magical transport must begin and end in an area with at least some shadow or darkness.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Arcane' => 8]);
+        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Talent', 'Arcane' => 8, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Shadow Sight']);
 
         $feat              = new Feat;
@@ -920,7 +934,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain a Spell Point</li>
     <li>So long as you are not in daylight or the illuminated radius of a light source, you have the benefits of a Blur spell upon yourself.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Arcane' => 10]);
+        $helper->addTypesToFeat($feat, ['Shadow', 'Darkness', 'Talent', 'Arcane' => 10]);
         $feat->parent_feats()->save(app()->feats['Shadow Jump']);
 
         $feat              = new Feat;
@@ -1139,7 +1153,7 @@ class FeatsArcaneSeeder extends Seeder
         <p>Some small dwarven clans have been known to hire a Metal Transmuter and sell their transmuted metals as if they were dwarven mined.</p>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Transmutation', 'Arcane' => 6]);
+        $helper->addTypesToFeat($feat, ['Transmutation', 'Talent', 'Arcane' => 6]);
         $feat->parent_feats()->save(app()->feats['Expert Transmuter']);
 
         $feat              = new Feat;
@@ -1149,7 +1163,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You gain an Additional Foretelling Die. This Additional Foretelling Die must be given to an ally at the time that your roll for your Foretelling Die results. You regain this Foretelling Die at the start of each Long Rest. If the target does not use their Foretelling Die before the start of your Long Rest, they lose it.</li>
     <li>Whenever you roll your Foretelling Dice, you may add 1 to the results. This includes the Foretelling Die that you give to an ally.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divination', 'Arcane' => 6]);
+        $helper->addTypesToFeat($feat, ['Divination', 'Talent', 'Arcane' => 6]);
         $feat->parent_feats()->save(app()->feats['Diviner']);
 
         $feat              = new Feat;
@@ -1173,7 +1187,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You can spend Spell Points instead of higher Spell Slots to Heighten a Spell, 2 Spell Points per +1 Heighten. You must be wielding a Wand or Staff to use this ability.</li>
     <li>You gain the ability to use up all the remaining Charges of a Wand as an Action and shoot a Ranged Touch Attack Ray with a Range of 120 ft that deals 1D6 Damage per Charge, then an additional +3D6. Treat the Ray as if it had Ghost Touch and deals Double Damage to Undead and Contructs. This damage is not typed and only creatures that are immune to Magic are not affected. The wand then becomes non-magical but can be used to Craft a new Wand.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Wand', 'Arcane', 'Fighter Feat', 'Generic' => 15]);
+        $helper->addTypesToFeat($feat, ['Wand', 'Arcane', 'Fighter Feat', 'Generic' => 15, 'Spend Spell Point']);
         $feat->parent_feats()->save(app()->feats['Expert Wand Caster']);
 
         $feat              = new Feat;
@@ -1198,7 +1212,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>You may now add Metamagic Feats to spells you cast using a Heroic Surge to fulfil the Somatic Casting.</li>
 </ul>
 <p>You may take this Feat multiple times.</p>';
-        $helper->addTypesToFeat($feat, ['Arcane' => 7]);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Heroic Surge', 'Arcane' => 7]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Polymorph';
@@ -1232,7 +1246,7 @@ class FeatsArcaneSeeder extends Seeder
     <li>Increase your WIS by +1, to a maximum of 20.</li>
     <li>As a Free Action once at the end of your Turn, you may increase or decrease your Initiative by 1.</li>
     <li>Whenever you cast any Spell with the Divination type, for the next hour, you gain a +4 bonus to Insight and Perception skill checks. This bonus is magical in nature and you can be detected by Detect Magic.</li>
-    <li>You gain a +4 bonus to your Save vs. being Charmed or Controled.</li>
+    <li>You gain a +2 bonus to your Save vs. being Charmed or Controled.</li>
 </ul>';
         $helper->addTypesToFeat($feat, ['Divination', 'Ability Boost', 'Arcane' => 5]);
         $feat->parent_feats()->save(app()->feats['Diviner']);

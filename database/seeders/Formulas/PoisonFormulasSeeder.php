@@ -272,7 +272,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>10 minutes</dd>
     <dt>Maximum Duration</dt> <dd>10 rounds</dd>
-    <dt>Stage 1</dt> <dd>Sluggish 4 (-20 ft movement speed penalty, and a -4 penalty to Reflex saves and Dexterity checks) (5 rounds) (CON DC 12)</dd>
+    <dt>Stage 1</dt> <dd>Sluggish 4 (-20 ft movement speed penalty, and a -4 penalty to DEX Saves and Dexterity checks) (5 rounds) (CON DC 12)</dd>
     <dt>Stage 2</dt> <dd>Paralyzed (5 rounds) (CON DC 12)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Ingested', 'Poison', 'Plant'], [
@@ -392,8 +392,8 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>1 round</dd>
     <dt>Maximum Duration</dt> <dd>3 rounds</dd>
-    <dt>Stage 1</dt> <dd>The target takes a -4 penalty on all melee attack rolls, Strength checks, and Strength saving throws (1 round) (WILL DC 13)</dd>
-    <dt>Stage 2</dt> <dd>1D6 Positive energy damage from the catalyzed holy water core (1 round) (WILL DC 13)</dd>
+    <dt>Stage 1</dt> <dd>The target takes a -4 penalty on all melee attack rolls, Strength checks, and STR Saves (1 round) (WIS DC 13)</dd>
+    <dt>Stage 2</dt> <dd>1D6 Positive energy damage from the catalyzed holy water core (1 round) (WIS DC 13)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Poison', 'Undead'], [
             'skills' => [
@@ -546,7 +546,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>Immediate</dd>
     <dt>Maximum Duration</dt> <dd>1 minute</dd>
-    <dt>Stage 1</dt> <dd>The undead creature is completely unable to cast spells, manifest powers, or activate any spell-like or supernatural abilities (1 minute) (WILL DC 14)</dd>
+    <dt>Stage 1</dt> <dd>The undead creature is completely unable to cast spells, manifest powers, or activate any spell-like or supernatural abilities (1 minute) (WIS DC 14)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Contact', 'Poison', 'Undead'], [
             'skills' => [
@@ -736,7 +736,7 @@ class PoisonFormulasSeeder extends Seeder
         $formula->price       = '250 gp';
         $formula->method      = 'Ingested';
         $formula->description = "<p>This translucent green liquid is distilled from the milk of a rare desert cactus. It induces sudden, severe dehydration, forcing the target's body into rapid shock.</p>
-<p><strong>Effect:</strong> A creature that ingests this poison must succeed on a <strong>DC 13 Constitution saving throw</strong> or become poisoned.</p>
+<p><strong>Effect:</strong> A creature that ingests this poison must succeed on a <strong>DC 13 CON Save</strong> or become poisoned.</p>
 <dl>
     <dt>Onset</dt> <dd>1 hour</dd>
     <dt>Maximum Duration</dt> <dd>24 hours (or until cured)</dd>
@@ -838,8 +838,8 @@ class PoisonFormulasSeeder extends Seeder
     <dt>Onset</dt> <dd>30 minutes</dd>
     <dt>Maximum Duration</dt> <dd>7 days</dd>
     <dt>Stage 1</dt> <dd>The target is unable to sleep and gains the Fatigued condition. (1 day) (CON DC 24)</dd>
-    <dt>Stage 2</dt> <dd>The target remains Fatigued, cannot sleep, and takes a -1 status penalty to all Will saving throws due to sleep deprivation. (1 day) (CON DC 24)</dd>
-    <dt>Stage 3</dt> <dd>The target remains Fatigued, cannot sleep, and the status penalty to Will saving throws increases to -2. (1 day) (CON DC 24)</dd>
+    <dt>Stage 2</dt> <dd>The target remains Fatigued, cannot sleep, and takes a -1 status penalty to all WIS Saves due to sleep deprivation. (1 day) (CON DC 24)</dd>
+    <dt>Stage 3</dt> <dd>The target remains Fatigued, cannot sleep, and the status penalty to WIS Saves increases to -2. (1 day) (CON DC 24)</dd>
     <dt>Stage 4</dt> <dd>The target remains Fatigued, cannot sleep, and becomes Stupefied 1 from severe hallucinations. (1 day) (CON DC 24)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Ingested', 'Poison'], [
@@ -873,7 +873,7 @@ class PoisonFormulasSeeder extends Seeder
         $formula->level       = 11;
         $formula->price       = '1,600 gp';
         $formula->method      = 'Injury';
-        $formula->description = '<p>This glowing red liquid is extremely powerful but highly volatile. If the poison vial is exposed to fire damage, or if a creature carrying it fails a Reflex save against an explosion, it denatures instantly and becomes useless.</p>
+        $formula->description = '<p>This glowing red liquid is extremely powerful but highly volatile. If the poison vial is exposed to fire damage, or if a creature carrying it fails a DEX Save against an explosion, it denatures instantly and becomes useless.</p>
 <dl>
     <dt>Onset</dt> <dd>1 round</dd>
     <dt>Maximum Duration</dt> <dd>1 round</dd>
@@ -891,12 +891,12 @@ class PoisonFormulasSeeder extends Seeder
         $formula->level       = 3;
         $formula->price       = '300 gp';
         $formula->method      = 'Injury';
-        $formula->description = '<p>This iconic poison is typically crafted only by the drow, using ingredients harvested far from the touch of sunlight. If the target critically fails their saving throw (rolls a natural 1 or fails the DC by 5 or more), they immediately skip to Stage 3.</p>
+        $formula->description = '<p>This iconic poison is typically crafted only by the drow, using ingredients harvested far from the touch of sunlight. If the target critically fails their saving throw (rolls a natural 3 or less on 2D10), they immediately skip to Stage 3.</p>
 <dl>
     <dt>Onset</dt> <dd>1 round</dd>
     <dt>Maximum Duration</dt> <dd>1 hour</dd>
-    <dt>Stage 1</dt> <dd>Takes 1 point of poison damage and becomes Sluggish 1 (-1 penalty to AC, attack rolls, and Reflex saves) for 1d4 rounds. (CON DC 13)</dd>
-    <dt>Stage 2</dt> <dd>Becomes Sluggish 2 (-2 penalty to AC, attack rolls, and Reflex saves) for 1d4 rounds. (CON DC 13)</dd>
+    <dt>Stage 1</dt> <dd>Takes 1 point of poison damage and becomes Sluggish 1 (-1 penalty to AC, attack rolls, and DEX Saves) for 1d4 rounds. (CON DC 13)</dd>
+    <dt>Stage 2</dt> <dd>Becomes Sluggish 2 (-2 penalty to AC, attack rolls, and DEX Saves) for 1d4 rounds. (CON DC 13)</dd>
     <dt>Stage 3</dt> <dd>Falls unconscious into a deep sleep for 1 hour. The creature can be awoken early if it takes damage or if an ally uses a standard action to shake it awake. (CON DC 13)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Injury', 'Poison'], [
@@ -916,7 +916,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>3 rounds</dd>
     <dt>Maximum Duration</dt> <dd>1 hour</dd>
-    <dt>Stage 1</dt> <dd>Takes 3d6 poison damage and becomes Sluggish 3 (-3 penalty to AC, attack rolls, and Reflex saves) for 1 minute. (CON DC 23)</dd>
+    <dt>Stage 1</dt> <dd>Takes 3d6 poison damage and becomes Sluggish 3 (-3 penalty to AC, attack rolls, and DEX Saves) for 1 minute. (CON DC 23)</dd>
     <dt>Stage 2</dt> <dd>Takes 1d6 poison damage. (CON DC 23)</dd>
     <dt>Stage 3</dt> <dd>Takes 1d6 poison damage. The target must continue repeating the saving throw every minute; they suffer this damage and remain trapped in Stage 3 on each failed save until the maximum duration expires or the poison is cured. (CON DC 23)</dd>
 </dl>';
@@ -1439,7 +1439,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>1 minute</dd>
     <dt>Maximum Duration</dt> <dd>12 minutes</dd>
-    <dt>Stage 1</dt> <dd>Takes 1d4 Wisdom drain and suffers vivid hallucinations for 2d6 minutes, giving them a -2 penalty to all Will saves and visual perception checks. (CON DC 14)</dd>
+    <dt>Stage 1</dt> <dd>Takes 1d4 Wisdom drain and suffers vivid hallucinations for 2d6 minutes, giving them a -2 penalty to all WIS Saves and visual perception checks. (CON DC 14)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Consumable', 'Ingested', 'Poison', 'Plant'], [
             'skills' => [
@@ -1516,7 +1516,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>5 rounds</dd>
     <dt>Maximum Duration</dt> <dd>Until at least 8 hours of bed rest</dd>
-    <dt>Stage 1</dt> <dd>Gains the Deafened condition for 10 minutes, and suffers a -2 penalty to all attack rolls, Dexterity-based saving throws, and skill checks. This penalty lasts until the target completes at least 8 hours of bed rest. (CON DC 15)</dd>
+    <dt>Stage 1</dt> <dd>Gains the Deafened condition for 10 minutes, and suffers a -2 penalty to all attack rolls, DEX Saves, and skill checks. This penalty lasts until the target completes at least 8 hours of bed rest. (CON DC 15)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Ingested', 'Poison'], [
             'skills' => [
@@ -1861,7 +1861,7 @@ class PoisonFormulasSeeder extends Seeder
     <dt>Onset</dt> <dd>10 minutes</dd>
     <dt>Maximum Duration</dt> <dd>Until at least 8 hours of bed rest</dd>
     <dt>Stage 1</dt> <dd>The target\'s breathing rate spikes for 5 minutes, giving them a -2 penalty to Stealth checks and preventing them from holding their breath. (CON DC 13)</dd>
-    <dt>Stage 2</dt> <dd>The target gains 1 level of Exhaustion, which persists until they complete at least 8 hours of bed rest. If the initial saving throw was a critical failure (rolling a natural 1 or failing the DC by 5 or more), the target gains 2 levels of Exhaustion instead. (CON DC 13)</dd>
+    <dt>Stage 2</dt> <dd>The target gains 1 level of Exhaustion, which persists until they complete at least 8 hours of bed rest. If the initial saving throw was a critical failure (rolling a natural 3 or less on 2D10), the target gains 2 levels of Exhaustion instead. (CON DC 13)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Consumable', 'Ingested', 'Poison', 'Plant'], [
             'skills' => [
@@ -2097,7 +2097,7 @@ class PoisonFormulasSeeder extends Seeder
 <dl>
     <dt>Onset</dt> <dd>1 round</dd>
     <dt>Maximum Duration</dt> <dd>5 rounds</dd>
-    <dt>Stage 1</dt> <dd>Becomes Petrified for 1d4 rounds. If the initial saving throw was a critical failure (rolling a natural 1 or failing the DC by 5 or more), the duration increases to 5 rounds. (CON DC 14)</dd>
+    <dt>Stage 1</dt> <dd>Becomes Petrified for 1d4 rounds. If the initial saving throw was a critical failure (rolling a natural 3 or less on 2D10), the duration increases to 5 rounds. (CON DC 14)</dd>
 </dl>';
         $helper->saveFormula($formula, ['Alchemical', 'Consumable', 'Ingested', 'Poison', 'Animal'], [
             'skills' => [

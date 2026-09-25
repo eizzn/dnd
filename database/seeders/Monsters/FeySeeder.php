@@ -10,8 +10,6 @@ class FeySeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -123,7 +121,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey', 'Beast'], [
             'stats'    => [6, 12, 12, 2, 13, 5, .5, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
         ]);
 
@@ -152,7 +150,6 @@ class FeySeeder extends Seeder
                 'Weapon Focus' => ['meta' => 'Claw'],
             ],
             'features' => [
-                'darkvision',
                 'resistance'    => ['meta' => 'Fire'],
                 'vulnerability' => ['meta' => 'Cold'],
             ],
@@ -269,7 +266,7 @@ class FeySeeder extends Seeder
                 'Psionic Fist',
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'immunity'   => ['meta' => 'Charm'],
             ],
             'powers' => [
@@ -331,11 +328,36 @@ class FeySeeder extends Seeder
     <dt>Scimitar</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 Slashing.</dd>
     <dt>Shortbow</dt> <dd>Range Weapon Attack, reach 80/320 ft, one target. 1D6 Piercing.</dd>
 </dl>';
-        $monster->description = '<p>Goblin society is built on cruelty, and not every goblin is willing to spend its life on the receiving end of it. A goblin that finds a spellcaster willing to take it in will often serve loyally and eagerly, not out of any love for its new master, but simply because servitude to one reasonable creature beats a lifetime of abuse under an entire tribe of them.</p>';
+        $monster->description = "<p>Goblins are a race of small and numerous fey, that have been dominated by their god away from their fey origins. They often live in underground caverns near the surface. The race is often, dominated by other goblinoids, most commonly hobgoblins.</p>
+<p>Goblins usually stand between 3`4\" - 3`8\" and weigh about 40-55 lbs on average. They have flat faces, sloped-back foreheads, broad noses, pointed ears, and small sharp fangs, with eyes that vary in color from red to yellow. Their skin color ranges from yellow through any shade or orange to a deep red, through they also com in shades of green. All members of the same tribe normally share the same skin color.</p>
+<p>Goblins typically dress in dark leathers soiled by poor hygiene and colored in a similar range of tones to their skin.</p>
+<h3>Personality</h3>
+<p>Like other goblinoids, goblins often have a short temper, and are more easily provoked than individuals of most other races. They often find it difficult to overcome this short fuse, and have a sense of greed that made it difficult for them to act altruistically. They also generally take sadistic pleasure in exacting revenge once crossed.</p>
+<p>Young goblins are taught from an early age to rely only on themselves, and that to survive, they need to be aggressive and ruthless. To a goblin, it doesn't seem logical to treat others as well as or better than you will treat yourself; rather, they believe in preemptively removing potential rivals before they can become a threat. Expatriated goblins sometimes try to recreate the circumstances of their culture, preying on the weaknesses of others in non-goblin communities.</p>
+<p>Despite their generally poor reputation however, not all goblins are dim-witted or evil. Some goblins rise to become heroes, gaining enough renown to be accepted into the civilized world of other, more commonly good races. Those goblins seeking this path may find it difficult to overcome their temper and greed, as well as the cultural influence of their brethren, but those who do often find it can be more rewarding, in the long run at least, to serve good rather than to serve evil.[15] Those that do often make use of their ill-gained talents as rogues or fighters.</p>
+<h3>Combat</h3>
+<p>Being bullied by bigger, stronger creatures have taught goblins to exploit what few advantages they have, namely sheer numbers and malicious ingenuity. They favor ambushes, overwhelming odds, dirty tricks, and any other edges they can devise, the concept of a fair fight being meaningless in their society.</p>
+<p>Goblins are an elusive and nimble race, which enables them to slip away from danger more easily than most. In combat, goblins often use this advantage to sneak up on enemies and deal them a blow from hiding and then slip away before they can be retaliated against.</p>
+<p>When they have superior numbers in battle, goblins attempt to flank lone combatants. Retreat or surrender is their general response to being outmatched.</p>
+<p>Goblins are often known to fight with military picks, morningstars, short swords, slings, and spears.</p>
+<h3>Society</h3>
+<p>Goblin society is tribal, typically led by the strongest or smartest who claim the best weapons, often rising through aggression, betrayal, or as clerics. Due to this violent culture, goblins frequently fall under the domination of larger, more powerful groups, especially hobgoblins and bugbears.</p>
+<p>Goblins have little concept of privacy, living and sleeping in large communal areas with only the leaders living separately in their own private chambers. As such, goblin lairs are often stinking or soiled, though easily defended when under assault and layered with simple traps for such purposes. The innermost chambers of goblin lairs are usually the most densely-populated and well-defended. Goblin settlements are often filled with young goblin children, partially due to gender roles, though young goblins do not outnumber adults since their lives are often at least as dangerous as their forebears.</p>
+<p>Goblin society relies on dominant males to sustain the community through raiding and stealing by night, while females are expected to maximize childbearing to offset high mortality rates. Consequently, many goblins who leave to live among other races are females escaping these rigid societal expectations.</p>
+<p>Some goblin tribes are not above waylaying travelers on the road or in forests and stripping them of their possessions. Goblins sometimes capture slaves to perform hard labor in the tribe's lair or camp.</p>
+<p>Goblin society is built on cruelty, and not every goblin is willing to spend its life on the receiving end of it. Some goblins, mostly female (due to goblin society being even more difficult for females) will escape their tribe. Rarely, a goblin will be willing to be a familiar so long as they are treated reasonably (this is due to their fey background). Goblin Familiars are still not able (unwilling) to fight. If they become Animal Companions (by gaining levels in classes) then they are capable of fighting.</p>
+<h3>Relationships</h3>
+<p>Goblins are often considered little more than a nuisance. They do not get along well with most other races and are particularly suspicious of other goblinoids. Goblins have a somewhat ambivalent relationship with orcs and half-orcs, whom they work with on occasion, but the only true allies of the goblin race are worgs, who often act as mounts and fighting companions for goblins.</p>
+<p>Goblins have particularly adverse relationships with dwarves, gnomes, and Tel-quessir (elves).</p>
+<p>Some are known to domesticate worgs.</p>
+<h3>Religion</h3>
+<p>Goblins primarily worship members of the goblinoid pantheon, such as Maglubiyet in particular, who inspires them with his feats of strength and treachery. Following the Spellplague and prior to the Second Sundering, however, the power of the Black Lord Bane grows and extends his power over Maglubiyet, making the goblin god one of his exarchs. Following the Second Sundering, goblins again worship deities such as Maglubiyet and Khurgorbaeyag.</p>
+<h3>Homelands</h3>
+<p>Goblins often inhabit temperate plains, though many are also known to live in caverns or underground.</p>";
         $helper->saveMonster($monster, ['Goblin', 'Fey', 'Animal Companion'], [
             'stats'    => [8, 14, 10, 10, 8, 8, .25, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'skills' => [
                 'Stealth' => ['dc' => 6],
@@ -362,7 +384,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Goblin', 'Fey'], [
             'stats'    => [13, 12, 12, 10, 10, 9, .5, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats'   => ['Power Attack'],
             'classes' => [
@@ -392,7 +414,7 @@ class FeySeeder extends Seeder
                 'Survival' => ['dc' => 2],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'feats'   => ['Power Attack', 'Sudden Strike'],
             'classes' => [
@@ -444,7 +466,7 @@ class FeySeeder extends Seeder
             ],
             'feats'    => ['Hag Spellcaster'],
             'features' => [
-                'darkvision'      => ['meta' => '60 ft'],
+                'darkvision'      => ['meta' => '{"range":60}'],
                 'vulnerability'   => ['meta' => 'Fire'],
                 'favored_terrain' => ['meta' => 'Bogs and Swamps'],
             ],
@@ -485,7 +507,7 @@ class FeySeeder extends Seeder
             'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'amphibious',
-                'darkvision' => ['meta' => '60 ft'],
+                'darkvision' => ['meta' => '{"range":60}'],
             ],
             'languages' => ['Sylvan', 'Aquan', 'Special' => ['meta' => '1 Region language']],
         ]);
@@ -531,7 +553,7 @@ class FeySeeder extends Seeder
             'feats'    => ['Hag Spellcaster'],
             'features' => [
                 'amphibious',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'innate_spellcasting' => ['meta' => 'CD 12'],
             ],
             'spells' => [
@@ -575,7 +597,7 @@ class FeySeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Cold'],
                 'resistance'          => ['meta' => 'Electricity, Sonic'],
                 'innate_spellcasting' => ['meta' => 'CD 13'],
@@ -636,7 +658,7 @@ class FeySeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'immunity'            => ['meta' => 'Cold'],
                 'resistance'          => ['meta' => 'Fire'],
                 'vulnerability'       => ['meta' => 'Acid, Electricity'],
@@ -692,7 +714,7 @@ class FeySeeder extends Seeder
             ],
             'feats'    => ['Hag Spellcaster'],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'resistance'          => ['meta' => 'Cold, [Bludgeoning, Piercing, Slashing] (Cold Iron, Silvered)'],
                 'innate_spellcasting' => ['meta' => 'CD 13'],
             ],
@@ -760,7 +782,7 @@ class FeySeeder extends Seeder
             ],
             'features' => [
                 'magic_resistance',
-                'darkvision'          => ['meta' => '120 ft'],
+                'darkvision'          => ['meta' => '{"range":120}'],
                 'resistance'          => ['meta' => 'Cold, Fire, [Bludgeoning, Piercing, Slashing] (Cold Iron, Silvered)'],
                 'immunity'            => ['meta' => 'Charmed'],
                 'innate_spellcasting' => ['meta' => 'CD 14'],
@@ -858,7 +880,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey', 'Good', 'Animal Companion'], [
             'stats'    => [3, 20, 15, 15, 10, 18, 0, 1],
             'features' => [
-                'darkvision',
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Cold Iron'],
             ],
             'languages' => ['Sylvan'],
@@ -884,7 +906,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'    => [7, 20, 12, 16, 15, 16, 1, 2],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'innate_spellcasting' => ['meta' => 'DC 13'],
             ],
             'feats' => ['Weapon Finesse'],
@@ -910,7 +932,7 @@ class FeySeeder extends Seeder
         $monster->armor_class      = '13 (Natural Armor)';
         $monster->hit_dice         = 2;
         $monster->speed            = '15 ft / Fly 60 ft';
-        $monster->description      = '<p>A pseudodragon are a small dragon-kin known to be playful. Pseudodragons typically had bodies about 1 foot (30 centimeters) long, with a 2‑foot-long (61‑centimeter) tail and weighed about 7 pounds (3.2 kilograms). They have chameleon-like abilities, though their color are usually a brownish red.</p>
+        $monster->description      = '<p>Pseudodragons are a small dragon-kin known to be playful. Pseudodragons typically had bodies about 1 foot (30 centimeters) long, with a 2‑foot-long (61‑centimeter) tail and weighed about 7 pounds (3.2 kilograms). They have chameleon-like abilities, though their color are usually a brownish red.</p>
 <p>Their general attitude is similar to that of a small cat but with a cunning intelligence. They are wary of evil beings, but are willing to serve as a companion to another being if treated well and respected.</p>
 <p>A pseudodragon often vocalizes animal noises. A rasping purr indicates pleasure, while a hiss means unpleasant surprise. A bird-like chirping represents desire, and a growl always means anger or discontent.</p>
 <p>In the wild, pseudodragons often seek out quiet places to inhabit such as the hollows of trees and small caves. They are likely to be found in temperate forests.</p>
@@ -930,7 +952,8 @@ class FeySeeder extends Seeder
             ],
             'features'  => [
                 'magic_resistance',
-                'darkvision',
+                'darkvision' => ['meta' => '{"range":60}'],
+                'blindsight' => ['meta' => '{"range":10}'],
                 'camouflage',
                 'keen_sense' => ['meta' => 'Sight, Hearing, or Smell'],
             ],
@@ -956,7 +979,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey'], [
             'stats'    => [4, 23, 13, 10, 12, 7, 1, 2],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'multi_attack' => ['meta' => 'The quickling gains an additional Action. This additional Action can be used for any Action'],
             ],
             'skills' => [
@@ -1101,7 +1124,7 @@ class FeySeeder extends Seeder
         $monster->actions          = "<dl>
     <dt>Thorn Longsword</dt> <dd>Melee Weapon Attack, reach 5 ft, one target. 1D6 + 3 Piercing/Slashing.</dd>
     <dt>Longbow</dt> <dd>Ranged Weapon Attack, range 100/400 ft, one target. 1D6 Piercing.</dd>
-    <dt>Sleep Arrows (Ex)</dt> <dd>Any opponent struck by a thorn's arrow, regardless of Hit Dice, must succeed on a DC 16 Fortitude save or be affected as though by a sleep spell. The save DC is Charisma-based.</dd>
+    <dt>Sleep Arrows (Ex)</dt> <dd>Any opponent struck by a thorn's arrow, regardless of Hit Dice, must succeed on a DC 16 CON Save or be affected as though by a sleep spell. The save DC is Charisma-based.</dd>
     <dt>Sneak Attack (Ex)</dt> <dd>The thorn deals an extra 2D6 points of damage on a successful attack when it has advantage or flags a target that is caught flat-footed.</dd>
 </dl>";
         $monster->description  = '<p>Thorns generally do not pick fights, but they will attack anyone or anything that threatens or harms other fey. They are sneaky creatures that launch vicious attacks from hiding.</p>
@@ -1111,7 +1134,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey', 'Neutral', 'Animal Companion'], [
             'stats'    => [16, 15, 13, 10, 10, 13, 3, 4],
             'features' => [
-                'darkvision',
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Cold Iron'],
             ],
             'languages' => ['Sylvan'],
@@ -1167,7 +1190,7 @@ class FeySeeder extends Seeder
         $helper->saveMonster($monster, ['Fey', 'Animal Companion'], [
             'stats'    => [3, 15, 10, 11, 12, 12, 0, 2],
             'features' => [
-                'darkvision' => ['meta' => '60 feet'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'keen_sense' => ['meta' => 'Smell. Can detect Poison by Taste, Touch, or Smell'],
             ],
             'spells' => [
@@ -1300,7 +1323,7 @@ class FeySeeder extends Seeder
                 'Perception' => ['dc' => 8],
             ],
             'features' => [
-                'darkvision'   => ['meta' => '60 ft.'],
+                'darkvision'   => ['meta' => '{"range":60}'],
                 'multi_attack' => ['meta' => 'The chimera gains an additional Action. This additional Action can only be used by the dragon head (bite or breath). This additional Action cannot be used while flying.'],
             ],
             'languages' => ['Auld Wyrmish' => ['meta' => 'Cannot speak']],
@@ -1335,7 +1358,7 @@ class FeySeeder extends Seeder
                 'Perception' => ['dc' => 5],
             ],
             'features' => [
-                'darkvision' => ['meta' => '60 ft.'],
+                'darkvision' => ['meta' => '{"range":60}'],
                 'keen_sense' => ['meta' => 'Sight'],
             ],
         ]);
@@ -1398,7 +1421,7 @@ class FeySeeder extends Seeder
             'skills'    => ['Perception' => ['dc' => 5]],
             'features'  => [
                 'immunity'             => ['meta' => 'Charmed, Exhaustion, Frightened, (Bludgeoning, Piercing, and Slashing from non-magical and non-Silvered physical attacks)'],
-                'darkvision'           => ['meta' => '60 ft'],
+                'darkvision'           => ['meta' => '{"range":60}'],
                 'sunlight_sensitivity' => ['meta' => '1D6 Light damage per round of exposure to Sunlight'],
             ],
             'languages' => [
@@ -1425,7 +1448,7 @@ class FeySeeder extends Seeder
             'stats'    => [16, 13, 13, 7, 11, 8, .5, 2],
             'skills'   => ['Perception' => ['dc' => 4]],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'keen_sense'    => ['meta' => 'Hearing and Smell'],
             ],
             'languages' => ['Ghukliak', 'Sylvan'],

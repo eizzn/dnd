@@ -42,7 +42,7 @@ class MonstersASeeder extends Seeder
                 'Insight'    => ['dc' => 5],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Unholy'],
                 'resistance'    => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -82,7 +82,7 @@ class MonstersASeeder extends Seeder
                 'Survival'     => ['dc' => 14],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Unholy'],
                 'resistance'    => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -127,7 +127,7 @@ class MonstersASeeder extends Seeder
                 'Survival'     => ['dc' => 4],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Unholy'],
                 'resistance'    => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -173,7 +173,7 @@ class MonstersASeeder extends Seeder
                 'Survival'      => ['dc' => 1],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Unholy'],
                 'resistance'    => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -220,7 +220,7 @@ class MonstersASeeder extends Seeder
                 'Survival'      => ['dc' => 2],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Anarchic, Unholy'],
                 'resistance'    => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -271,7 +271,7 @@ class MonstersASeeder extends Seeder
                 'Society'       => ['dc' => 15],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Unholy'],
                 'resistance'          => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],
@@ -331,7 +331,7 @@ class MonstersASeeder extends Seeder
                 'Society'       => ['dc' => 28],
             ],
             'features' => [
-                'darkvision'          => ['meta' => '60 ft'],
+                'darkvision'          => ['meta' => '{"range":60}'],
                 'vulnerability'       => ['meta' => 'Anarchic, Unholy'],
                 'resistance'          => ['meta' => 'Poison, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'            => ['meta' => 'Charmed, Electricity, Petrification'],

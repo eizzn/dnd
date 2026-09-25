@@ -36,13 +36,13 @@ class PsionicTalentsSeeder extends Seeder
         $talent->requirement = 'You must have the Chameleon Psychometabolism power';
         $talent->action_type = 'Free';
         $talent->description = '<p>As part of using this Talent, spend 1 Power Point. You become invisible until the end of this current turn cycle. You do not become visible for Attacking, Casting Spells or Manifesting Powers.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 2, 'Psychometabolism', 'Psionic']);
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 2, 'Psychometabolism', 'Psionic', 'Spend Power Point']);
 
         $talent              = new Talent;
         $talent->name        = 'Clinging Shadow Strike';
         $talent->action_type = 'Action';
         $talent->description = '<p>You make a single melee attack and spend 1 Power Point. If it hits, you deal an extra 1D6 Damage, and the target must make a CON Save (DC 11 + your WIS modifier) or suffer a 20% Miss Chance on all Melee and Ranged attacks for 1 round. A successful save negates the Miss Chance, but not the extra damage.</p>';
-        $helper->addTypesToSimpleObject($talent, ['Talent' => 3]);
+        $helper->addTypesToSimpleObject($talent, ['Talent' => 3, 'Spend Power Point']);
 
         $talent              = new Talent;
         $talent->name        = 'Sanctify Ki Strike';
@@ -80,7 +80,7 @@ class PsionicTalentsSeeder extends Seeder
     <li>You may spend 3 Power Points to gain the benefits of the Improved Two-Weapon Fighter Feat along with the Two-Weapon Fighter Feat when using Flurry of Blows.</li>
     <li>If at some point you gain the Improved Two-Weapon Fighter Feat, then you may choose to replace this Talent with the Greater Flurry of Blows Talent.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Talent' => 7]);
+        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Spend Power Point', 'Talent' => 7]);
 
         $talent              = new Talent;
         $talent->name        = 'Greater Flurry of Blows';
@@ -89,7 +89,7 @@ class PsionicTalentsSeeder extends Seeder
     <li>You may spend 5 Power Points to gain the benefits of the Greater Two-Weapon Fighter Feat instead of the Two-Weapon Fighter Feat when using Flurry of Blows.</li>
     <li>If at some point you gain the Greater Two-Weapon Fighter Feat, then you may choose to replace this Talent with any other Talent that you qualify for.</li>
 </ul>';
-        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Talent' => 12]);
+        $helper->addTypesToSimpleObject($talent, ['Psionic', 'Spend Power Point', 'Talent' => 12]);
 
         $talent              = new Talent;
         $talent->name        = 'Fist of the Heavens';

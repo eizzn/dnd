@@ -216,7 +216,7 @@ class SpellsUSeeder extends Seeder
 <ul>
     <li>You are able to know the basic purpose of a mechanical device (not magical abilities), what it is able to do. This reveals any mechanical traps connected to the device, or if the device itself is one elaborate trap. It does not reveal any magical traps.</li>
     <li>You can make Untrained Disable Device checks as if you had 1 rank in the skill. If you already have that skill, you gain a +4 Competence bonus to the check</li>
-    <li>If the device is a Construct, you gain a +4 Competence Bonus to hit, ignore any Damage Reduction, and deal an additional +10 Damage to any Melee Weapon or Ranged Weapon attack you make.</li>
+    <li>If the device is a Construct, you gain a +3 Competence Bonus to hit, ignore any Damage Reduction, and deal an additional +10 Damage to any Melee Weapon or Ranged Weapon attack you make.</li>
 </ul>';
         $spell->heightened    = "<dl>
     <dt>Heightened (+3)</dt> <dd>You learn the formula for creating the device (GM's discretion)</dd>

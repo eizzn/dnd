@@ -18,7 +18,7 @@ class FeatsTransformationsSeeder extends Seeder
         $feat->short_description = 'You become a Vampire Spawn';
         $feat->description       = "<p>You have been bitten by a Vampire and have accepted some of its blood, but you are not a full vampire.</p>
 <ul>
-    <li>Increase your DEX score by +1 to a maximum of 20</li>
+    <li>Increase your DEX score by +1 to a maximum of 20.</li>
     <li>You gain a pool of energy called Blood Points. You may have at most 2 Blood Point at one time. Certain Actions gain you Blood Points and you may spend Blood Points to take some Actions. At the rise of each new day, you automatically lose all your Blood Points.</li>
     <li>You gain a Bite Attack. You may only use this Bite attack against targets that you have successfully Grappled. If you deal damage with your Bite attack and the target is not Undead and not a Construct, you deal 1D4 Piercing damage + your STR modifier and 1D6 Negative damage. You heal damage equal to the Negative damage you dealt. You also gain 1 Blood Point. If the creature dies from this damage, you gain 2 Blood Points instead. Creatures of Size Tiny or smaller provides no Blood Points.</li>
     <li>Your nails are as strong as Metal. You gain a Claw attack. It deals 1D4 +1 + STR modifier Slashing</li>
@@ -39,7 +39,7 @@ class FeatsTransformationsSeeder extends Seeder
     <li>If you gain the Vampire's Curse feat, it replaces this feat and you may take another Feat.</li>
     <li>You cannot gain the Curse of Lycanthropy Feat</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Undead']);
+        $helper->addTypesToFeat($feat, ['Undead', 'Ability Boost']);
 
         $feat                    = new Feat;
         $feat->name              = "Vampire's Curse";

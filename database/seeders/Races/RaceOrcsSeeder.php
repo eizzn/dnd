@@ -44,7 +44,7 @@ class RaceOrcsSeeder extends Seeder
         $subrace->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your CON score increases by +1</dd>
     <dt>Primal Intuition</dt> <dd>
-        You have proficiency in two of the following skills of your choice.
+        Two of the following skills of your choice count as class skills for you.
         <ul>
             <li>Animal Handling</li>
             <li>Insight</li>

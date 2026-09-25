@@ -126,7 +126,7 @@ class UndeadSeeder extends Seeder
         $helper->saveMonster($monster, ['Undead'], [
             'stats'    => [13, 15, null, 7, 10, 6, 1, 2],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'immunity'      => ['meta' => 'Poison, Negative, Exhaustion'],
                 'vulnerability' => ['meta' => 'Positive, Holy'],
             ],
@@ -177,7 +177,7 @@ class UndeadSeeder extends Seeder
             'hit_points' => 20,
             'stats'      => [16, 17, null, 11, 10, 8, 2, 2],
             'features'   => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'immunity'      => ['meta' => 'Poison, Negative, Exhaustion'],
                 'vulnerability' => ['meta' => 'Positive, Holy'],
                 'aura'          => ['meta' => 'Stench. Any creature that starts its turn within 10 feet must make a DC 10 CON Save or Sick: 1. A successful Save makes the target immune to this effect for 24 hours'],
@@ -205,7 +205,7 @@ class UndeadSeeder extends Seeder
             'hit_points' => 10,
             'stats'      => [15, 14, null, 10, 13, 15, 3, 2],
             'features'   => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => '[Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Exhaustion'],
                 'vulnerability' => ['meta' => 'Positive, Holy'],
@@ -236,7 +236,7 @@ class UndeadSeeder extends Seeder
             'hit_points' => 10,
             'stats'      => [null, 14, null, 10, 10, 11, 1, 2],
             'features'   => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained'],
@@ -265,7 +265,7 @@ class UndeadSeeder extends Seeder
             'hit_points' => 12,
             'stats'      => [null, 14, null, 10, 10, 11, 2, 2],
             'features'   => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Restrained'],
@@ -292,7 +292,7 @@ class UndeadSeeder extends Seeder
             'hit_points' => 20,
             'stats'      => [null, 16, null, 12, 14, 15, .5, 2],
             'features'   => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone'],
                 'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
                 'sunlight_sensitivity', 'incorporeal',
@@ -319,7 +319,7 @@ class UndeadSeeder extends Seeder
         $helper->saveMonster($monster, ['Undead', 'Incorporeal'], [
             'stats'    => [null, 14, null, 10, 10, 11, 1, 2],
             'features' => [
-                'darkvision'    => ['meta' => '60 ft'],
+                'darkvision'    => ['meta' => '{"range":60}'],
                 'resistance'    => ['meta' => 'Acid, Cold, Fire, Electricity, Sonic, [Bludgeoning, Piercing, Slashing]'],
                 'immunity'      => ['meta' => 'Poison, Negative, Charmed, Exhaustion, Grapple, Paralyzed, Petrified, Prone, Unconscious'],
                 'vulnerability' => ['meta' => 'Positive, Holy, Silver, Gold, Platinum, Mithral, Adamantine'],
@@ -387,7 +387,7 @@ class UndeadSeeder extends Seeder
                 'Stealth'    => ['dc' => 6],
             ],
             'features' => [
-                'darkvision'    => ['meta' => '180 ft'],
+                'darkvision'    => ['meta' => '{"range":180}'],
                 'vulnerability' => ['meta' => 'Positive, Holy'],
                 'resistance'    => ['meta' => 'Cold, Fire, Negative, [Bludgeoning, Piercing, Slashing'],
                 'immunity'      => ['meta' => 'Charmed, Frightened, Poison'],
@@ -458,7 +458,7 @@ class UndeadSeeder extends Seeder
                 'CHA' => ['bonus' => 9],
             ],
             'features'   => [
-                'darkvision'    => ['meta' => '120 feet'],
+                'darkvision'    => ['meta' => '{"range":120}'],
                 'resistance'    => ['meta' => 'Necrotic, [Bludgeoning, Piercing, Slashing]'],
                 'multi_attack'  => ['meta' => 'If the vampire makes a successful Unarmed Strike attack, it gains an additional Action. This additional Action can only be used to make a Bite attack. The vampire can only gain this additional Action once per turn.'],
             ],

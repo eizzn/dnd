@@ -29,7 +29,7 @@ class ClassSacredFistSeeder extends Seeder
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
             'has_spells'     => 1,
             'has_powers'     => 1,
         ], ['DEX', 'CON', 'WIS', 'CHA'], [

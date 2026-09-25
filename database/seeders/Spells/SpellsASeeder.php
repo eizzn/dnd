@@ -576,7 +576,7 @@ class SpellsASeeder extends Seeder
     <li>Whether the portal is one-way or two-way.</li>
     <li>A glimpse of the area where the portal leads. You can look at the area where the portal leads for 1 round; the range of your vision is the spell's range. Analyze portal does not allow other divination spells or spell-like abilities to extend through the portal. For example, you cannot also use Detect Magic or Detect Evil to study the area where the portal leads while viewing the area with this spell.</li>
 </ul>
-<p>For each property, you make a caster level check (1d20 + caster level) against DC 17. If fail, you can try again in the next round. Analyze portal has only a limited ability to reveal unusual properties, as follows.</p>
+<p>For each property, you make a caster level check (2D10 + caster level) against DC 17. If fail, you can try again in the next round. Analyze portal has only a limited ability to reveal unusual properties, as follows.</p>
 <dl>
     <dt>Random Portals</dt> <dd>The spell reveals only that the portal is random and whether it can be activated now. It does not reveal when the portal starts or stops functioning.</dd>
     <dt>Variable Portals</dt> <dd>The spell reveals only that the portal is variable. If you study the portal's destination, the spell reveals only the destination to which the portal is currently set.</dd>
@@ -623,7 +623,7 @@ class SpellsASeeder extends Seeder
     <dt>Heightened (+2)</dt> <dd>The base duration, and the extra duration for spending 1 Spell Point, increases to 1 minute</dd>
     <dt>Heightened (+4)</dt> <dd>The base duration increases to 10 minutes. The extra duration for spending 1 Spell Point increases to 5 minutes.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Light'], 3);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Light', 'Spend Spell Point'], 3);
 
         $spell              = new Spell;
         $spell->name        = 'Animal Form';

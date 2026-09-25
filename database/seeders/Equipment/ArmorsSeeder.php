@@ -31,6 +31,8 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction' => ['value' => 1],
             'DEX Mod Cap'      => ['value' => 4],
             'Spell Failure'    => ['value' => '5%'],
+            'Hardness'         => ['value' => 3],
+            'Hit Points'       => ['value' => 4],
             // piercing dam reduction 0
         ]);
 
@@ -47,6 +49,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'      => ['value' => 1],
             'Damage Reduction' => ['value' => 1],
             'Spell Failure'    => ['value' => '10%'],
+            'Hardness'         => ['value' => 5],
+            'Hit Points'       => ['value' => 4],
             // piercing dam reduction 0
         ]);
 
@@ -61,9 +65,11 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 1],
-            'Damage Reduction'    => ['value' => '2 (1 vs. Slashing)'],
+            'Damage Reduction'    => ['value' => '2, Piercing: 1'],
             'Spell Failure'       => ['value' => '15%'],
             'Skill Check Penalty' => ['value' => 1],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 6],
         ]);
 
         $armor              = new Armor;
@@ -83,6 +89,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 11],
+            'Hit Points'          => ['value' => 7],
         ]);
 
         $armor              = new Armor;
@@ -100,6 +108,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 5],
         ]);
 
         $armor              = new Armor;
@@ -113,11 +123,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 1],
-            'Damage Reduction'    => ['value' => 4],
+            'Damage Reduction'    => ['value' => '4, Bludgeoning: 3'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '25%'],
             'Speed Penalty'       => ['value' => '5 ft'],
+            'Hardness'            => ['value' => 12],
+            'Hit Points'          => ['value' => 11],
         ]);
 
         $armor              = new Armor;
@@ -139,6 +151,8 @@ class ArmorsSeeder extends Seeder
             'Spell Failure'       => ['value' => '30%'],
             'Speed Penalty'       => ['value' => '5 ft'],
             'Minimum STR'         => ['value' => 13],
+            'Hardness'            => ['value' => 11],
+            'Hit Points'          => ['value' => 11],
         ]);
 
         $armor              = new Armor;
@@ -153,11 +167,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 2],
-            'Damage Reduction'    => ['value' => '5, Slashing: 7'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 4, Piercing: 5, Slashing: 7'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '25%'],
             'Speed Penalty'       => ['value' => '5 ft'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 11],
         ]);
 
         $armor              = new Armor;
@@ -172,11 +188,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => '7, Bludgeoning: 8'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 6, Piercing: 7, Slashing: 8'],
             'DEX Mod Cap'         => ['value' => 1],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            'Hardness'            => ['value' => 12],
+            'Hit Points'          => ['value' => 13],
         ]);
 
         $armor              = new Armor;
@@ -190,11 +208,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => '6, Slashing: 7'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 5, Piercing: 6, Slashing: 7'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 13],
         ]);
 
         $armor              = new Armor;
@@ -209,12 +229,14 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => '8, Slashing: 9, Piercing: 9'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 7, Slashing: 9, Piercing: 9'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 5],
             'Spell Failure'       => ['value' => '35%'],
             'Speed Penalty'       => ['value' => '10 ft'],
             'Minimum STR'         => ['value' => 16],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 15],
         ]);
 
         $armor              = new Armor;
@@ -229,6 +251,8 @@ class ArmorsSeeder extends Seeder
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'   => ['value' => 1],
             'Spell Failure' => ['value' => '1%'],
+            'Hardness'      => ['value' => 7],
+            'Hit Points'    => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -244,6 +268,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '5%'],
+            'Hardness'            => ['value' => 7],
+            'Hit Points'          => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -259,6 +285,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '10%'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 7],
         ]);
 
         $armor              = new Armor;
@@ -274,6 +302,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'         => ['value' => 3],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '15%'],
+            'Hardness'            => ['value' => 7],
+            'Hit Points'          => ['value' => 5],
         ]);
 
         $armor              = new Armor;
@@ -289,6 +319,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'         => ['value' => 3],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 9],
         ]);
 
         $armor              = new Armor;
@@ -305,6 +337,8 @@ class ArmorsSeeder extends Seeder
             'Skill Check Penalty' => ['value' => 10],
             'Spell Failure'       => ['value' => '50%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            'Hardness'            => ['value' => 8],
+            'Hit Points'          => ['value' => 11],
         ]);
 
         $armor              = new Armor;
@@ -322,6 +356,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 5],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '5%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -339,6 +375,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 5],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '10%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -356,6 +394,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 6],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '10%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -373,6 +413,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 6],
         ]);
 
         $armor              = new Armor;
@@ -390,6 +432,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 1],
             'Skill Check Penalty' => ['value' => 5],
             'Spell Failure'       => ['value' => '30%'],
+            'Hardness'            => ['value' => 14],
+            'Hit Points'          => ['value' => 16],
         ]);
 
         $armor              = new Armor;
@@ -408,6 +452,8 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction'    => ['value' => '2, Piercing: 0'],
             'DEX Mod Cap'         => ['value' => 6],
             'Spell Failure'       => ['value' => '10%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -422,10 +468,12 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 2],
-            'Damage Reduction'    => ['value' => 4],
+            'Damage Reduction'    => ['value' => '4, Piercing: 2'],
             'DEX Mod Cap'         => ['value' => 3],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 6],
         ]);
 
         $armor              = new Armor;
@@ -443,6 +491,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 6],
         ]);
 
         $armor              = new Armor;
@@ -459,6 +509,8 @@ class ArmorsSeeder extends Seeder
             'Damage Reduction' => ['value' => '1, Piercing: 0'],
             'DEX Mod Cap'      => ['value' => 4],
             'Spell Failure'    => ['value' => '5%'],
+            'Hardness'         => ['value' => 3],
+            'Hit Points'       => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -474,6 +526,8 @@ class ArmorsSeeder extends Seeder
             'Armor Class'      => ['value' => 1],
             'Damage Reduction' => ['value' => '1, Piercing: 0'],
             'Spell Failure'    => ['value' => '10%'],
+            'Hardness'         => ['value' => 5],
+            'Hit Points'       => ['value' => 4],
         ]);
 
         $armor              = new Armor;
@@ -487,9 +541,11 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 1],
-            'Damage Reduction'    => ['value' => '2, Slashing: 1'],
+            'Damage Reduction'    => ['value' => '2, Piercing: 1'],
             'Spell Failure'       => ['value' => '15%'],
             'Skill Check Penalty' => ['value' => 1],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 8],
         ]);
 
         $armor              = new Armor;
@@ -507,6 +563,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 1],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 11],
+            'Hit Points'          => ['value' => 15],
         ]);
 
         $armor              = new Armor;
@@ -524,6 +582,8 @@ class ArmorsSeeder extends Seeder
             'DEX Mod Cap'         => ['value' => 4],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '20%'],
+            'Hardness'            => ['value' => 5],
+            'Hit Points'          => ['value' => 8],
         ]);
 
         $armor              = new Armor;
@@ -537,11 +597,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 1],
-            'Damage Reduction'    => ['value' => 4],
+            'Damage Reduction'    => ['value' => '4, Bludgeoning: 3'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 2],
             'Spell Failure'       => ['value' => '25%'],
             'Speed Penalty'       => ['value' => '5 ft'],
+            'Hardness'            => ['value' => 12],
+            'Hit Points'          => ['value' => 11],
         ]);
 
         $armor              = new Armor;
@@ -555,12 +617,14 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 2],
-            'Damage Reduction'    => ['value' => 'Bludgeoning: 2, Slashing: 7, Piercing: 6'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 2, Piercing: 5, Slashing: 6'],
             'DEX Mod Cap'         => ['value' => 1],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '30%'],
             'Speed Penalty'       => ['value' => '5 ft'],
             'Minimum STR'         => ['value' => 15],
+            'Hardness'            => ['value' => 11],
+            'Hit Points'          => ['value' => 15],
         ]);
 
         $armor              = new Armor;
@@ -574,11 +638,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 2],
-            'Damage Reduction'    => ['value' => '5, Slashing: 7'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 4, Piercing: 5, Slashing: 7'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '25%'],
             'Speed Penalty'       => ['value' => '5 ft'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 15],
         ]);
 
         $armor              = new Armor;
@@ -592,11 +658,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => '7, Bludgeoning: 8'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 6, Piercing: 7, Slashing: 8'],
             'DEX Mod Cap'         => ['value' => 1],
             'Skill Check Penalty' => ['value' => 3],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            'Hardness'            => ['value' => 12],
+            'Hit Points'          => ['value' => 19],
         ]);
 
         $armor              = new Armor;
@@ -610,11 +678,13 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => '6, Slashing: 7'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 5, Piercing: 6, Slashing: 7'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 4],
             'Spell Failure'       => ['value' => '40%'],
             'Speed Penalty'       => ['value' => '10 ft'],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 19],
         ]);
 
         $armor              = new Armor;
@@ -628,12 +698,14 @@ class ArmorsSeeder extends Seeder
         $helper->addTypesToSimpleObject($armor, ['Cumbersome']);
         $helper->addPropertiesToSimpleObject($armor, [
             'Armor Class'         => ['value' => 3],
-            'Damage Reduction'    => ['value' => 'Bludgeoning: 8, Slashing: 9, Piercing: 9'],
+            'Damage Reduction'    => ['value' => 'Bludgeoning: 7, Slashing: 9, Piercing: 9'],
             'DEX Mod Cap'         => ['value' => 2],
             'Skill Check Penalty' => ['value' => 5],
             'Spell Failure'       => ['value' => '35%'],
             'Speed Penalty'       => ['value' => '10 ft'],
             'Minimum STR'         => ['value' => 18],
+            'Hardness'            => ['value' => 13],
+            'Hit Points'          => ['value' => 23],
         ]);
     }
 }

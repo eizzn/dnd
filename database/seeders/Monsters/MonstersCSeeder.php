@@ -184,7 +184,8 @@ class MonstersCSeeder extends Seeder
             'stats'    => [17, 15, 12, 13, 12, 14, 8, 3],
             'skills'   => ['Stealth' => ['dc' => 5]],
             'features' => [
-                'darkvision', 'sunlight_sensitivity',
+                'darkvision'       => ['meta' => '{"range":60}'],
+                'sunlight_sensitivity',
                 'false_appearance' => ['meta' => 'While the Cloaker remains motionless without its underside exposed, it is indistinguishable from a dark leather cloak.'],
             ],
         ]);

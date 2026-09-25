@@ -69,8 +69,8 @@ class GodsHelmSeeder extends Seeder
         $class->description   = '<p>Priest of Helm</p>';
         $helper->saveClass($class, [
             'hit_dice'       => 8,
-            'skill_points'   => 2,
-            'skill_progress' => 4,
+            'skill_points'   => 3,
+            'skill_progress' => 3,
         ], ['WIS', 'CHA'], [
             'Divine',
         ]);

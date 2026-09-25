@@ -22,32 +22,32 @@ class FeatsDivineSeeder extends Seeder
         $feat->name        = 'Improved Channel Divinity';
         $feat->description = '<p>You become better at Channeling your Divine power.</p>
 <ul>
-    <li>You gain 1 Spell Point</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You gain a +2 Bonus on any Channel Divinity rolls, including the roll for Cure Wounds</li>
     <li>Your Channel Divinity now only costs 1 Spell Point.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
         $feat->features()->save(app()->features['channel_divinity']);
 
         $feat              = new Feat;
         $feat->name        = 'Quick Channel Divinity';
         $feat->description = '<p>You become faster at using your Channel Divinity power.</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You gain an additional Action. This additional Action can only be used to use your Channel Divinity</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Extra Action', 'Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Extra Action', 'Divine' => 2, 'Channel Divinity', 'Generic' => 2]);
         $feat->features()->save(app()->features['channel_divinity']);
 
         $feat              = new Feat;
         $feat->name        = 'Empowered Channel Divinity';
         $feat->description = '<p>Your Channel Divinity becomes more powerful.</p>
 <ul>
-    <li>You gain 2 Spell Points</li>
+    <li>You gain 1 Spell Point.</li>
     <li>You gain a +5 Bonus on any Channel Divinity rolls, including the roll for Cure Wounds</li>
     <li>If you have the Channel Divinity Caster Class Feature, your spell is automatically Heightened +2</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Divine' => 2, 'Channel Divinity', 'Generic' => 3]);
+        $helper->addTypesToFeat($feat, ['Spell Pool', 'Divine' => 2, 'Channel Divinity', 'Generic' => 3]);
         $feat->features()->save(app()->features['channel_divinity']);
 
         $feat              = new Feat;
@@ -57,27 +57,27 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>Increase one of your Attributes by +1, to a maximum of 20</li>
     <li>You gain a Heroic Surge</li>
-    <li>If you have the Find Familiar feat, you may select a Musteval Guardinal by Sacrificing a 2nd level Spell Slot</li>
+    <li>If you have the Find Familiar feat, you may select a Musteval Guardinal.</li>
     <li>If you have the Divine Mount feat, your mount gains the Celestial Creature template.</li>
     <li>
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Celestial Creature template.</li>
-            <li>You may gain an Asperi as your Animal Companion by Sacrificing 2 Spell Points and a 4th level Spell Slot</li>
+            <li>You may gain an Asperi as your Animal Companion</li>
         </ul>
     </li>
     <li>You may not take the Knight of Stars or the Servant of the Heavens feat. Your allegiance is only yours to give once.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Neutral', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Heroic Surge', 'Exalted', 'Good', 'Neutral', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Knight of Stars';
         $feat->requirement = 'Must be CG';
         $feat->description = '<p>You swear allegiance to the Court of Stars, the paragons of the eladrin, and in exchange gain power to act on their behalf.</p>
 <ul>
-    <li>Increase one of your Attributes by +1, to a maximum of 20</li>
-    <li>Choose a Cantrip from the Wizards Spell List. You may cast it 3/day</li>
-    <li>If you have the Find Familiar feat, you may select a Coure Eladrin by Sacrificing a 2nd level Spell Slot</li>
+    <li>Increase one of your Attributes by +1, to a maximum of 20.</li>
+    <li>Choose a Cantrip from the Wizards Spell List. You may cast it 3/day.</li>
+    <li>If you have the Find Familiar feat, you may select a Coure Eladrin.</li>
     <li>
         <p>If you have the Divine Mount feat, you may choose one of the following</p>
         <ul>
@@ -89,33 +89,33 @@ class FeatsDivineSeeder extends Seeder
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Celestial Creature template.</li>
-            <li>You may gain a Unicorn as your Animal Companion by Sacrificing.</li>
-            <li>You may gain a Pegasus as your Animal Companion by Sacrificing.</li>
+            <li>You may gain a Unicorn as your Animal Companion.</li>
+            <li>You may gain a Pegasus as your Animal Companion.</li>
         </ul>
     </li>
     <li>You may not take the Favored of the Companions or the Servant of the Heavens feat. Your allegiance is only yours to give once.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Chaotic', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Exalted', 'Good', 'Chaotic', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Servant of the Heavens';
         $feat->requirement = 'Must be LG';
         $feat->description = '<p>You swear allegiance to one of the Tome Archons of the Celestial Hebdomad, and in exchange you gain power to act on their behalf.</p>
 <ul>
-    <li>Increase one of your Attributes by +1, to a maximum of 20</li>
-    <li>You gain a Talent</li>
-    <li>If you have the Find Familiar feat, you may select a Lantern Archon by Sacrificing a 2nd level Spell Slot</li>
+    <li>Increase one of your Attributes by +1, to a maximum of 20.</li>
+    <li>You gain a Talent.</li>
+    <li>If you have the Find Familiar feat, you may select a Lantern Archon by Sacrificing.</li>
     <li>If you have the Divine Mount feat, your mount gains the Celestial Creature template.</li>
     <li>
         <p>If you have the Animal Companion feat, you may choose any of the following</p>
         <ul>
             <li>Your Animal Companion gains the Celestial Creature template.</li>
-            <li>You may gain a Blink Dog as your Animal Companion by Sacrificing 2 Spell Points and a 2nd level Spell Slot</li>
+            <li>You may gain a Blink Dog as your Animal Companion.</li>
         </ul>
     </li>
     <li>You may not take the Knight of Stars or the Favored of the Companions feat. Your allegiance is only yours to give once.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Talent', 'Exalted', 'Good', 'Lawful', 'Generic' => 2]);
         $helper->addSpellsToFeat($feat, [
             6 => ['Wages of Sin'],
         ]);
@@ -125,25 +125,29 @@ class FeatsDivineSeeder extends Seeder
         $feat->description = '<p>You have willingly given yourself to the service of a good deity or cause, denying yourself an ordinary life to better server your highest ideals.</p>
 <ul>
     <li>Increase one of your Ability Scores by +1, to a maximum of 20.</li>
-    <li>You gain a Talent</li>
+    <li>You gain a Talent.</li>
     <li>You gain a +2 Bonus to all your Saves.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Talent', 'Exalted', 'Good', 'Generic' => 2]);
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Abstinence';
         $feat->short_description = 'You have taken a vow to abstain form alcoholic beverages, drugs, stimulants such as caffeine, and intoxication.';
         $feat->description       = '<p>You perfect your body to be resistant to Poisons and Drugs.</p>
 <ul>
-    <li>You gain Resistance to Poison Damage</li>
-    <li>You gain a +5 Perfection Bonus on all Saves against Poisons and Drugs (as long as you are subjected to a drug unwillingly).</li>
+    <li>You gain Poison Resistance Feat.</li>
+    <li>You gain a +5 Perfection Bonus on all Saves vs. Poisons and Drugs (as long as you are subjected to a drug unwillingly).</li>
     <li>If you fail a Save against Poisons or Drugs, you are allowed a second attempt to Save on your next turn (if the Poison or Drug allows any form of second Save, then you gain a +3 bonus on that Save instead on top of the +5 Perfection bonus).</li>
-    <li>You may cast Alleviate Addiction as a Triple Action at will</li>
-    <li>3/day, you may cast Neutralize Poison as a Triple Action</li>
+    <li>You may cast Alleviate Addiction as a Triple Action at will.</li>
+    <li>You may cast Neutralize Poison as a Triple Action 3/day.</li>
 </ul>
 <p><strong>Special:</strong> To fulfill your vow, you must not consume intoxicating, stimulating, depressant, or hallucinogenic substances, including alcohol, caffeine, and other drugs. If you intentionally break your vow, you immediately and irrevocably lose this benefit and you may not take another feat to replace it. If you break your vow as a result of magical compulsion, or otherwise unintentionally (a drug slipped into your drink, for example), you lose the benefit of this feat until you perform a suitable penance and receive an Atonement spell.</p>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Exalted', 'Poison', 'Good', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Sacred Vow']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Alleviate Addiction'],
+            3 => ['Neutralize Poison'],
+        ]);
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Chastity';
@@ -151,19 +155,22 @@ class FeatsDivineSeeder extends Seeder
         $feat->description       = '<p>You perfect your mind against Compulsions</p>
 <ul>
     <li>You gain a +5 Perfection Bonus on Saves against Charm, Compulsion, Phantasm spells and effects and Possession.</li>
-    <li>If you fail a Save against a Charm, Compulsion or Phantasm spell, you are allowed a second attempt to Save on your next turn (if the spell allows any form of second Save, then you gain a +3 bonus on that Save instead on top of the +5 Perfection bonus)</li>
+    <li>If you fail a Save vs. a Charm, Compulsion or Phantasm spell, you are allowed a second attempt to Save on your next turn (if the spell allows any form of second Save, then you gain a +3 bonus on that Save instead on top of the +5 Perfection bonus)</li>
     <li>3/day, you may end any Compulsion effect as a Triple Action by touch. This effect can also end Possession (the Possessing spirit gets a DC 20 WIS Save).</li>
     <li>3/day, you may cast Cure Wounds as a 1st Level Spell.</li>
 </ul>
 <p><strong>Special</strong> To fulfill your vow, you must abstain from any sexual contact with any other creature. If you intentionally break your vow, you immediately and irrevocably lose the benefit of this feat. You may not take another feat to replace it. If you break your vow as a result of magical compulsion, you lose the benefit of this feat until you perform a suitable penance and receive an Atonement spell.</p>';
         $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Sacred Vow']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Cure Wounds'],
+        ]);
 
         $feat                    = new Feat;
         $feat->name              = 'Vow of Nonviolence';
         $feat->short_description = 'You have taken a sacred vow to avoid violence against humanoids.';
         $feat->description       = '<ul>
-    <li>Any physical Damage that you deal that is non-lethal deals an additional +10 Damage</li>
+    <li>Any physical Damage that you deal that is non-lethal deals an additional +10 Damage.</li>
     <li>The Save DCs for spells you cast and Class Features you use increases by +5 if the spell or feature does not deal damage (including ability damage but not nonlethal damage), or cause death.</li>
     <li>Your purity is so great that any ally of yours who slays a helpless or defenseless foe within 120 feet of you feels great remorse. Your ally takes a -1 moral penalty on his attack rolls for 8 hours. For each helpless foe slain, the attack penalty increases by 1, to a maximum of -5. The duration of the increased penalty starts from the latest slaying. You may ask your allies to give you an oath that a helpless foe will not be slain. If the oath is sworn, an ally who later breaks the oath takes the penalty for doing so as if you were present. If you leave a helpless foe to be killed by your allies, you have broken your vow.</li>
     <li>You may ask a defeated creature to give you an oath of surrender or noninterference in exchange for its life. If the creature breaks this oath to you, you can allow your allies to deal with the creature as they see fit without breaking their oaths or your vow.</li>
@@ -180,11 +187,11 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>Increase your CHA by +1, to a maximum of 20</li>
     <li>You gain a Heroic Surge or a Talent</li>
-    <li>You gain a +5 Perfection Bonus on Saves against Charm and Compulsion spells and effects.</li>
+    <li>You gain a +5 Perfection Bonus on Saves vs. Charm and Compulsion spells and effects.</li>
     <li>You gain either a Cohort or the ability to cast the Command spell 3/day</li>
 </ul>
 <p><strong>Special</strong> To fulfill your vow, you must unquestioningly obey your superior and live according to the rules of your organization. If you intentionally break your vow, you immediately and irrevocably lose the benefit of this feat. You may not take another feat to replace it. If you break your vow as a result of magical compulsion, you lose the benefit of this feat until you perform a suitable penance and receive an Atonement spell.</p>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Heroic Surge', 'Talent', 'Exalted', 'Good', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Sacred Vow']);
 
         $feat                    = new Feat;
@@ -321,56 +328,59 @@ class FeatsDivineSeeder extends Seeder
         $feat->short_description = 'You have taken a sacred vow to avoid contact with dead flesh.';
         $feat->description       = '<p>You perfect your body against Disease</p>
 <ul>
-    <li>Increase your CON by +1, to a maximum of 20</li>
-    <li>You gain Disease Immunity Talent</li>
+    <li>Increase your CON by +1, to a maximum of 20.</li>
+    <li>You gain the Disease Immunity Feat.</li>
     <li>You gain a +5 Perfection Bonus on Saves to resist death effects.</li>
     <li>3/day, you may cast Remove Disease as a Triple Action Heightened +2. While this spell has a Range of Touch, you are allowed to place your hand just short of actually Touching the target.</li>
 </ul>
 <p><strong>Special</strong> To fulfill your vow, you must avoid all contact with dead creatures, including meat cooked for food. You may not touch fallen foes. You may fight undead foes, but must purify yourself as soon as possible afterward. You may touch dead characters in order to restore them to life (by way of a Raise Dead or similar spell) and Casting Remove Disease, but for no other purpose. If you fight undead creatures or accidentally touch dead flesh, you must purify yourself in a special ritual that requires 1 hour and a flask of holy water. If you intentionally break your vow, you immediately and irrevocably lose the benefit of this feat. You may not take another feat to replace it. If you break your vow as a result of magical compulsion, you lose the benefit of this feat until you perform a suitable penance and receive an Atonement spell.</p>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Exalted', 'Good', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Sacred Vow']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Remove Disease'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Disciple of Darkness';
         $feat->requirement = 'Must be LE';
         $feat->description = '<p>You formally supplicate yourself to an archdevil, in return for this obedience, you gian a small measure of power.</p>
 <ul>
-    <li>Increase one of your Attributes by +2, to a maximum of 20</li>
-    <li>You gain a Talent</li>
-    <li>If you have the Find Familiar, you may select an Imp by Sacrificing a 2nd level Spell Slot</li>
+    <li>Increase one of your Attributes by +2, to a maximum of 20.</li>
+    <li>You gain a Talent.</li>
+    <li>If you have the Find Familiar Feat, you may select an Imp</li>
     <li>If you have the Divine Mount feat, your mount gains the Fiend Creature template.</li>
     <li>If you have the Animal Companion feat, your Animal Companion gains the Fiend Creature template.</li>
     <li>You may not take the Thrall to Demon or Slave of the Yugoloths feat. Your allegiance is only yours to give once.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Lawful', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Talent', 'Vile', 'Evil', 'Lawful', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Slave to the Yugoloths';
         $feat->requirement = 'Must be NE';
-        $feat->description = "<p>You formally supplicate yourself to a yugoloth, in return for this obedience, you gian a small measure of power.</p>
+        $feat->description = '<p>You formally supplicate yourself to a yugoloth, in return for this obedience, you gian a small measure of power.</p>
 <ul>
     <li>Increase one of your Attributes by +2, to a maximum of 20</li>
     <li>Choose a Cantrip from the Wizards Spell List. You may cast this Cantrip 3/day</li>
-    <li>If you have the Find Familiar, you may select a Battleloth by Sacrificing a Spell Slot equal to the Battleloth's CR.</li>
+    <li>If you have the Find Familiar, you may select a Battleloth.</li>
     <li>If you have the Divine Mount feat, your mount gains the Fiend Creature template.</li>
     <li>If you have the Animal Companion feat, your Animal Companion gains the Fiend Creature template.</li>
     <li>You may not take the Thrall to Demon or Disciple of Darkness feat. Your allegiance is only yours to give once.</li>
-</ul>";
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Neutral', 'Generic' => 2]);
+</ul>';
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Vile', 'Evil', 'Neutral', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Thrall to Demon';
         $feat->requirement = 'Must be CE';
         $feat->description = '<p>You formally supplicate yourself to a demon prince, in return for this obedience, you gian a small measure of power.</p>
 <ul>
-    <li>Increase one of your Attributes by +2, to a maximum of 20</li>
-    <li>You gain a Heroic Surge</li>
-    <li>If you have the Find Familiar, you may select a Quasit by Sacrificing a 2nd level Spell Slot</li>
+    <li>Increase one of your Attributes by +2, to a maximum of 20.</li>
+    <li>You gain a Heroic Surge.</li>
+    <li>If you have the Find Familiar, you may select a Quasit.</li>
     <li>If you have the Divine Mount feat, your mount gains the Fiend Creature template.</li>
     <li>If you have the Animal Companion feat, your Animal Companion gains the Fiend Creature template.</li>
     <li>You may not take the Disciple of Darkness or Slave of the Yugoloths feat. Your allegiance is only yours to give once.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Chaotic', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Heroic Surge', 'Vile', 'Evil', 'Chaotic', 'Generic' => 2]);
 
         $feat                    = new Feat;
         $feat->name              = 'Willing Deformity';
@@ -379,10 +389,13 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>Increase one of your Ability Scores by +1, to a maximum of 20</li>
     <li>You add the Intimidation skill to all your class skills. If you already have the Intimidation skill, you gain an additional +2 Vile Bonus to all Intimidation checks.</li>
-    <li>You gain a +3 Vile Bonus to your Intimidation checks and Beasts with an intelligence of 2 or less are not willing to attack you.</li>
+    <li>You gain a +3 Vile Bonus to your Intimidation checks and Beasts with an INT of 2 or less are not willing to attack you.</li>
     <li>3/day, you may cast the spell Fear as a Triple Action.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Skill', 'Vile', 'Evil', 'Generic' => 2]);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Fear'],
+        ]);
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Clawed Hands)';
@@ -404,14 +417,17 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>You gain a +5 Bonus to Perception checks based on vision.</li>
     <li>Permanent Darkvision out to 60 feet. If you already have Darkvision, then increase the range by 30 feet.</li>
-    <li>As an Action, you can see Invisible objects at will as if you have the See Invisibility spell. It requires Concentration (an Action each turn) to maintain.</li>
+    <li>As an Action, you can see Invisible objects at will as if you have the See Invisibility spell. This effect is Sustained: on each of your turns after the turn you activate it, you must spend 1 Action to sustain it. If you do not, it ends.</li>
     <li>3/day, you may cast Detect Good as a Triple Action.</li>
     <li>You gain a +1 Bonus vs spells with the Glamor type.</li>
     <li>You gain a +1 Bonus to all Ranged attacks and +3 Bonus to Physical Ranged Attack Damage</li>
     <li>-2 deformity penalty to CHR.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Sustained', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Willing Deformity']);
+        $helper->addSpellsToFeat($feat, [
+            1 => ['Detect Good'],
+        ]);
 
         $feat                    = new Feat;
         $feat->name              = 'Deformity (Face)';
@@ -433,14 +449,14 @@ class FeatsDivineSeeder extends Seeder
         $feat->description       = '<p>You gain the following abilities.</p>
 <ul>
     <li>+3 Deformity Bonus to DEX.</li>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
     <li>+2 Circumstance Bonus on Escape Artist checks and Intimidate checks.</li>
-    <li>You gain a +1 Bonus to AC</li>
-    <li>You gain a +5 Bonus to Speed</li>
+    <li>You gain a +1 Bonus to AC.</li>
+    <li>You gain a +5 Bonus to Speed.</li>
     <li>-1 deformity penalty to CON.</li>
 </ul>
 <p>You may not take the Deformity (Obese) feat.</p>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Heroic Surge', 'Vile', 'Evil', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Willing Deformity']);
 
         $feat                    = new Feat;
@@ -450,11 +466,11 @@ class FeatsDivineSeeder extends Seeder
 <ul>
     <li>+3 deformity Bonus to CON.</li>
     <li>+2 circumstance Bonus on Intimidate checks and Poison Saves.</li>
-    <li>You gain Damage Reduction 2</li>
+    <li>You gain Damage Reduction: 2.</li>
     <li>-1 deformity penalty to DEX.</li>
 </ul>
 <p>You may not take the Deformity (Gaunt) feat.</p>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Vile', 'Evil', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Willing Deformity']);
 
         $feat                    = new Feat;
@@ -465,18 +481,21 @@ class FeatsDivineSeeder extends Seeder
     <li>1/day, you may cast Commune without needing a Secondary Caster and contact your patron.</li>
     <li>Evil creatures automatically recognize the symbol now emblazoned upon you as a sign of your utter depravity or discipleship to a powerful patron, although the specific identity of the patron is not revealed. You gain a +2 circumstance Bonus on Diplomacy and Intimidate checks made against evil creatures.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Vile', 'Evil', 'Generic' => 2]);
+        $helper->addSpellsToFeat($feat, [
+            5 => ['Commune'],
+        ]);
 
         $feat              = new Feat;
         $feat->name        = 'Sacrificial Mastery';
         $feat->description = '<p>You gain the following.</p>
 <ul>
-    <li>You gain a +5 Vile Bonus to all Sacrifice checks</li>
+    <li>You gain a +5 Vile Bonus to all Sacrifice checks.</li>
     <li>You gain a +2 Bonus to all Religion checks</li>
     <li>You may memorize an additional Cantrip. If you do not have any Spell Casting levels, then pick a Cantrip from the Wizard Spell list. You may now cast that Cantrip at will.</li>
     <li>You gain the Sudden Strike Feat. If you already have the Sudden Strike Feat, then you may take any other Precision Feat you qualify for.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Vile', 'Evil', 'Precision', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Skill', 'Vile', 'Evil', 'Precision', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Demonologist';
@@ -487,7 +506,7 @@ class FeatsDivineSeeder extends Seeder
     <li>You gain Advantage on all Lore and Religion checks in regard to Demons or the Abyss</li>
     <li>You learn the True Name of one minor Demon</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Arcane', 'Demon', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Arcane', 'Skill', 'Demon', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Conjurer']);
         $feat->parent_feats()->save(app()->feats['Evil Brand']);
         $helper->addSpellsToFeat($feat, [
@@ -522,7 +541,7 @@ class FeatsDivineSeeder extends Seeder
     <li>If you have the Favored Terrain Class Feature, your Animal Companion gains all the benefits of your Favored Terrain.</li>
     <li>You may spend 1 Spell Point as a Triple Action and know the distance and direction your Animal Companion is so long as it is on the same Plane as you.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 2]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Spend Spell Point', 'Generic' => 2]);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Animal Companion';
@@ -530,9 +549,9 @@ class FeatsDivineSeeder extends Seeder
     <li>You gain 1 Spell Point.</li>
     <li>You may now have a second Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
     <li>All your Animal Companions gain a +1 bonus to all Saves.</li>
-    <li>You may spend 1 Spell Point and an Action to cast Silvered Claws on your Animal Companion.</li>
+    <li>You may spend 1 Spell Point and an Action to cast Silvered Claws on all your Animal Companion.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Spend Spell Point', 'Generic' => 5]);
         $feat->parent_feats()->save(app()->feats['Animal Companion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Silvered Claws'],
@@ -544,9 +563,9 @@ class FeatsDivineSeeder extends Seeder
     <li>You gain 1 Spell Point.</li>
     <li>You may now have a third Animal Companion. You must spend the Spell Slots for each Animal Companion.</li>
     <li>All your Animal Companions gain a +2 bonus to all Saves. This replaces the bonus from Improved Animal Companion.</li>
-    <li>You may spend 1 Spell Point and an Action to cast Animal Sense on your Animal Companion.</li>
+    <li>You may spend 1 Spell Point and an Action to cast Animal Sense on any of your Animal Companions.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 7]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Spend Spell Point', 'Generic' => 7]);
         $feat->parent_feats()->save(app()->feats['Improved Animal Companion']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Animal Sense'],
@@ -562,7 +581,7 @@ class FeatsDivineSeeder extends Seeder
     <li>You may spend 2 Spell Points and an Action to cast Heal Animal Companion.</li>
     <li>You gain an extra Action. The extra Action can only be used to command your Animal Companions, Familiars, or summoned creatures.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Generic' => 5]);
+        $helper->addTypesToFeat($feat, ['Animal Companion', 'Primal', 'Spend Spell Point', 'Generic' => 5]);
         $helper->addSpellsToFeat($feat, [
             3 => ['Heal Animal Companion'],
         ]);

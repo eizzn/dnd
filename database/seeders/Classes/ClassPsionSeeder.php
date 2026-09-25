@@ -25,7 +25,7 @@ class ClassPsionSeeder extends Seeder
         $class->weapons       = 'Simple Weapons';
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_points'   => 4,
+            'skill_points'   => 3,
             'skill_progress' => 2,
             'has_powers'     => true,
         ], ['INT', 'WIS', 'CHA'], [

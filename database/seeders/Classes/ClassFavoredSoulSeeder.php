@@ -152,7 +152,7 @@ class ClassFavoredSoulSeeder extends Seeder
         $feat->requirement = 'Must be CG and Bast must be your Patron Deity';
         $feat->description = '<p>You are called by Bast to serve her purposes.</p>
 <ul>
-    <li>Increase your DEX by +1 to a maximum of 20</li>
+    <li>Increase your DEX by +1 to a maximum of 20.</li>
     <li>You gain the following skills as class skills
         <ul>
             <li>Acrobatics</li>
@@ -162,7 +162,7 @@ class ClassFavoredSoulSeeder extends Seeder
     </li>
     <li>You gain the Find Familiar Feat. Your Familiar must be a cat</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Favored']);
+        $helper->addTypesToFeat($feat, ['Favored', 'Ability Boost', 'Familiar']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Boon', 'Clean Self', 'Daze', 'Detect Magic', 'Friends', 'Guidance', 'Light', 'Soft Landing', 'True Strike'],
             1 => ['Animal Friendship' => 'Felines only', 'Bless', "Cat's Grace", 'Courageous Shout', 'Cure Wounds', 'Detect Evil',
@@ -208,12 +208,12 @@ class ClassFavoredSoulSeeder extends Seeder
         $feat->requirement = 'Shar must be your Patron Deity';
         $feat->description = "<p>You have been chosen to join Shar's Order of the Dark Moon</p>
 <ul>
-    <li>Increase your CHA by +1 to a maximum of 20</li>
+    <li>Increase your CHA by +1 to a maximum of 20.</li>
     <li>You gain Darkvision</li>
     <li>You gain a +2 bonus to Hide and Sneak checks</li>
     <li>You gain 1 Power Point</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Favored', 'Psionic', 'Discipline']);
+        $helper->addTypesToFeat($feat, ['Ability Boost', 'Power Point', 'Favored', 'Psionic', 'Discipline']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Daze', 'Detect Magic', 'Ghost Sound', 'Shadow Blade'],
             1 => ['Bane', 'Charm', 'Darkness', 'Drug Resistance', 'Jump', 'Longstrider', 'Touch of Blindness'],

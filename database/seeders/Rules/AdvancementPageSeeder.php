@@ -160,5 +160,21 @@ class AdvancementPageSeeder extends Seeder
 </table>';
         $rule->order = 1;
         $page->rules()->save($rule);
+
+        $rule              = new Rule;
+        $rule->key         = 'skill-points';
+        $rule->name        = 'Skill Points';
+        $rule->description = '<p>Each class lists two skill point values: the Skill Points gained at 1st level in that class, and the Skill Progress gained at each level after that.</p>
+<ul>
+    <li>When you gain level 1 of a base class (including when you multiclass into one), you gain its 1st level Skill Points.</li>
+    <li>Every other level you gain gives you that class\'s Skill Progress. Prestige classes can only be multiclassed into, so every level of a prestige class gives its Skill Progress.</li>
+    <li>You may put your skill points into any skill, but a skill can never have more points in it than your character level.</li>
+    <li>If a skill is a class skill for any of your classes, each point in it adds +1 to the skill.</li>
+    <li>If a skill is not a class skill for any of your classes, it only counts at half value (the total points in that skill, halved and rounded down). As soon as you gain a level in a class that has it as a class skill, it counts at full value.</li>
+    <li>Some uses of a skill can only be used if you are trained in it, which requires at least 2 points in the skill.</li>
+</ul>
+<p>Your skill check bonus is the skill\'s value plus the governing ability modifier and any other bonuses.</p>';
+        $rule->order = 2;
+        $page->rules()->save($rule);
     }
 }

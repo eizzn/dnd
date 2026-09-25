@@ -143,9 +143,9 @@ class SpellsVSeeder extends Seeder
         $spell->save_attribute = 'STR';
         $spell->range          = '0';
         $spell->area           = '60-foot cone ';
-        $spell->duration       = 'Concentration, up to 1 minute';
+        $spell->duration       = 'Sustained, up to 1 minute';
         $spell->description    = '<p>You create a cone of sound that causes Sonic damage and pushes objects. All creatures in the area take 10 points of Sonic damage and must a STR Save or be deafened 3. Also, all objects are pushed back 5 feet if they Failed their STR Save.</p>
-<p>You must use an Action on your turn to maintain this spell. Any creature that ends their turn in within the area suffers the same effects (Sonic damage and STR Save or Deafened and pushed back 5 feet).</p>
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it. If you do not, the spell ends. Any creature that ends their turn in within the area suffers the same effects (Sonic damage and STR Save or Deafened and pushed back 5 feet).</p>
 <dl>
     <dt>Material Components</dt> <dd>A hollow cone of brass and gold with 50 gp</dd>
 </dl>';
@@ -158,7 +158,7 @@ class SpellsVSeeder extends Seeder
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>Increase the Sonic damage by +3</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Evocation', 'Sonic'], 5);
+        $helper->addTypesToSpell($spell, ['Evocation', 'Sonic', 'Sustained'], 5);
 
         $spell                 = new Spell;
         $spell->name           = 'Vertigo';

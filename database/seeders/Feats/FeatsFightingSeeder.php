@@ -245,7 +245,7 @@ class FeatsFightingSeeder extends Seeder
     <li>Choose one opponent within your reach when you enter this Stance, or as a Free Action on your turn thereafter. You gain a +1 circumstance bonus to AC and to Hit against that opponent.</li>
     <li>While in this Stance, you gain a Reaction. This Reaction can only be used to make a Melee attack against your chosen opponent immediately after they miss you with a Melee attack.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 5, 'Melee', 'Finesse', 'Extra Action', 'Ability Boost']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Rogue' => 5, 'Fighter Feat' => 5, 'Melee', 'Finesse', 'Extra Action', 'Ability Boost']);
         $feat->parent_feats()->save(app()->feats['Weapon Finesse']);
 
         $feat              = new Feat;
@@ -265,7 +265,7 @@ class FeatsFightingSeeder extends Seeder
         </ul>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 6, 'Finesse', 'Move']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Fighter Feat' => 6, 'Finesse', 'Move', 'Ability Boost']);
         $feat->parent_feats()->save(app()->feats['Weapon Finesse']);
 
         $feat              = new Feat;
@@ -279,7 +279,7 @@ class FeatsFightingSeeder extends Seeder
     <li>If you have the Improved Disarm feat, while in this Stance, you may make Disarm attempts at range with a ranged attack without any penalties</li>
     <li>If you have the Improved Trip feat, while in this Stance, you may make Trip attempts at range with a ranged attack without any penalties</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Ranged', 'Fighter Feat' => 7]);
+        $helper->addTypesToFeat($feat, ['Stance', 'Ranged', 'Rogue' => 7, 'Fighter Feat' => 7]);
         $feat->parent_feats()->save(app()->feats['Point-Blank Shot']);
         $feat->parent_feats()->save(app()->feats['Ranged Mastery']);
 
@@ -292,7 +292,7 @@ class FeatsFightingSeeder extends Seeder
     <li>You may use a Heroic Surge as part of making a Stunning Fist attack. If you do, you gain a +2 Bonus to Hit and if the Target Fails their Save, they are Stunned for an additional round.</li>
     <li>Each additional time this Action is used against the same opponent in the same Encounter, they gain a +2 bonus to their Save.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Melee', 'Heroic Surge', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8]);
+        $helper->addTypesToFeat($feat, ['Melee', 'Heroic Surge', 'Unarmed', 'Diminishing', 'Fighter Feat' => 8, 'Spend Spell Point', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Improved Stunning Fist';

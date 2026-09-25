@@ -125,12 +125,12 @@ class GodsArchonsSeeder extends Seeder
         $feat->requirement = 'Must be LG';
         $feat->description = '<p>You devout yourself to the service of Pistis Sophia, the celestial paragon of Mystics and Monks.</p>
 <ul>
-    <li>You gain 2 Power Points</li>
+    <li>You gain 1 Power Point.</li>
     <li>You gain the Fist of the Heavens Talent.</li>
     <li>You gain the Arcane Sense Feat.</li>
     <li>You gain the Sacred Vow Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
+        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful', 'Talent']);
         $feat->parent_feats()->save(app()->feats['Improved Unarmed Strike']);
         $feat->parent_feats()->save(app()->feats['Arcane Background']);
         $feat->parent_feats()->save(app()->feats['Servant of the Heavens']);
@@ -162,7 +162,7 @@ class GodsArchonsSeeder extends Seeder
         </ul>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful']);
+        $helper->addTypesToFeat($feat, ['Exalted', 'Good', 'Lawful', 'Talent']);
         $feat->parent_feats()->save(app()->feats['Initiate of Pistis Sophia']);
         $feat->parent_feats()->save(app()->feats['Improved Arcane Background']);
         $helper->addSpellsToFeat($feat, [
@@ -243,7 +243,7 @@ class GodsArchonsSeeder extends Seeder
             <tbody>
                 <tr>
                     <td>Lawful Good</td>
-                    <td>Inspired (+2 Morale bonus on all Attack Rolls, Saves, Skill Checks, and Ability Checks for 10 minutes)</td>
+                    <td>Inspired (+1 Morale bonus on all Attack Rolls, and +2 Morale bonus on all Saves, Skill Checks, and Ability Checks for 10 minutes)</td>
                 </tr>
                 <tr>
                     <td>Neutral Good or Chaotic Good</td>
@@ -322,7 +322,7 @@ class GodsArchonsSeeder extends Seeder
     <li>As an Action, you can spend 1 Spell Point to manifest angelic wings which grants Flying 60 for up to 1 hour.</li>
     <li>Your Eldritch Blast now deals Double damage vs. all Undead and Evil Outsiders.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Good', 'Pact', 'Lawful', 'Archon', 'Invocation' => 6]);
+        $helper->addTypesToFeat($feat, ['Good', 'Pact', 'Lawful', 'Archon', 'Invocation' => 6, 'Spend Spell Point']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Divine Favor', 'Detect Evil'],
             1 => ['Exorcism', 'Ease Pain'],

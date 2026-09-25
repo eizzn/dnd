@@ -392,7 +392,7 @@ class PowersDSeeder extends Seeder
         $power->description    = '<p>You dismiss creatures, objects, or effects composed of ectoplasm, such as astral constructs or the ectoplasmic cocoon power, or that were formerly composed of ectoplasm, such as items created by metacreativity (creation) powers.</p>
 <p>An ectoplasmic creature that fails its WIS Save dissipates into so much constituent ectoplasm, which evaporates immediately.</p>
 <p>A creature under the effect of the ectoplasmic form power that fails its saving throw is either destroyed out right or physically shifted to a random location on the Astral Plane (50% chance for either result).</p>
-<p>Other ongoing powers that create ectoplasmic objects or effects, such as ectoplasmic cocoon, are dismissed if you succeed on a manifester level check (1d20 + your manifester level, maximum +10) against a DC of 11 + the power’s manifester level.</p>';
+<p>Other ongoing powers that create ectoplasmic objects or effects, such as ectoplasmic cocoon, are dismissed if you succeed on a manifester level check (2D10 + your manifester level, maximum +10) against a DC of 11 + the power’s manifester level.</p>';
         $helper->addTypesToPower($power, ['Metacreativity', 'Ectoplasm'], 3);
 
         $power              = new Power;
@@ -424,7 +424,7 @@ class PowersDSeeder extends Seeder
 <p>You can choose to use this power in one of two ways.</p>
 <dl>
     <dt>Targeted Dispel</dt> <dd>
-        <p>One object, creature, or power is the target of the dispel psionics power. You make a dispel check (1d20 + your manifester level, maximum +10) against the power or against each ongoing power currently in effect on the object or creature. The DC for this dispel check is 11 + the power’s manifester level. If you succeed on a particular check, that power is dispelled; if you fail, that power remains in effect.</p>
+        <p>One object, creature, or power is the target of the dispel psionics power. You make a dispel check (2D10 + your manifester level, maximum +10) against the power or against each ongoing power currently in effect on the object or creature. The DC for this dispel check is 11 + the power’s manifester level. If you succeed on a particular check, that power is dispelled; if you fail, that power remains in effect.</p>
         <p>If you target an object or creature that is the effect of an ongoing power or is under the effect of an ongoing power, you make a dispel check to end the power or its effect. If the object that you target is a psionic item, you make a dispel check against the item’s manifester level. If you succeed, all the item’s psionic properties are suppressed for 1d4 rounds, after which the item recovers on its own. A suppressed item becomes nonpsionic for the duration of the effect. An interdimensional interface is temporarily closed. A psionic item’s physical properties are unchanged: A suppressed psionic sword is still a sword (a masterwork sword, in fact). Artifacts and deities are unaffected by mortal power such as this.</p>
         <p>You automatically succeed on your dispel check against any power that you manifested yourself</p>
     </dd>

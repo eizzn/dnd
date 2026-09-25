@@ -306,11 +306,10 @@ class SpellsWSeeder extends Seeder
         $spell->duration    = '1 minute';
         $spell->description = '<p>You attack with a cry that bolsters your own courage as well as intimidating your enemies. You gain the following.</p>
 <ul>
-    <li>+2 Morale Bonus to Hit and Damage Rolls</li>
-    <li>+2 Morale Bonus to all Charge Attack Rolls to Hit and Damage</li>
+    <li>+2 Morale Bonus to Hit and Damage Rolls (+3 instead on Charge attacks)</li>
     <li>Any foe that you successfully deal damage to must make a WIS Save or gain the Fleeing Condition. A creature that Successfully makes this Save does not have to make this Save again.</li>
 </ul>
-<p>As a result of this spell, you gain a +2 Morale Bonus on Attack Rolls and Damage Rolls, or a +4 Morale Bonus </p>';
+<p>As a result of this spell, you gain a +2 Morale Bonus on Attack Rolls and Damage Rolls, or a +3 Morale Bonus on Charge attacks.</p>';
         $helper->addTypesToSpell($spell, ['Enchantment', 'Compulsion', 'Mental', 'Auditory'], 4);
 
         $spell              = new Spell;

@@ -1212,7 +1212,7 @@ class SpellsDSeeder extends Seeder
 <p>You can end the spell early by using either of the following special functions.</p>
 <dl>
     <dt>Break Enchantment</dt> <dd>As your action, you touch a creature you can reach that is charmed, frightened, or possessed by a celestial, an elemental, a fey, a fiend, or an undead. The creature you touch is no longer charmed, frightened, or possessed by such creatures.</dd>
-    <dt>Dismissal</dt> <dd>As your action, make a melee spell attack against a celestial, an elemental, a fey, a fiend, or an undead you can reach. On a hit, you attempt to drive the creature back to its home plane. The creature must succeed on a Charisma saving throw or be sent back to its home plane (if it isn't there already). If they aren't on their home plane, undead are sent to the Shadowfell, and fey are sent to the Feywild.</dd>
+    <dt>Dismissal</dt> <dd>As your action, make a melee spell attack against a celestial, an elemental, a fey, a fiend, or an undead you can reach. On a hit, you attempt to drive the creature back to its home plane. The creature must succeed on a CHA Save or be sent back to its home plane (if it isn't there already). If they aren't on their home plane, undead are sent to the Shadowfell, and fey are sent to the Feywild.</dd>
 </dl>";
         $helper->addTypesToSpell($spell, ['Abjuration'], 5);
 
@@ -1518,7 +1518,7 @@ class SpellsDSeeder extends Seeder
         $spell->duration    = '1 minute';
         $spell->description = '<p>Calling upon the divine power of your patron, you imbue yourself with strength and skill in combat.</p>
 <ul>
-    <li>You gain a +3 Luck bonus on Attack Rolls, Weapon Damage, STR Saves and checks.</li>
+    <li>You gain a +2 Luck bonus on Attack Rolls, Weapon Damage, STR Saves and checks.</li>
     <li>You gain +1 Temporary Hit Point per Character Level.</li>
     <li>You gain the Quickened condition (which can be used on Strike and Stride Actions</li>
 </ul>';
@@ -1650,7 +1650,7 @@ class SpellsDSeeder extends Seeder
         $spell->targets        = 'One beast';
         $spell->save_attribute = 'WIS';
         $spell->duration       = 'Concentration, up to 10 minutes';
-        $spell->description    = "<p>You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the Target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.</p>";
+        $spell->description    = "<p>You attempt to beguile a beast that you can see within range. It must succeed on a WIS Save or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as “Attack that creature,” “Run over there,” or “Fetch that object.” If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the Target takes damage, it makes a new WIS Save against the spell. If the saving throw succeeds, the spell ends.</p>";
         $spell->heightened     = '<dl>
     <dt>Heightened (+1)</dt> <dd>The duration becomes 1 hour</dd>
     <dt>Heightened (+2)</dt> <dd>The duration becomes 8 hour</dd>
@@ -2071,7 +2071,7 @@ class SpellsDSeeder extends Seeder
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>The duration increases to 10 minutes. Spell Points increase the duration by 5 minutes</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Transmutation', 'Dragon'], 5);
+        $helper->addTypesToSpell($spell, ['Transmutation', 'Dragon', 'Spend Spell Point'], 5);
 
         $spell                = new Spell;
         $spell->name          = "Dragon's Head";
@@ -2334,12 +2334,12 @@ class SpellsDSeeder extends Seeder
         $spell->casting     = 'Material Casting, Somatic Casting';
         $spell->range       = '200 feet';
         $spell->area        = 'Emanation centered on you';
-        $spell->duration    = 'Concentration, up to 1 hour and continues for 10 rounds';
-        $spell->description = '<p>You play your instrument and the music transforms into an ominous cadence of drumbeats that fills enemies with doubt. All enemies that start their turn within range suffer a -2 penalty on Attack rolls and Saves. To maintain this spell, you must use an Action to continue playing your musical instrument.</p>
+        $spell->duration    = 'Sustained, up to 1 hour and continues for 10 rounds';
+        $spell->description = '<p>You play your instrument and the music transforms into an ominous cadence of drumbeats that fills enemies with doubt. All enemies that start their turn within range suffer a -2 penalty on Attack rolls and Saves. <strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it (by continuing to play your musical instrument). If you do not, the spell ends.</p>
 <dl>
     <dt>Material Components</dt> <dd>A masterwork musical instrument, which must be played</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Auditory'], 3);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Auditory', 'Sustained'], 3);
         $spell->skills()->save(app()->skills['Performance'], ['dc' => 12]);
 
         $spell                 = new Spell;

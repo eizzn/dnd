@@ -617,7 +617,7 @@ class GodsEladrinsSeeder extends Seeder
     <li>You gain a +2 bonus to Stealth Skill checks.</li>
     <li>You gain a Sudden Strike Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addTypesToFeat($feat, ['Goblin', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Undead Head'],
         ]);
@@ -668,7 +668,7 @@ class GodsEladrinsSeeder extends Seeder
     <li>You gain a +2 bonus to Survival Skill checks.</li>
     <li>You gain the Improved Initiative Feat.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addTypesToFeat($feat, ['Goblin', 'Initiative']);
         $helper->addSpellsToFeat($feat, [
             2 => ['Undead Head'],
         ]);
@@ -719,7 +719,7 @@ class GodsEladrinsSeeder extends Seeder
     <li>You may cast the Fear spell as an Action.</li>
     <li>You gain an Additional 1st Level Spell Slot. This Additional Spell Slot can only be used to cast Fear.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Goblin']);
+        $helper->addTypesToFeat($feat, ['Goblin', 'Ranger Devotion']);
         $helper->addSpellsToFeat($feat, [
             1 => ['Fear'],
             2 => ['Undead Head'],
@@ -866,11 +866,11 @@ class GodsEladrinsSeeder extends Seeder
         $feat->requirement = 'You must be CG';
         $feat->description = "<p>You have made a Pact with the Fey Lord Oberon. Oberon's interests lie with expanding freedoms and increasing life. The main enemies of Oberon are the devils and evil organizations (such as the Zhentarim and the Red Wizards).</p>
 <ul>
-    <li>Increase your CHA score by 1, to a maximum of 20</li>
+    <li>Increase your CHA score by 1, to a maximum of 20.</li>
     <li>You gain the Find Familiar Feat</li>
     <li>Your Eldritch Blast deals an additional +1 damage</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Good', 'Chaotic']);
+        $helper->addTypesToFeat($feat, ['Pact', 'Fey', 'Ability Boost', 'Familiar', 'Good', 'Chaotic']);
         $helper->addSpellsToFeat($feat, [
             0 => ['Dancing Lights', 'Eldritch Blast', 'Exorcism', 'Ghost Sound'],
             1 => ['Animal Friendship', 'Faerie Fire', 'Summon Animals'],

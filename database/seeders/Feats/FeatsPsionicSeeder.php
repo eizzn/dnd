@@ -337,7 +337,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>When you Leap, you can move an additional 5 feet horizontally or 2 feet vertically</li>
     <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point to gain a +2 Psychic Bonus to your AC until the beginning of your next turn.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Extra Action', 'Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Extra Action', 'Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Dragon Stance';
@@ -357,7 +357,7 @@ class FeatsPsionicSeeder extends Seeder
         </ul>
     </li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Backswing', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Backswing', 'Nonlethal', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Horse Stance';
@@ -385,7 +385,7 @@ class FeatsPsionicSeeder extends Seeder
         </ul>
     </li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Forceful', 'Nonlethal', 'Extra Action']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Forceful', 'Nonlethal', 'Extra Action', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Mantis Stance';
@@ -398,7 +398,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>The DC to resist your Stunning Fist increases by +2</li>
     <li>As an Action, you may spend 5 Power Points and 2 uses of Stunning Fist to make all of your Unarmed Strikes be Stunning Fist attacks until the beginning of your next turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Nonlethal', 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);
 
         $feat              = new Feat;
@@ -411,12 +411,12 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a +3 bonus on Feint checks</li>
     <li>You gain a +2 bonus to AC while in this Stance</li>
     <li>If you perform an Acrobatics check to make an Acrobatic move, you gain a +1 bonus to your next Unarmed Strike Damage attack that you make in the same turn.</li>
-    <li>You gain a +10 bonus to all your Climb checks and you gain a +5 bonus to your Climb Speed.</li>
+    <li>You gain a +10 bonus to all your Climb checks, and you gain a +5 bonus to your Climb Speed.</li>
     <li>You gain the Improved Flurry of Blows Feat.</li>
     <li>You are treated as having the Weapon Focus feat for all Staves.</li>
     <li>You may take the Weapon Specialization feat for Staves, even if you do not qualify at 6th Character Level</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed']);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Stance', 'Unarmed']);
 
         $feat              = new Feat;
         $feat->name        = 'Snake Stance';
@@ -431,7 +431,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>Once per turn, you may spend 1 Power Point as an Immediate Action and gain a +5 bonus to your Initiative</li>
     <li>You gain an Additional use of Stunning Fist</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Initiative', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Tiger Stance';
@@ -444,7 +444,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain a +5 bonus to all your Jump checks while in this Stance</li>
     <li>As an Action, you may spend 1 Power Point to have your Tiger Claw attacks ignore Damage Resistance until the beginning of your next turn.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Agile', 'Finesse', 'Nonlethal', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Northern Fist Stance';
@@ -496,7 +496,7 @@ class FeatsPsionicSeeder extends Seeder
 <blockquote>
     Ex. A Psychic Warrior uses this Feat to make an Unarmed Strike against a foe 10 ft away. The Psychic Warrior also adds the Blindness Power to the attack. This requires 4 Actions (2 for the Blindness Power, 1 for this Feat, and 1 to make the Melee attack). The Psychic Warrior would have to spend 7 Power Points (5 for Blindness and 2 for this Feat at a Range of 10 ft).
 </blockquote>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Ranged']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Ranged', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Drunken Master Stance';
@@ -511,7 +511,7 @@ class FeatsPsionicSeeder extends Seeder
     <li>You gain the Quick Stand talent</li>
     <li>As a Free Action, while you are in this Stance, you may spend 1 Power Point. If you do, then the next Bull Rush attack you make does not provoke an Attack of Opportunity from the defender, but you do provoke from anyone else. You also gain a +4 bonus on the opposed STR check you make to push back the defender.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Nonlethal']);
+        $helper->addTypesToFeat($feat, ['Stance', 'Unarmed', 'Nonlethal', 'Spend Power Point']);
 
         $feat              = new Feat;
         $feat->name        = 'Koryo Style';
@@ -650,18 +650,18 @@ class FeatsPsionicSeeder extends Seeder
         $feat->name        = 'Ghost Touch';
         $feat->requirement = 'Must be Psionicly Focused';
         $feat->description = '<ul>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
     <li>While you are Psionically Focused, your Unarmed Strikes deals damage normally against Incorporeal creatures and creatures that are in the Ethereal Plane. You also deal an additional +5 damage to Incorporeal and Ethereal. If an Incorporeal or Ethereal creature tries to grab you or pass through you, they suffer the additional damage for doing so.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Incorporeal', 'Psionic' => 3]);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Incorporeal', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Ghost Weapon';
         $feat->description = '<ul>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
     <li>Expend your Psionic Focus, up to 2 weapons (one held in each hand) gains the Ghost Touched ability for 30 minutes. Those weapons also deal an additional +15 damage to Incorporeal and Ethereal creatures. Incorporeal and Ethereal creatures cannot touch these weapons without taking the additional damage.</li>
 </ul>';
-        $helper->addTypesToFeat($feat, ['Incorporeal', 'Psionic' => 3]);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Incorporeal', 'Psionic' => 3]);
 
         $feat              = new Feat;
         $feat->name        = 'Dorje Mastery';
@@ -675,11 +675,11 @@ class FeatsPsionicSeeder extends Seeder
         $feat              = new Feat;
         $feat->name        = 'Weave Blocker';
         $feat->description = "<ul>
-    <li>You gain a Heroic Surge</li>
+    <li>You gain a Heroic Surge.</li>
     <li>You may spend 2 Power Points as part of a Greater Psionic Fist attack. If you do, roll for damage as normal, but you only deal 1 Point of Damage. Half the total Damage rolled (plus any modifiers) equals the lowest level Arcane spell that the target may cast for 1 minute. The lowest level spell castable is cumulative with any future damage with this effect. At the end of each of the Target's turns, they may make a WIS Save to end the effect.</li>
     <li>You may spend a Heroic Surge as part of this attack. If you do, the damage rolled is not halved.</li>
 </ul>";
-        $helper->addTypesToFeat($feat, ['Melee', 'Psionic Focus', 'Psionic' => 12]);
+        $helper->addTypesToFeat($feat, ['Heroic Surge', 'Melee', 'Psionic Focus', 'Psionic' => 12, 'Spend Power Point']);
         $feat->parent_feats()->save(app()->feats['Stunning Fist']);
         $feat->parent_feats()->save(app()->feats['Greater Psionic Fist']);
     }

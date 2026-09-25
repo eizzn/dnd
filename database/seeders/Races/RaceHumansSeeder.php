@@ -30,7 +30,7 @@ class RaceHumansSeeder extends Seeder
 <p>Humans are the most adaptable and ambitious people among the common races. They have widely varying tastes, morals, and customs in the many different lands where they have settled. When they settle, though, they stay: they build cities to last for the ages, and great kingdoms that can persist for long centuries. An individual human might have a relatively short life span, but a human nation or culture preserves traditions with origins far beyond the reach of any single human’s memory. They live fully in the present—making them well suited to the adventuring life—but also plan for the future, striving to leave a lasting legacy. Individually and as a group, humans are adaptable opportunists, and they stay alert to changing political and social dynamics.</p>';
         $race->benefits = '<dl>
     <dt>Ability Score Increase</dt> <dd>One ability score of your choice increase by +2 and all the other ability scores by +1</dd>
-    <dt>Skills</dt> <dd>You gain proficiency in one Skill of your choice. You gain an additional +4 skill points at 1st level.</dd>
+    <dt>Skills</dt> <dd>One skill of your choice counts as a class skill for you. You gain an additional +2 skill points at 1st level.</dd>
     <dt>Feats</dt> <dd>You gain a General Feat of your choice</dd>
 </dl>';
         $helper->addTypesToSimpleObject($race, ['Human']);
@@ -132,7 +132,7 @@ class RaceHumansSeeder extends Seeder
         $race->benefits    = '<dl>
     <dt>Ability Score Increase</dt> <dd>Your CHA score increases by +2 and two other ability scores of your choice increases by +1</dd>
     <dt>Darkvision</dt> <dd>Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</dd>
-    <dt>Fey Ancestry</dt> <dd>You gaina +2 bonus to Saves against being charmed, and magic can\'t put you to sleep</dd>
+    <dt>Fey Ancestry</dt> <dd>You gain a +2 bonus to Saves against being Charmed, and magic can\'t put you to sleep.</dd>
     <dt>Skill Versatility</dt> <dd>You gain the Skilled feat</dd>
 </dl>';
         $helper->addTypesToSimpleObject($race, ['Half-Elf']);

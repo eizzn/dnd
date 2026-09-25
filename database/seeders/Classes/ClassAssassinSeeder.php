@@ -32,7 +32,7 @@ class ClassAssassinSeeder extends Seeder
         ]);
         $helper->saveClass($class, [
             'hit_dice'       => 6,
-            'skill_progress' => 4,
+            'skill_progress' => 3,
             'has_spells'     => true,
         ], ['DEX', 'INT'], [
             'Sneak Attack', 'Favored Enemy', 'Arcane',
@@ -49,8 +49,7 @@ class ClassAssassinSeeder extends Seeder
         $feature->description = '<p>You may spend 7 consecutive rounds studying a target. At the end, if you succeed a DC 12 Perception check against the target (add the targets WIS modifier to the DC), you gain the following benefits against that target.</p>
 <ul>
     <li>+2 bonus to Hit and Damage.</li>
-    <li>+1 bonus to all Critical Hit Threat Ranges</li>
-    <li>When you score a critical hit against your Stalked Enemy, add an additional damage dice.</li>
+    <li>Your critical threat range against your Stalked Enemy increases by 1.</li>
     <li>+5 circumstance bonus to Perception checks when you Seek your Stalked Enemy.</li>
 </ul>';
         $helper->saveFeature($feature, ['Favored Enemy', 'Precision']);
@@ -66,10 +65,10 @@ class ClassAssassinSeeder extends Seeder
         $feature->name        = 'Studied Sudden Strike';
         $feature->description = "<p>You can observe a target so that you can deal extra damage against the target.</p>
 <ul>
-    <li>+5 bonus to Hit</li>
+    <li>+2 bonus to Hit</li>
     <li>If you hit, consider the hit as a Critical Hit. If you rolled a Critical Hit, double the damage</li>
     <li>Any Precision roll results of 1 or 2 are treated as a 6</li>
-    <li>The target suffers a -5 penalty to all Saves for the next 10 minutes against attacks you make</li>
+    <li>The target suffers a -2 penalty to all Saves for the next 10 minutes against attacks you make</li>
 <ul>
 <p>You must successfully make a Concentration check opposed by the target's Perception (DC = target's level plus their ranks in Perception). Failure means the observation fails, and you lose one accumulated success. A Critical Failure means you lose two accumulated successes and the target becomes aware of your observation.</p>
 <p>After completing 4 successes, the next attack you make against the target gains the bonuses mentioned. You must make the attack within 1 hour, otherwise you lose all benefits and must start over.</p>";

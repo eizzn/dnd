@@ -8,8 +8,6 @@ class PfInit extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up(): void
     {
@@ -130,7 +128,7 @@ class PfInit extends Migration
         });
         Schema::create('equipments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 40);
+            $table->string('name', 40)->unique();
             $table->decimal('price')->unsigned();
             $table->string('bulk', 3)->nullable();
             $table->smallInteger('hands')->unsigned()->nullable();
@@ -140,7 +138,7 @@ class PfInit extends Migration
         });
         Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 40);
+            $table->string('name', 40)->unique();
             $table->text('description')->nullable();
             $table->string('price', 100)->nullable();
             $table->enum('rarity', ['Ubiquitous', 'Common', 'Uncommon', 'Rare', 'Very Rare', 'Legendary'])->nullable();

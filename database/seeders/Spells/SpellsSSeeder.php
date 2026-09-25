@@ -87,7 +87,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->range       = '30 feet';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a Wisdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn’t protect the warded creature from area effects, such as the explosion of a fireball.</p>
+        $spell->description = '<p>You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a WIS Save. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn’t protect the warded creature from area effects, such as the explosion of a fireball.</p>
 <p>If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends.</p>';
         $helper->addTypesToSpell($spell, ['Abjuration'], 1);
 
@@ -760,7 +760,7 @@ class SpellsSSeeder extends Seeder
         $spell->casting     = 'Somatic Casting';
         $spell->targets     = 'Self';
         $spell->duration    = '1 minute';
-        $spell->description = '<p>You weave together threads of shadow to create a sword of solidified gloom in your hand. It counts as a simple melee weapon with which you are proficient. It deals 2D8 Nonlethal damage on a hit (although the target will believe it to be Slashing Damage, but does not gain Resistence even if they have Resistence to Slashing damage) and has the Finesse, Light, and Thrown properties (range 20/60). When you use the sword to attack a target that is in dim light or darkness, you get a +3 bonus to hit.</p>
+        $spell->description = '<p>You weave together threads of shadow to create a sword of solidified gloom in your hand. It counts as a simple melee weapon with which you are proficient. It deals 2D8 Nonlethal damage on a hit (although the target will believe it to be Slashing Damage, but does not gain Resistence even if they have Resistence to Slashing damage) and has the Finesse, Light, and Thrown properties (range 20/60). When you use the sword to attack a target that is in dim light or darkness, you get a +2 bonus to hit.</p>
 <p>If you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a Free Action to cause the sword to reappear in your hand.</p>';
         $spell->heightened = '<dl>
     <dt>Heightened (+2)</dt> <dd>Increase the damage by +1D8</dd>
@@ -1812,7 +1812,7 @@ class SpellsSSeeder extends Seeder
         $spell->duration       = 'Concentration, up to 1 minute';
         $spell->description    = '<p>Until the spell ends, freezing rain and sleet fall in a 20-foot-tall cylinder with a 40-foot radius centered on a point you choose within range. The area is heavily obscured, and exposed flames in the area are doused.</p>
 <p>The ground in the area is covered with slick ice, making it difficult terrain. When a creature enters the spell’s area for the first time on a turn or starts its turn there, it must make a DEX Save. On a failed save, it falls prone.</p>
-<p>If a creature is concentrating in the spell’s area, the creature must make a successful CON Save against your spell save DC or lose concentration.</p>';
+<p>If a creature is concentrating in the spell’s area, the creature must succeed at a Concentration check against your spell save DC or lose Concentration.</p>';
         $spell->saves = '<dl>
     <dt>Success</dt> <dd>Does not fall prone</dd>
     <dt>Failure</dt> <dd>Fall prone</dd>
@@ -2000,14 +2000,14 @@ class SpellsSSeeder extends Seeder
         $spell->casting        = 'Somatic Casting, Verbal Casting';
         $spell->save_attribute = 'WIS';
         $spell->area           = '30 ft emanation';
-        $spell->duration       = 'Concentration, up to 1 minute';
+        $spell->duration       = 'Sustained, up to 1 minute';
         $spell->description    = '<p>This spell causes those within the Area to attack randomly. Each creature in the area must make a WIS Save. All who Fail must make a Percent roll each round. On a roll of 1% - 50%, they must attack the nearest target with their most powerful attack (Unconscious targets are ignored). Otherwise, they are free to act normally for that round.</p>
-<p>You must use a Verbal Casting Action each round to maintain Concentration.</p>';
+<p><strong>Sustain:</strong> On each of your turns after the turn you cast this spell, you must spend 1 Action to sustain it (a Verbal Casting Action). If you do not, the spell ends.</p>';
         $spell->saves          = '<dl>
     <dt>Success</dt> <dd>Not affected</dd>
     <dt>Failure</dt> <dd>At the start of each round, and when this spell is cast, the victim must roll a Percent roll. If the roll is 1% - 50%, they must attack the closest target with their most powerful attack. Otherwise, they are free to act normally for that round.</dd>
 </dl>';
-        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion'], 6);
+        $helper->addTypesToSpell($spell, ['Illusion', 'Compulsion', 'Sustained'], 6);
 
         $spell                 = new Spell;
         $spell->name           = 'Sonic Blast';
@@ -2392,7 +2392,7 @@ class SpellsSSeeder extends Seeder
     </dd>
     <dt>Backlash</dt> <dd>You Counter the spell as normal, but your opponent must succeed a CON Save or be Stunned: 2.</dd>
 </dl>";
-        $helper->addTypesToSpell($spell, ['Enchantment', 'Abjuration'], 9);
+        $helper->addTypesToSpell($spell, ['Enchantment', 'Abjuration', 'Spend Spell Point'], 9);
 
         $spell               = new Spell;
         $spell->name         = 'Spell Theft';
@@ -3707,12 +3707,12 @@ class SpellsSSeeder extends Seeder
 <p>When you inscribe the glyph, choose one of the options below for its effect. Once triggered, the glyph glows, filling a 60-foot-radius sphere with dim light for 10 minutes, after which time the spell ends. Each creature in the sphere when the glyph activates is targeted by its effect, as is a creature that enters the sphere for the first time on a turn or ends its turn there.</p>
 <dl>
     <dt>Death</dt> <dd>Each target must make a CON Save, taking 10D10 Negative damage on a failed save, or half as much damage on a successful save.</dd>
-    <dt>Discord</dt> <dd>Each target must make a Constitution saving throw. On a failed save, a target bickers and argues with other creatures for 1 minute. During this time, it is incapable of meaningful communication and has disadvantage on attack rolls and ability checks.</dd>
+    <dt>Discord</dt> <dd>Each target must make a CON Save. On a failed save, a target bickers and argues with other creatures for 1 minute. During this time, it is incapable of meaningful communication and has disadvantage on attack rolls and ability checks.</dd>
     <dt>Fear</dt> <dd>Each target must make a WIS Save and becomes frightened for 1 minute on a failed save. While frightened, the target drops whatever it is holding and must move at least 30 feet away from the glyph on each of its turns, if able.</dd>
     <dt>Hopelessness</dt> <dd>Each target must make a CHA Save. On a failed save, the target is overwhelmed with despair for 1 minute. During this time, it can’t attack or target any creature with harmful abilities, spells, or other magical effects.</dd>
     <dt>Insanity</dt> <dd>Each target must make an INT Save. On a failed save, the target is driven insane for 1 minute. An insane creature can’t take actions, can’t understand what other creatures say, can’t read, and speaks only in gibberish. The GM controls its movement, which is erratic.</dd>
     <dt>Pain</dt> <dd>Each target must make a CON Save and becomes incapacitated with excruciating pain for 1 minute on a failed save.</dd>
-    <dt>Sleep</dt> <dd>Each target must make a Wisdom saving throw and falls unconscious for 10 minutes on a failed save. A creature awakens if it takes damage or if someone uses an action to shake or slap it awake.</dd>
+    <dt>Sleep</dt> <dd>Each target must make a WIS Save and falls unconscious for 10 minutes on a failed save. A creature awakens if it takes damage or if someone uses an action to shake or slap it awake.</dd>
     <dt>Stunning</dt> <dd>Each target must make a WIS Save and becomes stunned for 1 minute on a failed save.</dd>
 </dl>';
         $spell->heightened = '<dl>

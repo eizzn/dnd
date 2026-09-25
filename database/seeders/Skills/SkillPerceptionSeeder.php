@@ -19,7 +19,7 @@ class SkillPerceptionSeeder extends Seeder
         $skill->name        = 'Perception';
         $skill->description = '<p>Perception measures your ability to be aware of your environment. Every creature has Perception, which works with and is limited by a creature`s senses. Whenever you need to attempt a check based on your awareness, you`ll attempt a Perception check. Your Perception uses your WIS modifier, so you`ll use the following formula when attempting a Perception check.<br>
 <blockquote>
-Perception check result = D20 roll + WIS modifier + proficiency bonus + other bonuses + penalties
+Perception check result = 2D10 roll + WIS modifier + proficiency bonus + other bonuses + penalties
 </blockquote>
     Nearly all creatures are at least trained in Perception, so you will almost always add a proficiency bonus to your Perception modifier. You might add a circumstance bonus for advantageous situations or environments, and typically get status bonus from spells or other magical effects. Items can also grant you a bonus to Perception, typically in a certain situation.
 </p>';

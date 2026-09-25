@@ -5,15 +5,34 @@ import ListFetcher from "@/components/ListFetcher.vue";
 import NavLink from "@/components/NavLink.vue";
 import { TailwindPagination } from "laravel-vue-pagination";
 import MultiSelect from "@/components/MultiSelect.vue";
+import axios from "axios";
+import { computed, onMounted, ref } from "vue";
 
 const Uri = "spells";
 const filters = {
     name: null,
-    type: [],
     casting: [],
     duration: null,
     default_level: [],
 };
+
+const types = ref([]);
+const typeOptions = computed(() => types.value.map(t => ({ value: t.name, label: t.name })));
+
+const getTypeOptions = async () => {
+    try {
+        const response = await axios.get('/api/types', {
+            params: { typeable_type: 'Spell', per_page: 200 },
+        });
+        types.value = response.data.data;
+    } catch (error) {
+        console.error("Error fetching type options:", error);
+    }
+};
+
+onMounted(() => {
+    getTypeOptions();
+});
 </script>
 
 <template>
@@ -50,49 +69,7 @@ const filters = {
                                     <label for="spell-types-filter" class="block text-sm font-medium text-gray-700">Types</label>
                                     <MultiSelect
                                         v-model="filters.type"
-                                        :options="[
-                                            { value: 'abjuration', label: 'Abjuration' },
-                                            { value: 'conjuration', label: 'Conjuration' },
-                                            { value: 'divination', label: 'Divination' },
-                                            { value: 'enchantment', label: 'Enchantment' },
-                                            { value: 'evocation', label: 'Evocation' },
-                                            { value: 'illusion', label: 'Illusion' },
-                                            { value: 'necromancy', label: 'Necromancy' },
-                                            { value: 'transmutation', label: 'Transmutation' },
-                                            { value: 'acid', label: 'Acid' },
-                                            { value: 'air', label: 'Air' },
-                                            { value: 'cold', label: 'Cold' },
-                                            { value: 'darkness', label: 'Darkness' },
-                                            { value: 'earth', label: 'Earth' },
-                                            { value: 'electricity', label: 'Electricity' },
-                                            { value: 'fire', label: 'Fire' },
-                                            { value: 'force', label: 'Force' },
-                                            { value: 'light', label: 'Light' },
-                                            { value: 'negative', label: 'Negative' },
-                                            { value: 'poison', label: 'Poison' },
-                                            { value: 'positive', label: 'Positive' },
-                                            { value: 'shadow', label: 'Shadow' },
-                                            { value: 'sonic', label: 'Sonic' },
-                                            { value: 'water', label: 'Water' },
-                                            { value: 'chaotic', label: 'Chaotic' },
-                                            { value: 'evil', label: 'Evil' },
-                                            { value: 'neutral', label: 'Neutral' },
-                                            { value: 'good', label: 'Good' },
-                                            { value: 'lawful', label: 'Lawful' },
-                                            { value: 'demon', label: 'Demon' },
-                                            { value: 'aura', label: 'Aura' },
-                                            { value: 'calling', label: 'Calling' },
-                                            { value: 'curse', label: 'Curse' },
-                                            { value: 'healing', label: 'Healing' },
-                                            { value: 'polymorph', label: 'Polymorph' },
-                                            { value: 'ray', label: 'Ray' },
-                                            { value: 'ritual', label: 'Ritual' },
-                                            { value: 'smite', label: 'Smite' },
-                                            { value: 'spirit', label: 'Spirit' },
-                                            { value: 'summoning', label: 'Summoning' },
-                                            { value: 'compulsion', label: 'Compulsion' },
-                                            { value: 'animate', label: 'Animate' },
-                                        ]"
+                                        :options="typeOptions"
                                     />
                                 </th>
                                 <th class="px-4 py-2 border border-gray-300">
